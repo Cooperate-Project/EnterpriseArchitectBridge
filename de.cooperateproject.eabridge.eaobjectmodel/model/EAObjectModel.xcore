@@ -24,7 +24,7 @@ class Attribute {
 	//	The local ID number of the attribute.
 	//	
 	//	
-	contains Element Classifier //	Read/Write
+	refers Element Classifier //	Read/Write
 	//	
 	//	The classifier ID, if appropriate, indicating the base type associated with the attribute, if not a primitive type.
 	//	
