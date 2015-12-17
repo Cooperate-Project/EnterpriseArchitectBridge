@@ -152,7 +152,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	protected Long attributeID = ATTRIBUTE_ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' containment reference.
+	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getClassifier()
@@ -750,6 +750,14 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 */
 	public Element getClassifier() {
+		if (classifier != null && classifier.eIsProxy()) {
+			InternalEObject oldClassifier = (InternalEObject)classifier;
+			classifier = (Element)eResolveProxy(oldClassifier);
+			if (classifier != oldClassifier) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.ATTRIBUTE__CLASSIFIER, oldClassifier, classifier));
+			}
+		}
 		return classifier;
 	}
 
@@ -758,14 +766,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClassifier(Element newClassifier, NotificationChain msgs) {
-		Element oldClassifier = classifier;
-		classifier = newClassifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__CLASSIFIER, oldClassifier, newClassifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Element basicGetClassifier() {
+		return classifier;
 	}
 
 	/**
@@ -774,17 +776,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 */
 	public void setClassifier(Element newClassifier) {
-		if (newClassifier != classifier) {
-			NotificationChain msgs = null;
-			if (classifier != null)
-				msgs = ((InternalEObject)classifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.ATTRIBUTE__CLASSIFIER, null, msgs);
-			if (newClassifier != null)
-				msgs = ((InternalEObject)newClassifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XcorePackage.ATTRIBUTE__CLASSIFIER, null, msgs);
-			msgs = basicSetClassifier(newClassifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__CLASSIFIER, newClassifier, newClassifier));
+		Element oldClassifier = classifier;
+		classifier = newClassifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__CLASSIFIER, oldClassifier, classifier));
 	}
 
 	/**
@@ -1374,8 +1369,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE__CLASSIFIER:
-				return basicSetClassifier(null, msgs);
 			case XcorePackage.ATTRIBUTE__CONSTRAINTS:
 				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ATTRIBUTE__PARENT:
@@ -1417,7 +1410,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__ATTRIBUTE_ID:
 				return getAttributeID();
 			case XcorePackage.ATTRIBUTE__CLASSIFIER:
-				return getClassifier();
+				if (resolve) return getClassifier();
+				return basicGetClassifier();
 			case XcorePackage.ATTRIBUTE__CONTAINER:
 				return getContainer();
 			case XcorePackage.ATTRIBUTE__CONTAINMENT:

@@ -14,5 +14,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xcore.lib,
- org.eclipse.emf.ecore.xmi;visibility:=reexport
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.hibernate,
+ org.h2,
+ org.eclipse.emf.teneo.hibernate
 Bundle-ActivationPolicy: lazy
+Import-Package: javax.persistence;version="2.1.0",
+ org.apache.commons.logging

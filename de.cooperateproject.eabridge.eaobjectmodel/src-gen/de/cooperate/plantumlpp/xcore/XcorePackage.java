@@ -105,7 +105,7 @@ public interface XcorePackage extends EPackage {
 	int ATTRIBUTE__ATTRIBUTE_ID = 3;
 
 	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' containment reference.
+	 * The feature id for the '<em><b>Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4640,10 +4640,10 @@ public interface XcorePackage extends EPackage {
 	EAttribute getAttribute_AttributeID();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperate.plantumlpp.xcore.Attribute#getClassifier <em>Classifier</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperate.plantumlpp.xcore.Attribute#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Classifier</em>'.
+	 * @return the meta object for the reference '<em>Classifier</em>'.
 	 * @see de.cooperate.plantumlpp.xcore.Attribute#getClassifier()
 	 * @see #getAttribute()
 	 * @generated
@@ -9423,7 +9423,7 @@ public interface XcorePackage extends EPackage {
 		EAttribute ATTRIBUTE__ATTRIBUTE_ID = eINSTANCE.getAttribute_AttributeID();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifier</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Classifier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
