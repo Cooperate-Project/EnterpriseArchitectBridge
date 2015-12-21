@@ -7,7 +7,6 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import java.util.Collection;
@@ -547,7 +546,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final VisibilityType VISIBILITY_EDEFAULT = VisibilityType.PRIVATE;
+	protected static final String VISIBILITY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
@@ -557,7 +556,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * @generated
 	 * @ordered
 	 */
-	protected VisibilityType visibility = VISIBILITY_EDEFAULT;
+	protected String visibility = VISIBILITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1166,7 +1165,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VisibilityType getVisibility() {
+	public String getVisibility() {
 		return visibility;
 	}
 
@@ -1175,9 +1174,9 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVisibility(VisibilityType newVisibility) {
-		VisibilityType oldVisibility = visibility;
-		visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+	public void setVisibility(String newVisibility) {
+		String oldVisibility = visibility;
+		visibility = newVisibility;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__VISIBILITY, oldVisibility, visibility));
 	}
@@ -1396,7 +1395,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				getTaggedValues().addAll((Collection<? extends MethodTag>)newValue);
 				return;
 			case XcorePackage.METHOD__VISIBILITY:
-				setVisibility((VisibilityType)newValue);
+				setVisibility((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1561,7 +1560,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__TAGGED_VALUES:
 				return taggedValues != null && !taggedValues.isEmpty();
 			case XcorePackage.METHOD__VISIBILITY:
-				return visibility != VISIBILITY_EDEFAULT;
+				return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
 		}
 		return super.eIsSet(featureID);
 	}

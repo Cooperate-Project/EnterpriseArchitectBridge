@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAlias <em>Alias</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAllowDuplicates <em>Allow Duplicates</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAttributeGUID <em>Attribute GUID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAttributeID <em>Attribute ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getClassifier <em>Classifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getContainer <em>Container</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getContainment <em>Containment</em>}</li>
@@ -52,32 +52,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Attribute extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Alias</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alias</em>' attribute.
-	 * @see #setAlias(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Alias()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getAlias();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAlias <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alias</em>' attribute.
-	 * @see #getAlias()
-	 * @generated
-	 */
-	void setAlias(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Allow Duplicates</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -131,30 +105,56 @@ public interface Attribute extends EObject {
 	void setAttributeGUID(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Classifier</b></em>' reference.
+	 * Returns the value of the '<em><b>Attribute ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Classifier</em>' reference isn't clear,
+	 * If the meaning of the '<em>Attribute ID</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classifier</em>' reference.
-	 * @see #setClassifier(Element)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Classifier()
-	 * @model
+	 * @return the value of the '<em>Attribute ID</em>' attribute.
+	 * @see #setAttributeID(Long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_AttributeID()
+	 * @model unique="false"
 	 * @generated
 	 */
-	Element getClassifier();
+	Long getAttributeID();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getClassifier <em>Classifier</em>}' reference.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAttributeID <em>Attribute ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Classifier</em>' reference.
+	 * @param value the new value of the '<em>Attribute ID</em>' attribute.
+	 * @see #getAttributeID()
+	 * @generated
+	 */
+	void setAttributeID(Long value);
+
+	/**
+	 * Returns the value of the '<em><b>Classifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Classifier</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Classifier</em>' attribute.
+	 * @see #setClassifier(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Classifier()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getClassifier();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getClassifier <em>Classifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Classifier</em>' attribute.
 	 * @see #getClassifier()
 	 * @generated
 	 */
-	void setClassifier(Element value);
+	void setClassifier(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' attribute.
@@ -184,7 +184,6 @@ public interface Attribute extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Containment</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Containment</em>' attribute isn't clear,
@@ -192,24 +191,22 @@ public interface Attribute extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Containment</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType
-	 * @see #setContainment(ContainmentType)
+	 * @see #setContainment(String)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Containment()
 	 * @model unique="false"
 	 * @generated
 	 */
-	ContainmentType getContainment();
+	String getContainment();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getContainment <em>Containment</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Containment</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType
 	 * @see #getContainment()
 	 * @generated
 	 */
-	void setContainment(ContainmentType value);
+	void setContainment(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
@@ -797,7 +794,6 @@ public interface Attribute extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Visibility</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear,
@@ -805,23 +801,21 @@ public interface Attribute extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Visibility</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
-	 * @see #setVisibility(VisibilityType)
+	 * @see #setVisibility(String)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Visibility()
 	 * @model unique="false"
 	 * @generated
 	 */
-	VisibilityType getVisibility();
+	String getVisibility();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getVisibility <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Visibility</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
 	 * @see #getVisibility()
 	 * @generated
 	 */
-	void setVisibility(VisibilityType value);
+	void setVisibility(String value);
 
 } // Attribute

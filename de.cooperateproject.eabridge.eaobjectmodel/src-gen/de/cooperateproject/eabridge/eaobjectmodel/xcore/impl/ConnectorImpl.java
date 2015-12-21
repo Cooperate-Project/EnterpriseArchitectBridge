@@ -3,9 +3,9 @@
 package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getAlias <em>Alias</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getClientEnd <em>Client End</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getClient <em>Client</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getColor <em>Color</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConnectorID <em>Connector ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDirection <em>Direction</em>}</li>
@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStyleEx <em>Style Ex</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSubtype <em>Subtype</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSupplierEnd <em>Supplier End</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSupplier <em>Supplier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTransitionAction <em>Transition Action</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTransitionEvent <em>Transition Event</em>}</li>
@@ -82,14 +82,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected String alias = ALIAS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClientEnd() <em>Client End</em>}' containment reference.
+	 * The cached value of the '{@link #getClient() <em>Client</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClientEnd()
+	 * @see #getClient()
 	 * @generated
 	 * @ordered
 	 */
-	protected ConnectorEnd clientEnd;
+	protected Element client;
 
 	/**
 	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
@@ -512,14 +512,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected String subtype = SUBTYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSupplierEnd() <em>Supplier End</em>}' containment reference.
+	 * The cached value of the '{@link #getSupplier() <em>Supplier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSupplierEnd()
+	 * @see #getSupplier()
 	 * @generated
 	 * @ordered
 	 */
-	protected ConnectorEnd supplierEnd;
+	protected Element supplier;
 
 	/**
 	 * The cached value of the '{@link #getTaggedValues() <em>Tagged Values</em>}' containment reference.
@@ -696,8 +696,16 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorEnd getClientEnd() {
-		return clientEnd;
+	public Element getClient() {
+		if (client != null && client.eIsProxy()) {
+			InternalEObject oldClient = (InternalEObject)client;
+			client = (Element)eResolveProxy(oldClient);
+			if (client != oldClient) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.CONNECTOR__CLIENT, oldClient, client));
+			}
+		}
+		return client;
 	}
 
 	/**
@@ -705,14 +713,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClientEnd(ConnectorEnd newClientEnd, NotificationChain msgs) {
-		ConnectorEnd oldClientEnd = clientEnd;
-		clientEnd = newClientEnd;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__CLIENT_END, oldClientEnd, newClientEnd);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Element basicGetClient() {
+		return client;
 	}
 
 	/**
@@ -720,18 +722,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientEnd(ConnectorEnd newClientEnd) {
-		if (newClientEnd != clientEnd) {
-			NotificationChain msgs = null;
-			if (clientEnd != null)
-				msgs = ((InternalEObject)clientEnd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.CONNECTOR__CLIENT_END, null, msgs);
-			if (newClientEnd != null)
-				msgs = ((InternalEObject)newClientEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XcorePackage.CONNECTOR__CLIENT_END, null, msgs);
-			msgs = basicSetClientEnd(newClientEnd, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__CLIENT_END, newClientEnd, newClientEnd));
+	public void setClient(Element newClient) {
+		Element oldClient = client;
+		client = newClient;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__CLIENT, oldClient, client));
 	}
 
 	/**
@@ -1180,8 +1175,16 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorEnd getSupplierEnd() {
-		return supplierEnd;
+	public Element getSupplier() {
+		if (supplier != null && supplier.eIsProxy()) {
+			InternalEObject oldSupplier = (InternalEObject)supplier;
+			supplier = (Element)eResolveProxy(oldSupplier);
+			if (supplier != oldSupplier) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.CONNECTOR__SUPPLIER, oldSupplier, supplier));
+			}
+		}
+		return supplier;
 	}
 
 	/**
@@ -1189,14 +1192,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSupplierEnd(ConnectorEnd newSupplierEnd, NotificationChain msgs) {
-		ConnectorEnd oldSupplierEnd = supplierEnd;
-		supplierEnd = newSupplierEnd;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SUPPLIER_END, oldSupplierEnd, newSupplierEnd);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Element basicGetSupplier() {
+		return supplier;
 	}
 
 	/**
@@ -1204,18 +1201,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSupplierEnd(ConnectorEnd newSupplierEnd) {
-		if (newSupplierEnd != supplierEnd) {
-			NotificationChain msgs = null;
-			if (supplierEnd != null)
-				msgs = ((InternalEObject)supplierEnd).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.CONNECTOR__SUPPLIER_END, null, msgs);
-			if (newSupplierEnd != null)
-				msgs = ((InternalEObject)newSupplierEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XcorePackage.CONNECTOR__SUPPLIER_END, null, msgs);
-			msgs = basicSetSupplierEnd(newSupplierEnd, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SUPPLIER_END, newSupplierEnd, newSupplierEnd));
+	public void setSupplier(Element newSupplier) {
+		Element oldSupplier = supplier;
+		supplier = newSupplier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SUPPLIER, oldSupplier, supplier));
 	}
 
 	/**
@@ -1411,10 +1401,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR__CLIENT_END:
-				return basicSetClientEnd(null, msgs);
-			case XcorePackage.CONNECTOR__SUPPLIER_END:
-				return basicSetSupplierEnd(null, msgs);
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				return basicSetTaggedValues(null, msgs);
 		}
@@ -1431,8 +1417,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__ALIAS:
 				return getAlias();
-			case XcorePackage.CONNECTOR__CLIENT_END:
-				return getClientEnd();
+			case XcorePackage.CONNECTOR__CLIENT:
+				if (resolve) return getClient();
+				return basicGetClient();
 			case XcorePackage.CONNECTOR__COLOR:
 				return getColor();
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
@@ -1475,8 +1462,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return getStyleEx();
 			case XcorePackage.CONNECTOR__SUBTYPE:
 				return getSubtype();
-			case XcorePackage.CONNECTOR__SUPPLIER_END:
-				return getSupplierEnd();
+			case XcorePackage.CONNECTOR__SUPPLIER:
+				if (resolve) return getSupplier();
+				return basicGetSupplier();
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				return getTaggedValues();
 			case XcorePackage.CONNECTOR__TRANSITION_ACTION:
@@ -1506,8 +1494,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__ALIAS:
 				setAlias((String)newValue);
 				return;
-			case XcorePackage.CONNECTOR__CLIENT_END:
-				setClientEnd((ConnectorEnd)newValue);
+			case XcorePackage.CONNECTOR__CLIENT:
+				setClient((Element)newValue);
 				return;
 			case XcorePackage.CONNECTOR__COLOR:
 				setColor((Long)newValue);
@@ -1572,8 +1560,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__SUBTYPE:
 				setSubtype((String)newValue);
 				return;
-			case XcorePackage.CONNECTOR__SUPPLIER_END:
-				setSupplierEnd((ConnectorEnd)newValue);
+			case XcorePackage.CONNECTOR__SUPPLIER:
+				setSupplier((Element)newValue);
 				return;
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				setTaggedValues((ConnectorTag)newValue);
@@ -1611,8 +1599,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__ALIAS:
 				setAlias(ALIAS_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__CLIENT_END:
-				setClientEnd((ConnectorEnd)null);
+			case XcorePackage.CONNECTOR__CLIENT:
+				setClient((Element)null);
 				return;
 			case XcorePackage.CONNECTOR__COLOR:
 				setColor(COLOR_EDEFAULT);
@@ -1677,8 +1665,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__SUBTYPE:
 				setSubtype(SUBTYPE_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__SUPPLIER_END:
-				setSupplierEnd((ConnectorEnd)null);
+			case XcorePackage.CONNECTOR__SUPPLIER:
+				setSupplier((Element)null);
 				return;
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				setTaggedValues((ConnectorTag)null);
@@ -1715,8 +1703,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__ALIAS:
 				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-			case XcorePackage.CONNECTOR__CLIENT_END:
-				return clientEnd != null;
+			case XcorePackage.CONNECTOR__CLIENT:
+				return client != null;
 			case XcorePackage.CONNECTOR__COLOR:
 				return COLOR_EDEFAULT == null ? color != null : !COLOR_EDEFAULT.equals(color);
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
@@ -1759,8 +1747,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return STYLE_EX_EDEFAULT == null ? styleEx != null : !STYLE_EX_EDEFAULT.equals(styleEx);
 			case XcorePackage.CONNECTOR__SUBTYPE:
 				return SUBTYPE_EDEFAULT == null ? subtype != null : !SUBTYPE_EDEFAULT.equals(subtype);
-			case XcorePackage.CONNECTOR__SUPPLIER_END:
-				return supplierEnd != null;
+			case XcorePackage.CONNECTOR__SUPPLIER:
+				return supplier != null;
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				return taggedValues != null;
 			case XcorePackage.CONNECTOR__TRANSITION_ACTION:

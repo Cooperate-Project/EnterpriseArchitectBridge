@@ -5,33 +5,19 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.util;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Author;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Client;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.File;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Test;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -118,10 +104,6 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 				return createConnectorConstraintAdapter();
 			}
 			@Override
-			public Adapter caseConnectorEnd(ConnectorEnd object) {
-				return createConnectorEndAdapter();
-			}
-			@Override
 			public Adapter caseConnectorTag(ConnectorTag object) {
 				return createConnectorTagAdapter();
 			}
@@ -168,58 +150,6 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTaggedValue(TaggedValue object) {
 				return createTaggedValueAdapter();
-			}
-			@Override
-			public Adapter caseConstraint(Constraint object) {
-				return createConstraintAdapter();
-			}
-			@Override
-			public Adapter caseEffort(Effort object) {
-				return createEffortAdapter();
-			}
-			@Override
-			public Adapter caseFile(File object) {
-				return createFileAdapter();
-			}
-			@Override
-			public Adapter caseIssue(Issue object) {
-				return createIssueAdapter();
-			}
-			@Override
-			public Adapter caseMetric(Metric object) {
-				return createMetricAdapter();
-			}
-			@Override
-			public Adapter caseRequirement(Requirement object) {
-				return createRequirementAdapter();
-			}
-			@Override
-			public Adapter caseResource(Resource object) {
-				return createResourceAdapter();
-			}
-			@Override
-			public Adapter caseRisk(Risk object) {
-				return createRiskAdapter();
-			}
-			@Override
-			public Adapter caseScenario(Scenario object) {
-				return createScenarioAdapter();
-			}
-			@Override
-			public Adapter caseTemplateParameter(TemplateParameter object) {
-				return createTemplateParameterAdapter();
-			}
-			@Override
-			public Adapter caseTest(Test object) {
-				return createTestAdapter();
-			}
-			@Override
-			public Adapter caseAuthor(Author object) {
-				return createAuthorAdapter();
-			}
-			@Override
-			public Adapter caseClient(Client object) {
-				return createClientAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -308,20 +238,6 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConnectorConstraintAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd <em>Connector End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd
-	 * @generated
-	 */
-	public Adapter createConnectorEndAdapter() {
 		return null;
 	}
 
@@ -490,188 +406,6 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaggedValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint <em>Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint
-	 * @generated
-	 */
-	public Adapter createConstraintAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort <em>Effort</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort
-	 * @generated
-	 */
-	public Adapter createEffortAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File <em>File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.File
-	 * @generated
-	 */
-	public Adapter createFileAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue <em>Issue</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue
-	 * @generated
-	 */
-	public Adapter createIssueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric <em>Metric</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric
-	 * @generated
-	 */
-	public Adapter createMetricAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement <em>Requirement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement
-	 * @generated
-	 */
-	public Adapter createRequirementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource <em>Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource
-	 * @generated
-	 */
-	public Adapter createResourceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk <em>Risk</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk
-	 * @generated
-	 */
-	public Adapter createRiskAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario <em>Scenario</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario
-	 * @generated
-	 */
-	public Adapter createScenarioAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter <em>Template Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter
-	 * @generated
-	 */
-	public Adapter createTemplateParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test <em>Test</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test
-	 * @generated
-	 */
-	public Adapter createTestAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Author <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Author
-	 * @generated
-	 */
-	public Adapter createAuthorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client <em>Client</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client
-	 * @generated
-	 */
-	public Adapter createClientAdapter() {
 		return null;
 	}
 

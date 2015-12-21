@@ -5,33 +5,19 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.util;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Author;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Client;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.File;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Test;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import org.eclipse.emf.ecore.EObject;
@@ -126,12 +112,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XcorePackage.CONNECTOR_END: {
-				ConnectorEnd connectorEnd = (ConnectorEnd)theEObject;
-				T result = caseConnectorEnd(connectorEnd);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case XcorePackage.CONNECTOR_TAG: {
 				ConnectorTag connectorTag = (ConnectorTag)theEObject;
 				T result = caseConnectorTag(connectorTag);
@@ -201,84 +181,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 			case XcorePackage.TAGGED_VALUE: {
 				TaggedValue taggedValue = (TaggedValue)theEObject;
 				T result = caseTaggedValue(taggedValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.CONSTRAINT: {
-				Constraint constraint = (Constraint)theEObject;
-				T result = caseConstraint(constraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.EFFORT: {
-				Effort effort = (Effort)theEObject;
-				T result = caseEffort(effort);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.FILE: {
-				File file = (File)theEObject;
-				T result = caseFile(file);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.ISSUE: {
-				Issue issue = (Issue)theEObject;
-				T result = caseIssue(issue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.METRIC: {
-				Metric metric = (Metric)theEObject;
-				T result = caseMetric(metric);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.REQUIREMENT: {
-				Requirement requirement = (Requirement)theEObject;
-				T result = caseRequirement(requirement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.RESOURCE: {
-				Resource resource = (Resource)theEObject;
-				T result = caseResource(resource);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.RISK: {
-				Risk risk = (Risk)theEObject;
-				T result = caseRisk(risk);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.SCENARIO: {
-				Scenario scenario = (Scenario)theEObject;
-				T result = caseScenario(scenario);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.TEMPLATE_PARAMETER: {
-				TemplateParameter templateParameter = (TemplateParameter)theEObject;
-				T result = caseTemplateParameter(templateParameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.TEST: {
-				Test test = (Test)theEObject;
-				T result = caseTest(test);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.AUTHOR: {
-				Author author = (Author)theEObject;
-				T result = caseAuthor(author);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.CLIENT: {
-				Client client = (Client)theEObject;
-				T result = caseClient(client);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -358,21 +260,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConnectorConstraint(ConnectorConstraint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Connector End</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Connector End</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConnectorEnd(ConnectorEnd object) {
 		return null;
 	}
 
@@ -553,201 +440,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTaggedValue(TaggedValue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConstraint(Constraint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Effort</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Effort</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEffort(Effort object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>File</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>File</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFile(File object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Issue</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Issue</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIssue(Issue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Metric</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Metric</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMetric(Metric object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Requirement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Requirement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRequirement(Requirement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResource(Resource object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Risk</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Risk</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRisk(Risk object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Scenario</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Scenario</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseScenario(Scenario object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Template Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Template Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTemplateParameter(TemplateParameter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Test</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Test</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTest(Test object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Author</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Author</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAuthor(Author object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Client</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Client</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseClient(Client object) {
 		return null;
 	}
 

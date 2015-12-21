@@ -5,14 +5,15 @@ import java.util.Properties;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.teneo.PersistenceOptions;
+import org.eclipse.emf.teneo.extension.ExtensionManager;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.eclipse.emf.teneo.hibernate.HbHelper;
+import org.eclipse.emf.teneo.mapping.strategy.SQLNameStrategy;
+import org.eclipse.emf.teneo.mapping.strategy.impl.TeneoNewSQLNameStrategy;
 import org.h2.tools.Server;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Environment;
 
+import de.cooperateproject.eabridge.eaobjectmodel.configuration.CustomNamingStrategy;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 public class Application {
@@ -70,13 +71,22 @@ public class Application {
 			
 			props.setProperty(PersistenceOptions.PERSISTENCE_XML,
 					"de/cooperateproject/eabridge/eaobjectmodel/annotations.xml");
+			
+			props.setProperty(PersistenceOptions.SQL_TABLE_NAME_PREFIX, "t_");
+			
+			props.setProperty(PersistenceOptions.AUTO_ADAPT_MANUAL_SET_SQL_NAMES, "false");
+			
 			// the name of the session factory
-			String hbName = "Library";
+			final String hbName = "EAObjectModel";
 			// create the HbDataStore using the name
 			final HbDataStore hbds = HbHelper.INSTANCE.createRegisterDataStore(hbName);
 
 			// set the properties
 			hbds.setDataStoreProperties(props);
+			
+			final ExtensionManager extensionManager = hbds.getExtensionManager();
+			
+			extensionManager.registerExtension(SQLNameStrategy.class.getName(), CustomNamingStrategy.class.getName());
 
 			// sets its epackages stored in this datastore
 			hbds.setEPackages(new EPackage[] { XcorePackage.eINSTANCE });

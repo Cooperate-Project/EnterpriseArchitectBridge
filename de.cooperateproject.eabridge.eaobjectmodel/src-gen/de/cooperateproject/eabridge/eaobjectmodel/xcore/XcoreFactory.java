@@ -67,15 +67,6 @@ public interface XcoreFactory extends EFactory {
 	ConnectorConstraint createConnectorConstraint();
 
 	/**
-	 * Returns a new object of class '<em>Connector End</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Connector End</em>'.
-	 * @generated
-	 */
-	ConnectorEnd createConnectorEnd();
-
-	/**
 	 * Returns a new object of class '<em>Connector Tag</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,123 +173,6 @@ public interface XcoreFactory extends EFactory {
 	 * @generated
 	 */
 	TaggedValue createTaggedValue();
-
-	/**
-	 * Returns a new object of class '<em>Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Constraint</em>'.
-	 * @generated
-	 */
-	Constraint createConstraint();
-
-	/**
-	 * Returns a new object of class '<em>Effort</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Effort</em>'.
-	 * @generated
-	 */
-	Effort createEffort();
-
-	/**
-	 * Returns a new object of class '<em>File</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>File</em>'.
-	 * @generated
-	 */
-	File createFile();
-
-	/**
-	 * Returns a new object of class '<em>Issue</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Issue</em>'.
-	 * @generated
-	 */
-	Issue createIssue();
-
-	/**
-	 * Returns a new object of class '<em>Metric</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Metric</em>'.
-	 * @generated
-	 */
-	Metric createMetric();
-
-	/**
-	 * Returns a new object of class '<em>Requirement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Requirement</em>'.
-	 * @generated
-	 */
-	Requirement createRequirement();
-
-	/**
-	 * Returns a new object of class '<em>Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource</em>'.
-	 * @generated
-	 */
-	Resource createResource();
-
-	/**
-	 * Returns a new object of class '<em>Risk</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Risk</em>'.
-	 * @generated
-	 */
-	Risk createRisk();
-
-	/**
-	 * Returns a new object of class '<em>Scenario</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scenario</em>'.
-	 * @generated
-	 */
-	Scenario createScenario();
-
-	/**
-	 * Returns a new object of class '<em>Template Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Template Parameter</em>'.
-	 * @generated
-	 */
-	TemplateParameter createTemplateParameter();
-
-	/**
-	 * Returns a new object of class '<em>Test</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Test</em>'.
-	 * @generated
-	 */
-	Test createTest();
-
-	/**
-	 * Returns a new object of class '<em>Author</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Author</em>'.
-	 * @generated
-	 */
-	Author createAuthor();
-
-	/**
-	 * Returns a new object of class '<em>Client</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Client</em>'.
-	 * @generated
-	 */
-	Client createClient();
 
 	/**
 	 * Returns the package supported by this factory.

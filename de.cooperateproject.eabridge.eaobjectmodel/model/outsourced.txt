@@ -1,0 +1,578 @@
+//associated with t_objectconstraints table in .eap file
+class Constraint {
+	String	Name //	Read/Write
+	//	
+	//	The name of the constraint (that is, the constraint).
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Notes about the constraint.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	Long	ParentID //	Read only
+	//	
+	//	The ElementID of the element to which this constraint applies.
+	//	
+	//	
+	String	Status //	Read/Write
+	//	
+	//	The current status of the constraint.
+	//	
+	//	
+	String	Type //	Read/Write
+	//	
+	//	The constraint type.
+	//	
+	//	
+	Long	Weight //	Read/Write
+//	
+//	A weighting factor.
+}
+
+//associated with t_objecteffort table in .eap file
+class Effort {
+	String	Name //	Read/Write
+	//	
+	//	The name of the effort.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Notes about the effort.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	Type //	Read/Write
+	//	
+	//	The effort type.
+	//	
+	//	
+	Long	Weight //	Read/Write
+	//	
+	//	A weighting factor.
+	//	
+	//	
+	Float	Weight2 //	Read/Write
+//	
+//	A weighting factor.
+//	
+//	
+}
+
+//associated with t_objectfiles table in .eap file
+class File {
+	String	FileDate //	Read/Write
+	//	
+	//	The file date when the entry was created.
+	//	
+	//	
+	String	Name //	Read/Write
+	//	
+	//	The file name can be a logical file or a reference to a web address (using http://).
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Notes about the file.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	Size //	Read/Write
+	//	
+	//	The file size.
+	//	
+	//	
+	String	Type //	Read/Write
+//	
+//	The file type.
+//	
+//	
+}
+
+//associated with t_objectproblems table in .eap file
+class Issue {
+	Date	DateReported //	Read/Write
+	//	
+	//	The date the issue was reported.
+	//	
+	//	
+	Date	DateResolved //	Read/Write
+	//	
+	//	The date the issue was resolved.
+	//	
+	//	
+	Long	ElementID //	Read/Write
+	//	
+	//	The ID of the element associated with this issue.
+	//	
+	//	
+	String	Name //	Read/Write
+	//	
+	//	The Issue name; that is, the Issue itself.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	The Issue description.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	Priority //	Read/Write
+	//	
+	//	The priority of the Issue - Low, Medium or High.
+	//	
+	//	
+	String	Reporter //	Read/Write
+	//	
+	//	The user ID of the person reporting the issue.
+	//	
+	//	
+	String	Resolver //	Read/Write
+	//	
+	//	The user ID of the person resolving the issue.
+	//	
+	//	
+	String	ResolverNotes //	Read/Write
+	//	
+	//	Notes entered by the resolver about resolution of the Issue.
+	//	
+	//	
+	String	Severity //	Read/Write
+	//	
+	//	The Issue severity - Low, Medium or High.
+	//	
+	//	
+	String	Status //	Read/Write
+	//	
+	//	The current status of the issue.
+	//	
+	//	
+	//Variant	Type	//	Read/Write
+	//	
+	//	The Issue type - Defect , Change, Issue or ToDo.
+	//	
+	//	
+	String	Version //	Read/Write
+//	
+//	The version associated with the issue. Note that this method is only available through a Dispatch interface.
+//	
+//	
+//	
+//	Object ob = Issue;
+//	
+//	Print ob.Version;
+//	
+//	
+}
+
+//associated with t_objectmetrics table in .eap file
+class Metric {
+	String	Name //	Read/Write
+	//	
+	//	The name of the metric.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Notes about this metric.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String 	Type //	Read/Write
+	//	
+	//	The metric type.
+	//	
+	//	
+	Long 	Weight //	Read/Write
+//	
+//	A user-defined weighting for estimation or metric purposes.
+}
+
+//associated with t_objectrequires table in .eap file
+class Requirement {
+	String	Difficulty //	Read/Write
+	//	
+	//	The estimated difficulty of implementing the requirement.
+	//	
+	//	
+	Date	LastUpdate //	Read/Write
+	//	
+	//	The date the requirement was last updated.
+	//	
+	//	
+	String	Name //	Read/Write
+	//	
+	//	The requirement itself.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Further notes on the requirement.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	Long	ParentID //	Read only
+	//	
+	//	The ElementID of the element to which this requirement applies.
+	//	
+	//	
+	String	Priority //	Read/Write
+	//	
+	//	The assigned priority of the requirement.
+	//	
+	//	
+	Long	RequirementID //	Read only
+	//	
+	//	A local ID for this requirement.
+	//	
+	//	
+	String	Stability //	Read/Write
+	//	
+	//	The estimated stability of the requirement. 
+	//	
+	//	This is an indication of the probability of the requirement - or understanding of the requirement - changing. High stability indicates a low probability of the requirement changing.
+	//	
+	//	
+	String	Status //	Read/Write
+	//	
+	//	The current status of the requirement.
+	//	
+	//	
+	String	Type //	Read/Write
+//	
+//	The requirement type.
+}
+
+//associated with t_objectresources table in .eap file
+class Resource {
+	Long	ActualHours //	Read/Write
+	//	
+	//	The time already expended on the task, in hours, days or other units.
+	//	
+	//	
+	Date	DateEnd //	Read/Write
+	//	
+	//	The expected end date.
+	//	
+	//	
+	Date	DateStart //	Read/Write
+	//	
+	//	The date to start work.
+	//	
+	//	
+	Long	ExpectedHours //	Read/Write
+	//	
+	//	The total expected time the task might run, in hours, days or other units.
+	//	
+	//	
+	String	History //	Read/Write
+	//	
+	//	Gets or sets history text.
+	//	
+	//	
+	String	Name //	Read/Write
+	//	
+	//	The name of the resource (for example, a person's name).
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Descriptive notes.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	Long	PercentComplete //	Read/Write
+	//	
+	//	The current percent complete figure.
+	//	
+	//	
+	String	Role //	Read/Write
+	//	
+	//	The role the resource plays in implementing the element.
+	//	
+	//	
+	Long	Time //	Read/Write
+//	
+//	The time expected to complete the task; a numeric indicating the number of days.
+}
+
+//associated with t_objectrisks table in .eap file
+class Risk {
+	String	Name //	Read/Write
+	//	
+	//	The name of the risk.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Further notes describing the risk.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	Type //	Read/Write
+	//	
+	//	The risk type associated with this element.
+	//	
+	//	
+	Long	Weight //	Read/Write
+//	
+//	A weighting for estimation or metric purposes.
+}
+
+//associated with t_objectscenarios table in .eap file
+class Scenario {
+	String	Name //	Read/Write
+	//	
+	//	The Scenario name.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	A description of the Scenario, usually containing the steps to execute the scenario.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	ScenarioGUID //	Read/Write
+	//	
+	//	A unique ID for the Scenario, used to identify the Scenario unambiguously within a model.
+	//	
+	//	
+	//Collection of ScenarioStep	Steps	//	Read only
+	//	
+	//	A collection of step objects for this Scenario. 
+	//	
+	//	Use the AddNew and Delete functions to manage steps. AddNew passes the step name and "1" as the type for an actor step.
+	//	
+	//	
+	String	Type //	Read/Write
+	//	
+	//	The scenario type (for example, Basic Path).
+	//	
+	//	
+	Long	Weight //	Read/Write
+	//	
+	//	Currently used to position scenarios in the scenario list (that is, List Position).
+	//	
+	//	
+	String	XMLContent //	Read/Write
+//	
+//	A structured field that can contain scenario details in XML format. It is  recommended that you use the Steps collection to read or modify this field.
+//	
+//	
+}
+
+//associated with t_xref table in .eap file
+class TemplateParameter {
+	String	Constraint //	Read/Write
+	//	
+	//	The name of the Classifier that acts as the constraint value.
+	//	
+	//	
+	String	Default //	Read/Write
+	//	
+	//	The name of the Classifier that acts as the default value.
+	//	
+	//	
+	String	Name //	Read/Write
+	//	
+	//	The name of the Template Parameter.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read Only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	TemplateParameterID //	Read Only
+	//	
+	//	The Enterprise Architect Globally Unique ID (GUID) of the current Template Parameter, in the XrefID column of t_xref.
+	//	
+	//	
+	String	Type //	Read/Write
+//	
+//	The Template Parameter type.
+//	
+//	
+}
+
+//associated with t_objecttests table in .eap file
+class Test {
+	String	AcceptanceCriteria //	Read/Write
+	//	
+	//	The acceptance criteria for successful execution.
+	//	
+	//	
+	String	CheckedBy //	Read/Write
+	//	
+	//	User ID of the person confirming the results.
+	//	
+	//	
+	Long	Class //	Read/Write
+	//	
+	//	The test Class:
+	//	
+	//	     1 = Unit Test
+	//	2 = Integration Test
+	//	3 = System Test
+	//	4 = Acceptance Test
+	//	5 = Scenario Test
+	//	6 = Inspection Test
+	//	
+	//	
+	Date	DateRun //	Read/Write
+	//	
+	//	The date the test was last run.
+	//	
+	//	
+	String	Input //	Read/Write
+	//	
+	//	Input data for the test.
+	//	
+	//	
+	String	Name //	Read/Write
+	//	
+	//	The test name.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Detailed notes about test to be carried out.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	RunBy //	Read/Write
+	//	
+	//	The user ID of the person conducting the test.
+	//	
+	//	
+	String	Status //	Read/Write
+	//	
+	//	Current status of test.
+	//	
+	//	
+	//Variant	TestResults	//	Read/Write
+	//	
+	//	Results of test.
+	//	
+	//	
+	String	Type //	Read/Write
+//	
+//	The test type, such as Load or Regression.
+}
+
+//associated with t_authors table in .eap file
+class Author {
+	String	Name //	Read/Write
+	//	
+	//	The Author name.
+	//	
+	//	
+	String	Notes //	Read/Write
+	//	
+	//	Notes about the author.
+	//	
+	//	
+	//ObjectType	ObjectType	//	Read only
+	//	
+	//	Distinguishes objects referenced through a Dispatch interface.
+	//	
+	//	
+	String	Roles //	Read/Write
+//	
+//	Roles the author might play in this project.
+}
+
+//associated with t_authors table in .eap file
+class Client {
+	String	Email	//	Read/Write
+		//	
+		//	The client's email address.
+		//	
+		//	
+String	Fax	//	Read/Write
+		//	
+		//	The client's fax number.
+		//	
+		//	
+String	Mobile	//	Read/Write
+		//	
+		//	The client's mobile phone number, if available.
+		//	
+		//	
+String	Name	//	Read/Write
+		//	
+		//	The client's name.
+		//	
+		//	
+String	Notes	//	Read/Write
+		//	
+		//	Notes about the client.
+		//	
+		//	
+//ObjectType	ObjectType	//	Read only
+		//	
+		//	Distinguishes objects referenced through the Dispatch interface.
+		//	
+		//	
+String	Organization	//	Read/Write
+		//	
+		//	The client's associated organization.
+		//	
+		//	
+String	Phone1	//	Read/Write
+		//	
+		//	The client's main phone number.
+		//	
+		//	
+String	Phone2	//	Read/Write
+		//	
+		//	The client's second phone number.
+		//	
+		//	
+String	Roles	//	Read/Write
+		//	
+		//	Roles this client might play in the project.
+	
+}

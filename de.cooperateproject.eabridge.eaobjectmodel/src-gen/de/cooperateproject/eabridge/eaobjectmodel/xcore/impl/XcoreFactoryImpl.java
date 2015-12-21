@@ -5,37 +5,20 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Author;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Client;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.EndType;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.File;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Test;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -97,7 +80,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 			case XcorePackage.ATTRIBUTE_TAG: return createAttributeTag();
 			case XcorePackage.CONNECTOR: return createConnector();
 			case XcorePackage.CONNECTOR_CONSTRAINT: return createConnectorConstraint();
-			case XcorePackage.CONNECTOR_END: return createConnectorEnd();
 			case XcorePackage.CONNECTOR_TAG: return createConnectorTag();
 			case XcorePackage.DIAGRAM: return createDiagram();
 			case XcorePackage.DIAGRAM_LINK: return createDiagramLink();
@@ -110,19 +92,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 			case XcorePackage.PARAMETER: return createParameter();
 			case XcorePackage.PARAM_TAG: return createParamTag();
 			case XcorePackage.TAGGED_VALUE: return createTaggedValue();
-			case XcorePackage.CONSTRAINT: return createConstraint();
-			case XcorePackage.EFFORT: return createEffort();
-			case XcorePackage.FILE: return createFile();
-			case XcorePackage.ISSUE: return createIssue();
-			case XcorePackage.METRIC: return createMetric();
-			case XcorePackage.REQUIREMENT: return createRequirement();
-			case XcorePackage.RESOURCE: return createResource();
-			case XcorePackage.RISK: return createRisk();
-			case XcorePackage.SCENARIO: return createScenario();
-			case XcorePackage.TEMPLATE_PARAMETER: return createTemplateParameter();
-			case XcorePackage.TEST: return createTest();
-			case XcorePackage.AUTHOR: return createAuthor();
-			case XcorePackage.CLIENT: return createClient();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,14 +105,8 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case XcorePackage.CONTAINMENT_TYPE:
-				return createContainmentTypeFromString(eDataType, initialValue);
-			case XcorePackage.VISIBILITY_TYPE:
-				return createVisibilityTypeFromString(eDataType, initialValue);
 			case XcorePackage.DIRECTION_TYPE:
 				return createDirectionTypeFromString(eDataType, initialValue);
-			case XcorePackage.END_TYPE:
-				return createEndTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -157,14 +120,8 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case XcorePackage.CONTAINMENT_TYPE:
-				return convertContainmentTypeToString(eDataType, instanceValue);
-			case XcorePackage.VISIBILITY_TYPE:
-				return convertVisibilityTypeToString(eDataType, instanceValue);
 			case XcorePackage.DIRECTION_TYPE:
 				return convertDirectionTypeToString(eDataType, instanceValue);
-			case XcorePackage.END_TYPE:
-				return convertEndTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -218,16 +175,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	public ConnectorConstraint createConnectorConstraint() {
 		ConnectorConstraintImpl connectorConstraint = new ConnectorConstraintImpl();
 		return connectorConstraint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConnectorEnd createConnectorEnd() {
-		ConnectorEndImpl connectorEnd = new ConnectorEndImpl();
-		return connectorEnd;
 	}
 
 	/**
@@ -355,176 +302,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Constraint createConstraint() {
-		ConstraintImpl constraint = new ConstraintImpl();
-		return constraint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Effort createEffort() {
-		EffortImpl effort = new EffortImpl();
-		return effort;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public File createFile() {
-		FileImpl file = new FileImpl();
-		return file;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Issue createIssue() {
-		IssueImpl issue = new IssueImpl();
-		return issue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Metric createMetric() {
-		MetricImpl metric = new MetricImpl();
-		return metric;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Requirement createRequirement() {
-		RequirementImpl requirement = new RequirementImpl();
-		return requirement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Resource createResource() {
-		ResourceImpl resource = new ResourceImpl();
-		return resource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Risk createRisk() {
-		RiskImpl risk = new RiskImpl();
-		return risk;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Scenario createScenario() {
-		ScenarioImpl scenario = new ScenarioImpl();
-		return scenario;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TemplateParameter createTemplateParameter() {
-		TemplateParameterImpl templateParameter = new TemplateParameterImpl();
-		return templateParameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Test createTest() {
-		TestImpl test = new TestImpl();
-		return test;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Author createAuthor() {
-		AuthorImpl author = new AuthorImpl();
-		return author;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Client createClient() {
-		ClientImpl client = new ClientImpl();
-		return client;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ContainmentType createContainmentTypeFromString(EDataType eDataType, String initialValue) {
-		ContainmentType result = ContainmentType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertContainmentTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VisibilityType createVisibilityTypeFromString(EDataType eDataType, String initialValue) {
-		VisibilityType result = VisibilityType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertVisibilityTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DirectionType createDirectionTypeFromString(EDataType eDataType, String initialValue) {
 		DirectionType result = DirectionType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -537,26 +314,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	 * @generated
 	 */
 	public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EndType createEndTypeFromString(EDataType eDataType, String initialValue) {
-		EndType result = EndType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEndTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -4,22 +4,10 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.File;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Test;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import java.util.Collection;
@@ -63,18 +51,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getComplexity <em>Complexity</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCompositeDiagram <em>Composite Diagram</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getConnectors <em>Connectors</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCreated <em>Created</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getDifficulty <em>Difficulty</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getEfforts <em>Efforts</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElementGUID <em>Element GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElementID <em>Element ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getEmbeddedElements <em>Embedded Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getEventFlags <em>Event Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getExtensionPoints <em>Extension Points</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getFiles <em>Files</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getGenFile <em>Gen File</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getGenlinks <em>Genlinks</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getGenType <em>Gen Type</em>}</li>
@@ -83,11 +68,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsLeaf <em>Is Leaf</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsNew <em>Is New</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsSpec <em>Is Spec</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIssues <em>Issues</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getLocked <em>Locked</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMetaType <em>Meta Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMethods <em>Methods</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMetrics <em>Metrics</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMiscData <em>Misc Data</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getModified <em>Modified</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMultiplicity <em>Multiplicity</em>}</li>
@@ -100,11 +83,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPropertyType <em>Property Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPropertyTypeName <em>Property Type Name</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getRequirements <em>Requirements</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getResources <em>Resources</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getRisks <em>Risks</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getRunState <em>Run State</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getScenarios <em>Scenarios</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getStyleEx <em>Style Ex</em>}</li>
@@ -112,8 +91,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTablespace <em>Tablespace</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTag <em>Tag</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTaggedValues <em>Tagged Values</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTemplateParameters <em>Template Parameters</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTests <em>Tests</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTreePos <em>Tree Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getVersion <em>Version</em>}</li>
@@ -334,16 +311,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected EList<Connector> connectors;
 
 	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConstraints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Constraint> constraints;
-
-	/**
 	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,16 +359,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected String difficulty = DIFFICULTY_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getEfforts() <em>Efforts</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEfforts()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Effort> efforts;
 
 	/**
 	 * The default value of the '{@link #getElementGUID() <em>Element GUID</em>}' attribute.
@@ -502,16 +459,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected String extensionPoints = EXTENSION_POINTS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getFiles() <em>Files</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFiles()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<File> files;
 
 	/**
 	 * The default value of the '{@link #getGenFile() <em>Gen File</em>}' attribute.
@@ -674,16 +621,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected Boolean isSpec = IS_SPEC_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIssues() <em>Issues</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIssues()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Issue> issues;
-
-	/**
 	 * The default value of the '{@link #getLocked() <em>Locked</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -732,16 +669,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected EList<Method> methods;
-
-	/**
-	 * The cached value of the '{@link #getMetrics() <em>Metrics</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetrics()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Metric> metrics;
 
 	/**
 	 * The default value of the '{@link #getMiscData() <em>Misc Data</em>}' attribute.
@@ -944,36 +871,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String propertyTypeName = PROPERTY_TYPE_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequirements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Requirement> requirements;
-
-	/**
-	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResources()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Resource> resources;
-
-	/**
-	 * The cached value of the '{@link #getRisks() <em>Risks</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRisks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Risk> risks;
-
-	/**
 	 * The default value of the '{@link #getRunState() <em>Run State</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -992,16 +889,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected String runState = RUN_STATE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getScenarios() <em>Scenarios</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScenarios()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Scenario> scenarios;
 
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
@@ -1134,26 +1021,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected EList<TaggedValue> taggedValues;
 
 	/**
-	 * The cached value of the '{@link #getTemplateParameters() <em>Template Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTemplateParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TemplateParameter> templateParameters;
-
-	/**
-	 * The cached value of the '{@link #getTests() <em>Tests</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTests()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Test> tests;
-
-	/**
 	 * The default value of the '{@link #getTreePos() <em>Tree Pos</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1221,7 +1088,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 * @ordered
 	 */
-	protected static final VisibilityType VISIBILITY_EDEFAULT = VisibilityType.PRIVATE;
+	protected static final String VISIBILITY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
@@ -1231,7 +1098,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 * @ordered
 	 */
-	protected VisibilityType visibility = VISIBILITY_EDEFAULT;
+	protected String visibility = VISIBILITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1547,18 +1414,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constraint> getConstraints() {
-		if (constraints == null) {
-			constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, XcorePackage.ELEMENT__CONSTRAINTS);
-		}
-		return constraints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Date getCreated() {
 		return created;
 	}
@@ -1606,18 +1461,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		difficulty = newDifficulty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__DIFFICULTY, oldDifficulty, difficulty));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Effort> getEfforts() {
-		if (efforts == null) {
-			efforts = new EObjectContainmentEList<Effort>(Effort.class, this, XcorePackage.ELEMENT__EFFORTS);
-		}
-		return efforts;
 	}
 
 	/**
@@ -1726,18 +1569,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		extensionPoints = newExtensionPoints;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__EXTENSION_POINTS, oldExtensionPoints, extensionPoints));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<File> getFiles() {
-		if (files == null) {
-			files = new EObjectContainmentEList<File>(File.class, this, XcorePackage.ELEMENT__FILES);
-		}
-		return files;
 	}
 
 	/**
@@ -1913,18 +1744,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Issue> getIssues() {
-		if (issues == null) {
-			issues = new EObjectContainmentEList<Issue>(Issue.class, this, XcorePackage.ELEMENT__ISSUES);
-		}
-		return issues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Boolean getLocked() {
 		return locked;
 	}
@@ -1972,18 +1791,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			methods = new EObjectContainmentWithInverseEList<Method>(Method.class, this, XcorePackage.ELEMENT__METHODS, XcorePackage.METHOD__PARENT);
 		}
 		return methods;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Metric> getMetrics() {
-		if (metrics == null) {
-			metrics = new EObjectContainmentEList<Metric>(Metric.class, this, XcorePackage.ELEMENT__METRICS);
-		}
-		return metrics;
 	}
 
 	/**
@@ -2272,42 +2079,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Requirement> getRequirements() {
-		if (requirements == null) {
-			requirements = new EObjectContainmentEList<Requirement>(Requirement.class, this, XcorePackage.ELEMENT__REQUIREMENTS);
-		}
-		return requirements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Resource> getResources() {
-		if (resources == null) {
-			resources = new EObjectContainmentEList<Resource>(Resource.class, this, XcorePackage.ELEMENT__RESOURCES);
-		}
-		return resources;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Risk> getRisks() {
-		if (risks == null) {
-			risks = new EObjectContainmentEList<Risk>(Risk.class, this, XcorePackage.ELEMENT__RISKS);
-		}
-		return risks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getRunState() {
 		return runState;
 	}
@@ -2322,18 +2093,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		runState = newRunState;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__RUN_STATE, oldRunState, runState));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Scenario> getScenarios() {
-		if (scenarios == null) {
-			scenarios = new EObjectContainmentEList<Scenario>(Scenario.class, this, XcorePackage.ELEMENT__SCENARIOS);
-		}
-		return scenarios;
 	}
 
 	/**
@@ -2479,30 +2238,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TemplateParameter> getTemplateParameters() {
-		if (templateParameters == null) {
-			templateParameters = new EObjectContainmentEList<TemplateParameter>(TemplateParameter.class, this, XcorePackage.ELEMENT__TEMPLATE_PARAMETERS);
-		}
-		return templateParameters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Test> getTests() {
-		if (tests == null) {
-			tests = new EObjectContainmentEList<Test>(Test.class, this, XcorePackage.ELEMENT__TESTS);
-		}
-		return tests;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Long getTreePos() {
 		return treePos;
 	}
@@ -2566,7 +2301,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VisibilityType getVisibility() {
+	public String getVisibility() {
 		return visibility;
 	}
 
@@ -2575,9 +2310,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVisibility(VisibilityType newVisibility) {
-		VisibilityType oldVisibility = visibility;
-		visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+	public void setVisibility(String newVisibility) {
+		String oldVisibility = visibility;
+		visibility = newVisibility;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__VISIBILITY, oldVisibility, visibility));
 	}
@@ -2621,40 +2356,18 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return basicSetCompositeDiagram(null, msgs);
 			case XcorePackage.ELEMENT__CONNECTORS:
 				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__CONSTRAINTS:
-				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__DIAGRAMS:
 				return ((InternalEList<?>)getDiagrams()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__EFFORTS:
-				return ((InternalEList<?>)getEfforts()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__EMBEDDED_ELEMENTS:
 				return ((InternalEList<?>)getEmbeddedElements()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__FILES:
-				return ((InternalEList<?>)getFiles()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__ISSUES:
-				return ((InternalEList<?>)getIssues()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__METHODS:
 				return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__METRICS:
-				return ((InternalEList<?>)getMetrics()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__PACKAGE:
 				return basicSetPackage(null, msgs);
-			case XcorePackage.ELEMENT__REQUIREMENTS:
-				return ((InternalEList<?>)getRequirements()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__RESOURCES:
-				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__RISKS:
-				return ((InternalEList<?>)getRisks()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__SCENARIOS:
-				return ((InternalEList<?>)getScenarios()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__TAGGED_VALUES:
 				return ((InternalEList<?>)getTaggedValues()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__TEMPLATE_PARAMETERS:
-				return ((InternalEList<?>)getTemplateParameters()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__TESTS:
-				return ((InternalEList<?>)getTests()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -2707,16 +2420,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getCompositeDiagram();
 			case XcorePackage.ELEMENT__CONNECTORS:
 				return getConnectors();
-			case XcorePackage.ELEMENT__CONSTRAINTS:
-				return getConstraints();
 			case XcorePackage.ELEMENT__CREATED:
 				return getCreated();
 			case XcorePackage.ELEMENT__DIAGRAMS:
 				return getDiagrams();
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				return getDifficulty();
-			case XcorePackage.ELEMENT__EFFORTS:
-				return getEfforts();
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				return getElementGUID();
 			case XcorePackage.ELEMENT__ELEMENT_ID:
@@ -2729,8 +2438,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getEventFlags();
 			case XcorePackage.ELEMENT__EXTENSION_POINTS:
 				return getExtensionPoints();
-			case XcorePackage.ELEMENT__FILES:
-				return getFiles();
 			case XcorePackage.ELEMENT__GEN_FILE:
 				return getGenFile();
 			case XcorePackage.ELEMENT__GENLINKS:
@@ -2747,16 +2454,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getIsNew();
 			case XcorePackage.ELEMENT__IS_SPEC:
 				return getIsSpec();
-			case XcorePackage.ELEMENT__ISSUES:
-				return getIssues();
 			case XcorePackage.ELEMENT__LOCKED:
 				return getLocked();
 			case XcorePackage.ELEMENT__META_TYPE:
 				return getMetaType();
 			case XcorePackage.ELEMENT__METHODS:
 				return getMethods();
-			case XcorePackage.ELEMENT__METRICS:
-				return getMetrics();
 			case XcorePackage.ELEMENT__MISC_DATA:
 				return getMiscData();
 			case XcorePackage.ELEMENT__MODIFIED:
@@ -2783,16 +2486,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getPropertyType();
 			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
 				return getPropertyTypeName();
-			case XcorePackage.ELEMENT__REQUIREMENTS:
-				return getRequirements();
-			case XcorePackage.ELEMENT__RESOURCES:
-				return getResources();
-			case XcorePackage.ELEMENT__RISKS:
-				return getRisks();
 			case XcorePackage.ELEMENT__RUN_STATE:
 				return getRunState();
-			case XcorePackage.ELEMENT__SCENARIOS:
-				return getScenarios();
 			case XcorePackage.ELEMENT__STATUS:
 				return getStatus();
 			case XcorePackage.ELEMENT__STEREOTYPE:
@@ -2807,10 +2502,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getTag();
 			case XcorePackage.ELEMENT__TAGGED_VALUES:
 				return getTaggedValues();
-			case XcorePackage.ELEMENT__TEMPLATE_PARAMETERS:
-				return getTemplateParameters();
-			case XcorePackage.ELEMENT__TESTS:
-				return getTests();
 			case XcorePackage.ELEMENT__TREE_POS:
 				return getTreePos();
 			case XcorePackage.ELEMENT__TYPE:
@@ -2874,10 +2565,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				getConnectors().clear();
 				getConnectors().addAll((Collection<? extends Connector>)newValue);
 				return;
-			case XcorePackage.ELEMENT__CONSTRAINTS:
-				getConstraints().clear();
-				getConstraints().addAll((Collection<? extends Constraint>)newValue);
-				return;
 			case XcorePackage.ELEMENT__CREATED:
 				setCreated((Date)newValue);
 				return;
@@ -2887,10 +2574,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				setDifficulty((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__EFFORTS:
-				getEfforts().clear();
-				getEfforts().addAll((Collection<? extends Effort>)newValue);
 				return;
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				setElementGUID((String)newValue);
@@ -2911,10 +2594,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__EXTENSION_POINTS:
 				setExtensionPoints((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__FILES:
-				getFiles().clear();
-				getFiles().addAll((Collection<? extends File>)newValue);
 				return;
 			case XcorePackage.ELEMENT__GEN_FILE:
 				setGenFile((String)newValue);
@@ -2940,10 +2619,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__IS_SPEC:
 				setIsSpec((Boolean)newValue);
 				return;
-			case XcorePackage.ELEMENT__ISSUES:
-				getIssues().clear();
-				getIssues().addAll((Collection<? extends Issue>)newValue);
-				return;
 			case XcorePackage.ELEMENT__LOCKED:
 				setLocked((Boolean)newValue);
 				return;
@@ -2953,10 +2628,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__METHODS:
 				getMethods().clear();
 				getMethods().addAll((Collection<? extends Method>)newValue);
-				return;
-			case XcorePackage.ELEMENT__METRICS:
-				getMetrics().clear();
-				getMetrics().addAll((Collection<? extends Metric>)newValue);
 				return;
 			case XcorePackage.ELEMENT__MISC_DATA:
 				setMiscData((String)newValue);
@@ -2991,24 +2662,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
 				setPropertyTypeName((String)newValue);
 				return;
-			case XcorePackage.ELEMENT__REQUIREMENTS:
-				getRequirements().clear();
-				getRequirements().addAll((Collection<? extends Requirement>)newValue);
-				return;
-			case XcorePackage.ELEMENT__RESOURCES:
-				getResources().clear();
-				getResources().addAll((Collection<? extends Resource>)newValue);
-				return;
-			case XcorePackage.ELEMENT__RISKS:
-				getRisks().clear();
-				getRisks().addAll((Collection<? extends Risk>)newValue);
-				return;
 			case XcorePackage.ELEMENT__RUN_STATE:
 				setRunState((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__SCENARIOS:
-				getScenarios().clear();
-				getScenarios().addAll((Collection<? extends Scenario>)newValue);
 				return;
 			case XcorePackage.ELEMENT__STATUS:
 				setStatus((String)newValue);
@@ -3032,14 +2687,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				getTaggedValues().clear();
 				getTaggedValues().addAll((Collection<? extends TaggedValue>)newValue);
 				return;
-			case XcorePackage.ELEMENT__TEMPLATE_PARAMETERS:
-				getTemplateParameters().clear();
-				getTemplateParameters().addAll((Collection<? extends TemplateParameter>)newValue);
-				return;
-			case XcorePackage.ELEMENT__TESTS:
-				getTests().clear();
-				getTests().addAll((Collection<? extends Test>)newValue);
-				return;
 			case XcorePackage.ELEMENT__TREE_POS:
 				setTreePos((Long)newValue);
 				return;
@@ -3050,7 +2697,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				setVersion((String)newValue);
 				return;
 			case XcorePackage.ELEMENT__VISIBILITY:
-				setVisibility((VisibilityType)newValue);
+				setVisibility((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -3103,9 +2750,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__CONNECTORS:
 				getConnectors().clear();
 				return;
-			case XcorePackage.ELEMENT__CONSTRAINTS:
-				getConstraints().clear();
-				return;
 			case XcorePackage.ELEMENT__CREATED:
 				setCreated(CREATED_EDEFAULT);
 				return;
@@ -3114,9 +2758,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				setDifficulty(DIFFICULTY_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__EFFORTS:
-				getEfforts().clear();
 				return;
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				setElementGUID(ELEMENT_GUID_EDEFAULT);
@@ -3135,9 +2776,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__EXTENSION_POINTS:
 				setExtensionPoints(EXTENSION_POINTS_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__FILES:
-				getFiles().clear();
 				return;
 			case XcorePackage.ELEMENT__GEN_FILE:
 				setGenFile(GEN_FILE_EDEFAULT);
@@ -3163,9 +2801,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__IS_SPEC:
 				setIsSpec(IS_SPEC_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__ISSUES:
-				getIssues().clear();
-				return;
 			case XcorePackage.ELEMENT__LOCKED:
 				setLocked(LOCKED_EDEFAULT);
 				return;
@@ -3174,9 +2809,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__METHODS:
 				getMethods().clear();
-				return;
-			case XcorePackage.ELEMENT__METRICS:
-				getMetrics().clear();
 				return;
 			case XcorePackage.ELEMENT__MISC_DATA:
 				setMiscData(MISC_DATA_EDEFAULT);
@@ -3211,20 +2843,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
 				setPropertyTypeName(PROPERTY_TYPE_NAME_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__REQUIREMENTS:
-				getRequirements().clear();
-				return;
-			case XcorePackage.ELEMENT__RESOURCES:
-				getResources().clear();
-				return;
-			case XcorePackage.ELEMENT__RISKS:
-				getRisks().clear();
-				return;
 			case XcorePackage.ELEMENT__RUN_STATE:
 				setRunState(RUN_STATE_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__SCENARIOS:
-				getScenarios().clear();
 				return;
 			case XcorePackage.ELEMENT__STATUS:
 				setStatus(STATUS_EDEFAULT);
@@ -3246,12 +2866,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__TAGGED_VALUES:
 				getTaggedValues().clear();
-				return;
-			case XcorePackage.ELEMENT__TEMPLATE_PARAMETERS:
-				getTemplateParameters().clear();
-				return;
-			case XcorePackage.ELEMENT__TESTS:
-				getTests().clear();
 				return;
 			case XcorePackage.ELEMENT__TREE_POS:
 				setTreePos(TREE_POS_EDEFAULT);
@@ -3303,16 +2917,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return compositeDiagram != null;
 			case XcorePackage.ELEMENT__CONNECTORS:
 				return connectors != null && !connectors.isEmpty();
-			case XcorePackage.ELEMENT__CONSTRAINTS:
-				return constraints != null && !constraints.isEmpty();
 			case XcorePackage.ELEMENT__CREATED:
 				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
 			case XcorePackage.ELEMENT__DIAGRAMS:
 				return diagrams != null && !diagrams.isEmpty();
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				return DIFFICULTY_EDEFAULT == null ? difficulty != null : !DIFFICULTY_EDEFAULT.equals(difficulty);
-			case XcorePackage.ELEMENT__EFFORTS:
-				return efforts != null && !efforts.isEmpty();
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				return ELEMENT_GUID_EDEFAULT == null ? elementGUID != null : !ELEMENT_GUID_EDEFAULT.equals(elementGUID);
 			case XcorePackage.ELEMENT__ELEMENT_ID:
@@ -3325,8 +2935,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return EVENT_FLAGS_EDEFAULT == null ? eventFlags != null : !EVENT_FLAGS_EDEFAULT.equals(eventFlags);
 			case XcorePackage.ELEMENT__EXTENSION_POINTS:
 				return EXTENSION_POINTS_EDEFAULT == null ? extensionPoints != null : !EXTENSION_POINTS_EDEFAULT.equals(extensionPoints);
-			case XcorePackage.ELEMENT__FILES:
-				return files != null && !files.isEmpty();
 			case XcorePackage.ELEMENT__GEN_FILE:
 				return GEN_FILE_EDEFAULT == null ? genFile != null : !GEN_FILE_EDEFAULT.equals(genFile);
 			case XcorePackage.ELEMENT__GENLINKS:
@@ -3343,16 +2951,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return IS_NEW_EDEFAULT == null ? isNew != null : !IS_NEW_EDEFAULT.equals(isNew);
 			case XcorePackage.ELEMENT__IS_SPEC:
 				return IS_SPEC_EDEFAULT == null ? isSpec != null : !IS_SPEC_EDEFAULT.equals(isSpec);
-			case XcorePackage.ELEMENT__ISSUES:
-				return issues != null && !issues.isEmpty();
 			case XcorePackage.ELEMENT__LOCKED:
 				return LOCKED_EDEFAULT == null ? locked != null : !LOCKED_EDEFAULT.equals(locked);
 			case XcorePackage.ELEMENT__META_TYPE:
 				return META_TYPE_EDEFAULT == null ? metaType != null : !META_TYPE_EDEFAULT.equals(metaType);
 			case XcorePackage.ELEMENT__METHODS:
 				return methods != null && !methods.isEmpty();
-			case XcorePackage.ELEMENT__METRICS:
-				return metrics != null && !metrics.isEmpty();
 			case XcorePackage.ELEMENT__MISC_DATA:
 				return MISC_DATA_EDEFAULT == null ? miscData != null : !MISC_DATA_EDEFAULT.equals(miscData);
 			case XcorePackage.ELEMENT__MODIFIED:
@@ -3377,16 +2981,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return PROPERTY_TYPE_EDEFAULT == null ? propertyType != null : !PROPERTY_TYPE_EDEFAULT.equals(propertyType);
 			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
 				return PROPERTY_TYPE_NAME_EDEFAULT == null ? propertyTypeName != null : !PROPERTY_TYPE_NAME_EDEFAULT.equals(propertyTypeName);
-			case XcorePackage.ELEMENT__REQUIREMENTS:
-				return requirements != null && !requirements.isEmpty();
-			case XcorePackage.ELEMENT__RESOURCES:
-				return resources != null && !resources.isEmpty();
-			case XcorePackage.ELEMENT__RISKS:
-				return risks != null && !risks.isEmpty();
 			case XcorePackage.ELEMENT__RUN_STATE:
 				return RUN_STATE_EDEFAULT == null ? runState != null : !RUN_STATE_EDEFAULT.equals(runState);
-			case XcorePackage.ELEMENT__SCENARIOS:
-				return scenarios != null && !scenarios.isEmpty();
 			case XcorePackage.ELEMENT__STATUS:
 				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
 			case XcorePackage.ELEMENT__STEREOTYPE:
@@ -3401,10 +2997,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return TAG_EDEFAULT == null ? tag != null : !TAG_EDEFAULT.equals(tag);
 			case XcorePackage.ELEMENT__TAGGED_VALUES:
 				return taggedValues != null && !taggedValues.isEmpty();
-			case XcorePackage.ELEMENT__TEMPLATE_PARAMETERS:
-				return templateParameters != null && !templateParameters.isEmpty();
-			case XcorePackage.ELEMENT__TESTS:
-				return tests != null && !tests.isEmpty();
 			case XcorePackage.ELEMENT__TREE_POS:
 				return TREE_POS_EDEFAULT == null ? treePos != null : !TREE_POS_EDEFAULT.equals(treePos);
 			case XcorePackage.ELEMENT__TYPE:
@@ -3412,7 +3004,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case XcorePackage.ELEMENT__VISIBILITY:
-				return visibility != VISIBILITY_EDEFAULT;
+				return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
 		}
 		return super.eIsSet(featureID);
 	}

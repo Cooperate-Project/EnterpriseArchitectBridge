@@ -716,7 +716,6 @@ public interface Method extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Visibility</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear,
@@ -724,23 +723,21 @@ public interface Method extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Visibility</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
-	 * @see #setVisibility(VisibilityType)
+	 * @see #setVisibility(String)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_Visibility()
 	 * @model unique="false"
 	 * @generated
 	 */
-	VisibilityType getVisibility();
+	String getVisibility();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getVisibility <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Visibility</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
 	 * @see #getVisibility()
 	 * @generated
 	 */
-	void setVisibility(VisibilityType value);
+	void setVisibility(String value);
 
 } // Method

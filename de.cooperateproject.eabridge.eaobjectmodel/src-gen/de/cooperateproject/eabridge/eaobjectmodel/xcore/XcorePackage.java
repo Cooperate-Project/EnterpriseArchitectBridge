@@ -69,22 +69,13 @@ public interface XcorePackage extends EPackage {
 	int ATTRIBUTE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__ALIAS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Allow Duplicates</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__ALLOW_DUPLICATES = 1;
+	int ATTRIBUTE__ALLOW_DUPLICATES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Attribute GUID</b></em>' attribute.
@@ -93,10 +84,19 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__ATTRIBUTE_GUID = 2;
+	int ATTRIBUTE__ATTRIBUTE_GUID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' reference.
+	 * The feature id for the '<em><b>Attribute ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__ATTRIBUTE_ID = 2;
+
+	/**
+	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -531,13 +531,13 @@ public interface XcorePackage extends EPackage {
 	int CONNECTOR__ALIAS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Client End</b></em>' containment reference.
+	 * The feature id for the '<em><b>Client</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__CLIENT_END = 1;
+	int CONNECTOR__CLIENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -729,13 +729,13 @@ public interface XcorePackage extends EPackage {
 	int CONNECTOR__SUBTYPE = 22;
 
 	/**
-	 * The feature id for the '<em><b>Supplier End</b></em>' containment reference.
+	 * The feature id for the '<em><b>Supplier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SUPPLIER_END = 23;
+	int CONNECTOR__SUPPLIER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Tagged Values</b></em>' containment reference.
@@ -883,223 +883,6 @@ public interface XcorePackage extends EPackage {
 	int CONNECTOR_CONSTRAINT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorEndImpl <em>Connector End</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorEndImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConnectorEnd()
-	 * @generated
-	 */
-	int CONNECTOR_END = 5;
-
-	/**
-	 * The feature id for the '<em><b>Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__AGGREGATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__ALIAS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Allow Duplicates</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__ALLOW_DUPLICATES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Cardinality</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__CARDINALITY = 3;
-
-	/**
-	 * The feature id for the '<em><b>Constraint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__CONSTRAINT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Containment</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__CONTAINMENT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Derived</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__DERIVED = 6;
-
-	/**
-	 * The feature id for the '<em><b>Derived Union</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__DERIVED_UNION = 7;
-
-	/**
-	 * The feature id for the '<em><b>End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__END = 8;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__ELEMENT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Is Changeable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__IS_CHANGEABLE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Is Navigable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__IS_NAVIGABLE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Navigable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__NAVIGABLE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Ordering</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__ORDERING = 13;
-
-	/**
-	 * The feature id for the '<em><b>Owned By Classifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__OWNED_BY_CLASSIFIER = 14;
-
-	/**
-	 * The feature id for the '<em><b>Qualifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__QUALIFIER = 15;
-
-	/**
-	 * The feature id for the '<em><b>Role</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__ROLE = 16;
-
-	/**
-	 * The feature id for the '<em><b>Role Note</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__ROLE_NOTE = 17;
-
-	/**
-	 * The feature id for the '<em><b>Role Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__ROLE_TYPE = 18;
-
-	/**
-	 * The feature id for the '<em><b>Stereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__STEREOTYPE = 19;
-
-	/**
-	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END__VISIBILITY = 20;
-
-	/**
-	 * The number of structural features of the '<em>Connector End</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END_FEATURE_COUNT = 21;
-
-	/**
-	 * The number of operations of the '<em>Connector End</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_END_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl <em>Connector Tag</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1107,7 +890,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConnectorTag()
 	 * @generated
 	 */
-	int CONNECTOR_TAG = 6;
+	int CONNECTOR_TAG = 5;
 
 	/**
 	 * The feature id for the '<em><b>Connector</b></em>' container reference.
@@ -1198,7 +981,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDiagram()
 	 * @generated
 	 */
-	int DIAGRAM = 7;
+	int DIAGRAM = 6;
 
 	/**
 	 * The feature id for the '<em><b>Author</b></em>' attribute.
@@ -1487,7 +1270,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDiagramLink()
 	 * @generated
 	 */
-	int DIAGRAM_LINK = 8;
+	int DIAGRAM_LINK = 7;
 
 	/**
 	 * The feature id for the '<em><b>Connector</b></em>' containment reference.
@@ -1578,7 +1361,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDiagrammObject()
 	 * @generated
 	 */
-	int DIAGRAMM_OBJECT = 9;
+	int DIAGRAMM_OBJECT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Bottom</b></em>' attribute.
@@ -1678,7 +1461,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getElement()
 	 * @generated
 	 */
-	int ELEMENT = 10;
+	int ELEMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -1798,22 +1581,13 @@ public interface XcorePackage extends EPackage {
 	int ELEMENT__CONNECTORS = 12;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__CONSTRAINTS = 13;
-
-	/**
 	 * The feature id for the '<em><b>Created</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__CREATED = 14;
+	int ELEMENT__CREATED = 13;
 
 	/**
 	 * The feature id for the '<em><b>Diagrams</b></em>' containment reference list.
@@ -1822,7 +1596,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__DIAGRAMS = 15;
+	int ELEMENT__DIAGRAMS = 14;
 
 	/**
 	 * The feature id for the '<em><b>Difficulty</b></em>' attribute.
@@ -1831,16 +1605,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__DIFFICULTY = 16;
-
-	/**
-	 * The feature id for the '<em><b>Efforts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__EFFORTS = 17;
+	int ELEMENT__DIFFICULTY = 15;
 
 	/**
 	 * The feature id for the '<em><b>Element GUID</b></em>' attribute.
@@ -1849,7 +1614,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ELEMENT_GUID = 18;
+	int ELEMENT__ELEMENT_GUID = 16;
 
 	/**
 	 * The feature id for the '<em><b>Element ID</b></em>' attribute.
@@ -1858,7 +1623,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ELEMENT_ID = 19;
+	int ELEMENT__ELEMENT_ID = 17;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1867,7 +1632,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ELEMENTS = 20;
+	int ELEMENT__ELEMENTS = 18;
 
 	/**
 	 * The feature id for the '<em><b>Embedded Elements</b></em>' containment reference list.
@@ -1876,7 +1641,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__EMBEDDED_ELEMENTS = 21;
+	int ELEMENT__EMBEDDED_ELEMENTS = 19;
 
 	/**
 	 * The feature id for the '<em><b>Event Flags</b></em>' attribute.
@@ -1885,7 +1650,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__EVENT_FLAGS = 22;
+	int ELEMENT__EVENT_FLAGS = 20;
 
 	/**
 	 * The feature id for the '<em><b>Extension Points</b></em>' attribute.
@@ -1894,16 +1659,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__EXTENSION_POINTS = 23;
-
-	/**
-	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__FILES = 24;
+	int ELEMENT__EXTENSION_POINTS = 21;
 
 	/**
 	 * The feature id for the '<em><b>Gen File</b></em>' attribute.
@@ -1912,7 +1668,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GEN_FILE = 25;
+	int ELEMENT__GEN_FILE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Genlinks</b></em>' attribute.
@@ -1921,7 +1677,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GENLINKS = 26;
+	int ELEMENT__GENLINKS = 23;
 
 	/**
 	 * The feature id for the '<em><b>Gen Type</b></em>' attribute.
@@ -1930,7 +1686,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GEN_TYPE = 27;
+	int ELEMENT__GEN_TYPE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Is Active</b></em>' attribute.
@@ -1939,7 +1695,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__IS_ACTIVE = 28;
+	int ELEMENT__IS_ACTIVE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Is Composite</b></em>' attribute.
@@ -1948,7 +1704,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__IS_COMPOSITE = 29;
+	int ELEMENT__IS_COMPOSITE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
@@ -1957,7 +1713,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__IS_LEAF = 30;
+	int ELEMENT__IS_LEAF = 27;
 
 	/**
 	 * The feature id for the '<em><b>Is New</b></em>' attribute.
@@ -1966,7 +1722,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__IS_NEW = 31;
+	int ELEMENT__IS_NEW = 28;
 
 	/**
 	 * The feature id for the '<em><b>Is Spec</b></em>' attribute.
@@ -1975,16 +1731,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__IS_SPEC = 32;
-
-	/**
-	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__ISSUES = 33;
+	int ELEMENT__IS_SPEC = 29;
 
 	/**
 	 * The feature id for the '<em><b>Locked</b></em>' attribute.
@@ -1993,7 +1740,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__LOCKED = 34;
+	int ELEMENT__LOCKED = 30;
 
 	/**
 	 * The feature id for the '<em><b>Meta Type</b></em>' attribute.
@@ -2002,7 +1749,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__META_TYPE = 35;
+	int ELEMENT__META_TYPE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Methods</b></em>' containment reference list.
@@ -2011,16 +1758,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__METHODS = 36;
-
-	/**
-	 * The feature id for the '<em><b>Metrics</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__METRICS = 37;
+	int ELEMENT__METHODS = 32;
 
 	/**
 	 * The feature id for the '<em><b>Misc Data</b></em>' attribute.
@@ -2029,7 +1767,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__MISC_DATA = 38;
+	int ELEMENT__MISC_DATA = 33;
 
 	/**
 	 * The feature id for the '<em><b>Modified</b></em>' attribute.
@@ -2038,7 +1776,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__MODIFIED = 39;
+	int ELEMENT__MODIFIED = 34;
 
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
@@ -2047,7 +1785,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__MULTIPLICITY = 40;
+	int ELEMENT__MULTIPLICITY = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2056,7 +1794,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__NAME = 41;
+	int ELEMENT__NAME = 36;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -2065,7 +1803,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__NOTES = 42;
+	int ELEMENT__NOTES = 37;
 
 	/**
 	 * The feature id for the '<em><b>Package</b></em>' container reference.
@@ -2074,7 +1812,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PACKAGE = 43;
+	int ELEMENT__PACKAGE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -2083,7 +1821,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PARENT = 44;
+	int ELEMENT__PARENT = 39;
 
 	/**
 	 * The feature id for the '<em><b>Persistence</b></em>' attribute.
@@ -2092,7 +1830,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PERSISTENCE = 45;
+	int ELEMENT__PERSISTENCE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Phase</b></em>' attribute.
@@ -2101,7 +1839,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PHASE = 46;
+	int ELEMENT__PHASE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -2110,7 +1848,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PRIORITY = 47;
+	int ELEMENT__PRIORITY = 42;
 
 	/**
 	 * The feature id for the '<em><b>Property Type</b></em>' attribute.
@@ -2119,7 +1857,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PROPERTY_TYPE = 48;
+	int ELEMENT__PROPERTY_TYPE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Property Type Name</b></em>' attribute.
@@ -2128,34 +1866,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PROPERTY_TYPE_NAME = 49;
-
-	/**
-	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__REQUIREMENTS = 50;
-
-	/**
-	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__RESOURCES = 51;
-
-	/**
-	 * The feature id for the '<em><b>Risks</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__RISKS = 52;
+	int ELEMENT__PROPERTY_TYPE_NAME = 44;
 
 	/**
 	 * The feature id for the '<em><b>Run State</b></em>' attribute.
@@ -2164,16 +1875,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__RUN_STATE = 53;
-
-	/**
-	 * The feature id for the '<em><b>Scenarios</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__SCENARIOS = 54;
+	int ELEMENT__RUN_STATE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -2182,7 +1884,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__STATUS = 55;
+	int ELEMENT__STATUS = 46;
 
 	/**
 	 * The feature id for the '<em><b>Stereotype</b></em>' attribute.
@@ -2191,7 +1893,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__STEREOTYPE = 56;
+	int ELEMENT__STEREOTYPE = 47;
 
 	/**
 	 * The feature id for the '<em><b>Style Ex</b></em>' attribute.
@@ -2200,7 +1902,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__STYLE_EX = 57;
+	int ELEMENT__STYLE_EX = 48;
 
 	/**
 	 * The feature id for the '<em><b>Subtype</b></em>' attribute.
@@ -2209,7 +1911,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__SUBTYPE = 58;
+	int ELEMENT__SUBTYPE = 49;
 
 	/**
 	 * The feature id for the '<em><b>Tablespace</b></em>' attribute.
@@ -2218,7 +1920,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TABLESPACE = 59;
+	int ELEMENT__TABLESPACE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
@@ -2227,7 +1929,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TAG = 60;
+	int ELEMENT__TAG = 51;
 
 	/**
 	 * The feature id for the '<em><b>Tagged Values</b></em>' containment reference list.
@@ -2236,25 +1938,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TAGGED_VALUES = 61;
-
-	/**
-	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__TEMPLATE_PARAMETERS = 62;
-
-	/**
-	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__TESTS = 63;
+	int ELEMENT__TAGGED_VALUES = 52;
 
 	/**
 	 * The feature id for the '<em><b>Tree Pos</b></em>' attribute.
@@ -2263,7 +1947,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TREE_POS = 64;
+	int ELEMENT__TREE_POS = 53;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2272,7 +1956,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TYPE = 65;
+	int ELEMENT__TYPE = 54;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -2281,7 +1965,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__VERSION = 66;
+	int ELEMENT__VERSION = 55;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2290,7 +1974,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__VISIBILITY = 67;
+	int ELEMENT__VISIBILITY = 56;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -2299,7 +1983,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 68;
+	int ELEMENT_FEATURE_COUNT = 57;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -2318,7 +2002,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 11;
+	int METHOD = 10;
 
 	/**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
@@ -2598,7 +2282,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getMethodConstraint()
 	 * @generated
 	 */
-	int METHOD_CONSTRAINT = 12;
+	int METHOD_CONSTRAINT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' reference.
@@ -2662,7 +2346,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getMethodTag()
 	 * @generated
 	 */
-	int METHOD_TAG = 13;
+	int METHOD_TAG = 12;
 
 	/**
 	 * The feature id for the '<em><b>FQ Name</b></em>' attribute.
@@ -2753,7 +2437,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 14;
+	int PACKAGE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -3051,7 +2735,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 15;
+	int PARAMETER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -3214,7 +2898,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getParamTag()
 	 * @generated
 	 */
-	int PARAM_TAG = 16;
+	int PARAM_TAG = 15;
 
 	/**
 	 * The feature id for the '<em><b>Element GUID</b></em>' attribute.
@@ -3287,7 +2971,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getTaggedValue()
 	 * @generated
 	 */
-	int TAGGED_VALUE = 17;
+	int TAGGED_VALUE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Element ID</b></em>' attribute.
@@ -3371,1191 +3055,6 @@ public interface XcorePackage extends EPackage {
 	int TAGGED_VALUE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConstraintImpl <em>Constraint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConstraintImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConstraint()
-	 * @generated
-	 */
-	int CONSTRAINT = 18;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT__NOTES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Parent ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT__PARENT_ID = 2;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT__STATUS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT__TYPE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT__WEIGHT = 5;
-
-	/**
-	 * The number of structural features of the '<em>Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT_FEATURE_COUNT = 6;
-
-	/**
-	 * The number of operations of the '<em>Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.EffortImpl <em>Effort</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.EffortImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getEffort()
-	 * @generated
-	 */
-	int EFFORT = 19;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFORT__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFORT__NOTES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFORT__TYPE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFORT__WEIGHT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Weight2</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFORT__WEIGHT2 = 4;
-
-	/**
-	 * The number of structural features of the '<em>Effort</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFORT_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Effort</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFORT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.FileImpl <em>File</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.FileImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getFile()
-	 * @generated
-	 */
-	int FILE = 20;
-
-	/**
-	 * The feature id for the '<em><b>File Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__FILE_DATE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__NOTES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__SIZE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__TYPE = 4;
-
-	/**
-	 * The number of structural features of the '<em>File</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>File</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.IssueImpl <em>Issue</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.IssueImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getIssue()
-	 * @generated
-	 */
-	int ISSUE = 21;
-
-	/**
-	 * The feature id for the '<em><b>Date Reported</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__DATE_REPORTED = 0;
-
-	/**
-	 * The feature id for the '<em><b>Date Resolved</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__DATE_RESOLVED = 1;
-
-	/**
-	 * The feature id for the '<em><b>Element ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__ELEMENT_ID = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__NAME = 3;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__NOTES = 4;
-
-	/**
-	 * The feature id for the '<em><b>Priority</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__PRIORITY = 5;
-
-	/**
-	 * The feature id for the '<em><b>Reporter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__REPORTER = 6;
-
-	/**
-	 * The feature id for the '<em><b>Resolver</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__RESOLVER = 7;
-
-	/**
-	 * The feature id for the '<em><b>Resolver Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__RESOLVER_NOTES = 8;
-
-	/**
-	 * The feature id for the '<em><b>Severity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__SEVERITY = 9;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__STATUS = 10;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__VERSION = 11;
-
-	/**
-	 * The number of structural features of the '<em>Issue</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_FEATURE_COUNT = 12;
-
-	/**
-	 * The number of operations of the '<em>Issue</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MetricImpl <em>Metric</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MetricImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getMetric()
-	 * @generated
-	 */
-	int METRIC = 22;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METRIC__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METRIC__NOTES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METRIC__TYPE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METRIC__WEIGHT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Metric</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METRIC_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Metric</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METRIC_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RequirementImpl <em>Requirement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RequirementImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getRequirement()
-	 * @generated
-	 */
-	int REQUIREMENT = 23;
-
-	/**
-	 * The feature id for the '<em><b>Difficulty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__DIFFICULTY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Last Update</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__LAST_UPDATE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__NAME = 2;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__NOTES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Parent ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__PARENT_ID = 4;
-
-	/**
-	 * The feature id for the '<em><b>Priority</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__PRIORITY = 5;
-
-	/**
-	 * The feature id for the '<em><b>Requirement ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__REQUIREMENT_ID = 6;
-
-	/**
-	 * The feature id for the '<em><b>Stability</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__STABILITY = 7;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__STATUS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__TYPE = 9;
-
-	/**
-	 * The number of structural features of the '<em>Requirement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT_FEATURE_COUNT = 10;
-
-	/**
-	 * The number of operations of the '<em>Requirement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ResourceImpl <em>Resource</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ResourceImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getResource()
-	 * @generated
-	 */
-	int RESOURCE = 24;
-
-	/**
-	 * The feature id for the '<em><b>Actual Hours</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__ACTUAL_HOURS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Date End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DATE_END = 1;
-
-	/**
-	 * The feature id for the '<em><b>Date Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DATE_START = 2;
-
-	/**
-	 * The feature id for the '<em><b>Expected Hours</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__EXPECTED_HOURS = 3;
-
-	/**
-	 * The feature id for the '<em><b>History</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__HISTORY = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__NAME = 5;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__NOTES = 6;
-
-	/**
-	 * The feature id for the '<em><b>Percent Complete</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__PERCENT_COMPLETE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Role</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__ROLE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__TIME = 9;
-
-	/**
-	 * The number of structural features of the '<em>Resource</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_FEATURE_COUNT = 10;
-
-	/**
-	 * The number of operations of the '<em>Resource</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RiskImpl <em>Risk</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RiskImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getRisk()
-	 * @generated
-	 */
-	int RISK = 25;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RISK__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RISK__NOTES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RISK__TYPE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RISK__WEIGHT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Risk</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RISK_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Risk</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RISK_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ScenarioImpl <em>Scenario</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ScenarioImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getScenario()
-	 * @generated
-	 */
-	int SCENARIO = 26;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__NOTES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Scenario GUID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__SCENARIO_GUID = 2;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__TYPE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__WEIGHT = 4;
-
-	/**
-	 * The feature id for the '<em><b>XML Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__XML_CONTENT = 5;
-
-	/**
-	 * The number of structural features of the '<em>Scenario</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO_FEATURE_COUNT = 6;
-
-	/**
-	 * The number of operations of the '<em>Scenario</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TemplateParameterImpl <em>Template Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TemplateParameterImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getTemplateParameter()
-	 * @generated
-	 */
-	int TEMPLATE_PARAMETER = 27;
-
-	/**
-	 * The feature id for the '<em><b>Constraint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PARAMETER__CONSTRAINT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PARAMETER__DEFAULT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PARAMETER__NAME = 2;
-
-	/**
-	 * The feature id for the '<em><b>Template Parameter ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_ID = 3;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PARAMETER__TYPE = 4;
-
-	/**
-	 * The number of structural features of the '<em>Template Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PARAMETER_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Template Parameter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PARAMETER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TestImpl <em>Test</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TestImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getTest()
-	 * @generated
-	 */
-	int TEST = 28;
-
-	/**
-	 * The feature id for the '<em><b>Acceptance Criteria</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__ACCEPTANCE_CRITERIA = 0;
-
-	/**
-	 * The feature id for the '<em><b>Checked By</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__CHECKED_BY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__CLASS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Date Run</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__DATE_RUN = 3;
-
-	/**
-	 * The feature id for the '<em><b>Input</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__INPUT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__NAME = 5;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__NOTES = 6;
-
-	/**
-	 * The feature id for the '<em><b>Run By</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__RUN_BY = 7;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__STATUS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST__TYPE = 9;
-
-	/**
-	 * The number of structural features of the '<em>Test</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_FEATURE_COUNT = 10;
-
-	/**
-	 * The number of operations of the '<em>Test</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AuthorImpl <em>Author</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AuthorImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getAuthor()
-	 * @generated
-	 */
-	int AUTHOR = 29;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTHOR__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTHOR__NOTES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Roles</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTHOR__ROLES = 2;
-
-	/**
-	 * The number of structural features of the '<em>Author</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTHOR_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Author</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTHOR_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ClientImpl <em>Client</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ClientImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getClient()
-	 * @generated
-	 */
-	int CLIENT = 30;
-
-	/**
-	 * The feature id for the '<em><b>Email</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__EMAIL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Fax</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__FAX = 1;
-
-	/**
-	 * The feature id for the '<em><b>Mobile</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__MOBILE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__NAME = 3;
-
-	/**
-	 * The feature id for the '<em><b>Notes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__NOTES = 4;
-
-	/**
-	 * The feature id for the '<em><b>Organization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__ORGANIZATION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Phone1</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__PHONE1 = 6;
-
-	/**
-	 * The feature id for the '<em><b>Phone2</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__PHONE2 = 7;
-
-	/**
-	 * The feature id for the '<em><b>Roles</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT__ROLES = 8;
-
-	/**
-	 * The number of structural features of the '<em>Client</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT_FEATURE_COUNT = 9;
-
-	/**
-	 * The number of operations of the '<em>Client</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLIENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType <em>Containment Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getContainmentType()
-	 * @generated
-	 */
-	int CONTAINMENT_TYPE = 31;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType <em>Visibility Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getVisibilityType()
-	 * @generated
-	 */
-	int VISIBILITY_TYPE = 32;
-
-	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType <em>Direction Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4563,17 +3062,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDirectionType()
 	 * @generated
 	 */
-	int DIRECTION_TYPE = 33;
-
-	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.EndType <em>End Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.EndType
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getEndType()
-	 * @generated
-	 */
-	int END_TYPE = 34;
+	int DIRECTION_TYPE = 17;
 
 
 	/**
@@ -4585,17 +3074,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAlias <em>Alias</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Alias</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAlias()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EAttribute getAttribute_Alias();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAllowDuplicates <em>Allow Duplicates</em>}'.
@@ -4620,15 +3098,26 @@ public interface XcorePackage extends EPackage {
 	EAttribute getAttribute_AttributeGUID();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getClassifier <em>Classifier</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAttributeID <em>Attribute ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Classifier</em>'.
+	 * @return the meta object for the attribute '<em>Attribute ID</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getAttributeID()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_AttributeID();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getClassifier <em>Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Classifier</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getClassifier()
 	 * @see #getAttribute()
 	 * @generated
 	 */
-	EReference getAttribute_Classifier();
+	EAttribute getAttribute_Classifier();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getContainer <em>Container</em>}'.
@@ -5079,15 +3568,15 @@ public interface XcorePackage extends EPackage {
 	EAttribute getConnector_Alias();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClientEnd <em>Client End</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClient <em>Client</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Client End</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClientEnd()
+	 * @return the meta object for the reference '<em>Client</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClient()
 	 * @see #getConnector()
 	 * @generated
 	 */
-	EReference getConnector_ClientEnd();
+	EReference getConnector_Client();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getColor <em>Color</em>}'.
@@ -5321,15 +3810,15 @@ public interface XcorePackage extends EPackage {
 	EAttribute getConnector_Subtype();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplierEnd <em>Supplier End</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplier <em>Supplier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Supplier End</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplierEnd()
+	 * @return the meta object for the reference '<em>Supplier</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplier()
 	 * @see #getConnector()
 	 * @generated
 	 */
-	EReference getConnector_SupplierEnd();
+	EReference getConnector_Supplier();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTaggedValues <em>Tagged Values</em>}'.
@@ -5461,247 +3950,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConnectorConstraint_Type();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd <em>Connector End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Connector End</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd
-	 * @generated
-	 */
-	EClass getConnectorEnd();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getAggregation <em>Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Aggregation</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getAggregation()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Aggregation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getAlias <em>Alias</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Alias</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getAlias()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Alias();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getAllowDuplicates <em>Allow Duplicates</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Allow Duplicates</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getAllowDuplicates()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_AllowDuplicates();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getCardinality <em>Cardinality</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cardinality</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getCardinality()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Cardinality();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getConstraint <em>Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Constraint</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getConstraint()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Constraint();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getContainment <em>Containment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Containment</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getContainment()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Containment();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getDerived <em>Derived</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Derived</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getDerived()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Derived();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getDerivedUnion <em>Derived Union</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Derived Union</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getDerivedUnion()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_DerivedUnion();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getEnd <em>End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>End</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getEnd()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_End();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Element</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getElement()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EReference getConnectorEnd_Element();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getIsChangeable <em>Is Changeable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Changeable</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getIsChangeable()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_IsChangeable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getIsNavigable <em>Is Navigable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Navigable</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getIsNavigable()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_IsNavigable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getNavigable <em>Navigable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Navigable</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getNavigable()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Navigable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getOrdering <em>Ordering</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ordering</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getOrdering()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Ordering();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getOwnedByClassifier <em>Owned By Classifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Owned By Classifier</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getOwnedByClassifier()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_OwnedByClassifier();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getQualifier <em>Qualifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Qualifier</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getQualifier()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Qualifier();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getRole <em>Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Role</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getRole()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Role();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getRoleNote <em>Role Note</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Role Note</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getRoleNote()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_RoleNote();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getRoleType <em>Role Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Role Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getRoleType()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_RoleType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getStereotype <em>Stereotype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Stereotype</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getStereotype()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Stereotype();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getVisibility <em>Visibility</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Visibility</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorEnd#getVisibility()
-	 * @see #getConnectorEnd()
-	 * @generated
-	 */
-	EAttribute getConnectorEnd_Visibility();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag <em>Connector Tag</em>}'.
@@ -6458,17 +4706,6 @@ public interface XcorePackage extends EPackage {
 	EReference getElement_Connectors();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConstraints <em>Constraints</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConstraints()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Constraints();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCreated <em>Created</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6500,17 +4737,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_Difficulty();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getEfforts <em>Efforts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Efforts</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getEfforts()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Efforts();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElementGUID <em>Element GUID</em>}'.
@@ -6577,17 +4803,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_ExtensionPoints();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getFiles <em>Files</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Files</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getFiles()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Files();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getGenFile <em>Gen File</em>}'.
@@ -6678,17 +4893,6 @@ public interface XcorePackage extends EPackage {
 	EAttribute getElement_IsSpec();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIssues <em>Issues</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Issues</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIssues()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Issues();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getLocked <em>Locked</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6720,17 +4924,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElement_Methods();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMetrics <em>Metrics</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Metrics</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMetrics()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Metrics();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMiscData <em>Misc Data</em>}'.
@@ -6865,39 +5058,6 @@ public interface XcorePackage extends EPackage {
 	EAttribute getElement_PropertyTypeName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRequirements <em>Requirements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Requirements</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRequirements()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Requirements();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getResources <em>Resources</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resources</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getResources()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Resources();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRisks <em>Risks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Risks</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRisks()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Risks();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRunState <em>Run State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6907,17 +5067,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_RunState();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getScenarios <em>Scenarios</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Scenarios</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getScenarios()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Scenarios();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStatus <em>Status</em>}'.
@@ -6995,28 +5144,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElement_TaggedValues();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTemplateParameters <em>Template Parameters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Template Parameters</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTemplateParameters()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_TemplateParameters();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTests <em>Tests</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tests</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTests()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Tests();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTreePos <em>Tree Pos</em>}'.
@@ -8189,1135 +6316,6 @@ public interface XcorePackage extends EPackage {
 	EAttribute getTaggedValue_Value();
 
 	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint <em>Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Constraint</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint
-	 * @generated
-	 */
-	EClass getConstraint();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getName()
-	 * @see #getConstraint()
-	 * @generated
-	 */
-	EAttribute getConstraint_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getNotes()
-	 * @see #getConstraint()
-	 * @generated
-	 */
-	EAttribute getConstraint_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getParentID <em>Parent ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parent ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getParentID()
-	 * @see #getConstraint()
-	 * @generated
-	 */
-	EAttribute getConstraint_ParentID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getStatus <em>Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Status</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getStatus()
-	 * @see #getConstraint()
-	 * @generated
-	 */
-	EAttribute getConstraint_Status();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getType()
-	 * @see #getConstraint()
-	 * @generated
-	 */
-	EAttribute getConstraint_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getWeight <em>Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Weight</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint#getWeight()
-	 * @see #getConstraint()
-	 * @generated
-	 */
-	EAttribute getConstraint_Weight();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort <em>Effort</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Effort</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort
-	 * @generated
-	 */
-	EClass getEffort();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getName()
-	 * @see #getEffort()
-	 * @generated
-	 */
-	EAttribute getEffort_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getNotes()
-	 * @see #getEffort()
-	 * @generated
-	 */
-	EAttribute getEffort_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getType()
-	 * @see #getEffort()
-	 * @generated
-	 */
-	EAttribute getEffort_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getWeight <em>Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Weight</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getWeight()
-	 * @see #getEffort()
-	 * @generated
-	 */
-	EAttribute getEffort_Weight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getWeight2 <em>Weight2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Weight2</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort#getWeight2()
-	 * @see #getEffort()
-	 * @generated
-	 */
-	EAttribute getEffort_Weight2();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File <em>File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>File</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.File
-	 * @generated
-	 */
-	EClass getFile();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getFileDate <em>File Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>File Date</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getFileDate()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_FileDate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getName()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getNotes()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getSize <em>Size</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Size</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getSize()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_Size();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.File#getType()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_Type();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue <em>Issue</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Issue</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue
-	 * @generated
-	 */
-	EClass getIssue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getDateReported <em>Date Reported</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Date Reported</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getDateReported()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_DateReported();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getDateResolved <em>Date Resolved</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Date Resolved</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getDateResolved()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_DateResolved();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getElementID <em>Element ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Element ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getElementID()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_ElementID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getName()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getNotes()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getPriority <em>Priority</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Priority</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getPriority()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Priority();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getReporter <em>Reporter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reporter</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getReporter()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Reporter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getResolver <em>Resolver</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Resolver</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getResolver()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Resolver();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getResolverNotes <em>Resolver Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Resolver Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getResolverNotes()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_ResolverNotes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getSeverity <em>Severity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Severity</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getSeverity()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Severity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getStatus <em>Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Status</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getStatus()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Status();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue#getVersion()
-	 * @see #getIssue()
-	 * @generated
-	 */
-	EAttribute getIssue_Version();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric <em>Metric</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Metric</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric
-	 * @generated
-	 */
-	EClass getMetric();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getName()
-	 * @see #getMetric()
-	 * @generated
-	 */
-	EAttribute getMetric_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getNotes()
-	 * @see #getMetric()
-	 * @generated
-	 */
-	EAttribute getMetric_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getType()
-	 * @see #getMetric()
-	 * @generated
-	 */
-	EAttribute getMetric_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getWeight <em>Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Weight</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric#getWeight()
-	 * @see #getMetric()
-	 * @generated
-	 */
-	EAttribute getMetric_Weight();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement <em>Requirement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Requirement</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement
-	 * @generated
-	 */
-	EClass getRequirement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getDifficulty <em>Difficulty</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Difficulty</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getDifficulty()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_Difficulty();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getLastUpdate <em>Last Update</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Last Update</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getLastUpdate()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_LastUpdate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getName()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getNotes()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getParentID <em>Parent ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parent ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getParentID()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_ParentID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getPriority <em>Priority</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Priority</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getPriority()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_Priority();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getRequirementID <em>Requirement ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Requirement ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getRequirementID()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_RequirementID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getStability <em>Stability</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Stability</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getStability()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_Stability();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getStatus <em>Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Status</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getStatus()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_Status();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement#getType()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EAttribute getRequirement_Type();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource <em>Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource
-	 * @generated
-	 */
-	EClass getResource();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getActualHours <em>Actual Hours</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Actual Hours</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getActualHours()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_ActualHours();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getDateEnd <em>Date End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Date End</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getDateEnd()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_DateEnd();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getDateStart <em>Date Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Date Start</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getDateStart()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_DateStart();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getExpectedHours <em>Expected Hours</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Expected Hours</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getExpectedHours()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_ExpectedHours();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getHistory <em>History</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>History</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getHistory()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_History();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getName()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getNotes()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getPercentComplete <em>Percent Complete</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Percent Complete</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getPercentComplete()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_PercentComplete();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getRole <em>Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Role</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getRole()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_Role();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getTime <em>Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Time</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource#getTime()
-	 * @see #getResource()
-	 * @generated
-	 */
-	EAttribute getResource_Time();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk <em>Risk</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Risk</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk
-	 * @generated
-	 */
-	EClass getRisk();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getName()
-	 * @see #getRisk()
-	 * @generated
-	 */
-	EAttribute getRisk_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getNotes()
-	 * @see #getRisk()
-	 * @generated
-	 */
-	EAttribute getRisk_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getType()
-	 * @see #getRisk()
-	 * @generated
-	 */
-	EAttribute getRisk_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getWeight <em>Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Weight</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk#getWeight()
-	 * @see #getRisk()
-	 * @generated
-	 */
-	EAttribute getRisk_Weight();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario <em>Scenario</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Scenario</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario
-	 * @generated
-	 */
-	EClass getScenario();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getName()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EAttribute getScenario_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getNotes()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EAttribute getScenario_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getScenarioGUID <em>Scenario GUID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scenario GUID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getScenarioGUID()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EAttribute getScenario_ScenarioGUID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getType()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EAttribute getScenario_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getWeight <em>Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Weight</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getWeight()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EAttribute getScenario_Weight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getXMLContent <em>XML Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>XML Content</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario#getXMLContent()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EAttribute getScenario_XMLContent();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter <em>Template Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Template Parameter</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter
-	 * @generated
-	 */
-	EClass getTemplateParameter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getConstraint <em>Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Constraint</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getConstraint()
-	 * @see #getTemplateParameter()
-	 * @generated
-	 */
-	EAttribute getTemplateParameter_Constraint();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getDefault()
-	 * @see #getTemplateParameter()
-	 * @generated
-	 */
-	EAttribute getTemplateParameter_Default();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getName()
-	 * @see #getTemplateParameter()
-	 * @generated
-	 */
-	EAttribute getTemplateParameter_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getTemplateParameterID <em>Template Parameter ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Template Parameter ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getTemplateParameterID()
-	 * @see #getTemplateParameter()
-	 * @generated
-	 */
-	EAttribute getTemplateParameter_TemplateParameterID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter#getType()
-	 * @see #getTemplateParameter()
-	 * @generated
-	 */
-	EAttribute getTemplateParameter_Type();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test <em>Test</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Test</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test
-	 * @generated
-	 */
-	EClass getTest();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getAcceptanceCriteria <em>Acceptance Criteria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Acceptance Criteria</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getAcceptanceCriteria()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_AcceptanceCriteria();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getCheckedBy <em>Checked By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Checked By</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getCheckedBy()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_CheckedBy();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getClass_ <em>Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Class</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getClass_()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_Class();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getDateRun <em>Date Run</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Date Run</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getDateRun()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_DateRun();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getInput <em>Input</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Input</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getInput()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_Input();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getName()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getNotes()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getRunBy <em>Run By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Run By</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getRunBy()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_RunBy();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getStatus <em>Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Status</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getStatus()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_Status();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Test#getType()
-	 * @see #getTest()
-	 * @generated
-	 */
-	EAttribute getTest_Type();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Author <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Author</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Author
-	 * @generated
-	 */
-	EClass getAuthor();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Author#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Author#getName()
-	 * @see #getAuthor()
-	 * @generated
-	 */
-	EAttribute getAuthor_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Author#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Author#getNotes()
-	 * @see #getAuthor()
-	 * @generated
-	 */
-	EAttribute getAuthor_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Author#getRoles <em>Roles</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Roles</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Author#getRoles()
-	 * @see #getAuthor()
-	 * @generated
-	 */
-	EAttribute getAuthor_Roles();
-
-	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client <em>Client</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Client</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client
-	 * @generated
-	 */
-	EClass getClient();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getEmail <em>Email</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Email</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getEmail()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Email();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getFax <em>Fax</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Fax</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getFax()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Fax();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getMobile <em>Mobile</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mobile</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getMobile()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Mobile();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getName()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getNotes <em>Notes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Notes</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getNotes()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Notes();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getOrganization <em>Organization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Organization</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getOrganization()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Organization();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getPhone1 <em>Phone1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Phone1</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getPhone1()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Phone1();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getPhone2 <em>Phone2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Phone2</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getPhone2()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Phone2();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getRoles <em>Roles</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Roles</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Client#getRoles()
-	 * @see #getClient()
-	 * @generated
-	 */
-	EAttribute getClient_Roles();
-
-	/**
-	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType <em>Containment Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Containment Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType
-	 * @generated
-	 */
-	EEnum getContainmentType();
-
-	/**
-	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType <em>Visibility Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Visibility Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
-	 * @generated
-	 */
-	EEnum getVisibilityType();
-
-	/**
 	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType <em>Direction Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9326,16 +6324,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getDirectionType();
-
-	/**
-	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.EndType <em>End Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>End Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.EndType
-	 * @generated
-	 */
-	EEnum getEndType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -9371,14 +6359,6 @@ public interface XcorePackage extends EPackage {
 		EClass ATTRIBUTE = eINSTANCE.getAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ATTRIBUTE__ALIAS = eINSTANCE.getAttribute_Alias();
-
-		/**
 		 * The meta object literal for the '<em><b>Allow Duplicates</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9395,12 +6375,20 @@ public interface XcorePackage extends EPackage {
 		EAttribute ATTRIBUTE__ATTRIBUTE_GUID = eINSTANCE.getAttribute_AttributeGUID();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifier</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Attribute ID</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ATTRIBUTE__CLASSIFIER = eINSTANCE.getAttribute_Classifier();
+		EAttribute ATTRIBUTE__ATTRIBUTE_ID = eINSTANCE.getAttribute_AttributeID();
+
+		/**
+		 * The meta object literal for the '<em><b>Classifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__CLASSIFIER = eINSTANCE.getAttribute_Classifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Container</b></em>' attribute feature.
@@ -9737,12 +6725,12 @@ public interface XcorePackage extends EPackage {
 		EAttribute CONNECTOR__ALIAS = eINSTANCE.getConnector_Alias();
 
 		/**
-		 * The meta object literal for the '<em><b>Client End</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Client</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONNECTOR__CLIENT_END = eINSTANCE.getConnector_ClientEnd();
+		EReference CONNECTOR__CLIENT = eINSTANCE.getConnector_Client();
 
 		/**
 		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
@@ -9913,12 +6901,12 @@ public interface XcorePackage extends EPackage {
 		EAttribute CONNECTOR__SUBTYPE = eINSTANCE.getConnector_Subtype();
 
 		/**
-		 * The meta object literal for the '<em><b>Supplier End</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Supplier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONNECTOR__SUPPLIER_END = eINSTANCE.getConnector_SupplierEnd();
+		EReference CONNECTOR__SUPPLIER = eINSTANCE.getConnector_Supplier();
 
 		/**
 		 * The meta object literal for the '<em><b>Tagged Values</b></em>' containment reference feature.
@@ -10017,184 +7005,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONNECTOR_CONSTRAINT__TYPE = eINSTANCE.getConnectorConstraint_Type();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorEndImpl <em>Connector End</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorEndImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConnectorEnd()
-		 * @generated
-		 */
-		EClass CONNECTOR_END = eINSTANCE.getConnectorEnd();
-
-		/**
-		 * The meta object literal for the '<em><b>Aggregation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__AGGREGATION = eINSTANCE.getConnectorEnd_Aggregation();
-
-		/**
-		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__ALIAS = eINSTANCE.getConnectorEnd_Alias();
-
-		/**
-		 * The meta object literal for the '<em><b>Allow Duplicates</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__ALLOW_DUPLICATES = eINSTANCE.getConnectorEnd_AllowDuplicates();
-
-		/**
-		 * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__CARDINALITY = eINSTANCE.getConnectorEnd_Cardinality();
-
-		/**
-		 * The meta object literal for the '<em><b>Constraint</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__CONSTRAINT = eINSTANCE.getConnectorEnd_Constraint();
-
-		/**
-		 * The meta object literal for the '<em><b>Containment</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__CONTAINMENT = eINSTANCE.getConnectorEnd_Containment();
-
-		/**
-		 * The meta object literal for the '<em><b>Derived</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__DERIVED = eINSTANCE.getConnectorEnd_Derived();
-
-		/**
-		 * The meta object literal for the '<em><b>Derived Union</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__DERIVED_UNION = eINSTANCE.getConnectorEnd_DerivedUnion();
-
-		/**
-		 * The meta object literal for the '<em><b>End</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__END = eINSTANCE.getConnectorEnd_End();
-
-		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTOR_END__ELEMENT = eINSTANCE.getConnectorEnd_Element();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Changeable</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__IS_CHANGEABLE = eINSTANCE.getConnectorEnd_IsChangeable();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Navigable</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__IS_NAVIGABLE = eINSTANCE.getConnectorEnd_IsNavigable();
-
-		/**
-		 * The meta object literal for the '<em><b>Navigable</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__NAVIGABLE = eINSTANCE.getConnectorEnd_Navigable();
-
-		/**
-		 * The meta object literal for the '<em><b>Ordering</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__ORDERING = eINSTANCE.getConnectorEnd_Ordering();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned By Classifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__OWNED_BY_CLASSIFIER = eINSTANCE.getConnectorEnd_OwnedByClassifier();
-
-		/**
-		 * The meta object literal for the '<em><b>Qualifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__QUALIFIER = eINSTANCE.getConnectorEnd_Qualifier();
-
-		/**
-		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__ROLE = eINSTANCE.getConnectorEnd_Role();
-
-		/**
-		 * The meta object literal for the '<em><b>Role Note</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__ROLE_NOTE = eINSTANCE.getConnectorEnd_RoleNote();
-
-		/**
-		 * The meta object literal for the '<em><b>Role Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__ROLE_TYPE = eINSTANCE.getConnectorEnd_RoleType();
-
-		/**
-		 * The meta object literal for the '<em><b>Stereotype</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__STEREOTYPE = eINSTANCE.getConnectorEnd_Stereotype();
-
-		/**
-		 * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_END__VISIBILITY = eINSTANCE.getConnectorEnd_Visibility();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl <em>Connector Tag</em>}' class.
@@ -10759,14 +7569,6 @@ public interface XcorePackage extends EPackage {
 		EReference ELEMENT__CONNECTORS = eINSTANCE.getElement_Connectors();
 
 		/**
-		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__CONSTRAINTS = eINSTANCE.getElement_Constraints();
-
-		/**
 		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10789,14 +7591,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT__DIFFICULTY = eINSTANCE.getElement_Difficulty();
-
-		/**
-		 * The meta object literal for the '<em><b>Efforts</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__EFFORTS = eINSTANCE.getElement_Efforts();
 
 		/**
 		 * The meta object literal for the '<em><b>Element GUID</b></em>' attribute feature.
@@ -10845,14 +7639,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT__EXTENSION_POINTS = eINSTANCE.getElement_ExtensionPoints();
-
-		/**
-		 * The meta object literal for the '<em><b>Files</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__FILES = eINSTANCE.getElement_Files();
 
 		/**
 		 * The meta object literal for the '<em><b>Gen File</b></em>' attribute feature.
@@ -10919,14 +7705,6 @@ public interface XcorePackage extends EPackage {
 		EAttribute ELEMENT__IS_SPEC = eINSTANCE.getElement_IsSpec();
 
 		/**
-		 * The meta object literal for the '<em><b>Issues</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__ISSUES = eINSTANCE.getElement_Issues();
-
-		/**
 		 * The meta object literal for the '<em><b>Locked</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10949,14 +7727,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT__METHODS = eINSTANCE.getElement_Methods();
-
-		/**
-		 * The meta object literal for the '<em><b>Metrics</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__METRICS = eINSTANCE.getElement_Metrics();
 
 		/**
 		 * The meta object literal for the '<em><b>Misc Data</b></em>' attribute feature.
@@ -11055,44 +7825,12 @@ public interface XcorePackage extends EPackage {
 		EAttribute ELEMENT__PROPERTY_TYPE_NAME = eINSTANCE.getElement_PropertyTypeName();
 
 		/**
-		 * The meta object literal for the '<em><b>Requirements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__REQUIREMENTS = eINSTANCE.getElement_Requirements();
-
-		/**
-		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__RESOURCES = eINSTANCE.getElement_Resources();
-
-		/**
-		 * The meta object literal for the '<em><b>Risks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__RISKS = eINSTANCE.getElement_Risks();
-
-		/**
 		 * The meta object literal for the '<em><b>Run State</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ELEMENT__RUN_STATE = eINSTANCE.getElement_RunState();
-
-		/**
-		 * The meta object literal for the '<em><b>Scenarios</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__SCENARIOS = eINSTANCE.getElement_Scenarios();
 
 		/**
 		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
@@ -11149,22 +7887,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT__TAGGED_VALUES = eINSTANCE.getElement_TaggedValues();
-
-		/**
-		 * The meta object literal for the '<em><b>Template Parameters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__TEMPLATE_PARAMETERS = eINSTANCE.getElement_TemplateParameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Tests</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__TESTS = eINSTANCE.getElement_Tests();
 
 		/**
 		 * The meta object literal for the '<em><b>Tree Pos</b></em>' attribute feature.
@@ -12037,868 +8759,6 @@ public interface XcorePackage extends EPackage {
 		EAttribute TAGGED_VALUE__VALUE = eINSTANCE.getTaggedValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConstraintImpl <em>Constraint</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConstraintImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConstraint()
-		 * @generated
-		 */
-		EClass CONSTRAINT = eINSTANCE.getConstraint();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTRAINT__NAME = eINSTANCE.getConstraint_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTRAINT__NOTES = eINSTANCE.getConstraint_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTRAINT__PARENT_ID = eINSTANCE.getConstraint_ParentID();
-
-		/**
-		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTRAINT__STATUS = eINSTANCE.getConstraint_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTRAINT__TYPE = eINSTANCE.getConstraint_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTRAINT__WEIGHT = eINSTANCE.getConstraint_Weight();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.EffortImpl <em>Effort</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.EffortImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getEffort()
-		 * @generated
-		 */
-		EClass EFFORT = eINSTANCE.getEffort();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EFFORT__NAME = eINSTANCE.getEffort_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EFFORT__NOTES = eINSTANCE.getEffort_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EFFORT__TYPE = eINSTANCE.getEffort_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EFFORT__WEIGHT = eINSTANCE.getEffort_Weight();
-
-		/**
-		 * The meta object literal for the '<em><b>Weight2</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EFFORT__WEIGHT2 = eINSTANCE.getEffort_Weight2();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.FileImpl <em>File</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.FileImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getFile()
-		 * @generated
-		 */
-		EClass FILE = eINSTANCE.getFile();
-
-		/**
-		 * The meta object literal for the '<em><b>File Date</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__FILE_DATE = eINSTANCE.getFile_FileDate();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__NAME = eINSTANCE.getFile_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__NOTES = eINSTANCE.getFile_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__SIZE = eINSTANCE.getFile_Size();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__TYPE = eINSTANCE.getFile_Type();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.IssueImpl <em>Issue</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.IssueImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getIssue()
-		 * @generated
-		 */
-		EClass ISSUE = eINSTANCE.getIssue();
-
-		/**
-		 * The meta object literal for the '<em><b>Date Reported</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__DATE_REPORTED = eINSTANCE.getIssue_DateReported();
-
-		/**
-		 * The meta object literal for the '<em><b>Date Resolved</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__DATE_RESOLVED = eINSTANCE.getIssue_DateResolved();
-
-		/**
-		 * The meta object literal for the '<em><b>Element ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__ELEMENT_ID = eINSTANCE.getIssue_ElementID();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__NAME = eINSTANCE.getIssue_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__NOTES = eINSTANCE.getIssue_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__PRIORITY = eINSTANCE.getIssue_Priority();
-
-		/**
-		 * The meta object literal for the '<em><b>Reporter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__REPORTER = eINSTANCE.getIssue_Reporter();
-
-		/**
-		 * The meta object literal for the '<em><b>Resolver</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__RESOLVER = eINSTANCE.getIssue_Resolver();
-
-		/**
-		 * The meta object literal for the '<em><b>Resolver Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__RESOLVER_NOTES = eINSTANCE.getIssue_ResolverNotes();
-
-		/**
-		 * The meta object literal for the '<em><b>Severity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__SEVERITY = eINSTANCE.getIssue_Severity();
-
-		/**
-		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__STATUS = eINSTANCE.getIssue_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ISSUE__VERSION = eINSTANCE.getIssue_Version();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MetricImpl <em>Metric</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MetricImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getMetric()
-		 * @generated
-		 */
-		EClass METRIC = eINSTANCE.getMetric();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute METRIC__NAME = eINSTANCE.getMetric_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute METRIC__NOTES = eINSTANCE.getMetric_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute METRIC__TYPE = eINSTANCE.getMetric_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute METRIC__WEIGHT = eINSTANCE.getMetric_Weight();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RequirementImpl <em>Requirement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RequirementImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getRequirement()
-		 * @generated
-		 */
-		EClass REQUIREMENT = eINSTANCE.getRequirement();
-
-		/**
-		 * The meta object literal for the '<em><b>Difficulty</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__DIFFICULTY = eINSTANCE.getRequirement_Difficulty();
-
-		/**
-		 * The meta object literal for the '<em><b>Last Update</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__LAST_UPDATE = eINSTANCE.getRequirement_LastUpdate();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__NAME = eINSTANCE.getRequirement_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__NOTES = eINSTANCE.getRequirement_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__PARENT_ID = eINSTANCE.getRequirement_ParentID();
-
-		/**
-		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__PRIORITY = eINSTANCE.getRequirement_Priority();
-
-		/**
-		 * The meta object literal for the '<em><b>Requirement ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__REQUIREMENT_ID = eINSTANCE.getRequirement_RequirementID();
-
-		/**
-		 * The meta object literal for the '<em><b>Stability</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__STABILITY = eINSTANCE.getRequirement_Stability();
-
-		/**
-		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__STATUS = eINSTANCE.getRequirement_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REQUIREMENT__TYPE = eINSTANCE.getRequirement_Type();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ResourceImpl <em>Resource</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ResourceImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getResource()
-		 * @generated
-		 */
-		EClass RESOURCE = eINSTANCE.getResource();
-
-		/**
-		 * The meta object literal for the '<em><b>Actual Hours</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__ACTUAL_HOURS = eINSTANCE.getResource_ActualHours();
-
-		/**
-		 * The meta object literal for the '<em><b>Date End</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__DATE_END = eINSTANCE.getResource_DateEnd();
-
-		/**
-		 * The meta object literal for the '<em><b>Date Start</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__DATE_START = eINSTANCE.getResource_DateStart();
-
-		/**
-		 * The meta object literal for the '<em><b>Expected Hours</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__EXPECTED_HOURS = eINSTANCE.getResource_ExpectedHours();
-
-		/**
-		 * The meta object literal for the '<em><b>History</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__HISTORY = eINSTANCE.getResource_History();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__NOTES = eINSTANCE.getResource_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Percent Complete</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__PERCENT_COMPLETE = eINSTANCE.getResource_PercentComplete();
-
-		/**
-		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__ROLE = eINSTANCE.getResource_Role();
-
-		/**
-		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE__TIME = eINSTANCE.getResource_Time();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RiskImpl <em>Risk</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.RiskImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getRisk()
-		 * @generated
-		 */
-		EClass RISK = eINSTANCE.getRisk();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RISK__NAME = eINSTANCE.getRisk_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RISK__NOTES = eINSTANCE.getRisk_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RISK__TYPE = eINSTANCE.getRisk_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RISK__WEIGHT = eINSTANCE.getRisk_Weight();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ScenarioImpl <em>Scenario</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ScenarioImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getScenario()
-		 * @generated
-		 */
-		EClass SCENARIO = eINSTANCE.getScenario();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENARIO__NAME = eINSTANCE.getScenario_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENARIO__NOTES = eINSTANCE.getScenario_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Scenario GUID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENARIO__SCENARIO_GUID = eINSTANCE.getScenario_ScenarioGUID();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENARIO__TYPE = eINSTANCE.getScenario_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENARIO__WEIGHT = eINSTANCE.getScenario_Weight();
-
-		/**
-		 * The meta object literal for the '<em><b>XML Content</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENARIO__XML_CONTENT = eINSTANCE.getScenario_XMLContent();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TemplateParameterImpl <em>Template Parameter</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TemplateParameterImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getTemplateParameter()
-		 * @generated
-		 */
-		EClass TEMPLATE_PARAMETER = eINSTANCE.getTemplateParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Constraint</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEMPLATE_PARAMETER__CONSTRAINT = eINSTANCE.getTemplateParameter_Constraint();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEMPLATE_PARAMETER__DEFAULT = eINSTANCE.getTemplateParameter_Default();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEMPLATE_PARAMETER__NAME = eINSTANCE.getTemplateParameter_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Template Parameter ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_ID = eINSTANCE.getTemplateParameter_TemplateParameterID();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEMPLATE_PARAMETER__TYPE = eINSTANCE.getTemplateParameter_Type();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TestImpl <em>Test</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.TestImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getTest()
-		 * @generated
-		 */
-		EClass TEST = eINSTANCE.getTest();
-
-		/**
-		 * The meta object literal for the '<em><b>Acceptance Criteria</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__ACCEPTANCE_CRITERIA = eINSTANCE.getTest_AcceptanceCriteria();
-
-		/**
-		 * The meta object literal for the '<em><b>Checked By</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__CHECKED_BY = eINSTANCE.getTest_CheckedBy();
-
-		/**
-		 * The meta object literal for the '<em><b>Class</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__CLASS = eINSTANCE.getTest_Class();
-
-		/**
-		 * The meta object literal for the '<em><b>Date Run</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__DATE_RUN = eINSTANCE.getTest_DateRun();
-
-		/**
-		 * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__INPUT = eINSTANCE.getTest_Input();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__NAME = eINSTANCE.getTest_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__NOTES = eINSTANCE.getTest_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Run By</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__RUN_BY = eINSTANCE.getTest_RunBy();
-
-		/**
-		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__STATUS = eINSTANCE.getTest_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEST__TYPE = eINSTANCE.getTest_Type();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AuthorImpl <em>Author</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AuthorImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getAuthor()
-		 * @generated
-		 */
-		EClass AUTHOR = eINSTANCE.getAuthor();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AUTHOR__NAME = eINSTANCE.getAuthor_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AUTHOR__NOTES = eINSTANCE.getAuthor_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Roles</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AUTHOR__ROLES = eINSTANCE.getAuthor_Roles();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ClientImpl <em>Client</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ClientImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getClient()
-		 * @generated
-		 */
-		EClass CLIENT = eINSTANCE.getClient();
-
-		/**
-		 * The meta object literal for the '<em><b>Email</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__EMAIL = eINSTANCE.getClient_Email();
-
-		/**
-		 * The meta object literal for the '<em><b>Fax</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__FAX = eINSTANCE.getClient_Fax();
-
-		/**
-		 * The meta object literal for the '<em><b>Mobile</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__MOBILE = eINSTANCE.getClient_Mobile();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__NAME = eINSTANCE.getClient_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__NOTES = eINSTANCE.getClient_Notes();
-
-		/**
-		 * The meta object literal for the '<em><b>Organization</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__ORGANIZATION = eINSTANCE.getClient_Organization();
-
-		/**
-		 * The meta object literal for the '<em><b>Phone1</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__PHONE1 = eINSTANCE.getClient_Phone1();
-
-		/**
-		 * The meta object literal for the '<em><b>Phone2</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__PHONE2 = eINSTANCE.getClient_Phone2();
-
-		/**
-		 * The meta object literal for the '<em><b>Roles</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CLIENT__ROLES = eINSTANCE.getClient_Roles();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType <em>Containment Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getContainmentType()
-		 * @generated
-		 */
-		EEnum CONTAINMENT_TYPE = eINSTANCE.getContainmentType();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType <em>Visibility Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getVisibilityType()
-		 * @generated
-		 */
-		EEnum VISIBILITY_TYPE = eINSTANCE.getVisibilityType();
-
-		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType <em>Direction Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12907,16 +8767,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DIRECTION_TYPE = eINSTANCE.getDirectionType();
-
-		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.EndType <em>End Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.EndType
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getEndType()
-		 * @generated
-		 */
-		EEnum END_TYPE = eINSTANCE.getEndType();
 
 	}
 

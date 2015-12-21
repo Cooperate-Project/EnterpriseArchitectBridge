@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getAlias <em>Alias</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClientEnd <em>Client End</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClient <em>Client</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getColor <em>Color</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConnectorID <em>Connector ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDirection <em>Direction</em>}</li>
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStyleEx <em>Style Ex</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSubtype <em>Subtype</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplierEnd <em>Supplier End</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplier <em>Supplier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionAction <em>Transition Action</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionEvent <em>Transition Event</em>}</li>
@@ -78,30 +78,30 @@ public interface Connector extends EObject {
 	void setAlias(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Client End</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Client</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Client End</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Client</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Client End</em>' containment reference.
-	 * @see #setClientEnd(ConnectorEnd)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_ClientEnd()
-	 * @model containment="true"
+	 * @return the value of the '<em>Client</em>' reference.
+	 * @see #setClient(Element)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Client()
+	 * @model
 	 * @generated
 	 */
-	ConnectorEnd getClientEnd();
+	Element getClient();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClientEnd <em>Client End</em>}' containment reference.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClient <em>Client</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Client End</em>' containment reference.
-	 * @see #getClientEnd()
+	 * @param value the new value of the '<em>Client</em>' reference.
+	 * @see #getClient()
 	 * @generated
 	 */
-	void setClientEnd(ConnectorEnd value);
+	void setClient(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' attribute.
@@ -653,30 +653,30 @@ public interface Connector extends EObject {
 	void setSubtype(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Supplier End</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Supplier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Supplier End</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Supplier</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supplier End</em>' containment reference.
-	 * @see #setSupplierEnd(ConnectorEnd)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SupplierEnd()
-	 * @model containment="true"
+	 * @return the value of the '<em>Supplier</em>' reference.
+	 * @see #setSupplier(Element)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Supplier()
+	 * @model
 	 * @generated
 	 */
-	ConnectorEnd getSupplierEnd();
+	Element getSupplier();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplierEnd <em>Supplier End</em>}' containment reference.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplier <em>Supplier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supplier End</em>' containment reference.
-	 * @see #getSupplierEnd()
+	 * @param value the new value of the '<em>Supplier</em>' reference.
+	 * @see #getSupplier()
 	 * @generated
 	 */
-	void setSupplierEnd(ConnectorEnd value);
+	void setSupplier(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Tagged Values</b></em>' containment reference.

@@ -5,9 +5,7 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ContainmentType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import java.util.Collection;
@@ -35,9 +33,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getAllowDuplicates <em>Allow Duplicates</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getAttributeGUID <em>Attribute GUID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getAttributeID <em>Attribute ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getClassifier <em>Classifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getContainment <em>Containment</em>}</li>
@@ -70,26 +68,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class AttributeImpl extends MinimalEObjectImpl.Container implements Attribute {
-	/**
-	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAlias()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ALIAS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAlias()
-	 * @generated
-	 * @ordered
-	 */
-	protected String alias = ALIAS_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getAllowDuplicates() <em>Allow Duplicates</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -131,14 +109,44 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	protected String attributeGUID = ATTRIBUTE_GUID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' reference.
+	 * The default value of the '{@link #getAttributeID() <em>Attribute ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributeID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long ATTRIBUTE_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAttributeID() <em>Attribute ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributeID()
+	 * @generated
+	 * @ordered
+	 */
+	protected Long attributeID = ATTRIBUTE_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Element classifier;
+	protected static final String CLASSIFIER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected String classifier = CLASSIFIER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getContainer() <em>Container</em>}' attribute.
@@ -168,7 +176,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ContainmentType CONTAINMENT_EDEFAULT = ContainmentType.NOT_SPECIFIED;
+	protected static final String CONTAINMENT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getContainment() <em>Containment</em>}' attribute.
@@ -178,7 +186,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 * @ordered
 	 */
-	protected ContainmentType containment = CONTAINMENT_EDEFAULT;
+	protected String containment = CONTAINMENT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
@@ -608,7 +616,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 * @ordered
 	 */
-	protected static final VisibilityType VISIBILITY_EDEFAULT = VisibilityType.PRIVATE;
+	protected static final String VISIBILITY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
@@ -618,7 +626,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 * @ordered
 	 */
-	protected VisibilityType visibility = VISIBILITY_EDEFAULT;
+	protected String visibility = VISIBILITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -637,27 +645,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	protected EClass eStaticClass() {
 		return XcorePackage.Literals.ATTRIBUTE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getAlias() {
-		return alias;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAlias(String newAlias) {
-		String oldAlias = alias;
-		alias = newAlias;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__ALIAS, oldAlias, alias));
 	}
 
 	/**
@@ -707,15 +694,28 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getClassifier() {
-		if (classifier != null && classifier.eIsProxy()) {
-			InternalEObject oldClassifier = (InternalEObject)classifier;
-			classifier = (Element)eResolveProxy(oldClassifier);
-			if (classifier != oldClassifier) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.ATTRIBUTE__CLASSIFIER, oldClassifier, classifier));
-			}
-		}
+	public Long getAttributeID() {
+		return attributeID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAttributeID(Long newAttributeID) {
+		Long oldAttributeID = attributeID;
+		attributeID = newAttributeID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__ATTRIBUTE_ID, oldAttributeID, attributeID));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getClassifier() {
 		return classifier;
 	}
 
@@ -724,17 +724,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetClassifier() {
-		return classifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClassifier(Element newClassifier) {
-		Element oldClassifier = classifier;
+	public void setClassifier(String newClassifier) {
+		String oldClassifier = classifier;
 		classifier = newClassifier;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__CLASSIFIER, oldClassifier, classifier));
@@ -766,7 +757,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContainmentType getContainment() {
+	public String getContainment() {
 		return containment;
 	}
 
@@ -775,9 +766,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContainment(ContainmentType newContainment) {
-		ContainmentType oldContainment = containment;
-		containment = newContainment == null ? CONTAINMENT_EDEFAULT : newContainment;
+	public void setContainment(String newContainment) {
+		String oldContainment = containment;
+		containment = newContainment;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__CONTAINMENT, oldContainment, containment));
 	}
@@ -1282,7 +1273,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VisibilityType getVisibility() {
+	public String getVisibility() {
 		return visibility;
 	}
 
@@ -1291,9 +1282,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVisibility(VisibilityType newVisibility) {
-		VisibilityType oldVisibility = visibility;
-		visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+	public void setVisibility(String newVisibility) {
+		String oldVisibility = visibility;
+		visibility = newVisibility;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__VISIBILITY, oldVisibility, visibility));
 	}
@@ -1359,15 +1350,14 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE__ALIAS:
-				return getAlias();
 			case XcorePackage.ATTRIBUTE__ALLOW_DUPLICATES:
 				return getAllowDuplicates();
 			case XcorePackage.ATTRIBUTE__ATTRIBUTE_GUID:
 				return getAttributeGUID();
+			case XcorePackage.ATTRIBUTE__ATTRIBUTE_ID:
+				return getAttributeID();
 			case XcorePackage.ATTRIBUTE__CLASSIFIER:
-				if (resolve) return getClassifier();
-				return basicGetClassifier();
+				return getClassifier();
 			case XcorePackage.ATTRIBUTE__CONTAINER:
 				return getContainer();
 			case XcorePackage.ATTRIBUTE__CONTAINMENT:
@@ -1434,23 +1424,23 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE__ALIAS:
-				setAlias((String)newValue);
-				return;
 			case XcorePackage.ATTRIBUTE__ALLOW_DUPLICATES:
 				setAllowDuplicates((Boolean)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE__ATTRIBUTE_GUID:
 				setAttributeGUID((String)newValue);
 				return;
+			case XcorePackage.ATTRIBUTE__ATTRIBUTE_ID:
+				setAttributeID((Long)newValue);
+				return;
 			case XcorePackage.ATTRIBUTE__CLASSIFIER:
-				setClassifier((Element)newValue);
+				setClassifier((String)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE__CONTAINER:
 				setContainer((String)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE__CONTAINMENT:
-				setContainment((ContainmentType)newValue);
+				setContainment((String)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE__CONSTRAINTS:
 				getConstraints().clear();
@@ -1524,7 +1514,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				setUpperBound((String)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE__VISIBILITY:
-				setVisibility((VisibilityType)newValue);
+				setVisibility((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1538,17 +1528,17 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE__ALIAS:
-				setAlias(ALIAS_EDEFAULT);
-				return;
 			case XcorePackage.ATTRIBUTE__ALLOW_DUPLICATES:
 				setAllowDuplicates(ALLOW_DUPLICATES_EDEFAULT);
 				return;
 			case XcorePackage.ATTRIBUTE__ATTRIBUTE_GUID:
 				setAttributeGUID(ATTRIBUTE_GUID_EDEFAULT);
 				return;
+			case XcorePackage.ATTRIBUTE__ATTRIBUTE_ID:
+				setAttributeID(ATTRIBUTE_ID_EDEFAULT);
+				return;
 			case XcorePackage.ATTRIBUTE__CLASSIFIER:
-				setClassifier((Element)null);
+				setClassifier(CLASSIFIER_EDEFAULT);
 				return;
 			case XcorePackage.ATTRIBUTE__CONTAINER:
 				setContainer(CONTAINER_EDEFAULT);
@@ -1640,18 +1630,18 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE__ALIAS:
-				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
 			case XcorePackage.ATTRIBUTE__ALLOW_DUPLICATES:
 				return ALLOW_DUPLICATES_EDEFAULT == null ? allowDuplicates != null : !ALLOW_DUPLICATES_EDEFAULT.equals(allowDuplicates);
 			case XcorePackage.ATTRIBUTE__ATTRIBUTE_GUID:
 				return ATTRIBUTE_GUID_EDEFAULT == null ? attributeGUID != null : !ATTRIBUTE_GUID_EDEFAULT.equals(attributeGUID);
+			case XcorePackage.ATTRIBUTE__ATTRIBUTE_ID:
+				return ATTRIBUTE_ID_EDEFAULT == null ? attributeID != null : !ATTRIBUTE_ID_EDEFAULT.equals(attributeID);
 			case XcorePackage.ATTRIBUTE__CLASSIFIER:
-				return classifier != null;
+				return CLASSIFIER_EDEFAULT == null ? classifier != null : !CLASSIFIER_EDEFAULT.equals(classifier);
 			case XcorePackage.ATTRIBUTE__CONTAINER:
 				return CONTAINER_EDEFAULT == null ? container != null : !CONTAINER_EDEFAULT.equals(container);
 			case XcorePackage.ATTRIBUTE__CONTAINMENT:
-				return containment != CONTAINMENT_EDEFAULT;
+				return CONTAINMENT_EDEFAULT == null ? containment != null : !CONTAINMENT_EDEFAULT.equals(containment);
 			case XcorePackage.ATTRIBUTE__CONSTRAINTS:
 				return constraints != null && !constraints.isEmpty();
 			case XcorePackage.ATTRIBUTE__DEFAULT:
@@ -1699,7 +1689,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__UPPER_BOUND:
 				return UPPER_BOUND_EDEFAULT == null ? upperBound != null : !UPPER_BOUND_EDEFAULT.equals(upperBound);
 			case XcorePackage.ATTRIBUTE__VISIBILITY:
-				return visibility != VISIBILITY_EDEFAULT;
+				return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1714,12 +1704,14 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Alias: ");
-		result.append(alias);
-		result.append(", AllowDuplicates: ");
+		result.append(" (AllowDuplicates: ");
 		result.append(allowDuplicates);
 		result.append(", AttributeGUID: ");
 		result.append(attributeGUID);
+		result.append(", AttributeID: ");
+		result.append(attributeID);
+		result.append(", Classifier: ");
+		result.append(classifier);
 		result.append(", Container: ");
 		result.append(container);
 		result.append(", Containment: ");

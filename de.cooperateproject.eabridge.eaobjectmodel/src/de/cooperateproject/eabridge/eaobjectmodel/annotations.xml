@@ -2,12 +2,10 @@
 <persistence-mapping xmlns="http://www.eclipse.org/emft/teneo"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	
-	<epackage namespace-uri="de.cooperate.plantumlpp.xcore">
-		<eclass name="Attribute">
-			<table name="t_attribute"/>
-				<property name="AttributeID">
-			<column name="ID" unique="true" length="25"/>
-				</property>
+	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel.xcore">
+		<eclass name="Element">
+			<table name="t_object"/>
+
 			
 			
 		</eclass>

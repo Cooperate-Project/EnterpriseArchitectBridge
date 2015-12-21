@@ -30,18 +30,15 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getComplexity <em>Complexity</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCompositeDiagram <em>Composite Diagram</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConnectors <em>Connectors</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCreated <em>Created</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getDifficulty <em>Difficulty</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getEfforts <em>Efforts</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElementGUID <em>Element GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElementID <em>Element ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getEmbeddedElements <em>Embedded Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getEventFlags <em>Event Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getExtensionPoints <em>Extension Points</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getFiles <em>Files</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getGenFile <em>Gen File</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getGenlinks <em>Genlinks</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getGenType <em>Gen Type</em>}</li>
@@ -50,11 +47,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsLeaf <em>Is Leaf</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsNew <em>Is New</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsSpec <em>Is Spec</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIssues <em>Issues</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getLocked <em>Locked</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMetaType <em>Meta Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMethods <em>Methods</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMetrics <em>Metrics</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMiscData <em>Misc Data</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getModified <em>Modified</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMultiplicity <em>Multiplicity</em>}</li>
@@ -67,11 +62,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPriority <em>Priority</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPropertyType <em>Property Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPropertyTypeName <em>Property Type Name</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRequirements <em>Requirements</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getResources <em>Resources</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRisks <em>Risks</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRunState <em>Run State</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getScenarios <em>Scenarios</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStatus <em>Status</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStyleEx <em>Style Ex</em>}</li>
@@ -79,8 +70,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTablespace <em>Tablespace</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTag <em>Tag</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTaggedValues <em>Tagged Values</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTemplateParameters <em>Template Parameters</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTests <em>Tests</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTreePos <em>Tree Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getVersion <em>Version</em>}</li>
@@ -403,22 +392,6 @@ public interface Element extends EObject {
 	EList<Connector> getConnectors();
 
 	/**
-	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Constraint}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraints</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Constraints()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constraint> getConstraints();
-
-	/**
 	 * Returns the value of the '<em><b>Created</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -485,22 +458,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setDifficulty(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Efforts</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Effort}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Efforts</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Efforts</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Efforts()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Effort> getEfforts();
 
 	/**
 	 * Returns the value of the '<em><b>Element GUID</b></em>' attribute.
@@ -637,22 +594,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setExtensionPoints(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Files</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.File}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Files</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Files</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Files()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<File> getFiles();
 
 	/**
 	 * Returns the value of the '<em><b>Gen File</b></em>' attribute.
@@ -863,22 +804,6 @@ public interface Element extends EObject {
 	void setIsSpec(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Issues</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Issue}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Issues</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issues</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Issues()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Issue> getIssues();
-
-	/**
 	 * Returns the value of the '<em><b>Locked</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -947,22 +872,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	EList<Method> getMethods();
-
-	/**
-	 * Returns the value of the '<em><b>Metrics</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Metric}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Metrics</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Metrics</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Metrics()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Metric> getMetrics();
 
 	/**
 	 * Returns the value of the '<em><b>Misc Data</b></em>' attribute.
@@ -1269,54 +1178,6 @@ public interface Element extends EObject {
 	void setPropertyTypeName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Requirement}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Requirements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Requirements</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Requirements()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Requirement> getRequirements();
-
-	/**
-	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Resource}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resources</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Resources()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Resource> getResources();
-
-	/**
-	 * Returns the value of the '<em><b>Risks</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Risk}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Risks</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Risks</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Risks()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Risk> getRisks();
-
-	/**
 	 * Returns the value of the '<em><b>Run State</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1341,22 +1202,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setRunState(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Scenarios</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Scenario}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Scenarios</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scenarios</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Scenarios()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Scenario> getScenarios();
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.
@@ -1531,38 +1376,6 @@ public interface Element extends EObject {
 	EList<TaggedValue> getTaggedValues();
 
 	/**
-	 * Returns the value of the '<em><b>Template Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TemplateParameter}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Template Parameters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Template Parameters</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_TemplateParameters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<TemplateParameter> getTemplateParameters();
-
-	/**
-	 * Returns the value of the '<em><b>Tests</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Test}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tests</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tests</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Tests()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Test> getTests();
-
-	/**
 	 * Returns the value of the '<em><b>Tree Pos</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1642,7 +1455,6 @@ public interface Element extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Visibility</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear,
@@ -1650,23 +1462,21 @@ public interface Element extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Visibility</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
-	 * @see #setVisibility(VisibilityType)
+	 * @see #setVisibility(String)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Visibility()
 	 * @model unique="false"
 	 * @generated
 	 */
-	VisibilityType getVisibility();
+	String getVisibility();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getVisibility <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Visibility</em>' attribute.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.VisibilityType
 	 * @see #getVisibility()
 	 * @generated
 	 */
-	void setVisibility(VisibilityType value);
+	void setVisibility(String value);
 
 } // Element
