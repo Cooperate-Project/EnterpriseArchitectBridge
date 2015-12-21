@@ -13,7 +13,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Environment;
 
-import de.cooperate.plantumlpp.xcore.XcorePackage;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 public class Application {
 	

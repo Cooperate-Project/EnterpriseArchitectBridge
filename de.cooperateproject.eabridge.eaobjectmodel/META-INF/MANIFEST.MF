@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: de.cooperate.plantumlpp.xcore,
- de.cooperate.plantumlpp.xcore.impl,
- de.cooperate.plantumlpp.xcore.util
+Export-Package: de.cooperateproject.eabridge.eaobjectmodel.xcore,
+ de.cooperateproject.eabridge.eaobjectmodel.xcore.impl,
+ de.cooperateproject.eabridge.eaobjectmodel.xcore.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,

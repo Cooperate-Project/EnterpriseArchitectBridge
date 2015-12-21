@@ -1,4 +1,4 @@
-package de.cooperate.plantumlpp.xcore
+package de.cooperateproject.eabridge.eaobjectmodel.xcore
 
 //associated with t_attribute table in .eap file
 class Attribute {
@@ -19,7 +19,7 @@ class Attribute {
 	//	A globally unique ID for the current attribute. This attribute is system generated.
 	//	
 	//	
-	Long	AttributeID //	Read only
+//	Long	AttributeID //	Read only
 	//	
 	//	The local ID number of the attribute.
 	//	
