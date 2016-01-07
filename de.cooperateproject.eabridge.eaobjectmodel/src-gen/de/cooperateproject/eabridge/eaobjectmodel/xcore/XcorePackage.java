@@ -367,22 +367,40 @@ public interface XcorePackage extends EPackage {
 	int ATTRIBUTE_CONSTRAINT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Element Of Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE = 0;
+
+	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONSTRAINT__ATTRIBUTE = 0;
+	int ATTRIBUTE_CONSTRAINT__ATTRIBUTE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Constraint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONSTRAINT__NAME = 1;
+	int ATTRIBUTE_CONSTRAINT__CONSTRAINT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Att Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_CONSTRAINT__ATT_NAME = 3;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -391,7 +409,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONSTRAINT__NOTES = 2;
+	int ATTRIBUTE_CONSTRAINT__NOTES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -400,7 +418,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONSTRAINT__TYPE = 3;
+	int ATTRIBUTE_CONSTRAINT__TYPE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Attribute Constraint</em>' class.
@@ -409,7 +427,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_CONSTRAINT_FEATURE_COUNT = 4;
+	int ATTRIBUTE_CONSTRAINT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Attribute Constraint</em>' class.
@@ -3416,6 +3434,17 @@ public interface XcorePackage extends EPackage {
 	EClass getAttributeConstraint();
 
 	/**
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getElementOfAttribute <em>Element Of Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element Of Attribute</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getElementOfAttribute()
+	 * @see #getAttributeConstraint()
+	 * @generated
+	 */
+	EReference getAttributeConstraint_ElementOfAttribute();
+
+	/**
 	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3427,15 +3456,26 @@ public interface XcorePackage extends EPackage {
 	EReference getAttributeConstraint_Attribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getConstraint <em>Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getName()
+	 * @return the meta object for the attribute '<em>Constraint</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getConstraint()
 	 * @see #getAttributeConstraint()
 	 * @generated
 	 */
-	EAttribute getAttributeConstraint_Name();
+	EAttribute getAttributeConstraint_Constraint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getAttName <em>Att Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Att Name</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getAttName()
+	 * @see #getAttributeConstraint()
+	 * @generated
+	 */
+	EAttribute getAttributeConstraint_AttName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getNotes <em>Notes</em>}'.
@@ -6609,6 +6649,14 @@ public interface XcorePackage extends EPackage {
 		EClass ATTRIBUTE_CONSTRAINT = eINSTANCE.getAttributeConstraint();
 
 		/**
+		 * The meta object literal for the '<em><b>Element Of Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE = eINSTANCE.getAttributeConstraint_ElementOfAttribute();
+
+		/**
 		 * The meta object literal for the '<em><b>Attribute</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6617,12 +6665,20 @@ public interface XcorePackage extends EPackage {
 		EReference ATTRIBUTE_CONSTRAINT__ATTRIBUTE = eINSTANCE.getAttributeConstraint_Attribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Constraint</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ATTRIBUTE_CONSTRAINT__NAME = eINSTANCE.getAttributeConstraint_Name();
+		EAttribute ATTRIBUTE_CONSTRAINT__CONSTRAINT = eINSTANCE.getAttributeConstraint_Constraint();
+
+		/**
+		 * The meta object literal for the '<em><b>Att Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE_CONSTRAINT__ATT_NAME = eINSTANCE.getAttributeConstraint_AttName();
 
 		/**
 		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.

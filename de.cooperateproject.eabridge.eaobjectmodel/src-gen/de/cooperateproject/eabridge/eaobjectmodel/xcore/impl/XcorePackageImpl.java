@@ -521,7 +521,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttributeConstraint_Attribute() {
+	public EReference getAttributeConstraint_ElementOfAttribute() {
 		return (EReference)attributeConstraintEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -530,8 +530,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeConstraint_Name() {
-		return (EAttribute)attributeConstraintEClass.getEStructuralFeatures().get(1);
+	public EReference getAttributeConstraint_Attribute() {
+		return (EReference)attributeConstraintEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -539,7 +539,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeConstraint_Notes() {
+	public EAttribute getAttributeConstraint_Constraint() {
 		return (EAttribute)attributeConstraintEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -548,8 +548,26 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeConstraint_Type() {
+	public EAttribute getAttributeConstraint_AttName() {
 		return (EAttribute)attributeConstraintEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttributeConstraint_Notes() {
+		return (EAttribute)attributeConstraintEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttributeConstraint_Type() {
+		return (EAttribute)attributeConstraintEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2971,8 +2989,10 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(attributeEClass, ATTRIBUTE__VISIBILITY);
 
 		attributeConstraintEClass = createEClass(ATTRIBUTE_CONSTRAINT);
+		createEReference(attributeConstraintEClass, ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE);
 		createEReference(attributeConstraintEClass, ATTRIBUTE_CONSTRAINT__ATTRIBUTE);
-		createEAttribute(attributeConstraintEClass, ATTRIBUTE_CONSTRAINT__NAME);
+		createEAttribute(attributeConstraintEClass, ATTRIBUTE_CONSTRAINT__CONSTRAINT);
+		createEAttribute(attributeConstraintEClass, ATTRIBUTE_CONSTRAINT__ATT_NAME);
 		createEAttribute(attributeConstraintEClass, ATTRIBUTE_CONSTRAINT__NOTES);
 		createEAttribute(attributeConstraintEClass, ATTRIBUTE_CONSTRAINT__TYPE);
 
@@ -3322,8 +3342,10 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getAttribute_Visibility(), theEcorePackage.getEString(), "Visibility", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeConstraintEClass, AttributeConstraint.class, "AttributeConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributeConstraint_ElementOfAttribute(), this.getElement(), null, "ElementOfAttribute", null, 0, 1, AttributeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttributeConstraint_Attribute(), this.getAttribute(), this.getAttribute_Constraints(), "Attribute", null, 0, 1, AttributeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttributeConstraint_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, AttributeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttributeConstraint_Constraint(), theEcorePackage.getEString(), "Constraint", null, 0, 1, AttributeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttributeConstraint_AttName(), theEcorePackage.getEString(), "AttName", null, 0, 1, AttributeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeConstraint_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, AttributeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeConstraint_Type(), theEcorePackage.getEString(), "Type", null, 0, 1, AttributeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3523,7 +3545,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEReference(getMethod_TaggedValues(), this.getMethodTag(), null, "TaggedValues", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Visibility(), theEcorePackage.getEString(), "Visibility", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(methodConstraintEClass, MethodConstraint.class, "MethodConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(methodConstraintEClass, MethodConstraint.class, "MethodConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethodConstraint_Method(), this.getMethod(), null, "Method", null, 0, 1, MethodConstraint.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodConstraint_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, MethodConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodConstraint_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, MethodConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

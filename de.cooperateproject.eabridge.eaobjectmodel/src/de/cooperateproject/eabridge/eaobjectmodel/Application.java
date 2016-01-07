@@ -72,9 +72,7 @@ public class Application {
 			props.setProperty(PersistenceOptions.PERSISTENCE_XML,
 					"de/cooperateproject/eabridge/eaobjectmodel/annotations.xml");
 			
-			props.setProperty(PersistenceOptions.SQL_TABLE_NAME_PREFIX, "t_");
-			
-			props.setProperty(PersistenceOptions.AUTO_ADAPT_MANUAL_SET_SQL_NAMES, "false");
+			props.setProperty(PersistenceOptions.SQL_CASE_STRATEGY, "none");
 			
 			// the name of the session factory
 			final String hbName = "EAObjectModel";

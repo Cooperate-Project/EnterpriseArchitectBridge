@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethodConstraint()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface MethodConstraint extends EObject {

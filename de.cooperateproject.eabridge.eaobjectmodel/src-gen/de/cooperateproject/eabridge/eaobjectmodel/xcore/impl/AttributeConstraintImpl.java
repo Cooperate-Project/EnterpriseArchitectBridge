@@ -4,6 +4,7 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,8 +26,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getElementOfAttribute <em>Element Of Attribute</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getConstraint <em>Constraint</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getAttName <em>Att Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -35,24 +38,54 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implements AttributeConstraint {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getElementOfAttribute() <em>Element Of Attribute</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getElementOfAttribute()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected Element elementOfAttribute;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getConstraint() <em>Constraint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getConstraint()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected static final String CONSTRAINT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConstraint() <em>Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected String constraint = CONSTRAINT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAttName() <em>Att Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ATT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAttName() <em>Att Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String attName = ATT_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
@@ -118,6 +151,44 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Element getElementOfAttribute() {
+		if (elementOfAttribute != null && elementOfAttribute.eIsProxy()) {
+			InternalEObject oldElementOfAttribute = (InternalEObject)elementOfAttribute;
+			elementOfAttribute = (Element)eResolveProxy(oldElementOfAttribute);
+			if (elementOfAttribute != oldElementOfAttribute) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, oldElementOfAttribute, elementOfAttribute));
+			}
+		}
+		return elementOfAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetElementOfAttribute() {
+		return elementOfAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElementOfAttribute(Element newElementOfAttribute) {
+		Element oldElementOfAttribute = elementOfAttribute;
+		elementOfAttribute = newElementOfAttribute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, oldElementOfAttribute, elementOfAttribute));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Attribute getAttribute() {
 		if (eContainerFeatureID() != XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE) return null;
 		return (Attribute)eContainer();
@@ -169,8 +240,8 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public String getConstraint() {
+		return constraint;
 	}
 
 	/**
@@ -178,11 +249,32 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setConstraint(String newConstraint) {
+		String oldConstraint = constraint;
+		constraint = newConstraint;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE_CONSTRAINT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT, oldConstraint, constraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAttName() {
+		return attName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAttName(String newAttName) {
+		String oldAttName = attName;
+		attName = newAttName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE_CONSTRAINT__ATT_NAME, oldAttName, attName));
 	}
 
 	/**
@@ -279,11 +371,16 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				if (resolve) return getElementOfAttribute();
+				return basicGetElementOfAttribute();
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__NAME:
-				return getName();
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				return getConstraint();
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				return getAttName();
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__NOTES:
 				return getNotes();
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__TYPE:
@@ -300,11 +397,17 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				setElementOfAttribute((Element)newValue);
+				return;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				setAttribute((Attribute)newValue);
 				return;
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__NAME:
-				setName((String)newValue);
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				setConstraint((String)newValue);
+				return;
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				setAttName((String)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__NOTES:
 				setNotes((String)newValue);
@@ -324,11 +427,17 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				setElementOfAttribute((Element)null);
+				return;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				setAttribute((Attribute)null);
 				return;
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__NAME:
-				setName(NAME_EDEFAULT);
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				setConstraint(CONSTRAINT_EDEFAULT);
+				return;
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				setAttName(ATT_NAME_EDEFAULT);
 				return;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__NOTES:
 				setNotes(NOTES_EDEFAULT);
@@ -348,10 +457,14 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				return elementOfAttribute != null;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				return basicGetAttribute() != null;
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				return CONSTRAINT_EDEFAULT == null ? constraint != null : !CONSTRAINT_EDEFAULT.equals(constraint);
+			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				return ATT_NAME_EDEFAULT == null ? attName != null : !ATT_NAME_EDEFAULT.equals(attName);
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__NOTES:
 				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__TYPE:
@@ -370,8 +483,10 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
+		result.append(" (Constraint: ");
+		result.append(constraint);
+		result.append(", AttName: ");
+		result.append(attName);
 		result.append(", Notes: ");
 		result.append(notes);
 		result.append(", Type: ");

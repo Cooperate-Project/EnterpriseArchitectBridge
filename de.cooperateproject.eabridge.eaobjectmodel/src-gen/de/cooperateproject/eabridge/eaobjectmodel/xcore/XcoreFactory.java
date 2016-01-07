@@ -121,15 +121,6 @@ public interface XcoreFactory extends EFactory {
 	Method createMethod();
 
 	/**
-	 * Returns a new object of class '<em>Method Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Method Constraint</em>'.
-	 * @generated
-	 */
-	MethodConstraint createMethodConstraint();
-
-	/**
 	 * Returns a new object of class '<em>Method Tag</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

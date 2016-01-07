@@ -14,7 +14,6 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
@@ -86,7 +85,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 			case XcorePackage.DIAGRAMM_OBJECT: return createDiagrammObject();
 			case XcorePackage.ELEMENT: return createElement();
 			case XcorePackage.METHOD: return createMethod();
-			case XcorePackage.METHOD_CONSTRAINT: return createMethodConstraint();
 			case XcorePackage.METHOD_TAG: return createMethodTag();
 			case XcorePackage.PACKAGE: return createPackage();
 			case XcorePackage.PARAMETER: return createParameter();
@@ -235,16 +233,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MethodConstraint createMethodConstraint() {
-		MethodConstraintImpl methodConstraint = new MethodConstraintImpl();
-		return methodConstraint;
 	}
 
 	/**

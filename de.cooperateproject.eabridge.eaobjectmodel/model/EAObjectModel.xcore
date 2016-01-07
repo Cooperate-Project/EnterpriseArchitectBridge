@@ -183,12 +183,21 @@ class Attribute {
 
 //associated with t_attribute table in .eap file
 class AttributeConstraint {
+	refers Element ElementOfAttribute // Added due it being in the database and needed by EA 
+	//
+	//  The Element of the Attribute of this Constraint 
+	//  Needs to be set
+	//
 	container Attribute Attribute opposite Constraints //	Read/Write
 	//	
 	//	The ID of the attribute this constraint applies to.
 	//	
 	//	
-	String	Name //	Read/Write
+	String	Constraint // Added due do it being in the database and a major feature of a constraint
+	//	
+	//	The Constraint information
+	//	
+	String	AttName //	Read/Write
 	//	
 	//	The name of the constraint.
 	//	
@@ -1536,7 +1545,7 @@ class Method {
 }
 
 //associated with t_operationpres and t_operationposts table in .eap file
-class MethodConstraint {
+abstract class MethodConstraint {
 		refers derived Method Method get {
 		eContainer as Method;
 	}//	Read/Write

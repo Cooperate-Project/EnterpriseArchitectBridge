@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class MethodConstraintImpl extends MinimalEObjectImpl.Container implements MethodConstraint {
+public abstract class MethodConstraintImpl extends MinimalEObjectImpl.Container implements MethodConstraint {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
