@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.eclipse.org/emft/teneo https://searchcode.com/codesearch/raw/68608674/">
 	
 	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel.xcore">
-	
+	 
 		<eclass name="Attribute">
 			<eattribute name="AttributeID">
 				<column name="ID"/>
@@ -21,13 +21,14 @@
 		</eclass>	
 		
 		<eclass name="AttributeConstraint">
+			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintID</id-class>
 			<table name="t_attributeconstraints"/>
-			<!--<property name="Attribute">
-          		<id/>
+			<property name="Attribute">
+          		<id/> 
          	</property> 
          	<property name="Constraint">
-          		<id/> 
-         	</property> -->
+<!--          		<id/>
+ -->         	</property>
 			<property name="ElementOfAttribute">
 				<join-column name="Object_ID"/>
 			</property>
@@ -35,8 +36,6 @@
 				<join-column name="ID"/>
 			</property>
 		</eclass>		
-			
-			
 			
 		<eclass name="Element">
 			<table name="t_object"/>
