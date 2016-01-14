@@ -8,6 +8,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
@@ -163,6 +164,13 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	private EEnum directionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum connectorTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -593,7 +601,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeTag_FQName() {
+	public EAttribute getAttributeTag_Name() {
 		return (EAttribute)attributeTagEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -602,7 +610,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeTag_Name() {
+	public EAttribute getAttributeTag_Notes() {
 		return (EAttribute)attributeTagEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -611,7 +619,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeTag_Notes() {
+	public EAttribute getAttributeTag_TagGUID() {
 		return (EAttribute)attributeTagEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -620,7 +628,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeTag_TagGUID() {
+	public EAttribute getAttributeTag_TagID() {
 		return (EAttribute)attributeTagEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -629,17 +637,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttributeTag_TagID() {
-		return (EAttribute)attributeTagEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAttributeTag_Value() {
-		return (EAttribute)attributeTagEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)attributeTagEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -692,8 +691,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Direction() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(4);
+	public EReference getConnector_Diagram() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -701,7 +700,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_EndPointX() {
+	public EAttribute getConnector_Direction() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -710,7 +709,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_EndPointY() {
+	public EAttribute getConnector_EndPointX() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -719,7 +718,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_EventFlags() {
+	public EAttribute getConnector_EndPointY() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -728,7 +727,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_IsLeaf() {
+	public EAttribute getConnector_EventFlags() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -737,7 +736,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_IsRoot() {
+	public EAttribute getConnector_IsLeaf() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -746,7 +745,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_IsSpec() {
+	public EAttribute getConnector_IsRoot() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -755,7 +754,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_MetaType() {
+	public EAttribute getConnector_IsSpec() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -764,7 +763,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_MiscData() {
+	public EAttribute getConnector_MetaType() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -773,7 +772,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Name() {
+	public EAttribute getConnector_MiscData() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -782,7 +781,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Notes() {
+	public EAttribute getConnector_Name() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -791,7 +790,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_RouteStyle() {
+	public EAttribute getConnector_Notes() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -800,7 +799,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SequenceNo() {
+	public EAttribute getConnector_RouteStyle() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -809,7 +808,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_StartPointX() {
+	public EAttribute getConnector_SequenceNo() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -818,7 +817,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_StartPointY() {
+	public EAttribute getConnector_StartPointX() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -827,7 +826,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_StateFlags() {
+	public EAttribute getConnector_StartPointY() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -836,7 +835,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Stereotype() {
+	public EAttribute getConnector_StateFlags() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -845,7 +844,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_StyleEx() {
+	public EAttribute getConnector_Stereotype() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -854,7 +853,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Subtype() {
+	public EAttribute getConnector_StyleEx() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -863,8 +862,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_Supplier() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(23);
+	public EAttribute getConnector_SubType() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -872,7 +871,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_TaggedValues() {
+	public EReference getConnector_Supplier() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(24);
 	}
 
@@ -881,8 +880,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_TransitionAction() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(25);
+	public EReference getConnector_TaggedValues() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -890,7 +889,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_TransitionEvent() {
+	public EAttribute getConnector_TransitionAction() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -899,7 +898,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_TransitionGuard() {
+	public EAttribute getConnector_TransitionEvent() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(27);
 	}
 
@@ -908,7 +907,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Type() {
+	public EAttribute getConnector_TransitionGuard() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(28);
 	}
 
@@ -917,7 +916,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_VirtualInheritance() {
+	public EAttribute getConnector_Type() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -926,8 +925,305 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Width() {
+	public EAttribute getConnector_VirtualInheritance() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Width() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnector_Source() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnector_Dest() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceCard() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceAccess() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(35);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceElement() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(36);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceRole() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(37);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceRoleType() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(38);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceRoleNote() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(39);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceContainment() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(40);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceIsAggregate() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(41);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceIsOrdered() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(42);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SourceQualifier() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(43);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestCard() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(44);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestAccess() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(45);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestElement() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(46);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestRole() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(47);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestRoleType() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(48);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestRoleNote() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(49);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestContainment() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(50);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestIsAggregate() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(51);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestIsOrdered() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(52);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_DestQualifier() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(53);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Top_Start_Label() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(54);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Top_Mid_Label() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(55);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Top_End_Label() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(56);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Btm_StartLabel() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(57);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Btm_MidLabel() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(58);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Btm_EndLabel() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(59);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_Start_Edge() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(60);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_End_Edge() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(61);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_HeadStyle() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(62);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_LineStyle() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(63);
 	}
 
 	/**
@@ -2933,6 +3229,15 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getConnectorType() {
+		return connectorTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XcoreFactory getXcoreFactory() {
 		return (XcoreFactory)getEFactoryInstance();
 	}
@@ -2998,7 +3303,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		attributeTagEClass = createEClass(ATTRIBUTE_TAG);
 		createEReference(attributeTagEClass, ATTRIBUTE_TAG__ATTRIBUTE);
-		createEAttribute(attributeTagEClass, ATTRIBUTE_TAG__FQ_NAME);
 		createEAttribute(attributeTagEClass, ATTRIBUTE_TAG__NAME);
 		createEAttribute(attributeTagEClass, ATTRIBUTE_TAG__NOTES);
 		createEAttribute(attributeTagEClass, ATTRIBUTE_TAG__TAG_GUID);
@@ -3010,6 +3314,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEReference(connectorEClass, CONNECTOR__CLIENT);
 		createEAttribute(connectorEClass, CONNECTOR__COLOR);
 		createEAttribute(connectorEClass, CONNECTOR__CONNECTOR_ID);
+		createEReference(connectorEClass, CONNECTOR__DIAGRAM);
 		createEAttribute(connectorEClass, CONNECTOR__DIRECTION);
 		createEAttribute(connectorEClass, CONNECTOR__END_POINT_X);
 		createEAttribute(connectorEClass, CONNECTOR__END_POINT_Y);
@@ -3028,7 +3333,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(connectorEClass, CONNECTOR__STATE_FLAGS);
 		createEAttribute(connectorEClass, CONNECTOR__STEREOTYPE);
 		createEAttribute(connectorEClass, CONNECTOR__STYLE_EX);
-		createEAttribute(connectorEClass, CONNECTOR__SUBTYPE);
+		createEAttribute(connectorEClass, CONNECTOR__SUB_TYPE);
 		createEReference(connectorEClass, CONNECTOR__SUPPLIER);
 		createEReference(connectorEClass, CONNECTOR__TAGGED_VALUES);
 		createEAttribute(connectorEClass, CONNECTOR__TRANSITION_ACTION);
@@ -3037,6 +3342,38 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(connectorEClass, CONNECTOR__TYPE);
 		createEAttribute(connectorEClass, CONNECTOR__VIRTUAL_INHERITANCE);
 		createEAttribute(connectorEClass, CONNECTOR__WIDTH);
+		createEReference(connectorEClass, CONNECTOR__SOURCE);
+		createEReference(connectorEClass, CONNECTOR__DEST);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_CARD);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_ACCESS);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_ELEMENT);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_ROLE);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_ROLE_TYPE);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_ROLE_NOTE);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_CONTAINMENT);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_IS_AGGREGATE);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_IS_ORDERED);
+		createEAttribute(connectorEClass, CONNECTOR__SOURCE_QUALIFIER);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_CARD);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_ACCESS);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_ELEMENT);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_ROLE);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_ROLE_TYPE);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_ROLE_NOTE);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_CONTAINMENT);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_IS_AGGREGATE);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_IS_ORDERED);
+		createEAttribute(connectorEClass, CONNECTOR__DEST_QUALIFIER);
+		createEAttribute(connectorEClass, CONNECTOR__TOP_START_LABEL);
+		createEAttribute(connectorEClass, CONNECTOR__TOP_MID_LABEL);
+		createEAttribute(connectorEClass, CONNECTOR__TOP_END_LABEL);
+		createEAttribute(connectorEClass, CONNECTOR__BTM_START_LABEL);
+		createEAttribute(connectorEClass, CONNECTOR__BTM_MID_LABEL);
+		createEAttribute(connectorEClass, CONNECTOR__BTM_END_LABEL);
+		createEAttribute(connectorEClass, CONNECTOR__START_EDGE);
+		createEAttribute(connectorEClass, CONNECTOR__END_EDGE);
+		createEAttribute(connectorEClass, CONNECTOR__HEAD_STYLE);
+		createEAttribute(connectorEClass, CONNECTOR__LINE_STYLE);
 
 		connectorConstraintEClass = createEClass(CONNECTOR_CONSTRAINT);
 		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__CONNECTOR_ID);
@@ -3274,6 +3611,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		// Create enums
 		directionTypeEEnum = createEEnum(DIRECTION_TYPE);
+		connectorTypeEEnum = createEEnum(CONNECTOR_TYPE);
 	}
 
 	/**
@@ -3351,7 +3689,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		initEClass(attributeTagEClass, AttributeTag.class, "AttributeTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAttributeTag_Attribute(), this.getAttribute(), this.getAttribute_TaggedValues(), "Attribute", null, 0, 1, AttributeTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttributeTag_FQName(), theEcorePackage.getEString(), "FQName", null, 0, 1, AttributeTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeTag_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, AttributeTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeTag_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, AttributeTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeTag_TagGUID(), theEcorePackage.getEString(), "TagGUID", null, 0, 1, AttributeTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3363,6 +3700,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEReference(getConnector_Client(), this.getElement(), null, "Client", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Color(), theEcorePackage.getELongObject(), "Color", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_ConnectorID(), theEcorePackage.getELongObject(), "ConnectorID", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Diagram(), this.getDiagram(), null, "Diagram", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Direction(), this.getDirectionType(), "Direction", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_EndPointX(), theEcorePackage.getELongObject(), "EndPointX", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_EndPointY(), theEcorePackage.getELongObject(), "EndPointY", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3381,15 +3719,47 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getConnector_StateFlags(), theEcorePackage.getEString(), "StateFlags", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Stereotype(), theEcorePackage.getEString(), "Stereotype", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_StyleEx(), theEcorePackage.getEString(), "StyleEx", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_Subtype(), theEcorePackage.getEString(), "Subtype", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SubType(), theEcorePackage.getEString(), "SubType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_Supplier(), this.getElement(), null, "Supplier", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_TaggedValues(), this.getConnectorTag(), this.getConnectorTag_Connector(), "TaggedValues", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_TransitionAction(), theEcorePackage.getEString(), "TransitionAction", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_TransitionEvent(), theEcorePackage.getEString(), "TransitionEvent", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_TransitionGuard(), theEcorePackage.getEString(), "TransitionGuard", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_Type(), theEcorePackage.getEString(), "Type", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Type(), this.getConnectorType(), "Type", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_VirtualInheritance(), theEcorePackage.getEString(), "VirtualInheritance", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Width(), theEcorePackage.getELongObject(), "Width", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Source(), this.getElement(), null, "Source", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Dest(), this.getElement(), null, "Dest", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceCard(), theEcorePackage.getEString(), "SourceCard", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceAccess(), theEcorePackage.getEString(), "SourceAccess", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceElement(), theEcorePackage.getEString(), "SourceElement", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceRole(), theEcorePackage.getEString(), "SourceRole", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceRoleType(), theEcorePackage.getEString(), "SourceRoleType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceRoleNote(), theEcorePackage.getEString(), "SourceRoleNote", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceContainment(), theEcorePackage.getEString(), "SourceContainment", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceIsAggregate(), theEcorePackage.getEBoolean(), "SourceIsAggregate", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceIsOrdered(), theEcorePackage.getEBoolean(), "SourceIsOrdered", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceQualifier(), theEcorePackage.getEString(), "SourceQualifier", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestCard(), theEcorePackage.getEString(), "DestCard", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestAccess(), theEcorePackage.getEString(), "DestAccess", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestElement(), theEcorePackage.getEString(), "DestElement", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestRole(), theEcorePackage.getEString(), "DestRole", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestRoleType(), theEcorePackage.getEString(), "DestRoleType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestRoleNote(), theEcorePackage.getEString(), "DestRoleNote", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestContainment(), theEcorePackage.getEString(), "DestContainment", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestIsAggregate(), theEcorePackage.getEBoolean(), "DestIsAggregate", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestIsOrdered(), theEcorePackage.getEBoolean(), "DestIsOrdered", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestQualifier(), theEcorePackage.getEString(), "DestQualifier", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Top_Start_Label(), theEcorePackage.getEString(), "Top_Start_Label", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Top_Mid_Label(), theEcorePackage.getEString(), "Top_Mid_Label", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Top_End_Label(), theEcorePackage.getEString(), "Top_End_Label", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Btm_StartLabel(), theEcorePackage.getEString(), "Btm_StartLabel", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Btm_MidLabel(), theEcorePackage.getEString(), "Btm_MidLabel", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Btm_EndLabel(), theEcorePackage.getEString(), "Btm_EndLabel", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_Start_Edge(), theEcorePackage.getEInt(), "Start_Edge", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_End_Edge(), theEcorePackage.getEInt(), "End_Edge", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_HeadStyle(), theEcorePackage.getEInt(), "HeadStyle", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_LineStyle(), theEcorePackage.getEInt(), "LineStyle", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorConstraintEClass, ConnectorConstraint.class, "ConnectorConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConnectorConstraint_ConnectorID(), theEcorePackage.getELongObject(), "ConnectorID", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3464,7 +3834,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEReference(getElement_Attributes(), this.getAttribute(), this.getAttribute_Parent(), "Attributes", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Author(), theEcorePackage.getEString(), "Author", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_BaseClasses(), this.getElement(), null, "BaseClasses", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Classifier(), this.getElement(), null, "Classifier", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_Classifier(), this.getElement(), null, "Classifier", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_ClassifierName(), theEcorePackage.getEString(), "ClassifierName", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_ClassifierType(), theEcorePackage.getEString(), "ClassifierType", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Complexity(), theEcorePackage.getEString(), "Complexity", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3631,6 +4001,39 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		addEEnumLiteral(directionTypeEEnum, DirectionType.BI_DIRECTIONAL);
 		addEEnumLiteral(directionTypeEEnum, DirectionType.SOURCE_DESTINATION);
 		addEEnumLiteral(directionTypeEEnum, DirectionType.DESTINATION_SOURCE);
+
+		initEEnum(connectorTypeEEnum, ConnectorType.class, "ConnectorType");
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.CONNECTOR_TYPE);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.ABSTRACTION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.AGGREGATION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.ASSEMBLY);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.ASSOCIATION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.COLLABORATION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.COMMUNICATION_PATH);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.CONNECTOR);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.CONTROL_FLOW);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.DELEGATE);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.DEPENDENCY);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.DEPLOYMENT);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.ER_LINK);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.EXTENSION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.GENERALIZATION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.INFORMATION_FLOW);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.INSTANTIATION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.INTERRUPT_FLOW);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.MANIFEST);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.NESTING);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.NOTE_LINK);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.OBJECT_FLOW);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.PACKAGE);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.PROTOCOL_CONFORMANCE);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.PROTOCOL_TRANSITION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.REALISATION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.SEQUENCE);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.STATE_FLOW);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.SUBSTITUTION);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.USAGE);
+		addEEnumLiteral(connectorTypeEEnum, ConnectorType.USE_CASE);
 
 		// Create resource
 		createResource(eNS_URI);

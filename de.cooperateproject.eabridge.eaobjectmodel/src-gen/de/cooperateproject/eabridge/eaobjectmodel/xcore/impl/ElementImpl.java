@@ -221,7 +221,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected EList<Element> baseClasses;
 
 	/**
-	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' containment reference.
+	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getClassifier()
@@ -1254,6 +1254,14 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 */
 	public Element getClassifier() {
+		if (classifier != null && classifier.eIsProxy()) {
+			InternalEObject oldClassifier = (InternalEObject)classifier;
+			classifier = (Element)eResolveProxy(oldClassifier);
+			if (classifier != oldClassifier) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.ELEMENT__CLASSIFIER, oldClassifier, classifier));
+			}
+		}
 		return classifier;
 	}
 
@@ -1262,14 +1270,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClassifier(Element newClassifier, NotificationChain msgs) {
-		Element oldClassifier = classifier;
-		classifier = newClassifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CLASSIFIER, oldClassifier, newClassifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Element basicGetClassifier() {
+		return classifier;
 	}
 
 	/**
@@ -1278,17 +1280,10 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 */
 	public void setClassifier(Element newClassifier) {
-		if (newClassifier != classifier) {
-			NotificationChain msgs = null;
-			if (classifier != null)
-				msgs = ((InternalEObject)classifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.ELEMENT__CLASSIFIER, null, msgs);
-			if (newClassifier != null)
-				msgs = ((InternalEObject)newClassifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XcorePackage.ELEMENT__CLASSIFIER, null, msgs);
-			msgs = basicSetClassifier(newClassifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CLASSIFIER, newClassifier, newClassifier));
+		Element oldClassifier = classifier;
+		classifier = newClassifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CLASSIFIER, oldClassifier, classifier));
 	}
 
 	/**
@@ -2350,8 +2345,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__BASE_CLASSES:
 				return ((InternalEList<?>)getBaseClasses()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__CLASSIFIER:
-				return basicSetClassifier(null, msgs);
 			case XcorePackage.ELEMENT__COMPOSITE_DIAGRAM:
 				return basicSetCompositeDiagram(null, msgs);
 			case XcorePackage.ELEMENT__CONNECTORS:
@@ -2409,7 +2402,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__BASE_CLASSES:
 				return getBaseClasses();
 			case XcorePackage.ELEMENT__CLASSIFIER:
-				return getClassifier();
+				if (resolve) return getClassifier();
+				return basicGetClassifier();
 			case XcorePackage.ELEMENT__CLASSIFIER_NAME:
 				return getClassifierName();
 			case XcorePackage.ELEMENT__CLASSIFIER_TYPE:

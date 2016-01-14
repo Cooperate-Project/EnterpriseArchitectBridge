@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getFQName <em>FQ Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getTagGUID <em>Tag GUID</em>}</li>
@@ -54,32 +53,6 @@ public interface AttributeTag extends EObject {
 	 * @generated
 	 */
 	void setAttribute(Attribute value);
-
-	/**
-	 * Returns the value of the '<em><b>FQ Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>FQ Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>FQ Name</em>' attribute.
-	 * @see #setFQName(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttributeTag_FQName()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getFQName();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getFQName <em>FQ Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>FQ Name</em>' attribute.
-	 * @see #getFQName()
-	 * @generated
-	 */
-	void setFQName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

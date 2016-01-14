@@ -458,22 +458,13 @@ public interface XcorePackage extends EPackage {
 	int ATTRIBUTE_TAG__ATTRIBUTE = 0;
 
 	/**
-	 * The feature id for the '<em><b>FQ Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE_TAG__FQ_NAME = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_TAG__NAME = 2;
+	int ATTRIBUTE_TAG__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -482,7 +473,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_TAG__NOTES = 3;
+	int ATTRIBUTE_TAG__NOTES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Tag GUID</b></em>' attribute.
@@ -491,7 +482,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_TAG__TAG_GUID = 4;
+	int ATTRIBUTE_TAG__TAG_GUID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Tag ID</b></em>' attribute.
@@ -500,7 +491,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_TAG__TAG_ID = 5;
+	int ATTRIBUTE_TAG__TAG_ID = 4;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -509,7 +500,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_TAG__VALUE = 6;
+	int ATTRIBUTE_TAG__VALUE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Attribute Tag</em>' class.
@@ -518,7 +509,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_TAG_FEATURE_COUNT = 7;
+	int ATTRIBUTE_TAG_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Attribute Tag</em>' class.
@@ -576,13 +567,22 @@ public interface XcorePackage extends EPackage {
 	int CONNECTOR__CONNECTOR_ID = 3;
 
 	/**
+	 * The feature id for the '<em><b>Diagram</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DIAGRAM = 4;
+
+	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DIRECTION = 4;
+	int CONNECTOR__DIRECTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>End Point X</b></em>' attribute.
@@ -591,7 +591,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__END_POINT_X = 5;
+	int CONNECTOR__END_POINT_X = 6;
 
 	/**
 	 * The feature id for the '<em><b>End Point Y</b></em>' attribute.
@@ -600,7 +600,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__END_POINT_Y = 6;
+	int CONNECTOR__END_POINT_Y = 7;
 
 	/**
 	 * The feature id for the '<em><b>Event Flags</b></em>' attribute.
@@ -609,7 +609,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__EVENT_FLAGS = 7;
+	int CONNECTOR__EVENT_FLAGS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
@@ -618,7 +618,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__IS_LEAF = 8;
+	int CONNECTOR__IS_LEAF = 9;
 
 	/**
 	 * The feature id for the '<em><b>Is Root</b></em>' attribute.
@@ -627,7 +627,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__IS_ROOT = 9;
+	int CONNECTOR__IS_ROOT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Is Spec</b></em>' attribute.
@@ -636,7 +636,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__IS_SPEC = 10;
+	int CONNECTOR__IS_SPEC = 11;
 
 	/**
 	 * The feature id for the '<em><b>Meta Type</b></em>' attribute.
@@ -645,7 +645,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__META_TYPE = 11;
+	int CONNECTOR__META_TYPE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Misc Data</b></em>' attribute.
@@ -654,7 +654,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__MISC_DATA = 12;
+	int CONNECTOR__MISC_DATA = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -663,7 +663,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__NAME = 13;
+	int CONNECTOR__NAME = 14;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -672,7 +672,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__NOTES = 14;
+	int CONNECTOR__NOTES = 15;
 
 	/**
 	 * The feature id for the '<em><b>Route Style</b></em>' attribute.
@@ -681,7 +681,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__ROUTE_STYLE = 15;
+	int CONNECTOR__ROUTE_STYLE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Sequence No</b></em>' attribute.
@@ -690,7 +690,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SEQUENCE_NO = 16;
+	int CONNECTOR__SEQUENCE_NO = 17;
 
 	/**
 	 * The feature id for the '<em><b>Start Point X</b></em>' attribute.
@@ -699,7 +699,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__START_POINT_X = 17;
+	int CONNECTOR__START_POINT_X = 18;
 
 	/**
 	 * The feature id for the '<em><b>Start Point Y</b></em>' attribute.
@@ -708,7 +708,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__START_POINT_Y = 18;
+	int CONNECTOR__START_POINT_Y = 19;
 
 	/**
 	 * The feature id for the '<em><b>State Flags</b></em>' attribute.
@@ -717,7 +717,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__STATE_FLAGS = 19;
+	int CONNECTOR__STATE_FLAGS = 20;
 
 	/**
 	 * The feature id for the '<em><b>Stereotype</b></em>' attribute.
@@ -726,7 +726,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__STEREOTYPE = 20;
+	int CONNECTOR__STEREOTYPE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Style Ex</b></em>' attribute.
@@ -735,16 +735,16 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__STYLE_EX = 21;
+	int CONNECTOR__STYLE_EX = 22;
 
 	/**
-	 * The feature id for the '<em><b>Subtype</b></em>' attribute.
+	 * The feature id for the '<em><b>Sub Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SUBTYPE = 22;
+	int CONNECTOR__SUB_TYPE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Supplier</b></em>' reference.
@@ -753,7 +753,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SUPPLIER = 23;
+	int CONNECTOR__SUPPLIER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Tagged Values</b></em>' containment reference.
@@ -762,7 +762,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TAGGED_VALUES = 24;
+	int CONNECTOR__TAGGED_VALUES = 25;
 
 	/**
 	 * The feature id for the '<em><b>Transition Action</b></em>' attribute.
@@ -771,7 +771,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TRANSITION_ACTION = 25;
+	int CONNECTOR__TRANSITION_ACTION = 26;
 
 	/**
 	 * The feature id for the '<em><b>Transition Event</b></em>' attribute.
@@ -780,7 +780,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TRANSITION_EVENT = 26;
+	int CONNECTOR__TRANSITION_EVENT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Transition Guard</b></em>' attribute.
@@ -789,7 +789,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TRANSITION_GUARD = 27;
+	int CONNECTOR__TRANSITION_GUARD = 28;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -798,7 +798,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TYPE = 28;
+	int CONNECTOR__TYPE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Virtual Inheritance</b></em>' attribute.
@@ -807,7 +807,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__VIRTUAL_INHERITANCE = 29;
+	int CONNECTOR__VIRTUAL_INHERITANCE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -816,7 +816,295 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__WIDTH = 30;
+	int CONNECTOR__WIDTH = 31;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE = 32;
+
+	/**
+	 * The feature id for the '<em><b>Dest</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST = 33;
+
+	/**
+	 * The feature id for the '<em><b>Source Card</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_CARD = 34;
+
+	/**
+	 * The feature id for the '<em><b>Source Access</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_ACCESS = 35;
+
+	/**
+	 * The feature id for the '<em><b>Source Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_ELEMENT = 36;
+
+	/**
+	 * The feature id for the '<em><b>Source Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_ROLE = 37;
+
+	/**
+	 * The feature id for the '<em><b>Source Role Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_ROLE_TYPE = 38;
+
+	/**
+	 * The feature id for the '<em><b>Source Role Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_ROLE_NOTE = 39;
+
+	/**
+	 * The feature id for the '<em><b>Source Containment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_CONTAINMENT = 40;
+
+	/**
+	 * The feature id for the '<em><b>Source Is Aggregate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_IS_AGGREGATE = 41;
+
+	/**
+	 * The feature id for the '<em><b>Source Is Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_IS_ORDERED = 42;
+
+	/**
+	 * The feature id for the '<em><b>Source Qualifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE_QUALIFIER = 43;
+
+	/**
+	 * The feature id for the '<em><b>Dest Card</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_CARD = 44;
+
+	/**
+	 * The feature id for the '<em><b>Dest Access</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_ACCESS = 45;
+
+	/**
+	 * The feature id for the '<em><b>Dest Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_ELEMENT = 46;
+
+	/**
+	 * The feature id for the '<em><b>Dest Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_ROLE = 47;
+
+	/**
+	 * The feature id for the '<em><b>Dest Role Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_ROLE_TYPE = 48;
+
+	/**
+	 * The feature id for the '<em><b>Dest Role Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_ROLE_NOTE = 49;
+
+	/**
+	 * The feature id for the '<em><b>Dest Containment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_CONTAINMENT = 50;
+
+	/**
+	 * The feature id for the '<em><b>Dest Is Aggregate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_IS_AGGREGATE = 51;
+
+	/**
+	 * The feature id for the '<em><b>Dest Is Ordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_IS_ORDERED = 52;
+
+	/**
+	 * The feature id for the '<em><b>Dest Qualifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DEST_QUALIFIER = 53;
+
+	/**
+	 * The feature id for the '<em><b>Top Start Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__TOP_START_LABEL = 54;
+
+	/**
+	 * The feature id for the '<em><b>Top Mid Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__TOP_MID_LABEL = 55;
+
+	/**
+	 * The feature id for the '<em><b>Top End Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__TOP_END_LABEL = 56;
+
+	/**
+	 * The feature id for the '<em><b>Btm Start Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__BTM_START_LABEL = 57;
+
+	/**
+	 * The feature id for the '<em><b>Btm Mid Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__BTM_MID_LABEL = 58;
+
+	/**
+	 * The feature id for the '<em><b>Btm End Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__BTM_END_LABEL = 59;
+
+	/**
+	 * The feature id for the '<em><b>Start Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__START_EDGE = 60;
+
+	/**
+	 * The feature id for the '<em><b>End Edge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__END_EDGE = 61;
+
+	/**
+	 * The feature id for the '<em><b>Head Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__HEAD_STYLE = 62;
+
+	/**
+	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__LINE_STYLE = 63;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -825,7 +1113,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = 31;
+	int CONNECTOR_FEATURE_COUNT = 64;
 
 	/**
 	 * The number of operations of the '<em>Connector</em>' class.
@@ -1545,7 +1833,7 @@ public interface XcorePackage extends EPackage {
 	int ELEMENT__BASE_CLASSES = 6;
 
 	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' containment reference.
+	 * The feature id for the '<em><b>Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3082,6 +3370,16 @@ public interface XcorePackage extends EPackage {
 	 */
 	int DIRECTION_TYPE = 17;
 
+	/**
+	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType <em>Connector Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConnectorType()
+	 * @generated
+	 */
+	int CONNECTOR_TYPE = 18;
+
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute <em>Attribute</em>}'.
@@ -3521,17 +3819,6 @@ public interface XcorePackage extends EPackage {
 	EReference getAttributeTag_Attribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getFQName <em>FQ Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>FQ Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getFQName()
-	 * @see #getAttributeTag()
-	 * @generated
-	 */
-	EAttribute getAttributeTag_FQName();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3639,6 +3926,17 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConnector_ConnectorID();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDiagram <em>Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Diagram</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDiagram()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Diagram();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDirection <em>Direction</em>}'.
@@ -3839,15 +4137,15 @@ public interface XcorePackage extends EPackage {
 	EAttribute getConnector_StyleEx();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSubtype <em>Subtype</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSubType <em>Sub Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Subtype</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSubtype()
+	 * @return the meta object for the attribute '<em>Sub Type</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSubType()
 	 * @see #getConnector()
 	 * @generated
 	 */
-	EAttribute getConnector_Subtype();
+	EAttribute getConnector_SubType();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplier <em>Supplier</em>}'.
@@ -3936,6 +4234,358 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConnector_Width();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSource()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDest <em>Dest</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dest</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDest()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Dest();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceCard <em>Source Card</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Card</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceCard()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceCard();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceAccess <em>Source Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Access</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceAccess()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceAccess();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceElement <em>Source Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Element</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceElement()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceRole <em>Source Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Role</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceRole()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceRole();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceRoleType <em>Source Role Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Role Type</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceRoleType()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceRoleType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceRoleNote <em>Source Role Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Role Note</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceRoleNote()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceRoleNote();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceContainment <em>Source Containment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Containment</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceContainment()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceContainment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isSourceIsAggregate <em>Source Is Aggregate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Is Aggregate</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isSourceIsAggregate()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceIsAggregate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isSourceIsOrdered <em>Source Is Ordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Is Ordered</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isSourceIsOrdered()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceIsOrdered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceQualifier <em>Source Qualifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Qualifier</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceQualifier()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SourceQualifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestCard <em>Dest Card</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Card</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestCard()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestCard();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestAccess <em>Dest Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Access</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestAccess()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestAccess();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestElement <em>Dest Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Element</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestElement()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestRole <em>Dest Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Role</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestRole()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestRole();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestRoleType <em>Dest Role Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Role Type</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestRoleType()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestRoleType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestRoleNote <em>Dest Role Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Role Note</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestRoleNote()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestRoleNote();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestContainment <em>Dest Containment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Containment</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestContainment()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestContainment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isDestIsAggregate <em>Dest Is Aggregate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Is Aggregate</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isDestIsAggregate()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestIsAggregate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isDestIsOrdered <em>Dest Is Ordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Is Ordered</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isDestIsOrdered()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestIsOrdered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestQualifier <em>Dest Qualifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dest Qualifier</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestQualifier()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_DestQualifier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Start_Label <em>Top Start Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Top Start Label</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Start_Label()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_Top_Start_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Mid_Label <em>Top Mid Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Top Mid Label</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Mid_Label()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_Top_Mid_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_End_Label <em>Top End Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Top End Label</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_End_Label()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_Top_End_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_StartLabel <em>Btm Start Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Btm Start Label</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_StartLabel()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_Btm_StartLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_MidLabel <em>Btm Mid Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Btm Mid Label</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_MidLabel()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_Btm_MidLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_EndLabel <em>Btm End Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Btm End Label</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_EndLabel()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_Btm_EndLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStart_Edge <em>Start Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Edge</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStart_Edge()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_Start_Edge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEnd_Edge <em>End Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>End Edge</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEnd_Edge()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_End_Edge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getHeadStyle <em>Head Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Head Style</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getHeadStyle()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_HeadStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getLineStyle <em>Line Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Style</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getLineStyle()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_LineStyle();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint <em>Connector Constraint</em>}'.
@@ -4680,10 +5330,10 @@ public interface XcorePackage extends EPackage {
 	EReference getElement_BaseClasses();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier <em>Classifier</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Classifier</em>'.
+	 * @return the meta object for the reference '<em>Classifier</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier()
 	 * @see #getElement()
 	 * @generated
@@ -6366,6 +7016,16 @@ public interface XcorePackage extends EPackage {
 	EEnum getDirectionType();
 
 	/**
+	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType <em>Connector Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Connector Type</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType
+	 * @generated
+	 */
+	EEnum getConnectorType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6715,14 +7375,6 @@ public interface XcorePackage extends EPackage {
 		EReference ATTRIBUTE_TAG__ATTRIBUTE = eINSTANCE.getAttributeTag_Attribute();
 
 		/**
-		 * The meta object literal for the '<em><b>FQ Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ATTRIBUTE_TAG__FQ_NAME = eINSTANCE.getAttributeTag_FQName();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6803,6 +7455,14 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONNECTOR__CONNECTOR_ID = eINSTANCE.getConnector_ConnectorID();
+
+		/**
+		 * The meta object literal for the '<em><b>Diagram</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__DIAGRAM = eINSTANCE.getConnector_Diagram();
 
 		/**
 		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
@@ -6949,12 +7609,12 @@ public interface XcorePackage extends EPackage {
 		EAttribute CONNECTOR__STYLE_EX = eINSTANCE.getConnector_StyleEx();
 
 		/**
-		 * The meta object literal for the '<em><b>Subtype</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Sub Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONNECTOR__SUBTYPE = eINSTANCE.getConnector_Subtype();
+		EAttribute CONNECTOR__SUB_TYPE = eINSTANCE.getConnector_SubType();
 
 		/**
 		 * The meta object literal for the '<em><b>Supplier</b></em>' reference feature.
@@ -7019,6 +7679,262 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONNECTOR__WIDTH = eINSTANCE.getConnector_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__SOURCE = eINSTANCE.getConnector_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__DEST = eINSTANCE.getConnector_Dest();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Card</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_CARD = eINSTANCE.getConnector_SourceCard();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Access</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_ACCESS = eINSTANCE.getConnector_SourceAccess();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_ELEMENT = eINSTANCE.getConnector_SourceElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Role</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_ROLE = eINSTANCE.getConnector_SourceRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Role Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_ROLE_TYPE = eINSTANCE.getConnector_SourceRoleType();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Role Note</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_ROLE_NOTE = eINSTANCE.getConnector_SourceRoleNote();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Containment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_CONTAINMENT = eINSTANCE.getConnector_SourceContainment();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Is Aggregate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_IS_AGGREGATE = eINSTANCE.getConnector_SourceIsAggregate();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Is Ordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_IS_ORDERED = eINSTANCE.getConnector_SourceIsOrdered();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Qualifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SOURCE_QUALIFIER = eINSTANCE.getConnector_SourceQualifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Card</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_CARD = eINSTANCE.getConnector_DestCard();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Access</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_ACCESS = eINSTANCE.getConnector_DestAccess();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_ELEMENT = eINSTANCE.getConnector_DestElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Role</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_ROLE = eINSTANCE.getConnector_DestRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Role Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_ROLE_TYPE = eINSTANCE.getConnector_DestRoleType();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Role Note</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_ROLE_NOTE = eINSTANCE.getConnector_DestRoleNote();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Containment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_CONTAINMENT = eINSTANCE.getConnector_DestContainment();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Is Aggregate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_IS_AGGREGATE = eINSTANCE.getConnector_DestIsAggregate();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Is Ordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_IS_ORDERED = eINSTANCE.getConnector_DestIsOrdered();
+
+		/**
+		 * The meta object literal for the '<em><b>Dest Qualifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__DEST_QUALIFIER = eINSTANCE.getConnector_DestQualifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Top Start Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__TOP_START_LABEL = eINSTANCE.getConnector_Top_Start_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Top Mid Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__TOP_MID_LABEL = eINSTANCE.getConnector_Top_Mid_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Top End Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__TOP_END_LABEL = eINSTANCE.getConnector_Top_End_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Btm Start Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__BTM_START_LABEL = eINSTANCE.getConnector_Btm_StartLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Btm Mid Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__BTM_MID_LABEL = eINSTANCE.getConnector_Btm_MidLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Btm End Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__BTM_END_LABEL = eINSTANCE.getConnector_Btm_EndLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Edge</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__START_EDGE = eINSTANCE.getConnector_Start_Edge();
+
+		/**
+		 * The meta object literal for the '<em><b>End Edge</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__END_EDGE = eINSTANCE.getConnector_End_Edge();
+
+		/**
+		 * The meta object literal for the '<em><b>Head Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__HEAD_STYLE = eINSTANCE.getConnector_HeadStyle();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__LINE_STYLE = eINSTANCE.getConnector_LineStyle();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorConstraintImpl <em>Connector Constraint</em>}' class.
@@ -7577,7 +8493,7 @@ public interface XcorePackage extends EPackage {
 		EReference ELEMENT__BASE_CLASSES = eINSTANCE.getElement_BaseClasses();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifier</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Classifier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8823,6 +9739,16 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DIRECTION_TYPE = eINSTANCE.getDirectionType();
+
+		/**
+		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType <em>Connector Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConnectorType()
+		 * @generated
+		 */
+		EEnum CONNECTOR_TYPE = eINSTANCE.getConnectorType();
 
 	}
 

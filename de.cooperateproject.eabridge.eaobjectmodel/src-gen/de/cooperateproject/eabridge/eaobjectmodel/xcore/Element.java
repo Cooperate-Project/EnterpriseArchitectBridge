@@ -246,26 +246,26 @@ public interface Element extends EObject {
 	EList<Element> getBaseClasses();
 
 	/**
-	 * Returns the value of the '<em><b>Classifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Classifier</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Classifier</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classifier</em>' containment reference.
+	 * @return the value of the '<em>Classifier</em>' reference.
 	 * @see #setClassifier(Element)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Classifier()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	Element getClassifier();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier <em>Classifier</em>}' containment reference.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier <em>Classifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Classifier</em>' containment reference.
+	 * @param value the new value of the '<em>Classifier</em>' reference.
 	 * @see #getClassifier()
 	 * @generated
 	 */

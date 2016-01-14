@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeTagImpl#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeTagImpl#getFQName <em>FQ Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeTagImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeTagImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeTagImpl#getTagGUID <em>Tag GUID</em>}</li>
@@ -37,26 +36,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class AttributeTagImpl extends MinimalEObjectImpl.Container implements AttributeTag {
-	/**
-	 * The default value of the '{@link #getFQName() <em>FQ Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFQName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String FQ_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFQName() <em>FQ Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFQName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String fqName = FQ_NAME_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -232,27 +211,6 @@ public class AttributeTagImpl extends MinimalEObjectImpl.Container implements At
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFQName() {
-		return fqName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFQName(String newFQName) {
-		String oldFQName = fqName;
-		fqName = newFQName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE_TAG__FQ_NAME, oldFQName, fqName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
 		return name;
 	}
@@ -408,8 +366,6 @@ public class AttributeTagImpl extends MinimalEObjectImpl.Container implements At
 			case XcorePackage.ATTRIBUTE_TAG__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
-			case XcorePackage.ATTRIBUTE_TAG__FQ_NAME:
-				return getFQName();
 			case XcorePackage.ATTRIBUTE_TAG__NAME:
 				return getName();
 			case XcorePackage.ATTRIBUTE_TAG__NOTES:
@@ -434,9 +390,6 @@ public class AttributeTagImpl extends MinimalEObjectImpl.Container implements At
 		switch (featureID) {
 			case XcorePackage.ATTRIBUTE_TAG__ATTRIBUTE:
 				setAttribute((Attribute)newValue);
-				return;
-			case XcorePackage.ATTRIBUTE_TAG__FQ_NAME:
-				setFQName((String)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE_TAG__NAME:
 				setName((String)newValue);
@@ -468,9 +421,6 @@ public class AttributeTagImpl extends MinimalEObjectImpl.Container implements At
 			case XcorePackage.ATTRIBUTE_TAG__ATTRIBUTE:
 				setAttribute((Attribute)null);
 				return;
-			case XcorePackage.ATTRIBUTE_TAG__FQ_NAME:
-				setFQName(FQ_NAME_EDEFAULT);
-				return;
 			case XcorePackage.ATTRIBUTE_TAG__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -500,8 +450,6 @@ public class AttributeTagImpl extends MinimalEObjectImpl.Container implements At
 		switch (featureID) {
 			case XcorePackage.ATTRIBUTE_TAG__ATTRIBUTE:
 				return basicGetAttribute() != null;
-			case XcorePackage.ATTRIBUTE_TAG__FQ_NAME:
-				return FQ_NAME_EDEFAULT == null ? fqName != null : !FQ_NAME_EDEFAULT.equals(fqName);
 			case XcorePackage.ATTRIBUTE_TAG__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case XcorePackage.ATTRIBUTE_TAG__NOTES:
@@ -526,9 +474,7 @@ public class AttributeTagImpl extends MinimalEObjectImpl.Container implements At
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (FQName: ");
-		result.append(fqName);
-		result.append(", Name: ");
+		result.append(" (Name: ");
 		result.append(name);
 		result.append(", Notes: ");
 		result.append(notes);

@@ -2,7 +2,7 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore
 
 //associated with t_attribute table in .eap file
 class Attribute {
-//	String	Alias //	Read/Write OPTIONAL
+	//	String	Alias //	Read/Write OPTIONAL
 	//	
 	//	Contains the (optional) Alias property for this attribute. This can be used interchangeably with the Style attribute, below.
 	//	
@@ -104,7 +104,7 @@ class Attribute {
 	//	Distinguishes objects referenced through a Dispatch interface.
 	//	
 	//	
-	container Element Parent opposite Attributes//	Read only
+	container Element Parent opposite Attributes //	Read only
 	//	
 	//	Returns the ElementID of the element that this attribute is a part of.
 	//	
@@ -217,16 +217,12 @@ class AttributeConstraint {
 //	The type of constraint.
 }
 
+
 //associated with t_attributetag table in .eap file
 class AttributeTag {
 	container Attribute Attribute opposite TaggedValues //	Read/Write
 	//	
 	//	The local ID of the attribute associated with this Tagged Value.
-	//	
-	//	
-	String	FQName //	Read only
-	//	
-	//	The fully-qualified name of the tag.
 	//	
 	//	
 	String	Name //	Read/Write
@@ -276,12 +272,7 @@ class Connector {
 	//			
 	//	A pointer to the object representing the source end of the relationship.		
 	//			
-	//			
-	//contains Element Client  //	Read/Write	 MAPPED VIA CONNECTOREND	
-	//			
-	//	The ElementID of the element at the source end of this connector.		
-	//			
-	//			
+	//					
 	Long	Color //	Read/Write		
 	//			
 	//	Sets the color of the connector.		
@@ -314,7 +305,7 @@ class Connector {
 	//	Returns a collection of advanced properties associated with an element in the form of CustomProperty objects.
 	//			
 	//			
-	//Long DiagramID//	Read/Write	UNUSED BECAUSE IT IS NOT SHOWN IN THE EA OBJECT MODEL INSTEAD DIAGRAMLINK IS USED
+	refers Diagram Diagram//	Read/Write	UNUSED BECAUSE IT IS NOT SHOWN IN THE EA OBJECT MODEL INSTEAD DIAGRAMLINK IS USED
 	//			
 	//	The DiagramID of the connector.		
 	//			
@@ -446,7 +437,7 @@ class Connector {
 	//	Advanced style settings; reserved for the use of Sparx Systems.		
 	//			
 	//			
-	String	Subtype //	Read/Write		
+	String	SubType //	Read/Write		
 	//			
 	//	A possible subtype to refine the meaning of the connector.		
 	//			
@@ -486,7 +477,7 @@ class Connector {
 	//	See the Transition topic for appropriate values.		
 	//			
 	//			
-	String	Type //	Read/Write		
+	ConnectorType	Type //	Read/Write		
 	//			
 	//	The connector type; valid types are held in the t_connectortypes table in the		
 	//	.EAP file.		
@@ -498,18 +489,104 @@ class Connector {
 	//			
 	//			
 	Long	Width //	Read/Write		
-//			
-//	Specifies the width of the connector.		
-//			
-//			
+	//			
+	//	Specifies the width of the connector.		
+	//			
+	//	
+	refers Element Source
+	
+	refers Element Dest
+	
+	String SourceCard
+	//
+	//	The Cardinality of the Source
+	//	
+	String SourceAccess
+	//
+	//	The Accessibility of the Source
+	//	
+	String SourceElement
+	String SourceRole
+	String SourceRoleType
+	String SourceRoleNote
+	String SourceContainment
+	boolean SourceIsAggregate
+	boolean SourceIsOrdered
+	String SourceQualifier
+	String DestCard
+	//
+	//	The Cardinality of the Destination
+	//	
+	String DestAccess
+	//
+	//	The Accessibility of the Destination
+	//	
+	String DestElement
+	String DestRole
+	String DestRoleType
+	String DestRoleNote
+	String DestContainment
+	boolean DestIsAggregate
+	boolean DestIsOrdered
+	String DestQualifier
+	//
+	String Top_Start_Label
+	String Top_Mid_Label
+	String Top_End_Label
+	String Btm_StartLabel
+	String Btm_MidLabel
+	String Btm_EndLabel
+	//
+	int Start_Edge
+	int End_Edge
+
+	int HeadStyle
+	int LineStyle
+	
+	
 }
 
 //enum for the DirectionType
 enum DirectionType {
-	Unspecified	as "Unspecified"	
+	Unspecified	as "Unspecified"
 	BiDirectional as "Bi-Directional"
-	SourceDestination as "Source -> Destination"	
+	SourceDestination as "Source -> Destination"
 	DestinationSource as "Destination -> Source"
+}
+
+//enum for the ConnectorType
+enum ConnectorType {
+	Connector_Type as "Connector_Type"
+	Abstraction as "Abstraction"
+	Aggregation as "Aggregation"
+	Assembly as "Assembly"
+	Association as "Association"
+	Collaboration as "Collaboration"
+	CommunicationPath as "CommunicationPath"
+	Connector as "Connector"
+	ControlFlow as "ControlFlow"
+	Delegate as "Delegate"
+	Dependency as "Dependency"
+	Deployment as "Deployment"
+	ERLink as "ERLink"
+	Extension as "Extension"
+	Generalization as "Generalization"
+	InformationFlow as "InformationFlow"
+	Instantiation as "Instantiation"
+	InterruptFlow as "InterruptFlow"
+	Manifest as "Manifest"
+	Nesting as "Nesting"
+	NoteLink as "NoteLink"
+	ObjectFlow as "ObjectFlow"
+	Package as "Package"
+	ProtocolConformance as "ProtocolConformance"
+	ProtocolTransition as "ProtocolTransition"
+	Realisation as "Realisation"
+	Sequence as "Sequence"
+	StateFlow as "StateFlow"
+	Substitution as "Substitution"
+	Usage as "Usage"
+	UseCase as "UseCase"
 }
 
 //associated with t_connectorconstraints table in .eap file UNUSED
@@ -776,7 +853,7 @@ class Diagram {
 
 //associated with t_diagramlinks table in .eap file
 class DiagramLink {
-	contains Connector Connector//	Read/Write
+	contains Connector Connector //	Read/Write
 	//	
 	//	The ID of the associated connector.
 	//	
@@ -918,7 +995,7 @@ class Element {
 	//	See ClassifierID. Deprecated because of misspelling.	
 	//		
 	//		
-	contains Element Classifier //	Read/Write
+	refers Element Classifier //	Read/Write
 	//		
 	//	The ElementID of a Classifier associated with this element; that is, the base type.	
 	//		
@@ -952,7 +1029,7 @@ class Element {
 	//	Returns a collection containing the connectors to other elements.	
 	//		
 	//		
-//	contains Constraint[] Constraints //	Read only	
+	//	contains Constraint[] Constraints //	Read only	
 	//		
 	//	A collection of Constraint objects.	
 	//		
@@ -988,7 +1065,7 @@ class Element {
 	//	Valid values are: Low, Medium, High.	
 	//		
 	//		
-//	contains Effort[] Efforts //	Read only	
+	//	contains Effort[] Efforts //	Read only	
 	//		
 	//	A collection of Effort objects.	
 	//		
@@ -1003,7 +1080,7 @@ class Element {
 	//	The local ID of the Element; valid for this file only.	
 	//		
 	//
-	contains Element[] Elements//	Read only	
+	contains Element[] Elements //	Read only	
 	//		
 	//	Returns a collection of child elements (sub-elements) attached to this element as seen in the tree view.	
 	//		
@@ -1023,7 +1100,7 @@ class Element {
 	//	Optional extension points for a Use Case as a comma-separated list.	
 	//		
 	//		
-//	contains File[] Files //	Read only	
+	//	contains File[] Files //	Read only	
 	//		
 	//	A collection of File objects.	
 	//		
@@ -1088,7 +1165,7 @@ class Element {
 	//	1 = True, 0 = False.	
 	//		
 	//		
-//	contains Issue[] Issues //	Read only	
+	//	contains Issue[] Issues //	Read only	
 	//		
 	//	Collection of Issue objects.	
 	//		
@@ -1113,7 +1190,7 @@ class Element {
 	//	Collection of Method objects belonging to the current element and its parent elements.	
 	//		
 	//		
-//	contains Metric[] Metrics //	Read only	
+	//	contains Metric[] Metrics //	Read only	
 	//		
 	//	Collection of Metric elements for current element.	
 	//		
@@ -1214,7 +1291,7 @@ class Element {
 	//	List of Interfaces realized by this element for convenience.	
 	//		
 	//		
-//	contains Requirement[] Requirements //	Read only	
+	//	contains Requirement[] Requirements //	Read only	
 	//		
 	//	Collection of Requirement objects.	
 	//		
@@ -1224,12 +1301,12 @@ class Element {
 	//	Collection of Requirement objects belonging to the current element and its parent elements.	
 	//		
 	//		
-//	contains Resource[] Resources //	Read only	
+	//	contains Resource[] Resources //	Read only	
 	//		
 	//	Collection of Resource objects for current element.	
 	//		
 	//		
-//	contains Risk[] Risks //	Read only	
+	//	contains Risk[] Risks //	Read only	
 	//		
 	//	Collection of Risk objects.	
 	//		
@@ -1239,7 +1316,7 @@ class Element {
 	//	The object's runstate list as a string.	
 	//		
 	//		
-//	contains Scenario[] Scenarios //	Read only	
+	//	contains Scenario[] Scenarios //	Read only	
 	//		
 	//	Collection of Scenario objects for current element.	
 	//		
@@ -1311,14 +1388,14 @@ class Element {
 	//	Returns a collection of TaggedValue objects belonging to the current element and the elements specialized or realized by the current element.	
 	//		
 	//		
-//	contains TemplateParameter[] TemplateParameters //	Read Only	
+	//	contains TemplateParameter[] TemplateParameters //	Read Only	
 	//		
 	//	A collection of TemplateParameter objects.	
 	//		
 	//		
 	//		
 	//		
-//	contains Test[] Tests //	Read only	
+	//	contains Test[] Tests //	Read only	
 	//		
 	//	A collection of Test objects for the current element.	
 	//		
@@ -1546,9 +1623,9 @@ class Method {
 
 //associated with t_operationpres and t_operationposts table in .eap file
 abstract class MethodConstraint {
-		refers derived Method Method get {
+	refers derived Method Method get {
 		eContainer as Method;
-	}//	Read/Write
+	} //	Read/Write
 	//	
 	//	The local ID of the associated method.
 	//	

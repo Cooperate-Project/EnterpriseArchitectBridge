@@ -74,6 +74,8 @@ public class Application {
 			
 			props.setProperty(PersistenceOptions.SQL_CASE_STRATEGY, "none");
 			
+//			props.setProperty(PersistenceOptions.USE_MAPPING_FILE, "true");
+			
 			// the name of the session factory
 			final String hbName = "EAObjectModel";
 			// create the HbDataStore using the name

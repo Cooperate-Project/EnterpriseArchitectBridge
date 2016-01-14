@@ -8,6 +8,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
@@ -105,6 +106,8 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 		switch (eDataType.getClassifierID()) {
 			case XcorePackage.DIRECTION_TYPE:
 				return createDirectionTypeFromString(eDataType, initialValue);
+			case XcorePackage.CONNECTOR_TYPE:
+				return createConnectorTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -120,6 +123,8 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 		switch (eDataType.getClassifierID()) {
 			case XcorePackage.DIRECTION_TYPE:
 				return convertDirectionTypeToString(eDataType, instanceValue);
+			case XcorePackage.CONNECTOR_TYPE:
+				return convertConnectorTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -302,6 +307,26 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	 * @generated
 	 */
 	public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConnectorType createConnectorTypeFromString(EDataType eDataType, String initialValue) {
+		ConnectorType result = ConnectorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertConnectorTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
