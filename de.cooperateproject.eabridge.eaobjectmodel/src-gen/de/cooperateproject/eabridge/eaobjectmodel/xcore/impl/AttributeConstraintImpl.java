@@ -4,7 +4,6 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getElementOfAttribute <em>Element Of Attribute</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeConstraintImpl#getAttName <em>Att Name</em>}</li>
@@ -37,16 +35,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implements AttributeConstraint {
-	/**
-	 * The cached value of the '{@link #getElementOfAttribute() <em>Element Of Attribute</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElementOfAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected Element elementOfAttribute;
-
 	/**
 	 * The default value of the '{@link #getConstraint() <em>Constraint</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -144,44 +132,6 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	protected EClass eStaticClass() {
 		return XcorePackage.Literals.ATTRIBUTE_CONSTRAINT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element getElementOfAttribute() {
-		if (elementOfAttribute != null && elementOfAttribute.eIsProxy()) {
-			InternalEObject oldElementOfAttribute = (InternalEObject)elementOfAttribute;
-			elementOfAttribute = (Element)eResolveProxy(oldElementOfAttribute);
-			if (elementOfAttribute != oldElementOfAttribute) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, oldElementOfAttribute, elementOfAttribute));
-			}
-		}
-		return elementOfAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element basicGetElementOfAttribute() {
-		return elementOfAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setElementOfAttribute(Element newElementOfAttribute) {
-		Element oldElementOfAttribute = elementOfAttribute;
-		elementOfAttribute = newElementOfAttribute;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, oldElementOfAttribute, elementOfAttribute));
 	}
 
 	/**
@@ -371,9 +321,6 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
-				if (resolve) return getElementOfAttribute();
-				return basicGetElementOfAttribute();
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
@@ -397,9 +344,6 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
-				setElementOfAttribute((Element)newValue);
-				return;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				setAttribute((Attribute)newValue);
 				return;
@@ -427,9 +371,6 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
-				setElementOfAttribute((Element)null);
-				return;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				setAttribute((Attribute)null);
 				return;
@@ -457,8 +398,6 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XcorePackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
-				return elementOfAttribute != null;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
 				return basicGetAttribute() != null;
 			case XcorePackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getElementOfAttribute <em>Element Of Attribute</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getAttName <em>Att Name</em>}</li>
@@ -26,32 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface AttributeConstraint extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Element Of Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Element Of Attribute</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Of Attribute</em>' reference.
-	 * @see #setElementOfAttribute(Element)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttributeConstraint_ElementOfAttribute()
-	 * @model
-	 * @generated
-	 */
-	Element getElementOfAttribute();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint#getElementOfAttribute <em>Element Of Attribute</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element Of Attribute</em>' reference.
-	 * @see #getElementOfAttribute()
-	 * @generated
-	 */
-	void setElementOfAttribute(Element value);
-
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getConstraints <em>Constraints</em>}'.

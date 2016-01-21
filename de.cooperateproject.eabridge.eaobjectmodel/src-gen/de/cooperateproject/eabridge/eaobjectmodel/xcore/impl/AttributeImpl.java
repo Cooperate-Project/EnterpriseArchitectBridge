@@ -5,7 +5,6 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import java.util.Collection;
@@ -22,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -51,7 +49,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getNotes <em>Notes</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getPos <em>Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getPrecision <em>Precision</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getRedefinedProperty <em>Redefined Property</em>}</li>
@@ -1021,57 +1018,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getParent() {
-		if (eContainerFeatureID() != XcorePackage.ATTRIBUTE__PARENT) return null;
-		return (Element)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element basicGetParent() {
-		if (eContainerFeatureID() != XcorePackage.ATTRIBUTE__PARENT) return null;
-		return (Element)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(Element newParent, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParent, XcorePackage.ATTRIBUTE__PARENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(Element newParent) {
-		if (newParent != eInternalContainer() || (eContainerFeatureID() != XcorePackage.ATTRIBUTE__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, XcorePackage.ELEMENT__ATTRIBUTES, Element.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__PARENT, newParent, newParent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Long getPos() {
 		return pos;
 	}
@@ -1300,10 +1246,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		switch (featureID) {
 			case XcorePackage.ATTRIBUTE__CONSTRAINTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConstraints()).basicAdd(otherEnd, msgs);
-			case XcorePackage.ATTRIBUTE__PARENT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParent((Element)otherEnd, msgs);
 			case XcorePackage.ATTRIBUTE__TAGGED_VALUES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTaggedValues()).basicAdd(otherEnd, msgs);
 		}
@@ -1320,26 +1262,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		switch (featureID) {
 			case XcorePackage.ATTRIBUTE__CONSTRAINTS:
 				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ATTRIBUTE__PARENT:
-				return basicSetParent(null, msgs);
 			case XcorePackage.ATTRIBUTE__TAGGED_VALUES:
 				return ((InternalEList<?>)getTaggedValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case XcorePackage.ATTRIBUTE__PARENT:
-				return eInternalContainer().eInverseRemove(this, XcorePackage.ELEMENT__ATTRIBUTES, Element.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -1386,9 +1312,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return getName();
 			case XcorePackage.ATTRIBUTE__NOTES:
 				return getNotes();
-			case XcorePackage.ATTRIBUTE__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
 			case XcorePackage.ATTRIBUTE__POS:
 				return getPos();
 			case XcorePackage.ATTRIBUTE__PRECISION:
@@ -1478,9 +1401,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return;
 			case XcorePackage.ATTRIBUTE__NOTES:
 				setNotes((String)newValue);
-				return;
-			case XcorePackage.ATTRIBUTE__PARENT:
-				setParent((Element)newValue);
 				return;
 			case XcorePackage.ATTRIBUTE__POS:
 				setPos((Long)newValue);
@@ -1582,9 +1502,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__NOTES:
 				setNotes(NOTES_EDEFAULT);
 				return;
-			case XcorePackage.ATTRIBUTE__PARENT:
-				setParent((Element)null);
-				return;
 			case XcorePackage.ATTRIBUTE__POS:
 				setPos(POS_EDEFAULT);
 				return;
@@ -1666,8 +1583,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case XcorePackage.ATTRIBUTE__NOTES:
 				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
-			case XcorePackage.ATTRIBUTE__PARENT:
-				return basicGetParent() != null;
 			case XcorePackage.ATTRIBUTE__POS:
 				return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
 			case XcorePackage.ATTRIBUTE__PRECISION:

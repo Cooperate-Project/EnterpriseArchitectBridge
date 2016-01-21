@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getNotes <em>Notes</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getPos <em>Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getPrecision <em>Precision</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getRedefinedProperty <em>Redefined Property</em>}</li>
@@ -511,34 +510,6 @@ public interface Attribute extends EObject {
 	 * @generated
 	 */
 	void setNotes(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAttributes <em>Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' container reference.
-	 * @see #setParent(Element)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Parent()
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAttributes
-	 * @model opposite="Attributes" transient="false"
-	 * @generated
-	 */
-	Element getParent();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getParent <em>Parent</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent</em>' container reference.
-	 * @see #getParent()
-	 * @generated
-	 */
-	void setParent(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Pos</b></em>' attribute.

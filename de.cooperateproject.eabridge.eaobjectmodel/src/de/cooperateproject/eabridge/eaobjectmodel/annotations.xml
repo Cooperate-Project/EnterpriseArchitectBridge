@@ -2,76 +2,54 @@
 <persistence-mapping xmlns="http://www.eclipse.org/emft/teneo"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.eclipse.org/emft/teneo https://searchcode.com/codesearch/raw/68608674/">
-	
+
 	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel.xcore">
-	 
+
 		<eclass name="Attribute">
 			<property name="AttributeGUID">
-				<column name="ea_guid"/>
+				<column name="ea_guid" length="40"/>
 			</property>
 			<property name="AttributeID">
-				<column name="ID"/>
-          		<id/>
-         	</property>
-			<property name="Parent">
-				<join-column name="Object_ID"/>
+				<column name="ID" column-definition="INT(11)"/>
+				<id />
+				<generated-value  />
 			</property>
-		</eclass>	
-		
+		</eclass>
+
 		<eclass name="AttributeConstraint">
 			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK</id-class>
-			<table name="t_attributeconstraints"/>
+			<table name="t_attributeconstraints" />
 			<property name="Attribute">
-          		<id/> 
-          		<many-to-one></many-to-one>
-          		<join-column name="ID"/>
-         	</property> 
-         	<property name="Constraint">
-        		<id/>
-  		   	</property>
-			<property name="ElementOfAttribute">
-				<join-column name="Object_ID"/>
+				<id />
+				
 			</property>
-		</eclass>	
-		
+			<property name="Constraint">
+				<id />
+			</property>
+		</eclass>
+
 		<eclass name="AttributeTag">
 			<property name="TagID">
-				<column name="PropertyID"/>
-				<id/>
+				<column name="PropertyID" />
+				<id />
 			</property>
 			<property name="Attribute">
-				<join-column name="ElementID"/>
+				<join-column name="ElementID" />
 			</property>
 			<property name="Value">
-				<column name="VALUE"/>
+				<column name="VALUE" />
 			</property>
 			<property name="Notes">
-				<column name="NOTES"/>
+				<column name="NOTES" />
 			</property>
 			<property name="TagGUID">
-				<column name="ea_guid"/>
+				<column name="ea_guid" />
 			</property>
 			<property name="Name">
-				<column name="Property"/>
+				<column name="Property" />
 			</property>
-		</eclass>	
+		</eclass>
+
 		
-		<eclass name="Connector">
-			<property name="ConnectorID">
-				<column name="Connector_ID"/>
-				<id/>
-			</property>
-			<property name="Alias">
-				<column name="Name"/>
-			</property>
-			<property name="Type">
-				<column name="Connector_Type"/>
-			</property>
-			
-		</eclass>
-			
-		<eclass name="Element">
-			<table name="t_object"/>
-		</eclass>
 	</epackage>
 </persistence-mapping>

@@ -1,0 +1,68 @@
+#
+# Table structure for table `t_attribute`
+#
+DROP TABLE IF EXISTS `t_attribute`;
+CREATE TABLE `t_attribute` (
+  `Name` varchar(255) NOT NULL,
+  `Scope` varchar(50) DEFAULT NULL,
+  `Stereotype` varchar(50) DEFAULT NULL,
+  `Containment` varchar(50) DEFAULT NULL,
+  `IsStatic` int(11) DEFAULT '0',
+  `IsCollection` int(11) DEFAULT '0',
+  `IsOrdered` int(11) DEFAULT '0',
+  `AllowDuplicates` int(11) DEFAULT '0',
+  `LowerBound` varchar(50) DEFAULT NULL,
+  `UpperBound` varchar(50) DEFAULT NULL,
+  `Container` varchar(50) DEFAULT NULL,
+  `Notes` text,
+  `Derived` char(1) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Pos` int(11) DEFAULT NULL,
+  `GenOption` text,
+  `Length` int(11) DEFAULT NULL,
+  `Precision` int(11) DEFAULT NULL,
+  `Scale` int(11) DEFAULT NULL,
+  `Const` int(11) DEFAULT NULL,
+  `Style` varchar(255) DEFAULT NULL,
+  `Classifier` varchar(50) DEFAULT NULL,
+  `Default` text,
+  `Type` varchar(255) DEFAULT NULL,
+  `ea_guid` varchar(40) NOT NULL,
+  `StyleEx` text,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ux_attribute_eaguid` (`ea_guid`),
+  INDEX `ix_attribute_Name` (`Name`),
+  INDEX `ix_attribute_Classifier` (`Classifier`),
+  INDEX `ix_attribute_Type` (`Type`)
+) ENGINE=InnoDB;
+
+#
+# Table structure for table `t_attributeconstraints`
+#
+
+DROP TABLE IF EXISTS `t_attributeconstraints`;
+CREATE TABLE `t_attributeconstraints` (
+  `Constraint` varchar(255) NOT NULL,
+  `AttName` varchar(255) DEFAULT NULL,
+  `Type` varchar(255) DEFAULT NULL,
+  `Notes` text,
+  `ID` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`,`Constraint`)
+) ENGINE=InnoDB;
+
+#
+# Table structure for table `t_attributetag`
+#
+
+DROP TABLE IF EXISTS `t_attributetag`;
+CREATE TABLE `t_attributetag` (
+  `PropertyID` int(11) NOT NULL AUTO_INCREMENT,
+  `ElementID` int(11) NOT NULL DEFAULT '0',
+  `Property` varchar(255) DEFAULT NULL,
+  `VALUE` varchar(255) DEFAULT NULL,
+  `NOTES` text,
+  `ea_guid` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`PropertyID`),
+  INDEX `ix_attributetag_ElementID` (`ElementID`),
+  INDEX `ix_attributetag_value` (`VALUE`)
+) ENGINE=InnoDB;
