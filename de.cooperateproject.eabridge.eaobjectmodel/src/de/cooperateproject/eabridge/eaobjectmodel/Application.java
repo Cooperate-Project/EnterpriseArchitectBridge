@@ -38,6 +38,8 @@ public class Application {
 			final HbDataStore hbds = doQuickStart(dbName); // ignore return
 			
 			Attribute attribute = XcoreFactory.eINSTANCE.createAttribute();
+			attribute.setAttributeGUID("asdasdasdasdasdad");
+			attribute.setName("name");
 			
 			final SessionFactory sessionFactory = hbds.getSessionFactory();
 			
@@ -46,7 +48,6 @@ public class Application {
 			tx.begin();
 			session.save(attribute);
 			tx.commit();
-			
 			
 			//Server.createWebServer().start(); 
 		}
@@ -89,8 +90,12 @@ public class Application {
 			
 			props.setProperty(PersistenceOptions.SQL_CASE_STRATEGY, "none");
 			
-			props.setProperty(Environment.HBM2DDL_AUTO, "none");
+			props.setProperty(PersistenceOptions.ALWAYS_VERSION, "false");
 			
+			// deactivate table creation
+//			props.setProperty(Environment.HBM2DDL_AUTO, "none");
+			
+			// use hibernate.hbm.xml instead of automatic mapping
 //			props.setProperty(PersistenceOptions.USE_MAPPING_FILE, "true");
 			
 			// the name of the session factory

@@ -21,7 +21,7 @@
 			<table name="t_attributeconstraints" />
 			<property name="Attribute">
 				<id />
-				
+				<join-column name="Attribute"/>
 			</property>
 			<property name="Constraint">
 				<id />
