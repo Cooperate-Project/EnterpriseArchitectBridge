@@ -41,8 +41,8 @@ public class Application {
 			Attribute attribute = XcoreFactory.eINSTANCE.createAttribute();
 			attribute.setAttributeGUID("asdasdasdasdasdad");
 			attribute.setName("name");
-			
 			AttributeTag attTag = XcoreFactory.eINSTANCE.createAttributeTag();
+			attTag.setAttribute(attribute);
 			
 			
 			
@@ -51,16 +51,11 @@ public class Application {
 			Session session = sessionFactory.openSession();
 			Transaction tx1 = session.getTransaction();
 			tx1.begin();
-			session.save(attribute);
+			session.save(attribute);		
+			attTag.setAttribute(attribute);
 			tx1.commit();
 			
-			attTag.setAttribute(attribute);
-			
-			Transaction tx2 = session.getTransaction();
-			
-			tx2.begin();
-			session.save(attTag);
-			tx2.commit();
+	
 			
 			//Server.createWebServer().start(); 
 		}
