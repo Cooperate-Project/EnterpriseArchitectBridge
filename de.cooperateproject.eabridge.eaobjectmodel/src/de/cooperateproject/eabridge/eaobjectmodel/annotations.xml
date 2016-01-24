@@ -56,7 +56,7 @@
 			</property>
 		</eclass>	
 		
-		<eclass name="Connector">
+<!-- 		<eclass name="Connector">
 			<property name="ConnectorID">
 				<column name="Connector_ID"/>
 				<id/>
@@ -67,8 +67,7 @@
 			<property name="Type">
 				<column name="Connector_Type"/>
 			</property>
-			
-		</eclass>
+		</eclass> -->
 			
 		<eclass name="Element">
 			<table name="t_object"/>
