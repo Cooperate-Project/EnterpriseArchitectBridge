@@ -32,6 +32,7 @@
 			<property name="TagID">
 				<column name="PropertyID" />
 				<id />
+				<generated-value  />
 			</property>
 			<property name="Attribute">
 				<join-column name="ElementID" />

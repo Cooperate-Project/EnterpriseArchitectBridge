@@ -17,6 +17,7 @@ import org.hibernate.cfg.Environment;
 
 import de.cooperateproject.eabridge.eaobjectmodel.configuration.CustomNamingStrategy;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -41,13 +42,25 @@ public class Application {
 			attribute.setAttributeGUID("asdasdasdasdasdad");
 			attribute.setName("name");
 			
+			AttributeTag attTag = XcoreFactory.eINSTANCE.createAttributeTag();
+			
+			
+			
 			final SessionFactory sessionFactory = hbds.getSessionFactory();
 			
 			Session session = sessionFactory.openSession();
-			Transaction tx = session.getTransaction();
-			tx.begin();
+			Transaction tx1 = session.getTransaction();
+			tx1.begin();
 			session.save(attribute);
-			tx.commit();
+			tx1.commit();
+			
+			attTag.setAttribute(attribute);
+			
+			Transaction tx2 = session.getTransaction();
+			
+			tx2.begin();
+			session.save(attTag);
+			tx2.commit();
 			
 			//Server.createWebServer().start(); 
 		}
