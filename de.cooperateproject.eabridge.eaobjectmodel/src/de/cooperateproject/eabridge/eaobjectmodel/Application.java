@@ -49,19 +49,19 @@ public class Application {
 			// Another approach is setting the properties in the HbDataStore.
 			// For more information see section 3.1 of the Hibernate manual
 			final Properties props = new Properties();
-			// props.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
-			// props.setProperty(Environment.USER, "root");
-			// props.setProperty(Environment.URL, "jdbc:mysql://127.0.0.1:3306/" +
-			// dbName);
-			// props.setProperty(Environment.PASS, "root");
-			// props.setProperty(Environment.DIALECT,
-			// org.hibernate.dialect.MySQL5InnoDBDialect.class.getName());
+			 props.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
+			 props.setProperty(Environment.USER, "ea");
+			 props.setProperty(Environment.URL, "jdbc:mysql://mammutbaum36.fzi.de:3306/" +
+			 dbName);
+			 props.setProperty(Environment.PASS, "zjlaisdfasdf3");
+			 props.setProperty(Environment.DIALECT,
+			 org.hibernate.dialect.MySQL5InnoDBDialect.class.getName());
 
-			props.setProperty(Environment.DRIVER, "org.h2.Driver");
-			props.setProperty(Environment.USER, "sa");
-			props.setProperty(Environment.URL, "jdbc:h2:mem:test");
-			props.setProperty(Environment.PASS, "");
-			props.setProperty(Environment.DIALECT, org.hibernate.dialect.H2Dialect.class.getName());
+//			props.setProperty(Environment.DRIVER, "org.h2.Driver");
+//			props.setProperty(Environment.USER, "sa");
+//			props.setProperty(Environment.URL, "jdbc:h2:mem:test");
+//			props.setProperty(Environment.PASS, "");
+//			props.setProperty(Environment.DIALECT, org.hibernate.dialect.H2Dialect.class.getName());
 
 			// set a specific option
 			// see this page
@@ -73,6 +73,11 @@ public class Application {
 					"de/cooperateproject/eabridge/eaobjectmodel/annotations.xml");
 			
 			props.setProperty(PersistenceOptions.SQL_CASE_STRATEGY, "none");
+			
+			props.setProperty(PersistenceOptions.ALWAYS_VERSION, "false");
+			
+			// deactivate table creation
+//			props.setProperty(Environment.HBM2DDL_AUTO, "none");s
 			
 //			props.setProperty(PersistenceOptions.USE_MAPPING_FILE, "true");
 			
