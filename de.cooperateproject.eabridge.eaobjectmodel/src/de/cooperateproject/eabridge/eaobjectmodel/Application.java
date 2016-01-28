@@ -30,10 +30,13 @@ public class Application {
 		public static void main(String[] args) throws SQLException {
 			// the name of the database, this database should exist but does not
 			// need to contain tables
-			String dbName = "eaobjectmodel";
-			doQuickStart(dbName); // ignore return
+			String dbName = "ea2emf";
 			
-			Server.createWebServer().start(); 
+			HbDataStore hbds = doQuickStart(dbName);
+			
+			Bootstrap.bootstrap(hbds);
+		
+//			Server.createWebServer().start(); 
 		}
 
 		/**
@@ -76,10 +79,17 @@ public class Application {
 			
 			props.setProperty(PersistenceOptions.ALWAYS_VERSION, "false");
 			
-			// deactivate table creation
-//			props.setProperty(Environment.HBM2DDL_AUTO, "none");s
+			props.setProperty(PersistenceOptions.ALWAYS_MAP_LIST_AS_BAG, "true");
 			
+			// deactivate table creation
+//			props.setProperty(Environment.HBM2DDL_AUTO, "none");
+			
+			// link do custom hibernate.hbm.xml
 //			props.setProperty(PersistenceOptions.USE_MAPPING_FILE, "true");
+			
+			//disable generation of econtainer columns
+			//references should be redundant
+			props.setProperty(PersistenceOptions.DISABLE_ECONTAINER_MAPPING, "true");
 			
 			// the name of the session factory
 			final String hbName = "EAObjectModel";

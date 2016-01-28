@@ -21,9 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getBatchLoad <em>Batch Load</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getBatchSave <em>Batch Save</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCodePath <em>Code Path</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElement <em>Element</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getFlags <em>Flags</em>}</li>
@@ -159,22 +157,6 @@ public interface Package extends EObject {
 	void setCodePath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Connectors</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connectors</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Connectors()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Connector> getConnectors();
-
-	/**
 	 * Returns the value of the '<em><b>Created</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -199,24 +181,6 @@ public interface Package extends EObject {
 	 * @generated
 	 */
 	void setCreated(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Diagrams</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram}.
-	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPackage <em>Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Diagrams</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Diagrams</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Diagrams()
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPackage
-	 * @model opposite="Package" containment="true"
-	 * @generated
-	 */
-	EList<Diagram> getDiagrams();
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' containment reference.

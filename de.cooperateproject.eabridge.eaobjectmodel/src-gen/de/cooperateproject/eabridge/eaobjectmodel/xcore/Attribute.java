@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getIsCollection <em>Is Collection</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getIsConst <em>Is Const</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getIsDerived <em>Is Derived</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getIsID <em>Is ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getIsOrdered <em>Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getIsStatic <em>Is Static</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getLength <em>Length</em>}</li>
@@ -36,7 +35,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getPos <em>Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getPrecision <em>Precision</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getRedefinedProperty <em>Redefined Property</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getScale <em>Scale</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getStyle <em>Style</em>}</li>
@@ -44,7 +42,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getUpperBound <em>Upper Bound</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getScope <em>Scope</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getGenOption <em>Gen Option</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute()
@@ -331,32 +330,6 @@ public interface Attribute extends EObject {
 	void setIsDerived(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Is ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is ID</em>' attribute.
-	 * @see #setIsID(Boolean)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_IsID()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Boolean getIsID();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getIsID <em>Is ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is ID</em>' attribute.
-	 * @see #getIsID()
-	 * @generated
-	 */
-	void setIsID(Boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Is Ordered</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -593,32 +566,6 @@ public interface Attribute extends EObject {
 	void setPrecision(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Redefined Property</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Redefined Property</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Redefined Property</em>' attribute.
-	 * @see #setRedefinedProperty(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_RedefinedProperty()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getRedefinedProperty();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getRedefinedProperty <em>Redefined Property</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Redefined Property</em>' attribute.
-	 * @see #getRedefinedProperty()
-	 * @generated
-	 */
-	void setRedefinedProperty(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Scale</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -793,29 +740,55 @@ public interface Attribute extends EObject {
 	void setUpperBound(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Visibility</b></em>' attribute.
+	 * Returns the value of the '<em><b>Scope</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Scope</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Visibility</em>' attribute.
-	 * @see #setVisibility(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Visibility()
+	 * @return the value of the '<em>Scope</em>' attribute.
+	 * @see #setScope(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_Scope()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getVisibility();
+	String getScope();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getVisibility <em>Visibility</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getScope <em>Scope</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Visibility</em>' attribute.
-	 * @see #getVisibility()
+	 * @param value the new value of the '<em>Scope</em>' attribute.
+	 * @see #getScope()
 	 * @generated
 	 */
-	void setVisibility(String value);
+	void setScope(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Gen Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gen Option</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gen Option</em>' attribute.
+	 * @see #setGenOption(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getAttribute_GenOption()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getGenOption();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getGenOption <em>Gen Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gen Option</em>' attribute.
+	 * @see #getGenOption()
+	 * @generated
+	 */
+	void setGenOption(String value);
 
 } // Attribute

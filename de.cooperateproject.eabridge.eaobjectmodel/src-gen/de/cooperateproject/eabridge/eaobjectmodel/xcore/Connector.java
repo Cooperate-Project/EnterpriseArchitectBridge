@@ -13,14 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getAlias <em>Alias</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClient <em>Client</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getColor <em>Color</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConnectorID <em>Connector ID</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDiagram <em>Diagram</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDirection <em>Direction</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEndPointX <em>End Point X</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEndPointY <em>End Point Y</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndX <em>Pt End X</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndY <em>Pt End Y</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEventFlags <em>Event Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getIsLeaf <em>Is Leaf</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getIsRoot <em>Is Root</em>}</li>
@@ -30,21 +26,17 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getRouteStyle <em>Route Style</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSequenceNo <em>Sequence No</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStartPointX <em>Start Point X</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStartPointY <em>Start Point Y</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSeqNo <em>Seq No</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtStartX <em>Pt Start X</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtStartY <em>Pt Start Y</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStateFlags <em>State Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStyleEx <em>Style Ex</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplier <em>Supplier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTaggedValues <em>Tagged Values</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionAction <em>Transition Action</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionEvent <em>Transition Event</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionGuard <em>Transition Guard</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getVirtualInheritance <em>Virtual Inheritance</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getWidth <em>Width</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSource <em>Source</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDest <em>Dest</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceCard <em>Source Card</em>}</li>
@@ -57,6 +49,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isSourceIsAggregate <em>Source Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isSourceIsOrdered <em>Source Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceQualifier <em>Source Qualifier</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceChangeable <em>Source Changeable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceConstraint <em>Source Constraint</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceIsNavigable <em>Source Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceStereotype <em>Source Stereotype</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceStyle <em>Source Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceTS <em>Source TS</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestCard <em>Dest Card</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestAccess <em>Dest Access</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestElement <em>Dest Element</em>}</li>
@@ -67,6 +65,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isDestIsAggregate <em>Dest Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#isDestIsOrdered <em>Dest Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestQualifier <em>Dest Qualifier</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestChangeable <em>Dest Changeable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestConstraint <em>Dest Constraint</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestIsNavigable <em>Dest Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestStereotype <em>Dest Stereotype</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestStyle <em>Dest Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestTS <em>Dest TS</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Start_Label <em>Top Start Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Mid_Label <em>Top Mid Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_End_Label <em>Top End Label</em>}</li>
@@ -77,6 +81,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEnd_Edge <em>End Edge</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getHeadStyle <em>Head Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getLineStyle <em>Line Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDispatchAction <em>Dispatch Action</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA1 <em>PDATA1</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA2 <em>PDATA2</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA3 <em>PDATA3</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA4 <em>PDATA4</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA5 <em>PDATA5</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector()
@@ -84,84 +94,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Connector extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Alias</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alias</em>' attribute.
-	 * @see #setAlias(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Alias()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getAlias();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getAlias <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alias</em>' attribute.
-	 * @see #getAlias()
-	 * @generated
-	 */
-	void setAlias(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Client</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Client</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Client</em>' reference.
-	 * @see #setClient(Element)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Client()
-	 * @model
-	 * @generated
-	 */
-	Element getClient();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getClient <em>Client</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Client</em>' reference.
-	 * @see #getClient()
-	 * @generated
-	 */
-	void setClient(Element value);
-
-	/**
-	 * Returns the value of the '<em><b>Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Color</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Color</em>' attribute.
-	 * @see #setColor(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Color()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getColor();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getColor <em>Color</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Color</em>' attribute.
-	 * @see #getColor()
-	 * @generated
-	 */
-	void setColor(Long value);
-
 	/**
 	 * Returns the value of the '<em><b>Connector ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -187,32 +119,6 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setConnectorID(Long value);
-
-	/**
-	 * Returns the value of the '<em><b>Diagram</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Diagram</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Diagram</em>' reference.
-	 * @see #setDiagram(Diagram)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Diagram()
-	 * @model
-	 * @generated
-	 */
-	Diagram getDiagram();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDiagram <em>Diagram</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Diagram</em>' reference.
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	void setDiagram(Diagram value);
 
 	/**
 	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
@@ -244,56 +150,56 @@ public interface Connector extends EObject {
 	void setDirection(DirectionType value);
 
 	/**
-	 * Returns the value of the '<em><b>End Point X</b></em>' attribute.
+	 * Returns the value of the '<em><b>Pt End X</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>End Point X</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Pt End X</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>End Point X</em>' attribute.
-	 * @see #setEndPointX(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_EndPointX()
+	 * @return the value of the '<em>Pt End X</em>' attribute.
+	 * @see #setPtEndX(Long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PtEndX()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getEndPointX();
+	Long getPtEndX();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEndPointX <em>End Point X</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndX <em>Pt End X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>End Point X</em>' attribute.
-	 * @see #getEndPointX()
+	 * @param value the new value of the '<em>Pt End X</em>' attribute.
+	 * @see #getPtEndX()
 	 * @generated
 	 */
-	void setEndPointX(Long value);
+	void setPtEndX(Long value);
 
 	/**
-	 * Returns the value of the '<em><b>End Point Y</b></em>' attribute.
+	 * Returns the value of the '<em><b>Pt End Y</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>End Point Y</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Pt End Y</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>End Point Y</em>' attribute.
-	 * @see #setEndPointY(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_EndPointY()
+	 * @return the value of the '<em>Pt End Y</em>' attribute.
+	 * @see #setPtEndY(Long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PtEndY()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getEndPointY();
+	Long getPtEndY();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEndPointY <em>End Point Y</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndY <em>Pt End Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>End Point Y</em>' attribute.
-	 * @see #getEndPointY()
+	 * @param value the new value of the '<em>Pt End Y</em>' attribute.
+	 * @see #getPtEndY()
 	 * @generated
 	 */
-	void setEndPointY(Long value);
+	void setPtEndY(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Event Flags</b></em>' attribute.
@@ -530,82 +436,108 @@ public interface Connector extends EObject {
 	void setRouteStyle(Long value);
 
 	/**
-	 * Returns the value of the '<em><b>Sequence No</b></em>' attribute.
+	 * Returns the value of the '<em><b>Seq No</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sequence No</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Seq No</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sequence No</em>' attribute.
-	 * @see #setSequenceNo(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SequenceNo()
+	 * @return the value of the '<em>Seq No</em>' attribute.
+	 * @see #setSeqNo(Long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SeqNo()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getSequenceNo();
+	Long getSeqNo();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSequenceNo <em>Sequence No</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSeqNo <em>Seq No</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sequence No</em>' attribute.
-	 * @see #getSequenceNo()
+	 * @param value the new value of the '<em>Seq No</em>' attribute.
+	 * @see #getSeqNo()
 	 * @generated
 	 */
-	void setSequenceNo(Long value);
+	void setSeqNo(Long value);
 
 	/**
-	 * Returns the value of the '<em><b>Start Point X</b></em>' attribute.
+	 * Returns the value of the '<em><b>Pt Start X</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Start Point X</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Pt Start X</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Start Point X</em>' attribute.
-	 * @see #setStartPointX(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_StartPointX()
+	 * @return the value of the '<em>Pt Start X</em>' attribute.
+	 * @see #setPtStartX(Long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PtStartX()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getStartPointX();
+	Long getPtStartX();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStartPointX <em>Start Point X</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtStartX <em>Pt Start X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Start Point X</em>' attribute.
-	 * @see #getStartPointX()
+	 * @param value the new value of the '<em>Pt Start X</em>' attribute.
+	 * @see #getPtStartX()
 	 * @generated
 	 */
-	void setStartPointX(Long value);
+	void setPtStartX(Long value);
 
 	/**
-	 * Returns the value of the '<em><b>Start Point Y</b></em>' attribute.
+	 * Returns the value of the '<em><b>Pt Start Y</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Start Point Y</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Pt Start Y</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Start Point Y</em>' attribute.
-	 * @see #setStartPointY(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_StartPointY()
+	 * @return the value of the '<em>Pt Start Y</em>' attribute.
+	 * @see #setPtStartY(Long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PtStartY()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getStartPointY();
+	Long getPtStartY();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStartPointY <em>Start Point Y</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtStartY <em>Pt Start Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Start Point Y</em>' attribute.
-	 * @see #getStartPointY()
+	 * @param value the new value of the '<em>Pt Start Y</em>' attribute.
+	 * @see #getPtStartY()
 	 * @generated
 	 */
-	void setStartPointY(Long value);
+	void setPtStartY(Long value);
+
+	/**
+	 * Returns the value of the '<em><b>Action Flags</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Action Flags</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Action Flags</em>' attribute.
+	 * @see #setActionFlags(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_ActionFlags()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getActionFlags();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getActionFlags <em>Action Flags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Action Flags</em>' attribute.
+	 * @see #getActionFlags()
+	 * @generated
+	 */
+	void setActionFlags(String value);
 
 	/**
 	 * Returns the value of the '<em><b>State Flags</b></em>' attribute.
@@ -712,32 +644,6 @@ public interface Connector extends EObject {
 	void setSubType(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Supplier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Supplier</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supplier</em>' reference.
-	 * @see #setSupplier(Element)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Supplier()
-	 * @model
-	 * @generated
-	 */
-	Element getSupplier();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSupplier <em>Supplier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supplier</em>' reference.
-	 * @see #getSupplier()
-	 * @generated
-	 */
-	void setSupplier(Element value);
-
-	/**
 	 * Returns the value of the '<em><b>Tagged Values</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getConnector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
@@ -764,84 +670,6 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setTaggedValues(ConnectorTag value);
-
-	/**
-	 * Returns the value of the '<em><b>Transition Action</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transition Action</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transition Action</em>' attribute.
-	 * @see #setTransitionAction(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_TransitionAction()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getTransitionAction();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionAction <em>Transition Action</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transition Action</em>' attribute.
-	 * @see #getTransitionAction()
-	 * @generated
-	 */
-	void setTransitionAction(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Transition Event</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transition Event</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transition Event</em>' attribute.
-	 * @see #setTransitionEvent(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_TransitionEvent()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getTransitionEvent();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionEvent <em>Transition Event</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transition Event</em>' attribute.
-	 * @see #getTransitionEvent()
-	 * @generated
-	 */
-	void setTransitionEvent(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Transition Guard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transition Guard</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transition Guard</em>' attribute.
-	 * @see #setTransitionGuard(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_TransitionGuard()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getTransitionGuard();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTransitionGuard <em>Transition Guard</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transition Guard</em>' attribute.
-	 * @see #getTransitionGuard()
-	 * @generated
-	 */
-	void setTransitionGuard(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -897,32 +725,6 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setVirtualInheritance(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Width</em>' attribute.
-	 * @see #setWidth(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Width()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getWidth();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getWidth <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Width</em>' attribute.
-	 * @see #getWidth()
-	 * @generated
-	 */
-	void setWidth(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
@@ -1237,6 +1039,162 @@ public interface Connector extends EObject {
 	void setSourceQualifier(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Source Changeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Changeable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Changeable</em>' attribute.
+	 * @see #setSourceChangeable(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SourceChangeable()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getSourceChangeable();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceChangeable <em>Source Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Changeable</em>' attribute.
+	 * @see #getSourceChangeable()
+	 * @generated
+	 */
+	void setSourceChangeable(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Constraint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Constraint</em>' attribute.
+	 * @see #setSourceConstraint(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SourceConstraint()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getSourceConstraint();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceConstraint <em>Source Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Constraint</em>' attribute.
+	 * @see #getSourceConstraint()
+	 * @generated
+	 */
+	void setSourceConstraint(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Is Navigable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Is Navigable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Is Navigable</em>' attribute.
+	 * @see #setSourceIsNavigable(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SourceIsNavigable()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getSourceIsNavigable();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceIsNavigable <em>Source Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Is Navigable</em>' attribute.
+	 * @see #getSourceIsNavigable()
+	 * @generated
+	 */
+	void setSourceIsNavigable(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Stereotype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Stereotype</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Stereotype</em>' attribute.
+	 * @see #setSourceStereotype(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SourceStereotype()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getSourceStereotype();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceStereotype <em>Source Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Stereotype</em>' attribute.
+	 * @see #getSourceStereotype()
+	 * @generated
+	 */
+	void setSourceStereotype(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Style</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Style</em>' attribute.
+	 * @see #setSourceStyle(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SourceStyle()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getSourceStyle();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceStyle <em>Source Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Style</em>' attribute.
+	 * @see #getSourceStyle()
+	 * @generated
+	 */
+	void setSourceStyle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source TS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source TS</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source TS</em>' attribute.
+	 * @see #setSourceTS(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_SourceTS()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getSourceTS();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getSourceTS <em>Source TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source TS</em>' attribute.
+	 * @see #getSourceTS()
+	 * @generated
+	 */
+	void setSourceTS(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Dest Card</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1497,6 +1455,162 @@ public interface Connector extends EObject {
 	void setDestQualifier(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Dest Changeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dest Changeable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dest Changeable</em>' attribute.
+	 * @see #setDestChangeable(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_DestChangeable()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDestChangeable();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestChangeable <em>Dest Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dest Changeable</em>' attribute.
+	 * @see #getDestChangeable()
+	 * @generated
+	 */
+	void setDestChangeable(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Dest Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dest Constraint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dest Constraint</em>' attribute.
+	 * @see #setDestConstraint(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_DestConstraint()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDestConstraint();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestConstraint <em>Dest Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dest Constraint</em>' attribute.
+	 * @see #getDestConstraint()
+	 * @generated
+	 */
+	void setDestConstraint(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Dest Is Navigable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dest Is Navigable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dest Is Navigable</em>' attribute.
+	 * @see #setDestIsNavigable(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_DestIsNavigable()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDestIsNavigable();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestIsNavigable <em>Dest Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dest Is Navigable</em>' attribute.
+	 * @see #getDestIsNavigable()
+	 * @generated
+	 */
+	void setDestIsNavigable(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Dest Stereotype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dest Stereotype</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dest Stereotype</em>' attribute.
+	 * @see #setDestStereotype(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_DestStereotype()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDestStereotype();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestStereotype <em>Dest Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dest Stereotype</em>' attribute.
+	 * @see #getDestStereotype()
+	 * @generated
+	 */
+	void setDestStereotype(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Dest Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dest Style</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dest Style</em>' attribute.
+	 * @see #setDestStyle(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_DestStyle()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDestStyle();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestStyle <em>Dest Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dest Style</em>' attribute.
+	 * @see #getDestStyle()
+	 * @generated
+	 */
+	void setDestStyle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Dest TS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dest TS</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dest TS</em>' attribute.
+	 * @see #setDestTS(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_DestTS()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDestTS();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDestTS <em>Dest TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dest TS</em>' attribute.
+	 * @see #getDestTS()
+	 * @generated
+	 */
+	void setDestTS(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Top Start Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1755,5 +1869,161 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setLineStyle(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Dispatch Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dispatch Action</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dispatch Action</em>' attribute.
+	 * @see #setDispatchAction(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_DispatchAction()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getDispatchAction();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDispatchAction <em>Dispatch Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dispatch Action</em>' attribute.
+	 * @see #getDispatchAction()
+	 * @generated
+	 */
+	void setDispatchAction(String value);
+
+	/**
+	 * Returns the value of the '<em><b>PDATA1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>PDATA1</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>PDATA1</em>' attribute.
+	 * @see #setPDATA1(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PDATA1()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getPDATA1();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA1 <em>PDATA1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>PDATA1</em>' attribute.
+	 * @see #getPDATA1()
+	 * @generated
+	 */
+	void setPDATA1(String value);
+
+	/**
+	 * Returns the value of the '<em><b>PDATA2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>PDATA2</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>PDATA2</em>' attribute.
+	 * @see #setPDATA2(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PDATA2()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getPDATA2();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA2 <em>PDATA2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>PDATA2</em>' attribute.
+	 * @see #getPDATA2()
+	 * @generated
+	 */
+	void setPDATA2(String value);
+
+	/**
+	 * Returns the value of the '<em><b>PDATA3</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>PDATA3</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>PDATA3</em>' attribute.
+	 * @see #setPDATA3(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PDATA3()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getPDATA3();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA3 <em>PDATA3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>PDATA3</em>' attribute.
+	 * @see #getPDATA3()
+	 * @generated
+	 */
+	void setPDATA3(String value);
+
+	/**
+	 * Returns the value of the '<em><b>PDATA4</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>PDATA4</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>PDATA4</em>' attribute.
+	 * @see #setPDATA4(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PDATA4()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getPDATA4();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA4 <em>PDATA4</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>PDATA4</em>' attribute.
+	 * @see #getPDATA4()
+	 * @generated
+	 */
+	void setPDATA4(String value);
+
+	/**
+	 * Returns the value of the '<em><b>PDATA5</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>PDATA5</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>PDATA5</em>' attribute.
+	 * @see #setPDATA5(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_PDATA5()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getPDATA5();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPDATA5 <em>PDATA5</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>PDATA5</em>' attribute.
+	 * @see #getPDATA5()
+	 * @generated
+	 */
+	void setPDATA5(String value);
 
 } // Connector

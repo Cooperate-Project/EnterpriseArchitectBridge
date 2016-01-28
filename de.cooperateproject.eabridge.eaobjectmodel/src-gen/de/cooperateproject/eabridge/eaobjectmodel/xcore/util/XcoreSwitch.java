@@ -8,9 +8,6 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
@@ -115,24 +112,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 			case XcorePackage.CONNECTOR_TAG: {
 				ConnectorTag connectorTag = (ConnectorTag)theEObject;
 				T result = caseConnectorTag(connectorTag);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.DIAGRAM: {
-				Diagram diagram = (Diagram)theEObject;
-				T result = caseDiagram(diagram);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.DIAGRAM_LINK: {
-				DiagramLink diagramLink = (DiagramLink)theEObject;
-				T result = caseDiagramLink(diagramLink);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.DIAGRAMM_OBJECT: {
-				DiagrammObject diagrammObject = (DiagrammObject)theEObject;
-				T result = caseDiagrammObject(diagrammObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -275,51 +254,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConnectorTag(ConnectorTag object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagram</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagram</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDiagram(Diagram object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagram Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagram Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDiagramLink(DiagramLink object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagramm Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagramm Object</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDiagrammObject(DiagrammObject object) {
 		return null;
 	}
 

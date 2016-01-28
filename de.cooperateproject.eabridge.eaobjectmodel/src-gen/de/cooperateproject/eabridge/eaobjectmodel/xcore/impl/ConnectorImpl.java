@@ -5,7 +5,6 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
@@ -27,14 +26,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getAlias <em>Alias</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getClient <em>Client</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getColor <em>Color</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConnectorID <em>Connector ID</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDiagram <em>Diagram</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDirection <em>Direction</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getEndPointX <em>End Point X</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getEndPointY <em>End Point Y</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndX <em>Pt End X</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndY <em>Pt End Y</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getEventFlags <em>Event Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getIsLeaf <em>Is Leaf</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getIsRoot <em>Is Root</em>}</li>
@@ -44,21 +39,17 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getRouteStyle <em>Route Style</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSequenceNo <em>Sequence No</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStartPointX <em>Start Point X</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStartPointY <em>Start Point Y</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSeqNo <em>Seq No</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtStartX <em>Pt Start X</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtStartY <em>Pt Start Y</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStateFlags <em>State Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStyleEx <em>Style Ex</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSupplier <em>Supplier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTaggedValues <em>Tagged Values</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTransitionAction <em>Transition Action</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTransitionEvent <em>Transition Event</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTransitionGuard <em>Transition Guard</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getVirtualInheritance <em>Virtual Inheritance</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSource <em>Source</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDest <em>Dest</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceCard <em>Source Card</em>}</li>
@@ -71,6 +62,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#isSourceIsAggregate <em>Source Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#isSourceIsOrdered <em>Source Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceQualifier <em>Source Qualifier</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceChangeable <em>Source Changeable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceConstraint <em>Source Constraint</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceIsNavigable <em>Source Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceStereotype <em>Source Stereotype</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceStyle <em>Source Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSourceTS <em>Source TS</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestCard <em>Dest Card</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestAccess <em>Dest Access</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestElement <em>Dest Element</em>}</li>
@@ -81,6 +78,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#isDestIsAggregate <em>Dest Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#isDestIsOrdered <em>Dest Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestQualifier <em>Dest Qualifier</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestChangeable <em>Dest Changeable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestConstraint <em>Dest Constraint</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestIsNavigable <em>Dest Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestStereotype <em>Dest Stereotype</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestStyle <em>Dest Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDestTS <em>Dest TS</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTop_Start_Label <em>Top Start Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTop_Mid_Label <em>Top Mid Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTop_End_Label <em>Top End Label</em>}</li>
@@ -91,61 +94,17 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getEnd_Edge <em>End Edge</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getHeadStyle <em>Head Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getLineStyle <em>Line Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDispatchAction <em>Dispatch Action</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPDATA1 <em>PDATA1</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPDATA2 <em>PDATA2</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPDATA3 <em>PDATA3</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPDATA4 <em>PDATA4</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPDATA5 <em>PDATA5</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ConnectorImpl extends MinimalEObjectImpl.Container implements Connector {
-	/**
-	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAlias()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ALIAS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAlias()
-	 * @generated
-	 * @ordered
-	 */
-	protected String alias = ALIAS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getClient() <em>Client</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClient()
-	 * @generated
-	 * @ordered
-	 */
-	protected Element client;
-
-	/**
-	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long COLOR_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long color = COLOR_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getConnectorID() <em>Connector ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -165,16 +124,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected Long connectorID = CONNECTOR_ID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDiagram() <em>Diagram</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDiagram()
-	 * @generated
-	 * @ordered
-	 */
-	protected Diagram diagram;
 
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -197,44 +146,44 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected DirectionType direction = DIRECTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEndPointX() <em>End Point X</em>}' attribute.
+	 * The default value of the '{@link #getPtEndX() <em>Pt End X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEndPointX()
+	 * @see #getPtEndX()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long END_POINT_X_EDEFAULT = null;
+	protected static final Long PT_END_X_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getEndPointX() <em>End Point X</em>}' attribute.
+	 * The cached value of the '{@link #getPtEndX() <em>Pt End X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEndPointX()
+	 * @see #getPtEndX()
 	 * @generated
 	 * @ordered
 	 */
-	protected Long endPointX = END_POINT_X_EDEFAULT;
+	protected Long ptEndX = PT_END_X_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getEndPointY() <em>End Point Y</em>}' attribute.
+	 * The default value of the '{@link #getPtEndY() <em>Pt End Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEndPointY()
+	 * @see #getPtEndY()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long END_POINT_Y_EDEFAULT = null;
+	protected static final Long PT_END_Y_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getEndPointY() <em>End Point Y</em>}' attribute.
+	 * The cached value of the '{@link #getPtEndY() <em>Pt End Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEndPointY()
+	 * @see #getPtEndY()
 	 * @generated
 	 * @ordered
 	 */
-	protected Long endPointY = END_POINT_Y_EDEFAULT;
+	protected Long ptEndY = PT_END_Y_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getEventFlags() <em>Event Flags</em>}' attribute.
@@ -417,64 +366,84 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected Long routeStyle = ROUTE_STYLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSequenceNo() <em>Sequence No</em>}' attribute.
+	 * The default value of the '{@link #getSeqNo() <em>Seq No</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSequenceNo()
+	 * @see #getSeqNo()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long SEQUENCE_NO_EDEFAULT = null;
+	protected static final Long SEQ_NO_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSequenceNo() <em>Sequence No</em>}' attribute.
+	 * The cached value of the '{@link #getSeqNo() <em>Seq No</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSequenceNo()
+	 * @see #getSeqNo()
 	 * @generated
 	 * @ordered
 	 */
-	protected Long sequenceNo = SEQUENCE_NO_EDEFAULT;
+	protected Long seqNo = SEQ_NO_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getStartPointX() <em>Start Point X</em>}' attribute.
+	 * The default value of the '{@link #getPtStartX() <em>Pt Start X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStartPointX()
+	 * @see #getPtStartX()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long START_POINT_X_EDEFAULT = null;
+	protected static final Long PT_START_X_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStartPointX() <em>Start Point X</em>}' attribute.
+	 * The cached value of the '{@link #getPtStartX() <em>Pt Start X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStartPointX()
+	 * @see #getPtStartX()
 	 * @generated
 	 * @ordered
 	 */
-	protected Long startPointX = START_POINT_X_EDEFAULT;
+	protected Long ptStartX = PT_START_X_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getStartPointY() <em>Start Point Y</em>}' attribute.
+	 * The default value of the '{@link #getPtStartY() <em>Pt Start Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStartPointY()
+	 * @see #getPtStartY()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long START_POINT_Y_EDEFAULT = null;
+	protected static final Long PT_START_Y_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStartPointY() <em>Start Point Y</em>}' attribute.
+	 * The cached value of the '{@link #getPtStartY() <em>Pt Start Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStartPointY()
+	 * @see #getPtStartY()
 	 * @generated
 	 * @ordered
 	 */
-	protected Long startPointY = START_POINT_Y_EDEFAULT;
+	protected Long ptStartY = PT_START_Y_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getActionFlags() <em>Action Flags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActionFlags()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ACTION_FLAGS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getActionFlags() <em>Action Flags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActionFlags()
+	 * @generated
+	 * @ordered
+	 */
+	protected String actionFlags = ACTION_FLAGS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStateFlags() <em>State Flags</em>}' attribute.
@@ -557,16 +526,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected String subType = SUB_TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSupplier() <em>Supplier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSupplier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Element supplier;
-
-	/**
 	 * The cached value of the '{@link #getTaggedValues() <em>Tagged Values</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,66 +534,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected ConnectorTag taggedValues;
-
-	/**
-	 * The default value of the '{@link #getTransitionAction() <em>Transition Action</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransitionAction()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TRANSITION_ACTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTransitionAction() <em>Transition Action</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransitionAction()
-	 * @generated
-	 * @ordered
-	 */
-	protected String transitionAction = TRANSITION_ACTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTransitionEvent() <em>Transition Event</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransitionEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TRANSITION_EVENT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTransitionEvent() <em>Transition Event</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransitionEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected String transitionEvent = TRANSITION_EVENT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTransitionGuard() <em>Transition Guard</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransitionGuard()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TRANSITION_GUARD_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTransitionGuard() <em>Transition Guard</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTransitionGuard()
-	 * @generated
-	 * @ordered
-	 */
-	protected String transitionGuard = TRANSITION_GUARD_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -675,26 +574,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected String virtualInheritance = VIRTUAL_INHERITANCE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWidth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long WIDTH_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWidth()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long width = WIDTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -917,6 +796,126 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected String sourceQualifier = SOURCE_QUALIFIER_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getSourceChangeable() <em>Source Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceChangeable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_CHANGEABLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceChangeable() <em>Source Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceChangeable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceChangeable = SOURCE_CHANGEABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSourceConstraint() <em>Source Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_CONSTRAINT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceConstraint() <em>Source Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceConstraint = SOURCE_CONSTRAINT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSourceIsNavigable() <em>Source Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceIsNavigable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_IS_NAVIGABLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceIsNavigable() <em>Source Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceIsNavigable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceIsNavigable = SOURCE_IS_NAVIGABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSourceStereotype() <em>Source Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceStereotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_STEREOTYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceStereotype() <em>Source Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceStereotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceStereotype = SOURCE_STEREOTYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSourceStyle() <em>Source Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_STYLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceStyle() <em>Source Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceStyle = SOURCE_STYLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSourceTS() <em>Source TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceTS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_TS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSourceTS() <em>Source TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceTS()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceTS = SOURCE_TS_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getDestCard() <em>Dest Card</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1115,6 +1114,126 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected String destQualifier = DEST_QUALIFIER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDestChangeable() <em>Dest Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestChangeable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_CHANGEABLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDestChangeable() <em>Dest Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestChangeable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String destChangeable = DEST_CHANGEABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDestConstraint() <em>Dest Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_CONSTRAINT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDestConstraint() <em>Dest Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected String destConstraint = DEST_CONSTRAINT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDestIsNavigable() <em>Dest Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestIsNavigable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_IS_NAVIGABLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDestIsNavigable() <em>Dest Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestIsNavigable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String destIsNavigable = DEST_IS_NAVIGABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDestStereotype() <em>Dest Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestStereotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_STEREOTYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDestStereotype() <em>Dest Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestStereotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected String destStereotype = DEST_STEREOTYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDestStyle() <em>Dest Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_STYLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDestStyle() <em>Dest Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected String destStyle = DEST_STYLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDestTS() <em>Dest TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestTS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_TS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDestTS() <em>Dest TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestTS()
+	 * @generated
+	 * @ordered
+	 */
+	protected String destTS = DEST_TS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTop_Start_Label() <em>Top Start Label</em>}' attribute.
@@ -1317,6 +1436,126 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected int lineStyle = LINE_STYLE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getDispatchAction() <em>Dispatch Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDispatchAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DISPATCH_ACTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDispatchAction() <em>Dispatch Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDispatchAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected String dispatchAction = DISPATCH_ACTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPDATA1() <em>PDATA1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA1()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA1_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPDATA1() <em>PDATA1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA1()
+	 * @generated
+	 * @ordered
+	 */
+	protected String pdata1 = PDATA1_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPDATA2() <em>PDATA2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA2()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA2_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPDATA2() <em>PDATA2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA2()
+	 * @generated
+	 * @ordered
+	 */
+	protected String pdata2 = PDATA2_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPDATA3() <em>PDATA3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA3()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA3_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPDATA3() <em>PDATA3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA3()
+	 * @generated
+	 * @ordered
+	 */
+	protected String pdata3 = PDATA3_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPDATA4() <em>PDATA4</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA4()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA4_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPDATA4() <em>PDATA4</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA4()
+	 * @generated
+	 * @ordered
+	 */
+	protected String pdata4 = PDATA4_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPDATA5() <em>PDATA5</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA5()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA5_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPDATA5() <em>PDATA5</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA5()
+	 * @generated
+	 * @ordered
+	 */
+	protected String pdata5 = PDATA5_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1333,86 +1572,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	@Override
 	protected EClass eStaticClass() {
 		return XcorePackage.Literals.CONNECTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getAlias() {
-		return alias;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAlias(String newAlias) {
-		String oldAlias = alias;
-		alias = newAlias;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__ALIAS, oldAlias, alias));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element getClient() {
-		if (client != null && client.eIsProxy()) {
-			InternalEObject oldClient = (InternalEObject)client;
-			client = (Element)eResolveProxy(oldClient);
-			if (client != oldClient) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.CONNECTOR__CLIENT, oldClient, client));
-			}
-		}
-		return client;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element basicGetClient() {
-		return client;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClient(Element newClient) {
-		Element oldClient = client;
-		client = newClient;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__CLIENT, oldClient, client));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Long getColor() {
-		return color;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColor(Long newColor) {
-		Long oldColor = color;
-		color = newColor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__COLOR, oldColor, color));
 	}
 
 	/**
@@ -1441,44 +1600,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Diagram getDiagram() {
-		if (diagram != null && diagram.eIsProxy()) {
-			InternalEObject oldDiagram = (InternalEObject)diagram;
-			diagram = (Diagram)eResolveProxy(oldDiagram);
-			if (diagram != oldDiagram) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.CONNECTOR__DIAGRAM, oldDiagram, diagram));
-			}
-		}
-		return diagram;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Diagram basicGetDiagram() {
-		return diagram;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDiagram(Diagram newDiagram) {
-		Diagram oldDiagram = diagram;
-		diagram = newDiagram;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DIAGRAM, oldDiagram, diagram));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DirectionType getDirection() {
 		return direction;
 	}
@@ -1500,8 +1621,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getEndPointX() {
-		return endPointX;
+	public Long getPtEndX() {
+		return ptEndX;
 	}
 
 	/**
@@ -1509,11 +1630,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndPointX(Long newEndPointX) {
-		Long oldEndPointX = endPointX;
-		endPointX = newEndPointX;
+	public void setPtEndX(Long newPtEndX) {
+		Long oldPtEndX = ptEndX;
+		ptEndX = newPtEndX;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__END_POINT_X, oldEndPointX, endPointX));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PT_END_X, oldPtEndX, ptEndX));
 	}
 
 	/**
@@ -1521,8 +1642,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getEndPointY() {
-		return endPointY;
+	public Long getPtEndY() {
+		return ptEndY;
 	}
 
 	/**
@@ -1530,11 +1651,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEndPointY(Long newEndPointY) {
-		Long oldEndPointY = endPointY;
-		endPointY = newEndPointY;
+	public void setPtEndY(Long newPtEndY) {
+		Long oldPtEndY = ptEndY;
+		ptEndY = newPtEndY;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__END_POINT_Y, oldEndPointY, endPointY));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PT_END_Y, oldPtEndY, ptEndY));
 	}
 
 	/**
@@ -1731,8 +1852,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getSequenceNo() {
-		return sequenceNo;
+	public Long getSeqNo() {
+		return seqNo;
 	}
 
 	/**
@@ -1740,11 +1861,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSequenceNo(Long newSequenceNo) {
-		Long oldSequenceNo = sequenceNo;
-		sequenceNo = newSequenceNo;
+	public void setSeqNo(Long newSeqNo) {
+		Long oldSeqNo = seqNo;
+		seqNo = newSeqNo;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SEQUENCE_NO, oldSequenceNo, sequenceNo));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SEQ_NO, oldSeqNo, seqNo));
 	}
 
 	/**
@@ -1752,8 +1873,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getStartPointX() {
-		return startPointX;
+	public Long getPtStartX() {
+		return ptStartX;
 	}
 
 	/**
@@ -1761,11 +1882,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartPointX(Long newStartPointX) {
-		Long oldStartPointX = startPointX;
-		startPointX = newStartPointX;
+	public void setPtStartX(Long newPtStartX) {
+		Long oldPtStartX = ptStartX;
+		ptStartX = newPtStartX;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__START_POINT_X, oldStartPointX, startPointX));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PT_START_X, oldPtStartX, ptStartX));
 	}
 
 	/**
@@ -1773,8 +1894,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getStartPointY() {
-		return startPointY;
+	public Long getPtStartY() {
+		return ptStartY;
 	}
 
 	/**
@@ -1782,11 +1903,32 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartPointY(Long newStartPointY) {
-		Long oldStartPointY = startPointY;
-		startPointY = newStartPointY;
+	public void setPtStartY(Long newPtStartY) {
+		Long oldPtStartY = ptStartY;
+		ptStartY = newPtStartY;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__START_POINT_Y, oldStartPointY, startPointY));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PT_START_Y, oldPtStartY, ptStartY));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getActionFlags() {
+		return actionFlags;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActionFlags(String newActionFlags) {
+		String oldActionFlags = actionFlags;
+		actionFlags = newActionFlags;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__ACTION_FLAGS, oldActionFlags, actionFlags));
 	}
 
 	/**
@@ -1878,44 +2020,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getSupplier() {
-		if (supplier != null && supplier.eIsProxy()) {
-			InternalEObject oldSupplier = (InternalEObject)supplier;
-			supplier = (Element)eResolveProxy(oldSupplier);
-			if (supplier != oldSupplier) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.CONNECTOR__SUPPLIER, oldSupplier, supplier));
-			}
-		}
-		return supplier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element basicGetSupplier() {
-		return supplier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSupplier(Element newSupplier) {
-		Element oldSupplier = supplier;
-		supplier = newSupplier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SUPPLIER, oldSupplier, supplier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConnectorTag getTaggedValues() {
 		return taggedValues;
 	}
@@ -1959,69 +2063,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTransitionAction() {
-		return transitionAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransitionAction(String newTransitionAction) {
-		String oldTransitionAction = transitionAction;
-		transitionAction = newTransitionAction;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__TRANSITION_ACTION, oldTransitionAction, transitionAction));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTransitionEvent() {
-		return transitionEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransitionEvent(String newTransitionEvent) {
-		String oldTransitionEvent = transitionEvent;
-		transitionEvent = newTransitionEvent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__TRANSITION_EVENT, oldTransitionEvent, transitionEvent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTransitionGuard() {
-		return transitionGuard;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTransitionGuard(String newTransitionGuard) {
-		String oldTransitionGuard = transitionGuard;
-		transitionGuard = newTransitionGuard;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__TRANSITION_GUARD, oldTransitionGuard, transitionGuard));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConnectorType getType() {
 		return type;
 	}
@@ -2057,27 +2098,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		virtualInheritance = newVirtualInheritance;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__VIRTUAL_INHERITANCE, oldVirtualInheritance, virtualInheritance));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Long getWidth() {
-		return width;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWidth(Long newWidth) {
-		Long oldWidth = width;
-		width = newWidth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__WIDTH, oldWidth, width));
 	}
 
 	/**
@@ -2371,6 +2391,132 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSourceChangeable() {
+		return sourceChangeable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceChangeable(String newSourceChangeable) {
+		String oldSourceChangeable = sourceChangeable;
+		sourceChangeable = newSourceChangeable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SOURCE_CHANGEABLE, oldSourceChangeable, sourceChangeable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSourceConstraint() {
+		return sourceConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceConstraint(String newSourceConstraint) {
+		String oldSourceConstraint = sourceConstraint;
+		sourceConstraint = newSourceConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SOURCE_CONSTRAINT, oldSourceConstraint, sourceConstraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSourceIsNavigable() {
+		return sourceIsNavigable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceIsNavigable(String newSourceIsNavigable) {
+		String oldSourceIsNavigable = sourceIsNavigable;
+		sourceIsNavigable = newSourceIsNavigable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SOURCE_IS_NAVIGABLE, oldSourceIsNavigable, sourceIsNavigable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSourceStereotype() {
+		return sourceStereotype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceStereotype(String newSourceStereotype) {
+		String oldSourceStereotype = sourceStereotype;
+		sourceStereotype = newSourceStereotype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SOURCE_STEREOTYPE, oldSourceStereotype, sourceStereotype));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSourceStyle() {
+		return sourceStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceStyle(String newSourceStyle) {
+		String oldSourceStyle = sourceStyle;
+		sourceStyle = newSourceStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SOURCE_STYLE, oldSourceStyle, sourceStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSourceTS() {
+		return sourceTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceTS(String newSourceTS) {
+		String oldSourceTS = sourceTS;
+		sourceTS = newSourceTS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SOURCE_TS, oldSourceTS, sourceTS));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getDestCard() {
 		return destCard;
 	}
@@ -2574,6 +2720,132 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		destQualifier = newDestQualifier;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DEST_QUALIFIER, oldDestQualifier, destQualifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDestChangeable() {
+		return destChangeable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestChangeable(String newDestChangeable) {
+		String oldDestChangeable = destChangeable;
+		destChangeable = newDestChangeable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DEST_CHANGEABLE, oldDestChangeable, destChangeable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDestConstraint() {
+		return destConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestConstraint(String newDestConstraint) {
+		String oldDestConstraint = destConstraint;
+		destConstraint = newDestConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DEST_CONSTRAINT, oldDestConstraint, destConstraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDestIsNavigable() {
+		return destIsNavigable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestIsNavigable(String newDestIsNavigable) {
+		String oldDestIsNavigable = destIsNavigable;
+		destIsNavigable = newDestIsNavigable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DEST_IS_NAVIGABLE, oldDestIsNavigable, destIsNavigable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDestStereotype() {
+		return destStereotype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestStereotype(String newDestStereotype) {
+		String oldDestStereotype = destStereotype;
+		destStereotype = newDestStereotype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DEST_STEREOTYPE, oldDestStereotype, destStereotype));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDestStyle() {
+		return destStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestStyle(String newDestStyle) {
+		String oldDestStyle = destStyle;
+		destStyle = newDestStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DEST_STYLE, oldDestStyle, destStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDestTS() {
+		return destTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestTS(String newDestTS) {
+		String oldDestTS = destTS;
+		destTS = newDestTS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DEST_TS, oldDestTS, destTS));
 	}
 
 	/**
@@ -2791,6 +3063,132 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDispatchAction() {
+		return dispatchAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDispatchAction(String newDispatchAction) {
+		String oldDispatchAction = dispatchAction;
+		dispatchAction = newDispatchAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__DISPATCH_ACTION, oldDispatchAction, dispatchAction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPDATA1() {
+		return pdata1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPDATA1(String newPDATA1) {
+		String oldPDATA1 = pdata1;
+		pdata1 = newPDATA1;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PDATA1, oldPDATA1, pdata1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPDATA2() {
+		return pdata2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPDATA2(String newPDATA2) {
+		String oldPDATA2 = pdata2;
+		pdata2 = newPDATA2;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PDATA2, oldPDATA2, pdata2));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPDATA3() {
+		return pdata3;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPDATA3(String newPDATA3) {
+		String oldPDATA3 = pdata3;
+		pdata3 = newPDATA3;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PDATA3, oldPDATA3, pdata3));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPDATA4() {
+		return pdata4;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPDATA4(String newPDATA4) {
+		String oldPDATA4 = pdata4;
+		pdata4 = newPDATA4;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PDATA4, oldPDATA4, pdata4));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPDATA5() {
+		return pdata5;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPDATA5(String newPDATA5) {
+		String oldPDATA5 = pdata5;
+		pdata5 = newPDATA5;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__PDATA5, oldPDATA5, pdata5));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -2824,24 +3222,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR__ALIAS:
-				return getAlias();
-			case XcorePackage.CONNECTOR__CLIENT:
-				if (resolve) return getClient();
-				return basicGetClient();
-			case XcorePackage.CONNECTOR__COLOR:
-				return getColor();
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return getConnectorID();
-			case XcorePackage.CONNECTOR__DIAGRAM:
-				if (resolve) return getDiagram();
-				return basicGetDiagram();
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return getDirection();
-			case XcorePackage.CONNECTOR__END_POINT_X:
-				return getEndPointX();
-			case XcorePackage.CONNECTOR__END_POINT_Y:
-				return getEndPointY();
+			case XcorePackage.CONNECTOR__PT_END_X:
+				return getPtEndX();
+			case XcorePackage.CONNECTOR__PT_END_Y:
+				return getPtEndY();
 			case XcorePackage.CONNECTOR__EVENT_FLAGS:
 				return getEventFlags();
 			case XcorePackage.CONNECTOR__IS_LEAF:
@@ -2860,12 +3248,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return getNotes();
 			case XcorePackage.CONNECTOR__ROUTE_STYLE:
 				return getRouteStyle();
-			case XcorePackage.CONNECTOR__SEQUENCE_NO:
-				return getSequenceNo();
-			case XcorePackage.CONNECTOR__START_POINT_X:
-				return getStartPointX();
-			case XcorePackage.CONNECTOR__START_POINT_Y:
-				return getStartPointY();
+			case XcorePackage.CONNECTOR__SEQ_NO:
+				return getSeqNo();
+			case XcorePackage.CONNECTOR__PT_START_X:
+				return getPtStartX();
+			case XcorePackage.CONNECTOR__PT_START_Y:
+				return getPtStartY();
+			case XcorePackage.CONNECTOR__ACTION_FLAGS:
+				return getActionFlags();
 			case XcorePackage.CONNECTOR__STATE_FLAGS:
 				return getStateFlags();
 			case XcorePackage.CONNECTOR__STEREOTYPE:
@@ -2874,23 +3264,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return getStyleEx();
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				return getSubType();
-			case XcorePackage.CONNECTOR__SUPPLIER:
-				if (resolve) return getSupplier();
-				return basicGetSupplier();
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				return getTaggedValues();
-			case XcorePackage.CONNECTOR__TRANSITION_ACTION:
-				return getTransitionAction();
-			case XcorePackage.CONNECTOR__TRANSITION_EVENT:
-				return getTransitionEvent();
-			case XcorePackage.CONNECTOR__TRANSITION_GUARD:
-				return getTransitionGuard();
 			case XcorePackage.CONNECTOR__TYPE:
 				return getType();
 			case XcorePackage.CONNECTOR__VIRTUAL_INHERITANCE:
 				return getVirtualInheritance();
-			case XcorePackage.CONNECTOR__WIDTH:
-				return getWidth();
 			case XcorePackage.CONNECTOR__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
@@ -2917,6 +3296,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return isSourceIsOrdered();
 			case XcorePackage.CONNECTOR__SOURCE_QUALIFIER:
 				return getSourceQualifier();
+			case XcorePackage.CONNECTOR__SOURCE_CHANGEABLE:
+				return getSourceChangeable();
+			case XcorePackage.CONNECTOR__SOURCE_CONSTRAINT:
+				return getSourceConstraint();
+			case XcorePackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				return getSourceIsNavigable();
+			case XcorePackage.CONNECTOR__SOURCE_STEREOTYPE:
+				return getSourceStereotype();
+			case XcorePackage.CONNECTOR__SOURCE_STYLE:
+				return getSourceStyle();
+			case XcorePackage.CONNECTOR__SOURCE_TS:
+				return getSourceTS();
 			case XcorePackage.CONNECTOR__DEST_CARD:
 				return getDestCard();
 			case XcorePackage.CONNECTOR__DEST_ACCESS:
@@ -2937,6 +3328,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return isDestIsOrdered();
 			case XcorePackage.CONNECTOR__DEST_QUALIFIER:
 				return getDestQualifier();
+			case XcorePackage.CONNECTOR__DEST_CHANGEABLE:
+				return getDestChangeable();
+			case XcorePackage.CONNECTOR__DEST_CONSTRAINT:
+				return getDestConstraint();
+			case XcorePackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				return getDestIsNavigable();
+			case XcorePackage.CONNECTOR__DEST_STEREOTYPE:
+				return getDestStereotype();
+			case XcorePackage.CONNECTOR__DEST_STYLE:
+				return getDestStyle();
+			case XcorePackage.CONNECTOR__DEST_TS:
+				return getDestTS();
 			case XcorePackage.CONNECTOR__TOP_START_LABEL:
 				return getTop_Start_Label();
 			case XcorePackage.CONNECTOR__TOP_MID_LABEL:
@@ -2957,6 +3360,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return getHeadStyle();
 			case XcorePackage.CONNECTOR__LINE_STYLE:
 				return getLineStyle();
+			case XcorePackage.CONNECTOR__DISPATCH_ACTION:
+				return getDispatchAction();
+			case XcorePackage.CONNECTOR__PDATA1:
+				return getPDATA1();
+			case XcorePackage.CONNECTOR__PDATA2:
+				return getPDATA2();
+			case XcorePackage.CONNECTOR__PDATA3:
+				return getPDATA3();
+			case XcorePackage.CONNECTOR__PDATA4:
+				return getPDATA4();
+			case XcorePackage.CONNECTOR__PDATA5:
+				return getPDATA5();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2969,29 +3384,17 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR__ALIAS:
-				setAlias((String)newValue);
-				return;
-			case XcorePackage.CONNECTOR__CLIENT:
-				setClient((Element)newValue);
-				return;
-			case XcorePackage.CONNECTOR__COLOR:
-				setColor((Long)newValue);
-				return;
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID((Long)newValue);
-				return;
-			case XcorePackage.CONNECTOR__DIAGRAM:
-				setDiagram((Diagram)newValue);
 				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection((DirectionType)newValue);
 				return;
-			case XcorePackage.CONNECTOR__END_POINT_X:
-				setEndPointX((Long)newValue);
+			case XcorePackage.CONNECTOR__PT_END_X:
+				setPtEndX((Long)newValue);
 				return;
-			case XcorePackage.CONNECTOR__END_POINT_Y:
-				setEndPointY((Long)newValue);
+			case XcorePackage.CONNECTOR__PT_END_Y:
+				setPtEndY((Long)newValue);
 				return;
 			case XcorePackage.CONNECTOR__EVENT_FLAGS:
 				setEventFlags((String)newValue);
@@ -3020,14 +3423,17 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__ROUTE_STYLE:
 				setRouteStyle((Long)newValue);
 				return;
-			case XcorePackage.CONNECTOR__SEQUENCE_NO:
-				setSequenceNo((Long)newValue);
+			case XcorePackage.CONNECTOR__SEQ_NO:
+				setSeqNo((Long)newValue);
 				return;
-			case XcorePackage.CONNECTOR__START_POINT_X:
-				setStartPointX((Long)newValue);
+			case XcorePackage.CONNECTOR__PT_START_X:
+				setPtStartX((Long)newValue);
 				return;
-			case XcorePackage.CONNECTOR__START_POINT_Y:
-				setStartPointY((Long)newValue);
+			case XcorePackage.CONNECTOR__PT_START_Y:
+				setPtStartY((Long)newValue);
+				return;
+			case XcorePackage.CONNECTOR__ACTION_FLAGS:
+				setActionFlags((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__STATE_FLAGS:
 				setStateFlags((String)newValue);
@@ -3041,29 +3447,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				setSubType((String)newValue);
 				return;
-			case XcorePackage.CONNECTOR__SUPPLIER:
-				setSupplier((Element)newValue);
-				return;
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				setTaggedValues((ConnectorTag)newValue);
-				return;
-			case XcorePackage.CONNECTOR__TRANSITION_ACTION:
-				setTransitionAction((String)newValue);
-				return;
-			case XcorePackage.CONNECTOR__TRANSITION_EVENT:
-				setTransitionEvent((String)newValue);
-				return;
-			case XcorePackage.CONNECTOR__TRANSITION_GUARD:
-				setTransitionGuard((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__TYPE:
 				setType((ConnectorType)newValue);
 				return;
 			case XcorePackage.CONNECTOR__VIRTUAL_INHERITANCE:
 				setVirtualInheritance((String)newValue);
-				return;
-			case XcorePackage.CONNECTOR__WIDTH:
-				setWidth((Long)newValue);
 				return;
 			case XcorePackage.CONNECTOR__SOURCE:
 				setSource((Element)newValue);
@@ -3101,6 +3492,24 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__SOURCE_QUALIFIER:
 				setSourceQualifier((String)newValue);
 				return;
+			case XcorePackage.CONNECTOR__SOURCE_CHANGEABLE:
+				setSourceChangeable((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_CONSTRAINT:
+				setSourceConstraint((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				setSourceIsNavigable((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_STEREOTYPE:
+				setSourceStereotype((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_STYLE:
+				setSourceStyle((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_TS:
+				setSourceTS((String)newValue);
+				return;
 			case XcorePackage.CONNECTOR__DEST_CARD:
 				setDestCard((String)newValue);
 				return;
@@ -3130,6 +3539,24 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return;
 			case XcorePackage.CONNECTOR__DEST_QUALIFIER:
 				setDestQualifier((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__DEST_CHANGEABLE:
+				setDestChangeable((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__DEST_CONSTRAINT:
+				setDestConstraint((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				setDestIsNavigable((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__DEST_STEREOTYPE:
+				setDestStereotype((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__DEST_STYLE:
+				setDestStyle((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__DEST_TS:
+				setDestTS((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__TOP_START_LABEL:
 				setTop_Start_Label((String)newValue);
@@ -3161,6 +3588,24 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__LINE_STYLE:
 				setLineStyle((Integer)newValue);
 				return;
+			case XcorePackage.CONNECTOR__DISPATCH_ACTION:
+				setDispatchAction((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__PDATA1:
+				setPDATA1((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__PDATA2:
+				setPDATA2((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__PDATA3:
+				setPDATA3((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__PDATA4:
+				setPDATA4((String)newValue);
+				return;
+			case XcorePackage.CONNECTOR__PDATA5:
+				setPDATA5((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -3173,29 +3618,17 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR__ALIAS:
-				setAlias(ALIAS_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__CLIENT:
-				setClient((Element)null);
-				return;
-			case XcorePackage.CONNECTOR__COLOR:
-				setColor(COLOR_EDEFAULT);
-				return;
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID(CONNECTOR_ID_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__DIAGRAM:
-				setDiagram((Diagram)null);
 				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection(DIRECTION_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__END_POINT_X:
-				setEndPointX(END_POINT_X_EDEFAULT);
+			case XcorePackage.CONNECTOR__PT_END_X:
+				setPtEndX(PT_END_X_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__END_POINT_Y:
-				setEndPointY(END_POINT_Y_EDEFAULT);
+			case XcorePackage.CONNECTOR__PT_END_Y:
+				setPtEndY(PT_END_Y_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__EVENT_FLAGS:
 				setEventFlags(EVENT_FLAGS_EDEFAULT);
@@ -3224,14 +3657,17 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__ROUTE_STYLE:
 				setRouteStyle(ROUTE_STYLE_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__SEQUENCE_NO:
-				setSequenceNo(SEQUENCE_NO_EDEFAULT);
+			case XcorePackage.CONNECTOR__SEQ_NO:
+				setSeqNo(SEQ_NO_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__START_POINT_X:
-				setStartPointX(START_POINT_X_EDEFAULT);
+			case XcorePackage.CONNECTOR__PT_START_X:
+				setPtStartX(PT_START_X_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__START_POINT_Y:
-				setStartPointY(START_POINT_Y_EDEFAULT);
+			case XcorePackage.CONNECTOR__PT_START_Y:
+				setPtStartY(PT_START_Y_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__ACTION_FLAGS:
+				setActionFlags(ACTION_FLAGS_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__STATE_FLAGS:
 				setStateFlags(STATE_FLAGS_EDEFAULT);
@@ -3245,29 +3681,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				setSubType(SUB_TYPE_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__SUPPLIER:
-				setSupplier((Element)null);
-				return;
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				setTaggedValues((ConnectorTag)null);
-				return;
-			case XcorePackage.CONNECTOR__TRANSITION_ACTION:
-				setTransitionAction(TRANSITION_ACTION_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__TRANSITION_EVENT:
-				setTransitionEvent(TRANSITION_EVENT_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__TRANSITION_GUARD:
-				setTransitionGuard(TRANSITION_GUARD_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__VIRTUAL_INHERITANCE:
 				setVirtualInheritance(VIRTUAL_INHERITANCE_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__WIDTH:
-				setWidth(WIDTH_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__SOURCE:
 				setSource((Element)null);
@@ -3305,6 +3726,24 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__SOURCE_QUALIFIER:
 				setSourceQualifier(SOURCE_QUALIFIER_EDEFAULT);
 				return;
+			case XcorePackage.CONNECTOR__SOURCE_CHANGEABLE:
+				setSourceChangeable(SOURCE_CHANGEABLE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_CONSTRAINT:
+				setSourceConstraint(SOURCE_CONSTRAINT_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				setSourceIsNavigable(SOURCE_IS_NAVIGABLE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_STEREOTYPE:
+				setSourceStereotype(SOURCE_STEREOTYPE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_STYLE:
+				setSourceStyle(SOURCE_STYLE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__SOURCE_TS:
+				setSourceTS(SOURCE_TS_EDEFAULT);
+				return;
 			case XcorePackage.CONNECTOR__DEST_CARD:
 				setDestCard(DEST_CARD_EDEFAULT);
 				return;
@@ -3334,6 +3773,24 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return;
 			case XcorePackage.CONNECTOR__DEST_QUALIFIER:
 				setDestQualifier(DEST_QUALIFIER_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__DEST_CHANGEABLE:
+				setDestChangeable(DEST_CHANGEABLE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__DEST_CONSTRAINT:
+				setDestConstraint(DEST_CONSTRAINT_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				setDestIsNavigable(DEST_IS_NAVIGABLE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__DEST_STEREOTYPE:
+				setDestStereotype(DEST_STEREOTYPE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__DEST_STYLE:
+				setDestStyle(DEST_STYLE_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__DEST_TS:
+				setDestTS(DEST_TS_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__TOP_START_LABEL:
 				setTop_Start_Label(TOP_START_LABEL_EDEFAULT);
@@ -3365,6 +3822,24 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__LINE_STYLE:
 				setLineStyle(LINE_STYLE_EDEFAULT);
 				return;
+			case XcorePackage.CONNECTOR__DISPATCH_ACTION:
+				setDispatchAction(DISPATCH_ACTION_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__PDATA1:
+				setPDATA1(PDATA1_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__PDATA2:
+				setPDATA2(PDATA2_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__PDATA3:
+				setPDATA3(PDATA3_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__PDATA4:
+				setPDATA4(PDATA4_EDEFAULT);
+				return;
+			case XcorePackage.CONNECTOR__PDATA5:
+				setPDATA5(PDATA5_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -3377,22 +3852,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR__ALIAS:
-				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-			case XcorePackage.CONNECTOR__CLIENT:
-				return client != null;
-			case XcorePackage.CONNECTOR__COLOR:
-				return COLOR_EDEFAULT == null ? color != null : !COLOR_EDEFAULT.equals(color);
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return CONNECTOR_ID_EDEFAULT == null ? connectorID != null : !CONNECTOR_ID_EDEFAULT.equals(connectorID);
-			case XcorePackage.CONNECTOR__DIAGRAM:
-				return diagram != null;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return direction != DIRECTION_EDEFAULT;
-			case XcorePackage.CONNECTOR__END_POINT_X:
-				return END_POINT_X_EDEFAULT == null ? endPointX != null : !END_POINT_X_EDEFAULT.equals(endPointX);
-			case XcorePackage.CONNECTOR__END_POINT_Y:
-				return END_POINT_Y_EDEFAULT == null ? endPointY != null : !END_POINT_Y_EDEFAULT.equals(endPointY);
+			case XcorePackage.CONNECTOR__PT_END_X:
+				return PT_END_X_EDEFAULT == null ? ptEndX != null : !PT_END_X_EDEFAULT.equals(ptEndX);
+			case XcorePackage.CONNECTOR__PT_END_Y:
+				return PT_END_Y_EDEFAULT == null ? ptEndY != null : !PT_END_Y_EDEFAULT.equals(ptEndY);
 			case XcorePackage.CONNECTOR__EVENT_FLAGS:
 				return EVENT_FLAGS_EDEFAULT == null ? eventFlags != null : !EVENT_FLAGS_EDEFAULT.equals(eventFlags);
 			case XcorePackage.CONNECTOR__IS_LEAF:
@@ -3411,12 +3878,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
 			case XcorePackage.CONNECTOR__ROUTE_STYLE:
 				return ROUTE_STYLE_EDEFAULT == null ? routeStyle != null : !ROUTE_STYLE_EDEFAULT.equals(routeStyle);
-			case XcorePackage.CONNECTOR__SEQUENCE_NO:
-				return SEQUENCE_NO_EDEFAULT == null ? sequenceNo != null : !SEQUENCE_NO_EDEFAULT.equals(sequenceNo);
-			case XcorePackage.CONNECTOR__START_POINT_X:
-				return START_POINT_X_EDEFAULT == null ? startPointX != null : !START_POINT_X_EDEFAULT.equals(startPointX);
-			case XcorePackage.CONNECTOR__START_POINT_Y:
-				return START_POINT_Y_EDEFAULT == null ? startPointY != null : !START_POINT_Y_EDEFAULT.equals(startPointY);
+			case XcorePackage.CONNECTOR__SEQ_NO:
+				return SEQ_NO_EDEFAULT == null ? seqNo != null : !SEQ_NO_EDEFAULT.equals(seqNo);
+			case XcorePackage.CONNECTOR__PT_START_X:
+				return PT_START_X_EDEFAULT == null ? ptStartX != null : !PT_START_X_EDEFAULT.equals(ptStartX);
+			case XcorePackage.CONNECTOR__PT_START_Y:
+				return PT_START_Y_EDEFAULT == null ? ptStartY != null : !PT_START_Y_EDEFAULT.equals(ptStartY);
+			case XcorePackage.CONNECTOR__ACTION_FLAGS:
+				return ACTION_FLAGS_EDEFAULT == null ? actionFlags != null : !ACTION_FLAGS_EDEFAULT.equals(actionFlags);
 			case XcorePackage.CONNECTOR__STATE_FLAGS:
 				return STATE_FLAGS_EDEFAULT == null ? stateFlags != null : !STATE_FLAGS_EDEFAULT.equals(stateFlags);
 			case XcorePackage.CONNECTOR__STEREOTYPE:
@@ -3425,22 +3894,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return STYLE_EX_EDEFAULT == null ? styleEx != null : !STYLE_EX_EDEFAULT.equals(styleEx);
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				return SUB_TYPE_EDEFAULT == null ? subType != null : !SUB_TYPE_EDEFAULT.equals(subType);
-			case XcorePackage.CONNECTOR__SUPPLIER:
-				return supplier != null;
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				return taggedValues != null;
-			case XcorePackage.CONNECTOR__TRANSITION_ACTION:
-				return TRANSITION_ACTION_EDEFAULT == null ? transitionAction != null : !TRANSITION_ACTION_EDEFAULT.equals(transitionAction);
-			case XcorePackage.CONNECTOR__TRANSITION_EVENT:
-				return TRANSITION_EVENT_EDEFAULT == null ? transitionEvent != null : !TRANSITION_EVENT_EDEFAULT.equals(transitionEvent);
-			case XcorePackage.CONNECTOR__TRANSITION_GUARD:
-				return TRANSITION_GUARD_EDEFAULT == null ? transitionGuard != null : !TRANSITION_GUARD_EDEFAULT.equals(transitionGuard);
 			case XcorePackage.CONNECTOR__TYPE:
 				return type != TYPE_EDEFAULT;
 			case XcorePackage.CONNECTOR__VIRTUAL_INHERITANCE:
 				return VIRTUAL_INHERITANCE_EDEFAULT == null ? virtualInheritance != null : !VIRTUAL_INHERITANCE_EDEFAULT.equals(virtualInheritance);
-			case XcorePackage.CONNECTOR__WIDTH:
-				return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals(width);
 			case XcorePackage.CONNECTOR__SOURCE:
 				return source != null;
 			case XcorePackage.CONNECTOR__DEST:
@@ -3465,6 +3924,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return sourceIsOrdered != SOURCE_IS_ORDERED_EDEFAULT;
 			case XcorePackage.CONNECTOR__SOURCE_QUALIFIER:
 				return SOURCE_QUALIFIER_EDEFAULT == null ? sourceQualifier != null : !SOURCE_QUALIFIER_EDEFAULT.equals(sourceQualifier);
+			case XcorePackage.CONNECTOR__SOURCE_CHANGEABLE:
+				return SOURCE_CHANGEABLE_EDEFAULT == null ? sourceChangeable != null : !SOURCE_CHANGEABLE_EDEFAULT.equals(sourceChangeable);
+			case XcorePackage.CONNECTOR__SOURCE_CONSTRAINT:
+				return SOURCE_CONSTRAINT_EDEFAULT == null ? sourceConstraint != null : !SOURCE_CONSTRAINT_EDEFAULT.equals(sourceConstraint);
+			case XcorePackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				return SOURCE_IS_NAVIGABLE_EDEFAULT == null ? sourceIsNavigable != null : !SOURCE_IS_NAVIGABLE_EDEFAULT.equals(sourceIsNavigable);
+			case XcorePackage.CONNECTOR__SOURCE_STEREOTYPE:
+				return SOURCE_STEREOTYPE_EDEFAULT == null ? sourceStereotype != null : !SOURCE_STEREOTYPE_EDEFAULT.equals(sourceStereotype);
+			case XcorePackage.CONNECTOR__SOURCE_STYLE:
+				return SOURCE_STYLE_EDEFAULT == null ? sourceStyle != null : !SOURCE_STYLE_EDEFAULT.equals(sourceStyle);
+			case XcorePackage.CONNECTOR__SOURCE_TS:
+				return SOURCE_TS_EDEFAULT == null ? sourceTS != null : !SOURCE_TS_EDEFAULT.equals(sourceTS);
 			case XcorePackage.CONNECTOR__DEST_CARD:
 				return DEST_CARD_EDEFAULT == null ? destCard != null : !DEST_CARD_EDEFAULT.equals(destCard);
 			case XcorePackage.CONNECTOR__DEST_ACCESS:
@@ -3485,6 +3956,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return destIsOrdered != DEST_IS_ORDERED_EDEFAULT;
 			case XcorePackage.CONNECTOR__DEST_QUALIFIER:
 				return DEST_QUALIFIER_EDEFAULT == null ? destQualifier != null : !DEST_QUALIFIER_EDEFAULT.equals(destQualifier);
+			case XcorePackage.CONNECTOR__DEST_CHANGEABLE:
+				return DEST_CHANGEABLE_EDEFAULT == null ? destChangeable != null : !DEST_CHANGEABLE_EDEFAULT.equals(destChangeable);
+			case XcorePackage.CONNECTOR__DEST_CONSTRAINT:
+				return DEST_CONSTRAINT_EDEFAULT == null ? destConstraint != null : !DEST_CONSTRAINT_EDEFAULT.equals(destConstraint);
+			case XcorePackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				return DEST_IS_NAVIGABLE_EDEFAULT == null ? destIsNavigable != null : !DEST_IS_NAVIGABLE_EDEFAULT.equals(destIsNavigable);
+			case XcorePackage.CONNECTOR__DEST_STEREOTYPE:
+				return DEST_STEREOTYPE_EDEFAULT == null ? destStereotype != null : !DEST_STEREOTYPE_EDEFAULT.equals(destStereotype);
+			case XcorePackage.CONNECTOR__DEST_STYLE:
+				return DEST_STYLE_EDEFAULT == null ? destStyle != null : !DEST_STYLE_EDEFAULT.equals(destStyle);
+			case XcorePackage.CONNECTOR__DEST_TS:
+				return DEST_TS_EDEFAULT == null ? destTS != null : !DEST_TS_EDEFAULT.equals(destTS);
 			case XcorePackage.CONNECTOR__TOP_START_LABEL:
 				return TOP_START_LABEL_EDEFAULT == null ? top_Start_Label != null : !TOP_START_LABEL_EDEFAULT.equals(top_Start_Label);
 			case XcorePackage.CONNECTOR__TOP_MID_LABEL:
@@ -3505,6 +3988,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return headStyle != HEAD_STYLE_EDEFAULT;
 			case XcorePackage.CONNECTOR__LINE_STYLE:
 				return lineStyle != LINE_STYLE_EDEFAULT;
+			case XcorePackage.CONNECTOR__DISPATCH_ACTION:
+				return DISPATCH_ACTION_EDEFAULT == null ? dispatchAction != null : !DISPATCH_ACTION_EDEFAULT.equals(dispatchAction);
+			case XcorePackage.CONNECTOR__PDATA1:
+				return PDATA1_EDEFAULT == null ? pdata1 != null : !PDATA1_EDEFAULT.equals(pdata1);
+			case XcorePackage.CONNECTOR__PDATA2:
+				return PDATA2_EDEFAULT == null ? pdata2 != null : !PDATA2_EDEFAULT.equals(pdata2);
+			case XcorePackage.CONNECTOR__PDATA3:
+				return PDATA3_EDEFAULT == null ? pdata3 != null : !PDATA3_EDEFAULT.equals(pdata3);
+			case XcorePackage.CONNECTOR__PDATA4:
+				return PDATA4_EDEFAULT == null ? pdata4 != null : !PDATA4_EDEFAULT.equals(pdata4);
+			case XcorePackage.CONNECTOR__PDATA5:
+				return PDATA5_EDEFAULT == null ? pdata5 != null : !PDATA5_EDEFAULT.equals(pdata5);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -3519,18 +4014,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Alias: ");
-		result.append(alias);
-		result.append(", Color: ");
-		result.append(color);
-		result.append(", ConnectorID: ");
+		result.append(" (ConnectorID: ");
 		result.append(connectorID);
 		result.append(", Direction: ");
 		result.append(direction);
-		result.append(", EndPointX: ");
-		result.append(endPointX);
-		result.append(", EndPointY: ");
-		result.append(endPointY);
+		result.append(", PtEndX: ");
+		result.append(ptEndX);
+		result.append(", PtEndY: ");
+		result.append(ptEndY);
 		result.append(", EventFlags: ");
 		result.append(eventFlags);
 		result.append(", IsLeaf: ");
@@ -3549,12 +4040,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(notes);
 		result.append(", RouteStyle: ");
 		result.append(routeStyle);
-		result.append(", SequenceNo: ");
-		result.append(sequenceNo);
-		result.append(", StartPointX: ");
-		result.append(startPointX);
-		result.append(", StartPointY: ");
-		result.append(startPointY);
+		result.append(", SeqNo: ");
+		result.append(seqNo);
+		result.append(", PtStartX: ");
+		result.append(ptStartX);
+		result.append(", PtStartY: ");
+		result.append(ptStartY);
+		result.append(", ActionFlags: ");
+		result.append(actionFlags);
 		result.append(", StateFlags: ");
 		result.append(stateFlags);
 		result.append(", Stereotype: ");
@@ -3563,18 +4056,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(styleEx);
 		result.append(", SubType: ");
 		result.append(subType);
-		result.append(", TransitionAction: ");
-		result.append(transitionAction);
-		result.append(", TransitionEvent: ");
-		result.append(transitionEvent);
-		result.append(", TransitionGuard: ");
-		result.append(transitionGuard);
 		result.append(", Type: ");
 		result.append(type);
 		result.append(", VirtualInheritance: ");
 		result.append(virtualInheritance);
-		result.append(", Width: ");
-		result.append(width);
 		result.append(", SourceCard: ");
 		result.append(sourceCard);
 		result.append(", SourceAccess: ");
@@ -3595,6 +4080,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(sourceIsOrdered);
 		result.append(", SourceQualifier: ");
 		result.append(sourceQualifier);
+		result.append(", SourceChangeable: ");
+		result.append(sourceChangeable);
+		result.append(", SourceConstraint: ");
+		result.append(sourceConstraint);
+		result.append(", SourceIsNavigable: ");
+		result.append(sourceIsNavigable);
+		result.append(", SourceStereotype: ");
+		result.append(sourceStereotype);
+		result.append(", SourceStyle: ");
+		result.append(sourceStyle);
+		result.append(", SourceTS: ");
+		result.append(sourceTS);
 		result.append(", DestCard: ");
 		result.append(destCard);
 		result.append(", DestAccess: ");
@@ -3615,6 +4112,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(destIsOrdered);
 		result.append(", DestQualifier: ");
 		result.append(destQualifier);
+		result.append(", DestChangeable: ");
+		result.append(destChangeable);
+		result.append(", DestConstraint: ");
+		result.append(destConstraint);
+		result.append(", DestIsNavigable: ");
+		result.append(destIsNavigable);
+		result.append(", DestStereotype: ");
+		result.append(destStereotype);
+		result.append(", DestStyle: ");
+		result.append(destStyle);
+		result.append(", DestTS: ");
+		result.append(destTS);
 		result.append(", Top_Start_Label: ");
 		result.append(top_Start_Label);
 		result.append(", Top_Mid_Label: ");
@@ -3635,6 +4144,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(headStyle);
 		result.append(", LineStyle: ");
 		result.append(lineStyle);
+		result.append(", DispatchAction: ");
+		result.append(dispatchAction);
+		result.append(", PDATA1: ");
+		result.append(pdata1);
+		result.append(", PDATA2: ");
+		result.append(pdata2);
+		result.append(", PDATA3: ");
+		result.append(pdata3);
+		result.append(", PDATA4: ");
+		result.append(pdata4);
+		result.append(", PDATA5: ");
+		result.append(pdata5);
 		result.append(')');
 		return result.toString();
 	}

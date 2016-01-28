@@ -44,7 +44,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getIsCollection <em>Is Collection</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getIsConst <em>Is Const</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getIsDerived <em>Is Derived</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getIsID <em>Is ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getIsOrdered <em>Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getIsStatic <em>Is Static</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getLength <em>Length</em>}</li>
@@ -54,7 +53,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getPos <em>Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getPrecision <em>Precision</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getRedefinedProperty <em>Redefined Property</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getScale <em>Scale</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getStyle <em>Style</em>}</li>
@@ -62,7 +60,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getUpperBound <em>Upper Bound</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getScope <em>Scope</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.AttributeImpl#getGenOption <em>Gen Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -279,26 +278,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	protected Boolean isDerived = IS_DERIVED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getIsID() <em>Is ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean IS_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIsID() <em>Is ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsID()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean isID = IS_ID_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getIsOrdered() <em>Is Ordered</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,26 +438,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	protected String precision = PRECISION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRedefinedProperty() <em>Redefined Property</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRedefinedProperty()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REDEFINED_PROPERTY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRedefinedProperty() <em>Redefined Property</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRedefinedProperty()
-	 * @generated
-	 * @ordered
-	 */
-	protected String redefinedProperty = REDEFINED_PROPERTY_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getScale() <em>Scale</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -609,24 +568,44 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	protected String upperBound = UPPER_BOUND_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+	 * The default value of the '{@link #getScope() <em>Scope</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVisibility()
+	 * @see #getScope()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VISIBILITY_EDEFAULT = null;
+	protected static final String SCOPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+	 * The cached value of the '{@link #getScope() <em>Scope</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVisibility()
+	 * @see #getScope()
 	 * @generated
 	 * @ordered
 	 */
-	protected String visibility = VISIBILITY_EDEFAULT;
+	protected String scope = SCOPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGenOption() <em>Gen Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GEN_OPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getGenOption() <em>Gen Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected String genOption = GEN_OPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -874,27 +853,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getIsID() {
-		return isID;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsID(Boolean newIsID) {
-		Boolean oldIsID = isID;
-		isID = newIsID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__IS_ID, oldIsID, isID));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Boolean getIsOrdered() {
 		return isOrdered;
 	}
@@ -1114,27 +1072,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRedefinedProperty() {
-		return redefinedProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRedefinedProperty(String newRedefinedProperty) {
-		String oldRedefinedProperty = redefinedProperty;
-		redefinedProperty = newRedefinedProperty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__REDEFINED_PROPERTY, oldRedefinedProperty, redefinedProperty));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getScale() {
 		return scale;
 	}
@@ -1273,8 +1210,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVisibility() {
-		return visibility;
+	public String getScope() {
+		return scope;
 	}
 
 	/**
@@ -1282,11 +1219,32 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVisibility(String newVisibility) {
-		String oldVisibility = visibility;
-		visibility = newVisibility;
+	public void setScope(String newScope) {
+		String oldScope = scope;
+		scope = newScope;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__VISIBILITY, oldVisibility, visibility));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__SCOPE, oldScope, scope));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getGenOption() {
+		return genOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGenOption(String newGenOption) {
+		String oldGenOption = genOption;
+		genOption = newGenOption;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ATTRIBUTE__GEN_OPTION, oldGenOption, genOption));
 	}
 
 	/**
@@ -1372,8 +1330,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return getIsConst();
 			case XcorePackage.ATTRIBUTE__IS_DERIVED:
 				return getIsDerived();
-			case XcorePackage.ATTRIBUTE__IS_ID:
-				return getIsID();
 			case XcorePackage.ATTRIBUTE__IS_ORDERED:
 				return getIsOrdered();
 			case XcorePackage.ATTRIBUTE__IS_STATIC:
@@ -1393,8 +1349,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return getPos();
 			case XcorePackage.ATTRIBUTE__PRECISION:
 				return getPrecision();
-			case XcorePackage.ATTRIBUTE__REDEFINED_PROPERTY:
-				return getRedefinedProperty();
 			case XcorePackage.ATTRIBUTE__SCALE:
 				return getScale();
 			case XcorePackage.ATTRIBUTE__STEREOTYPE:
@@ -1409,8 +1363,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return getType();
 			case XcorePackage.ATTRIBUTE__UPPER_BOUND:
 				return getUpperBound();
-			case XcorePackage.ATTRIBUTE__VISIBILITY:
-				return getVisibility();
+			case XcorePackage.ATTRIBUTE__SCOPE:
+				return getScope();
+			case XcorePackage.ATTRIBUTE__GEN_OPTION:
+				return getGenOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1458,9 +1414,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__IS_DERIVED:
 				setIsDerived((Boolean)newValue);
 				return;
-			case XcorePackage.ATTRIBUTE__IS_ID:
-				setIsID((Boolean)newValue);
-				return;
 			case XcorePackage.ATTRIBUTE__IS_ORDERED:
 				setIsOrdered((Boolean)newValue);
 				return;
@@ -1488,9 +1441,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__PRECISION:
 				setPrecision((String)newValue);
 				return;
-			case XcorePackage.ATTRIBUTE__REDEFINED_PROPERTY:
-				setRedefinedProperty((String)newValue);
-				return;
 			case XcorePackage.ATTRIBUTE__SCALE:
 				setScale((String)newValue);
 				return;
@@ -1513,8 +1463,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__UPPER_BOUND:
 				setUpperBound((String)newValue);
 				return;
-			case XcorePackage.ATTRIBUTE__VISIBILITY:
-				setVisibility((String)newValue);
+			case XcorePackage.ATTRIBUTE__SCOPE:
+				setScope((String)newValue);
+				return;
+			case XcorePackage.ATTRIBUTE__GEN_OPTION:
+				setGenOption((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1561,9 +1514,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__IS_DERIVED:
 				setIsDerived(IS_DERIVED_EDEFAULT);
 				return;
-			case XcorePackage.ATTRIBUTE__IS_ID:
-				setIsID(IS_ID_EDEFAULT);
-				return;
 			case XcorePackage.ATTRIBUTE__IS_ORDERED:
 				setIsOrdered(IS_ORDERED_EDEFAULT);
 				return;
@@ -1591,9 +1541,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__PRECISION:
 				setPrecision(PRECISION_EDEFAULT);
 				return;
-			case XcorePackage.ATTRIBUTE__REDEFINED_PROPERTY:
-				setRedefinedProperty(REDEFINED_PROPERTY_EDEFAULT);
-				return;
 			case XcorePackage.ATTRIBUTE__SCALE:
 				setScale(SCALE_EDEFAULT);
 				return;
@@ -1615,8 +1562,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case XcorePackage.ATTRIBUTE__UPPER_BOUND:
 				setUpperBound(UPPER_BOUND_EDEFAULT);
 				return;
-			case XcorePackage.ATTRIBUTE__VISIBILITY:
-				setVisibility(VISIBILITY_EDEFAULT);
+			case XcorePackage.ATTRIBUTE__SCOPE:
+				setScope(SCOPE_EDEFAULT);
+				return;
+			case XcorePackage.ATTRIBUTE__GEN_OPTION:
+				setGenOption(GEN_OPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1652,8 +1602,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return IS_CONST_EDEFAULT == null ? isConst != null : !IS_CONST_EDEFAULT.equals(isConst);
 			case XcorePackage.ATTRIBUTE__IS_DERIVED:
 				return IS_DERIVED_EDEFAULT == null ? isDerived != null : !IS_DERIVED_EDEFAULT.equals(isDerived);
-			case XcorePackage.ATTRIBUTE__IS_ID:
-				return IS_ID_EDEFAULT == null ? isID != null : !IS_ID_EDEFAULT.equals(isID);
 			case XcorePackage.ATTRIBUTE__IS_ORDERED:
 				return IS_ORDERED_EDEFAULT == null ? isOrdered != null : !IS_ORDERED_EDEFAULT.equals(isOrdered);
 			case XcorePackage.ATTRIBUTE__IS_STATIC:
@@ -1672,8 +1620,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
 			case XcorePackage.ATTRIBUTE__PRECISION:
 				return PRECISION_EDEFAULT == null ? precision != null : !PRECISION_EDEFAULT.equals(precision);
-			case XcorePackage.ATTRIBUTE__REDEFINED_PROPERTY:
-				return REDEFINED_PROPERTY_EDEFAULT == null ? redefinedProperty != null : !REDEFINED_PROPERTY_EDEFAULT.equals(redefinedProperty);
 			case XcorePackage.ATTRIBUTE__SCALE:
 				return SCALE_EDEFAULT == null ? scale != null : !SCALE_EDEFAULT.equals(scale);
 			case XcorePackage.ATTRIBUTE__STEREOTYPE:
@@ -1688,8 +1634,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case XcorePackage.ATTRIBUTE__UPPER_BOUND:
 				return UPPER_BOUND_EDEFAULT == null ? upperBound != null : !UPPER_BOUND_EDEFAULT.equals(upperBound);
-			case XcorePackage.ATTRIBUTE__VISIBILITY:
-				return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
+			case XcorePackage.ATTRIBUTE__SCOPE:
+				return SCOPE_EDEFAULT == null ? scope != null : !SCOPE_EDEFAULT.equals(scope);
+			case XcorePackage.ATTRIBUTE__GEN_OPTION:
+				return GEN_OPTION_EDEFAULT == null ? genOption != null : !GEN_OPTION_EDEFAULT.equals(genOption);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1724,8 +1672,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		result.append(isConst);
 		result.append(", IsDerived: ");
 		result.append(isDerived);
-		result.append(", IsID: ");
-		result.append(isID);
 		result.append(", IsOrdered: ");
 		result.append(isOrdered);
 		result.append(", IsStatic: ");
@@ -1742,8 +1688,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		result.append(pos);
 		result.append(", Precision: ");
 		result.append(precision);
-		result.append(", RedefinedProperty: ");
-		result.append(redefinedProperty);
 		result.append(", Scale: ");
 		result.append(scale);
 		result.append(", Stereotype: ");
@@ -1756,8 +1700,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		result.append(type);
 		result.append(", UpperBound: ");
 		result.append(upperBound);
-		result.append(", Visibility: ");
-		result.append(visibility);
+		result.append(", Scope: ");
+		result.append(scope);
+		result.append(", GenOption: ");
+		result.append(genOption);
 		result.append(')');
 		return result.toString();
 	}

@@ -3,8 +3,6 @@
 package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
@@ -49,10 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getClassifierName <em>Classifier Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getClassifierType <em>Classifier Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getComplexity <em>Complexity</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCompositeDiagram <em>Composite Diagram</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getDifficulty <em>Difficulty</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElementGUID <em>Element GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElementID <em>Element ID</em>}</li>
@@ -291,26 +286,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String complexity = COMPLEXITY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCompositeDiagram() <em>Composite Diagram</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCompositeDiagram()
-	 * @generated
-	 * @ordered
-	 */
-	protected Diagram compositeDiagram;
-
-	/**
-	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConnectors()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Connector> connectors;
-
-	/**
 	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,16 +304,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected Date created = CREATED_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDiagrams() <em>Diagrams</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDiagrams()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Diagram> diagrams;
 
 	/**
 	 * The default value of the '{@link #getDifficulty() <em>Difficulty</em>}' attribute.
@@ -1354,61 +1319,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Diagram getCompositeDiagram() {
-		return compositeDiagram;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCompositeDiagram(Diagram newCompositeDiagram, NotificationChain msgs) {
-		Diagram oldCompositeDiagram = compositeDiagram;
-		compositeDiagram = newCompositeDiagram;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__COMPOSITE_DIAGRAM, oldCompositeDiagram, newCompositeDiagram);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCompositeDiagram(Diagram newCompositeDiagram) {
-		if (newCompositeDiagram != compositeDiagram) {
-			NotificationChain msgs = null;
-			if (compositeDiagram != null)
-				msgs = ((InternalEObject)compositeDiagram).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.ELEMENT__COMPOSITE_DIAGRAM, null, msgs);
-			if (newCompositeDiagram != null)
-				msgs = ((InternalEObject)newCompositeDiagram).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XcorePackage.ELEMENT__COMPOSITE_DIAGRAM, null, msgs);
-			msgs = basicSetCompositeDiagram(newCompositeDiagram, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__COMPOSITE_DIAGRAM, newCompositeDiagram, newCompositeDiagram));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Connector> getConnectors() {
-		if (connectors == null) {
-			connectors = new EObjectContainmentEList<Connector>(Connector.class, this, XcorePackage.ELEMENT__CONNECTORS);
-		}
-		return connectors;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Date getCreated() {
 		return created;
 	}
@@ -1423,18 +1333,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		created = newCreated;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CREATED, oldCreated, created));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Diagram> getDiagrams() {
-		if (diagrams == null) {
-			diagrams = new EObjectContainmentEList<Diagram>(Diagram.class, this, XcorePackage.ELEMENT__DIAGRAMS);
-		}
-		return diagrams;
 	}
 
 	/**
@@ -2345,12 +2243,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__BASE_CLASSES:
 				return ((InternalEList<?>)getBaseClasses()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__COMPOSITE_DIAGRAM:
-				return basicSetCompositeDiagram(null, msgs);
-			case XcorePackage.ELEMENT__CONNECTORS:
-				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__DIAGRAMS:
-				return ((InternalEList<?>)getDiagrams()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__EMBEDDED_ELEMENTS:
@@ -2410,14 +2302,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getClassifierType();
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				return getComplexity();
-			case XcorePackage.ELEMENT__COMPOSITE_DIAGRAM:
-				return getCompositeDiagram();
-			case XcorePackage.ELEMENT__CONNECTORS:
-				return getConnectors();
 			case XcorePackage.ELEMENT__CREATED:
 				return getCreated();
-			case XcorePackage.ELEMENT__DIAGRAMS:
-				return getDiagrams();
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				return getDifficulty();
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
@@ -2552,19 +2438,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				setComplexity((String)newValue);
 				return;
-			case XcorePackage.ELEMENT__COMPOSITE_DIAGRAM:
-				setCompositeDiagram((Diagram)newValue);
-				return;
-			case XcorePackage.ELEMENT__CONNECTORS:
-				getConnectors().clear();
-				getConnectors().addAll((Collection<? extends Connector>)newValue);
-				return;
 			case XcorePackage.ELEMENT__CREATED:
 				setCreated((Date)newValue);
-				return;
-			case XcorePackage.ELEMENT__DIAGRAMS:
-				getDiagrams().clear();
-				getDiagrams().addAll((Collection<? extends Diagram>)newValue);
 				return;
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				setDifficulty((String)newValue);
@@ -2738,17 +2613,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				setComplexity(COMPLEXITY_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__COMPOSITE_DIAGRAM:
-				setCompositeDiagram((Diagram)null);
-				return;
-			case XcorePackage.ELEMENT__CONNECTORS:
-				getConnectors().clear();
-				return;
 			case XcorePackage.ELEMENT__CREATED:
 				setCreated(CREATED_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__DIAGRAMS:
-				getDiagrams().clear();
 				return;
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				setDifficulty(DIFFICULTY_EDEFAULT);
@@ -2907,14 +2773,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return CLASSIFIER_TYPE_EDEFAULT == null ? classifierType != null : !CLASSIFIER_TYPE_EDEFAULT.equals(classifierType);
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				return COMPLEXITY_EDEFAULT == null ? complexity != null : !COMPLEXITY_EDEFAULT.equals(complexity);
-			case XcorePackage.ELEMENT__COMPOSITE_DIAGRAM:
-				return compositeDiagram != null;
-			case XcorePackage.ELEMENT__CONNECTORS:
-				return connectors != null && !connectors.isEmpty();
 			case XcorePackage.ELEMENT__CREATED:
 				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
-			case XcorePackage.ELEMENT__DIAGRAMS:
-				return diagrams != null && !diagrams.isEmpty();
 			case XcorePackage.ELEMENT__DIFFICULTY:
 				return DIFFICULTY_EDEFAULT == null ? difficulty != null : !DIFFICULTY_EDEFAULT.equals(difficulty);
 			case XcorePackage.ELEMENT__ELEMENT_GUID:

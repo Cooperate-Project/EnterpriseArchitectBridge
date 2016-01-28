@@ -2,8 +2,6 @@
  */
 package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -37,9 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getBatchLoad <em>Batch Load</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getBatchSave <em>Batch Save</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCodePath <em>Code Path</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getElement <em>Element</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getFlags <em>Flags</em>}</li>
@@ -149,16 +145,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	protected String codePath = CODE_PATH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConnectors()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Connector> connectors;
-
-	/**
 	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,16 +163,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * @ordered
 	 */
 	protected Date created = CREATED_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDiagrams() <em>Diagrams</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDiagrams()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Diagram> diagrams;
 
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
@@ -726,18 +702,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Connector> getConnectors() {
-		if (connectors == null) {
-			connectors = new EObjectContainmentEList<Connector>(Connector.class, this, XcorePackage.PACKAGE__CONNECTORS);
-		}
-		return connectors;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Date getCreated() {
 		return created;
 	}
@@ -752,18 +716,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 		created = newCreated;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__CREATED, oldCreated, created));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Diagram> getDiagrams() {
-		if (diagrams == null) {
-			diagrams = new EObjectContainmentWithInverseEList<Diagram>(Diagram.class, this, XcorePackage.PACKAGE__DIAGRAMS, XcorePackage.DIAGRAM__PACKAGE);
-		}
-		return diagrams;
 	}
 
 	/**
@@ -1262,8 +1214,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XcorePackage.PACKAGE__DIAGRAMS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDiagrams()).basicAdd(otherEnd, msgs);
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
@@ -1278,10 +1228,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XcorePackage.PACKAGE__CONNECTORS:
-				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
-			case XcorePackage.PACKAGE__DIAGRAMS:
-				return ((InternalEList<?>)getDiagrams()).basicRemove(otherEnd, msgs);
 			case XcorePackage.PACKAGE__ELEMENT:
 				return basicSetElement(null, msgs);
 			case XcorePackage.PACKAGE__ELEMENTS:
@@ -1308,12 +1254,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return getBatchSave();
 			case XcorePackage.PACKAGE__CODE_PATH:
 				return getCodePath();
-			case XcorePackage.PACKAGE__CONNECTORS:
-				return getConnectors();
 			case XcorePackage.PACKAGE__CREATED:
 				return getCreated();
-			case XcorePackage.PACKAGE__DIAGRAMS:
-				return getDiagrams();
 			case XcorePackage.PACKAGE__ELEMENT:
 				return getElement();
 			case XcorePackage.PACKAGE__ELEMENTS:
@@ -1385,16 +1327,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__CODE_PATH:
 				setCodePath((String)newValue);
 				return;
-			case XcorePackage.PACKAGE__CONNECTORS:
-				getConnectors().clear();
-				getConnectors().addAll((Collection<? extends Connector>)newValue);
-				return;
 			case XcorePackage.PACKAGE__CREATED:
 				setCreated((Date)newValue);
-				return;
-			case XcorePackage.PACKAGE__DIAGRAMS:
-				getDiagrams().clear();
-				getDiagrams().addAll((Collection<? extends Diagram>)newValue);
 				return;
 			case XcorePackage.PACKAGE__ELEMENT:
 				setElement((Element)newValue);
@@ -1491,14 +1425,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__CODE_PATH:
 				setCodePath(CODE_PATH_EDEFAULT);
 				return;
-			case XcorePackage.PACKAGE__CONNECTORS:
-				getConnectors().clear();
-				return;
 			case XcorePackage.PACKAGE__CREATED:
 				setCreated(CREATED_EDEFAULT);
-				return;
-			case XcorePackage.PACKAGE__DIAGRAMS:
-				getDiagrams().clear();
 				return;
 			case XcorePackage.PACKAGE__ELEMENT:
 				setElement((Element)null);
@@ -1589,12 +1517,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return BATCH_SAVE_EDEFAULT == null ? batchSave != null : !BATCH_SAVE_EDEFAULT.equals(batchSave);
 			case XcorePackage.PACKAGE__CODE_PATH:
 				return CODE_PATH_EDEFAULT == null ? codePath != null : !CODE_PATH_EDEFAULT.equals(codePath);
-			case XcorePackage.PACKAGE__CONNECTORS:
-				return connectors != null && !connectors.isEmpty();
 			case XcorePackage.PACKAGE__CREATED:
 				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
-			case XcorePackage.PACKAGE__DIAGRAMS:
-				return diagrams != null && !diagrams.isEmpty();
 			case XcorePackage.PACKAGE__ELEMENT:
 				return element != null;
 			case XcorePackage.PACKAGE__ELEMENTS:

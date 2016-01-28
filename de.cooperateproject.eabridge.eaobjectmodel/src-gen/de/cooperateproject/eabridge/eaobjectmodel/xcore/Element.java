@@ -28,10 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifierName <em>Classifier Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifierType <em>Classifier Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getComplexity <em>Complexity</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCompositeDiagram <em>Composite Diagram</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getDifficulty <em>Difficulty</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElementGUID <em>Element GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElementID <em>Element ID</em>}</li>
@@ -350,48 +347,6 @@ public interface Element extends EObject {
 	void setComplexity(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Composite Diagram</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Composite Diagram</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Composite Diagram</em>' containment reference.
-	 * @see #setCompositeDiagram(Diagram)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_CompositeDiagram()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Diagram getCompositeDiagram();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCompositeDiagram <em>Composite Diagram</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Composite Diagram</em>' containment reference.
-	 * @see #getCompositeDiagram()
-	 * @generated
-	 */
-	void setCompositeDiagram(Diagram value);
-
-	/**
-	 * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Connectors</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connectors</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Connectors()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Connector> getConnectors();
-
-	/**
 	 * Returns the value of the '<em><b>Created</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -416,22 +371,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setCreated(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Diagrams</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Diagrams</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Diagrams</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Diagrams()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Diagram> getDiagrams();
 
 	/**
 	 * Returns the value of the '<em><b>Difficulty</b></em>' attribute.

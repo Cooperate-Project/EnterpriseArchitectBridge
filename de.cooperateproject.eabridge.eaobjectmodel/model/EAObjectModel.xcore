@@ -64,11 +64,6 @@ class Attribute {
 	//	Indicates if the attribute is derived (that is, a calculated value).
 	//	
 	//	
-	Boolean	IsID //	Read/Write
-	//	
-	//	Indicates if the attribute uniquely identifies an instance of the containing Class, or not. 
-	//	
-	//	
 	Boolean	IsOrdered //	Read/Write
 	//	
 	//	Indicates if a collection is ordered or not. If the attribute represents a database column this, when set, represents a Primary Key.
@@ -117,13 +112,6 @@ class Attribute {
 	String	Precision //	Read/Write
 	//	
 	//	The precision value.
-	//	
-	//	
-	String	RedefinedProperty //	Read/Write
-	//	
-	//	Corresponds to the Redefined Property field on the Detail page of the attribute Properties dialog, or the UML redefinedProperty attribute. 
-	//	
-	//	Contains a comma separated list of GUIDs.
 	//	
 	//	
 	String	Scale //	Read/Write
@@ -176,9 +164,10 @@ class Attribute {
 	//	A value for the collection upper boundary.
 	//	
 	//	
-	String	Visibility //	Read/Write
+	String	Scope //	Read/Write
 //	
 //	Identifies the scope of the attribute - Private, Protected, Public or Package.
+	String GenOption
 }
 
 //associated with t_attribute table in .eap file
@@ -263,17 +252,13 @@ class AttributeTag {
 
 //associated with t_connector table in .eap file
 class Connector {
-	String	Alias //	Read/Write		
+//	String	Alias //	Read/Write		
 	//			
 	//	An optional alias for this connector.		
 	//			
-	//			
-	refers Element Client //	Read only
-	//			
-	//	A pointer to the object representing the source end of the relationship.		
-	//			
 	//					
-	Long	Color //	Read/Write		
+	//					
+//	Long	Color //	Read/Write		
 	//			
 	//	Sets the color of the connector.		
 	//			
@@ -305,7 +290,7 @@ class Connector {
 	//	Returns a collection of advanced properties associated with an element in the form of CustomProperty objects.
 	//			
 	//			
-	refers Diagram Diagram//	Read/Write	UNUSED BECAUSE IT IS NOT SHOWN IN THE EA OBJECT MODEL INSTEAD DIAGRAMLINK IS USED
+//	refers Diagram Diagram//	Read/Write	UNUSED BECAUSE IT IS NOT SHOWN IN THE EA OBJECT MODEL INSTEAD DIAGRAMLINK IS USED
 	//			
 	//	The DiagramID of the connector.		
 	//			
@@ -324,14 +309,14 @@ class Connector {
 	//	If the connector is non-navigable, set the sourceNavigability and/or targetNavigability attributes.		
 	//			
 	//			
-	Long	EndPointX //	Read/Write		
+	Long	PtEndX //	Read/Write		
 	//			
 	//	The x-coordinate of the connector's end point.		
 	//			
 	//	Connector end points are specified in Cartesian coordinates with the origin to the top left of the screen.		
 	//			
 	//			
-	Long	EndPointY //	Read/Write		
+	Long	PtEndY //	Read/Write		
 	//			
 	//	The y-coordinate of the connector's end point.		
 	//			
@@ -398,25 +383,26 @@ class Connector {
 	//	The route style.		
 	//			
 	//			
-	Long	SequenceNo //	Read/Write		
+	Long	SeqNo //	Read/Write		
 	//			
 	//	The SequenceNo of the connector.		
 	//			
 	//			
-	Long	StartPointX //	Read/Write		
+	Long	PtStartX //	Read/Write		
 	//			
 	//	The x-coordinate of the connector's start point.		
 	//			
 	//	Connector end points are specified in Cartesian coordinates with the origin to the top left of the screen.		
 	//			
 	//			
-	Long	StartPointY //	Read/Write		
+	Long	PtStartY //	Read/Write		
 	//			
 	//	The y-coordinate of the connector's start point.		
 	//			
 	//	Connector end points are specified in Cartesian coordinates with the origin to the top left of the screen.		
 	//			
-	//			
+	//		
+	String	ActionFlags	
 	String	StateFlags //	Read/Write		
 	//			
 	//	A structure to hold a variety of flags concerned with State signaling on messages; the list is delimited by semi-colons.		
@@ -441,17 +427,7 @@ class Connector {
 	//			
 	//	A possible subtype to refine the meaning of the connector.		
 	//			
-	//			
-	refers Element Supplier //	Read only
-	//			
-	//	A pointer to the object representing the target end of the relationship.		
-	//			
-	//			
-	//Long	SupplierID //	Read/Write	 MAPPED VIA CONNECTOREND
-	//			
-	//	The ElementID of the element at the target end of this connector.		
-	//			
-	//			
+	//					
 	contains ConnectorTag TaggedValues opposite Connector //	Read only
 	//			
 	//	The collection of ConnectorTag objects.
@@ -461,22 +437,7 @@ class Connector {
 	//			
 	//	A collection of TemplateBinding objects.
 	//			
-	//			
-	String	TransitionAction //	Read/Write		
-	//			
-	//	See the Transition topic for appropriate values.		
-	//			
-	//			
-	String	TransitionEvent //	Read/Write
-	//			
-	//	See the Transition topic for appropriate values.		
-	//			
-	//			
-	String	TransitionGuard //	Read/Write		
-	//			
-	//	See the Transition topic for appropriate values.		
-	//			
-	//			
+	//					
 	ConnectorType	Type //	Read/Write		
 	//			
 	//	The connector type; valid types are held in the t_connectortypes table in the		
@@ -488,23 +449,12 @@ class Connector {
 	//	For Generalization, indicates if the inheritance is virtual.		
 	//			
 	//			
-	Long	Width //	Read/Write		
-	//			
-	//	Specifies the width of the connector.		
-	//			
-	//	
 	refers Element Source
 	
 	refers Element Dest
 	
 	String SourceCard
-	//
-	//	The Cardinality of the Source
-	//	
 	String SourceAccess
-	//
-	//	The Accessibility of the Source
-	//	
 	String SourceElement
 	String SourceRole
 	String SourceRoleType
@@ -513,14 +463,16 @@ class Connector {
 	boolean SourceIsAggregate
 	boolean SourceIsOrdered
 	String SourceQualifier
+	String SourceChangeable
+	String SourceConstraint
+	String SourceIsNavigable
+	String SourceStereotype
+	String SourceStyle
+	String SourceTS
+	
+	
 	String DestCard
-	//
-	//	The Cardinality of the Destination
-	//	
 	String DestAccess
-	//
-	//	The Accessibility of the Destination
-	//	
 	String DestElement
 	String DestRole
 	String DestRoleType
@@ -529,6 +481,12 @@ class Connector {
 	boolean DestIsAggregate
 	boolean DestIsOrdered
 	String DestQualifier
+	String DestChangeable
+	String DestConstraint
+	String DestIsNavigable
+	String DestStereotype
+	String DestStyle
+	String DestTS
 	//
 	String Top_Start_Label
 	String Top_Mid_Label
@@ -543,6 +501,12 @@ class Connector {
 	int HeadStyle
 	int LineStyle
 	
+	String DispatchAction
+	String PDATA1
+	String PDATA2
+	String PDATA3
+	String PDATA4
+	String PDATA5
 	
 }
 
@@ -668,286 +632,286 @@ class ConnectorTag {
 //	
 }
 
-//associated with t_diagram table in .eap file
-class Diagram {
-	String	Author //	Read/Write
-	//	
-	//	The name of the author.
-	//	
-	//	
-	Date	CreatedDate //	Read/Write
-	//	
-	//	The date the diagram was created.
-	//	
-	//	
-	Long	cx //	Read/Write
-	//	
-	//	The X dimension of the diagram (the default is 800).
-	//	
-	//	
-	Long	cy //	Read/Write
-	//	
-	//	The Y dimension of the diagram (the default is 1100).
-	//	
-	//	
-	//Variant	DiagramGUID	//	Read/Write
-	//	
-	//	A globally unique ID for this diagram.
-	//	
-	//	
-	Long	DiagramID //	Read only
-	//	
-	//	A local ID for the diagram.
-	//	
-	//	
-	contains DiagramLink[] DiagramLinks opposite Diagram //	Read only
-	//	
-	//	A list of DiagramLink objects, each containing information about the display characteristics of a connector in a diagram.
-	//	
-	//	
-	contains DiagrammObject[] DiagramObjects opposite Diagram //	Read only
-	//	
-	//	A collection of references to DiagramObjects. A DiagramObject is an instance of an element in a diagram, and includes size and display characteristics.
-	//	
-	//	
-	String	ExtendedStyle //	Read/Write
-	//	
-	//	An extended style attribute.
-	//	
-	//	
-	Boolean	HighlightImports //	Read/Write
-	//	
-	//	A flag to indicate that elements from other Packages should be highlighted.  Corresponds with the 'Show Namespace' option in the diagram properties dialog.
-	//	
-	//	
-	Boolean	IsLocked //	Read/Write
-	//	
-	//	A flag indicating whether this diagram is locked or not.
-	//	
-	//	
-	String	MetaType //	Read only
-	//	
-	//	The diagram's domain-specific meta type, as defined by an MDG Technology.
-	//	
-	//	
-	//Variant	ModifiedDate	//	Read/Write
-	//	
-	//	The date the diagram was last modified.
-	//	
-	//	
-	String	Name //	Read/Write
-	//	
-	//	The diagram name.
-	//	
-	//	
-	String	Notes //	Read/Write
-	//	
-	//	Set or retrieve notes for this diagram.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	Orientation //	Read/Write
-	//	
-	//	The page orientation: P for Portrait or L for Landscape.
-	//	
-	//	
-	container Package Package opposite Diagrams //	Read/Write
-	//	
-	//	The ID of the Package that this diagram belongs to.
-	//	
-	//	
-	Long	PageHeight //	Read
-	//	
-	//	The number of pages high the diagram is.
-	//	
-	//	
-	Long	PageWidth //	Read
-	//	
-	//	The number of pages wide the diagram is.
-	//	
-	//	
-	Long	ParentID //	Read/Write
-	//	
-	//	The optional ID of an element that 'owns' this diagram; for example, a Sequence diagram owned by a Use Case.
-	//	
-	//	
-	Long	Scale //	Read/Write
-	//	
-	//	The zoom scale (the default is 100).
-	//	
-	//	
-	//Connector	SelectedConnector	//	Read/Write
-	//	
-	//	The currently selected connector on this diagram. Null if there is no currently selected diagram.
-	//	
-	//	
-	//Collection	SelectedObjects	//	Read only
-	//	
-	//	Gets a collection representing the currently selected elements on the diagram. 
-	//	
-	//	You can remove objects from this collection to deselect them, and add elements to the collection by passing the Object ID as a name to select them.
-	//	
-	//	
-	Long	ShowDetails //	Read/Write
-	//	
-	//	A flag to indicate that the Diagram Details text should be shown: 1 = Show, 0 = Hide.
-	//	
-	//	
-	Boolean	ShowPackageContents //	Read/Write
-	//	
-	//	A flag to indicate that the Package contents should be shown in the current diagram.
-	//	
-	//	
-	Boolean	ShowPrivate //	Read/Write
-	//	
-	//	A flag to show or hide Private features.
-	//	
-	//	
-	Boolean	ShowProtected //	Read/Write
-	//	
-	//	A flag to show or hide Protected features.
-	//	
-	//	
-	Boolean	ShowPublic //	Read/Write
-	//	
-	//	A flag to show or hide Public features.
-	//	
-	//	
-	String	Stereotype //	Read/Write
-	//	
-	//	Sets or gets the stereotype for this diagram.
-	//	
-	//	
-	String	StyleEx //	Read/Write
-	//	
-	//	Advanced style settings, reserved for the use of Sparx Systems.
-	//	
-	//	
-	String	Swimlanes //	Read/Write
-	//	
-	//	Information on swimlanes contained in the diagram. 
-	//	
-	//	Please note that this property is superseded by SwimlaneDef.
-	//	
-	//	
-	//SwimlaneDef	SwimlaneDef	//	Read/Write
-	//	
-	//	Information on swimlanes contained in the diagram.
-	//	
-	//	
-	String	Type //	Read only
-	//	
-	//	The diagram type; see the t_diagramtypes table in the .EAP file for more information.
-	//	
-	//	
-	String	Version //	Read/Write
-//	
-//	The version of the diagram.
-//	
-//	
-}
-
-//associated with t_diagramlinks table in .eap file
-class DiagramLink {
-	contains Connector Connector //	Read/Write
-	//	
-	//	The ID of the associated connector.
-	//	
-	//	
-	container Diagram Diagram opposite DiagramLinks //	Read/Write
-	//	
-	//	The local ID for the associated diagram.
-	//	
-	//	
-	String	Geometry //	Read/Write
-	//	
-	//	The geometry associated with the current connector in this diagram.
-	//	
-	//	
-	Long	InstanceID //	Read only
-	//	
-	//	The connector identifier for the current model.
-	//	
-	//	
-	Boolean	IsHidden //	Read/Write
-	//	
-	//	A flag to indicate if this item is hidden or not.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	Path //	Read/Write
-	//	
-	//	The path of the connector in this diagram.
-	//	
-	//	
-	String	Style //	Read/Write
-//	
-//	Additional style information; for example, color or thickness.
-}
-
-//associated with t_diagramobjects table in .eap file
-class DiagrammObject {
-	Long	Bottom //	Read/Write
-	//	
-	//	The bottom edge position of the element.
-	//	
-	//	
-	container Diagram Diagram opposite DiagramObjects //	Read/Write
-	//	
-	//	The ID of the associated diagram.
-	//	
-	//	
-	contains Element Element //	Read/Write
-	//	
-	//	The ElementID of the object instance in this diagram.
-	//	
-	//	
-	Long	InstanceID //	Read
-	//	
-	//	The attribute that holds the connector identifier for the current model.
-	//	
-	//	
-	Long	Left //	Read/Write
-	//	
-	//	The left edge position of the element.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	Long	Right //	Read/Write
-	//	
-	//	The right edge position of the element.
-	//	
-	//	
-	Long	Sequence //	Read/Write
-	//	
-	//	The sequence position when loading the object into the diagram (this affects its Z order).
-	//	
-	//	The Z-order is one-based and the lowest value is in the foreground.
-	//	
-	//	
-	//Variant	Style	//	Read/Write
-	//	
-	//	The style information for this object. Returns a semi-colon delimited string that defines the current style settings. Changing a value will completely overwrite the previously existing value, so caution is advised to avoid losing existing style information that you want to keep.
-	//	
-	//	
-	Long	Top //	Read/Write
-//	
-//	The top edge position of the element.
-//	
-//	
-}
+////associated with t_diagram table in .eap file
+//class Diagram {
+//	String	Author //	Read/Write
+//	//	
+//	//	The name of the author.
+//	//	
+//	//	
+//	Date	CreatedDate //	Read/Write
+//	//	
+//	//	The date the diagram was created.
+//	//	
+//	//	
+//	Long	cx //	Read/Write
+//	//	
+//	//	The X dimension of the diagram (the default is 800).
+//	//	
+//	//	
+//	Long	cy //	Read/Write
+//	//	
+//	//	The Y dimension of the diagram (the default is 1100).
+//	//	
+//	//	
+//	//Variant	DiagramGUID	//	Read/Write
+//	//	
+//	//	A globally unique ID for this diagram.
+//	//	
+//	//	
+//	Long	DiagramID //	Read only
+//	//	
+//	//	A local ID for the diagram.
+//	//	
+//	//	
+//	contains DiagramLink[] DiagramLinks opposite Diagram //	Read only
+//	//	
+//	//	A list of DiagramLink objects, each containing information about the display characteristics of a connector in a diagram.
+//	//	
+//	//	
+//	contains DiagrammObject[] DiagramObjects opposite Diagram //	Read only
+//	//	
+//	//	A collection of references to DiagramObjects. A DiagramObject is an instance of an element in a diagram, and includes size and display characteristics.
+//	//	
+//	//	
+//	String	ExtendedStyle //	Read/Write
+//	//	
+//	//	An extended style attribute.
+//	//	
+//	//	
+//	Boolean	HighlightImports //	Read/Write
+//	//	
+//	//	A flag to indicate that elements from other Packages should be highlighted.  Corresponds with the 'Show Namespace' option in the diagram properties dialog.
+//	//	
+//	//	
+//	Boolean	IsLocked //	Read/Write
+//	//	
+//	//	A flag indicating whether this diagram is locked or not.
+//	//	
+//	//	
+//	String	MetaType //	Read only
+//	//	
+//	//	The diagram's domain-specific meta type, as defined by an MDG Technology.
+//	//	
+//	//	
+//	//Variant	ModifiedDate	//	Read/Write
+//	//	
+//	//	The date the diagram was last modified.
+//	//	
+//	//	
+//	String	Name //	Read/Write
+//	//	
+//	//	The diagram name.
+//	//	
+//	//	
+//	String	Notes //	Read/Write
+//	//	
+//	//	Set or retrieve notes for this diagram.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	Orientation //	Read/Write
+//	//	
+//	//	The page orientation: P for Portrait or L for Landscape.
+//	//	
+//	//	
+//	container Package Package opposite Diagrams //	Read/Write
+//	//	
+//	//	The ID of the Package that this diagram belongs to.
+//	//	
+//	//	
+//	Long	PageHeight //	Read
+//	//	
+//	//	The number of pages high the diagram is.
+//	//	
+//	//	
+//	Long	PageWidth //	Read
+//	//	
+//	//	The number of pages wide the diagram is.
+//	//	
+//	//	
+//	Long	ParentID //	Read/Write
+//	//	
+//	//	The optional ID of an element that 'owns' this diagram; for example, a Sequence diagram owned by a Use Case.
+//	//	
+//	//	
+//	Long	Scale //	Read/Write
+//	//	
+//	//	The zoom scale (the default is 100).
+//	//	
+//	//	
+//	//Connector	SelectedConnector	//	Read/Write
+//	//	
+//	//	The currently selected connector on this diagram. Null if there is no currently selected diagram.
+//	//	
+//	//	
+//	//Collection	SelectedObjects	//	Read only
+//	//	
+//	//	Gets a collection representing the currently selected elements on the diagram. 
+//	//	
+//	//	You can remove objects from this collection to deselect them, and add elements to the collection by passing the Object ID as a name to select them.
+//	//	
+//	//	
+//	Long	ShowDetails //	Read/Write
+//	//	
+//	//	A flag to indicate that the Diagram Details text should be shown: 1 = Show, 0 = Hide.
+//	//	
+//	//	
+//	Boolean	ShowPackageContents //	Read/Write
+//	//	
+//	//	A flag to indicate that the Package contents should be shown in the current diagram.
+//	//	
+//	//	
+//	Boolean	ShowPrivate //	Read/Write
+//	//	
+//	//	A flag to show or hide Private features.
+//	//	
+//	//	
+//	Boolean	ShowProtected //	Read/Write
+//	//	
+//	//	A flag to show or hide Protected features.
+//	//	
+//	//	
+//	Boolean	ShowPublic //	Read/Write
+//	//	
+//	//	A flag to show or hide Public features.
+//	//	
+//	//	
+//	String	Stereotype //	Read/Write
+//	//	
+//	//	Sets or gets the stereotype for this diagram.
+//	//	
+//	//	
+//	String	StyleEx //	Read/Write
+//	//	
+//	//	Advanced style settings, reserved for the use of Sparx Systems.
+//	//	
+//	//	
+//	String	Swimlanes //	Read/Write
+//	//	
+//	//	Information on swimlanes contained in the diagram. 
+//	//	
+//	//	Please note that this property is superseded by SwimlaneDef.
+//	//	
+//	//	
+//	//SwimlaneDef	SwimlaneDef	//	Read/Write
+//	//	
+//	//	Information on swimlanes contained in the diagram.
+//	//	
+//	//	
+//	String	Type //	Read only
+//	//	
+//	//	The diagram type; see the t_diagramtypes table in the .EAP file for more information.
+//	//	
+//	//	
+//	String	Version //	Read/Write
+////	
+////	The version of the diagram.
+////	
+////	
+//}
+//
+////associated with t_diagramlinks table in .eap file
+//class DiagramLink {
+//	contains Connector Connector //	Read/Write
+//	//	
+//	//	The ID of the associated connector.
+//	//	
+//	//	
+//	container Diagram Diagram opposite DiagramLinks //	Read/Write
+//	//	
+//	//	The local ID for the associated diagram.
+//	//	
+//	//	
+//	String	Geometry //	Read/Write
+//	//	
+//	//	The geometry associated with the current connector in this diagram.
+//	//	
+//	//	
+//	Long	InstanceID //	Read only
+//	//	
+//	//	The connector identifier for the current model.
+//	//	
+//	//	
+//	Boolean	IsHidden //	Read/Write
+//	//	
+//	//	A flag to indicate if this item is hidden or not.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	Path //	Read/Write
+//	//	
+//	//	The path of the connector in this diagram.
+//	//	
+//	//	
+//	String	Style //	Read/Write
+////	
+////	Additional style information; for example, color or thickness.
+//}
+//
+////associated with t_diagramobjects table in .eap file
+//class DiagrammObject {
+//	Long	Bottom //	Read/Write
+//	//	
+//	//	The bottom edge position of the element.
+//	//	
+//	//	
+//	container Diagram Diagram opposite DiagramObjects //	Read/Write
+//	//	
+//	//	The ID of the associated diagram.
+//	//	
+//	//	
+//	contains Element Element //	Read/Write
+//	//	
+//	//	The ElementID of the object instance in this diagram.
+//	//	
+//	//	
+//	Long	InstanceID //	Read
+//	//	
+//	//	The attribute that holds the connector identifier for the current model.
+//	//	
+//	//	
+//	Long	Left //	Read/Write
+//	//	
+//	//	The left edge position of the element.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	Long	Right //	Read/Write
+//	//	
+//	//	The right edge position of the element.
+//	//	
+//	//	
+//	Long	Sequence //	Read/Write
+//	//	
+//	//	The sequence position when loading the object into the diagram (this affects its Z order).
+//	//	
+//	//	The Z-order is one-based and the lowest value is in the foreground.
+//	//	
+//	//	
+//	//Variant	Style	//	Read/Write
+//	//	
+//	//	The style information for this object. Returns a semi-colon delimited string that defines the current style settings. Changing a value will completely overwrite the previously existing value, so caution is advised to avoid losing existing style information that you want to keep.
+//	//	
+//	//	
+//	Long	Top //	Read/Write
+////	
+////	The top edge position of the element.
+////	
+////	
+//}
 
 //associated with t_object table in .eap file
 class Element {
@@ -1019,12 +983,12 @@ class Element {
 	//	Valid values are: 1 for Easy, 2 for Medium, 3 for Difficult.	
 	//		
 	//		
-	contains Diagram CompositeDiagram //	Read only	
+//	contains Diagram CompositeDiagram //	Read only	
 	//		
 	//	If the element is Composite, returns its associated diagram; otherwise returns null.	
 	//		
 	//		
-	contains Connector[] Connectors //	Read only	
+//	refers Connector[] Connectors //	Read only	
 	//		
 	//	Returns a collection containing the connectors to other elements.	
 	//		
@@ -1053,7 +1017,7 @@ class Element {
 	//	Currently only editable from the user interface.	
 	//		
 	//		
-	contains Diagram[] Diagrams //	Read only	
+//	contains Diagram[] Diagrams //	Read only	
 	//		
 	//	Returns a collection of sub-diagrams (child diagrams) attached to this element as seen in the tree view.	
 	//		
@@ -1726,7 +1690,7 @@ class Package {
 	//	Not currently used.
 	//	
 	//	
-	contains Connector[] Connectors //	Read only
+//	contains Connector[] Connectors //	Read only
 	//	
 	//	The collection of connectors.
 	//	
@@ -1736,7 +1700,7 @@ class Package {
 	//	Date the Package was created.
 	//	
 	//	
-	contains Diagram[] Diagrams opposite Package //	Read only
+//	contains Diagram[] Diagrams opposite Package //	Read only
 	//	
 	//	A collection of diagrams contained in this Package.
 	//	
