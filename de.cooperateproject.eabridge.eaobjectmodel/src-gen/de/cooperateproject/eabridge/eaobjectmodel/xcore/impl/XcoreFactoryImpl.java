@@ -15,6 +15,8 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
@@ -80,6 +82,8 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 			case XcorePackage.CONNECTOR_TAG: return createConnectorTag();
 			case XcorePackage.ELEMENT: return createElement();
 			case XcorePackage.METHOD: return createMethod();
+			case XcorePackage.PRE_CONDITION: return createPreCondition();
+			case XcorePackage.POST_CONDITION: return createPostCondition();
 			case XcorePackage.METHOD_TAG: return createMethodTag();
 			case XcorePackage.PACKAGE: return createPackage();
 			case XcorePackage.PARAMETER: return createParameter();
@@ -202,6 +206,26 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	public Method createMethod() {
 		MethodImpl method = new MethodImpl();
 		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PreCondition createPreCondition() {
+		PreConditionImpl preCondition = new PreConditionImpl();
+		return preCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PostCondition createPostCondition() {
+		PostConditionImpl postCondition = new PostConditionImpl();
+		return postCondition;
 	}
 
 	/**

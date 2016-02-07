@@ -14,6 +14,8 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -130,6 +132,20 @@ public class XcoreSwitch<T> extends Switch<T> {
 			case XcorePackage.METHOD_CONSTRAINT: {
 				MethodConstraint methodConstraint = (MethodConstraint)theEObject;
 				T result = caseMethodConstraint(methodConstraint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XcorePackage.PRE_CONDITION: {
+				PreCondition preCondition = (PreCondition)theEObject;
+				T result = casePreCondition(preCondition);
+				if (result == null) result = caseMethodConstraint(preCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case XcorePackage.POST_CONDITION: {
+				PostCondition postCondition = (PostCondition)theEObject;
+				T result = casePostCondition(postCondition);
+				if (result == null) result = caseMethodConstraint(postCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -299,6 +315,36 @@ public class XcoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMethodConstraint(MethodConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pre Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pre Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePreCondition(PreCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Post Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Post Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePostCondition(PostCondition object) {
 		return null;
 	}
 

@@ -14,8 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getConnector <em>Connector</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getFQName <em>FQ Name</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getName <em>Name</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getProperty <em>Property</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getTagGUID <em>Tag GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getTagID <em>Tag ID</em>}</li>
@@ -56,56 +55,30 @@ public interface ConnectorTag extends EObject {
 	void setConnector(Connector value);
 
 	/**
-	 * Returns the value of the '<em><b>FQ Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Property</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>FQ Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Property</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>FQ Name</em>' attribute.
-	 * @see #setFQName(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnectorTag_FQName()
+	 * @return the value of the '<em>Property</em>' attribute.
+	 * @see #setProperty(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnectorTag_Property()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getFQName();
+	String getProperty();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getFQName <em>FQ Name</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getProperty <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>FQ Name</em>' attribute.
-	 * @see #getFQName()
+	 * @param value the new value of the '<em>Property</em>' attribute.
+	 * @see #getProperty()
 	 * @generated
 	 */
-	void setFQName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnectorTag_Name()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+	void setProperty(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Notes</b></em>' attribute.

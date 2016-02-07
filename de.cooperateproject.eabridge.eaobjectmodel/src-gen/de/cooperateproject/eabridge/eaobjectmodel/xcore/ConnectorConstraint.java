@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnectorID <em>Connector ID</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getName <em>Name</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnector <em>Connector</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getType <em>Type</em>}</li>
  * </ul>
@@ -25,56 +25,58 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ConnectorConstraint extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Connector ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Connector</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConstraints <em>Constraints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Connector ID</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Connector</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connector ID</em>' attribute.
-	 * @see #setConnectorID(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnectorConstraint_ConnectorID()
-	 * @model unique="false"
+	 * @return the value of the '<em>Connector</em>' container reference.
+	 * @see #setConnector(Connector)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnectorConstraint_Connector()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConstraints
+	 * @model opposite="Constraints" transient="false"
 	 * @generated
 	 */
-	Long getConnectorID();
+	Connector getConnector();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnectorID <em>Connector ID</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnector <em>Connector</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Connector ID</em>' attribute.
-	 * @see #getConnectorID()
+	 * @param value the new value of the '<em>Connector</em>' container reference.
+	 * @see #getConnector()
 	 * @generated
 	 */
-	void setConnectorID(Long value);
+	void setConnector(Connector value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Constraint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Constraint</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnectorConstraint_Name()
+	 * @return the value of the '<em>Constraint</em>' attribute.
+	 * @see #setConstraint(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnectorConstraint_Constraint()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getName();
+	String getConstraint();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConstraint <em>Constraint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Constraint</em>' attribute.
+	 * @see #getConstraint()
 	 * @generated
 	 */
-	void setName(String value);
+	void setConstraint(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Notes</b></em>' attribute.

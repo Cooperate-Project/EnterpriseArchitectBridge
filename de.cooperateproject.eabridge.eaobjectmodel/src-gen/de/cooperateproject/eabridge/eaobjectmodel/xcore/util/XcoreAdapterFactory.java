@@ -14,6 +14,8 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -115,6 +117,14 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMethodConstraint(MethodConstraint object) {
 				return createMethodConstraintAdapter();
+			}
+			@Override
+			public Adapter casePreCondition(PreCondition object) {
+				return createPreConditionAdapter();
+			}
+			@Override
+			public Adapter casePostCondition(PostCondition object) {
+				return createPostConditionAdapter();
 			}
 			@Override
 			public Adapter caseMethodTag(MethodTag object) {
@@ -279,6 +289,34 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMethodConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition <em>Pre Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition
+	 * @generated
+	 */
+	public Adapter createPreConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition <em>Post Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition
+	 * @generated
+	 */
+	public Adapter createPostConditionAdapter() {
 		return null;
 	}
 

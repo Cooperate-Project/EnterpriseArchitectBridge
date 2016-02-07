@@ -273,7 +273,7 @@ class Connector {
 	//	A system generated local identifier for the current connector.		
 	//			
 	//			
-	//Collection	Constraints	//	Read only
+	contains ConnectorConstraint[]	Constraints	opposite Connector//	Read only
 	//			
 	//	A collection of constraint objects.
 	//			
@@ -555,14 +555,14 @@ enum ConnectorType {
 
 //associated with t_connectorconstraints table in .eap file UNUSED
 class ConnectorConstraint {
-	Long	ConnectorID //	Read/Write
+	container Connector	Connector opposite Constraints//	Read/Write
 	//	
-	//	A local ID value (long) - system generated.
+	//	ID value of the Connector
 	//	
 	//	
-	String	Name //	Read/Write
+	String	Constraint //	Read/Write
 	//	
-	//	The constraint name.
+	//	The constraint
 	//	
 	//	
 	String	Notes //	Read/Write
@@ -589,14 +589,14 @@ class ConnectorTag {
 	//	The local ID of the associated connector.
 	//	
 	//	
-	String	FQName //	Read only
+//	String	FQName //	Read only
 	//	
 	//	The fully qualified name of the tag.
 	//	
 	//	
-	String	Name //	Read/Write
+	String	Property //	Read/Write
 	//	
-	//	The tag or name.
+	//	The property.
 	//	
 	//	
 	String	Notes //	Read/Write
@@ -1424,14 +1424,14 @@ class Method {
 	//	A flag indicating if the method is abstract (1) or not (0).	
 	//		
 	//		
-	String	Behavior //	Read/Write	
+	String	Behaviour //	Read/Write	
 	//		
 	//	Some further explanatory behavior notes (for example, pseudocode).	
 	//		
 	//	In earlier releases of Enterprise Architect this attribute had the UK/Australian spelling 'Behaviour'; this is still present for backwards compatibility, but please now use the 'Behavior' attribute for consistency.	
 	//		
 	//		
-	contains Element Classifier //	Read/Write	
+	String Classifier //	Read/Write	
 	//		
 	//	The Classifier ID that applies to the ReturnType.	
 	//		
@@ -1521,12 +1521,12 @@ class Method {
 	//	Specifies the position of the method within the set of operations defined for a Class.	
 	//		
 	//		
-	refers MethodConstraint[] PostConditions //	Read only	
+	contains PreCondition[] PreConditions opposite Method //	Read only	
 	//		
 	//	The PostConditions (constraints) as they apply to this method. This returns a MethodConstraint object of type post.	
 	//		
 	//		
-	refers MethodConstraint[] PreConditions //	Read only	
+	contains PostCondition[] PostConditions opposite Method //	Read only	
 	//		
 	//	The PreConditions (constraints) as they apply to this method. This returns a MethodConstraint object of type pre.	
 	//		
@@ -1570,7 +1570,7 @@ class Method {
 	//		
 	//	The TaggedValues collection for the current method. This accesses a list of MethodTag objects.	
 	//
-	//String	Throws	//	Read/Write	
+	String	Throws	//	Read/Write	
 	//		
 	//	Exception information. Valid input for setting the Throws is:	
 	//		
@@ -1582,21 +1582,17 @@ class Method {
 //		
 //	The method scope - Public, Protected, Private or Package.	
 //		
-//		
+//
+String Concurrency
+String GenOption
 }
 
 //associated with t_operationpres and t_operationposts table in .eap file
 abstract class MethodConstraint {
-	refers derived Method Method get {
-		eContainer as Method;
-	} //	Read/Write
+//	container Method Method
+	 //	Read/Write
 	//	
 	//	The local ID of the associated method.
-	//	
-	//	
-	String	Name //	Read/Write
-	//	
-	//	The name of the constraint.
 	//	
 	//	
 	String	Notes //	Read/Write
@@ -1612,6 +1608,18 @@ abstract class MethodConstraint {
 	String	Type //	Read/Write
 //	
 //	The constraint type.
+}
+
+class PreCondition extends MethodConstraint {
+	container Method Method opposite PreConditions
+	
+	String PreCondition
+}
+
+class PostCondition extends MethodConstraint {
+	container Method Method opposite PostConditions
+	
+	String PostCondition
 }
 
 //associated with t_operationtag table in .eap file

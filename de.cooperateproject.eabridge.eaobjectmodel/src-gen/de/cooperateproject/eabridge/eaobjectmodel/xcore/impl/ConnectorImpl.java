@@ -3,20 +3,28 @@
 package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConnectorID <em>Connector ID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndX <em>Pt End X</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndY <em>Pt End Y</em>}</li>
@@ -124,6 +133,16 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected Long connectorID = CONNECTOR_ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraints()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConnectorConstraint> constraints;
 
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -1593,6 +1612,18 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		connectorID = newConnectorID;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__CONNECTOR_ID, oldConnectorID, connectorID));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ConnectorConstraint> getConstraints() {
+		if (constraints == null) {
+			constraints = new EObjectContainmentWithInverseEList<ConnectorConstraint>(ConnectorConstraint.class, this, XcorePackage.CONNECTOR__CONSTRAINTS, XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR);
+		}
+		return constraints;
 	}
 
 	/**
@@ -3189,9 +3220,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case XcorePackage.CONNECTOR__CONSTRAINTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConstraints()).basicAdd(otherEnd, msgs);
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				if (taggedValues != null)
 					msgs = ((InternalEObject)taggedValues).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.CONNECTOR__TAGGED_VALUES, null, msgs);
@@ -3208,6 +3242,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case XcorePackage.CONNECTOR__CONSTRAINTS:
+				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 			case XcorePackage.CONNECTOR__TAGGED_VALUES:
 				return basicSetTaggedValues(null, msgs);
 		}
@@ -3224,6 +3260,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return getConnectorID();
+			case XcorePackage.CONNECTOR__CONSTRAINTS:
+				return getConstraints();
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return getDirection();
 			case XcorePackage.CONNECTOR__PT_END_X:
@@ -3381,11 +3419,16 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID((Long)newValue);
+				return;
+			case XcorePackage.CONNECTOR__CONSTRAINTS:
+				getConstraints().clear();
+				getConstraints().addAll((Collection<? extends ConnectorConstraint>)newValue);
 				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection((DirectionType)newValue);
@@ -3621,6 +3664,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID(CONNECTOR_ID_EDEFAULT);
 				return;
+			case XcorePackage.CONNECTOR__CONSTRAINTS:
+				getConstraints().clear();
+				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection(DIRECTION_EDEFAULT);
 				return;
@@ -3854,6 +3900,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return CONNECTOR_ID_EDEFAULT == null ? connectorID != null : !CONNECTOR_ID_EDEFAULT.equals(connectorID);
+			case XcorePackage.CONNECTOR__CONSTRAINTS:
+				return constraints != null && !constraints.isEmpty();
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return direction != DIRECTION_EDEFAULT;
 			case XcorePackage.CONNECTOR__PT_END_X:

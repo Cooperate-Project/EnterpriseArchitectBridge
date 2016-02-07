@@ -16,6 +16,8 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
@@ -98,6 +100,20 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	private EClass methodConstraintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass preConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass postConditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -631,8 +647,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Direction() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(1);
+	public EReference getConnector_Constraints() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -640,7 +656,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PtEndX() {
+	public EAttribute getConnector_Direction() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -649,7 +665,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PtEndY() {
+	public EAttribute getConnector_PtEndX() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -658,7 +674,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_EventFlags() {
+	public EAttribute getConnector_PtEndY() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -667,7 +683,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_IsLeaf() {
+	public EAttribute getConnector_EventFlags() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -676,7 +692,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_IsRoot() {
+	public EAttribute getConnector_IsLeaf() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -685,7 +701,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_IsSpec() {
+	public EAttribute getConnector_IsRoot() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -694,7 +710,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_MetaType() {
+	public EAttribute getConnector_IsSpec() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -703,7 +719,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_MiscData() {
+	public EAttribute getConnector_MetaType() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -712,7 +728,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Name() {
+	public EAttribute getConnector_MiscData() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -721,7 +737,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Notes() {
+	public EAttribute getConnector_Name() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -730,7 +746,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_RouteStyle() {
+	public EAttribute getConnector_Notes() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -739,7 +755,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SeqNo() {
+	public EAttribute getConnector_RouteStyle() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -748,7 +764,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PtStartX() {
+	public EAttribute getConnector_SeqNo() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -757,7 +773,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PtStartY() {
+	public EAttribute getConnector_PtStartX() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -766,7 +782,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_ActionFlags() {
+	public EAttribute getConnector_PtStartY() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -775,7 +791,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_StateFlags() {
+	public EAttribute getConnector_ActionFlags() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -784,7 +800,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Stereotype() {
+	public EAttribute getConnector_StateFlags() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -793,7 +809,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_StyleEx() {
+	public EAttribute getConnector_Stereotype() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -802,7 +818,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SubType() {
+	public EAttribute getConnector_StyleEx() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -811,8 +827,17 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getConnector_SubType() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getConnector_TaggedValues() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(21);
+		return (EReference)connectorEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -821,15 +846,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Type() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnector_VirtualInheritance() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(23);
 	}
 
@@ -838,8 +854,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_Source() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(24);
+	public EAttribute getConnector_VirtualInheritance() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -847,7 +863,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_Dest() {
+	public EReference getConnector_Source() {
 		return (EReference)connectorEClass.getEStructuralFeatures().get(25);
 	}
 
@@ -856,8 +872,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceCard() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(26);
+	public EReference getConnector_Dest() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -865,7 +881,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceAccess() {
+	public EAttribute getConnector_SourceCard() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(27);
 	}
 
@@ -874,7 +890,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceElement() {
+	public EAttribute getConnector_SourceAccess() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(28);
 	}
 
@@ -883,7 +899,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceRole() {
+	public EAttribute getConnector_SourceElement() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -892,7 +908,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceRoleType() {
+	public EAttribute getConnector_SourceRole() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(30);
 	}
 
@@ -901,7 +917,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceRoleNote() {
+	public EAttribute getConnector_SourceRoleType() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(31);
 	}
 
@@ -910,7 +926,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceContainment() {
+	public EAttribute getConnector_SourceRoleNote() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(32);
 	}
 
@@ -919,7 +935,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceIsAggregate() {
+	public EAttribute getConnector_SourceContainment() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(33);
 	}
 
@@ -928,7 +944,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceIsOrdered() {
+	public EAttribute getConnector_SourceIsAggregate() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(34);
 	}
 
@@ -937,7 +953,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceQualifier() {
+	public EAttribute getConnector_SourceIsOrdered() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(35);
 	}
 
@@ -946,7 +962,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceChangeable() {
+	public EAttribute getConnector_SourceQualifier() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(36);
 	}
 
@@ -955,7 +971,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceConstraint() {
+	public EAttribute getConnector_SourceChangeable() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(37);
 	}
 
@@ -964,7 +980,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceIsNavigable() {
+	public EAttribute getConnector_SourceConstraint() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(38);
 	}
 
@@ -973,7 +989,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceStereotype() {
+	public EAttribute getConnector_SourceIsNavigable() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(39);
 	}
 
@@ -982,7 +998,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceStyle() {
+	public EAttribute getConnector_SourceStereotype() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(40);
 	}
 
@@ -991,7 +1007,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_SourceTS() {
+	public EAttribute getConnector_SourceStyle() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(41);
 	}
 
@@ -1000,7 +1016,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestCard() {
+	public EAttribute getConnector_SourceTS() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(42);
 	}
 
@@ -1009,7 +1025,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestAccess() {
+	public EAttribute getConnector_DestCard() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(43);
 	}
 
@@ -1018,7 +1034,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestElement() {
+	public EAttribute getConnector_DestAccess() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(44);
 	}
 
@@ -1027,7 +1043,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestRole() {
+	public EAttribute getConnector_DestElement() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(45);
 	}
 
@@ -1036,7 +1052,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestRoleType() {
+	public EAttribute getConnector_DestRole() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(46);
 	}
 
@@ -1045,7 +1061,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestRoleNote() {
+	public EAttribute getConnector_DestRoleType() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(47);
 	}
 
@@ -1054,7 +1070,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestContainment() {
+	public EAttribute getConnector_DestRoleNote() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(48);
 	}
 
@@ -1063,7 +1079,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestIsAggregate() {
+	public EAttribute getConnector_DestContainment() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(49);
 	}
 
@@ -1072,7 +1088,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestIsOrdered() {
+	public EAttribute getConnector_DestIsAggregate() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(50);
 	}
 
@@ -1081,7 +1097,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestQualifier() {
+	public EAttribute getConnector_DestIsOrdered() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(51);
 	}
 
@@ -1090,7 +1106,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestChangeable() {
+	public EAttribute getConnector_DestQualifier() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(52);
 	}
 
@@ -1099,7 +1115,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestConstraint() {
+	public EAttribute getConnector_DestChangeable() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(53);
 	}
 
@@ -1108,7 +1124,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestIsNavigable() {
+	public EAttribute getConnector_DestConstraint() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(54);
 	}
 
@@ -1117,7 +1133,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestStereotype() {
+	public EAttribute getConnector_DestIsNavigable() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(55);
 	}
 
@@ -1126,7 +1142,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestStyle() {
+	public EAttribute getConnector_DestStereotype() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(56);
 	}
 
@@ -1135,7 +1151,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DestTS() {
+	public EAttribute getConnector_DestStyle() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(57);
 	}
 
@@ -1144,7 +1160,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Top_Start_Label() {
+	public EAttribute getConnector_DestTS() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(58);
 	}
 
@@ -1153,7 +1169,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Top_Mid_Label() {
+	public EAttribute getConnector_Top_Start_Label() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(59);
 	}
 
@@ -1162,7 +1178,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Top_End_Label() {
+	public EAttribute getConnector_Top_Mid_Label() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(60);
 	}
 
@@ -1171,7 +1187,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Btm_StartLabel() {
+	public EAttribute getConnector_Top_End_Label() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(61);
 	}
 
@@ -1180,7 +1196,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Btm_MidLabel() {
+	public EAttribute getConnector_Btm_StartLabel() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(62);
 	}
 
@@ -1189,7 +1205,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Btm_EndLabel() {
+	public EAttribute getConnector_Btm_MidLabel() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(63);
 	}
 
@@ -1198,7 +1214,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_Start_Edge() {
+	public EAttribute getConnector_Btm_EndLabel() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(64);
 	}
 
@@ -1207,7 +1223,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_End_Edge() {
+	public EAttribute getConnector_Start_Edge() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(65);
 	}
 
@@ -1216,7 +1232,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_HeadStyle() {
+	public EAttribute getConnector_End_Edge() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(66);
 	}
 
@@ -1225,7 +1241,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_LineStyle() {
+	public EAttribute getConnector_HeadStyle() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(67);
 	}
 
@@ -1234,7 +1250,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_DispatchAction() {
+	public EAttribute getConnector_LineStyle() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(68);
 	}
 
@@ -1243,7 +1259,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PDATA1() {
+	public EAttribute getConnector_DispatchAction() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(69);
 	}
 
@@ -1252,7 +1268,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PDATA2() {
+	public EAttribute getConnector_PDATA1() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(70);
 	}
 
@@ -1261,7 +1277,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PDATA3() {
+	public EAttribute getConnector_PDATA2() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(71);
 	}
 
@@ -1270,7 +1286,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PDATA4() {
+	public EAttribute getConnector_PDATA3() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(72);
 	}
 
@@ -1279,8 +1295,17 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnector_PDATA5() {
+	public EAttribute getConnector_PDATA4() {
 		return (EAttribute)connectorEClass.getEStructuralFeatures().get(73);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_PDATA5() {
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(74);
 	}
 
 	/**
@@ -1297,8 +1322,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectorConstraint_ConnectorID() {
-		return (EAttribute)connectorConstraintEClass.getEStructuralFeatures().get(0);
+	public EReference getConnectorConstraint_Connector() {
+		return (EReference)connectorConstraintEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1306,7 +1331,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectorConstraint_Name() {
+	public EAttribute getConnectorConstraint_Constraint() {
 		return (EAttribute)connectorConstraintEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1351,7 +1376,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectorTag_FQName() {
+	public EAttribute getConnectorTag_Property() {
 		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1360,7 +1385,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectorTag_Name() {
+	public EAttribute getConnectorTag_Notes() {
 		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1369,7 +1394,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectorTag_Notes() {
+	public EAttribute getConnectorTag_TagGUID() {
 		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1378,7 +1403,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectorTag_TagGUID() {
+	public EAttribute getConnectorTag_TagID() {
 		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1387,17 +1412,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectorTag_TagID() {
-		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getConnectorTag_Value() {
-		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1918,7 +1934,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMethod_Behavior() {
+	public EAttribute getMethod_Behaviour() {
 		return (EAttribute)methodEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1927,8 +1943,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMethod_Classifier() {
-		return (EReference)methodEClass.getEStructuralFeatures().get(2);
+	public EAttribute getMethod_Classifier() {
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2071,7 +2087,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMethod_PostConditions() {
+	public EReference getMethod_PreConditions() {
 		return (EReference)methodEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -2080,7 +2096,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMethod_PreConditions() {
+	public EReference getMethod_PostConditions() {
 		return (EReference)methodEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -2152,8 +2168,35 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMethod_Visibility() {
+	public EAttribute getMethod_Throws() {
 		return (EAttribute)methodEClass.getEStructuralFeatures().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethod_Visibility() {
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethod_Concurrency() {
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethod_GenOption() {
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -2170,26 +2213,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMethodConstraint_Method() {
-		return (EReference)methodConstraintEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodConstraint_Name() {
-		return (EAttribute)methodConstraintEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMethodConstraint_Notes() {
-		return (EAttribute)methodConstraintEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)methodConstraintEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2198,7 +2223,61 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethodConstraint_Type() {
-		return (EAttribute)methodConstraintEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)methodConstraintEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPreCondition() {
+		return preConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPreCondition_Method() {
+		return (EReference)preConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPreCondition_PreCondition() {
+		return (EAttribute)preConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPostCondition() {
+		return postConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPostCondition_Method() {
+		return (EReference)postConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPostCondition_PostCondition() {
+		return (EAttribute)postConditionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2899,6 +2978,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		connectorEClass = createEClass(CONNECTOR);
 		createEAttribute(connectorEClass, CONNECTOR__CONNECTOR_ID);
+		createEReference(connectorEClass, CONNECTOR__CONSTRAINTS);
 		createEAttribute(connectorEClass, CONNECTOR__DIRECTION);
 		createEAttribute(connectorEClass, CONNECTOR__PT_END_X);
 		createEAttribute(connectorEClass, CONNECTOR__PT_END_Y);
@@ -2974,15 +3054,14 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(connectorEClass, CONNECTOR__PDATA5);
 
 		connectorConstraintEClass = createEClass(CONNECTOR_CONSTRAINT);
-		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__CONNECTOR_ID);
-		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__NAME);
+		createEReference(connectorConstraintEClass, CONNECTOR_CONSTRAINT__CONNECTOR);
+		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__CONSTRAINT);
 		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__NOTES);
 		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__TYPE);
 
 		connectorTagEClass = createEClass(CONNECTOR_TAG);
 		createEReference(connectorTagEClass, CONNECTOR_TAG__CONNECTOR);
-		createEAttribute(connectorTagEClass, CONNECTOR_TAG__FQ_NAME);
-		createEAttribute(connectorTagEClass, CONNECTOR_TAG__NAME);
+		createEAttribute(connectorTagEClass, CONNECTOR_TAG__PROPERTY);
 		createEAttribute(connectorTagEClass, CONNECTOR_TAG__NOTES);
 		createEAttribute(connectorTagEClass, CONNECTOR_TAG__TAG_GUID);
 		createEAttribute(connectorTagEClass, CONNECTOR_TAG__TAG_ID);
@@ -3046,8 +3125,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		methodEClass = createEClass(METHOD);
 		createEAttribute(methodEClass, METHOD__ABSTRACT);
-		createEAttribute(methodEClass, METHOD__BEHAVIOR);
-		createEReference(methodEClass, METHOD__CLASSIFIER);
+		createEAttribute(methodEClass, METHOD__BEHAVIOUR);
+		createEAttribute(methodEClass, METHOD__CLASSIFIER);
 		createEAttribute(methodEClass, METHOD__CODE);
 		createEAttribute(methodEClass, METHOD__IS_CONST);
 		createEAttribute(methodEClass, METHOD__IS_LEAF);
@@ -3063,8 +3142,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEReference(methodEClass, METHOD__PARAMETERS);
 		createEReference(methodEClass, METHOD__PARENT);
 		createEAttribute(methodEClass, METHOD__POS);
-		createEReference(methodEClass, METHOD__POST_CONDITIONS);
 		createEReference(methodEClass, METHOD__PRE_CONDITIONS);
+		createEReference(methodEClass, METHOD__POST_CONDITIONS);
 		createEAttribute(methodEClass, METHOD__RETURN_IS_ARRAY);
 		createEAttribute(methodEClass, METHOD__RETURN_TYPE);
 		createEAttribute(methodEClass, METHOD__STATE_FLAGS);
@@ -3072,13 +3151,22 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(methodEClass, METHOD__STYLE);
 		createEAttribute(methodEClass, METHOD__STYLE_EX);
 		createEReference(methodEClass, METHOD__TAGGED_VALUES);
+		createEAttribute(methodEClass, METHOD__THROWS);
 		createEAttribute(methodEClass, METHOD__VISIBILITY);
+		createEAttribute(methodEClass, METHOD__CONCURRENCY);
+		createEAttribute(methodEClass, METHOD__GEN_OPTION);
 
 		methodConstraintEClass = createEClass(METHOD_CONSTRAINT);
-		createEReference(methodConstraintEClass, METHOD_CONSTRAINT__METHOD);
-		createEAttribute(methodConstraintEClass, METHOD_CONSTRAINT__NAME);
 		createEAttribute(methodConstraintEClass, METHOD_CONSTRAINT__NOTES);
 		createEAttribute(methodConstraintEClass, METHOD_CONSTRAINT__TYPE);
+
+		preConditionEClass = createEClass(PRE_CONDITION);
+		createEReference(preConditionEClass, PRE_CONDITION__METHOD);
+		createEAttribute(preConditionEClass, PRE_CONDITION__PRE_CONDITION);
+
+		postConditionEClass = createEClass(POST_CONDITION);
+		createEReference(postConditionEClass, POST_CONDITION__METHOD);
+		createEAttribute(postConditionEClass, POST_CONDITION__POST_CONDITION);
 
 		methodTagEClass = createEClass(METHOD_TAG);
 		createEAttribute(methodTagEClass, METHOD_TAG__FQ_NAME);
@@ -3188,6 +3276,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		preConditionEClass.getESuperTypes().add(this.getMethodConstraint());
+		postConditionEClass.getESuperTypes().add(this.getMethodConstraint());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3239,6 +3329,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConnector_ConnectorID(), theEcorePackage.getELongObject(), "ConnectorID", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Constraints(), this.getConnectorConstraint(), this.getConnectorConstraint_Connector(), "Constraints", null, 0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Direction(), this.getDirectionType(), "Direction", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_PtEndX(), theEcorePackage.getELongObject(), "PtEndX", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_PtEndY(), theEcorePackage.getELongObject(), "PtEndY", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3314,15 +3405,14 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getConnector_PDATA5(), theEcorePackage.getEString(), "PDATA5", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorConstraintEClass, ConnectorConstraint.class, "ConnectorConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConnectorConstraint_ConnectorID(), theEcorePackage.getELongObject(), "ConnectorID", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorConstraint_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnectorConstraint_Connector(), this.getConnector(), this.getConnector_Constraints(), "Connector", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectorConstraint_Constraint(), theEcorePackage.getEString(), "Constraint", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnectorConstraint_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnectorConstraint_Type(), theEcorePackage.getEString(), "Type", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorTagEClass, ConnectorTag.class, "ConnectorTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConnectorTag_Connector(), this.getConnector(), this.getConnector_TaggedValues(), "Connector", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorTag_FQName(), theEcorePackage.getEString(), "FQName", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorTag_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectorTag_Property(), theEcorePackage.getEString(), "Property", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnectorTag_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnectorTag_TagGUID(), theEcorePackage.getEString(), "TagGUID", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnectorTag_TagID(), theEcorePackage.getELongObject(), "TagID", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3386,8 +3476,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethod_Abstract(), theEcorePackage.getEBooleanObject(), "Abstract", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethod_Behavior(), theEcorePackage.getEString(), "Behavior", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_Classifier(), this.getElement(), null, "Classifier", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethod_Behaviour(), theEcorePackage.getEString(), "Behaviour", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethod_Classifier(), theEcorePackage.getEString(), "Classifier", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Code(), theEcorePackage.getEString(), "Code", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_IsConst(), theEcorePackage.getEBooleanObject(), "IsConst", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_IsLeaf(), theEcorePackage.getEBooleanObject(), "IsLeaf", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3403,8 +3493,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEReference(getMethod_Parameters(), this.getParameter(), null, "Parameters", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Parent(), this.getElement(), this.getElement_Methods(), "Parent", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Pos(), theEcorePackage.getELongObject(), "Pos", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_PostConditions(), this.getMethodConstraint(), null, "PostConditions", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_PreConditions(), this.getMethodConstraint(), null, "PreConditions", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_PreConditions(), this.getPreCondition(), this.getPreCondition_Method(), "PreConditions", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_PostConditions(), this.getPostCondition(), this.getPostCondition_Method(), "PostConditions", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_ReturnIsArray(), theEcorePackage.getEBooleanObject(), "ReturnIsArray", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_ReturnType(), theEcorePackage.getEString(), "ReturnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_StateFlags(), theEcorePackage.getEString(), "StateFlags", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3412,13 +3502,22 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getMethod_Style(), theEcorePackage.getEString(), "Style", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_StyleEx(), theEcorePackage.getEString(), "StyleEx", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_TaggedValues(), this.getMethodTag(), null, "TaggedValues", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethod_Throws(), theEcorePackage.getEString(), "Throws", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Visibility(), theEcorePackage.getEString(), "Visibility", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethod_Concurrency(), theEcorePackage.getEString(), "Concurrency", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethod_GenOption(), theEcorePackage.getEString(), "GenOption", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodConstraintEClass, MethodConstraint.class, "MethodConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMethodConstraint_Method(), this.getMethod(), null, "Method", null, 0, 1, MethodConstraint.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodConstraint_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, MethodConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodConstraint_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, MethodConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodConstraint_Type(), theEcorePackage.getEString(), "Type", null, 0, 1, MethodConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(preConditionEClass, PreCondition.class, "PreCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPreCondition_Method(), this.getMethod(), this.getMethod_PreConditions(), "Method", null, 0, 1, PreCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPreCondition_PreCondition(), theEcorePackage.getEString(), "PreCondition", null, 0, 1, PreCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(postConditionEClass, PostCondition.class, "PostCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPostCondition_Method(), this.getMethod(), this.getMethod_PostConditions(), "Method", null, 0, 1, PostCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPostCondition_PostCondition(), theEcorePackage.getEString(), "PostCondition", null, 0, 1, PostCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodTagEClass, MethodTag.class, "MethodTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethodTag_FQName(), theEcorePackage.getEString(), "FQName", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

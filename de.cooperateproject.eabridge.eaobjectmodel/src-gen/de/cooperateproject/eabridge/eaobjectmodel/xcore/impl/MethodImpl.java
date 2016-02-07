@@ -4,9 +4,10 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import java.util.Collection;
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getAbstract <em>Abstract</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getBehavior <em>Behavior</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getBehaviour <em>Behaviour</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getClassifier <em>Classifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getCode <em>Code</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getIsConst <em>Is Const</em>}</li>
@@ -53,8 +54,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getPos <em>Pos</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getPreConditions <em>Pre Conditions</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getReturnIsArray <em>Return Is Array</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getStateFlags <em>State Flags</em>}</li>
@@ -62,7 +63,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getStyleEx <em>Style Ex</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getTaggedValues <em>Tagged Values</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getThrows <em>Throws</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getConcurrency <em>Concurrency</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getGenOption <em>Gen Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,34 +93,44 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	protected Boolean abstract_ = ABSTRACT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBehavior() <em>Behavior</em>}' attribute.
+	 * The default value of the '{@link #getBehaviour() <em>Behaviour</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBehavior()
+	 * @see #getBehaviour()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BEHAVIOR_EDEFAULT = null;
+	protected static final String BEHAVIOUR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBehavior() <em>Behavior</em>}' attribute.
+	 * The cached value of the '{@link #getBehaviour() <em>Behaviour</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBehavior()
+	 * @see #getBehaviour()
 	 * @generated
 	 * @ordered
 	 */
-	protected String behavior = BEHAVIOR_EDEFAULT;
+	protected String behaviour = BEHAVIOUR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' containment reference.
+	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected Element classifier;
+	protected static final String CLASSIFIER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected String classifier = CLASSIFIER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
@@ -389,24 +403,24 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	protected Long pos = POS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPostConditions() <em>Post Conditions</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPostConditions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<MethodConstraint> postConditions;
-
-	/**
-	 * The cached value of the '{@link #getPreConditions() <em>Pre Conditions</em>}' reference list.
+	 * The cached value of the '{@link #getPreConditions() <em>Pre Conditions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPreConditions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MethodConstraint> preConditions;
+	protected EList<PreCondition> preConditions;
+
+	/**
+	 * The cached value of the '{@link #getPostConditions() <em>Post Conditions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostConditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PostCondition> postConditions;
 
 	/**
 	 * The default value of the '{@link #getReturnIsArray() <em>Return Is Array</em>}' attribute.
@@ -539,6 +553,26 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	protected EList<MethodTag> taggedValues;
 
 	/**
+	 * The default value of the '{@link #getThrows() <em>Throws</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getThrows()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String THROWS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getThrows() <em>Throws</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getThrows()
+	 * @generated
+	 * @ordered
+	 */
+	protected String throws_ = THROWS_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,6 +591,46 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * @ordered
 	 */
 	protected String visibility = VISIBILITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConcurrency() <em>Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcurrency()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONCURRENCY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConcurrency() <em>Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcurrency()
+	 * @generated
+	 * @ordered
+	 */
+	protected String concurrency = CONCURRENCY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGenOption() <em>Gen Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GEN_OPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getGenOption() <em>Gen Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected String genOption = GEN_OPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -603,8 +677,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBehavior() {
-		return behavior;
+	public String getBehaviour() {
+		return behaviour;
 	}
 
 	/**
@@ -612,11 +686,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBehavior(String newBehavior) {
-		String oldBehavior = behavior;
-		behavior = newBehavior;
+	public void setBehaviour(String newBehaviour) {
+		String oldBehaviour = behaviour;
+		behaviour = newBehaviour;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__BEHAVIOR, oldBehavior, behavior));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__BEHAVIOUR, oldBehaviour, behaviour));
 	}
 
 	/**
@@ -624,7 +698,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getClassifier() {
+	public String getClassifier() {
 		return classifier;
 	}
 
@@ -633,33 +707,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClassifier(Element newClassifier, NotificationChain msgs) {
-		Element oldClassifier = classifier;
+	public void setClassifier(String newClassifier) {
+		String oldClassifier = classifier;
 		classifier = newClassifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__CLASSIFIER, oldClassifier, newClassifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClassifier(Element newClassifier) {
-		if (newClassifier != classifier) {
-			NotificationChain msgs = null;
-			if (classifier != null)
-				msgs = ((InternalEObject)classifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.METHOD__CLASSIFIER, null, msgs);
-			if (newClassifier != null)
-				msgs = ((InternalEObject)newClassifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XcorePackage.METHOD__CLASSIFIER, null, msgs);
-			msgs = basicSetClassifier(newClassifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__CLASSIFIER, newClassifier, newClassifier));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__CLASSIFIER, oldClassifier, classifier));
 	}
 
 	/**
@@ -1003,11 +1055,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MethodConstraint> getPostConditions() {
-		if (postConditions == null) {
-			postConditions = new EObjectResolvingEList<MethodConstraint>(MethodConstraint.class, this, XcorePackage.METHOD__POST_CONDITIONS);
+	public EList<PreCondition> getPreConditions() {
+		if (preConditions == null) {
+			preConditions = new EObjectContainmentWithInverseEList<PreCondition>(PreCondition.class, this, XcorePackage.METHOD__PRE_CONDITIONS, XcorePackage.PRE_CONDITION__METHOD);
 		}
-		return postConditions;
+		return preConditions;
 	}
 
 	/**
@@ -1015,11 +1067,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MethodConstraint> getPreConditions() {
-		if (preConditions == null) {
-			preConditions = new EObjectResolvingEList<MethodConstraint>(MethodConstraint.class, this, XcorePackage.METHOD__PRE_CONDITIONS);
+	public EList<PostCondition> getPostConditions() {
+		if (postConditions == null) {
+			postConditions = new EObjectContainmentWithInverseEList<PostCondition>(PostCondition.class, this, XcorePackage.METHOD__POST_CONDITIONS, XcorePackage.POST_CONDITION__METHOD);
 		}
-		return preConditions;
+		return postConditions;
 	}
 
 	/**
@@ -1165,6 +1217,27 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getThrows() {
+		return throws_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setThrows(String newThrows) {
+		String oldThrows = throws_;
+		throws_ = newThrows;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__THROWS, oldThrows, throws_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getVisibility() {
 		return visibility;
 	}
@@ -1186,6 +1259,49 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getConcurrency() {
+		return concurrency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConcurrency(String newConcurrency) {
+		String oldConcurrency = concurrency;
+		concurrency = newConcurrency;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__CONCURRENCY, oldConcurrency, concurrency));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getGenOption() {
+		return genOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGenOption(String newGenOption) {
+		String oldGenOption = genOption;
+		genOption = newGenOption;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__GEN_OPTION, oldGenOption, genOption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1193,6 +1309,10 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParent((Element)otherEnd, msgs);
+			case XcorePackage.METHOD__PRE_CONDITIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPreConditions()).basicAdd(otherEnd, msgs);
+			case XcorePackage.METHOD__POST_CONDITIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPostConditions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -1205,12 +1325,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XcorePackage.METHOD__CLASSIFIER:
-				return basicSetClassifier(null, msgs);
 			case XcorePackage.METHOD__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case XcorePackage.METHOD__PARENT:
 				return basicSetParent(null, msgs);
+			case XcorePackage.METHOD__PRE_CONDITIONS:
+				return ((InternalEList<?>)getPreConditions()).basicRemove(otherEnd, msgs);
+			case XcorePackage.METHOD__POST_CONDITIONS:
+				return ((InternalEList<?>)getPostConditions()).basicRemove(otherEnd, msgs);
 			case XcorePackage.METHOD__TAGGED_VALUES:
 				return ((InternalEList<?>)getTaggedValues()).basicRemove(otherEnd, msgs);
 		}
@@ -1241,8 +1363,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 		switch (featureID) {
 			case XcorePackage.METHOD__ABSTRACT:
 				return getAbstract();
-			case XcorePackage.METHOD__BEHAVIOR:
-				return getBehavior();
+			case XcorePackage.METHOD__BEHAVIOUR:
+				return getBehaviour();
 			case XcorePackage.METHOD__CLASSIFIER:
 				return getClassifier();
 			case XcorePackage.METHOD__CODE:
@@ -1276,10 +1398,10 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return basicGetParent();
 			case XcorePackage.METHOD__POS:
 				return getPos();
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				return getPostConditions();
 			case XcorePackage.METHOD__PRE_CONDITIONS:
 				return getPreConditions();
+			case XcorePackage.METHOD__POST_CONDITIONS:
+				return getPostConditions();
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				return getReturnIsArray();
 			case XcorePackage.METHOD__RETURN_TYPE:
@@ -1294,8 +1416,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return getStyleEx();
 			case XcorePackage.METHOD__TAGGED_VALUES:
 				return getTaggedValues();
+			case XcorePackage.METHOD__THROWS:
+				return getThrows();
 			case XcorePackage.METHOD__VISIBILITY:
 				return getVisibility();
+			case XcorePackage.METHOD__CONCURRENCY:
+				return getConcurrency();
+			case XcorePackage.METHOD__GEN_OPTION:
+				return getGenOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1312,11 +1440,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__ABSTRACT:
 				setAbstract((Boolean)newValue);
 				return;
-			case XcorePackage.METHOD__BEHAVIOR:
-				setBehavior((String)newValue);
+			case XcorePackage.METHOD__BEHAVIOUR:
+				setBehaviour((String)newValue);
 				return;
 			case XcorePackage.METHOD__CLASSIFIER:
-				setClassifier((Element)newValue);
+				setClassifier((String)newValue);
 				return;
 			case XcorePackage.METHOD__CODE:
 				setCode((String)newValue);
@@ -1364,13 +1492,13 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__POS:
 				setPos((Long)newValue);
 				return;
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				getPostConditions().clear();
-				getPostConditions().addAll((Collection<? extends MethodConstraint>)newValue);
-				return;
 			case XcorePackage.METHOD__PRE_CONDITIONS:
 				getPreConditions().clear();
-				getPreConditions().addAll((Collection<? extends MethodConstraint>)newValue);
+				getPreConditions().addAll((Collection<? extends PreCondition>)newValue);
+				return;
+			case XcorePackage.METHOD__POST_CONDITIONS:
+				getPostConditions().clear();
+				getPostConditions().addAll((Collection<? extends PostCondition>)newValue);
 				return;
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				setReturnIsArray((Boolean)newValue);
@@ -1394,8 +1522,17 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				getTaggedValues().clear();
 				getTaggedValues().addAll((Collection<? extends MethodTag>)newValue);
 				return;
+			case XcorePackage.METHOD__THROWS:
+				setThrows((String)newValue);
+				return;
 			case XcorePackage.METHOD__VISIBILITY:
 				setVisibility((String)newValue);
+				return;
+			case XcorePackage.METHOD__CONCURRENCY:
+				setConcurrency((String)newValue);
+				return;
+			case XcorePackage.METHOD__GEN_OPTION:
+				setGenOption((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1412,11 +1549,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__ABSTRACT:
 				setAbstract(ABSTRACT_EDEFAULT);
 				return;
-			case XcorePackage.METHOD__BEHAVIOR:
-				setBehavior(BEHAVIOR_EDEFAULT);
+			case XcorePackage.METHOD__BEHAVIOUR:
+				setBehaviour(BEHAVIOUR_EDEFAULT);
 				return;
 			case XcorePackage.METHOD__CLASSIFIER:
-				setClassifier((Element)null);
+				setClassifier(CLASSIFIER_EDEFAULT);
 				return;
 			case XcorePackage.METHOD__CODE:
 				setCode(CODE_EDEFAULT);
@@ -1463,11 +1600,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__POS:
 				setPos(POS_EDEFAULT);
 				return;
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				getPostConditions().clear();
-				return;
 			case XcorePackage.METHOD__PRE_CONDITIONS:
 				getPreConditions().clear();
+				return;
+			case XcorePackage.METHOD__POST_CONDITIONS:
+				getPostConditions().clear();
 				return;
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				setReturnIsArray(RETURN_IS_ARRAY_EDEFAULT);
@@ -1490,8 +1627,17 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__TAGGED_VALUES:
 				getTaggedValues().clear();
 				return;
+			case XcorePackage.METHOD__THROWS:
+				setThrows(THROWS_EDEFAULT);
+				return;
 			case XcorePackage.METHOD__VISIBILITY:
 				setVisibility(VISIBILITY_EDEFAULT);
+				return;
+			case XcorePackage.METHOD__CONCURRENCY:
+				setConcurrency(CONCURRENCY_EDEFAULT);
+				return;
+			case XcorePackage.METHOD__GEN_OPTION:
+				setGenOption(GEN_OPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1507,10 +1653,10 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 		switch (featureID) {
 			case XcorePackage.METHOD__ABSTRACT:
 				return ABSTRACT_EDEFAULT == null ? abstract_ != null : !ABSTRACT_EDEFAULT.equals(abstract_);
-			case XcorePackage.METHOD__BEHAVIOR:
-				return BEHAVIOR_EDEFAULT == null ? behavior != null : !BEHAVIOR_EDEFAULT.equals(behavior);
+			case XcorePackage.METHOD__BEHAVIOUR:
+				return BEHAVIOUR_EDEFAULT == null ? behaviour != null : !BEHAVIOUR_EDEFAULT.equals(behaviour);
 			case XcorePackage.METHOD__CLASSIFIER:
-				return classifier != null;
+				return CLASSIFIER_EDEFAULT == null ? classifier != null : !CLASSIFIER_EDEFAULT.equals(classifier);
 			case XcorePackage.METHOD__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 			case XcorePackage.METHOD__IS_CONST:
@@ -1541,10 +1687,10 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return basicGetParent() != null;
 			case XcorePackage.METHOD__POS:
 				return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				return postConditions != null && !postConditions.isEmpty();
 			case XcorePackage.METHOD__PRE_CONDITIONS:
 				return preConditions != null && !preConditions.isEmpty();
+			case XcorePackage.METHOD__POST_CONDITIONS:
+				return postConditions != null && !postConditions.isEmpty();
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				return RETURN_IS_ARRAY_EDEFAULT == null ? returnIsArray != null : !RETURN_IS_ARRAY_EDEFAULT.equals(returnIsArray);
 			case XcorePackage.METHOD__RETURN_TYPE:
@@ -1559,8 +1705,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return STYLE_EX_EDEFAULT == null ? styleEx != null : !STYLE_EX_EDEFAULT.equals(styleEx);
 			case XcorePackage.METHOD__TAGGED_VALUES:
 				return taggedValues != null && !taggedValues.isEmpty();
+			case XcorePackage.METHOD__THROWS:
+				return THROWS_EDEFAULT == null ? throws_ != null : !THROWS_EDEFAULT.equals(throws_);
 			case XcorePackage.METHOD__VISIBILITY:
 				return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
+			case XcorePackage.METHOD__CONCURRENCY:
+				return CONCURRENCY_EDEFAULT == null ? concurrency != null : !CONCURRENCY_EDEFAULT.equals(concurrency);
+			case XcorePackage.METHOD__GEN_OPTION:
+				return GEN_OPTION_EDEFAULT == null ? genOption != null : !GEN_OPTION_EDEFAULT.equals(genOption);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1577,8 +1729,10 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Abstract: ");
 		result.append(abstract_);
-		result.append(", Behavior: ");
-		result.append(behavior);
+		result.append(", Behaviour: ");
+		result.append(behaviour);
+		result.append(", Classifier: ");
+		result.append(classifier);
 		result.append(", Code: ");
 		result.append(code);
 		result.append(", IsConst: ");
@@ -1617,8 +1771,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 		result.append(style);
 		result.append(", StyleEx: ");
 		result.append(styleEx);
+		result.append(", Throws: ");
+		result.append(throws_);
 		result.append(", Visibility: ");
 		result.append(visibility);
+		result.append(", Concurrency: ");
+		result.append(concurrency);
+		result.append(", GenOption: ");
+		result.append(genOption);
 		result.append(')');
 		return result.toString();
 	}

@@ -531,13 +531,22 @@ public interface XcorePackage extends EPackage {
 	int CONNECTOR__CONNECTOR_ID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__CONSTRAINTS = 1;
+
+	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DIRECTION = 1;
+	int CONNECTOR__DIRECTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Pt End X</b></em>' attribute.
@@ -546,7 +555,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PT_END_X = 2;
+	int CONNECTOR__PT_END_X = 3;
 
 	/**
 	 * The feature id for the '<em><b>Pt End Y</b></em>' attribute.
@@ -555,7 +564,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PT_END_Y = 3;
+	int CONNECTOR__PT_END_Y = 4;
 
 	/**
 	 * The feature id for the '<em><b>Event Flags</b></em>' attribute.
@@ -564,7 +573,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__EVENT_FLAGS = 4;
+	int CONNECTOR__EVENT_FLAGS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
@@ -573,7 +582,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__IS_LEAF = 5;
+	int CONNECTOR__IS_LEAF = 6;
 
 	/**
 	 * The feature id for the '<em><b>Is Root</b></em>' attribute.
@@ -582,7 +591,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__IS_ROOT = 6;
+	int CONNECTOR__IS_ROOT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Is Spec</b></em>' attribute.
@@ -591,7 +600,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__IS_SPEC = 7;
+	int CONNECTOR__IS_SPEC = 8;
 
 	/**
 	 * The feature id for the '<em><b>Meta Type</b></em>' attribute.
@@ -600,7 +609,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__META_TYPE = 8;
+	int CONNECTOR__META_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Misc Data</b></em>' attribute.
@@ -609,7 +618,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__MISC_DATA = 9;
+	int CONNECTOR__MISC_DATA = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -618,7 +627,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__NAME = 10;
+	int CONNECTOR__NAME = 11;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -627,7 +636,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__NOTES = 11;
+	int CONNECTOR__NOTES = 12;
 
 	/**
 	 * The feature id for the '<em><b>Route Style</b></em>' attribute.
@@ -636,7 +645,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__ROUTE_STYLE = 12;
+	int CONNECTOR__ROUTE_STYLE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Seq No</b></em>' attribute.
@@ -645,7 +654,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SEQ_NO = 13;
+	int CONNECTOR__SEQ_NO = 14;
 
 	/**
 	 * The feature id for the '<em><b>Pt Start X</b></em>' attribute.
@@ -654,7 +663,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PT_START_X = 14;
+	int CONNECTOR__PT_START_X = 15;
 
 	/**
 	 * The feature id for the '<em><b>Pt Start Y</b></em>' attribute.
@@ -663,7 +672,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PT_START_Y = 15;
+	int CONNECTOR__PT_START_Y = 16;
 
 	/**
 	 * The feature id for the '<em><b>Action Flags</b></em>' attribute.
@@ -672,7 +681,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__ACTION_FLAGS = 16;
+	int CONNECTOR__ACTION_FLAGS = 17;
 
 	/**
 	 * The feature id for the '<em><b>State Flags</b></em>' attribute.
@@ -681,7 +690,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__STATE_FLAGS = 17;
+	int CONNECTOR__STATE_FLAGS = 18;
 
 	/**
 	 * The feature id for the '<em><b>Stereotype</b></em>' attribute.
@@ -690,7 +699,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__STEREOTYPE = 18;
+	int CONNECTOR__STEREOTYPE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Style Ex</b></em>' attribute.
@@ -699,7 +708,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__STYLE_EX = 19;
+	int CONNECTOR__STYLE_EX = 20;
 
 	/**
 	 * The feature id for the '<em><b>Sub Type</b></em>' attribute.
@@ -708,7 +717,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SUB_TYPE = 20;
+	int CONNECTOR__SUB_TYPE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Tagged Values</b></em>' containment reference.
@@ -717,7 +726,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TAGGED_VALUES = 21;
+	int CONNECTOR__TAGGED_VALUES = 22;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -726,7 +735,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TYPE = 22;
+	int CONNECTOR__TYPE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Virtual Inheritance</b></em>' attribute.
@@ -735,7 +744,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__VIRTUAL_INHERITANCE = 23;
+	int CONNECTOR__VIRTUAL_INHERITANCE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -744,7 +753,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE = 24;
+	int CONNECTOR__SOURCE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Dest</b></em>' reference.
@@ -753,7 +762,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST = 25;
+	int CONNECTOR__DEST = 26;
 
 	/**
 	 * The feature id for the '<em><b>Source Card</b></em>' attribute.
@@ -762,7 +771,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_CARD = 26;
+	int CONNECTOR__SOURCE_CARD = 27;
 
 	/**
 	 * The feature id for the '<em><b>Source Access</b></em>' attribute.
@@ -771,7 +780,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_ACCESS = 27;
+	int CONNECTOR__SOURCE_ACCESS = 28;
 
 	/**
 	 * The feature id for the '<em><b>Source Element</b></em>' attribute.
@@ -780,7 +789,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_ELEMENT = 28;
+	int CONNECTOR__SOURCE_ELEMENT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Source Role</b></em>' attribute.
@@ -789,7 +798,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_ROLE = 29;
+	int CONNECTOR__SOURCE_ROLE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Source Role Type</b></em>' attribute.
@@ -798,7 +807,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_ROLE_TYPE = 30;
+	int CONNECTOR__SOURCE_ROLE_TYPE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Source Role Note</b></em>' attribute.
@@ -807,7 +816,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_ROLE_NOTE = 31;
+	int CONNECTOR__SOURCE_ROLE_NOTE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Source Containment</b></em>' attribute.
@@ -816,7 +825,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_CONTAINMENT = 32;
+	int CONNECTOR__SOURCE_CONTAINMENT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Source Is Aggregate</b></em>' attribute.
@@ -825,7 +834,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_IS_AGGREGATE = 33;
+	int CONNECTOR__SOURCE_IS_AGGREGATE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Source Is Ordered</b></em>' attribute.
@@ -834,7 +843,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_IS_ORDERED = 34;
+	int CONNECTOR__SOURCE_IS_ORDERED = 35;
 
 	/**
 	 * The feature id for the '<em><b>Source Qualifier</b></em>' attribute.
@@ -843,7 +852,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_QUALIFIER = 35;
+	int CONNECTOR__SOURCE_QUALIFIER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Source Changeable</b></em>' attribute.
@@ -852,7 +861,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_CHANGEABLE = 36;
+	int CONNECTOR__SOURCE_CHANGEABLE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Source Constraint</b></em>' attribute.
@@ -861,7 +870,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_CONSTRAINT = 37;
+	int CONNECTOR__SOURCE_CONSTRAINT = 38;
 
 	/**
 	 * The feature id for the '<em><b>Source Is Navigable</b></em>' attribute.
@@ -870,7 +879,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_IS_NAVIGABLE = 38;
+	int CONNECTOR__SOURCE_IS_NAVIGABLE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Source Stereotype</b></em>' attribute.
@@ -879,7 +888,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_STEREOTYPE = 39;
+	int CONNECTOR__SOURCE_STEREOTYPE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Source Style</b></em>' attribute.
@@ -888,7 +897,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_STYLE = 40;
+	int CONNECTOR__SOURCE_STYLE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Source TS</b></em>' attribute.
@@ -897,7 +906,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SOURCE_TS = 41;
+	int CONNECTOR__SOURCE_TS = 42;
 
 	/**
 	 * The feature id for the '<em><b>Dest Card</b></em>' attribute.
@@ -906,7 +915,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_CARD = 42;
+	int CONNECTOR__DEST_CARD = 43;
 
 	/**
 	 * The feature id for the '<em><b>Dest Access</b></em>' attribute.
@@ -915,7 +924,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_ACCESS = 43;
+	int CONNECTOR__DEST_ACCESS = 44;
 
 	/**
 	 * The feature id for the '<em><b>Dest Element</b></em>' attribute.
@@ -924,7 +933,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_ELEMENT = 44;
+	int CONNECTOR__DEST_ELEMENT = 45;
 
 	/**
 	 * The feature id for the '<em><b>Dest Role</b></em>' attribute.
@@ -933,7 +942,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_ROLE = 45;
+	int CONNECTOR__DEST_ROLE = 46;
 
 	/**
 	 * The feature id for the '<em><b>Dest Role Type</b></em>' attribute.
@@ -942,7 +951,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_ROLE_TYPE = 46;
+	int CONNECTOR__DEST_ROLE_TYPE = 47;
 
 	/**
 	 * The feature id for the '<em><b>Dest Role Note</b></em>' attribute.
@@ -951,7 +960,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_ROLE_NOTE = 47;
+	int CONNECTOR__DEST_ROLE_NOTE = 48;
 
 	/**
 	 * The feature id for the '<em><b>Dest Containment</b></em>' attribute.
@@ -960,7 +969,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_CONTAINMENT = 48;
+	int CONNECTOR__DEST_CONTAINMENT = 49;
 
 	/**
 	 * The feature id for the '<em><b>Dest Is Aggregate</b></em>' attribute.
@@ -969,7 +978,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_IS_AGGREGATE = 49;
+	int CONNECTOR__DEST_IS_AGGREGATE = 50;
 
 	/**
 	 * The feature id for the '<em><b>Dest Is Ordered</b></em>' attribute.
@@ -978,7 +987,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_IS_ORDERED = 50;
+	int CONNECTOR__DEST_IS_ORDERED = 51;
 
 	/**
 	 * The feature id for the '<em><b>Dest Qualifier</b></em>' attribute.
@@ -987,7 +996,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_QUALIFIER = 51;
+	int CONNECTOR__DEST_QUALIFIER = 52;
 
 	/**
 	 * The feature id for the '<em><b>Dest Changeable</b></em>' attribute.
@@ -996,7 +1005,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_CHANGEABLE = 52;
+	int CONNECTOR__DEST_CHANGEABLE = 53;
 
 	/**
 	 * The feature id for the '<em><b>Dest Constraint</b></em>' attribute.
@@ -1005,7 +1014,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_CONSTRAINT = 53;
+	int CONNECTOR__DEST_CONSTRAINT = 54;
 
 	/**
 	 * The feature id for the '<em><b>Dest Is Navigable</b></em>' attribute.
@@ -1014,7 +1023,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_IS_NAVIGABLE = 54;
+	int CONNECTOR__DEST_IS_NAVIGABLE = 55;
 
 	/**
 	 * The feature id for the '<em><b>Dest Stereotype</b></em>' attribute.
@@ -1023,7 +1032,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_STEREOTYPE = 55;
+	int CONNECTOR__DEST_STEREOTYPE = 56;
 
 	/**
 	 * The feature id for the '<em><b>Dest Style</b></em>' attribute.
@@ -1032,7 +1041,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_STYLE = 56;
+	int CONNECTOR__DEST_STYLE = 57;
 
 	/**
 	 * The feature id for the '<em><b>Dest TS</b></em>' attribute.
@@ -1041,7 +1050,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DEST_TS = 57;
+	int CONNECTOR__DEST_TS = 58;
 
 	/**
 	 * The feature id for the '<em><b>Top Start Label</b></em>' attribute.
@@ -1050,7 +1059,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TOP_START_LABEL = 58;
+	int CONNECTOR__TOP_START_LABEL = 59;
 
 	/**
 	 * The feature id for the '<em><b>Top Mid Label</b></em>' attribute.
@@ -1059,7 +1068,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TOP_MID_LABEL = 59;
+	int CONNECTOR__TOP_MID_LABEL = 60;
 
 	/**
 	 * The feature id for the '<em><b>Top End Label</b></em>' attribute.
@@ -1068,7 +1077,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TOP_END_LABEL = 60;
+	int CONNECTOR__TOP_END_LABEL = 61;
 
 	/**
 	 * The feature id for the '<em><b>Btm Start Label</b></em>' attribute.
@@ -1077,7 +1086,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__BTM_START_LABEL = 61;
+	int CONNECTOR__BTM_START_LABEL = 62;
 
 	/**
 	 * The feature id for the '<em><b>Btm Mid Label</b></em>' attribute.
@@ -1086,7 +1095,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__BTM_MID_LABEL = 62;
+	int CONNECTOR__BTM_MID_LABEL = 63;
 
 	/**
 	 * The feature id for the '<em><b>Btm End Label</b></em>' attribute.
@@ -1095,7 +1104,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__BTM_END_LABEL = 63;
+	int CONNECTOR__BTM_END_LABEL = 64;
 
 	/**
 	 * The feature id for the '<em><b>Start Edge</b></em>' attribute.
@@ -1104,7 +1113,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__START_EDGE = 64;
+	int CONNECTOR__START_EDGE = 65;
 
 	/**
 	 * The feature id for the '<em><b>End Edge</b></em>' attribute.
@@ -1113,7 +1122,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__END_EDGE = 65;
+	int CONNECTOR__END_EDGE = 66;
 
 	/**
 	 * The feature id for the '<em><b>Head Style</b></em>' attribute.
@@ -1122,7 +1131,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__HEAD_STYLE = 66;
+	int CONNECTOR__HEAD_STYLE = 67;
 
 	/**
 	 * The feature id for the '<em><b>Line Style</b></em>' attribute.
@@ -1131,7 +1140,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__LINE_STYLE = 67;
+	int CONNECTOR__LINE_STYLE = 68;
 
 	/**
 	 * The feature id for the '<em><b>Dispatch Action</b></em>' attribute.
@@ -1140,7 +1149,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__DISPATCH_ACTION = 68;
+	int CONNECTOR__DISPATCH_ACTION = 69;
 
 	/**
 	 * The feature id for the '<em><b>PDATA1</b></em>' attribute.
@@ -1149,7 +1158,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PDATA1 = 69;
+	int CONNECTOR__PDATA1 = 70;
 
 	/**
 	 * The feature id for the '<em><b>PDATA2</b></em>' attribute.
@@ -1158,7 +1167,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PDATA2 = 70;
+	int CONNECTOR__PDATA2 = 71;
 
 	/**
 	 * The feature id for the '<em><b>PDATA3</b></em>' attribute.
@@ -1167,7 +1176,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PDATA3 = 71;
+	int CONNECTOR__PDATA3 = 72;
 
 	/**
 	 * The feature id for the '<em><b>PDATA4</b></em>' attribute.
@@ -1176,7 +1185,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PDATA4 = 72;
+	int CONNECTOR__PDATA4 = 73;
 
 	/**
 	 * The feature id for the '<em><b>PDATA5</b></em>' attribute.
@@ -1185,7 +1194,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__PDATA5 = 73;
+	int CONNECTOR__PDATA5 = 74;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -1194,7 +1203,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = 74;
+	int CONNECTOR_FEATURE_COUNT = 75;
 
 	/**
 	 * The number of operations of the '<em>Connector</em>' class.
@@ -1216,22 +1225,22 @@ public interface XcorePackage extends EPackage {
 	int CONNECTOR_CONSTRAINT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Connector ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Connector</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_CONSTRAINT__CONNECTOR_ID = 0;
+	int CONNECTOR_CONSTRAINT__CONNECTOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Constraint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_CONSTRAINT__NAME = 1;
+	int CONNECTOR_CONSTRAINT__CONSTRAINT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -1289,22 +1298,13 @@ public interface XcorePackage extends EPackage {
 	int CONNECTOR_TAG__CONNECTOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>FQ Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Property</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TAG__FQ_NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR_TAG__NAME = 2;
+	int CONNECTOR_TAG__PROPERTY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -1313,7 +1313,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TAG__NOTES = 3;
+	int CONNECTOR_TAG__NOTES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Tag GUID</b></em>' attribute.
@@ -1322,7 +1322,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TAG__TAG_GUID = 4;
+	int CONNECTOR_TAG__TAG_GUID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Tag ID</b></em>' attribute.
@@ -1331,7 +1331,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TAG__TAG_ID = 5;
+	int CONNECTOR_TAG__TAG_ID = 4;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1340,7 +1340,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TAG__VALUE = 6;
+	int CONNECTOR_TAG__VALUE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Connector Tag</em>' class.
@@ -1349,7 +1349,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TAG_FEATURE_COUNT = 7;
+	int CONNECTOR_TAG_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Connector Tag</em>' class.
@@ -1894,16 +1894,16 @@ public interface XcorePackage extends EPackage {
 	int METHOD__ABSTRACT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Behavior</b></em>' attribute.
+	 * The feature id for the '<em><b>Behaviour</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__BEHAVIOR = 1;
+	int METHOD__BEHAVIOUR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' containment reference.
+	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2047,22 +2047,22 @@ public interface XcorePackage extends EPackage {
 	int METHOD__POS = 17;
 
 	/**
-	 * The feature id for the '<em><b>Post Conditions</b></em>' reference list.
+	 * The feature id for the '<em><b>Pre Conditions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__POST_CONDITIONS = 18;
+	int METHOD__PRE_CONDITIONS = 18;
 
 	/**
-	 * The feature id for the '<em><b>Pre Conditions</b></em>' reference list.
+	 * The feature id for the '<em><b>Post Conditions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__PRE_CONDITIONS = 19;
+	int METHOD__POST_CONDITIONS = 19;
 
 	/**
 	 * The feature id for the '<em><b>Return Is Array</b></em>' attribute.
@@ -2128,13 +2128,40 @@ public interface XcorePackage extends EPackage {
 	int METHOD__TAGGED_VALUES = 26;
 
 	/**
+	 * The feature id for the '<em><b>Throws</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__THROWS = 27;
+
+	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__VISIBILITY = 27;
+	int METHOD__VISIBILITY = 28;
+
+	/**
+	 * The feature id for the '<em><b>Concurrency</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__CONCURRENCY = 29;
+
+	/**
+	 * The feature id for the '<em><b>Gen Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__GEN_OPTION = 30;
 
 	/**
 	 * The number of structural features of the '<em>Method</em>' class.
@@ -2143,7 +2170,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_FEATURE_COUNT = 28;
+	int METHOD_FEATURE_COUNT = 31;
 
 	/**
 	 * The number of operations of the '<em>Method</em>' class.
@@ -2165,31 +2192,13 @@ public interface XcorePackage extends EPackage {
 	int METHOD_CONSTRAINT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Method</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_CONSTRAINT__METHOD = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_CONSTRAINT__NAME = 1;
-
-	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CONSTRAINT__NOTES = 2;
+	int METHOD_CONSTRAINT__NOTES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2198,7 +2207,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CONSTRAINT__TYPE = 3;
+	int METHOD_CONSTRAINT__TYPE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Method Constraint</em>' class.
@@ -2207,7 +2216,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CONSTRAINT_FEATURE_COUNT = 4;
+	int METHOD_CONSTRAINT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Method Constraint</em>' class.
@@ -2219,6 +2228,134 @@ public interface XcorePackage extends EPackage {
 	int METHOD_CONSTRAINT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PreConditionImpl <em>Pre Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PreConditionImpl
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getPreCondition()
+	 * @generated
+	 */
+	int PRE_CONDITION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_CONDITION__NOTES = METHOD_CONSTRAINT__NOTES;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_CONDITION__TYPE = METHOD_CONSTRAINT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_CONDITION__METHOD = METHOD_CONSTRAINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Pre Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_CONDITION__PRE_CONDITION = METHOD_CONSTRAINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Pre Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_CONDITION_FEATURE_COUNT = METHOD_CONSTRAINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Pre Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_CONDITION_OPERATION_COUNT = METHOD_CONSTRAINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PostConditionImpl <em>Post Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PostConditionImpl
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getPostCondition()
+	 * @generated
+	 */
+	int POST_CONDITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Notes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POST_CONDITION__NOTES = METHOD_CONSTRAINT__NOTES;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POST_CONDITION__TYPE = METHOD_CONSTRAINT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POST_CONDITION__METHOD = METHOD_CONSTRAINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Post Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POST_CONDITION__POST_CONDITION = METHOD_CONSTRAINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Post Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POST_CONDITION_FEATURE_COUNT = METHOD_CONSTRAINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Post Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POST_CONDITION_OPERATION_COUNT = METHOD_CONSTRAINT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodTagImpl <em>Method Tag</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2226,7 +2363,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getMethodTag()
 	 * @generated
 	 */
-	int METHOD_TAG = 9;
+	int METHOD_TAG = 11;
 
 	/**
 	 * The feature id for the '<em><b>FQ Name</b></em>' attribute.
@@ -2317,7 +2454,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 10;
+	int PACKAGE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -2597,7 +2734,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 11;
+	int PARAMETER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Alias</b></em>' attribute.
@@ -2760,7 +2897,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getParamTag()
 	 * @generated
 	 */
-	int PARAM_TAG = 12;
+	int PARAM_TAG = 14;
 
 	/**
 	 * The feature id for the '<em><b>Element GUID</b></em>' attribute.
@@ -2833,7 +2970,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getTaggedValue()
 	 * @generated
 	 */
-	int TAGGED_VALUE = 13;
+	int TAGGED_VALUE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Element ID</b></em>' attribute.
@@ -2924,7 +3061,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDirectionType()
 	 * @generated
 	 */
-	int DIRECTION_TYPE = 14;
+	int DIRECTION_TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType <em>Connector Type</em>}' enum.
@@ -2934,7 +3071,7 @@ public interface XcorePackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getConnectorType()
 	 * @generated
 	 */
-	int CONNECTOR_TYPE = 15;
+	int CONNECTOR_TYPE = 17;
 
 
 	/**
@@ -3438,6 +3575,17 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConnector_ConnectorID();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConstraints <em>Constraints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConstraints()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Constraints();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDirection <em>Direction</em>}'.
@@ -4253,26 +4401,26 @@ public interface XcorePackage extends EPackage {
 	EClass getConnectorConstraint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnectorID <em>Connector ID</em>}'.
+	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Connector ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnectorID()
+	 * @return the meta object for the container reference '<em>Connector</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnector()
 	 * @see #getConnectorConstraint()
 	 * @generated
 	 */
-	EAttribute getConnectorConstraint_ConnectorID();
+	EReference getConnectorConstraint_Connector();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConstraint <em>Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getName()
+	 * @return the meta object for the attribute '<em>Constraint</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConstraint()
 	 * @see #getConnectorConstraint()
 	 * @generated
 	 */
-	EAttribute getConnectorConstraint_Name();
+	EAttribute getConnectorConstraint_Constraint();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getNotes <em>Notes</em>}'.
@@ -4318,26 +4466,15 @@ public interface XcorePackage extends EPackage {
 	EReference getConnectorTag_Connector();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getFQName <em>FQ Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>FQ Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getFQName()
+	 * @return the meta object for the attribute '<em>Property</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getProperty()
 	 * @see #getConnectorTag()
 	 * @generated
 	 */
-	EAttribute getConnectorTag_FQName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getName()
-	 * @see #getConnectorTag()
-	 * @generated
-	 */
-	EAttribute getConnectorTag_Name();
+	EAttribute getConnectorTag_Property();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag#getNotes <em>Notes</em>}'.
@@ -5009,26 +5146,26 @@ public interface XcorePackage extends EPackage {
 	EAttribute getMethod_Abstract();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehavior <em>Behavior</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehaviour <em>Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Behavior</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehavior()
+	 * @return the meta object for the attribute '<em>Behaviour</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehaviour()
 	 * @see #getMethod()
 	 * @generated
 	 */
-	EAttribute getMethod_Behavior();
+	EAttribute getMethod_Behaviour();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getClassifier <em>Classifier</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Classifier</em>'.
+	 * @return the meta object for the attribute '<em>Classifier</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getClassifier()
 	 * @see #getMethod()
 	 * @generated
 	 */
-	EReference getMethod_Classifier();
+	EAttribute getMethod_Classifier();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getCode <em>Code</em>}'.
@@ -5196,26 +5333,26 @@ public interface XcorePackage extends EPackage {
 	EAttribute getMethod_Pos();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPostConditions <em>Post Conditions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPreConditions <em>Pre Conditions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Post Conditions</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPostConditions()
-	 * @see #getMethod()
-	 * @generated
-	 */
-	EReference getMethod_PostConditions();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPreConditions <em>Pre Conditions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Pre Conditions</em>'.
+	 * @return the meta object for the containment reference list '<em>Pre Conditions</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPreConditions()
 	 * @see #getMethod()
 	 * @generated
 	 */
 	EReference getMethod_PreConditions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPostConditions <em>Post Conditions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Post Conditions</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPostConditions()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EReference getMethod_PostConditions();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getReturnIsArray <em>Return Is Array</em>}'.
@@ -5295,6 +5432,17 @@ public interface XcorePackage extends EPackage {
 	EReference getMethod_TaggedValues();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getThrows <em>Throws</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Throws</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getThrows()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EAttribute getMethod_Throws();
+
+	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getVisibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5306,6 +5454,28 @@ public interface XcorePackage extends EPackage {
 	EAttribute getMethod_Visibility();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getConcurrency <em>Concurrency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Concurrency</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getConcurrency()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EAttribute getMethod_Concurrency();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getGenOption <em>Gen Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Gen Option</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getGenOption()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EAttribute getMethod_GenOption();
+
+	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint <em>Method Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5314,28 +5484,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMethodConstraint();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint#getMethod <em>Method</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Method</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint#getMethod()
-	 * @see #getMethodConstraint()
-	 * @generated
-	 */
-	EReference getMethodConstraint_Method();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint#getName()
-	 * @see #getMethodConstraint()
-	 * @generated
-	 */
-	EAttribute getMethodConstraint_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint#getNotes <em>Notes</em>}'.
@@ -5358,6 +5506,70 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMethodConstraint_Type();
+
+	/**
+	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition <em>Pre Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pre Condition</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition
+	 * @generated
+	 */
+	EClass getPreCondition();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Method</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getMethod()
+	 * @see #getPreCondition()
+	 * @generated
+	 */
+	EReference getPreCondition_Method();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getPreCondition <em>Pre Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pre Condition</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getPreCondition()
+	 * @see #getPreCondition()
+	 * @generated
+	 */
+	EAttribute getPreCondition_PreCondition();
+
+	/**
+	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition <em>Post Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Post Condition</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition
+	 * @generated
+	 */
+	EClass getPostCondition();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Method</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getMethod()
+	 * @see #getPostCondition()
+	 * @generated
+	 */
+	EReference getPostCondition_Method();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getPostCondition <em>Post Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Post Condition</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getPostCondition()
+	 * @see #getPostCondition()
+	 * @generated
+	 */
+	EAttribute getPostCondition_PostCondition();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag <em>Method Tag</em>}'.
@@ -6511,6 +6723,14 @@ public interface XcorePackage extends EPackage {
 		EAttribute CONNECTOR__CONNECTOR_ID = eINSTANCE.getConnector_ConnectorID();
 
 		/**
+		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__CONSTRAINTS = eINSTANCE.getConnector_Constraints();
+
+		/**
 		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7105,20 +7325,20 @@ public interface XcorePackage extends EPackage {
 		EClass CONNECTOR_CONSTRAINT = eINSTANCE.getConnectorConstraint();
 
 		/**
-		 * The meta object literal for the '<em><b>Connector ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Connector</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONNECTOR_CONSTRAINT__CONNECTOR_ID = eINSTANCE.getConnectorConstraint_ConnectorID();
+		EReference CONNECTOR_CONSTRAINT__CONNECTOR = eINSTANCE.getConnectorConstraint_Connector();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Constraint</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONNECTOR_CONSTRAINT__NAME = eINSTANCE.getConnectorConstraint_Name();
+		EAttribute CONNECTOR_CONSTRAINT__CONSTRAINT = eINSTANCE.getConnectorConstraint_Constraint();
 
 		/**
 		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
@@ -7155,20 +7375,12 @@ public interface XcorePackage extends EPackage {
 		EReference CONNECTOR_TAG__CONNECTOR = eINSTANCE.getConnectorTag_Connector();
 
 		/**
-		 * The meta object literal for the '<em><b>FQ Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Property</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONNECTOR_TAG__FQ_NAME = eINSTANCE.getConnectorTag_FQName();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR_TAG__NAME = eINSTANCE.getConnectorTag_Name();
+		EAttribute CONNECTOR_TAG__PROPERTY = eINSTANCE.getConnectorTag_Property();
 
 		/**
 		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
@@ -7663,20 +7875,20 @@ public interface XcorePackage extends EPackage {
 		EAttribute METHOD__ABSTRACT = eINSTANCE.getMethod_Abstract();
 
 		/**
-		 * The meta object literal for the '<em><b>Behavior</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Behaviour</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute METHOD__BEHAVIOR = eINSTANCE.getMethod_Behavior();
+		EAttribute METHOD__BEHAVIOUR = eINSTANCE.getMethod_Behaviour();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifier</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Classifier</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference METHOD__CLASSIFIER = eINSTANCE.getMethod_Classifier();
+		EAttribute METHOD__CLASSIFIER = eINSTANCE.getMethod_Classifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
@@ -7799,20 +8011,20 @@ public interface XcorePackage extends EPackage {
 		EAttribute METHOD__POS = eINSTANCE.getMethod_Pos();
 
 		/**
-		 * The meta object literal for the '<em><b>Post Conditions</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference METHOD__POST_CONDITIONS = eINSTANCE.getMethod_PostConditions();
-
-		/**
-		 * The meta object literal for the '<em><b>Pre Conditions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Pre Conditions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference METHOD__PRE_CONDITIONS = eINSTANCE.getMethod_PreConditions();
+
+		/**
+		 * The meta object literal for the '<em><b>Post Conditions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD__POST_CONDITIONS = eINSTANCE.getMethod_PostConditions();
 
 		/**
 		 * The meta object literal for the '<em><b>Return Is Array</b></em>' attribute feature.
@@ -7871,12 +8083,36 @@ public interface XcorePackage extends EPackage {
 		EReference METHOD__TAGGED_VALUES = eINSTANCE.getMethod_TaggedValues();
 
 		/**
+		 * The meta object literal for the '<em><b>Throws</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METHOD__THROWS = eINSTANCE.getMethod_Throws();
+
+		/**
 		 * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute METHOD__VISIBILITY = eINSTANCE.getMethod_Visibility();
+
+		/**
+		 * The meta object literal for the '<em><b>Concurrency</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METHOD__CONCURRENCY = eINSTANCE.getMethod_Concurrency();
+
+		/**
+		 * The meta object literal for the '<em><b>Gen Option</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METHOD__GEN_OPTION = eINSTANCE.getMethod_GenOption();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodConstraintImpl <em>Method Constraint</em>}' class.
@@ -7887,22 +8123,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass METHOD_CONSTRAINT = eINSTANCE.getMethodConstraint();
-
-		/**
-		 * The meta object literal for the '<em><b>Method</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference METHOD_CONSTRAINT__METHOD = eINSTANCE.getMethodConstraint_Method();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute METHOD_CONSTRAINT__NAME = eINSTANCE.getMethodConstraint_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Notes</b></em>' attribute feature.
@@ -7919,6 +8139,58 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute METHOD_CONSTRAINT__TYPE = eINSTANCE.getMethodConstraint_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PreConditionImpl <em>Pre Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PreConditionImpl
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getPreCondition()
+		 * @generated
+		 */
+		EClass PRE_CONDITION = eINSTANCE.getPreCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRE_CONDITION__METHOD = eINSTANCE.getPreCondition_Method();
+
+		/**
+		 * The meta object literal for the '<em><b>Pre Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRE_CONDITION__PRE_CONDITION = eINSTANCE.getPreCondition_PreCondition();
+
+		/**
+		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PostConditionImpl <em>Post Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PostConditionImpl
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getPostCondition()
+		 * @generated
+		 */
+		EClass POST_CONDITION = eINSTANCE.getPostCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POST_CONDITION__METHOD = eINSTANCE.getPostCondition_Method();
+
+		/**
+		 * The meta object literal for the '<em><b>Post Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POST_CONDITION__POST_CONDITION = eINSTANCE.getPostCondition_PostCondition();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodTagImpl <em>Method Tag</em>}' class.

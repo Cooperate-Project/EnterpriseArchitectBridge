@@ -2,6 +2,8 @@
  */
 package de.cooperateproject.eabridge.eaobjectmodel.xcore;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConnectorID <em>Connector ID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDirection <em>Direction</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndX <em>Pt End X</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndY <em>Pt End Y</em>}</li>
@@ -119,6 +122,24 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setConnectorID(Long value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
+	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraints</em>' containment reference list.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Constraints()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint#getConnector
+	 * @model opposite="Connector" containment="true"
+	 * @generated
+	 */
+	EList<ConnectorConstraint> getConstraints();
 
 	/**
 	 * Returns the value of the '<em><b>Direction</b></em>' attribute.

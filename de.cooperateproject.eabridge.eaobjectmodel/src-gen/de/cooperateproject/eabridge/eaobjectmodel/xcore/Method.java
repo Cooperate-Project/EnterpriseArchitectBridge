@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getAbstract <em>Abstract</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehavior <em>Behavior</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehaviour <em>Behaviour</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getClassifier <em>Classifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getCode <em>Code</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getIsConst <em>Is Const</em>}</li>
@@ -33,8 +33,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getParameters <em>Parameters</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPos <em>Pos</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPreConditions <em>Pre Conditions</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getReturnIsArray <em>Return Is Array</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getStateFlags <em>State Flags</em>}</li>
@@ -42,7 +42,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getStyle <em>Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getStyleEx <em>Style Ex</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getTaggedValues <em>Tagged Values</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getThrows <em>Throws</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getConcurrency <em>Concurrency</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getGenOption <em>Gen Option</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod()
@@ -77,56 +80,56 @@ public interface Method extends EObject {
 	void setAbstract(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Behavior</b></em>' attribute.
+	 * Returns the value of the '<em><b>Behaviour</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Behavior</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Behaviour</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Behavior</em>' attribute.
-	 * @see #setBehavior(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_Behavior()
+	 * @return the value of the '<em>Behaviour</em>' attribute.
+	 * @see #setBehaviour(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_Behaviour()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getBehavior();
+	String getBehaviour();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehavior <em>Behavior</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getBehaviour <em>Behaviour</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Behavior</em>' attribute.
-	 * @see #getBehavior()
+	 * @param value the new value of the '<em>Behaviour</em>' attribute.
+	 * @see #getBehaviour()
 	 * @generated
 	 */
-	void setBehavior(String value);
+	void setBehaviour(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Classifier</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Classifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Classifier</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Classifier</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classifier</em>' containment reference.
-	 * @see #setClassifier(Element)
+	 * @return the value of the '<em>Classifier</em>' attribute.
+	 * @see #setClassifier(String)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_Classifier()
-	 * @model containment="true"
+	 * @model unique="false"
 	 * @generated
 	 */
-	Element getClassifier();
+	String getClassifier();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getClassifier <em>Classifier</em>}' containment reference.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getClassifier <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Classifier</em>' containment reference.
+	 * @param value the new value of the '<em>Classifier</em>' attribute.
 	 * @see #getClassifier()
 	 * @generated
 	 */
-	void setClassifier(Element value);
+	void setClassifier(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' attribute.
@@ -511,36 +514,40 @@ public interface Method extends EObject {
 	void setPos(Long value);
 
 	/**
-	 * Returns the value of the '<em><b>Post Conditions</b></em>' reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint}.
+	 * Returns the value of the '<em><b>Pre Conditions</b></em>' containment reference list.
+	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getMethod <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Post Conditions</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Pre Conditions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Post Conditions</em>' reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_PostConditions()
-	 * @model
+	 * @return the value of the '<em>Pre Conditions</em>' containment reference list.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_PreConditions()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getMethod
+	 * @model opposite="Method" containment="true"
 	 * @generated
 	 */
-	EList<MethodConstraint> getPostConditions();
+	EList<PreCondition> getPreConditions();
 
 	/**
-	 * Returns the value of the '<em><b>Pre Conditions</b></em>' reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint}.
+	 * Returns the value of the '<em><b>Post Conditions</b></em>' containment reference list.
+	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getMethod <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Pre Conditions</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Post Conditions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pre Conditions</em>' reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_PreConditions()
-	 * @model
+	 * @return the value of the '<em>Post Conditions</em>' containment reference list.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_PostConditions()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getMethod
+	 * @model opposite="Method" containment="true"
 	 * @generated
 	 */
-	EList<MethodConstraint> getPreConditions();
+	EList<PostCondition> getPostConditions();
 
 	/**
 	 * Returns the value of the '<em><b>Return Is Array</b></em>' attribute.
@@ -715,6 +722,32 @@ public interface Method extends EObject {
 	EList<MethodTag> getTaggedValues();
 
 	/**
+	 * Returns the value of the '<em><b>Throws</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Throws</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Throws</em>' attribute.
+	 * @see #setThrows(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_Throws()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getThrows();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getThrows <em>Throws</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Throws</em>' attribute.
+	 * @see #getThrows()
+	 * @generated
+	 */
+	void setThrows(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -739,5 +772,57 @@ public interface Method extends EObject {
 	 * @generated
 	 */
 	void setVisibility(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Concurrency</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Concurrency</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Concurrency</em>' attribute.
+	 * @see #setConcurrency(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_Concurrency()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getConcurrency();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getConcurrency <em>Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Concurrency</em>' attribute.
+	 * @see #getConcurrency()
+	 * @generated
+	 */
+	void setConcurrency(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Gen Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gen Option</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gen Option</em>' attribute.
+	 * @see #setGenOption(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_GenOption()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getGenOption();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getGenOption <em>Gen Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gen Option</em>' attribute.
+	 * @see #getGenOption()
+	 * @generated
+	 */
+	void setGenOption(String value);
 
 } // Method

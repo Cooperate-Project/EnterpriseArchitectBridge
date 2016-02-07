@@ -2,15 +2,20 @@
  */
 package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,8 +25,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorConstraintImpl#getConnectorID <em>Connector ID</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorConstraintImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorConstraintImpl#getConnector <em>Connector</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorConstraintImpl#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorConstraintImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorConstraintImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -30,44 +35,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implements ConnectorConstraint {
 	/**
-	 * The default value of the '{@link #getConnectorID() <em>Connector ID</em>}' attribute.
+	 * The default value of the '{@link #getConstraint() <em>Constraint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConnectorID()
+	 * @see #getConstraint()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long CONNECTOR_ID_EDEFAULT = null;
+	protected static final String CONSTRAINT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getConnectorID() <em>Connector ID</em>}' attribute.
+	 * The cached value of the '{@link #getConstraint() <em>Constraint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConnectorID()
+	 * @see #getConstraint()
 	 * @generated
 	 * @ordered
 	 */
-	protected Long connectorID = CONNECTOR_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected String constraint = CONSTRAINT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
@@ -133,8 +118,9 @@ public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getConnectorID() {
-		return connectorID;
+	public Connector getConnector() {
+		if (eContainerFeatureID() != XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR) return null;
+		return (Connector)eContainer();
 	}
 
 	/**
@@ -142,32 +128,61 @@ public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConnectorID(Long newConnectorID) {
-		Long oldConnectorID = connectorID;
-		connectorID = newConnectorID;
+	public Connector basicGetConnector() {
+		if (eContainerFeatureID() != XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR) return null;
+		return (Connector)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConnector(Connector newConnector, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newConnector, XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnector(Connector newConnector) {
+		if (newConnector != eInternalContainer() || (eContainerFeatureID() != XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR && newConnector != null)) {
+			if (EcoreUtil.isAncestor(this, newConnector))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newConnector != null)
+				msgs = ((InternalEObject)newConnector).eInverseAdd(this, XcorePackage.CONNECTOR__CONSTRAINTS, Connector.class, msgs);
+			msgs = basicSetConnector(newConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR, newConnector, newConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getConstraint() {
+		return constraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConstraint(String newConstraint) {
+		String oldConstraint = constraint;
+		constraint = newConstraint;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR_ID, oldConnectorID, connectorID));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR_CONSTRAINT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR_CONSTRAINT__CONSTRAINT, oldConstraint, constraint));
 	}
 
 	/**
@@ -218,12 +233,57 @@ public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetConnector((Connector)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR:
+				return basicSetConnector(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR:
+				return eInternalContainer().eInverseRemove(this, XcorePackage.CONNECTOR__CONSTRAINTS, Connector.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR_ID:
-				return getConnectorID();
-			case XcorePackage.CONNECTOR_CONSTRAINT__NAME:
-				return getName();
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR:
+				if (resolve) return getConnector();
+				return basicGetConnector();
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONSTRAINT:
+				return getConstraint();
 			case XcorePackage.CONNECTOR_CONSTRAINT__NOTES:
 				return getNotes();
 			case XcorePackage.CONNECTOR_CONSTRAINT__TYPE:
@@ -240,11 +300,11 @@ public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR_ID:
-				setConnectorID((Long)newValue);
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR:
+				setConnector((Connector)newValue);
 				return;
-			case XcorePackage.CONNECTOR_CONSTRAINT__NAME:
-				setName((String)newValue);
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONSTRAINT:
+				setConstraint((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR_CONSTRAINT__NOTES:
 				setNotes((String)newValue);
@@ -264,11 +324,11 @@ public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR_ID:
-				setConnectorID(CONNECTOR_ID_EDEFAULT);
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR:
+				setConnector((Connector)null);
 				return;
-			case XcorePackage.CONNECTOR_CONSTRAINT__NAME:
-				setName(NAME_EDEFAULT);
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONSTRAINT:
+				setConstraint(CONSTRAINT_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR_CONSTRAINT__NOTES:
 				setNotes(NOTES_EDEFAULT);
@@ -288,10 +348,10 @@ public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR_ID:
-				return CONNECTOR_ID_EDEFAULT == null ? connectorID != null : !CONNECTOR_ID_EDEFAULT.equals(connectorID);
-			case XcorePackage.CONNECTOR_CONSTRAINT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR:
+				return basicGetConnector() != null;
+			case XcorePackage.CONNECTOR_CONSTRAINT__CONSTRAINT:
+				return CONSTRAINT_EDEFAULT == null ? constraint != null : !CONSTRAINT_EDEFAULT.equals(constraint);
 			case XcorePackage.CONNECTOR_CONSTRAINT__NOTES:
 				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
 			case XcorePackage.CONNECTOR_CONSTRAINT__TYPE:
@@ -310,10 +370,8 @@ public class ConnectorConstraintImpl extends MinimalEObjectImpl.Container implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ConnectorID: ");
-		result.append(connectorID);
-		result.append(", Name: ");
-		result.append(name);
+		result.append(" (Constraint: ");
+		result.append(constraint);
 		result.append(", Notes: ");
 		result.append(notes);
 		result.append(", Type: ");

@@ -26,8 +26,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl#getConnector <em>Connector</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl#getFQName <em>FQ Name</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl#getTagGUID <em>Tag GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorTagImpl#getTagID <em>Tag ID</em>}</li>
@@ -38,44 +37,24 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements ConnectorTag {
 	/**
-	 * The default value of the '{@link #getFQName() <em>FQ Name</em>}' attribute.
+	 * The default value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFQName()
+	 * @see #getProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FQ_NAME_EDEFAULT = null;
+	protected static final String PROPERTY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFQName() <em>FQ Name</em>}' attribute.
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFQName()
+	 * @see #getProperty()
 	 * @generated
 	 * @ordered
 	 */
-	protected String fqName = FQ_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected String property = PROPERTY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
@@ -232,8 +211,8 @@ public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFQName() {
-		return fqName;
+	public String getProperty() {
+		return property;
 	}
 
 	/**
@@ -241,32 +220,11 @@ public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFQName(String newFQName) {
-		String oldFQName = fqName;
-		fqName = newFQName;
+	public void setProperty(String newProperty) {
+		String oldProperty = property;
+		property = newProperty;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR_TAG__FQ_NAME, oldFQName, fqName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR_TAG__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR_TAG__PROPERTY, oldProperty, property));
 	}
 
 	/**
@@ -408,10 +366,8 @@ public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements Co
 			case XcorePackage.CONNECTOR_TAG__CONNECTOR:
 				if (resolve) return getConnector();
 				return basicGetConnector();
-			case XcorePackage.CONNECTOR_TAG__FQ_NAME:
-				return getFQName();
-			case XcorePackage.CONNECTOR_TAG__NAME:
-				return getName();
+			case XcorePackage.CONNECTOR_TAG__PROPERTY:
+				return getProperty();
 			case XcorePackage.CONNECTOR_TAG__NOTES:
 				return getNotes();
 			case XcorePackage.CONNECTOR_TAG__TAG_GUID:
@@ -435,11 +391,8 @@ public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements Co
 			case XcorePackage.CONNECTOR_TAG__CONNECTOR:
 				setConnector((Connector)newValue);
 				return;
-			case XcorePackage.CONNECTOR_TAG__FQ_NAME:
-				setFQName((String)newValue);
-				return;
-			case XcorePackage.CONNECTOR_TAG__NAME:
-				setName((String)newValue);
+			case XcorePackage.CONNECTOR_TAG__PROPERTY:
+				setProperty((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR_TAG__NOTES:
 				setNotes((String)newValue);
@@ -468,11 +421,8 @@ public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements Co
 			case XcorePackage.CONNECTOR_TAG__CONNECTOR:
 				setConnector((Connector)null);
 				return;
-			case XcorePackage.CONNECTOR_TAG__FQ_NAME:
-				setFQName(FQ_NAME_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR_TAG__NAME:
-				setName(NAME_EDEFAULT);
+			case XcorePackage.CONNECTOR_TAG__PROPERTY:
+				setProperty(PROPERTY_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR_TAG__NOTES:
 				setNotes(NOTES_EDEFAULT);
@@ -500,10 +450,8 @@ public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements Co
 		switch (featureID) {
 			case XcorePackage.CONNECTOR_TAG__CONNECTOR:
 				return basicGetConnector() != null;
-			case XcorePackage.CONNECTOR_TAG__FQ_NAME:
-				return FQ_NAME_EDEFAULT == null ? fqName != null : !FQ_NAME_EDEFAULT.equals(fqName);
-			case XcorePackage.CONNECTOR_TAG__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case XcorePackage.CONNECTOR_TAG__PROPERTY:
+				return PROPERTY_EDEFAULT == null ? property != null : !PROPERTY_EDEFAULT.equals(property);
 			case XcorePackage.CONNECTOR_TAG__NOTES:
 				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
 			case XcorePackage.CONNECTOR_TAG__TAG_GUID:
@@ -526,10 +474,8 @@ public class ConnectorTagImpl extends MinimalEObjectImpl.Container implements Co
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (FQName: ");
-		result.append(fqName);
-		result.append(", Name: ");
-		result.append(name);
+		result.append(" (Property: ");
+		result.append(property);
 		result.append(", Notes: ");
 		result.append(notes);
 		result.append(", TagGUID: ");
