@@ -2,73 +2,65 @@ package de.cooperateproject.eabridge.eaobjectmodel.custom;
 
 import java.io.Serializable;
 
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
+
+/**
+ * The id class used in the composite id test case
+ *  
+ * @author <a href="mailto:mtaal@elver.org">Martin Taal</a>
+ * @version $Revision: 1.4 $
+*/
 public class AttributeConstraintPK implements Serializable {
+	
+	private static String delimiter = "__;__";
+	
+	public String Constraint;
+	public Attribute Attribute;
+	
+	/** No-arg constructor */
+	public AttributeConstraintPK() {}
+	
+	public int hashCode() {
+	    return Constraint.hashCode() + Attribute.hashCode();
+	}
+
+	public String toString() {
+		return Constraint + delimiter + Attribute;
+	}
+
+	public boolean equals(Object other)	{
+	    if (other != null && (other instanceof AttributeConstraintPK)) {
+	        AttributeConstraintPK p = (AttributeConstraintPK)other;
+	        return p.Constraint.equals(Constraint) && p.Attribute.equals(Attribute);
+	    }
+	    return false;
+	}
 
 	/**
-	 * 
+	 * @return the Constraint
 	 */
-	private static final long serialVersionUID = 6403908284592273608L;
-	
-	protected String Constraint;
-	
-    protected Long Attribute;
-
-	public AttributeConstraintPK(String constraint, Long attribute) {
-		super();
-		Constraint = constraint;
-		Attribute = attribute;
-	}
-
-	public AttributeConstraintPK() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((Attribute == null) ? 0 : Attribute.hashCode());
-		result = prime * result + ((Constraint == null) ? 0 : Constraint.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AttributeConstraintPK other = (AttributeConstraintPK) obj;
-		if (Attribute == null) {
-			if (other.Attribute != null)
-				return false;
-		} else if (!Attribute.equals(other.Attribute))
-			return false;
-		if (Constraint == null) {
-			if (other.Constraint != null)
-				return false;
-		} else if (!Constraint.equals(other.Constraint))
-			return false;
-		return true;
-	}
-
 	public String getConstraint() {
 		return Constraint;
 	}
 
-	public void setConstraint(String constraint) {
-		Constraint = constraint;
+	/**
+	 * @param Constraint the Constraint to set
+	 */
+	public void setConstraint(String Constraint) {
+		this.Constraint = Constraint;
 	}
 
-	public Long getAttribute() {
+	/**
+	 * @return the Attribute
+	 */
+	public Attribute getAttribute() {
 		return Attribute;
 	}
 
-	public void setAttribute(Long attribute) {
-		Attribute = attribute;
+	/**
+	 * @param Attribute the Attribute to set
+	 */
+	public void setAttribute(Attribute Attribute) {
+		this.Attribute = Attribute;
 	}
-	
 }

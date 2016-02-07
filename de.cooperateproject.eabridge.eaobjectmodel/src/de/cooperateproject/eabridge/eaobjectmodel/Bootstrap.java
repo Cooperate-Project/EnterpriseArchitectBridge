@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
@@ -14,7 +15,6 @@ public class Bootstrap {
 	
 	public static void bootstrap(HbDataStore hbds) {
 		
-		Element ele = XcoreFactory.eINSTANCE.createElement();
 				
 		Attribute att = XcoreFactory.eINSTANCE.createAttribute();
 		att.setAllowDuplicates(true);
@@ -23,7 +23,16 @@ public class Bootstrap {
 		att.setContainer(null);
 		att.setNotes("notes");
 		att.setName("name");
-//		att.setParent(ele);
+		
+		AttributeConstraint attConst = XcoreFactory.eINSTANCE.createAttributeConstraint();
+		attConst.setConstraint("testconstraint");
+		attConst.setAttribute(att);
+		
+		//composite ID check
+		//should fail if not uncommented
+//		AttributeConstraint attConst2 = XcoreFactory.eINSTANCE.createAttributeConstraint();
+//		attConst2.setConstraint("testconstraint");
+//		attConst2.setAttribute(att);
 		
 		Connector connect = XcoreFactory.eINSTANCE.createConnector();
 		
@@ -34,8 +43,9 @@ public class Bootstrap {
 		Transaction trans = session.getTransaction();
 		
 		trans.begin();
-//		session.save(ele);
 		session.save(att);
+		session.save(attConst);
+//		session.save(attConst2);
 		session.save(connect);
 		trans.commit();
 	}

@@ -144,9 +144,9 @@
 			</property>
 		</eclass>
 		
-		<eclass name="PostCondition">
+<!-- 		<eclass name="PostCondition">
 		<inheritance>TABLE_PER_CLASS</inheritance>
-		</eclass>
+		</eclass> -->
 
 		<eclass name="Element">
 			<table name="t_object" />
