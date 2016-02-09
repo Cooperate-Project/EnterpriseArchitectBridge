@@ -8,7 +8,6 @@ import org.hibernate.Transaction;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
 
 public class Bootstrap {
