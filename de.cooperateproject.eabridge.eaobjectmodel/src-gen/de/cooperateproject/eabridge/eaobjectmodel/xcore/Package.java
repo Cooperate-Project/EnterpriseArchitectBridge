@@ -17,29 +17,26 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getAlias <em>Alias</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getPackageGUID <em>Package GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getBatchLoad <em>Batch Load</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getBatchSave <em>Batch Save</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCodePath <em>Code Path</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElement <em>Element</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCreatedDate <em>Created Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getFlags <em>Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsControlled <em>Is Controlled</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsModel <em>Is Model</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsNamespace <em>Is Namespace</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsProtected <em>Is Protected</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsVersionControlled <em>Is Version Controlled</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getLastLoadDate <em>Last Load Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getLastSaveDate <em>Last Save Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getLogXML <em>Log XML</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getModified <em>Modified</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getModifiedDate <em>Modified Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getOwner <em>Owner</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getPackageID <em>Package ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getPackages <em>Packages</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getParentID <em>Parent ID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getTreePos <em>Tree Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getUMLVersion <em>UML Version</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getUseDTD <em>Use DTD</em>}</li>
@@ -53,30 +50,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Package extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Alias</b></em>' attribute.
+	 * Returns the value of the '<em><b>Package GUID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Alias</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Package GUID</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alias</em>' attribute.
-	 * @see #setAlias(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Alias()
+	 * @return the value of the '<em>Package GUID</em>' attribute.
+	 * @see #setPackageGUID(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_PackageGUID()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getAlias();
+	String getPackageGUID();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getAlias <em>Alias</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getPackageGUID <em>Package GUID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alias</em>' attribute.
-	 * @see #getAlias()
+	 * @param value the new value of the '<em>Package GUID</em>' attribute.
+	 * @see #getPackageGUID()
 	 * @generated
 	 */
-	void setAlias(String value);
+	void setPackageGUID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Batch Load</b></em>' attribute.
@@ -157,56 +154,30 @@ public interface Package extends EObject {
 	void setCodePath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Created</b></em>' attribute.
+	 * Returns the value of the '<em><b>Created Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Created</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Created Date</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Created</em>' attribute.
-	 * @see #setCreated(Date)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Created()
+	 * @return the value of the '<em>Created Date</em>' attribute.
+	 * @see #setCreatedDate(Date)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_CreatedDate()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Date getCreated();
+	Date getCreatedDate();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCreated <em>Created</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCreatedDate <em>Created Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' attribute.
-	 * @see #getCreated()
+	 * @param value the new value of the '<em>Created Date</em>' attribute.
+	 * @see #getCreatedDate()
 	 * @generated
 	 */
-	void setCreated(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Element</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Element</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' containment reference.
-	 * @see #setElement(Element)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Element()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Element getElement();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElement <em>Element</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' containment reference.
-	 * @see #getElement()
-	 * @generated
-	 */
-	void setElement(Element value);
+	void setCreatedDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
@@ -279,32 +250,6 @@ public interface Package extends EObject {
 	void setIsControlled(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Model</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Model</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Model</em>' attribute.
-	 * @see #setIsModel(Boolean)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_IsModel()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Boolean getIsModel();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsModel <em>Is Model</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Model</em>' attribute.
-	 * @see #getIsModel()
-	 * @generated
-	 */
-	void setIsModel(Boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Is Namespace</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -355,32 +300,6 @@ public interface Package extends EObject {
 	 * @generated
 	 */
 	void setIsProtected(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Version Controlled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Version Controlled</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Version Controlled</em>' attribute.
-	 * @see #setIsVersionControlled(Boolean)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_IsVersionControlled()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Boolean getIsVersionControlled();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsVersionControlled <em>Is Version Controlled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Version Controlled</em>' attribute.
-	 * @see #getIsVersionControlled()
-	 * @generated
-	 */
-	void setIsVersionControlled(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Last Load Date</b></em>' attribute.
@@ -461,30 +380,30 @@ public interface Package extends EObject {
 	void setLogXML(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Modified</b></em>' attribute.
+	 * Returns the value of the '<em><b>Modified Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Modified</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Modified Date</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Modified</em>' attribute.
-	 * @see #setModified(Date)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Modified()
+	 * @return the value of the '<em>Modified Date</em>' attribute.
+	 * @see #setModifiedDate(Date)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_ModifiedDate()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Date getModified();
+	Date getModifiedDate();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getModified <em>Modified</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getModifiedDate <em>Modified Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Modified</em>' attribute.
-	 * @see #getModified()
+	 * @param value the new value of the '<em>Modified Date</em>' attribute.
+	 * @see #getModifiedDate()
 	 * @generated
 	 */
-	void setModified(Date value);
+	void setModifiedDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -593,6 +512,7 @@ public interface Package extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Packages</em>' containment reference list isn't clear,
@@ -601,36 +521,39 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Packages</em>' containment reference list.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Packages()
-	 * @model containment="true"
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getParent
+	 * @model opposite="Parent" containment="true"
 	 * @generated
 	 */
 	EList<Package> getPackages();
 
 	/**
-	 * Returns the value of the '<em><b>Parent ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getPackages <em>Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parent ID</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent ID</em>' attribute.
-	 * @see #setParentID(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_ParentID()
-	 * @model unique="false"
+	 * @return the value of the '<em>Parent</em>' container reference.
+	 * @see #setParent(Package)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Parent()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getPackages
+	 * @model opposite="Packages" transient="false"
 	 * @generated
 	 */
-	Long getParentID();
+	Package getParent();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getParentID <em>Parent ID</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getParent <em>Parent</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent ID</em>' attribute.
-	 * @see #getParentID()
+	 * @param value the new value of the '<em>Parent</em>' container reference.
+	 * @see #getParent()
 	 * @generated
 	 */
-	void setParentID(Long value);
+	void setParent(Package value);
 
 	/**
 	 * Returns the value of the '<em><b>Tree Pos</b></em>' attribute.

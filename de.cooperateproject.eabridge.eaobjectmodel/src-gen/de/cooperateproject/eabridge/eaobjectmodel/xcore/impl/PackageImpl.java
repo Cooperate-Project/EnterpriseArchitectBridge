@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,29 +31,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getAlias <em>Alias</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getPackageGUID <em>Package GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getBatchLoad <em>Batch Load</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getBatchSave <em>Batch Save</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCodePath <em>Code Path</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCreatedDate <em>Created Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getFlags <em>Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getIsControlled <em>Is Controlled</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getIsModel <em>Is Model</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getIsNamespace <em>Is Namespace</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getIsProtected <em>Is Protected</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getIsVersionControlled <em>Is Version Controlled</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getLastLoadDate <em>Last Load Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getLastSaveDate <em>Last Save Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getLogXML <em>Log XML</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getModified <em>Modified</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getModifiedDate <em>Modified Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getPackageID <em>Package ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getPackages <em>Packages</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getParentID <em>Parent ID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getTreePos <em>Tree Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getUMLVersion <em>UML Version</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getUseDTD <em>Use DTD</em>}</li>
@@ -65,24 +62,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PackageImpl extends MinimalEObjectImpl.Container implements de.cooperateproject.eabridge.eaobjectmodel.xcore.Package {
 	/**
-	 * The default value of the '{@link #getAlias() <em>Alias</em>}' attribute.
+	 * The default value of the '{@link #getPackageGUID() <em>Package GUID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAlias()
+	 * @see #getPackageGUID()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ALIAS_EDEFAULT = null;
+	protected static final String PACKAGE_GUID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAlias() <em>Alias</em>}' attribute.
+	 * The cached value of the '{@link #getPackageGUID() <em>Package GUID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAlias()
+	 * @see #getPackageGUID()
 	 * @generated
 	 * @ordered
 	 */
-	protected String alias = ALIAS_EDEFAULT;
+	protected String packageGUID = PACKAGE_GUID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getBatchLoad() <em>Batch Load</em>}' attribute.
@@ -145,34 +142,24 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	protected String codePath = CODE_PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The default value of the '{@link #getCreatedDate() <em>Created Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date CREATED_EDEFAULT = null;
+	protected static final Date CREATED_DATE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The cached value of the '{@link #getCreatedDate() <em>Created Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date created = CREATED_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected Element element;
+	protected Date createdDate = CREATED_DATE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -225,26 +212,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	protected Boolean isControlled = IS_CONTROLLED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getIsModel() <em>Is Model</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean IS_MODEL_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIsModel() <em>Is Model</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean isModel = IS_MODEL_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getIsNamespace() <em>Is Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,26 +250,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * @ordered
 	 */
 	protected Boolean isProtected = IS_PROTECTED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getIsVersionControlled() <em>Is Version Controlled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsVersionControlled()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean IS_VERSION_CONTROLLED_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIsVersionControlled() <em>Is Version Controlled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsVersionControlled()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean isVersionControlled = IS_VERSION_CONTROLLED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLastLoadDate() <em>Last Load Date</em>}' attribute.
@@ -365,24 +312,24 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	protected Boolean logXML = LOG_XML_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getModified() <em>Modified</em>}' attribute.
+	 * The default value of the '{@link #getModifiedDate() <em>Modified Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModified()
+	 * @see #getModifiedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date MODIFIED_EDEFAULT = null;
+	protected static final Date MODIFIED_DATE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getModified() <em>Modified</em>}' attribute.
+	 * The cached value of the '{@link #getModifiedDate() <em>Modified Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModified()
+	 * @see #getModifiedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date modified = MODIFIED_EDEFAULT;
+	protected Date modifiedDate = MODIFIED_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -473,26 +420,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * @ordered
 	 */
 	protected EList<de.cooperateproject.eabridge.eaobjectmodel.xcore.Package> packages;
-
-	/**
-	 * The default value of the '{@link #getParentID() <em>Parent ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long PARENT_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getParentID() <em>Parent ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentID()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long parentID = PARENT_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTreePos() <em>Tree Pos</em>}' attribute.
@@ -618,8 +545,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAlias() {
-		return alias;
+	public String getPackageGUID() {
+		return packageGUID;
 	}
 
 	/**
@@ -627,11 +554,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAlias(String newAlias) {
-		String oldAlias = alias;
-		alias = newAlias;
+	public void setPackageGUID(String newPackageGUID) {
+		String oldPackageGUID = packageGUID;
+		packageGUID = newPackageGUID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__ALIAS, oldAlias, alias));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__PACKAGE_GUID, oldPackageGUID, packageGUID));
 	}
 
 	/**
@@ -702,8 +629,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getCreated() {
-		return created;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
 	/**
@@ -711,54 +638,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreated(Date newCreated) {
-		Date oldCreated = created;
-		created = newCreated;
+	public void setCreatedDate(Date newCreatedDate) {
+		Date oldCreatedDate = createdDate;
+		createdDate = newCreatedDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__CREATED, oldCreated, created));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element getElement() {
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
-		Element oldElement = element;
-		element = newElement;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__ELEMENT, oldElement, newElement);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setElement(Element newElement) {
-		if (newElement != element) {
-			NotificationChain msgs = null;
-			if (element != null)
-				msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.PACKAGE__ELEMENT, null, msgs);
-			if (newElement != null)
-				msgs = ((InternalEObject)newElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XcorePackage.PACKAGE__ELEMENT, null, msgs);
-			msgs = basicSetElement(newElement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__ELEMENT, newElement, newElement));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__CREATED_DATE, oldCreatedDate, createdDate));
 	}
 
 	/**
@@ -820,27 +704,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getIsModel() {
-		return isModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsModel(Boolean newIsModel) {
-		Boolean oldIsModel = isModel;
-		isModel = newIsModel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__IS_MODEL, oldIsModel, isModel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Boolean getIsNamespace() {
 		return isNamespace;
 	}
@@ -876,27 +739,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 		isProtected = newIsProtected;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__IS_PROTECTED, oldIsProtected, isProtected));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getIsVersionControlled() {
-		return isVersionControlled;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsVersionControlled(Boolean newIsVersionControlled) {
-		Boolean oldIsVersionControlled = isVersionControlled;
-		isVersionControlled = newIsVersionControlled;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__IS_VERSION_CONTROLLED, oldIsVersionControlled, isVersionControlled));
 	}
 
 	/**
@@ -967,8 +809,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getModified() {
-		return modified;
+	public Date getModifiedDate() {
+		return modifiedDate;
 	}
 
 	/**
@@ -976,11 +818,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModified(Date newModified) {
-		Date oldModified = modified;
-		modified = newModified;
+	public void setModifiedDate(Date newModifiedDate) {
+		Date oldModifiedDate = modifiedDate;
+		modifiedDate = newModifiedDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__MODIFIED, oldModified, modified));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__MODIFIED_DATE, oldModifiedDate, modifiedDate));
 	}
 
 	/**
@@ -1074,7 +916,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 */
 	public EList<de.cooperateproject.eabridge.eaobjectmodel.xcore.Package> getPackages() {
 		if (packages == null) {
-			packages = new EObjectContainmentEList<de.cooperateproject.eabridge.eaobjectmodel.xcore.Package>(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, this, XcorePackage.PACKAGE__PACKAGES);
+			packages = new EObjectContainmentWithInverseEList<de.cooperateproject.eabridge.eaobjectmodel.xcore.Package>(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, this, XcorePackage.PACKAGE__PACKAGES, XcorePackage.PACKAGE__PARENT);
 		}
 		return packages;
 	}
@@ -1084,8 +926,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getParentID() {
-		return parentID;
+	public de.cooperateproject.eabridge.eaobjectmodel.xcore.Package getParent() {
+		if (eContainerFeatureID() != XcorePackage.PACKAGE__PARENT) return null;
+		return (de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)eContainer();
 	}
 
 	/**
@@ -1093,11 +936,40 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParentID(Long newParentID) {
-		Long oldParentID = parentID;
-		parentID = newParentID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__PARENT_ID, oldParentID, parentID));
+	public de.cooperateproject.eabridge.eaobjectmodel.xcore.Package basicGetParent() {
+		if (eContainerFeatureID() != XcorePackage.PACKAGE__PARENT) return null;
+		return (de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package newParent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParent, XcorePackage.PACKAGE__PARENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package newParent) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != XcorePackage.PACKAGE__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, XcorePackage.PACKAGE__PACKAGES, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__PARENT, newParent, newParent));
 	}
 
 	/**
@@ -1216,6 +1088,12 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 		switch (featureID) {
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+			case XcorePackage.PACKAGE__PACKAGES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPackages()).basicAdd(otherEnd, msgs);
+			case XcorePackage.PACKAGE__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -1228,12 +1106,12 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XcorePackage.PACKAGE__ELEMENT:
-				return basicSetElement(null, msgs);
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case XcorePackage.PACKAGE__PACKAGES:
 				return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
+			case XcorePackage.PACKAGE__PARENT:
+				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1244,42 +1122,50 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case XcorePackage.PACKAGE__PARENT:
+				return eInternalContainer().eInverseRemove(this, XcorePackage.PACKAGE__PACKAGES, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XcorePackage.PACKAGE__ALIAS:
-				return getAlias();
+			case XcorePackage.PACKAGE__PACKAGE_GUID:
+				return getPackageGUID();
 			case XcorePackage.PACKAGE__BATCH_LOAD:
 				return getBatchLoad();
 			case XcorePackage.PACKAGE__BATCH_SAVE:
 				return getBatchSave();
 			case XcorePackage.PACKAGE__CODE_PATH:
 				return getCodePath();
-			case XcorePackage.PACKAGE__CREATED:
-				return getCreated();
-			case XcorePackage.PACKAGE__ELEMENT:
-				return getElement();
+			case XcorePackage.PACKAGE__CREATED_DATE:
+				return getCreatedDate();
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return getElements();
 			case XcorePackage.PACKAGE__FLAGS:
 				return getFlags();
 			case XcorePackage.PACKAGE__IS_CONTROLLED:
 				return getIsControlled();
-			case XcorePackage.PACKAGE__IS_MODEL:
-				return getIsModel();
 			case XcorePackage.PACKAGE__IS_NAMESPACE:
 				return getIsNamespace();
 			case XcorePackage.PACKAGE__IS_PROTECTED:
 				return getIsProtected();
-			case XcorePackage.PACKAGE__IS_VERSION_CONTROLLED:
-				return getIsVersionControlled();
 			case XcorePackage.PACKAGE__LAST_LOAD_DATE:
 				return getLastLoadDate();
 			case XcorePackage.PACKAGE__LAST_SAVE_DATE:
 				return getLastSaveDate();
 			case XcorePackage.PACKAGE__LOG_XML:
 				return getLogXML();
-			case XcorePackage.PACKAGE__MODIFIED:
-				return getModified();
+			case XcorePackage.PACKAGE__MODIFIED_DATE:
+				return getModifiedDate();
 			case XcorePackage.PACKAGE__NAME:
 				return getName();
 			case XcorePackage.PACKAGE__NOTES:
@@ -1290,8 +1176,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return getPackageID();
 			case XcorePackage.PACKAGE__PACKAGES:
 				return getPackages();
-			case XcorePackage.PACKAGE__PARENT_ID:
-				return getParentID();
+			case XcorePackage.PACKAGE__PARENT:
+				if (resolve) return getParent();
+				return basicGetParent();
 			case XcorePackage.PACKAGE__TREE_POS:
 				return getTreePos();
 			case XcorePackage.PACKAGE__UML_VERSION:
@@ -1315,8 +1202,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XcorePackage.PACKAGE__ALIAS:
-				setAlias((String)newValue);
+			case XcorePackage.PACKAGE__PACKAGE_GUID:
+				setPackageGUID((String)newValue);
 				return;
 			case XcorePackage.PACKAGE__BATCH_LOAD:
 				setBatchLoad((Long)newValue);
@@ -1327,11 +1214,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__CODE_PATH:
 				setCodePath((String)newValue);
 				return;
-			case XcorePackage.PACKAGE__CREATED:
-				setCreated((Date)newValue);
-				return;
-			case XcorePackage.PACKAGE__ELEMENT:
-				setElement((Element)newValue);
+			case XcorePackage.PACKAGE__CREATED_DATE:
+				setCreatedDate((Date)newValue);
 				return;
 			case XcorePackage.PACKAGE__ELEMENTS:
 				getElements().clear();
@@ -1343,17 +1227,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__IS_CONTROLLED:
 				setIsControlled((Boolean)newValue);
 				return;
-			case XcorePackage.PACKAGE__IS_MODEL:
-				setIsModel((Boolean)newValue);
-				return;
 			case XcorePackage.PACKAGE__IS_NAMESPACE:
 				setIsNamespace((Boolean)newValue);
 				return;
 			case XcorePackage.PACKAGE__IS_PROTECTED:
 				setIsProtected((Boolean)newValue);
-				return;
-			case XcorePackage.PACKAGE__IS_VERSION_CONTROLLED:
-				setIsVersionControlled((Boolean)newValue);
 				return;
 			case XcorePackage.PACKAGE__LAST_LOAD_DATE:
 				setLastLoadDate((Date)newValue);
@@ -1364,8 +1242,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__LOG_XML:
 				setLogXML((Boolean)newValue);
 				return;
-			case XcorePackage.PACKAGE__MODIFIED:
-				setModified((Date)newValue);
+			case XcorePackage.PACKAGE__MODIFIED_DATE:
+				setModifiedDate((Date)newValue);
 				return;
 			case XcorePackage.PACKAGE__NAME:
 				setName((String)newValue);
@@ -1383,8 +1261,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				getPackages().clear();
 				getPackages().addAll((Collection<? extends de.cooperateproject.eabridge.eaobjectmodel.xcore.Package>)newValue);
 				return;
-			case XcorePackage.PACKAGE__PARENT_ID:
-				setParentID((Long)newValue);
+			case XcorePackage.PACKAGE__PARENT:
+				setParent((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)newValue);
 				return;
 			case XcorePackage.PACKAGE__TREE_POS:
 				setTreePos((Long)newValue);
@@ -1413,8 +1291,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XcorePackage.PACKAGE__ALIAS:
-				setAlias(ALIAS_EDEFAULT);
+			case XcorePackage.PACKAGE__PACKAGE_GUID:
+				setPackageGUID(PACKAGE_GUID_EDEFAULT);
 				return;
 			case XcorePackage.PACKAGE__BATCH_LOAD:
 				setBatchLoad(BATCH_LOAD_EDEFAULT);
@@ -1425,11 +1303,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__CODE_PATH:
 				setCodePath(CODE_PATH_EDEFAULT);
 				return;
-			case XcorePackage.PACKAGE__CREATED:
-				setCreated(CREATED_EDEFAULT);
-				return;
-			case XcorePackage.PACKAGE__ELEMENT:
-				setElement((Element)null);
+			case XcorePackage.PACKAGE__CREATED_DATE:
+				setCreatedDate(CREATED_DATE_EDEFAULT);
 				return;
 			case XcorePackage.PACKAGE__ELEMENTS:
 				getElements().clear();
@@ -1440,17 +1315,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__IS_CONTROLLED:
 				setIsControlled(IS_CONTROLLED_EDEFAULT);
 				return;
-			case XcorePackage.PACKAGE__IS_MODEL:
-				setIsModel(IS_MODEL_EDEFAULT);
-				return;
 			case XcorePackage.PACKAGE__IS_NAMESPACE:
 				setIsNamespace(IS_NAMESPACE_EDEFAULT);
 				return;
 			case XcorePackage.PACKAGE__IS_PROTECTED:
 				setIsProtected(IS_PROTECTED_EDEFAULT);
-				return;
-			case XcorePackage.PACKAGE__IS_VERSION_CONTROLLED:
-				setIsVersionControlled(IS_VERSION_CONTROLLED_EDEFAULT);
 				return;
 			case XcorePackage.PACKAGE__LAST_LOAD_DATE:
 				setLastLoadDate(LAST_LOAD_DATE_EDEFAULT);
@@ -1461,8 +1330,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__LOG_XML:
 				setLogXML(LOG_XML_EDEFAULT);
 				return;
-			case XcorePackage.PACKAGE__MODIFIED:
-				setModified(MODIFIED_EDEFAULT);
+			case XcorePackage.PACKAGE__MODIFIED_DATE:
+				setModifiedDate(MODIFIED_DATE_EDEFAULT);
 				return;
 			case XcorePackage.PACKAGE__NAME:
 				setName(NAME_EDEFAULT);
@@ -1479,8 +1348,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__PACKAGES:
 				getPackages().clear();
 				return;
-			case XcorePackage.PACKAGE__PARENT_ID:
-				setParentID(PARENT_ID_EDEFAULT);
+			case XcorePackage.PACKAGE__PARENT:
+				setParent((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)null);
 				return;
 			case XcorePackage.PACKAGE__TREE_POS:
 				setTreePos(TREE_POS_EDEFAULT);
@@ -1509,40 +1378,34 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XcorePackage.PACKAGE__ALIAS:
-				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
+			case XcorePackage.PACKAGE__PACKAGE_GUID:
+				return PACKAGE_GUID_EDEFAULT == null ? packageGUID != null : !PACKAGE_GUID_EDEFAULT.equals(packageGUID);
 			case XcorePackage.PACKAGE__BATCH_LOAD:
 				return BATCH_LOAD_EDEFAULT == null ? batchLoad != null : !BATCH_LOAD_EDEFAULT.equals(batchLoad);
 			case XcorePackage.PACKAGE__BATCH_SAVE:
 				return BATCH_SAVE_EDEFAULT == null ? batchSave != null : !BATCH_SAVE_EDEFAULT.equals(batchSave);
 			case XcorePackage.PACKAGE__CODE_PATH:
 				return CODE_PATH_EDEFAULT == null ? codePath != null : !CODE_PATH_EDEFAULT.equals(codePath);
-			case XcorePackage.PACKAGE__CREATED:
-				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
-			case XcorePackage.PACKAGE__ELEMENT:
-				return element != null;
+			case XcorePackage.PACKAGE__CREATED_DATE:
+				return CREATED_DATE_EDEFAULT == null ? createdDate != null : !CREATED_DATE_EDEFAULT.equals(createdDate);
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 			case XcorePackage.PACKAGE__FLAGS:
 				return FLAGS_EDEFAULT == null ? flags != null : !FLAGS_EDEFAULT.equals(flags);
 			case XcorePackage.PACKAGE__IS_CONTROLLED:
 				return IS_CONTROLLED_EDEFAULT == null ? isControlled != null : !IS_CONTROLLED_EDEFAULT.equals(isControlled);
-			case XcorePackage.PACKAGE__IS_MODEL:
-				return IS_MODEL_EDEFAULT == null ? isModel != null : !IS_MODEL_EDEFAULT.equals(isModel);
 			case XcorePackage.PACKAGE__IS_NAMESPACE:
 				return IS_NAMESPACE_EDEFAULT == null ? isNamespace != null : !IS_NAMESPACE_EDEFAULT.equals(isNamespace);
 			case XcorePackage.PACKAGE__IS_PROTECTED:
 				return IS_PROTECTED_EDEFAULT == null ? isProtected != null : !IS_PROTECTED_EDEFAULT.equals(isProtected);
-			case XcorePackage.PACKAGE__IS_VERSION_CONTROLLED:
-				return IS_VERSION_CONTROLLED_EDEFAULT == null ? isVersionControlled != null : !IS_VERSION_CONTROLLED_EDEFAULT.equals(isVersionControlled);
 			case XcorePackage.PACKAGE__LAST_LOAD_DATE:
 				return LAST_LOAD_DATE_EDEFAULT == null ? lastLoadDate != null : !LAST_LOAD_DATE_EDEFAULT.equals(lastLoadDate);
 			case XcorePackage.PACKAGE__LAST_SAVE_DATE:
 				return LAST_SAVE_DATE_EDEFAULT == null ? lastSaveDate != null : !LAST_SAVE_DATE_EDEFAULT.equals(lastSaveDate);
 			case XcorePackage.PACKAGE__LOG_XML:
 				return LOG_XML_EDEFAULT == null ? logXML != null : !LOG_XML_EDEFAULT.equals(logXML);
-			case XcorePackage.PACKAGE__MODIFIED:
-				return MODIFIED_EDEFAULT == null ? modified != null : !MODIFIED_EDEFAULT.equals(modified);
+			case XcorePackage.PACKAGE__MODIFIED_DATE:
+				return MODIFIED_DATE_EDEFAULT == null ? modifiedDate != null : !MODIFIED_DATE_EDEFAULT.equals(modifiedDate);
 			case XcorePackage.PACKAGE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case XcorePackage.PACKAGE__NOTES:
@@ -1553,8 +1416,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return PACKAGE_ID_EDEFAULT == null ? packageID != null : !PACKAGE_ID_EDEFAULT.equals(packageID);
 			case XcorePackage.PACKAGE__PACKAGES:
 				return packages != null && !packages.isEmpty();
-			case XcorePackage.PACKAGE__PARENT_ID:
-				return PARENT_ID_EDEFAULT == null ? parentID != null : !PARENT_ID_EDEFAULT.equals(parentID);
+			case XcorePackage.PACKAGE__PARENT:
+				return basicGetParent() != null;
 			case XcorePackage.PACKAGE__TREE_POS:
 				return TREE_POS_EDEFAULT == null ? treePos != null : !TREE_POS_EDEFAULT.equals(treePos);
 			case XcorePackage.PACKAGE__UML_VERSION:
@@ -1579,36 +1442,32 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Alias: ");
-		result.append(alias);
+		result.append(" (PackageGUID: ");
+		result.append(packageGUID);
 		result.append(", BatchLoad: ");
 		result.append(batchLoad);
 		result.append(", BatchSave: ");
 		result.append(batchSave);
 		result.append(", CodePath: ");
 		result.append(codePath);
-		result.append(", Created: ");
-		result.append(created);
+		result.append(", CreatedDate: ");
+		result.append(createdDate);
 		result.append(", Flags: ");
 		result.append(flags);
 		result.append(", IsControlled: ");
 		result.append(isControlled);
-		result.append(", IsModel: ");
-		result.append(isModel);
 		result.append(", IsNamespace: ");
 		result.append(isNamespace);
 		result.append(", IsProtected: ");
 		result.append(isProtected);
-		result.append(", IsVersionControlled: ");
-		result.append(isVersionControlled);
 		result.append(", LastLoadDate: ");
 		result.append(lastLoadDate);
 		result.append(", LastSaveDate: ");
 		result.append(lastSaveDate);
 		result.append(", LogXML: ");
 		result.append(logXML);
-		result.append(", Modified: ");
-		result.append(modified);
+		result.append(", ModifiedDate: ");
+		result.append(modifiedDate);
 		result.append(", Name: ");
 		result.append(name);
 		result.append(", Notes: ");
@@ -1617,8 +1476,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 		result.append(owner);
 		result.append(", PackageID: ");
 		result.append(packageID);
-		result.append(", ParentID: ");
-		result.append(parentID);
 		result.append(", TreePos: ");
 		result.append(treePos);
 		result.append(", UMLVersion: ");

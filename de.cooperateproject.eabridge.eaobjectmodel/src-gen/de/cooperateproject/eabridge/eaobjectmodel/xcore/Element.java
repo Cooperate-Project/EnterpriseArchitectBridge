@@ -20,35 +20,24 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAlias <em>Alias</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAssociationClassConnectorID <em>Association Class Connector ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAuthor <em>Author</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBaseClasses <em>Base Classes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier <em>Classifier</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifierName <em>Classifier Name</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifierType <em>Classifier Type</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier_guid <em>Classifier guid</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getComplexity <em>Complexity</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getDifficulty <em>Difficulty</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCreatedDate <em>Created Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElementGUID <em>Element GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElementID <em>Element ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElements <em>Elements</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getEmbeddedElements <em>Embedded Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getEventFlags <em>Event Flags</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getExtensionPoints <em>Extension Points</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getGenFile <em>Gen File</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getGenlinks <em>Genlinks</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getGenType <em>Gen Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsActive <em>Is Active</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsComposite <em>Is Composite</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsLeaf <em>Is Leaf</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsNew <em>Is New</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsSpec <em>Is Spec</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getLocked <em>Locked</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMetaType <em>Meta Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMethods <em>Methods</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMiscData <em>Misc Data</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getModified <em>Modified</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getModifiedDate <em>Modified Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getNotes <em>Notes</em>}</li>
@@ -56,21 +45,23 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPersistence <em>Persistence</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPhase <em>Phase</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPriority <em>Priority</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPropertyType <em>Property Type</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPropertyTypeName <em>Property Type Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getRunState <em>Run State</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStatus <em>Status</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStyleEx <em>Style Ex</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getSubtype <em>Subtype</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTablespace <em>Tablespace</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTag <em>Tag</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTreePos <em>Tree Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getVersion <em>Version</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStyle <em>Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBackcolor <em>Backcolor</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBorderStyle <em>Border Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBorderWidth <em>Border Width</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getFontcolor <em>Fontcolor</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBordercolor <em>Bordercolor</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCardinality <em>Cardinality</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConcurrency <em>Concurrency</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPDATA1 <em>PDATA1</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement()
@@ -157,32 +148,6 @@ public interface Element extends EObject {
 	void setAlias(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Association Class Connector ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Association Class Connector ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Association Class Connector ID</em>' attribute.
-	 * @see #setAssociationClassConnectorID(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_AssociationClassConnectorID()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getAssociationClassConnectorID();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getAssociationClassConnectorID <em>Association Class Connector ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Association Class Connector ID</em>' attribute.
-	 * @see #getAssociationClassConnectorID()
-	 * @generated
-	 */
-	void setAssociationClassConnectorID(Long value);
-
-	/**
 	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
 	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute}.
 	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute#getParent <em>Parent</em>}'.
@@ -227,22 +192,6 @@ public interface Element extends EObject {
 	void setAuthor(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Base Classes</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Base Classes</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base Classes</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_BaseClasses()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Element> getBaseClasses();
-
-	/**
 	 * Returns the value of the '<em><b>Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -269,56 +218,30 @@ public interface Element extends EObject {
 	void setClassifier(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Classifier Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Classifier guid</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Classifier Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Classifier guid</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classifier Name</em>' attribute.
-	 * @see #setClassifierName(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_ClassifierName()
+	 * @return the value of the '<em>Classifier guid</em>' attribute.
+	 * @see #setClassifier_guid(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Classifier_guid()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getClassifierName();
+	String getClassifier_guid();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifierName <em>Classifier Name</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifier_guid <em>Classifier guid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Classifier Name</em>' attribute.
-	 * @see #getClassifierName()
+	 * @param value the new value of the '<em>Classifier guid</em>' attribute.
+	 * @see #getClassifier_guid()
 	 * @generated
 	 */
-	void setClassifierName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Classifier Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Classifier Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classifier Type</em>' attribute.
-	 * @see #setClassifierType(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_ClassifierType()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getClassifierType();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getClassifierType <em>Classifier Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Classifier Type</em>' attribute.
-	 * @see #getClassifierType()
-	 * @generated
-	 */
-	void setClassifierType(String value);
+	void setClassifier_guid(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Complexity</b></em>' attribute.
@@ -347,56 +270,30 @@ public interface Element extends EObject {
 	void setComplexity(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Created</b></em>' attribute.
+	 * Returns the value of the '<em><b>Created Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Created</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Created Date</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Created</em>' attribute.
-	 * @see #setCreated(Date)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Created()
+	 * @return the value of the '<em>Created Date</em>' attribute.
+	 * @see #setCreatedDate(Date)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_CreatedDate()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Date getCreated();
+	Date getCreatedDate();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCreated <em>Created</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCreatedDate <em>Created Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' attribute.
-	 * @see #getCreated()
+	 * @param value the new value of the '<em>Created Date</em>' attribute.
+	 * @see #getCreatedDate()
 	 * @generated
 	 */
-	void setCreated(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Difficulty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Difficulty</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Difficulty</em>' attribute.
-	 * @see #setDifficulty(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Difficulty()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getDifficulty();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getDifficulty <em>Difficulty</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Difficulty</em>' attribute.
-	 * @see #getDifficulty()
-	 * @generated
-	 */
-	void setDifficulty(String value);
+	void setCreatedDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Element GUID</b></em>' attribute.
@@ -453,6 +350,7 @@ public interface Element extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -461,26 +359,11 @@ public interface Element extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Elements()
-	 * @model containment="true"
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getParent
+	 * @model opposite="Parent" containment="true"
 	 * @generated
 	 */
 	EList<Element> getElements();
-
-	/**
-	 * Returns the value of the '<em><b>Embedded Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Embedded Elements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Embedded Elements</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_EmbeddedElements()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Element> getEmbeddedElements();
 
 	/**
 	 * Returns the value of the '<em><b>Event Flags</b></em>' attribute.
@@ -507,32 +390,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setEventFlags(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Extension Points</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Extension Points</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extension Points</em>' attribute.
-	 * @see #setExtensionPoints(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_ExtensionPoints()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getExtensionPoints();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getExtensionPoints <em>Extension Points</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Extension Points</em>' attribute.
-	 * @see #getExtensionPoints()
-	 * @generated
-	 */
-	void setExtensionPoints(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Gen File</b></em>' attribute.
@@ -639,32 +496,6 @@ public interface Element extends EObject {
 	void setIsActive(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Composite</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Composite</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Composite</em>' attribute.
-	 * @see #setIsComposite(Boolean)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_IsComposite()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Boolean getIsComposite();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsComposite <em>Is Composite</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Composite</em>' attribute.
-	 * @see #getIsComposite()
-	 * @generated
-	 */
-	void setIsComposite(Boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Is Leaf</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -689,32 +520,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setIsLeaf(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Is New</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is New</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is New</em>' attribute.
-	 * @see #setIsNew(Boolean)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_IsNew()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Boolean getIsNew();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getIsNew <em>Is New</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is New</em>' attribute.
-	 * @see #getIsNew()
-	 * @generated
-	 */
-	void setIsNew(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Spec</b></em>' attribute.
@@ -743,58 +548,6 @@ public interface Element extends EObject {
 	void setIsSpec(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Locked</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Locked</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Locked</em>' attribute.
-	 * @see #setLocked(Boolean)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Locked()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Boolean getLocked();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getLocked <em>Locked</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Locked</em>' attribute.
-	 * @see #getLocked()
-	 * @generated
-	 */
-	void setLocked(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Meta Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Meta Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Meta Type</em>' attribute.
-	 * @see #setMetaType(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_MetaType()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getMetaType();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMetaType <em>Meta Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Meta Type</em>' attribute.
-	 * @see #getMetaType()
-	 * @generated
-	 */
-	void setMetaType(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
 	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method}.
 	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getParent <em>Parent</em>}'.
@@ -813,56 +566,30 @@ public interface Element extends EObject {
 	EList<Method> getMethods();
 
 	/**
-	 * Returns the value of the '<em><b>Misc Data</b></em>' attribute.
+	 * Returns the value of the '<em><b>Modified Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Misc Data</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Modified Date</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Misc Data</em>' attribute.
-	 * @see #setMiscData(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_MiscData()
+	 * @return the value of the '<em>Modified Date</em>' attribute.
+	 * @see #setModifiedDate(Date)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_ModifiedDate()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getMiscData();
+	Date getModifiedDate();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMiscData <em>Misc Data</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getModifiedDate <em>Modified Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Misc Data</em>' attribute.
-	 * @see #getMiscData()
+	 * @param value the new value of the '<em>Modified Date</em>' attribute.
+	 * @see #getModifiedDate()
 	 * @generated
 	 */
-	void setMiscData(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Modified</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Modified</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Modified</em>' attribute.
-	 * @see #setModified(Date)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Modified()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Date getModified();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getModified <em>Modified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Modified</em>' attribute.
-	 * @see #getModified()
-	 * @generated
-	 */
-	void setModified(Date value);
+	void setModifiedDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
@@ -971,20 +698,32 @@ public interface Element extends EObject {
 	void setPackage(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
+	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent</em>' reference.
+	 * @return the value of the '<em>Parent</em>' container reference.
+	 * @see #setParent(Element)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Parent()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%org.eclipse.emf.ecore.EObject%> _eContainer = this.eContainer();\nreturn ((<%de.cooperateproject.eabridge.eaobjectmodel.xcore.Element%>) _eContainer);'"
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getElements
+	 * @model opposite="Elements" transient="false"
 	 * @generated
 	 */
 	Element getParent();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getParent <em>Parent</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent</em>' container reference.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Persistence</b></em>' attribute.
@@ -1037,84 +776,6 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setPhase(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Priority</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Priority</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Priority</em>' attribute.
-	 * @see #setPriority(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Priority()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getPriority();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPriority <em>Priority</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Priority</em>' attribute.
-	 * @see #getPriority()
-	 * @generated
-	 */
-	void setPriority(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Property Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Type</em>' attribute.
-	 * @see #setPropertyType(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_PropertyType()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getPropertyType();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPropertyType <em>Property Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Type</em>' attribute.
-	 * @see #getPropertyType()
-	 * @generated
-	 */
-	void setPropertyType(Long value);
-
-	/**
-	 * Returns the value of the '<em><b>Property Type Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property Type Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Type Name</em>' attribute.
-	 * @see #setPropertyTypeName(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_PropertyTypeName()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getPropertyTypeName();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPropertyTypeName <em>Property Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Type Name</em>' attribute.
-	 * @see #getPropertyTypeName()
-	 * @generated
-	 */
-	void setPropertyTypeName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Run State</b></em>' attribute.
@@ -1221,100 +882,6 @@ public interface Element extends EObject {
 	void setStyleEx(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Subtype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Subtype</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subtype</em>' attribute.
-	 * @see #setSubtype(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Subtype()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getSubtype();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getSubtype <em>Subtype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subtype</em>' attribute.
-	 * @see #getSubtype()
-	 * @generated
-	 */
-	void setSubtype(Long value);
-
-	/**
-	 * Returns the value of the '<em><b>Tablespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tablespace</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tablespace</em>' attribute.
-	 * @see #setTablespace(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Tablespace()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getTablespace();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTablespace <em>Tablespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tablespace</em>' attribute.
-	 * @see #getTablespace()
-	 * @generated
-	 */
-	void setTablespace(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Tag</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tag</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tag</em>' attribute.
-	 * @see #setTag(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Tag()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getTag();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getTag <em>Tag</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tag</em>' attribute.
-	 * @see #getTag()
-	 * @generated
-	 */
-	void setTag(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Tagged Values</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tagged Values</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tagged Values</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_TaggedValues()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<TaggedValue> getTaggedValues();
-
-	/**
 	 * Returns the value of the '<em><b>Tree Pos</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1417,5 +984,239 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setVisibility(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Style</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Style</em>' attribute.
+	 * @see #setStyle(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Style()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getStyle();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getStyle <em>Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Style</em>' attribute.
+	 * @see #getStyle()
+	 * @generated
+	 */
+	void setStyle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Backcolor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Backcolor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Backcolor</em>' attribute.
+	 * @see #setBackcolor(int)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Backcolor()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getBackcolor();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBackcolor <em>Backcolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Backcolor</em>' attribute.
+	 * @see #getBackcolor()
+	 * @generated
+	 */
+	void setBackcolor(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Border Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Border Style</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Border Style</em>' attribute.
+	 * @see #setBorderStyle(int)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_BorderStyle()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getBorderStyle();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBorderStyle <em>Border Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Border Style</em>' attribute.
+	 * @see #getBorderStyle()
+	 * @generated
+	 */
+	void setBorderStyle(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Border Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Border Width</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Border Width</em>' attribute.
+	 * @see #setBorderWidth(int)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_BorderWidth()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getBorderWidth();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBorderWidth <em>Border Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Border Width</em>' attribute.
+	 * @see #getBorderWidth()
+	 * @generated
+	 */
+	void setBorderWidth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Fontcolor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fontcolor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fontcolor</em>' attribute.
+	 * @see #setFontcolor(int)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Fontcolor()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getFontcolor();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getFontcolor <em>Fontcolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fontcolor</em>' attribute.
+	 * @see #getFontcolor()
+	 * @generated
+	 */
+	void setFontcolor(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Bordercolor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bordercolor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bordercolor</em>' attribute.
+	 * @see #setBordercolor(int)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Bordercolor()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getBordercolor();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBordercolor <em>Bordercolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bordercolor</em>' attribute.
+	 * @see #getBordercolor()
+	 * @generated
+	 */
+	void setBordercolor(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cardinality</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cardinality</em>' attribute.
+	 * @see #setCardinality(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Cardinality()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getCardinality();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCardinality <em>Cardinality</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cardinality</em>' attribute.
+	 * @see #getCardinality()
+	 * @generated
+	 */
+	void setCardinality(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Concurrency</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Concurrency</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Concurrency</em>' attribute.
+	 * @see #setConcurrency(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_Concurrency()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getConcurrency();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConcurrency <em>Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Concurrency</em>' attribute.
+	 * @see #getConcurrency()
+	 * @generated
+	 */
+	void setConcurrency(String value);
+
+	/**
+	 * Returns the value of the '<em><b>PDATA1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>PDATA1</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>PDATA1</em>' attribute.
+	 * @see #setPDATA1(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_PDATA1()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getPDATA1();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPDATA1 <em>PDATA1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>PDATA1</em>' attribute.
+	 * @see #getPDATA1()
+	 * @generated
+	 */
+	void setPDATA1(String value);
 
 } // Element

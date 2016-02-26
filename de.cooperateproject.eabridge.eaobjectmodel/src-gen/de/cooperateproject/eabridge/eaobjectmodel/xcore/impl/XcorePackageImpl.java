@@ -6,19 +6,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -71,20 +62,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass connectorConstraintEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass connectorTagEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass elementEClass = null;
 
 	/**
@@ -99,56 +76,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass methodConstraintEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass preConditionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass postConditionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass methodTagEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass packageEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass parameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass paramTagEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass taggedValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -647,17 +575,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_Constraints() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getConnector_Direction() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -666,7 +585,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PtEndX() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -675,7 +594,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PtEndY() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -684,7 +603,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_EventFlags() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -693,7 +612,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_IsLeaf() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -702,7 +621,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_IsRoot() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -711,7 +630,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_IsSpec() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -720,7 +639,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_MetaType() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -729,7 +648,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_MiscData() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -738,7 +657,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Name() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -747,7 +666,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Notes() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -756,7 +675,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_RouteStyle() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -765,7 +684,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SeqNo() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -774,7 +693,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PtStartX() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -783,7 +702,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PtStartY() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -792,7 +711,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_ActionFlags() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -801,7 +720,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_StateFlags() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -810,7 +729,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Stereotype() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -819,7 +738,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_StyleEx() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -828,16 +747,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SubType() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnector_TaggedValues() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(22);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -846,7 +756,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Type() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -855,7 +765,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_VirtualInheritance() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(24);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -864,7 +774,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getConnector_Source() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(25);
+		return (EReference)connectorEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -873,7 +783,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getConnector_Dest() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(26);
+		return (EReference)connectorEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -882,7 +792,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceCard() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(27);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -891,7 +801,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceAccess() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(28);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -900,7 +810,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceElement() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(29);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -909,7 +819,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceRole() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(30);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -918,7 +828,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceRoleType() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(31);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(29);
 	}
 
 	/**
@@ -927,7 +837,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceRoleNote() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(32);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -936,7 +846,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceContainment() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(33);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(31);
 	}
 
 	/**
@@ -945,7 +855,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceIsAggregate() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(34);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(32);
 	}
 
 	/**
@@ -954,7 +864,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceIsOrdered() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(35);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(33);
 	}
 
 	/**
@@ -963,7 +873,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceQualifier() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(36);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(34);
 	}
 
 	/**
@@ -972,7 +882,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceChangeable() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(37);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(35);
 	}
 
 	/**
@@ -981,7 +891,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceConstraint() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(38);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(36);
 	}
 
 	/**
@@ -990,7 +900,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceIsNavigable() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(39);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(37);
 	}
 
 	/**
@@ -999,7 +909,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceStereotype() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(40);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(38);
 	}
 
 	/**
@@ -1008,7 +918,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceStyle() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(41);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(39);
 	}
 
 	/**
@@ -1017,7 +927,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_SourceTS() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(42);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(40);
 	}
 
 	/**
@@ -1026,7 +936,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestCard() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(43);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(41);
 	}
 
 	/**
@@ -1035,7 +945,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestAccess() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(44);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(42);
 	}
 
 	/**
@@ -1044,7 +954,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestElement() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(45);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(43);
 	}
 
 	/**
@@ -1053,7 +963,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestRole() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(46);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(44);
 	}
 
 	/**
@@ -1062,7 +972,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestRoleType() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(47);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(45);
 	}
 
 	/**
@@ -1071,7 +981,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestRoleNote() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(48);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(46);
 	}
 
 	/**
@@ -1080,7 +990,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestContainment() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(49);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(47);
 	}
 
 	/**
@@ -1089,7 +999,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestIsAggregate() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(50);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(48);
 	}
 
 	/**
@@ -1098,7 +1008,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestIsOrdered() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(51);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(49);
 	}
 
 	/**
@@ -1107,7 +1017,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestQualifier() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(52);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(50);
 	}
 
 	/**
@@ -1116,7 +1026,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestChangeable() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(53);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(51);
 	}
 
 	/**
@@ -1125,7 +1035,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestConstraint() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(54);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(52);
 	}
 
 	/**
@@ -1134,7 +1044,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestIsNavigable() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(55);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(53);
 	}
 
 	/**
@@ -1143,7 +1053,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestStereotype() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(56);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(54);
 	}
 
 	/**
@@ -1152,7 +1062,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestStyle() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(57);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(55);
 	}
 
 	/**
@@ -1161,7 +1071,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DestTS() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(58);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(56);
 	}
 
 	/**
@@ -1170,7 +1080,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Top_Start_Label() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(59);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(57);
 	}
 
 	/**
@@ -1179,7 +1089,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Top_Mid_Label() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(60);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(58);
 	}
 
 	/**
@@ -1188,7 +1098,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Top_End_Label() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(61);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(59);
 	}
 
 	/**
@@ -1197,7 +1107,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Btm_StartLabel() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(62);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(60);
 	}
 
 	/**
@@ -1206,7 +1116,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Btm_MidLabel() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(63);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(61);
 	}
 
 	/**
@@ -1215,7 +1125,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Btm_EndLabel() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(64);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(62);
 	}
 
 	/**
@@ -1224,7 +1134,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_Start_Edge() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(65);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(63);
 	}
 
 	/**
@@ -1233,7 +1143,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_End_Edge() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(66);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(64);
 	}
 
 	/**
@@ -1242,7 +1152,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_HeadStyle() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(67);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(65);
 	}
 
 	/**
@@ -1251,7 +1161,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_LineStyle() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(68);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(66);
 	}
 
 	/**
@@ -1260,7 +1170,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_DispatchAction() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(69);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(67);
 	}
 
 	/**
@@ -1269,7 +1179,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PDATA1() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(70);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(68);
 	}
 
 	/**
@@ -1278,7 +1188,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PDATA2() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(71);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(69);
 	}
 
 	/**
@@ -1287,7 +1197,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PDATA3() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(72);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(70);
 	}
 
 	/**
@@ -1296,7 +1206,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PDATA4() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(73);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(71);
 	}
 
 	/**
@@ -1305,115 +1215,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getConnector_PDATA5() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(74);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConnectorConstraint() {
-		return connectorConstraintEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnectorConstraint_Connector() {
-		return (EReference)connectorConstraintEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorConstraint_Constraint() {
-		return (EAttribute)connectorConstraintEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorConstraint_Notes() {
-		return (EAttribute)connectorConstraintEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorConstraint_Type() {
-		return (EAttribute)connectorConstraintEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConnectorTag() {
-		return connectorTagEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnectorTag_Connector() {
-		return (EReference)connectorTagEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorTag_Property() {
-		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorTag_Notes() {
-		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorTag_TagGUID() {
-		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorTag_TagID() {
-		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectorTag_Value() {
-		return (EAttribute)connectorTagEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(72);
 	}
 
 	/**
@@ -1457,17 +1259,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_AssociationClassConnectorID() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getElement_Attributes() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(4);
+		return (EReference)elementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1476,16 +1269,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Author() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElement_BaseClasses() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1494,7 +1278,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getElement_Classifier() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(7);
+		return (EReference)elementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1502,17 +1286,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_ClassifierName() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_ClassifierType() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(9);
+	public EAttribute getElement_Classifier_guid() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1521,7 +1296,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Complexity() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1529,17 +1304,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_Created() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_Difficulty() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(12);
+	public EAttribute getElement_CreatedDate() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1548,7 +1314,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_ElementGUID() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1557,7 +1323,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_ElementID() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1566,16 +1332,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getElement_Elements() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElement_EmbeddedElements() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(16);
+		return (EReference)elementEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1584,16 +1341,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_EventFlags() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_ExtensionPoints() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1602,7 +1350,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_GenFile() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1611,7 +1359,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Genlinks() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -1620,7 +1368,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_GenType() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1629,16 +1377,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_IsActive() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_IsComposite() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -1647,16 +1386,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_IsLeaf() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_IsNew() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(25);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1665,25 +1395,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_IsSpec() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_Locked() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_MetaType() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(28);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -1692,7 +1404,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getElement_Methods() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(29);
+		return (EReference)elementEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -1700,17 +1412,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_MiscData() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_Modified() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(31);
+	public EAttribute getElement_ModifiedDate() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -1719,7 +1422,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Multiplicity() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(32);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -1728,7 +1431,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Name() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(33);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -1737,7 +1440,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Notes() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(34);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -1746,7 +1449,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getElement_Package() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(35);
+		return (EReference)elementEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -1755,7 +1458,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getElement_Parent() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(36);
+		return (EReference)elementEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -1764,7 +1467,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Persistence() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(37);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -1773,34 +1476,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Phase() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(38);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_Priority() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(39);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_PropertyType() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(40);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_PropertyTypeName() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(41);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -1809,7 +1485,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_RunState() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(42);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -1818,7 +1494,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Status() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(43);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(29);
 	}
 
 	/**
@@ -1827,7 +1503,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Stereotype() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(44);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -1836,43 +1512,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_StyleEx() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(45);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_Subtype() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(46);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_Tablespace() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(47);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getElement_Tag() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(48);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElement_TaggedValues() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(49);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(31);
 	}
 
 	/**
@@ -1881,7 +1521,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_TreePos() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(50);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(32);
 	}
 
 	/**
@@ -1890,7 +1530,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Type() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(51);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(33);
 	}
 
 	/**
@@ -1899,7 +1539,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Version() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(52);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(34);
 	}
 
 	/**
@@ -1908,7 +1548,88 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getElement_Visibility() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(53);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(35);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Style() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(36);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Backcolor() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(37);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_BorderStyle() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(38);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_BorderWidth() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(39);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Fontcolor() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(40);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Bordercolor() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(41);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Cardinality() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(42);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Concurrency() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(43);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_PDATA1() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(44);
 	}
 
 	/**
@@ -2060,7 +1781,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMethod_Parameters() {
+	public EReference getMethod_Parent() {
 		return (EReference)methodEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -2069,35 +1790,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMethod_Parent() {
-		return (EReference)methodEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMethod_Pos() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMethod_PreConditions() {
-		return (EReference)methodEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMethod_PostConditions() {
-		return (EReference)methodEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -2106,7 +1800,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_ReturnIsArray() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -2115,7 +1809,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_ReturnType() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2124,7 +1818,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_StateFlags() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(22);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -2133,7 +1827,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_Stereotype() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -2142,7 +1836,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_Style() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(24);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -2151,16 +1845,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_StyleEx() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMethod_TaggedValues() {
-		return (EReference)methodEClass.getEStructuralFeatures().get(26);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -2169,7 +1854,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_Throws() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(27);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -2178,7 +1863,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_Visibility() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(28);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -2187,7 +1872,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_Concurrency() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(29);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -2196,160 +1881,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getMethod_GenOption() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMethodConstraint() {
-		return methodConstraintEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodConstraint_Notes() {
-		return (EAttribute)methodConstraintEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodConstraint_Type() {
-		return (EAttribute)methodConstraintEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPreCondition() {
-		return preConditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPreCondition_Method() {
-		return (EReference)preConditionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPreCondition_PreCondition() {
-		return (EAttribute)preConditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPostCondition() {
-		return postConditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPostCondition_Method() {
-		return (EReference)postConditionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPostCondition_PostCondition() {
-		return (EAttribute)postConditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMethodTag() {
-		return methodTagEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodTag_FQName() {
-		return (EAttribute)methodTagEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodTag_MethodID() {
-		return (EAttribute)methodTagEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodTag_Name() {
-		return (EAttribute)methodTagEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodTag_Notes() {
-		return (EAttribute)methodTagEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodTag_TagGUID() {
-		return (EAttribute)methodTagEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodTag_TagID() {
-		return (EAttribute)methodTagEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMethodTag_Value() {
-		return (EAttribute)methodTagEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -2366,7 +1898,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPackage_Alias() {
+	public EAttribute getPackage_PackageGUID() {
 		return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2402,7 +1934,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPackage_Created() {
+	public EAttribute getPackage_CreatedDate() {
 		return (EAttribute)packageEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2411,7 +1943,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPackage_Element() {
+	public EReference getPackage_Elements() {
 		return (EReference)packageEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2420,17 +1952,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPackage_Elements() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getPackage_Flags() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2439,16 +1962,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_IsControlled() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPackage_IsModel() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2457,7 +1971,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_IsNamespace() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2466,16 +1980,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_IsProtected() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPackage_IsVersionControlled() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2484,7 +1989,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_LastLoadDate() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -2493,7 +1998,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_LastSaveDate() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -2502,7 +2007,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_LogXML() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -2510,8 +2015,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPackage_Modified() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(16);
+	public EAttribute getPackage_ModifiedDate() {
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -2520,7 +2025,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_Name() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -2529,7 +2034,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_Notes() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -2538,7 +2043,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_Owner() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -2547,7 +2052,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_PackageID() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -2556,7 +2061,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getPackage_Packages() {
-		return (EReference)packageEClass.getEStructuralFeatures().get(21);
+		return (EReference)packageEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2564,8 +2069,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPackage_ParentID() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(22);
+	public EReference getPackage_Parent() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -2574,7 +2079,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_TreePos() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -2583,7 +2088,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_UMLVersion() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(24);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -2592,7 +2097,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_UseDTD() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(25);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -2601,7 +2106,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_Version() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(26);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -2610,277 +2115,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getPackage_XMLPath() {
-		return (EAttribute)packageEClass.getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getParameter() {
-		return parameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Alias() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_ClassifierID() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Default() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_IsConst() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Kind() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Name() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Notes() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_OperationID() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_ParameterGUID() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Position() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Stereotype() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_StereotypeEx() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Style() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_StyleEx() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getParameter_TaggedValues() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getParamTag() {
-		return paramTagEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamTag_ElementGUID() {
-		return (EAttribute)paramTagEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamTag_FQName() {
-		return (EAttribute)paramTagEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamTag_PropertyGUID() {
-		return (EAttribute)paramTagEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamTag_Tag() {
-		return (EAttribute)paramTagEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParamTag_Value() {
-		return (EAttribute)paramTagEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTaggedValue() {
-		return taggedValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaggedValue_ElementID() {
-		return (EAttribute)taggedValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaggedValue_FQName() {
-		return (EAttribute)taggedValueEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaggedValue_Name() {
-		return (EAttribute)taggedValueEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaggedValue_Notes() {
-		return (EAttribute)taggedValueEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaggedValue_PropertyGUID() {
-		return (EAttribute)taggedValueEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaggedValue_PropertyID() {
-		return (EAttribute)taggedValueEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaggedValue_Value() {
-		return (EAttribute)taggedValueEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -2978,7 +2213,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		connectorEClass = createEClass(CONNECTOR);
 		createEAttribute(connectorEClass, CONNECTOR__CONNECTOR_ID);
-		createEReference(connectorEClass, CONNECTOR__CONSTRAINTS);
 		createEAttribute(connectorEClass, CONNECTOR__DIRECTION);
 		createEAttribute(connectorEClass, CONNECTOR__PT_END_X);
 		createEAttribute(connectorEClass, CONNECTOR__PT_END_Y);
@@ -2999,7 +2233,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(connectorEClass, CONNECTOR__STEREOTYPE);
 		createEAttribute(connectorEClass, CONNECTOR__STYLE_EX);
 		createEAttribute(connectorEClass, CONNECTOR__SUB_TYPE);
-		createEReference(connectorEClass, CONNECTOR__TAGGED_VALUES);
 		createEAttribute(connectorEClass, CONNECTOR__TYPE);
 		createEAttribute(connectorEClass, CONNECTOR__VIRTUAL_INHERITANCE);
 		createEReference(connectorEClass, CONNECTOR__SOURCE);
@@ -3053,53 +2286,28 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(connectorEClass, CONNECTOR__PDATA4);
 		createEAttribute(connectorEClass, CONNECTOR__PDATA5);
 
-		connectorConstraintEClass = createEClass(CONNECTOR_CONSTRAINT);
-		createEReference(connectorConstraintEClass, CONNECTOR_CONSTRAINT__CONNECTOR);
-		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__CONSTRAINT);
-		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__NOTES);
-		createEAttribute(connectorConstraintEClass, CONNECTOR_CONSTRAINT__TYPE);
-
-		connectorTagEClass = createEClass(CONNECTOR_TAG);
-		createEReference(connectorTagEClass, CONNECTOR_TAG__CONNECTOR);
-		createEAttribute(connectorTagEClass, CONNECTOR_TAG__PROPERTY);
-		createEAttribute(connectorTagEClass, CONNECTOR_TAG__NOTES);
-		createEAttribute(connectorTagEClass, CONNECTOR_TAG__TAG_GUID);
-		createEAttribute(connectorTagEClass, CONNECTOR_TAG__TAG_ID);
-		createEAttribute(connectorTagEClass, CONNECTOR_TAG__VALUE);
-
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__ABSTRACT);
 		createEAttribute(elementEClass, ELEMENT__ACTION_FLAGS);
 		createEAttribute(elementEClass, ELEMENT__ALIAS);
-		createEAttribute(elementEClass, ELEMENT__ASSOCIATION_CLASS_CONNECTOR_ID);
 		createEReference(elementEClass, ELEMENT__ATTRIBUTES);
 		createEAttribute(elementEClass, ELEMENT__AUTHOR);
-		createEReference(elementEClass, ELEMENT__BASE_CLASSES);
 		createEReference(elementEClass, ELEMENT__CLASSIFIER);
-		createEAttribute(elementEClass, ELEMENT__CLASSIFIER_NAME);
-		createEAttribute(elementEClass, ELEMENT__CLASSIFIER_TYPE);
+		createEAttribute(elementEClass, ELEMENT__CLASSIFIER_GUID);
 		createEAttribute(elementEClass, ELEMENT__COMPLEXITY);
-		createEAttribute(elementEClass, ELEMENT__CREATED);
-		createEAttribute(elementEClass, ELEMENT__DIFFICULTY);
+		createEAttribute(elementEClass, ELEMENT__CREATED_DATE);
 		createEAttribute(elementEClass, ELEMENT__ELEMENT_GUID);
 		createEAttribute(elementEClass, ELEMENT__ELEMENT_ID);
 		createEReference(elementEClass, ELEMENT__ELEMENTS);
-		createEReference(elementEClass, ELEMENT__EMBEDDED_ELEMENTS);
 		createEAttribute(elementEClass, ELEMENT__EVENT_FLAGS);
-		createEAttribute(elementEClass, ELEMENT__EXTENSION_POINTS);
 		createEAttribute(elementEClass, ELEMENT__GEN_FILE);
 		createEAttribute(elementEClass, ELEMENT__GENLINKS);
 		createEAttribute(elementEClass, ELEMENT__GEN_TYPE);
 		createEAttribute(elementEClass, ELEMENT__IS_ACTIVE);
-		createEAttribute(elementEClass, ELEMENT__IS_COMPOSITE);
 		createEAttribute(elementEClass, ELEMENT__IS_LEAF);
-		createEAttribute(elementEClass, ELEMENT__IS_NEW);
 		createEAttribute(elementEClass, ELEMENT__IS_SPEC);
-		createEAttribute(elementEClass, ELEMENT__LOCKED);
-		createEAttribute(elementEClass, ELEMENT__META_TYPE);
 		createEReference(elementEClass, ELEMENT__METHODS);
-		createEAttribute(elementEClass, ELEMENT__MISC_DATA);
-		createEAttribute(elementEClass, ELEMENT__MODIFIED);
+		createEAttribute(elementEClass, ELEMENT__MODIFIED_DATE);
 		createEAttribute(elementEClass, ELEMENT__MULTIPLICITY);
 		createEAttribute(elementEClass, ELEMENT__NAME);
 		createEAttribute(elementEClass, ELEMENT__NOTES);
@@ -3107,21 +2315,23 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEReference(elementEClass, ELEMENT__PARENT);
 		createEAttribute(elementEClass, ELEMENT__PERSISTENCE);
 		createEAttribute(elementEClass, ELEMENT__PHASE);
-		createEAttribute(elementEClass, ELEMENT__PRIORITY);
-		createEAttribute(elementEClass, ELEMENT__PROPERTY_TYPE);
-		createEAttribute(elementEClass, ELEMENT__PROPERTY_TYPE_NAME);
 		createEAttribute(elementEClass, ELEMENT__RUN_STATE);
 		createEAttribute(elementEClass, ELEMENT__STATUS);
 		createEAttribute(elementEClass, ELEMENT__STEREOTYPE);
 		createEAttribute(elementEClass, ELEMENT__STYLE_EX);
-		createEAttribute(elementEClass, ELEMENT__SUBTYPE);
-		createEAttribute(elementEClass, ELEMENT__TABLESPACE);
-		createEAttribute(elementEClass, ELEMENT__TAG);
-		createEReference(elementEClass, ELEMENT__TAGGED_VALUES);
 		createEAttribute(elementEClass, ELEMENT__TREE_POS);
 		createEAttribute(elementEClass, ELEMENT__TYPE);
 		createEAttribute(elementEClass, ELEMENT__VERSION);
 		createEAttribute(elementEClass, ELEMENT__VISIBILITY);
+		createEAttribute(elementEClass, ELEMENT__STYLE);
+		createEAttribute(elementEClass, ELEMENT__BACKCOLOR);
+		createEAttribute(elementEClass, ELEMENT__BORDER_STYLE);
+		createEAttribute(elementEClass, ELEMENT__BORDER_WIDTH);
+		createEAttribute(elementEClass, ELEMENT__FONTCOLOR);
+		createEAttribute(elementEClass, ELEMENT__BORDERCOLOR);
+		createEAttribute(elementEClass, ELEMENT__CARDINALITY);
+		createEAttribute(elementEClass, ELEMENT__CONCURRENCY);
+		createEAttribute(elementEClass, ELEMENT__PDATA1);
 
 		methodEClass = createEClass(METHOD);
 		createEAttribute(methodEClass, METHOD__ABSTRACT);
@@ -3139,106 +2349,45 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(methodEClass, METHOD__METHOD_ID);
 		createEAttribute(methodEClass, METHOD__NAME);
 		createEAttribute(methodEClass, METHOD__NOTES);
-		createEReference(methodEClass, METHOD__PARAMETERS);
 		createEReference(methodEClass, METHOD__PARENT);
 		createEAttribute(methodEClass, METHOD__POS);
-		createEReference(methodEClass, METHOD__PRE_CONDITIONS);
-		createEReference(methodEClass, METHOD__POST_CONDITIONS);
 		createEAttribute(methodEClass, METHOD__RETURN_IS_ARRAY);
 		createEAttribute(methodEClass, METHOD__RETURN_TYPE);
 		createEAttribute(methodEClass, METHOD__STATE_FLAGS);
 		createEAttribute(methodEClass, METHOD__STEREOTYPE);
 		createEAttribute(methodEClass, METHOD__STYLE);
 		createEAttribute(methodEClass, METHOD__STYLE_EX);
-		createEReference(methodEClass, METHOD__TAGGED_VALUES);
 		createEAttribute(methodEClass, METHOD__THROWS);
 		createEAttribute(methodEClass, METHOD__VISIBILITY);
 		createEAttribute(methodEClass, METHOD__CONCURRENCY);
 		createEAttribute(methodEClass, METHOD__GEN_OPTION);
 
-		methodConstraintEClass = createEClass(METHOD_CONSTRAINT);
-		createEAttribute(methodConstraintEClass, METHOD_CONSTRAINT__NOTES);
-		createEAttribute(methodConstraintEClass, METHOD_CONSTRAINT__TYPE);
-
-		preConditionEClass = createEClass(PRE_CONDITION);
-		createEReference(preConditionEClass, PRE_CONDITION__METHOD);
-		createEAttribute(preConditionEClass, PRE_CONDITION__PRE_CONDITION);
-
-		postConditionEClass = createEClass(POST_CONDITION);
-		createEReference(postConditionEClass, POST_CONDITION__METHOD);
-		createEAttribute(postConditionEClass, POST_CONDITION__POST_CONDITION);
-
-		methodTagEClass = createEClass(METHOD_TAG);
-		createEAttribute(methodTagEClass, METHOD_TAG__FQ_NAME);
-		createEAttribute(methodTagEClass, METHOD_TAG__METHOD_ID);
-		createEAttribute(methodTagEClass, METHOD_TAG__NAME);
-		createEAttribute(methodTagEClass, METHOD_TAG__NOTES);
-		createEAttribute(methodTagEClass, METHOD_TAG__TAG_GUID);
-		createEAttribute(methodTagEClass, METHOD_TAG__TAG_ID);
-		createEAttribute(methodTagEClass, METHOD_TAG__VALUE);
-
 		packageEClass = createEClass(PACKAGE);
-		createEAttribute(packageEClass, PACKAGE__ALIAS);
+		createEAttribute(packageEClass, PACKAGE__PACKAGE_GUID);
 		createEAttribute(packageEClass, PACKAGE__BATCH_LOAD);
 		createEAttribute(packageEClass, PACKAGE__BATCH_SAVE);
 		createEAttribute(packageEClass, PACKAGE__CODE_PATH);
-		createEAttribute(packageEClass, PACKAGE__CREATED);
-		createEReference(packageEClass, PACKAGE__ELEMENT);
+		createEAttribute(packageEClass, PACKAGE__CREATED_DATE);
 		createEReference(packageEClass, PACKAGE__ELEMENTS);
 		createEAttribute(packageEClass, PACKAGE__FLAGS);
 		createEAttribute(packageEClass, PACKAGE__IS_CONTROLLED);
-		createEAttribute(packageEClass, PACKAGE__IS_MODEL);
 		createEAttribute(packageEClass, PACKAGE__IS_NAMESPACE);
 		createEAttribute(packageEClass, PACKAGE__IS_PROTECTED);
-		createEAttribute(packageEClass, PACKAGE__IS_VERSION_CONTROLLED);
 		createEAttribute(packageEClass, PACKAGE__LAST_LOAD_DATE);
 		createEAttribute(packageEClass, PACKAGE__LAST_SAVE_DATE);
 		createEAttribute(packageEClass, PACKAGE__LOG_XML);
-		createEAttribute(packageEClass, PACKAGE__MODIFIED);
+		createEAttribute(packageEClass, PACKAGE__MODIFIED_DATE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
 		createEAttribute(packageEClass, PACKAGE__NOTES);
 		createEAttribute(packageEClass, PACKAGE__OWNER);
 		createEAttribute(packageEClass, PACKAGE__PACKAGE_ID);
 		createEReference(packageEClass, PACKAGE__PACKAGES);
-		createEAttribute(packageEClass, PACKAGE__PARENT_ID);
+		createEReference(packageEClass, PACKAGE__PARENT);
 		createEAttribute(packageEClass, PACKAGE__TREE_POS);
 		createEAttribute(packageEClass, PACKAGE__UML_VERSION);
 		createEAttribute(packageEClass, PACKAGE__USE_DTD);
 		createEAttribute(packageEClass, PACKAGE__VERSION);
 		createEAttribute(packageEClass, PACKAGE__XML_PATH);
-
-		parameterEClass = createEClass(PARAMETER);
-		createEAttribute(parameterEClass, PARAMETER__ALIAS);
-		createEAttribute(parameterEClass, PARAMETER__CLASSIFIER_ID);
-		createEAttribute(parameterEClass, PARAMETER__DEFAULT);
-		createEAttribute(parameterEClass, PARAMETER__IS_CONST);
-		createEAttribute(parameterEClass, PARAMETER__KIND);
-		createEAttribute(parameterEClass, PARAMETER__NAME);
-		createEAttribute(parameterEClass, PARAMETER__NOTES);
-		createEAttribute(parameterEClass, PARAMETER__OPERATION_ID);
-		createEAttribute(parameterEClass, PARAMETER__PARAMETER_GUID);
-		createEAttribute(parameterEClass, PARAMETER__POSITION);
-		createEAttribute(parameterEClass, PARAMETER__STEREOTYPE);
-		createEAttribute(parameterEClass, PARAMETER__STEREOTYPE_EX);
-		createEAttribute(parameterEClass, PARAMETER__STYLE);
-		createEAttribute(parameterEClass, PARAMETER__STYLE_EX);
-		createEReference(parameterEClass, PARAMETER__TAGGED_VALUES);
-
-		paramTagEClass = createEClass(PARAM_TAG);
-		createEAttribute(paramTagEClass, PARAM_TAG__ELEMENT_GUID);
-		createEAttribute(paramTagEClass, PARAM_TAG__FQ_NAME);
-		createEAttribute(paramTagEClass, PARAM_TAG__PROPERTY_GUID);
-		createEAttribute(paramTagEClass, PARAM_TAG__TAG);
-		createEAttribute(paramTagEClass, PARAM_TAG__VALUE);
-
-		taggedValueEClass = createEClass(TAGGED_VALUE);
-		createEAttribute(taggedValueEClass, TAGGED_VALUE__ELEMENT_ID);
-		createEAttribute(taggedValueEClass, TAGGED_VALUE__FQ_NAME);
-		createEAttribute(taggedValueEClass, TAGGED_VALUE__NAME);
-		createEAttribute(taggedValueEClass, TAGGED_VALUE__NOTES);
-		createEAttribute(taggedValueEClass, TAGGED_VALUE__PROPERTY_GUID);
-		createEAttribute(taggedValueEClass, TAGGED_VALUE__PROPERTY_ID);
-		createEAttribute(taggedValueEClass, TAGGED_VALUE__VALUE);
 
 		// Create enums
 		directionTypeEEnum = createEEnum(DIRECTION_TYPE);
@@ -3276,8 +2425,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		preConditionEClass.getESuperTypes().add(this.getMethodConstraint());
-		postConditionEClass.getESuperTypes().add(this.getMethodConstraint());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3329,7 +2476,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConnector_ConnectorID(), theEcorePackage.getELongObject(), "ConnectorID", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnector_Constraints(), this.getConnectorConstraint(), this.getConnectorConstraint_Connector(), "Constraints", null, 0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Direction(), this.getDirectionType(), "Direction", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_PtEndX(), theEcorePackage.getELongObject(), "PtEndX", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_PtEndY(), theEcorePackage.getELongObject(), "PtEndY", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3350,7 +2496,6 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getConnector_Stereotype(), theEcorePackage.getEString(), "Stereotype", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_StyleEx(), theEcorePackage.getEString(), "StyleEx", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SubType(), theEcorePackage.getEString(), "SubType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnector_TaggedValues(), this.getConnectorTag(), this.getConnectorTag_Connector(), "TaggedValues", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Type(), this.getConnectorType(), "Type", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_VirtualInheritance(), theEcorePackage.getEString(), "VirtualInheritance", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_Source(), this.getElement(), null, "Source", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3404,75 +2549,52 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getConnector_PDATA4(), theEcorePackage.getEString(), "PDATA4", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_PDATA5(), theEcorePackage.getEString(), "PDATA5", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(connectorConstraintEClass, ConnectorConstraint.class, "ConnectorConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnectorConstraint_Connector(), this.getConnector(), this.getConnector_Constraints(), "Connector", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorConstraint_Constraint(), theEcorePackage.getEString(), "Constraint", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorConstraint_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorConstraint_Type(), theEcorePackage.getEString(), "Type", null, 0, 1, ConnectorConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(connectorTagEClass, ConnectorTag.class, "ConnectorTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnectorTag_Connector(), this.getConnector(), this.getConnector_TaggedValues(), "Connector", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorTag_Property(), theEcorePackage.getEString(), "Property", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorTag_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorTag_TagGUID(), theEcorePackage.getEString(), "TagGUID", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorTag_TagID(), theEcorePackage.getELongObject(), "TagID", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectorTag_Value(), theEcorePackage.getEString(), "Value", null, 0, 1, ConnectorTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Abstract(), theEcorePackage.getEString(), "Abstract", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_ActionFlags(), theEcorePackage.getEString(), "ActionFlags", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Alias(), theEcorePackage.getEString(), "Alias", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_AssociationClassConnectorID(), theEcorePackage.getELongObject(), "AssociationClassConnectorID", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Attributes(), this.getAttribute(), this.getAttribute_Parent(), "Attributes", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Author(), theEcorePackage.getEString(), "Author", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_BaseClasses(), this.getElement(), null, "BaseClasses", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Classifier(), this.getElement(), null, "Classifier", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_ClassifierName(), theEcorePackage.getEString(), "ClassifierName", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_ClassifierType(), theEcorePackage.getEString(), "ClassifierType", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Classifier_guid(), theEcorePackage.getEString(), "Classifier_guid", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Complexity(), theEcorePackage.getEString(), "Complexity", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Created(), theEcorePackage.getEDate(), "Created", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Difficulty(), theEcorePackage.getEString(), "Difficulty", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_CreatedDate(), theEcorePackage.getEDate(), "CreatedDate", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_ElementGUID(), theEcorePackage.getEString(), "ElementGUID", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_ElementID(), theEcorePackage.getELongObject(), "ElementID", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Elements(), this.getElement(), null, "Elements", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_EmbeddedElements(), this.getElement(), null, "EmbeddedElements", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_Elements(), this.getElement(), this.getElement_Parent(), "Elements", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_EventFlags(), theEcorePackage.getEString(), "EventFlags", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_ExtensionPoints(), theEcorePackage.getEString(), "ExtensionPoints", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_GenFile(), theEcorePackage.getEString(), "GenFile", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Genlinks(), theEcorePackage.getEString(), "Genlinks", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_GenType(), theEcorePackage.getEString(), "GenType", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_IsActive(), theEcorePackage.getEBooleanObject(), "IsActive", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_IsComposite(), theEcorePackage.getEBooleanObject(), "IsComposite", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_IsLeaf(), theEcorePackage.getEBooleanObject(), "IsLeaf", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_IsNew(), theEcorePackage.getEBooleanObject(), "IsNew", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_IsSpec(), theEcorePackage.getEBooleanObject(), "IsSpec", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Locked(), theEcorePackage.getEBooleanObject(), "Locked", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_MetaType(), theEcorePackage.getEString(), "MetaType", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Methods(), this.getMethod(), this.getMethod_Parent(), "Methods", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_MiscData(), theEcorePackage.getEString(), "MiscData", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Modified(), theEcorePackage.getEDate(), "Modified", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_ModifiedDate(), theEcorePackage.getEDate(), "ModifiedDate", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Multiplicity(), theEcorePackage.getEString(), "Multiplicity", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Package(), this.getPackage(), this.getPackage_Elements(), "Package", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Parent(), this.getElement(), null, "Parent", null, 0, 1, Element.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_Parent(), this.getElement(), this.getElement_Elements(), "Parent", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Persistence(), theEcorePackage.getEString(), "Persistence", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Phase(), theEcorePackage.getEString(), "Phase", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Priority(), theEcorePackage.getEString(), "Priority", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_PropertyType(), theEcorePackage.getELongObject(), "PropertyType", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_PropertyTypeName(), theEcorePackage.getEString(), "PropertyTypeName", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_RunState(), theEcorePackage.getEString(), "RunState", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Status(), theEcorePackage.getEString(), "Status", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Stereotype(), theEcorePackage.getEString(), "Stereotype", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_StyleEx(), theEcorePackage.getEString(), "StyleEx", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Subtype(), theEcorePackage.getELongObject(), "Subtype", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Tablespace(), theEcorePackage.getEString(), "Tablespace", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Tag(), theEcorePackage.getEString(), "Tag", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_TaggedValues(), this.getTaggedValue(), null, "TaggedValues", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_TreePos(), theEcorePackage.getELongObject(), "TreePos", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Type(), theEcorePackage.getEString(), "Type", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Version(), theEcorePackage.getEString(), "Version", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Visibility(), theEcorePackage.getEString(), "Visibility", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Style(), theEcorePackage.getEString(), "Style", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Backcolor(), theEcorePackage.getEInt(), "Backcolor", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_BorderStyle(), theEcorePackage.getEInt(), "BorderStyle", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_BorderWidth(), theEcorePackage.getEInt(), "BorderWidth", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Fontcolor(), theEcorePackage.getEInt(), "Fontcolor", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Bordercolor(), theEcorePackage.getEInt(), "Bordercolor", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Cardinality(), theEcorePackage.getEString(), "Cardinality", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Concurrency(), theEcorePackage.getEString(), "Concurrency", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_PDATA1(), theEcorePackage.getEString(), "PDATA1", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethod_Abstract(), theEcorePackage.getEBooleanObject(), "Abstract", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3490,106 +2612,45 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getMethod_MethodID(), theEcorePackage.getELongObject(), "MethodID", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_Parameters(), this.getParameter(), null, "Parameters", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Parent(), this.getElement(), this.getElement_Methods(), "Parent", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Pos(), theEcorePackage.getELongObject(), "Pos", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_PreConditions(), this.getPreCondition(), this.getPreCondition_Method(), "PreConditions", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_PostConditions(), this.getPostCondition(), this.getPostCondition_Method(), "PostConditions", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_ReturnIsArray(), theEcorePackage.getEBooleanObject(), "ReturnIsArray", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_ReturnType(), theEcorePackage.getEString(), "ReturnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_StateFlags(), theEcorePackage.getEString(), "StateFlags", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Stereotype(), theEcorePackage.getEString(), "Stereotype", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Style(), theEcorePackage.getEString(), "Style", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_StyleEx(), theEcorePackage.getEString(), "StyleEx", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_TaggedValues(), this.getMethodTag(), null, "TaggedValues", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Throws(), theEcorePackage.getEString(), "Throws", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Visibility(), theEcorePackage.getEString(), "Visibility", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Concurrency(), theEcorePackage.getEString(), "Concurrency", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_GenOption(), theEcorePackage.getEString(), "GenOption", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(methodConstraintEClass, MethodConstraint.class, "MethodConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMethodConstraint_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, MethodConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodConstraint_Type(), theEcorePackage.getEString(), "Type", null, 0, 1, MethodConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(preConditionEClass, PreCondition.class, "PreCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPreCondition_Method(), this.getMethod(), this.getMethod_PreConditions(), "Method", null, 0, 1, PreCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPreCondition_PreCondition(), theEcorePackage.getEString(), "PreCondition", null, 0, 1, PreCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(postConditionEClass, PostCondition.class, "PostCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPostCondition_Method(), this.getMethod(), this.getMethod_PostConditions(), "Method", null, 0, 1, PostCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPostCondition_PostCondition(), theEcorePackage.getEString(), "PostCondition", null, 0, 1, PostCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(methodTagEClass, MethodTag.class, "MethodTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMethodTag_FQName(), theEcorePackage.getEString(), "FQName", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodTag_MethodID(), theEcorePackage.getELongObject(), "MethodID", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodTag_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodTag_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodTag_TagGUID(), theEcorePackage.getEString(), "TagGUID", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodTag_TagID(), theEcorePackage.getELongObject(), "TagID", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodTag_Value(), theEcorePackage.getEString(), "Value", null, 0, 1, MethodTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(packageEClass, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPackage_Alias(), theEcorePackage.getEString(), "Alias", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_PackageGUID(), theEcorePackage.getEString(), "PackageGUID", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_BatchLoad(), theEcorePackage.getELongObject(), "BatchLoad", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_BatchSave(), theEcorePackage.getELongObject(), "BatchSave", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_CodePath(), theEcorePackage.getEString(), "CodePath", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_Created(), theEcorePackage.getEDate(), "Created", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Element(), this.getElement(), null, "Element", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_CreatedDate(), theEcorePackage.getEDate(), "CreatedDate", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_Elements(), this.getElement(), this.getElement_Package(), "Elements", null, 0, -1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Flags(), theEcorePackage.getEString(), "Flags", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_IsControlled(), theEcorePackage.getEBooleanObject(), "IsControlled", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_IsModel(), theEcorePackage.getEBooleanObject(), "IsModel", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_IsNamespace(), theEcorePackage.getEBooleanObject(), "IsNamespace", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_IsProtected(), theEcorePackage.getEBooleanObject(), "IsProtected", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_IsVersionControlled(), theEcorePackage.getEBooleanObject(), "IsVersionControlled", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_LastLoadDate(), theEcorePackage.getEDate(), "LastLoadDate", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_LastSaveDate(), theEcorePackage.getEDate(), "LastSaveDate", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_LogXML(), theEcorePackage.getEBooleanObject(), "LogXML", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_Modified(), theEcorePackage.getEDate(), "Modified", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_ModifiedDate(), theEcorePackage.getEDate(), "ModifiedDate", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Owner(), theEcorePackage.getEString(), "Owner", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_PackageID(), theEcorePackage.getELongObject(), "PackageID", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Packages(), this.getPackage(), null, "Packages", null, 0, -1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPackage_ParentID(), theEcorePackage.getELongObject(), "ParentID", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Packages(), this.getPackage(), this.getPackage_Parent(), "Packages", null, 0, -1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Parent(), this.getPackage(), this.getPackage_Packages(), "Parent", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_TreePos(), theEcorePackage.getELongObject(), "TreePos", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_UMLVersion(), theEcorePackage.getEString(), "UMLVersion", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_UseDTD(), theEcorePackage.getEBooleanObject(), "UseDTD", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Version(), theEcorePackage.getEString(), "Version", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_XMLPath(), theEcorePackage.getEString(), "XMLPath", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameter_Alias(), theEcorePackage.getEString(), "Alias", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_ClassifierID(), theEcorePackage.getEString(), "ClassifierID", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Default(), theEcorePackage.getEString(), "Default", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_IsConst(), theEcorePackage.getEBooleanObject(), "IsConst", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Kind(), theEcorePackage.getEString(), "Kind", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_OperationID(), theEcorePackage.getELongObject(), "OperationID", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_ParameterGUID(), theEcorePackage.getEString(), "ParameterGUID", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Position(), theEcorePackage.getELongObject(), "Position", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Stereotype(), theEcorePackage.getEString(), "Stereotype", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_StereotypeEx(), theEcorePackage.getEString(), "StereotypeEx", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Style(), theEcorePackage.getEString(), "Style", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_StyleEx(), theEcorePackage.getEString(), "StyleEx", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_TaggedValues(), this.getParamTag(), null, "TaggedValues", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(paramTagEClass, ParamTag.class, "ParamTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParamTag_ElementGUID(), theEcorePackage.getEString(), "ElementGUID", null, 0, 1, ParamTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParamTag_FQName(), theEcorePackage.getEString(), "FQName", null, 0, 1, ParamTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParamTag_PropertyGUID(), theEcorePackage.getEString(), "PropertyGUID", null, 0, 1, ParamTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParamTag_Tag(), theEcorePackage.getEString(), "Tag", null, 0, 1, ParamTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParamTag_Value(), theEcorePackage.getEString(), "Value", null, 0, 1, ParamTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(taggedValueEClass, TaggedValue.class, "TaggedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTaggedValue_ElementID(), theEcorePackage.getELongObject(), "ElementID", null, 0, 1, TaggedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaggedValue_FQName(), theEcorePackage.getEString(), "FQName", null, 0, 1, TaggedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaggedValue_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, TaggedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaggedValue_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, TaggedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaggedValue_PropertyGUID(), theEcorePackage.getEString(), "PropertyGUID", null, 0, 1, TaggedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaggedValue_PropertyID(), theEcorePackage.getELongObject(), "PropertyID", null, 0, 1, TaggedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaggedValue_Value(), theEcorePackage.getEString(), "Value", null, 0, 1, TaggedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(directionTypeEEnum, DirectionType.class, "DirectionType");

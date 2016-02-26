@@ -6,17 +6,8 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import org.eclipse.emf.ecore.EObject;
@@ -105,18 +96,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XcorePackage.CONNECTOR_CONSTRAINT: {
-				ConnectorConstraint connectorConstraint = (ConnectorConstraint)theEObject;
-				T result = caseConnectorConstraint(connectorConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.CONNECTOR_TAG: {
-				ConnectorTag connectorTag = (ConnectorTag)theEObject;
-				T result = caseConnectorTag(connectorTag);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case XcorePackage.ELEMENT: {
 				Element element = (Element)theEObject;
 				T result = caseElement(element);
@@ -129,53 +108,9 @@ public class XcoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XcorePackage.METHOD_CONSTRAINT: {
-				MethodConstraint methodConstraint = (MethodConstraint)theEObject;
-				T result = caseMethodConstraint(methodConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.PRE_CONDITION: {
-				PreCondition preCondition = (PreCondition)theEObject;
-				T result = casePreCondition(preCondition);
-				if (result == null) result = caseMethodConstraint(preCondition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.POST_CONDITION: {
-				PostCondition postCondition = (PostCondition)theEObject;
-				T result = casePostCondition(postCondition);
-				if (result == null) result = caseMethodConstraint(postCondition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.METHOD_TAG: {
-				MethodTag methodTag = (MethodTag)theEObject;
-				T result = caseMethodTag(methodTag);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case XcorePackage.PACKAGE: {
 				de.cooperateproject.eabridge.eaobjectmodel.xcore.Package package_ = (de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)theEObject;
 				T result = casePackage(package_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.PARAMETER: {
-				Parameter parameter = (Parameter)theEObject;
-				T result = caseParameter(parameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.PARAM_TAG: {
-				ParamTag paramTag = (ParamTag)theEObject;
-				T result = caseParamTag(paramTag);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case XcorePackage.TAGGED_VALUE: {
-				TaggedValue taggedValue = (TaggedValue)theEObject;
-				T result = caseTaggedValue(taggedValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -244,36 +179,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Connector Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Connector Constraint</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConnectorConstraint(ConnectorConstraint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Connector Tag</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Connector Tag</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConnectorTag(ConnectorTag object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -304,66 +209,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Method Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Method Constraint</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMethodConstraint(MethodConstraint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pre Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pre Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePreCondition(PreCondition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Post Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Post Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePostCondition(PostCondition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Method Tag</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Method Tag</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMethodTag(MethodTag object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -375,51 +220,6 @@ public class XcoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePackage(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameter(Parameter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Param Tag</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Param Tag</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParamTag(ParamTag object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tagged Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Tagged Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTaggedValue(TaggedValue object) {
 		return null;
 	}
 

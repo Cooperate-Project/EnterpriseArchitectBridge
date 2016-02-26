@@ -273,7 +273,7 @@ class Connector {
 	//	A system generated local identifier for the current connector.		
 	//			
 	//			
-	contains ConnectorConstraint[]	Constraints	opposite Connector//	Read only
+//	contains ConnectorConstraint[]	Constraints	opposite Connector//	Read only
 	//			
 	//	A collection of constraint objects.
 	//			
@@ -428,7 +428,7 @@ class Connector {
 	//	A possible subtype to refine the meaning of the connector.		
 	//			
 	//					
-	contains ConnectorTag TaggedValues opposite Connector //	Read only
+//	contains ConnectorTag TaggedValues opposite Connector //	Read only
 	//			
 	//	The collection of ConnectorTag objects.
 	//			
@@ -553,84 +553,84 @@ enum ConnectorType {
 	UseCase as "UseCase"
 }
 
-//associated with t_connectorconstraints table in .eap file UNUSED
-class ConnectorConstraint {
-	container Connector	Connector opposite Constraints//	Read/Write
-	//	
-	//	ID value of the Connector
-	//	
-	//	
-	String	Constraint //	Read/Write
-	//	
-	//	The constraint
-	//	
-	//	
-	String	Notes //	Read/Write
-	//	
-	//	Notes about this constraint.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	Type //	Read/Write
-//	
-//	The constraint type.
-//	
-//	
-}
+////associated with t_connectorconstraints table in .eap file UNUSED
+//class ConnectorConstraint {
+//	container Connector	Connector opposite Constraints//	Read/Write
+//	//	
+//	//	ID value of the Connector
+//	//	
+//	//	
+//	String	Constraint //	Read/Write
+//	//	
+//	//	The constraint
+//	//	
+//	//	
+//	String	Notes //	Read/Write
+//	//	
+//	//	Notes about this constraint.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	Type //	Read/Write
+////	
+////	The constraint type.
+////	
+////	
+//}
 
-//associated with t_connectortag table in .eap file
-class ConnectorTag {
-	container Connector Connector opposite TaggedValues //	Read/Write
-	//	
-	//	The local ID of the associated connector.
-	//	
-	//	
-//	String	FQName //	Read only
-	//	
-	//	The fully qualified name of the tag.
-	//	
-	//	
-	String	Property //	Read/Write
-	//	
-	//	The property.
-	//	
-	//	
-	String	Notes //	Read/Write
-	//	
-	//	Further descriptive notes on this tag. 
-	//	
-	//	If Value (below) is set to "<memo>", then Notes should contain the actual Tagged Value content.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	TagGUID //	Read/Write
-	//	
-	//	A globally unique ID for this Tagged Value.
-	//	
-	//	
-	Long	TagID //	Read only
-	//	
-	//	A local ID to identify the Tagged Value.
-	//	
-	//	
-	String	Value //	Read/Write
-//	
-//	The value assigned to this tag.
-//	
-//	This field has a 255 character limit. If the value is greater than 255 characters long, set the value to "<memo>" and insert the body of text in the Notes attribute (above). 
-//	
-//	When reading existing Tagged Values, if Value = "<memo>" then the developer should read the actual body of text from the Notes attribute.
-//	
-//	
-}
+////associated with t_connectortag table in .eap file
+//class ConnectorTag {
+//	container Connector Connector opposite TaggedValues //	Read/Write
+//	//	
+//	//	The local ID of the associated connector.
+//	//	
+//	//	
+////	String	FQName //	Read only
+//	//	
+//	//	The fully qualified name of the tag.
+//	//	
+//	//	
+//	String	Property //	Read/Write
+//	//	
+//	//	The property.
+//	//	
+//	//	
+//	String	Notes //	Read/Write
+//	//	
+//	//	Further descriptive notes on this tag. 
+//	//	
+//	//	If Value (below) is set to "<memo>", then Notes should contain the actual Tagged Value content.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	TagGUID //	Read/Write
+//	//	
+//	//	A globally unique ID for this Tagged Value.
+//	//	
+//	//	
+//	Long	TagID //	Read only
+//	//	
+//	//	A local ID to identify the Tagged Value.
+//	//	
+//	//	
+//	String	Value //	Read/Write
+////	
+////	The value assigned to this tag.
+////	
+////	This field has a 255 character limit. If the value is greater than 255 characters long, set the value to "<memo>" and insert the body of text in the Notes attribute (above). 
+////	
+////	When reading existing Tagged Values, if Value = "<memo>" then the developer should read the actual body of text from the Notes attribute.
+////	
+////	
+//}
 
 ////associated with t_diagram table in .eap file
 //class Diagram {
@@ -930,10 +930,10 @@ class Element {
 	//	An optional alias for this element.	
 	//		
 	//		
-	Long	AssociationClassConnectorID //	Read only	
-	//		
-	//	If the element is an AssociationClass, AssociationClassConnectorID contains the Connector ID of the respective Association connector.	
-	//
+//	Long	AssociationClassConnectorID //	Read only	
+//	//		
+//	//	If the element is an AssociationClass, AssociationClassConnectorID contains the Connector ID of the respective Association connector.	
+//	//
 	contains Attribute[] Attributes opposite Parent //	Read only	
 	//		
 	//	A collection of Attribute objects for the current element; use the AddNew and Delete functions to manage attributes.	
@@ -949,7 +949,7 @@ class Element {
 	//	The element author.	
 	//		
 	//		
-	contains Element[] BaseClasses //	Read only	
+//	contains Element[] BaseClasses //	Read only	
 	//		
 	//	A list of Base Classes for this element, presented as a collection for convenience.	
 	//		
@@ -965,13 +965,14 @@ class Element {
 	//		
 	//	Only valid for instance type elements (such as Object or Sequence).	
 	//		
-	//		
-	String	ClassifierName //	Read/Write	
+	//	
+	String Classifier_guid	
+//	String	ClassifierName //	Read/Write DERIVED
 	//		
 	//	Name of associated Classifier (if any).	
 	//		
 	//		
-	String	ClassifierType //	Read only	
+//	String	ClassifierType //	Read only DERIVED
 	//		
 	//	Type of associated Classifier.	
 	//		
@@ -1003,7 +1004,7 @@ class Element {
 	//	Collection of Constraint objects belonging to the current element and its parent elements.	
 	//		
 	//		
-	Date	Created //	Read/Write	
+	Date	CreatedDate //	Read/Write	
 	//		
 	//	The date the element was created.	
 	//		
@@ -1022,13 +1023,6 @@ class Element {
 	//	Returns a collection of sub-diagrams (child diagrams) attached to this element as seen in the tree view.	
 	//		
 	//		
-	String	Difficulty //	Read/Write	
-	//		
-	//	A difficulty level associated with this element for estimation/metrics; only useable for Requirement, Change and Issue element types, otherwise ignored.	
-	//		
-	//	Valid values are: Low, Medium, High.	
-	//		
-	//		
 	//	contains Effort[] Efforts //	Read only	
 	//		
 	//	A collection of Effort objects.	
@@ -1044,12 +1038,12 @@ class Element {
 	//	The local ID of the Element; valid for this file only.	
 	//		
 	//
-	contains Element[] Elements //	Read only	
+	contains Element[] Elements opposite Parent //	Read only	
 	//		
 	//	Returns a collection of child elements (sub-elements) attached to this element as seen in the tree view.	
 	//		
 	//	
-	contains Element[] EmbeddedElements //	Read only	
+//	contains Element[] EmbeddedElements //	Read only Später derived als Untermenge von Elements
 	//		
 	//	A list of elements that are embedded into this element, such as Ports, Parts, Pins and Parameter Sets.	
 	//		
@@ -1059,7 +1053,7 @@ class Element {
 	//	A structure to hold a variety of flags to do with signals or events.	
 	//		
 	//		
-	String	ExtensionPoints //	Read/Write	
+//	String	ExtensionPoints //	Read/Write	
 	//		
 	//	Optional extension points for a Use Case as a comma-separated list.	
 	//		
@@ -1101,7 +1095,7 @@ class Element {
 	//	1 = True, 0 = False.	
 	//		
 	//		
-	Boolean	IsComposite //	Read/Write	
+//	Boolean	IsComposite //	Read/Write	
 	//		
 	//	Indicates whether the element is composite or not.	
 	//		
@@ -1115,7 +1109,7 @@ class Element {
 	//	1 = True, 0 = False.	
 	//		
 	//		
-	Boolean	IsNew //	Read/Write	
+//	Boolean	IsNew //	Read/Write	
 	//		
 	//	Boolean value indicating whether the element is new or not.	
 	//		
@@ -1134,12 +1128,12 @@ class Element {
 	//	Collection of Issue objects.	
 	//		
 	//		
-	Boolean	Locked //	Read/Write	
+//	Boolean	Locked //	Read/Write	
 	//		
 	//	Indicates if the element has been locked against further change.	
 	//		
 	//		
-	String	MetaType //	Read only	
+//	String	MetaType //	Read only	
 	//		
 	//	The element's domain-specific meta type, as defined by an applied stereotype from an MDG Technology.	
 	//		
@@ -1159,7 +1153,7 @@ class Element {
 	//	Collection of Metric elements for current element.	
 	//		
 	//		
-	String	MiscData //	Read only	
+//	String	MiscData //	Read only	
 	//		
 	//	This low-level property provides information about the contents of the PDatax fields.	
 	//		
@@ -1173,7 +1167,7 @@ class Element {
 	//	and so on.	
 	//		
 	//		
-	Date	Modified //	Read/Write	
+	Date	ModifiedDate //	Read/Write	
 	//		
 	//	The date the element was last modified.	
 	//		
@@ -1203,10 +1197,7 @@ class Element {
 	//	A local ID for the Package containing this element.	
 	//		
 	//	
-	refers derived Element Parent get {
-		eContainer as Element;
-	}
-	//	Read/Write	
+	container Element Parent opposite Elements //	Read/Write	
 	//		
 	//	If this element is a child of another, used to set or retrieve the ElementID of the other element; if not, returns 0.	
 	//		
@@ -1228,7 +1219,7 @@ class Element {
 	//	The phase this element is scheduled to be constructed in; any string value.	
 	//		
 	//		
-	String	Priority //	Read/Write	
+//	String	Priority //	Read/Write	
 	//		
 	//	The priority of this element as compared to other project elements; only applies to Requirement, Change and Issue types, otherwise ignored.	
 	//		
@@ -1240,12 +1231,12 @@ class Element {
 	//	The properties are purposely undocumented because of their obscure nature and because they are subject to change as progressive enhancements are made to them.	
 	//		
 	//		
-	Long	PropertyType //	Read/Write	
+//	Long	PropertyType //	Read/Write	
 	//		
 	//	The ElementID of a Type associated with this element; only valid for Port and Part elements.	
 	//		
 	//		
-	String	PropertyTypeName //	Read	
+//	String	PropertyTypeName //	Read	
 	//		
 	//	The name of a Type associated with this element; only valid for Port and Part elements.	
 	//		
@@ -1310,7 +1301,7 @@ class Element {
 	//	Advanced style settings; reserved for the use of Sparx Systems.	
 	//		
 	//		
-	Long	Subtype //	Read/Write	
+//	Long	Subtype //	Read/Write	
 	//		
 	//	A numeric subtype that qualifies the Type of the main element	
 	//		
@@ -1332,17 +1323,17 @@ class Element {
 	//	Note that there are many more Types than indicated in the above examples.	
 	//		
 	//		
-	String	Tablespace //	Read/Write	
+//	String	Tablespace //	Read/Write	
 	//		
 	//	Associated tablespace for a Table element.	
 	//		
 	//		
-	String	Tag //	Read/Write	
+//	String	Tag //	Read/Write	
 	//		
 	//	Corresponds to the Keywords field in the Enterprise Architect user interface.	
 	//		
 	//		
-	contains TaggedValue[] TaggedValues //	Read only	
+//	contains TaggedValue[] TaggedValues //	Read only	
 	//		
 	//	Returns a collection of TaggedValue objects.	
 	//		
@@ -1414,7 +1405,16 @@ class Element {
 //		
 //	Valid values are: Public, Private, Protected or Package.	
 //		
-//		
+//	
+String Style 
+int  Backcolor
+int  BorderStyle
+int  BorderWidth
+int  Fontcolor
+int  Bordercolor
+String Cardinality
+String Concurrency
+String PDATA1
 }
 
 //associated with t_operation table in .eap file
@@ -1506,7 +1506,7 @@ class Method {
 	//	Distinguishes objects referenced through a Dispatch interface.	
 	//		
 	//		
-	contains Parameter[] Parameters //	Read only	
+//	contains Parameter[] Parameters //	Read only	
 	//		
 	//	The Parameters collection for the current method, used to add and access parameter objects for the current method.	
 	//		
@@ -1521,12 +1521,12 @@ class Method {
 	//	Specifies the position of the method within the set of operations defined for a Class.	
 	//		
 	//		
-	contains PreCondition[] PreConditions opposite Method //	Read only	
-	//		
-	//	The PostConditions (constraints) as they apply to this method. This returns a MethodConstraint object of type post.	
-	//		
-	//		
-	contains PostCondition[] PostConditions opposite Method //	Read only	
+//	contains PreCondition[] PreConditions opposite Method //	Read only	
+//	//		
+//	//	The PostConditions (constraints) as they apply to this method. This returns a MethodConstraint object of type post.	
+//	//		
+//	//		
+//	contains PostCondition[] PostConditions opposite Method //	Read only	
 	//		
 	//	The PreConditions (constraints) as they apply to this method. This returns a MethodConstraint object of type pre.	
 	//		
@@ -1566,7 +1566,7 @@ class Method {
 	//	Advanced style settings, reserved for the use of Sparx Systems.	
 	//		
 	//		
-	contains MethodTag[] TaggedValues //	Read only	
+//	contains MethodTag[] TaggedValues //	Read only	
 	//		
 	//	The TaggedValues collection for the current method. This accesses a list of MethodTag objects.	
 	//
@@ -1587,98 +1587,95 @@ String Concurrency
 String GenOption
 }
 
-//associated with t_operationpres and t_operationposts table in .eap file
-abstract class MethodConstraint {
-//	container Method Method
-	 //	Read/Write
-	//	
-	//	The local ID of the associated method.
-	//	
-	//	
-	String	Notes //	Read/Write
-	//	
-	//	Descriptive notes about this constraint.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	Type //	Read/Write
-//	
-//	The constraint type.
-}
+////associated with t_operationpres and t_operationposts table in .eap file
+//abstract class MethodConstraint {
+////	container Method Method
+//	 //	Read/Write
+//	//	
+//	//	The local ID of the associated method.
+//	//	
+//	//	
+//	String	Notes //	Read/Write
+//	//	
+//	//	Descriptive notes about this constraint.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	Type //	Read/Write
+////	
+////	The constraint type.
+//}
 
-class PreCondition extends MethodConstraint {
-	container Method Method opposite PreConditions
-	
-	String PreCondition
-}
+//class PreCondition extends MethodConstraint {
+//	container Method Method opposite PreConditions
+//	
+//	String PreCondition
+//}
+//
+//class PostCondition extends MethodConstraint {
+//	container Method Method opposite PostConditions
+//	
+//	String PostCondition
+//}
 
-class PostCondition extends MethodConstraint {
-	container Method Method opposite PostConditions
-	
-	String PostCondition
-}
-
-//associated with t_operationtag table in .eap file
-class MethodTag {
-	String	FQName //	Read only
-	//	
-	//	The fully-qualified name of the tag.
-	//	
-	//	
-	Long	MethodID //	Read/Write
-	//	
-	//	The ID of the associated method.
-	//	
-	//	
-	String	Name //	Read/Write
-	//	
-	//	The tag or name of the property.
-	//	
-	//	
-	String	Notes //	Read/Write
-	//	
-	//	Further descriptive notes about this tag. 
-	//	
-	//	If Value (below) is set to "<memo>", then Notes should contain the actual Tagged Value content.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	TagGUID //	Read/Write
-	//	
-	//	A unique GUID for this Tagged Value.
-	//	
-	//	
-	Long	TagID //	Read only
-	//	
-	//	A unique ID for this Tagged Value.
-	//	
-	//	
-	String	Value //	Read/Write
-//	
-//	The value assigned to this tag.
-//	
-//	This field has a 255 character limit. If the value is greater than 255 characters long, set the value to "<memo>" and insert the body of text in the Notes attribute (above). 
-//	
-//	When reading existing Tagged Values, if Value = "<memo>" then the developer should read the actual body of text from the Notes attribute.
-//	
-//	
-}
+////associated with t_operationtag table in .eap file
+//class MethodTag {
+//	String	FQName //	Read only
+//	//	
+//	//	The fully-qualified name of the tag.
+//	//	
+//	//	
+//	Long	MethodID //	Read/Write
+//	//	
+//	//	The ID of the associated method.
+//	//	
+//	//	
+//	String	Name //	Read/Write
+//	//	
+//	//	The tag or name of the property.
+//	//	
+//	//	
+//	String	Notes //	Read/Write
+//	//	
+//	//	Further descriptive notes about this tag. 
+//	//	
+//	//	If Value (below) is set to "<memo>", then Notes should contain the actual Tagged Value content.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	TagGUID //	Read/Write
+//	//	
+//	//	A unique GUID for this Tagged Value.
+//	//	
+//	//	
+//	Long	TagID //	Read only
+//	//	
+//	//	A unique ID for this Tagged Value.
+//	//	
+//	//	
+//	String	Value //	Read/Write
+////	
+////	The value assigned to this tag.
+////	
+////	This field has a 255 character limit. If the value is greater than 255 characters long, set the value to "<memo>" and insert the body of text in the Notes attribute (above). 
+////	
+////	When reading existing Tagged Values, if Value = "<memo>" then the developer should read the actual body of text from the Notes attribute.
+////	
+////	
+//}
 
 //associated with t_package table in .eap file
 class Package {
-	String	Alias //	Read only
-	//	
-	//	Alias
-	//	
-	//	
+	String PackageGUID
+	
 	Long	BatchLoad //	Read/Write
 	//	
 	//	Flag to indicate that the Package is batch loaded during batch import from controlled Packages.
@@ -1703,7 +1700,7 @@ class Package {
 	//	The collection of connectors.
 	//	
 	//	
-	Date	Created //	Read/Write
+	Date	CreatedDate //	Read/Write
 	//	
 	//	Date the Package was created.
 	//	
@@ -1713,11 +1710,11 @@ class Package {
 	//	A collection of diagrams contained in this Package.
 	//	
 	//	
-	contains Element Element //	Read only
-	//	
-	//	The associated element object; use to get/set common information such as Stereotype, Complexity, Alias, Author, Constraints, Tagged Values and Scenarios.
-	//	
-	//	
+//	contains Element Element //	Read only
+//	//	
+//	//	The associated element object; use to get/set common information such as Stereotype, Complexity, Alias, Author, Constraints, Tagged Values and Scenarios.
+//	//	
+//	//	
 	contains Element[] Elements opposite Package //	Read only
 	//	
 	//	A collection of elements that belong to this Package.
@@ -1733,11 +1730,6 @@ class Package {
 	//	Indicates if the Package has been marked as Controlled.
 	//	
 	//	
-	Boolean	IsModel //	Read only
-	//	
-	//	Indicates if the Package is a model or a Package.
-	//	
-	//	
 	Boolean	IsNamespace //	Read/Write
 	//	
 	//	True indicates that 'Package is a Namespace root'.
@@ -1748,11 +1740,6 @@ class Package {
 	Boolean	IsProtected //	Read/Write
 	//	
 	//	Indicates if the Package has been marked as Protected.
-	//	
-	//	
-	Boolean	IsVersionControlled //	Read only
-	//	
-	//	Indicates whether or not this Package is under version control.
 	//	
 	//	
 	Date	LastLoadDate //	Read/Write
@@ -1770,7 +1757,7 @@ class Package {
 	//	Indicates if XMI export information is to be logged.
 	//	
 	//	
-	Date	Modified //	Read/Write
+	Date	ModifiedDate //	Read/Write
 	//	
 	//	Date the Package was last modified.
 	//	
@@ -1807,12 +1794,12 @@ class Package {
 	//	Valid only in this model file.
 	//	
 	//	
-	contains Package[] Packages //	Read only
+	contains Package[] Packages opposite Parent //	Read only
 	//	
 	//	A collection of contained Packages that can be walked through.
 	//	
 	//	
-	Long 	ParentID //	Read/Write
+	container Package Parent opposite Packages //	Read/Write
 	//	
 	//	The ID of the Package that is the parent of this one.
 	//	
@@ -1846,176 +1833,176 @@ class Package {
 //	
 }
 
-//associated with t_operationparams table in .eap file
-class Parameter {
-	String	Alias //	Read/Write
-	//	
-	//	An optional alias for this parameter.
-	//	
-	//	
-	String	ClassifierID //	Read/Write
-	//	
-	//	A ClassifierID for the parameter, if known.
-	//	
-	//	
-	String	Default //	Read/Write
-	//	
-	//	A default value for this parameter.
-	//	
-	//	
-	Boolean	IsConst //	Read/Write
-	//	
-	//	A flag indicating that the parameter is Const (cannot be altered).
-	//	
-	//	
-	String	Kind //	Read/Write
-	//	
-	//	The parameter kind - in, inout, out, or return.
-	//	
-	//	
-	String	Name //	Read/Write
-	//	
-	//	The parameter name; this must be unique for a single method.
-	//	
-	//	
-	String	Notes //	Read/Write
-	//	
-	//	Descriptive notes.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	Long	OperationID //	Read only
-	//	
-	//	The ID of the method associated with this parameter.
-	//	
-	//	
-	String	ParameterGUID //	Read/Write
-	//	
-	//	A system generated, globally unique ID for the current Parameter.
-	//	
-	//	
-	Long	Position //	Read/Write
-	//	
-	//	The position of the parameter in the argument list.
-	//	
-	//	
-	String	Stereotype //	Read/Write
-	//	
-	//	The first stereotype of the parameter.
-	//	
-	//	
-	String	StereotypeEx //	Read/Write
-	//	
-	//	All the applied stereotypes of the parameter in a comma-separated list.
-	//	
-	//	
-	String	Style //	Read/Write
-	//	
-	//	Some style information.
-	//	
-	//	
-	String	StyleEx //	Read/Write
-	//	
-	//	Advanced style settings, reserved for the use of Sparx Systems.
-	//	
-	//	
-	contains ParamTag[] TaggedValues //	Read/Write
-//	
-//	The GUID of the parameter with which this ParamTag is associated.
-//	
-//	
-//Variant	Type	//	Read/Write
-//	
-//	The parameter type; can be a primitive type or a defined classifier.
-}
+////associated with t_operationparams table in .eap file
+//class Parameter {
+//	String	Alias //	Read/Write
+//	//	
+//	//	An optional alias for this parameter.
+//	//	
+//	//	
+//	String	ClassifierID //	Read/Write
+//	//	
+//	//	A ClassifierID for the parameter, if known.
+//	//	
+//	//	
+//	String	Default //	Read/Write
+//	//	
+//	//	A default value for this parameter.
+//	//	
+//	//	
+//	Boolean	IsConst //	Read/Write
+//	//	
+//	//	A flag indicating that the parameter is Const (cannot be altered).
+//	//	
+//	//	
+//	String	Kind //	Read/Write
+//	//	
+//	//	The parameter kind - in, inout, out, or return.
+//	//	
+//	//	
+//	String	Name //	Read/Write
+//	//	
+//	//	The parameter name; this must be unique for a single method.
+//	//	
+//	//	
+//	String	Notes //	Read/Write
+//	//	
+//	//	Descriptive notes.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	Long	OperationID //	Read only
+//	//	
+//	//	The ID of the method associated with this parameter.
+//	//	
+//	//	
+//	String	ParameterGUID //	Read/Write
+//	//	
+//	//	A system generated, globally unique ID for the current Parameter.
+//	//	
+//	//	
+//	Long	Position //	Read/Write
+//	//	
+//	//	The position of the parameter in the argument list.
+//	//	
+//	//	
+//	String	Stereotype //	Read/Write
+//	//	
+//	//	The first stereotype of the parameter.
+//	//	
+//	//	
+//	String	StereotypeEx //	Read/Write
+//	//	
+//	//	All the applied stereotypes of the parameter in a comma-separated list.
+//	//	
+//	//	
+//	String	Style //	Read/Write
+//	//	
+//	//	Some style information.
+//	//	
+//	//	
+//	String	StyleEx //	Read/Write
+//	//	
+//	//	Advanced style settings, reserved for the use of Sparx Systems.
+//	//	
+//	//	
+//	contains ParamTag[] TaggedValues //	Read/Write
+////	
+////	The GUID of the parameter with which this ParamTag is associated.
+////	
+////	
+////Variant	Type	//	Read/Write
+////	
+////	The parameter type; can be a primitive type or a defined classifier.
+//}
 
 //associated with t_taggedvalue table in .eap file
-class ParamTag {
-	String	ElementGUID //	Read/Write
-	//	
-	//	The GUID of the parameter with which this ParamTag is associated.
-	//	
-	//	
-	String	FQName //	Read only
-	//	
-	//	The fully qualified name of the tag.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	PropertyGUID //	Read/Write
-	//	
-	//	A system generated GUID to identify the Tagged Value.
-	//	
-	//	
-	String	Tag //	Read/Write
-	//	
-	//	The actual tag name.
-	//	
-	//	
-	String	Value //	Read/Write
-//	
-//	The value associated with this tag.
-//	
-//	
-}
+//class ParamTag {
+//	String	ElementGUID //	Read/Write
+//	//	
+//	//	The GUID of the parameter with which this ParamTag is associated.
+//	//	
+//	//	
+//	String	FQName //	Read only
+//	//	
+//	//	The fully qualified name of the tag.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	PropertyGUID //	Read/Write
+//	//	
+//	//	A system generated GUID to identify the Tagged Value.
+//	//	
+//	//	
+//	String	Tag //	Read/Write
+//	//	
+//	//	The actual tag name.
+//	//	
+//	//	
+//	String	Value //	Read/Write
+////	
+////	The value associated with this tag.
+////	
+////	
+//}
 
-//associated with t_objectproperties table in .eap file
-class TaggedValue {
-	Long	ElementID //	Read/Write
-	//	
-	//	The local ID of the associated element.
-	//	
-	//	
-	String	FQName //	Read only
-	//	
-	//	The fully-qualified name of the tag.
-	//	
-	//	
-	String	Name //	Read/Write
-	//	
-	//	The name of the tag.
-	//	
-	//	
-	String	Notes //	Read/Write
-	//	
-	//	Further descriptive notes about this tag. 
-	//	
-	//	If Value (below) is set to "<memo>", then Notes should contain the actual Tagged Value content.
-	//	
-	//	
-	//ObjectType	ObjectType	//	Read only
-	//	
-	//	Distinguishes objects referenced through a Dispatch interface.
-	//	
-	//	
-	String	PropertyGUID //	Read/Write
-	//	
-	//	The global ID of the tag.
-	//	
-	//	
-	Long	PropertyID //	Read only
-	//	
-	//	The local ID of the tag.
-	//	
-	//	
-	String	Value //	Read/Write
-//	
-//	The value assigned to this tag.
-//	
-//	This field has a 255 character limit. If the value is greater than 255 characters long, set the value to "<memo>" and insert the body of text in the Notes attribute (above). 
-//	
-//	When reading existing Tagged Values, if Value = "<memo>" then the developer should read the actual body of text from the Notes attribute.
-//	
-//	
-}
+////associated with t_objectproperties table in .eap file
+//class TaggedValue {
+//	Long	ElementID //	Read/Write
+//	//	
+//	//	The local ID of the associated element.
+//	//	
+//	//	
+//	String	FQName //	Read only
+//	//	
+//	//	The fully-qualified name of the tag.
+//	//	
+//	//	
+//	String	Name //	Read/Write
+//	//	
+//	//	The name of the tag.
+//	//	
+//	//	
+//	String	Notes //	Read/Write
+//	//	
+//	//	Further descriptive notes about this tag. 
+//	//	
+//	//	If Value (below) is set to "<memo>", then Notes should contain the actual Tagged Value content.
+//	//	
+//	//	
+//	//ObjectType	ObjectType	//	Read only
+//	//	
+//	//	Distinguishes objects referenced through a Dispatch interface.
+//	//	
+//	//	
+//	String	PropertyGUID //	Read/Write
+//	//	
+//	//	The global ID of the tag.
+//	//	
+//	//	
+//	Long	PropertyID //	Read only
+//	//	
+//	//	The local ID of the tag.
+//	//	
+//	//	
+//	String	Value //	Read/Write
+////	
+////	The value assigned to this tag.
+////	
+////	This field has a 255 character limit. If the value is greater than 255 characters long, set the value to "<memo>" and insert the body of text in the Notes attribute (above). 
+////	
+////	When reading existing Tagged Values, if Value = "<memo>" then the developer should read the actual body of text from the Notes attribute.
+////	
+////	
+//}
 
 
 

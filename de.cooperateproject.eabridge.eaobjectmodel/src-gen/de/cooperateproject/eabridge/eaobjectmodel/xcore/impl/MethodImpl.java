@@ -4,18 +4,10 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,10 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,18 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getMethodID <em>Method ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getNotes <em>Notes</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getPos <em>Pos</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getPreConditions <em>Pre Conditions</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getReturnIsArray <em>Return Is Array</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getStateFlags <em>State Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getStyleEx <em>Style Ex</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getThrows <em>Throws</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl#getConcurrency <em>Concurrency</em>}</li>
@@ -373,16 +358,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	protected String notes = NOTES_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Parameter> parameters;
-
-	/**
 	 * The default value of the '{@link #getPos() <em>Pos</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -401,26 +376,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * @ordered
 	 */
 	protected Long pos = POS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getPreConditions() <em>Pre Conditions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPreConditions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PreCondition> preConditions;
-
-	/**
-	 * The cached value of the '{@link #getPostConditions() <em>Post Conditions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPostConditions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PostCondition> postConditions;
 
 	/**
 	 * The default value of the '{@link #getReturnIsArray() <em>Return Is Array</em>}' attribute.
@@ -541,16 +496,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * @ordered
 	 */
 	protected String styleEx = STYLE_EX_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTaggedValues() <em>Tagged Values</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTaggedValues()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<MethodTag> taggedValues;
 
 	/**
 	 * The default value of the '{@link #getThrows() <em>Throws</em>}' attribute.
@@ -971,18 +916,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Parameter> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, XcorePackage.METHOD__PARAMETERS);
-		}
-		return parameters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Element getParent() {
 		if (eContainerFeatureID() != XcorePackage.METHOD__PARENT) return null;
 		return (Element)eContainer();
@@ -1048,30 +981,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 		pos = newPos;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.METHOD__POS, oldPos, pos));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<PreCondition> getPreConditions() {
-		if (preConditions == null) {
-			preConditions = new EObjectContainmentWithInverseEList<PreCondition>(PreCondition.class, this, XcorePackage.METHOD__PRE_CONDITIONS, XcorePackage.PRE_CONDITION__METHOD);
-		}
-		return preConditions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<PostCondition> getPostConditions() {
-		if (postConditions == null) {
-			postConditions = new EObjectContainmentWithInverseEList<PostCondition>(PostCondition.class, this, XcorePackage.METHOD__POST_CONDITIONS, XcorePackage.POST_CONDITION__METHOD);
-		}
-		return postConditions;
 	}
 
 	/**
@@ -1205,18 +1114,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MethodTag> getTaggedValues() {
-		if (taggedValues == null) {
-			taggedValues = new EObjectContainmentEList<MethodTag>(MethodTag.class, this, XcorePackage.METHOD__TAGGED_VALUES);
-		}
-		return taggedValues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getThrows() {
 		return throws_;
 	}
@@ -1301,7 +1198,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -1309,10 +1205,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParent((Element)otherEnd, msgs);
-			case XcorePackage.METHOD__PRE_CONDITIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPreConditions()).basicAdd(otherEnd, msgs);
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPostConditions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -1325,16 +1217,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XcorePackage.METHOD__PARAMETERS:
-				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case XcorePackage.METHOD__PARENT:
 				return basicSetParent(null, msgs);
-			case XcorePackage.METHOD__PRE_CONDITIONS:
-				return ((InternalEList<?>)getPreConditions()).basicRemove(otherEnd, msgs);
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				return ((InternalEList<?>)getPostConditions()).basicRemove(otherEnd, msgs);
-			case XcorePackage.METHOD__TAGGED_VALUES:
-				return ((InternalEList<?>)getTaggedValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1391,17 +1275,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return getName();
 			case XcorePackage.METHOD__NOTES:
 				return getNotes();
-			case XcorePackage.METHOD__PARAMETERS:
-				return getParameters();
 			case XcorePackage.METHOD__PARENT:
 				if (resolve) return getParent();
 				return basicGetParent();
 			case XcorePackage.METHOD__POS:
 				return getPos();
-			case XcorePackage.METHOD__PRE_CONDITIONS:
-				return getPreConditions();
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				return getPostConditions();
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				return getReturnIsArray();
 			case XcorePackage.METHOD__RETURN_TYPE:
@@ -1414,8 +1292,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return getStyle();
 			case XcorePackage.METHOD__STYLE_EX:
 				return getStyleEx();
-			case XcorePackage.METHOD__TAGGED_VALUES:
-				return getTaggedValues();
 			case XcorePackage.METHOD__THROWS:
 				return getThrows();
 			case XcorePackage.METHOD__VISIBILITY:
@@ -1433,7 +1309,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -1482,23 +1357,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__NOTES:
 				setNotes((String)newValue);
 				return;
-			case XcorePackage.METHOD__PARAMETERS:
-				getParameters().clear();
-				getParameters().addAll((Collection<? extends Parameter>)newValue);
-				return;
 			case XcorePackage.METHOD__PARENT:
 				setParent((Element)newValue);
 				return;
 			case XcorePackage.METHOD__POS:
 				setPos((Long)newValue);
-				return;
-			case XcorePackage.METHOD__PRE_CONDITIONS:
-				getPreConditions().clear();
-				getPreConditions().addAll((Collection<? extends PreCondition>)newValue);
-				return;
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				getPostConditions().clear();
-				getPostConditions().addAll((Collection<? extends PostCondition>)newValue);
 				return;
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				setReturnIsArray((Boolean)newValue);
@@ -1517,10 +1380,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return;
 			case XcorePackage.METHOD__STYLE_EX:
 				setStyleEx((String)newValue);
-				return;
-			case XcorePackage.METHOD__TAGGED_VALUES:
-				getTaggedValues().clear();
-				getTaggedValues().addAll((Collection<? extends MethodTag>)newValue);
 				return;
 			case XcorePackage.METHOD__THROWS:
 				setThrows((String)newValue);
@@ -1591,20 +1450,11 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case XcorePackage.METHOD__NOTES:
 				setNotes(NOTES_EDEFAULT);
 				return;
-			case XcorePackage.METHOD__PARAMETERS:
-				getParameters().clear();
-				return;
 			case XcorePackage.METHOD__PARENT:
 				setParent((Element)null);
 				return;
 			case XcorePackage.METHOD__POS:
 				setPos(POS_EDEFAULT);
-				return;
-			case XcorePackage.METHOD__PRE_CONDITIONS:
-				getPreConditions().clear();
-				return;
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				getPostConditions().clear();
 				return;
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				setReturnIsArray(RETURN_IS_ARRAY_EDEFAULT);
@@ -1623,9 +1473,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return;
 			case XcorePackage.METHOD__STYLE_EX:
 				setStyleEx(STYLE_EX_EDEFAULT);
-				return;
-			case XcorePackage.METHOD__TAGGED_VALUES:
-				getTaggedValues().clear();
 				return;
 			case XcorePackage.METHOD__THROWS:
 				setThrows(THROWS_EDEFAULT);
@@ -1681,16 +1528,10 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case XcorePackage.METHOD__NOTES:
 				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
-			case XcorePackage.METHOD__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
 			case XcorePackage.METHOD__PARENT:
 				return basicGetParent() != null;
 			case XcorePackage.METHOD__POS:
 				return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
-			case XcorePackage.METHOD__PRE_CONDITIONS:
-				return preConditions != null && !preConditions.isEmpty();
-			case XcorePackage.METHOD__POST_CONDITIONS:
-				return postConditions != null && !postConditions.isEmpty();
 			case XcorePackage.METHOD__RETURN_IS_ARRAY:
 				return RETURN_IS_ARRAY_EDEFAULT == null ? returnIsArray != null : !RETURN_IS_ARRAY_EDEFAULT.equals(returnIsArray);
 			case XcorePackage.METHOD__RETURN_TYPE:
@@ -1703,8 +1544,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
 			case XcorePackage.METHOD__STYLE_EX:
 				return STYLE_EX_EDEFAULT == null ? styleEx != null : !STYLE_EX_EDEFAULT.equals(styleEx);
-			case XcorePackage.METHOD__TAGGED_VALUES:
-				return taggedValues != null && !taggedValues.isEmpty();
 			case XcorePackage.METHOD__THROWS:
 				return THROWS_EDEFAULT == null ? throws_ != null : !THROWS_EDEFAULT.equals(throws_);
 			case XcorePackage.METHOD__VISIBILITY:

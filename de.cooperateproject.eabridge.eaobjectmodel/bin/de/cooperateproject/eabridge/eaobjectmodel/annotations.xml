@@ -80,36 +80,15 @@
 			</property>
 		</eclass>
 
-		<eclass name="ConnectorConstraint">
-			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.ConnectorConstraintPK</id-class>
-			<property name="Connector">
-				<join-column name="ConnectorID" />
-				<id />
-			</property>
-			<property name="Constraint">
-				<id />
-			</property>
-		</eclass>
+		<!-- <eclass name="ConnectorConstraint"> <id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.ConnectorConstraintPK</id-class> 
+			<property name="Connector"> <join-column name="ConnectorID" /> <id /> </property> 
+			<property name="Constraint"> <id /> </property> </eclass> -->
 
-		<eclass name="ConnectorTag">
-			<property name="TagID">
-				<id />
-				<generated-value />
-				<column name="PropertyID" />
-			</property>
-			<property name="Connector">
-				<join-column name="ElementID" />
-			</property>
-			<property name="Value">
-				<column name="VALUE" />
-			</property>
-			<property name="Notes">
-				<column name="NOTES" />
-			</property>
-			<property name="TagGUID">
-				<column name="ea_guid" />
-			</property>
-		</eclass>
+		<!-- <eclass name="ConnectorTag"> <property name="TagID"> <id /> <generated-value 
+			/> <column name="PropertyID" /> </property> <property name="Connector"> <join-column 
+			name="ElementID" /> </property> <property name="Value"> <column name="VALUE" 
+			/> </property> <property name="Notes"> <column name="NOTES" /> </property> 
+			<property name="TagGUID"> <column name="ea_guid" /> </property> </eclass> -->
 
 		<eclass name="Method">
 			<table name="t_operation" />
@@ -143,13 +122,71 @@
 				<join-column name="Object_ID" />
 			</property>
 		</eclass>
-		
-<!-- 		<eclass name="PostCondition">
-		<inheritance>TABLE_PER_CLASS</inheritance>
-		</eclass> -->
+
+		<eclass name="Package">
+			<property name="PackageID">
+				<column name="Package_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Parent">
+				<join-column name="Parent_ID"/>
+			</property>
+			<property name="PackageGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="Flags">
+				<column name="PackageFlags" />
+			</property>
+			<property name="Owner">
+				<column name="PkgOwner" />
+			</property>
+			<property name="TreePos">
+				<column name="TPos" />
+			</property>
+			<property name="PackageGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="IsNamespace">
+				<column name="Namespace" />
+			</property>
+			<property name="IsProtected">
+				<column name="Protected" />
+			</property>
+		</eclass>
+
+		<!-- <eclass name="PostCondition"> <inheritance>TABLE_PER_CLASS</inheritance> 
+			</eclass> -->
 
 		<eclass name="Element">
 			<table name="t_object" />
+			<property name="ElementID">
+				<column name="Object_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Classifier">
+				<join-column name="Classifier" />
+			</property>
+			<property name="Parent">
+				<join-column name="ParentID" />
+			</property>
+			<property name="Package">
+				<join-column name="Package_ID" />
+			</property>
+			<property name="ElementGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="Notes">
+				<column name="Note" />
+			</property>
+			<property name="TreePos">
+				<column name="TPos" />
+			</property>
+			<property name="Type">
+				<column name="Object_Type" />
+			</property>
 		</eclass>
+
 	</epackage>
 </persistence-mapping>

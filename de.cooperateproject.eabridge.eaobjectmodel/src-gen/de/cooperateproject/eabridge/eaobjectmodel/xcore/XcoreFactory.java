@@ -58,24 +58,6 @@ public interface XcoreFactory extends EFactory {
 	Connector createConnector();
 
 	/**
-	 * Returns a new object of class '<em>Connector Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Connector Constraint</em>'.
-	 * @generated
-	 */
-	ConnectorConstraint createConnectorConstraint();
-
-	/**
-	 * Returns a new object of class '<em>Connector Tag</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Connector Tag</em>'.
-	 * @generated
-	 */
-	ConnectorTag createConnectorTag();
-
-	/**
 	 * Returns a new object of class '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,33 +76,6 @@ public interface XcoreFactory extends EFactory {
 	Method createMethod();
 
 	/**
-	 * Returns a new object of class '<em>Pre Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pre Condition</em>'.
-	 * @generated
-	 */
-	PreCondition createPreCondition();
-
-	/**
-	 * Returns a new object of class '<em>Post Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Post Condition</em>'.
-	 * @generated
-	 */
-	PostCondition createPostCondition();
-
-	/**
-	 * Returns a new object of class '<em>Method Tag</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Method Tag</em>'.
-	 * @generated
-	 */
-	MethodTag createMethodTag();
-
-	/**
 	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,33 +83,6 @@ public interface XcoreFactory extends EFactory {
 	 * @generated
 	 */
 	Package createPackage();
-
-	/**
-	 * Returns a new object of class '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter</em>'.
-	 * @generated
-	 */
-	Parameter createParameter();
-
-	/**
-	 * Returns a new object of class '<em>Param Tag</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Param Tag</em>'.
-	 * @generated
-	 */
-	ParamTag createParamTag();
-
-	/**
-	 * Returns a new object of class '<em>Tagged Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tagged Value</em>'.
-	 * @generated
-	 */
-	TaggedValue createTaggedValue();
 
 	/**
 	 * Returns the package supported by this factory.

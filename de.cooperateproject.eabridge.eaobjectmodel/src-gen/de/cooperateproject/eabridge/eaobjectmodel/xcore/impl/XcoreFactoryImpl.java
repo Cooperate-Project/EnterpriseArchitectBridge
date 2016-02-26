@@ -6,18 +6,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ParamTag;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcoreFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -78,17 +70,9 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 			case XcorePackage.ATTRIBUTE_CONSTRAINT: return createAttributeConstraint();
 			case XcorePackage.ATTRIBUTE_TAG: return createAttributeTag();
 			case XcorePackage.CONNECTOR: return createConnector();
-			case XcorePackage.CONNECTOR_CONSTRAINT: return createConnectorConstraint();
-			case XcorePackage.CONNECTOR_TAG: return createConnectorTag();
 			case XcorePackage.ELEMENT: return createElement();
 			case XcorePackage.METHOD: return createMethod();
-			case XcorePackage.PRE_CONDITION: return createPreCondition();
-			case XcorePackage.POST_CONDITION: return createPostCondition();
-			case XcorePackage.METHOD_TAG: return createMethodTag();
 			case XcorePackage.PACKAGE: return createPackage();
-			case XcorePackage.PARAMETER: return createParameter();
-			case XcorePackage.PARAM_TAG: return createParamTag();
-			case XcorePackage.TAGGED_VALUE: return createTaggedValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -173,26 +157,6 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorConstraint createConnectorConstraint() {
-		ConnectorConstraintImpl connectorConstraint = new ConnectorConstraintImpl();
-		return connectorConstraint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConnectorTag createConnectorTag() {
-		ConnectorTagImpl connectorTag = new ConnectorTagImpl();
-		return connectorTag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Element createElement() {
 		ElementImpl element = new ElementImpl();
 		return element;
@@ -213,69 +177,9 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PreCondition createPreCondition() {
-		PreConditionImpl preCondition = new PreConditionImpl();
-		return preCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PostCondition createPostCondition() {
-		PostConditionImpl postCondition = new PostConditionImpl();
-		return postCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MethodTag createMethodTag() {
-		MethodTagImpl methodTag = new MethodTagImpl();
-		return methodTag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public de.cooperateproject.eabridge.eaobjectmodel.xcore.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parameter createParameter() {
-		ParameterImpl parameter = new ParameterImpl();
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParamTag createParamTag() {
-		ParamTagImpl paramTag = new ParamTagImpl();
-		return paramTag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TaggedValue createTaggedValue() {
-		TaggedValueImpl taggedValue = new TaggedValueImpl();
-		return taggedValue;
 	}
 
 	/**

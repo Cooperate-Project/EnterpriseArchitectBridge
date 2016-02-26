@@ -3,28 +3,18 @@
 package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorConstraint;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +25,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConnectorID <em>Connector ID</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndX <em>Pt End X</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndY <em>Pt End Y</em>}</li>
@@ -56,7 +45,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStyleEx <em>Style Ex</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getVirtualInheritance <em>Virtual Inheritance</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getSource <em>Source</em>}</li>
@@ -133,16 +121,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected Long connectorID = CONNECTOR_ID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConstraints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ConnectorConstraint> constraints;
 
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -543,16 +521,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected String subType = SUB_TYPE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTaggedValues() <em>Tagged Values</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTaggedValues()
-	 * @generated
-	 * @ordered
-	 */
-	protected ConnectorTag taggedValues;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -1619,18 +1587,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConnectorConstraint> getConstraints() {
-		if (constraints == null) {
-			constraints = new EObjectContainmentWithInverseEList<ConnectorConstraint>(ConnectorConstraint.class, this, XcorePackage.CONNECTOR__CONSTRAINTS, XcorePackage.CONNECTOR_CONSTRAINT__CONNECTOR);
-		}
-		return constraints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DirectionType getDirection() {
 		return direction;
 	}
@@ -2044,49 +2000,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		subType = newSubType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__SUB_TYPE, oldSubType, subType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConnectorTag getTaggedValues() {
-		return taggedValues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTaggedValues(ConnectorTag newTaggedValues, NotificationChain msgs) {
-		ConnectorTag oldTaggedValues = taggedValues;
-		taggedValues = newTaggedValues;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__TAGGED_VALUES, oldTaggedValues, newTaggedValues);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTaggedValues(ConnectorTag newTaggedValues) {
-		if (newTaggedValues != taggedValues) {
-			NotificationChain msgs = null;
-			if (taggedValues != null)
-				msgs = ((InternalEObject)taggedValues).eInverseRemove(this, XcorePackage.CONNECTOR_TAG__CONNECTOR, ConnectorTag.class, msgs);
-			if (newTaggedValues != null)
-				msgs = ((InternalEObject)newTaggedValues).eInverseAdd(this, XcorePackage.CONNECTOR_TAG__CONNECTOR, ConnectorTag.class, msgs);
-			msgs = basicSetTaggedValues(newTaggedValues, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__TAGGED_VALUES, newTaggedValues, newTaggedValues));
 	}
 
 	/**
@@ -3220,48 +3133,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case XcorePackage.CONNECTOR__CONSTRAINTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConstraints()).basicAdd(otherEnd, msgs);
-			case XcorePackage.CONNECTOR__TAGGED_VALUES:
-				if (taggedValues != null)
-					msgs = ((InternalEObject)taggedValues).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XcorePackage.CONNECTOR__TAGGED_VALUES, null, msgs);
-				return basicSetTaggedValues((ConnectorTag)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case XcorePackage.CONNECTOR__CONSTRAINTS:
-				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
-			case XcorePackage.CONNECTOR__TAGGED_VALUES:
-				return basicSetTaggedValues(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return getConnectorID();
-			case XcorePackage.CONNECTOR__CONSTRAINTS:
-				return getConstraints();
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return getDirection();
 			case XcorePackage.CONNECTOR__PT_END_X:
@@ -3302,8 +3178,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return getStyleEx();
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				return getSubType();
-			case XcorePackage.CONNECTOR__TAGGED_VALUES:
-				return getTaggedValues();
 			case XcorePackage.CONNECTOR__TYPE:
 				return getType();
 			case XcorePackage.CONNECTOR__VIRTUAL_INHERITANCE:
@@ -3419,16 +3293,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID((Long)newValue);
-				return;
-			case XcorePackage.CONNECTOR__CONSTRAINTS:
-				getConstraints().clear();
-				getConstraints().addAll((Collection<? extends ConnectorConstraint>)newValue);
 				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection((DirectionType)newValue);
@@ -3489,9 +3358,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return;
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				setSubType((String)newValue);
-				return;
-			case XcorePackage.CONNECTOR__TAGGED_VALUES:
-				setTaggedValues((ConnectorTag)newValue);
 				return;
 			case XcorePackage.CONNECTOR__TYPE:
 				setType((ConnectorType)newValue);
@@ -3664,9 +3530,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID(CONNECTOR_ID_EDEFAULT);
 				return;
-			case XcorePackage.CONNECTOR__CONSTRAINTS:
-				getConstraints().clear();
-				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection(DIRECTION_EDEFAULT);
 				return;
@@ -3726,9 +3589,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return;
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				setSubType(SUB_TYPE_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__TAGGED_VALUES:
-				setTaggedValues((ConnectorTag)null);
 				return;
 			case XcorePackage.CONNECTOR__TYPE:
 				setType(TYPE_EDEFAULT);
@@ -3900,8 +3760,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return CONNECTOR_ID_EDEFAULT == null ? connectorID != null : !CONNECTOR_ID_EDEFAULT.equals(connectorID);
-			case XcorePackage.CONNECTOR__CONSTRAINTS:
-				return constraints != null && !constraints.isEmpty();
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return direction != DIRECTION_EDEFAULT;
 			case XcorePackage.CONNECTOR__PT_END_X:
@@ -3942,8 +3800,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return STYLE_EX_EDEFAULT == null ? styleEx != null : !STYLE_EX_EDEFAULT.equals(styleEx);
 			case XcorePackage.CONNECTOR__SUB_TYPE:
 				return SUB_TYPE_EDEFAULT == null ? subType != null : !SUB_TYPE_EDEFAULT.equals(subType);
-			case XcorePackage.CONNECTOR__TAGGED_VALUES:
-				return taggedValues != null;
 			case XcorePackage.CONNECTOR__TYPE:
 				return type != TYPE_EDEFAULT;
 			case XcorePackage.CONNECTOR__VIRTUAL_INHERITANCE:

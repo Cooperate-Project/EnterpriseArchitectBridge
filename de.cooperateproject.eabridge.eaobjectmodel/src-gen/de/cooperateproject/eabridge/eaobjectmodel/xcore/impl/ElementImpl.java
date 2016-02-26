@@ -5,7 +5,6 @@ package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.TaggedValue;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 import java.util.Collection;
@@ -17,13 +16,11 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -39,35 +36,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getAlias <em>Alias</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getAssociationClassConnectorID <em>Association Class Connector ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getAuthor <em>Author</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getBaseClasses <em>Base Classes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getClassifier <em>Classifier</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getClassifierName <em>Classifier Name</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getClassifierType <em>Classifier Type</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getClassifier_guid <em>Classifier guid</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getComplexity <em>Complexity</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCreated <em>Created</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getDifficulty <em>Difficulty</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCreatedDate <em>Created Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElementGUID <em>Element GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElementID <em>Element ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getElements <em>Elements</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getEmbeddedElements <em>Embedded Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getEventFlags <em>Event Flags</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getExtensionPoints <em>Extension Points</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getGenFile <em>Gen File</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getGenlinks <em>Genlinks</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getGenType <em>Gen Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsActive <em>Is Active</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsComposite <em>Is Composite</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsLeaf <em>Is Leaf</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsNew <em>Is New</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getIsSpec <em>Is Spec</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getLocked <em>Locked</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMetaType <em>Meta Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMethods <em>Methods</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMiscData <em>Misc Data</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getModified <em>Modified</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getModifiedDate <em>Modified Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getNotes <em>Notes</em>}</li>
@@ -75,21 +61,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPersistence <em>Persistence</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPhase <em>Phase</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPropertyType <em>Property Type</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPropertyTypeName <em>Property Type Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getRunState <em>Run State</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getStyleEx <em>Style Ex</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getSubtype <em>Subtype</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTablespace <em>Tablespace</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTag <em>Tag</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getTreePos <em>Tree Pos</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getStyle <em>Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getBackcolor <em>Backcolor</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getBorderStyle <em>Border Style</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getBorderWidth <em>Border Width</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getFontcolor <em>Fontcolor</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getBordercolor <em>Bordercolor</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCardinality <em>Cardinality</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getConcurrency <em>Concurrency</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPDATA1 <em>PDATA1</em>}</li>
  * </ul>
  *
  * @generated
@@ -156,26 +144,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String alias = ALIAS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAssociationClassConnectorID() <em>Association Class Connector ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssociationClassConnectorID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long ASSOCIATION_CLASS_CONNECTOR_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAssociationClassConnectorID() <em>Association Class Connector ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssociationClassConnectorID()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long associationClassConnectorID = ASSOCIATION_CLASS_CONNECTOR_ID_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,16 +174,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String author = AUTHOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBaseClasses() <em>Base Classes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBaseClasses()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Element> baseClasses;
-
-	/**
 	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,44 +184,24 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected Element classifier;
 
 	/**
-	 * The default value of the '{@link #getClassifierName() <em>Classifier Name</em>}' attribute.
+	 * The default value of the '{@link #getClassifier_guid() <em>Classifier guid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClassifierName()
+	 * @see #getClassifier_guid()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CLASSIFIER_NAME_EDEFAULT = null;
+	protected static final String CLASSIFIER_GUID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getClassifierName() <em>Classifier Name</em>}' attribute.
+	 * The cached value of the '{@link #getClassifier_guid() <em>Classifier guid</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClassifierName()
+	 * @see #getClassifier_guid()
 	 * @generated
 	 * @ordered
 	 */
-	protected String classifierName = CLASSIFIER_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getClassifierType() <em>Classifier Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClassifierType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CLASSIFIER_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getClassifierType() <em>Classifier Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClassifierType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String classifierType = CLASSIFIER_TYPE_EDEFAULT;
+	protected String classifier_guid = CLASSIFIER_GUID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getComplexity() <em>Complexity</em>}' attribute.
@@ -286,44 +224,24 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String complexity = COMPLEXITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The default value of the '{@link #getCreatedDate() <em>Created Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date CREATED_EDEFAULT = null;
+	protected static final Date CREATED_DATE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The cached value of the '{@link #getCreatedDate() <em>Created Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date created = CREATED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDifficulty() <em>Difficulty</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDifficulty()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DIFFICULTY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDifficulty() <em>Difficulty</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDifficulty()
-	 * @generated
-	 * @ordered
-	 */
-	protected String difficulty = DIFFICULTY_EDEFAULT;
+	protected Date createdDate = CREATED_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getElementGUID() <em>Element GUID</em>}' attribute.
@@ -376,16 +294,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected EList<Element> elements;
 
 	/**
-	 * The cached value of the '{@link #getEmbeddedElements() <em>Embedded Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEmbeddedElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Element> embeddedElements;
-
-	/**
 	 * The default value of the '{@link #getEventFlags() <em>Event Flags</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -404,26 +312,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected String eventFlags = EVENT_FLAGS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getExtensionPoints() <em>Extension Points</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExtensionPoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String EXTENSION_POINTS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getExtensionPoints() <em>Extension Points</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExtensionPoints()
-	 * @generated
-	 * @ordered
-	 */
-	protected String extensionPoints = EXTENSION_POINTS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getGenFile() <em>Gen File</em>}' attribute.
@@ -506,26 +394,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected Boolean isActive = IS_ACTIVE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getIsComposite() <em>Is Composite</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsComposite()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean IS_COMPOSITE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIsComposite() <em>Is Composite</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsComposite()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean isComposite = IS_COMPOSITE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getIsLeaf() <em>Is Leaf</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -544,26 +412,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected Boolean isLeaf = IS_LEAF_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getIsNew() <em>Is New</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsNew()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean IS_NEW_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIsNew() <em>Is New</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsNew()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean isNew = IS_NEW_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getIsSpec() <em>Is Spec</em>}' attribute.
@@ -586,46 +434,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected Boolean isSpec = IS_SPEC_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLocked() <em>Locked</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocked()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean LOCKED_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLocked() <em>Locked</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocked()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean locked = LOCKED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMetaType() <em>Meta Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetaType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String META_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMetaType() <em>Meta Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetaType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String metaType = META_TYPE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -636,44 +444,24 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected EList<Method> methods;
 
 	/**
-	 * The default value of the '{@link #getMiscData() <em>Misc Data</em>}' attribute.
+	 * The default value of the '{@link #getModifiedDate() <em>Modified Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMiscData()
+	 * @see #getModifiedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MISC_DATA_EDEFAULT = null;
+	protected static final Date MODIFIED_DATE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMiscData() <em>Misc Data</em>}' attribute.
+	 * The cached value of the '{@link #getModifiedDate() <em>Modified Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMiscData()
+	 * @see #getModifiedDate()
 	 * @generated
 	 * @ordered
 	 */
-	protected String miscData = MISC_DATA_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getModified() <em>Modified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModified()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date MODIFIED_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getModified() <em>Modified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModified()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date modified = MODIFIED_EDEFAULT;
+	protected Date modifiedDate = MODIFIED_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
@@ -776,66 +564,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String phase = PHASE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPriority()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PRIORITY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPriority()
-	 * @generated
-	 * @ordered
-	 */
-	protected String priority = PRIORITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPropertyType() <em>Property Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPropertyType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long PROPERTY_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPropertyType() <em>Property Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPropertyType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long propertyType = PROPERTY_TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPropertyTypeName() <em>Property Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPropertyTypeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PROPERTY_TYPE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPropertyTypeName() <em>Property Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPropertyTypeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String propertyTypeName = PROPERTY_TYPE_NAME_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getRunState() <em>Run State</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -916,76 +644,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String styleEx = STYLE_EX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSubtype() <em>Subtype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubtype()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long SUBTYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSubtype() <em>Subtype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubtype()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long subtype = SUBTYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTablespace() <em>Tablespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTablespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TABLESPACE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTablespace() <em>Tablespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTablespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected String tablespace = TABLESPACE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTag() <em>Tag</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTag()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TAG_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTag()
-	 * @generated
-	 * @ordered
-	 */
-	protected String tag = TAG_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTaggedValues() <em>Tagged Values</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTaggedValues()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TaggedValue> taggedValues;
-
-	/**
 	 * The default value of the '{@link #getTreePos() <em>Tree Pos</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1064,6 +722,186 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @ordered
 	 */
 	protected String visibility = VISIBILITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected String style = STYLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBackcolor() <em>Backcolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackcolor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BACKCOLOR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBackcolor() <em>Backcolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackcolor()
+	 * @generated
+	 * @ordered
+	 */
+	protected int backcolor = BACKCOLOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBorderStyle() <em>Border Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BORDER_STYLE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBorderStyle() <em>Border Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected int borderStyle = BORDER_STYLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBorderWidth() <em>Border Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BORDER_WIDTH_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBorderWidth() <em>Border Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBorderWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected int borderWidth = BORDER_WIDTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFontcolor() <em>Fontcolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFontcolor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int FONTCOLOR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getFontcolor() <em>Fontcolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFontcolor()
+	 * @generated
+	 * @ordered
+	 */
+	protected int fontcolor = FONTCOLOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBordercolor() <em>Bordercolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBordercolor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BORDERCOLOR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBordercolor() <em>Bordercolor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBordercolor()
+	 * @generated
+	 * @ordered
+	 */
+	protected int bordercolor = BORDERCOLOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCardinality() <em>Cardinality</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardinality()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CARDINALITY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCardinality() <em>Cardinality</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardinality()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cardinality = CARDINALITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConcurrency() <em>Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcurrency()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONCURRENCY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConcurrency() <em>Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcurrency()
+	 * @generated
+	 * @ordered
+	 */
+	protected String concurrency = CONCURRENCY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPDATA1() <em>PDATA1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA1()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA1_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPDATA1() <em>PDATA1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA1()
+	 * @generated
+	 * @ordered
+	 */
+	protected String pdata1 = PDATA1_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1152,27 +990,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getAssociationClassConnectorID() {
-		return associationClassConnectorID;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssociationClassConnectorID(Long newAssociationClassConnectorID) {
-		Long oldAssociationClassConnectorID = associationClassConnectorID;
-		associationClassConnectorID = newAssociationClassConnectorID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__ASSOCIATION_CLASS_CONNECTOR_ID, oldAssociationClassConnectorID, associationClassConnectorID));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Attribute> getAttributes() {
 		if (attributes == null) {
 			attributes = new EObjectContainmentWithInverseEList<Attribute>(Attribute.class, this, XcorePackage.ELEMENT__ATTRIBUTES, XcorePackage.ATTRIBUTE__PARENT);
@@ -1199,18 +1016,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		author = newAuthor;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__AUTHOR, oldAuthor, author));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Element> getBaseClasses() {
-		if (baseClasses == null) {
-			baseClasses = new EObjectContainmentEList<Element>(Element.class, this, XcorePackage.ELEMENT__BASE_CLASSES);
-		}
-		return baseClasses;
 	}
 
 	/**
@@ -1256,8 +1061,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClassifierName() {
-		return classifierName;
+	public String getClassifier_guid() {
+		return classifier_guid;
 	}
 
 	/**
@@ -1265,32 +1070,11 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClassifierName(String newClassifierName) {
-		String oldClassifierName = classifierName;
-		classifierName = newClassifierName;
+	public void setClassifier_guid(String newClassifier_guid) {
+		String oldClassifier_guid = classifier_guid;
+		classifier_guid = newClassifier_guid;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CLASSIFIER_NAME, oldClassifierName, classifierName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getClassifierType() {
-		return classifierType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClassifierType(String newClassifierType) {
-		String oldClassifierType = classifierType;
-		classifierType = newClassifierType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CLASSIFIER_TYPE, oldClassifierType, classifierType));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CLASSIFIER_GUID, oldClassifier_guid, classifier_guid));
 	}
 
 	/**
@@ -1319,8 +1103,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getCreated() {
-		return created;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
 	/**
@@ -1328,32 +1112,11 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreated(Date newCreated) {
-		Date oldCreated = created;
-		created = newCreated;
+	public void setCreatedDate(Date newCreatedDate) {
+		Date oldCreatedDate = createdDate;
+		createdDate = newCreatedDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CREATED, oldCreated, created));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDifficulty() {
-		return difficulty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDifficulty(String newDifficulty) {
-		String oldDifficulty = difficulty;
-		difficulty = newDifficulty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__DIFFICULTY, oldDifficulty, difficulty));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CREATED_DATE, oldCreatedDate, createdDate));
 	}
 
 	/**
@@ -1405,21 +1168,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 */
 	public EList<Element> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<Element>(Element.class, this, XcorePackage.ELEMENT__ELEMENTS);
+			elements = new EObjectContainmentWithInverseEList<Element>(Element.class, this, XcorePackage.ELEMENT__ELEMENTS, XcorePackage.ELEMENT__PARENT);
 		}
 		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Element> getEmbeddedElements() {
-		if (embeddedElements == null) {
-			embeddedElements = new EObjectContainmentEList<Element>(Element.class, this, XcorePackage.ELEMENT__EMBEDDED_ELEMENTS);
-		}
-		return embeddedElements;
 	}
 
 	/**
@@ -1441,27 +1192,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		eventFlags = newEventFlags;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__EVENT_FLAGS, oldEventFlags, eventFlags));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getExtensionPoints() {
-		return extensionPoints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExtensionPoints(String newExtensionPoints) {
-		String oldExtensionPoints = extensionPoints;
-		extensionPoints = newExtensionPoints;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__EXTENSION_POINTS, oldExtensionPoints, extensionPoints));
 	}
 
 	/**
@@ -1553,27 +1283,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getIsComposite() {
-		return isComposite;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsComposite(Boolean newIsComposite) {
-		Boolean oldIsComposite = isComposite;
-		isComposite = newIsComposite;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__IS_COMPOSITE, oldIsComposite, isComposite));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Boolean getIsLeaf() {
 		return isLeaf;
 	}
@@ -1588,27 +1297,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		isLeaf = newIsLeaf;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__IS_LEAF, oldIsLeaf, isLeaf));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getIsNew() {
-		return isNew;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsNew(Boolean newIsNew) {
-		Boolean oldIsNew = isNew;
-		isNew = newIsNew;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__IS_NEW, oldIsNew, isNew));
 	}
 
 	/**
@@ -1637,48 +1325,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getLocked() {
-		return locked;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLocked(Boolean newLocked) {
-		Boolean oldLocked = locked;
-		locked = newLocked;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__LOCKED, oldLocked, locked));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getMetaType() {
-		return metaType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMetaType(String newMetaType) {
-		String oldMetaType = metaType;
-		metaType = newMetaType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__META_TYPE, oldMetaType, metaType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Method> getMethods() {
 		if (methods == null) {
 			methods = new EObjectContainmentWithInverseEList<Method>(Method.class, this, XcorePackage.ELEMENT__METHODS, XcorePackage.METHOD__PARENT);
@@ -1691,8 +1337,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMiscData() {
-		return miscData;
+	public Date getModifiedDate() {
+		return modifiedDate;
 	}
 
 	/**
@@ -1700,32 +1346,11 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMiscData(String newMiscData) {
-		String oldMiscData = miscData;
-		miscData = newMiscData;
+	public void setModifiedDate(Date newModifiedDate) {
+		Date oldModifiedDate = modifiedDate;
+		modifiedDate = newModifiedDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__MISC_DATA, oldMiscData, miscData));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Date getModified() {
-		return modified;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModified(Date newModified) {
-		Date oldModified = modified;
-		modified = newModified;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__MODIFIED, oldModified, modified));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__MODIFIED_DATE, oldModifiedDate, modifiedDate));
 	}
 
 	/**
@@ -1848,8 +1473,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 */
 	public Element getParent() {
-		Element parent = basicGetParent();
-		return parent != null && parent.eIsProxy() ? (Element)eResolveProxy((InternalEObject)parent) : parent;
+		if (eContainerFeatureID() != XcorePackage.ELEMENT__PARENT) return null;
+		return (Element)eContainer();
 	}
 
 	/**
@@ -1858,8 +1483,39 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 */
 	public Element basicGetParent() {
-		EObject _eContainer = this.eContainer();
-		return ((Element) _eContainer);
+		if (eContainerFeatureID() != XcorePackage.ELEMENT__PARENT) return null;
+		return (Element)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(Element newParent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParent, XcorePackage.ELEMENT__PARENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(Element newParent) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != XcorePackage.ELEMENT__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, XcorePackage.ELEMENT__ELEMENTS, Element.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__PARENT, newParent, newParent));
 	}
 
 	/**
@@ -1902,69 +1558,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		phase = newPhase;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__PHASE, oldPhase, phase));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPriority() {
-		return priority;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPriority(String newPriority) {
-		String oldPriority = priority;
-		priority = newPriority;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__PRIORITY, oldPriority, priority));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Long getPropertyType() {
-		return propertyType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPropertyType(Long newPropertyType) {
-		Long oldPropertyType = propertyType;
-		propertyType = newPropertyType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__PROPERTY_TYPE, oldPropertyType, propertyType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPropertyTypeName() {
-		return propertyTypeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPropertyTypeName(String newPropertyTypeName) {
-		String oldPropertyTypeName = propertyTypeName;
-		propertyTypeName = newPropertyTypeName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__PROPERTY_TYPE_NAME, oldPropertyTypeName, propertyTypeName));
 	}
 
 	/**
@@ -2056,81 +1649,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getSubtype() {
-		return subtype;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSubtype(Long newSubtype) {
-		Long oldSubtype = subtype;
-		subtype = newSubtype;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__SUBTYPE, oldSubtype, subtype));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTablespace() {
-		return tablespace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTablespace(String newTablespace) {
-		String oldTablespace = tablespace;
-		tablespace = newTablespace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__TABLESPACE, oldTablespace, tablespace));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTag() {
-		return tag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTag(String newTag) {
-		String oldTag = tag;
-		tag = newTag;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__TAG, oldTag, tag));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TaggedValue> getTaggedValues() {
-		if (taggedValues == null) {
-			taggedValues = new EObjectContainmentEList<TaggedValue>(TaggedValue.class, this, XcorePackage.ELEMENT__TAGGED_VALUES);
-		}
-		return taggedValues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Long getTreePos() {
 		return treePos;
 	}
@@ -2215,18 +1733,213 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getStyle() {
+		return style;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStyle(String newStyle) {
+		String oldStyle = style;
+		style = newStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__STYLE, oldStyle, style));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getBackcolor() {
+		return backcolor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBackcolor(int newBackcolor) {
+		int oldBackcolor = backcolor;
+		backcolor = newBackcolor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__BACKCOLOR, oldBackcolor, backcolor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getBorderStyle() {
+		return borderStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBorderStyle(int newBorderStyle) {
+		int oldBorderStyle = borderStyle;
+		borderStyle = newBorderStyle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__BORDER_STYLE, oldBorderStyle, borderStyle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getBorderWidth() {
+		return borderWidth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBorderWidth(int newBorderWidth) {
+		int oldBorderWidth = borderWidth;
+		borderWidth = newBorderWidth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__BORDER_WIDTH, oldBorderWidth, borderWidth));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getFontcolor() {
+		return fontcolor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFontcolor(int newFontcolor) {
+		int oldFontcolor = fontcolor;
+		fontcolor = newFontcolor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__FONTCOLOR, oldFontcolor, fontcolor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getBordercolor() {
+		return bordercolor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBordercolor(int newBordercolor) {
+		int oldBordercolor = bordercolor;
+		bordercolor = newBordercolor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__BORDERCOLOR, oldBordercolor, bordercolor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCardinality() {
+		return cardinality;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCardinality(String newCardinality) {
+		String oldCardinality = cardinality;
+		cardinality = newCardinality;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CARDINALITY, oldCardinality, cardinality));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getConcurrency() {
+		return concurrency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConcurrency(String newConcurrency) {
+		String oldConcurrency = concurrency;
+		concurrency = newConcurrency;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CONCURRENCY, oldConcurrency, concurrency));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPDATA1() {
+		return pdata1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPDATA1(String newPDATA1) {
+		String oldPDATA1 = pdata1;
+		pdata1 = newPDATA1;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__PDATA1, oldPDATA1, pdata1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case XcorePackage.ELEMENT__ATTRIBUTES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAttributes()).basicAdd(otherEnd, msgs);
+			case XcorePackage.ELEMENT__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 			case XcorePackage.ELEMENT__METHODS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMethods()).basicAdd(otherEnd, msgs);
 			case XcorePackage.ELEMENT__PACKAGE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPackage((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)otherEnd, msgs);
+			case XcorePackage.ELEMENT__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((Element)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -2241,18 +1954,14 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		switch (featureID) {
 			case XcorePackage.ELEMENT__ATTRIBUTES:
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__BASE_CLASSES:
-				return ((InternalEList<?>)getBaseClasses()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-			case XcorePackage.ELEMENT__EMBEDDED_ELEMENTS:
-				return ((InternalEList<?>)getEmbeddedElements()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__METHODS:
 				return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
 			case XcorePackage.ELEMENT__PACKAGE:
 				return basicSetPackage(null, msgs);
-			case XcorePackage.ELEMENT__TAGGED_VALUES:
-				return ((InternalEList<?>)getTaggedValues()).basicRemove(otherEnd, msgs);
+			case XcorePackage.ELEMENT__PARENT:
+				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -2267,6 +1976,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		switch (eContainerFeatureID()) {
 			case XcorePackage.ELEMENT__PACKAGE:
 				return eInternalContainer().eInverseRemove(this, XcorePackage.PACKAGE__ELEMENTS, de.cooperateproject.eabridge.eaobjectmodel.xcore.Package.class, msgs);
+			case XcorePackage.ELEMENT__PARENT:
+				return eInternalContainer().eInverseRemove(this, XcorePackage.ELEMENT__ELEMENTS, Element.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -2285,39 +1996,27 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getActionFlags();
 			case XcorePackage.ELEMENT__ALIAS:
 				return getAlias();
-			case XcorePackage.ELEMENT__ASSOCIATION_CLASS_CONNECTOR_ID:
-				return getAssociationClassConnectorID();
 			case XcorePackage.ELEMENT__ATTRIBUTES:
 				return getAttributes();
 			case XcorePackage.ELEMENT__AUTHOR:
 				return getAuthor();
-			case XcorePackage.ELEMENT__BASE_CLASSES:
-				return getBaseClasses();
 			case XcorePackage.ELEMENT__CLASSIFIER:
 				if (resolve) return getClassifier();
 				return basicGetClassifier();
-			case XcorePackage.ELEMENT__CLASSIFIER_NAME:
-				return getClassifierName();
-			case XcorePackage.ELEMENT__CLASSIFIER_TYPE:
-				return getClassifierType();
+			case XcorePackage.ELEMENT__CLASSIFIER_GUID:
+				return getClassifier_guid();
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				return getComplexity();
-			case XcorePackage.ELEMENT__CREATED:
-				return getCreated();
-			case XcorePackage.ELEMENT__DIFFICULTY:
-				return getDifficulty();
+			case XcorePackage.ELEMENT__CREATED_DATE:
+				return getCreatedDate();
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				return getElementGUID();
 			case XcorePackage.ELEMENT__ELEMENT_ID:
 				return getElementID();
 			case XcorePackage.ELEMENT__ELEMENTS:
 				return getElements();
-			case XcorePackage.ELEMENT__EMBEDDED_ELEMENTS:
-				return getEmbeddedElements();
 			case XcorePackage.ELEMENT__EVENT_FLAGS:
 				return getEventFlags();
-			case XcorePackage.ELEMENT__EXTENSION_POINTS:
-				return getExtensionPoints();
 			case XcorePackage.ELEMENT__GEN_FILE:
 				return getGenFile();
 			case XcorePackage.ELEMENT__GENLINKS:
@@ -2326,24 +2025,14 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getGenType();
 			case XcorePackage.ELEMENT__IS_ACTIVE:
 				return getIsActive();
-			case XcorePackage.ELEMENT__IS_COMPOSITE:
-				return getIsComposite();
 			case XcorePackage.ELEMENT__IS_LEAF:
 				return getIsLeaf();
-			case XcorePackage.ELEMENT__IS_NEW:
-				return getIsNew();
 			case XcorePackage.ELEMENT__IS_SPEC:
 				return getIsSpec();
-			case XcorePackage.ELEMENT__LOCKED:
-				return getLocked();
-			case XcorePackage.ELEMENT__META_TYPE:
-				return getMetaType();
 			case XcorePackage.ELEMENT__METHODS:
 				return getMethods();
-			case XcorePackage.ELEMENT__MISC_DATA:
-				return getMiscData();
-			case XcorePackage.ELEMENT__MODIFIED:
-				return getModified();
+			case XcorePackage.ELEMENT__MODIFIED_DATE:
+				return getModifiedDate();
 			case XcorePackage.ELEMENT__MULTIPLICITY:
 				return getMultiplicity();
 			case XcorePackage.ELEMENT__NAME:
@@ -2360,12 +2049,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getPersistence();
 			case XcorePackage.ELEMENT__PHASE:
 				return getPhase();
-			case XcorePackage.ELEMENT__PRIORITY:
-				return getPriority();
-			case XcorePackage.ELEMENT__PROPERTY_TYPE:
-				return getPropertyType();
-			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
-				return getPropertyTypeName();
 			case XcorePackage.ELEMENT__RUN_STATE:
 				return getRunState();
 			case XcorePackage.ELEMENT__STATUS:
@@ -2374,14 +2057,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getStereotype();
 			case XcorePackage.ELEMENT__STYLE_EX:
 				return getStyleEx();
-			case XcorePackage.ELEMENT__SUBTYPE:
-				return getSubtype();
-			case XcorePackage.ELEMENT__TABLESPACE:
-				return getTablespace();
-			case XcorePackage.ELEMENT__TAG:
-				return getTag();
-			case XcorePackage.ELEMENT__TAGGED_VALUES:
-				return getTaggedValues();
 			case XcorePackage.ELEMENT__TREE_POS:
 				return getTreePos();
 			case XcorePackage.ELEMENT__TYPE:
@@ -2390,6 +2065,24 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getVersion();
 			case XcorePackage.ELEMENT__VISIBILITY:
 				return getVisibility();
+			case XcorePackage.ELEMENT__STYLE:
+				return getStyle();
+			case XcorePackage.ELEMENT__BACKCOLOR:
+				return getBackcolor();
+			case XcorePackage.ELEMENT__BORDER_STYLE:
+				return getBorderStyle();
+			case XcorePackage.ELEMENT__BORDER_WIDTH:
+				return getBorderWidth();
+			case XcorePackage.ELEMENT__FONTCOLOR:
+				return getFontcolor();
+			case XcorePackage.ELEMENT__BORDERCOLOR:
+				return getBordercolor();
+			case XcorePackage.ELEMENT__CARDINALITY:
+				return getCardinality();
+			case XcorePackage.ELEMENT__CONCURRENCY:
+				return getConcurrency();
+			case XcorePackage.ELEMENT__PDATA1:
+				return getPDATA1();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2412,9 +2105,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__ALIAS:
 				setAlias((String)newValue);
 				return;
-			case XcorePackage.ELEMENT__ASSOCIATION_CLASS_CONNECTOR_ID:
-				setAssociationClassConnectorID((Long)newValue);
-				return;
 			case XcorePackage.ELEMENT__ATTRIBUTES:
 				getAttributes().clear();
 				getAttributes().addAll((Collection<? extends Attribute>)newValue);
@@ -2422,27 +2112,17 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__AUTHOR:
 				setAuthor((String)newValue);
 				return;
-			case XcorePackage.ELEMENT__BASE_CLASSES:
-				getBaseClasses().clear();
-				getBaseClasses().addAll((Collection<? extends Element>)newValue);
-				return;
 			case XcorePackage.ELEMENT__CLASSIFIER:
 				setClassifier((Element)newValue);
 				return;
-			case XcorePackage.ELEMENT__CLASSIFIER_NAME:
-				setClassifierName((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__CLASSIFIER_TYPE:
-				setClassifierType((String)newValue);
+			case XcorePackage.ELEMENT__CLASSIFIER_GUID:
+				setClassifier_guid((String)newValue);
 				return;
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				setComplexity((String)newValue);
 				return;
-			case XcorePackage.ELEMENT__CREATED:
-				setCreated((Date)newValue);
-				return;
-			case XcorePackage.ELEMENT__DIFFICULTY:
-				setDifficulty((String)newValue);
+			case XcorePackage.ELEMENT__CREATED_DATE:
+				setCreatedDate((Date)newValue);
 				return;
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				setElementGUID((String)newValue);
@@ -2454,15 +2134,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				getElements().clear();
 				getElements().addAll((Collection<? extends Element>)newValue);
 				return;
-			case XcorePackage.ELEMENT__EMBEDDED_ELEMENTS:
-				getEmbeddedElements().clear();
-				getEmbeddedElements().addAll((Collection<? extends Element>)newValue);
-				return;
 			case XcorePackage.ELEMENT__EVENT_FLAGS:
 				setEventFlags((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__EXTENSION_POINTS:
-				setExtensionPoints((String)newValue);
 				return;
 			case XcorePackage.ELEMENT__GEN_FILE:
 				setGenFile((String)newValue);
@@ -2476,33 +2149,18 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__IS_ACTIVE:
 				setIsActive((Boolean)newValue);
 				return;
-			case XcorePackage.ELEMENT__IS_COMPOSITE:
-				setIsComposite((Boolean)newValue);
-				return;
 			case XcorePackage.ELEMENT__IS_LEAF:
 				setIsLeaf((Boolean)newValue);
 				return;
-			case XcorePackage.ELEMENT__IS_NEW:
-				setIsNew((Boolean)newValue);
-				return;
 			case XcorePackage.ELEMENT__IS_SPEC:
 				setIsSpec((Boolean)newValue);
-				return;
-			case XcorePackage.ELEMENT__LOCKED:
-				setLocked((Boolean)newValue);
-				return;
-			case XcorePackage.ELEMENT__META_TYPE:
-				setMetaType((String)newValue);
 				return;
 			case XcorePackage.ELEMENT__METHODS:
 				getMethods().clear();
 				getMethods().addAll((Collection<? extends Method>)newValue);
 				return;
-			case XcorePackage.ELEMENT__MISC_DATA:
-				setMiscData((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__MODIFIED:
-				setModified((Date)newValue);
+			case XcorePackage.ELEMENT__MODIFIED_DATE:
+				setModifiedDate((Date)newValue);
 				return;
 			case XcorePackage.ELEMENT__MULTIPLICITY:
 				setMultiplicity((String)newValue);
@@ -2516,20 +2174,14 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__PACKAGE:
 				setPackage((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)newValue);
 				return;
+			case XcorePackage.ELEMENT__PARENT:
+				setParent((Element)newValue);
+				return;
 			case XcorePackage.ELEMENT__PERSISTENCE:
 				setPersistence((String)newValue);
 				return;
 			case XcorePackage.ELEMENT__PHASE:
 				setPhase((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__PRIORITY:
-				setPriority((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__PROPERTY_TYPE:
-				setPropertyType((Long)newValue);
-				return;
-			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
-				setPropertyTypeName((String)newValue);
 				return;
 			case XcorePackage.ELEMENT__RUN_STATE:
 				setRunState((String)newValue);
@@ -2543,19 +2195,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__STYLE_EX:
 				setStyleEx((String)newValue);
 				return;
-			case XcorePackage.ELEMENT__SUBTYPE:
-				setSubtype((Long)newValue);
-				return;
-			case XcorePackage.ELEMENT__TABLESPACE:
-				setTablespace((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__TAG:
-				setTag((String)newValue);
-				return;
-			case XcorePackage.ELEMENT__TAGGED_VALUES:
-				getTaggedValues().clear();
-				getTaggedValues().addAll((Collection<? extends TaggedValue>)newValue);
-				return;
 			case XcorePackage.ELEMENT__TREE_POS:
 				setTreePos((Long)newValue);
 				return;
@@ -2567,6 +2206,33 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__VISIBILITY:
 				setVisibility((String)newValue);
+				return;
+			case XcorePackage.ELEMENT__STYLE:
+				setStyle((String)newValue);
+				return;
+			case XcorePackage.ELEMENT__BACKCOLOR:
+				setBackcolor((Integer)newValue);
+				return;
+			case XcorePackage.ELEMENT__BORDER_STYLE:
+				setBorderStyle((Integer)newValue);
+				return;
+			case XcorePackage.ELEMENT__BORDER_WIDTH:
+				setBorderWidth((Integer)newValue);
+				return;
+			case XcorePackage.ELEMENT__FONTCOLOR:
+				setFontcolor((Integer)newValue);
+				return;
+			case XcorePackage.ELEMENT__BORDERCOLOR:
+				setBordercolor((Integer)newValue);
+				return;
+			case XcorePackage.ELEMENT__CARDINALITY:
+				setCardinality((String)newValue);
+				return;
+			case XcorePackage.ELEMENT__CONCURRENCY:
+				setConcurrency((String)newValue);
+				return;
+			case XcorePackage.ELEMENT__PDATA1:
+				setPDATA1((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -2589,35 +2255,23 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__ALIAS:
 				setAlias(ALIAS_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__ASSOCIATION_CLASS_CONNECTOR_ID:
-				setAssociationClassConnectorID(ASSOCIATION_CLASS_CONNECTOR_ID_EDEFAULT);
-				return;
 			case XcorePackage.ELEMENT__ATTRIBUTES:
 				getAttributes().clear();
 				return;
 			case XcorePackage.ELEMENT__AUTHOR:
 				setAuthor(AUTHOR_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__BASE_CLASSES:
-				getBaseClasses().clear();
-				return;
 			case XcorePackage.ELEMENT__CLASSIFIER:
 				setClassifier((Element)null);
 				return;
-			case XcorePackage.ELEMENT__CLASSIFIER_NAME:
-				setClassifierName(CLASSIFIER_NAME_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__CLASSIFIER_TYPE:
-				setClassifierType(CLASSIFIER_TYPE_EDEFAULT);
+			case XcorePackage.ELEMENT__CLASSIFIER_GUID:
+				setClassifier_guid(CLASSIFIER_GUID_EDEFAULT);
 				return;
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				setComplexity(COMPLEXITY_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__CREATED:
-				setCreated(CREATED_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__DIFFICULTY:
-				setDifficulty(DIFFICULTY_EDEFAULT);
+			case XcorePackage.ELEMENT__CREATED_DATE:
+				setCreatedDate(CREATED_DATE_EDEFAULT);
 				return;
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				setElementGUID(ELEMENT_GUID_EDEFAULT);
@@ -2628,14 +2282,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__ELEMENTS:
 				getElements().clear();
 				return;
-			case XcorePackage.ELEMENT__EMBEDDED_ELEMENTS:
-				getEmbeddedElements().clear();
-				return;
 			case XcorePackage.ELEMENT__EVENT_FLAGS:
 				setEventFlags(EVENT_FLAGS_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__EXTENSION_POINTS:
-				setExtensionPoints(EXTENSION_POINTS_EDEFAULT);
 				return;
 			case XcorePackage.ELEMENT__GEN_FILE:
 				setGenFile(GEN_FILE_EDEFAULT);
@@ -2649,32 +2297,17 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__IS_ACTIVE:
 				setIsActive(IS_ACTIVE_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__IS_COMPOSITE:
-				setIsComposite(IS_COMPOSITE_EDEFAULT);
-				return;
 			case XcorePackage.ELEMENT__IS_LEAF:
 				setIsLeaf(IS_LEAF_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__IS_NEW:
-				setIsNew(IS_NEW_EDEFAULT);
 				return;
 			case XcorePackage.ELEMENT__IS_SPEC:
 				setIsSpec(IS_SPEC_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__LOCKED:
-				setLocked(LOCKED_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__META_TYPE:
-				setMetaType(META_TYPE_EDEFAULT);
-				return;
 			case XcorePackage.ELEMENT__METHODS:
 				getMethods().clear();
 				return;
-			case XcorePackage.ELEMENT__MISC_DATA:
-				setMiscData(MISC_DATA_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__MODIFIED:
-				setModified(MODIFIED_EDEFAULT);
+			case XcorePackage.ELEMENT__MODIFIED_DATE:
+				setModifiedDate(MODIFIED_DATE_EDEFAULT);
 				return;
 			case XcorePackage.ELEMENT__MULTIPLICITY:
 				setMultiplicity(MULTIPLICITY_EDEFAULT);
@@ -2688,20 +2321,14 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__PACKAGE:
 				setPackage((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)null);
 				return;
+			case XcorePackage.ELEMENT__PARENT:
+				setParent((Element)null);
+				return;
 			case XcorePackage.ELEMENT__PERSISTENCE:
 				setPersistence(PERSISTENCE_EDEFAULT);
 				return;
 			case XcorePackage.ELEMENT__PHASE:
 				setPhase(PHASE_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__PRIORITY:
-				setPriority(PRIORITY_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__PROPERTY_TYPE:
-				setPropertyType(PROPERTY_TYPE_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
-				setPropertyTypeName(PROPERTY_TYPE_NAME_EDEFAULT);
 				return;
 			case XcorePackage.ELEMENT__RUN_STATE:
 				setRunState(RUN_STATE_EDEFAULT);
@@ -2715,18 +2342,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__STYLE_EX:
 				setStyleEx(STYLE_EX_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__SUBTYPE:
-				setSubtype(SUBTYPE_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__TABLESPACE:
-				setTablespace(TABLESPACE_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__TAG:
-				setTag(TAG_EDEFAULT);
-				return;
-			case XcorePackage.ELEMENT__TAGGED_VALUES:
-				getTaggedValues().clear();
-				return;
 			case XcorePackage.ELEMENT__TREE_POS:
 				setTreePos(TREE_POS_EDEFAULT);
 				return;
@@ -2738,6 +2353,33 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return;
 			case XcorePackage.ELEMENT__VISIBILITY:
 				setVisibility(VISIBILITY_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__STYLE:
+				setStyle(STYLE_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__BACKCOLOR:
+				setBackcolor(BACKCOLOR_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__BORDER_STYLE:
+				setBorderStyle(BORDER_STYLE_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__BORDER_WIDTH:
+				setBorderWidth(BORDER_WIDTH_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__FONTCOLOR:
+				setFontcolor(FONTCOLOR_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__BORDERCOLOR:
+				setBordercolor(BORDERCOLOR_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__CARDINALITY:
+				setCardinality(CARDINALITY_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__CONCURRENCY:
+				setConcurrency(CONCURRENCY_EDEFAULT);
+				return;
+			case XcorePackage.ELEMENT__PDATA1:
+				setPDATA1(PDATA1_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -2757,38 +2399,26 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return ACTION_FLAGS_EDEFAULT == null ? actionFlags != null : !ACTION_FLAGS_EDEFAULT.equals(actionFlags);
 			case XcorePackage.ELEMENT__ALIAS:
 				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-			case XcorePackage.ELEMENT__ASSOCIATION_CLASS_CONNECTOR_ID:
-				return ASSOCIATION_CLASS_CONNECTOR_ID_EDEFAULT == null ? associationClassConnectorID != null : !ASSOCIATION_CLASS_CONNECTOR_ID_EDEFAULT.equals(associationClassConnectorID);
 			case XcorePackage.ELEMENT__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
 			case XcorePackage.ELEMENT__AUTHOR:
 				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
-			case XcorePackage.ELEMENT__BASE_CLASSES:
-				return baseClasses != null && !baseClasses.isEmpty();
 			case XcorePackage.ELEMENT__CLASSIFIER:
 				return classifier != null;
-			case XcorePackage.ELEMENT__CLASSIFIER_NAME:
-				return CLASSIFIER_NAME_EDEFAULT == null ? classifierName != null : !CLASSIFIER_NAME_EDEFAULT.equals(classifierName);
-			case XcorePackage.ELEMENT__CLASSIFIER_TYPE:
-				return CLASSIFIER_TYPE_EDEFAULT == null ? classifierType != null : !CLASSIFIER_TYPE_EDEFAULT.equals(classifierType);
+			case XcorePackage.ELEMENT__CLASSIFIER_GUID:
+				return CLASSIFIER_GUID_EDEFAULT == null ? classifier_guid != null : !CLASSIFIER_GUID_EDEFAULT.equals(classifier_guid);
 			case XcorePackage.ELEMENT__COMPLEXITY:
 				return COMPLEXITY_EDEFAULT == null ? complexity != null : !COMPLEXITY_EDEFAULT.equals(complexity);
-			case XcorePackage.ELEMENT__CREATED:
-				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
-			case XcorePackage.ELEMENT__DIFFICULTY:
-				return DIFFICULTY_EDEFAULT == null ? difficulty != null : !DIFFICULTY_EDEFAULT.equals(difficulty);
+			case XcorePackage.ELEMENT__CREATED_DATE:
+				return CREATED_DATE_EDEFAULT == null ? createdDate != null : !CREATED_DATE_EDEFAULT.equals(createdDate);
 			case XcorePackage.ELEMENT__ELEMENT_GUID:
 				return ELEMENT_GUID_EDEFAULT == null ? elementGUID != null : !ELEMENT_GUID_EDEFAULT.equals(elementGUID);
 			case XcorePackage.ELEMENT__ELEMENT_ID:
 				return ELEMENT_ID_EDEFAULT == null ? elementID != null : !ELEMENT_ID_EDEFAULT.equals(elementID);
 			case XcorePackage.ELEMENT__ELEMENTS:
 				return elements != null && !elements.isEmpty();
-			case XcorePackage.ELEMENT__EMBEDDED_ELEMENTS:
-				return embeddedElements != null && !embeddedElements.isEmpty();
 			case XcorePackage.ELEMENT__EVENT_FLAGS:
 				return EVENT_FLAGS_EDEFAULT == null ? eventFlags != null : !EVENT_FLAGS_EDEFAULT.equals(eventFlags);
-			case XcorePackage.ELEMENT__EXTENSION_POINTS:
-				return EXTENSION_POINTS_EDEFAULT == null ? extensionPoints != null : !EXTENSION_POINTS_EDEFAULT.equals(extensionPoints);
 			case XcorePackage.ELEMENT__GEN_FILE:
 				return GEN_FILE_EDEFAULT == null ? genFile != null : !GEN_FILE_EDEFAULT.equals(genFile);
 			case XcorePackage.ELEMENT__GENLINKS:
@@ -2797,24 +2427,14 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return GEN_TYPE_EDEFAULT == null ? genType != null : !GEN_TYPE_EDEFAULT.equals(genType);
 			case XcorePackage.ELEMENT__IS_ACTIVE:
 				return IS_ACTIVE_EDEFAULT == null ? isActive != null : !IS_ACTIVE_EDEFAULT.equals(isActive);
-			case XcorePackage.ELEMENT__IS_COMPOSITE:
-				return IS_COMPOSITE_EDEFAULT == null ? isComposite != null : !IS_COMPOSITE_EDEFAULT.equals(isComposite);
 			case XcorePackage.ELEMENT__IS_LEAF:
 				return IS_LEAF_EDEFAULT == null ? isLeaf != null : !IS_LEAF_EDEFAULT.equals(isLeaf);
-			case XcorePackage.ELEMENT__IS_NEW:
-				return IS_NEW_EDEFAULT == null ? isNew != null : !IS_NEW_EDEFAULT.equals(isNew);
 			case XcorePackage.ELEMENT__IS_SPEC:
 				return IS_SPEC_EDEFAULT == null ? isSpec != null : !IS_SPEC_EDEFAULT.equals(isSpec);
-			case XcorePackage.ELEMENT__LOCKED:
-				return LOCKED_EDEFAULT == null ? locked != null : !LOCKED_EDEFAULT.equals(locked);
-			case XcorePackage.ELEMENT__META_TYPE:
-				return META_TYPE_EDEFAULT == null ? metaType != null : !META_TYPE_EDEFAULT.equals(metaType);
 			case XcorePackage.ELEMENT__METHODS:
 				return methods != null && !methods.isEmpty();
-			case XcorePackage.ELEMENT__MISC_DATA:
-				return MISC_DATA_EDEFAULT == null ? miscData != null : !MISC_DATA_EDEFAULT.equals(miscData);
-			case XcorePackage.ELEMENT__MODIFIED:
-				return MODIFIED_EDEFAULT == null ? modified != null : !MODIFIED_EDEFAULT.equals(modified);
+			case XcorePackage.ELEMENT__MODIFIED_DATE:
+				return MODIFIED_DATE_EDEFAULT == null ? modifiedDate != null : !MODIFIED_DATE_EDEFAULT.equals(modifiedDate);
 			case XcorePackage.ELEMENT__MULTIPLICITY:
 				return MULTIPLICITY_EDEFAULT == null ? multiplicity != null : !MULTIPLICITY_EDEFAULT.equals(multiplicity);
 			case XcorePackage.ELEMENT__NAME:
@@ -2829,12 +2449,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return PERSISTENCE_EDEFAULT == null ? persistence != null : !PERSISTENCE_EDEFAULT.equals(persistence);
 			case XcorePackage.ELEMENT__PHASE:
 				return PHASE_EDEFAULT == null ? phase != null : !PHASE_EDEFAULT.equals(phase);
-			case XcorePackage.ELEMENT__PRIORITY:
-				return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
-			case XcorePackage.ELEMENT__PROPERTY_TYPE:
-				return PROPERTY_TYPE_EDEFAULT == null ? propertyType != null : !PROPERTY_TYPE_EDEFAULT.equals(propertyType);
-			case XcorePackage.ELEMENT__PROPERTY_TYPE_NAME:
-				return PROPERTY_TYPE_NAME_EDEFAULT == null ? propertyTypeName != null : !PROPERTY_TYPE_NAME_EDEFAULT.equals(propertyTypeName);
 			case XcorePackage.ELEMENT__RUN_STATE:
 				return RUN_STATE_EDEFAULT == null ? runState != null : !RUN_STATE_EDEFAULT.equals(runState);
 			case XcorePackage.ELEMENT__STATUS:
@@ -2843,14 +2457,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
 			case XcorePackage.ELEMENT__STYLE_EX:
 				return STYLE_EX_EDEFAULT == null ? styleEx != null : !STYLE_EX_EDEFAULT.equals(styleEx);
-			case XcorePackage.ELEMENT__SUBTYPE:
-				return SUBTYPE_EDEFAULT == null ? subtype != null : !SUBTYPE_EDEFAULT.equals(subtype);
-			case XcorePackage.ELEMENT__TABLESPACE:
-				return TABLESPACE_EDEFAULT == null ? tablespace != null : !TABLESPACE_EDEFAULT.equals(tablespace);
-			case XcorePackage.ELEMENT__TAG:
-				return TAG_EDEFAULT == null ? tag != null : !TAG_EDEFAULT.equals(tag);
-			case XcorePackage.ELEMENT__TAGGED_VALUES:
-				return taggedValues != null && !taggedValues.isEmpty();
 			case XcorePackage.ELEMENT__TREE_POS:
 				return TREE_POS_EDEFAULT == null ? treePos != null : !TREE_POS_EDEFAULT.equals(treePos);
 			case XcorePackage.ELEMENT__TYPE:
@@ -2859,6 +2465,24 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case XcorePackage.ELEMENT__VISIBILITY:
 				return VISIBILITY_EDEFAULT == null ? visibility != null : !VISIBILITY_EDEFAULT.equals(visibility);
+			case XcorePackage.ELEMENT__STYLE:
+				return STYLE_EDEFAULT == null ? style != null : !STYLE_EDEFAULT.equals(style);
+			case XcorePackage.ELEMENT__BACKCOLOR:
+				return backcolor != BACKCOLOR_EDEFAULT;
+			case XcorePackage.ELEMENT__BORDER_STYLE:
+				return borderStyle != BORDER_STYLE_EDEFAULT;
+			case XcorePackage.ELEMENT__BORDER_WIDTH:
+				return borderWidth != BORDER_WIDTH_EDEFAULT;
+			case XcorePackage.ELEMENT__FONTCOLOR:
+				return fontcolor != FONTCOLOR_EDEFAULT;
+			case XcorePackage.ELEMENT__BORDERCOLOR:
+				return bordercolor != BORDERCOLOR_EDEFAULT;
+			case XcorePackage.ELEMENT__CARDINALITY:
+				return CARDINALITY_EDEFAULT == null ? cardinality != null : !CARDINALITY_EDEFAULT.equals(cardinality);
+			case XcorePackage.ELEMENT__CONCURRENCY:
+				return CONCURRENCY_EDEFAULT == null ? concurrency != null : !CONCURRENCY_EDEFAULT.equals(concurrency);
+			case XcorePackage.ELEMENT__PDATA1:
+				return PDATA1_EDEFAULT == null ? pdata1 != null : !PDATA1_EDEFAULT.equals(pdata1);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -2879,28 +2503,20 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		result.append(actionFlags);
 		result.append(", Alias: ");
 		result.append(alias);
-		result.append(", AssociationClassConnectorID: ");
-		result.append(associationClassConnectorID);
 		result.append(", Author: ");
 		result.append(author);
-		result.append(", ClassifierName: ");
-		result.append(classifierName);
-		result.append(", ClassifierType: ");
-		result.append(classifierType);
+		result.append(", Classifier_guid: ");
+		result.append(classifier_guid);
 		result.append(", Complexity: ");
 		result.append(complexity);
-		result.append(", Created: ");
-		result.append(created);
-		result.append(", Difficulty: ");
-		result.append(difficulty);
+		result.append(", CreatedDate: ");
+		result.append(createdDate);
 		result.append(", ElementGUID: ");
 		result.append(elementGUID);
 		result.append(", ElementID: ");
 		result.append(elementID);
 		result.append(", EventFlags: ");
 		result.append(eventFlags);
-		result.append(", ExtensionPoints: ");
-		result.append(extensionPoints);
 		result.append(", GenFile: ");
 		result.append(genFile);
 		result.append(", Genlinks: ");
@@ -2909,22 +2525,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		result.append(genType);
 		result.append(", IsActive: ");
 		result.append(isActive);
-		result.append(", IsComposite: ");
-		result.append(isComposite);
 		result.append(", IsLeaf: ");
 		result.append(isLeaf);
-		result.append(", IsNew: ");
-		result.append(isNew);
 		result.append(", IsSpec: ");
 		result.append(isSpec);
-		result.append(", Locked: ");
-		result.append(locked);
-		result.append(", MetaType: ");
-		result.append(metaType);
-		result.append(", MiscData: ");
-		result.append(miscData);
-		result.append(", Modified: ");
-		result.append(modified);
+		result.append(", ModifiedDate: ");
+		result.append(modifiedDate);
 		result.append(", Multiplicity: ");
 		result.append(multiplicity);
 		result.append(", Name: ");
@@ -2935,12 +2541,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		result.append(persistence);
 		result.append(", Phase: ");
 		result.append(phase);
-		result.append(", Priority: ");
-		result.append(priority);
-		result.append(", PropertyType: ");
-		result.append(propertyType);
-		result.append(", PropertyTypeName: ");
-		result.append(propertyTypeName);
 		result.append(", RunState: ");
 		result.append(runState);
 		result.append(", Status: ");
@@ -2949,12 +2549,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		result.append(stereotype);
 		result.append(", StyleEx: ");
 		result.append(styleEx);
-		result.append(", Subtype: ");
-		result.append(subtype);
-		result.append(", Tablespace: ");
-		result.append(tablespace);
-		result.append(", Tag: ");
-		result.append(tag);
 		result.append(", TreePos: ");
 		result.append(treePos);
 		result.append(", Type: ");
@@ -2963,6 +2557,24 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		result.append(version);
 		result.append(", Visibility: ");
 		result.append(visibility);
+		result.append(", Style: ");
+		result.append(style);
+		result.append(", Backcolor: ");
+		result.append(backcolor);
+		result.append(", BorderStyle: ");
+		result.append(borderStyle);
+		result.append(", BorderWidth: ");
+		result.append(borderWidth);
+		result.append(", Fontcolor: ");
+		result.append(fontcolor);
+		result.append(", Bordercolor: ");
+		result.append(bordercolor);
+		result.append(", Cardinality: ");
+		result.append(cardinality);
+		result.append(", Concurrency: ");
+		result.append(concurrency);
+		result.append(", PDATA1: ");
+		result.append(pdata1);
 		result.append(')');
 		return result.toString();
 	}

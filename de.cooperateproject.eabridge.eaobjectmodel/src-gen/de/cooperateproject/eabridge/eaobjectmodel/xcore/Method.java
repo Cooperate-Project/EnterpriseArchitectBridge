@@ -2,8 +2,6 @@
  */
 package de.cooperateproject.eabridge.eaobjectmodel.xcore;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -30,18 +28,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getMethodID <em>Method ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getNotes <em>Notes</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getParameters <em>Parameters</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getParent <em>Parent</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPos <em>Pos</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPreConditions <em>Pre Conditions</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getReturnIsArray <em>Return Is Array</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getStateFlags <em>State Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getStyle <em>Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getStyleEx <em>Style Ex</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getThrows <em>Throws</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method#getConcurrency <em>Concurrency</em>}</li>
@@ -444,22 +438,6 @@ public interface Method extends EObject {
 	void setNotes(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Parameter}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_Parameters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Parameter> getParameters();
-
-	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getMethods <em>Methods</em>}'.
 	 * <!-- begin-user-doc -->
@@ -512,42 +490,6 @@ public interface Method extends EObject {
 	 * @generated
 	 */
 	void setPos(Long value);
-
-	/**
-	 * Returns the value of the '<em><b>Pre Conditions</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition}.
-	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getMethod <em>Method</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pre Conditions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pre Conditions</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_PreConditions()
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PreCondition#getMethod
-	 * @model opposite="Method" containment="true"
-	 * @generated
-	 */
-	EList<PreCondition> getPreConditions();
-
-	/**
-	 * Returns the value of the '<em><b>Post Conditions</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition}.
-	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getMethod <em>Method</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Post Conditions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Post Conditions</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_PostConditions()
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.PostCondition#getMethod
-	 * @model opposite="Method" containment="true"
-	 * @generated
-	 */
-	EList<PostCondition> getPostConditions();
 
 	/**
 	 * Returns the value of the '<em><b>Return Is Array</b></em>' attribute.
@@ -704,22 +646,6 @@ public interface Method extends EObject {
 	 * @generated
 	 */
 	void setStyleEx(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Tagged Values</b></em>' containment reference list.
-	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.MethodTag}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Tagged Values</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tagged Values</em>' containment reference list.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getMethod_TaggedValues()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<MethodTag> getTaggedValues();
 
 	/**
 	 * Returns the value of the '<em><b>Throws</b></em>' attribute.
