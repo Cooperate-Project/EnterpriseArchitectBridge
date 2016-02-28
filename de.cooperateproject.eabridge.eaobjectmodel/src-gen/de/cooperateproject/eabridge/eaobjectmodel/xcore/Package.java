@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCodePath <em>Code Path</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCreatedDate <em>Created Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getDiagrams <em>Diagrams</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCorrespondingElement <em>Corresponding Element</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getFlags <em>Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsControlled <em>Is Controlled</em>}</li>
@@ -197,6 +198,32 @@ public interface Package extends EObject {
 	 * @generated
 	 */
 	EList<Diagram> getDiagrams();
+
+	/**
+	 * Returns the value of the '<em><b>Corresponding Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Corresponding Element</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Corresponding Element</em>' reference.
+	 * @see #setCorrespondingElement(Element)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_CorrespondingElement()
+	 * @model
+	 * @generated
+	 */
+	Element getCorrespondingElement();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCorrespondingElement <em>Corresponding Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Corresponding Element</em>' reference.
+	 * @see #getCorrespondingElement()
+	 * @generated
+	 */
+	void setCorrespondingElement(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

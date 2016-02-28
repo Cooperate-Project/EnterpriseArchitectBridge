@@ -61,7 +61,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getBordercolor <em>Bordercolor</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCardinality <em>Cardinality</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getConcurrency <em>Concurrency</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPDATA1 <em>PDATA1</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCorrespondingPackage <em>Corresponding Package</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement()
@@ -1194,29 +1194,29 @@ public interface Element extends EObject {
 	void setConcurrency(String value);
 
 	/**
-	 * Returns the value of the '<em><b>PDATA1</b></em>' attribute.
+	 * Returns the value of the '<em><b>Corresponding Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>PDATA1</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Corresponding Package</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>PDATA1</em>' attribute.
-	 * @see #setPDATA1(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_PDATA1()
-	 * @model unique="false"
+	 * @return the value of the '<em>Corresponding Package</em>' reference.
+	 * @see #setCorrespondingPackage(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getElement_CorrespondingPackage()
+	 * @model
 	 * @generated
 	 */
-	String getPDATA1();
+	de.cooperateproject.eabridge.eaobjectmodel.xcore.Package getCorrespondingPackage();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPDATA1 <em>PDATA1</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCorrespondingPackage <em>Corresponding Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>PDATA1</em>' attribute.
-	 * @see #getPDATA1()
+	 * @param value the new value of the '<em>Corresponding Package</em>' reference.
+	 * @see #getCorrespondingPackage()
 	 * @generated
 	 */
-	void setPDATA1(String value);
+	void setCorrespondingPackage(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package value);
 
 } // Element

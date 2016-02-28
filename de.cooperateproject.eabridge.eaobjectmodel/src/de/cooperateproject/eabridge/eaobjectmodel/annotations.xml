@@ -178,6 +178,8 @@
 			<property name="Package">
 				<join-column name="Package_ID" />
 			</property>
+			<property name="CorrespondingElement"><join-column />
+			</property>
 			<property name="ElementGUID">
 				<column name="ea_guid" />
 			</property>

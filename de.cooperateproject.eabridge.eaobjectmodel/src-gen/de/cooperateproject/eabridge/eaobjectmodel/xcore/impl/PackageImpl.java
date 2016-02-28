@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCodePath <em>Code Path</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCreatedDate <em>Created Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getDiagrams <em>Diagrams</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCorrespondingElement <em>Corresponding Element</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getFlags <em>Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getIsControlled <em>Is Controlled</em>}</li>
@@ -172,6 +173,16 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * @ordered
 	 */
 	protected EList<Diagram> diagrams;
+
+	/**
+	 * The cached value of the '{@link #getCorrespondingElement() <em>Corresponding Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorrespondingElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected Element correspondingElement;
 
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -667,6 +678,44 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			diagrams = new EObjectContainmentWithInverseEList<Diagram>(Diagram.class, this, XcorePackage.PACKAGE__DIAGRAMS, XcorePackage.DIAGRAM__PACKAGE);
 		}
 		return diagrams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element getCorrespondingElement() {
+		if (correspondingElement != null && correspondingElement.eIsProxy()) {
+			InternalEObject oldCorrespondingElement = (InternalEObject)correspondingElement;
+			correspondingElement = (Element)eResolveProxy(oldCorrespondingElement);
+			if (correspondingElement != oldCorrespondingElement) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.PACKAGE__CORRESPONDING_ELEMENT, oldCorrespondingElement, correspondingElement));
+			}
+		}
+		return correspondingElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetCorrespondingElement() {
+		return correspondingElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCorrespondingElement(Element newCorrespondingElement) {
+		Element oldCorrespondingElement = correspondingElement;
+		correspondingElement = newCorrespondingElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.PACKAGE__CORRESPONDING_ELEMENT, oldCorrespondingElement, correspondingElement));
 	}
 
 	/**
@@ -1178,6 +1227,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return getCreatedDate();
 			case XcorePackage.PACKAGE__DIAGRAMS:
 				return getDiagrams();
+			case XcorePackage.PACKAGE__CORRESPONDING_ELEMENT:
+				if (resolve) return getCorrespondingElement();
+				return basicGetCorrespondingElement();
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return getElements();
 			case XcorePackage.PACKAGE__FLAGS:
@@ -1250,6 +1302,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__DIAGRAMS:
 				getDiagrams().clear();
 				getDiagrams().addAll((Collection<? extends Diagram>)newValue);
+				return;
+			case XcorePackage.PACKAGE__CORRESPONDING_ELEMENT:
+				setCorrespondingElement((Element)newValue);
 				return;
 			case XcorePackage.PACKAGE__ELEMENTS:
 				getElements().clear();
@@ -1343,6 +1398,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__DIAGRAMS:
 				getDiagrams().clear();
 				return;
+			case XcorePackage.PACKAGE__CORRESPONDING_ELEMENT:
+				setCorrespondingElement((Element)null);
+				return;
 			case XcorePackage.PACKAGE__ELEMENTS:
 				getElements().clear();
 				return;
@@ -1427,6 +1485,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return CREATED_DATE_EDEFAULT == null ? createdDate != null : !CREATED_DATE_EDEFAULT.equals(createdDate);
 			case XcorePackage.PACKAGE__DIAGRAMS:
 				return diagrams != null && !diagrams.isEmpty();
+			case XcorePackage.PACKAGE__CORRESPONDING_ELEMENT:
+				return correspondingElement != null;
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 			case XcorePackage.PACKAGE__FLAGS:

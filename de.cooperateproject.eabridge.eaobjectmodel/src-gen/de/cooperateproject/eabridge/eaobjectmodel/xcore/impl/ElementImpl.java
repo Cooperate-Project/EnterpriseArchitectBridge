@@ -77,7 +77,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getBordercolor <em>Bordercolor</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCardinality <em>Cardinality</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getConcurrency <em>Concurrency</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getPDATA1 <em>PDATA1</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl#getCorrespondingPackage <em>Corresponding Package</em>}</li>
  * </ul>
  *
  * @generated
@@ -884,24 +884,14 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	protected String concurrency = CONCURRENCY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPDATA1() <em>PDATA1</em>}' attribute.
+	 * The cached value of the '{@link #getCorrespondingPackage() <em>Corresponding Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPDATA1()
+	 * @see #getCorrespondingPackage()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PDATA1_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPDATA1() <em>PDATA1</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPDATA1()
-	 * @generated
-	 * @ordered
-	 */
-	protected String pdata1 = PDATA1_EDEFAULT;
+	protected de.cooperateproject.eabridge.eaobjectmodel.xcore.Package correspondingPackage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1901,8 +1891,16 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPDATA1() {
-		return pdata1;
+	public de.cooperateproject.eabridge.eaobjectmodel.xcore.Package getCorrespondingPackage() {
+		if (correspondingPackage != null && correspondingPackage.eIsProxy()) {
+			InternalEObject oldCorrespondingPackage = (InternalEObject)correspondingPackage;
+			correspondingPackage = (de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)eResolveProxy(oldCorrespondingPackage);
+			if (correspondingPackage != oldCorrespondingPackage) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, XcorePackage.ELEMENT__CORRESPONDING_PACKAGE, oldCorrespondingPackage, correspondingPackage));
+			}
+		}
+		return correspondingPackage;
 	}
 
 	/**
@@ -1910,11 +1908,20 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPDATA1(String newPDATA1) {
-		String oldPDATA1 = pdata1;
-		pdata1 = newPDATA1;
+	public de.cooperateproject.eabridge.eaobjectmodel.xcore.Package basicGetCorrespondingPackage() {
+		return correspondingPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCorrespondingPackage(de.cooperateproject.eabridge.eaobjectmodel.xcore.Package newCorrespondingPackage) {
+		de.cooperateproject.eabridge.eaobjectmodel.xcore.Package oldCorrespondingPackage = correspondingPackage;
+		correspondingPackage = newCorrespondingPackage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__PDATA1, oldPDATA1, pdata1));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.ELEMENT__CORRESPONDING_PACKAGE, oldCorrespondingPackage, correspondingPackage));
 	}
 
 	/**
@@ -2081,8 +2088,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return getCardinality();
 			case XcorePackage.ELEMENT__CONCURRENCY:
 				return getConcurrency();
-			case XcorePackage.ELEMENT__PDATA1:
-				return getPDATA1();
+			case XcorePackage.ELEMENT__CORRESPONDING_PACKAGE:
+				if (resolve) return getCorrespondingPackage();
+				return basicGetCorrespondingPackage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2231,8 +2239,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__CONCURRENCY:
 				setConcurrency((String)newValue);
 				return;
-			case XcorePackage.ELEMENT__PDATA1:
-				setPDATA1((String)newValue);
+			case XcorePackage.ELEMENT__CORRESPONDING_PACKAGE:
+				setCorrespondingPackage((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -2378,8 +2386,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case XcorePackage.ELEMENT__CONCURRENCY:
 				setConcurrency(CONCURRENCY_EDEFAULT);
 				return;
-			case XcorePackage.ELEMENT__PDATA1:
-				setPDATA1(PDATA1_EDEFAULT);
+			case XcorePackage.ELEMENT__CORRESPONDING_PACKAGE:
+				setCorrespondingPackage((de.cooperateproject.eabridge.eaobjectmodel.xcore.Package)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -2481,8 +2489,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				return CARDINALITY_EDEFAULT == null ? cardinality != null : !CARDINALITY_EDEFAULT.equals(cardinality);
 			case XcorePackage.ELEMENT__CONCURRENCY:
 				return CONCURRENCY_EDEFAULT == null ? concurrency != null : !CONCURRENCY_EDEFAULT.equals(concurrency);
-			case XcorePackage.ELEMENT__PDATA1:
-				return PDATA1_EDEFAULT == null ? pdata1 != null : !PDATA1_EDEFAULT.equals(pdata1);
+			case XcorePackage.ELEMENT__CORRESPONDING_PACKAGE:
+				return correspondingPackage != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -2573,8 +2581,6 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 		result.append(cardinality);
 		result.append(", Concurrency: ");
 		result.append(concurrency);
-		result.append(", PDATA1: ");
-		result.append(pdata1);
 		result.append(')');
 		return result.toString();
 	}

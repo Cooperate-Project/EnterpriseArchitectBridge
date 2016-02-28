@@ -1415,7 +1415,7 @@ int  Fontcolor
 int  Bordercolor
 String Cardinality
 String Concurrency
-String PDATA1
+refers Package CorrespondingPackage
 }
 
 //associated with t_operation table in .eap file
@@ -1711,7 +1711,7 @@ class Package {
 	//	A collection of diagrams contained in this Package.
 	//	
 	//	
-//	contains Element Element //	Read only
+	refers Element CorrespondingElement //	Read only
 //	//	
 //	//	The associated element object; use to get/set common information such as Stereotype, Complexity, Alias, Author, Constraints, Tagged Values and Scenarios.
 //	//	

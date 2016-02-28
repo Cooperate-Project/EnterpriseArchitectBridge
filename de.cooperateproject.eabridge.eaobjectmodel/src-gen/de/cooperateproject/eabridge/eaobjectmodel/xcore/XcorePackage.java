@@ -2074,13 +2074,13 @@ public interface XcorePackage extends EPackage {
 	int ELEMENT__CONCURRENCY = 43;
 
 	/**
-	 * The feature id for the '<em><b>PDATA1</b></em>' attribute.
+	 * The feature id for the '<em><b>Corresponding Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PDATA1 = 44;
+	int ELEMENT__CORRESPONDING_PACKAGE = 44;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -2436,13 +2436,22 @@ public interface XcorePackage extends EPackage {
 	int PACKAGE__DIAGRAMS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Corresponding Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__CORRESPONDING_ELEMENT = 6;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__ELEMENTS = 6;
+	int PACKAGE__ELEMENTS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Flags</b></em>' attribute.
@@ -2451,7 +2460,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__FLAGS = 7;
+	int PACKAGE__FLAGS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Is Controlled</b></em>' attribute.
@@ -2460,7 +2469,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__IS_CONTROLLED = 8;
+	int PACKAGE__IS_CONTROLLED = 9;
 
 	/**
 	 * The feature id for the '<em><b>Is Namespace</b></em>' attribute.
@@ -2469,7 +2478,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__IS_NAMESPACE = 9;
+	int PACKAGE__IS_NAMESPACE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Is Protected</b></em>' attribute.
@@ -2478,7 +2487,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__IS_PROTECTED = 10;
+	int PACKAGE__IS_PROTECTED = 11;
 
 	/**
 	 * The feature id for the '<em><b>Last Load Date</b></em>' attribute.
@@ -2487,7 +2496,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__LAST_LOAD_DATE = 11;
+	int PACKAGE__LAST_LOAD_DATE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Last Save Date</b></em>' attribute.
@@ -2496,7 +2505,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__LAST_SAVE_DATE = 12;
+	int PACKAGE__LAST_SAVE_DATE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Log XML</b></em>' attribute.
@@ -2505,7 +2514,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__LOG_XML = 13;
+	int PACKAGE__LOG_XML = 14;
 
 	/**
 	 * The feature id for the '<em><b>Modified Date</b></em>' attribute.
@@ -2514,7 +2523,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__MODIFIED_DATE = 14;
+	int PACKAGE__MODIFIED_DATE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2523,7 +2532,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__NAME = 15;
+	int PACKAGE__NAME = 16;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -2532,7 +2541,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__NOTES = 16;
+	int PACKAGE__NOTES = 17;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' attribute.
@@ -2541,7 +2550,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__OWNER = 17;
+	int PACKAGE__OWNER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Package ID</b></em>' attribute.
@@ -2550,7 +2559,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PACKAGE_ID = 18;
+	int PACKAGE__PACKAGE_ID = 19;
 
 	/**
 	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -2559,7 +2568,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PACKAGES = 19;
+	int PACKAGE__PACKAGES = 20;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -2568,7 +2577,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__PARENT = 20;
+	int PACKAGE__PARENT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Tree Pos</b></em>' attribute.
@@ -2577,7 +2586,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__TREE_POS = 21;
+	int PACKAGE__TREE_POS = 22;
 
 	/**
 	 * The feature id for the '<em><b>UML Version</b></em>' attribute.
@@ -2586,7 +2595,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__UML_VERSION = 22;
+	int PACKAGE__UML_VERSION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Use DTD</b></em>' attribute.
@@ -2595,7 +2604,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__USE_DTD = 23;
+	int PACKAGE__USE_DTD = 24;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -2604,7 +2613,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__VERSION = 24;
+	int PACKAGE__VERSION = 25;
 
 	/**
 	 * The feature id for the '<em><b>XML Path</b></em>' attribute.
@@ -2613,7 +2622,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__XML_PATH = 25;
+	int PACKAGE__XML_PATH = 26;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -2622,7 +2631,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 26;
+	int PACKAGE_FEATURE_COUNT = 27;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -4946,15 +4955,15 @@ public interface XcorePackage extends EPackage {
 	EAttribute getElement_Concurrency();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPDATA1 <em>PDATA1</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCorrespondingPackage <em>Corresponding Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>PDATA1</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getPDATA1()
+	 * @return the meta object for the reference '<em>Corresponding Package</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Element#getCorrespondingPackage()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EAttribute getElement_PDATA1();
+	EReference getElement_CorrespondingPackage();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Method <em>Method</em>}'.
@@ -5338,6 +5347,17 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPackage_Diagrams();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCorrespondingElement <em>Corresponding Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Corresponding Element</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCorrespondingElement()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_CorrespondingElement();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElements <em>Elements</em>}'.
@@ -7291,12 +7311,12 @@ public interface XcorePackage extends EPackage {
 		EAttribute ELEMENT__CONCURRENCY = eINSTANCE.getElement_Concurrency();
 
 		/**
-		 * The meta object literal for the '<em><b>PDATA1</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Corresponding Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ELEMENT__PDATA1 = eINSTANCE.getElement_PDATA1();
+		EReference ELEMENT__CORRESPONDING_PACKAGE = eINSTANCE.getElement_CorrespondingPackage();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.MethodImpl <em>Method</em>}' class.
@@ -7581,6 +7601,14 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE__DIAGRAMS = eINSTANCE.getPackage_Diagrams();
+
+		/**
+		 * The meta object literal for the '<em><b>Corresponding Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__CORRESPONDING_ELEMENT = eINSTANCE.getPackage_CorrespondingElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
