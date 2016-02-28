@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConnectorID <em>Connector ID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConnectorGUID <em>Connector GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getDirection <em>Direction</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndX <em>Pt End X</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getPtEndY <em>Pt End Y</em>}</li>
@@ -21,8 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getIsLeaf <em>Is Leaf</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getIsRoot <em>Is Root</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getIsSpec <em>Is Spec</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getMetaType <em>Meta Type</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getMiscData <em>Misc Data</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getRouteStyle <em>Route Style</em>}</li>
@@ -73,9 +72,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Start_Label <em>Top Start Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_Mid_Label <em>Top Mid Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getTop_End_Label <em>Top End Label</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_StartLabel <em>Btm Start Label</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_MidLabel <em>Btm Mid Label</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_EndLabel <em>Btm End Label</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_Start_Label <em>Btm Start Label</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_Mid_Label <em>Btm Mid Label</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_End_Label <em>Btm End Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getStart_Edge <em>Start Edge</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getEnd_Edge <em>End Edge</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getHeadStyle <em>Head Style</em>}</li>
@@ -118,6 +117,32 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setConnectorID(Long value);
+
+	/**
+	 * Returns the value of the '<em><b>Connector GUID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connector GUID</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connector GUID</em>' attribute.
+	 * @see #setConnectorGUID(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_ConnectorGUID()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getConnectorGUID();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getConnectorGUID <em>Connector GUID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connector GUID</em>' attribute.
+	 * @see #getConnectorGUID()
+	 * @generated
+	 */
+	void setConnectorGUID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
@@ -303,58 +328,6 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setIsSpec(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Meta Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Meta Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Meta Type</em>' attribute.
-	 * @see #setMetaType(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_MetaType()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getMetaType();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getMetaType <em>Meta Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Meta Type</em>' attribute.
-	 * @see #getMetaType()
-	 * @generated
-	 */
-	void setMetaType(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Misc Data</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Misc Data</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Misc Data</em>' attribute.
-	 * @see #setMiscData(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_MiscData()
-	 * @model unique="false"
-	 * @generated
-	 */
-	String getMiscData();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getMiscData <em>Misc Data</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Misc Data</em>' attribute.
-	 * @see #getMiscData()
-	 * @generated
-	 */
-	void setMiscData(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -1668,22 +1641,22 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Btm Start Label</em>' attribute.
-	 * @see #setBtm_StartLabel(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Btm_StartLabel()
+	 * @see #setBtm_Start_Label(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Btm_Start_Label()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getBtm_StartLabel();
+	String getBtm_Start_Label();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_StartLabel <em>Btm Start Label</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_Start_Label <em>Btm Start Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Btm Start Label</em>' attribute.
-	 * @see #getBtm_StartLabel()
+	 * @see #getBtm_Start_Label()
 	 * @generated
 	 */
-	void setBtm_StartLabel(String value);
+	void setBtm_Start_Label(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Btm Mid Label</b></em>' attribute.
@@ -1694,22 +1667,22 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Btm Mid Label</em>' attribute.
-	 * @see #setBtm_MidLabel(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Btm_MidLabel()
+	 * @see #setBtm_Mid_Label(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Btm_Mid_Label()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getBtm_MidLabel();
+	String getBtm_Mid_Label();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_MidLabel <em>Btm Mid Label</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_Mid_Label <em>Btm Mid Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Btm Mid Label</em>' attribute.
-	 * @see #getBtm_MidLabel()
+	 * @see #getBtm_Mid_Label()
 	 * @generated
 	 */
-	void setBtm_MidLabel(String value);
+	void setBtm_Mid_Label(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Btm End Label</b></em>' attribute.
@@ -1720,22 +1693,22 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Btm End Label</em>' attribute.
-	 * @see #setBtm_EndLabel(String)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Btm_EndLabel()
+	 * @see #setBtm_End_Label(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getConnector_Btm_End_Label()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getBtm_EndLabel();
+	String getBtm_End_Label();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_EndLabel <em>Btm End Label</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector#getBtm_End_Label <em>Btm End Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Btm End Label</em>' attribute.
-	 * @see #getBtm_EndLabel()
+	 * @see #getBtm_End_Label()
 	 * @generated
 	 */
-	void setBtm_EndLabel(String value);
+	void setBtm_End_Label(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Start Edge</b></em>' attribute.

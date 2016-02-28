@@ -2,6 +2,7 @@
  */
 package de.cooperateproject.eabridge.eaobjectmodel.xcore.impl;
 
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getBatchSave <em>Batch Save</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCodePath <em>Code Path</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getCreatedDate <em>Created Date</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getFlags <em>Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.PackageImpl#getIsControlled <em>Is Controlled</em>}</li>
@@ -160,6 +162,16 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * @ordered
 	 */
 	protected Date createdDate = CREATED_DATE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDiagrams() <em>Diagrams</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDiagrams()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Diagram> diagrams;
 
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -650,6 +662,18 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Diagram> getDiagrams() {
+		if (diagrams == null) {
+			diagrams = new EObjectContainmentWithInverseEList<Diagram>(Diagram.class, this, XcorePackage.PACKAGE__DIAGRAMS, XcorePackage.DIAGRAM__PACKAGE);
+		}
+		return diagrams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Element> getElements() {
 		if (elements == null) {
 			elements = new EObjectContainmentWithInverseEList<Element>(Element.class, this, XcorePackage.PACKAGE__ELEMENTS, XcorePackage.ELEMENT__PACKAGE);
@@ -1086,6 +1110,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case XcorePackage.PACKAGE__DIAGRAMS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDiagrams()).basicAdd(otherEnd, msgs);
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 			case XcorePackage.PACKAGE__PACKAGES:
@@ -1106,6 +1132,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case XcorePackage.PACKAGE__DIAGRAMS:
+				return ((InternalEList<?>)getDiagrams()).basicRemove(otherEnd, msgs);
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case XcorePackage.PACKAGE__PACKAGES:
@@ -1148,6 +1176,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return getCodePath();
 			case XcorePackage.PACKAGE__CREATED_DATE:
 				return getCreatedDate();
+			case XcorePackage.PACKAGE__DIAGRAMS:
+				return getDiagrams();
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return getElements();
 			case XcorePackage.PACKAGE__FLAGS:
@@ -1216,6 +1246,10 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return;
 			case XcorePackage.PACKAGE__CREATED_DATE:
 				setCreatedDate((Date)newValue);
+				return;
+			case XcorePackage.PACKAGE__DIAGRAMS:
+				getDiagrams().clear();
+				getDiagrams().addAll((Collection<? extends Diagram>)newValue);
 				return;
 			case XcorePackage.PACKAGE__ELEMENTS:
 				getElements().clear();
@@ -1306,6 +1340,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 			case XcorePackage.PACKAGE__CREATED_DATE:
 				setCreatedDate(CREATED_DATE_EDEFAULT);
 				return;
+			case XcorePackage.PACKAGE__DIAGRAMS:
+				getDiagrams().clear();
+				return;
 			case XcorePackage.PACKAGE__ELEMENTS:
 				getElements().clear();
 				return;
@@ -1388,6 +1425,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.coop
 				return CODE_PATH_EDEFAULT == null ? codePath != null : !CODE_PATH_EDEFAULT.equals(codePath);
 			case XcorePackage.PACKAGE__CREATED_DATE:
 				return CREATED_DATE_EDEFAULT == null ? createdDate != null : !CREATED_DATE_EDEFAULT.equals(createdDate);
+			case XcorePackage.PACKAGE__DIAGRAMS:
+				return diagrams != null && !diagrams.isEmpty();
 			case XcorePackage.PACKAGE__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 			case XcorePackage.PACKAGE__FLAGS:

@@ -58,6 +58,33 @@ public interface XcoreFactory extends EFactory {
 	Connector createConnector();
 
 	/**
+	 * Returns a new object of class '<em>Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diagram</em>'.
+	 * @generated
+	 */
+	Diagram createDiagram();
+
+	/**
+	 * Returns a new object of class '<em>Diagram Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diagram Link</em>'.
+	 * @generated
+	 */
+	DiagramLink createDiagramLink();
+
+	/**
+	 * Returns a new object of class '<em>Diagramm Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diagramm Object</em>'.
+	 * @generated
+	 */
+	DiagrammObject createDiagrammObject();
+
+	/**
 	 * Returns a new object of class '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

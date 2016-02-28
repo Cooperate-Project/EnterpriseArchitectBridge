@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConnectorID <em>Connector ID</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getConnectorGUID <em>Connector GUID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndX <em>Pt End X</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getPtEndY <em>Pt End Y</em>}</li>
@@ -32,8 +33,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getIsLeaf <em>Is Leaf</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getIsRoot <em>Is Root</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getIsSpec <em>Is Spec</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getMetaType <em>Meta Type</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getMiscData <em>Misc Data</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getRouteStyle <em>Route Style</em>}</li>
@@ -84,9 +83,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTop_Start_Label <em>Top Start Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTop_Mid_Label <em>Top Mid Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getTop_End_Label <em>Top End Label</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getBtm_StartLabel <em>Btm Start Label</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getBtm_MidLabel <em>Btm Mid Label</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getBtm_EndLabel <em>Btm End Label</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getBtm_Start_Label <em>Btm Start Label</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getBtm_Mid_Label <em>Btm Mid Label</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getBtm_End_Label <em>Btm End Label</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getStart_Edge <em>Start Edge</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getEnd_Edge <em>End Edge</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ConnectorImpl#getHeadStyle <em>Head Style</em>}</li>
@@ -121,6 +120,26 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected Long connectorID = CONNECTOR_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConnectorGUID() <em>Connector GUID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectorGUID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONNECTOR_GUID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConnectorGUID() <em>Connector GUID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectorGUID()
+	 * @generated
+	 * @ordered
+	 */
+	protected String connectorGUID = CONNECTOR_GUID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -261,46 +280,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected Boolean isSpec = IS_SPEC_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMetaType() <em>Meta Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetaType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String META_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMetaType() <em>Meta Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetaType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String metaType = META_TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMiscData() <em>Misc Data</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMiscData()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MISC_DATA_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMiscData() <em>Misc Data</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMiscData()
-	 * @generated
-	 * @ordered
-	 */
-	protected String miscData = MISC_DATA_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -1283,64 +1262,64 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	protected String top_End_Label = TOP_END_LABEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBtm_StartLabel() <em>Btm Start Label</em>}' attribute.
+	 * The default value of the '{@link #getBtm_Start_Label() <em>Btm Start Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBtm_StartLabel()
+	 * @see #getBtm_Start_Label()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String BTM_START_LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBtm_StartLabel() <em>Btm Start Label</em>}' attribute.
+	 * The cached value of the '{@link #getBtm_Start_Label() <em>Btm Start Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBtm_StartLabel()
+	 * @see #getBtm_Start_Label()
 	 * @generated
 	 * @ordered
 	 */
-	protected String btm_StartLabel = BTM_START_LABEL_EDEFAULT;
+	protected String btm_Start_Label = BTM_START_LABEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBtm_MidLabel() <em>Btm Mid Label</em>}' attribute.
+	 * The default value of the '{@link #getBtm_Mid_Label() <em>Btm Mid Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBtm_MidLabel()
+	 * @see #getBtm_Mid_Label()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String BTM_MID_LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBtm_MidLabel() <em>Btm Mid Label</em>}' attribute.
+	 * The cached value of the '{@link #getBtm_Mid_Label() <em>Btm Mid Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBtm_MidLabel()
+	 * @see #getBtm_Mid_Label()
 	 * @generated
 	 * @ordered
 	 */
-	protected String btm_MidLabel = BTM_MID_LABEL_EDEFAULT;
+	protected String btm_Mid_Label = BTM_MID_LABEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBtm_EndLabel() <em>Btm End Label</em>}' attribute.
+	 * The default value of the '{@link #getBtm_End_Label() <em>Btm End Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBtm_EndLabel()
+	 * @see #getBtm_End_Label()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String BTM_END_LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBtm_EndLabel() <em>Btm End Label</em>}' attribute.
+	 * The cached value of the '{@link #getBtm_End_Label() <em>Btm End Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBtm_EndLabel()
+	 * @see #getBtm_End_Label()
 	 * @generated
 	 * @ordered
 	 */
-	protected String btm_EndLabel = BTM_END_LABEL_EDEFAULT;
+	protected String btm_End_Label = BTM_END_LABEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStart_Edge() <em>Start Edge</em>}' attribute.
@@ -1587,6 +1566,27 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getConnectorGUID() {
+		return connectorGUID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnectorGUID(String newConnectorGUID) {
+		String oldConnectorGUID = connectorGUID;
+		connectorGUID = newConnectorGUID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__CONNECTOR_GUID, oldConnectorGUID, connectorGUID));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DirectionType getDirection() {
 		return direction;
 	}
@@ -1727,48 +1727,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		isSpec = newIsSpec;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__IS_SPEC, oldIsSpec, isSpec));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getMetaType() {
-		return metaType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMetaType(String newMetaType) {
-		String oldMetaType = metaType;
-		metaType = newMetaType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__META_TYPE, oldMetaType, metaType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getMiscData() {
-		return miscData;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMiscData(String newMiscData) {
-		String oldMiscData = miscData;
-		miscData = newMiscData;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__MISC_DATA, oldMiscData, miscData));
 	}
 
 	/**
@@ -2860,8 +2818,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBtm_StartLabel() {
-		return btm_StartLabel;
+	public String getBtm_Start_Label() {
+		return btm_Start_Label;
 	}
 
 	/**
@@ -2869,11 +2827,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBtm_StartLabel(String newBtm_StartLabel) {
-		String oldBtm_StartLabel = btm_StartLabel;
-		btm_StartLabel = newBtm_StartLabel;
+	public void setBtm_Start_Label(String newBtm_Start_Label) {
+		String oldBtm_Start_Label = btm_Start_Label;
+		btm_Start_Label = newBtm_Start_Label;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__BTM_START_LABEL, oldBtm_StartLabel, btm_StartLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__BTM_START_LABEL, oldBtm_Start_Label, btm_Start_Label));
 	}
 
 	/**
@@ -2881,8 +2839,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBtm_MidLabel() {
-		return btm_MidLabel;
+	public String getBtm_Mid_Label() {
+		return btm_Mid_Label;
 	}
 
 	/**
@@ -2890,11 +2848,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBtm_MidLabel(String newBtm_MidLabel) {
-		String oldBtm_MidLabel = btm_MidLabel;
-		btm_MidLabel = newBtm_MidLabel;
+	public void setBtm_Mid_Label(String newBtm_Mid_Label) {
+		String oldBtm_Mid_Label = btm_Mid_Label;
+		btm_Mid_Label = newBtm_Mid_Label;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__BTM_MID_LABEL, oldBtm_MidLabel, btm_MidLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__BTM_MID_LABEL, oldBtm_Mid_Label, btm_Mid_Label));
 	}
 
 	/**
@@ -2902,8 +2860,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBtm_EndLabel() {
-		return btm_EndLabel;
+	public String getBtm_End_Label() {
+		return btm_End_Label;
 	}
 
 	/**
@@ -2911,11 +2869,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBtm_EndLabel(String newBtm_EndLabel) {
-		String oldBtm_EndLabel = btm_EndLabel;
-		btm_EndLabel = newBtm_EndLabel;
+	public void setBtm_End_Label(String newBtm_End_Label) {
+		String oldBtm_End_Label = btm_End_Label;
+		btm_End_Label = newBtm_End_Label;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__BTM_END_LABEL, oldBtm_EndLabel, btm_EndLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, XcorePackage.CONNECTOR__BTM_END_LABEL, oldBtm_End_Label, btm_End_Label));
 	}
 
 	/**
@@ -3138,6 +3096,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return getConnectorID();
+			case XcorePackage.CONNECTOR__CONNECTOR_GUID:
+				return getConnectorGUID();
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return getDirection();
 			case XcorePackage.CONNECTOR__PT_END_X:
@@ -3152,10 +3112,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return getIsRoot();
 			case XcorePackage.CONNECTOR__IS_SPEC:
 				return getIsSpec();
-			case XcorePackage.CONNECTOR__META_TYPE:
-				return getMetaType();
-			case XcorePackage.CONNECTOR__MISC_DATA:
-				return getMiscData();
 			case XcorePackage.CONNECTOR__NAME:
 				return getName();
 			case XcorePackage.CONNECTOR__NOTES:
@@ -3259,11 +3215,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__TOP_END_LABEL:
 				return getTop_End_Label();
 			case XcorePackage.CONNECTOR__BTM_START_LABEL:
-				return getBtm_StartLabel();
+				return getBtm_Start_Label();
 			case XcorePackage.CONNECTOR__BTM_MID_LABEL:
-				return getBtm_MidLabel();
+				return getBtm_Mid_Label();
 			case XcorePackage.CONNECTOR__BTM_END_LABEL:
-				return getBtm_EndLabel();
+				return getBtm_End_Label();
 			case XcorePackage.CONNECTOR__START_EDGE:
 				return getStart_Edge();
 			case XcorePackage.CONNECTOR__END_EDGE:
@@ -3299,6 +3255,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID((Long)newValue);
 				return;
+			case XcorePackage.CONNECTOR__CONNECTOR_GUID:
+				setConnectorGUID((String)newValue);
+				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection((DirectionType)newValue);
 				return;
@@ -3319,12 +3278,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return;
 			case XcorePackage.CONNECTOR__IS_SPEC:
 				setIsSpec((Boolean)newValue);
-				return;
-			case XcorePackage.CONNECTOR__META_TYPE:
-				setMetaType((String)newValue);
-				return;
-			case XcorePackage.CONNECTOR__MISC_DATA:
-				setMiscData((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__NAME:
 				setName((String)newValue);
@@ -3477,13 +3430,13 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				setTop_End_Label((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__BTM_START_LABEL:
-				setBtm_StartLabel((String)newValue);
+				setBtm_Start_Label((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__BTM_MID_LABEL:
-				setBtm_MidLabel((String)newValue);
+				setBtm_Mid_Label((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__BTM_END_LABEL:
-				setBtm_EndLabel((String)newValue);
+				setBtm_End_Label((String)newValue);
 				return;
 			case XcorePackage.CONNECTOR__START_EDGE:
 				setStart_Edge((Integer)newValue);
@@ -3530,6 +3483,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				setConnectorID(CONNECTOR_ID_EDEFAULT);
 				return;
+			case XcorePackage.CONNECTOR__CONNECTOR_GUID:
+				setConnectorGUID(CONNECTOR_GUID_EDEFAULT);
+				return;
 			case XcorePackage.CONNECTOR__DIRECTION:
 				setDirection(DIRECTION_EDEFAULT);
 				return;
@@ -3550,12 +3506,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return;
 			case XcorePackage.CONNECTOR__IS_SPEC:
 				setIsSpec(IS_SPEC_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__META_TYPE:
-				setMetaType(META_TYPE_EDEFAULT);
-				return;
-			case XcorePackage.CONNECTOR__MISC_DATA:
-				setMiscData(MISC_DATA_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__NAME:
 				setName(NAME_EDEFAULT);
@@ -3708,13 +3658,13 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				setTop_End_Label(TOP_END_LABEL_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__BTM_START_LABEL:
-				setBtm_StartLabel(BTM_START_LABEL_EDEFAULT);
+				setBtm_Start_Label(BTM_START_LABEL_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__BTM_MID_LABEL:
-				setBtm_MidLabel(BTM_MID_LABEL_EDEFAULT);
+				setBtm_Mid_Label(BTM_MID_LABEL_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__BTM_END_LABEL:
-				setBtm_EndLabel(BTM_END_LABEL_EDEFAULT);
+				setBtm_End_Label(BTM_END_LABEL_EDEFAULT);
 				return;
 			case XcorePackage.CONNECTOR__START_EDGE:
 				setStart_Edge(START_EDGE_EDEFAULT);
@@ -3760,6 +3710,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		switch (featureID) {
 			case XcorePackage.CONNECTOR__CONNECTOR_ID:
 				return CONNECTOR_ID_EDEFAULT == null ? connectorID != null : !CONNECTOR_ID_EDEFAULT.equals(connectorID);
+			case XcorePackage.CONNECTOR__CONNECTOR_GUID:
+				return CONNECTOR_GUID_EDEFAULT == null ? connectorGUID != null : !CONNECTOR_GUID_EDEFAULT.equals(connectorGUID);
 			case XcorePackage.CONNECTOR__DIRECTION:
 				return direction != DIRECTION_EDEFAULT;
 			case XcorePackage.CONNECTOR__PT_END_X:
@@ -3774,10 +3726,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return IS_ROOT_EDEFAULT == null ? isRoot != null : !IS_ROOT_EDEFAULT.equals(isRoot);
 			case XcorePackage.CONNECTOR__IS_SPEC:
 				return IS_SPEC_EDEFAULT == null ? isSpec != null : !IS_SPEC_EDEFAULT.equals(isSpec);
-			case XcorePackage.CONNECTOR__META_TYPE:
-				return META_TYPE_EDEFAULT == null ? metaType != null : !META_TYPE_EDEFAULT.equals(metaType);
-			case XcorePackage.CONNECTOR__MISC_DATA:
-				return MISC_DATA_EDEFAULT == null ? miscData != null : !MISC_DATA_EDEFAULT.equals(miscData);
 			case XcorePackage.CONNECTOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case XcorePackage.CONNECTOR__NOTES:
@@ -3879,11 +3827,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case XcorePackage.CONNECTOR__TOP_END_LABEL:
 				return TOP_END_LABEL_EDEFAULT == null ? top_End_Label != null : !TOP_END_LABEL_EDEFAULT.equals(top_End_Label);
 			case XcorePackage.CONNECTOR__BTM_START_LABEL:
-				return BTM_START_LABEL_EDEFAULT == null ? btm_StartLabel != null : !BTM_START_LABEL_EDEFAULT.equals(btm_StartLabel);
+				return BTM_START_LABEL_EDEFAULT == null ? btm_Start_Label != null : !BTM_START_LABEL_EDEFAULT.equals(btm_Start_Label);
 			case XcorePackage.CONNECTOR__BTM_MID_LABEL:
-				return BTM_MID_LABEL_EDEFAULT == null ? btm_MidLabel != null : !BTM_MID_LABEL_EDEFAULT.equals(btm_MidLabel);
+				return BTM_MID_LABEL_EDEFAULT == null ? btm_Mid_Label != null : !BTM_MID_LABEL_EDEFAULT.equals(btm_Mid_Label);
 			case XcorePackage.CONNECTOR__BTM_END_LABEL:
-				return BTM_END_LABEL_EDEFAULT == null ? btm_EndLabel != null : !BTM_END_LABEL_EDEFAULT.equals(btm_EndLabel);
+				return BTM_END_LABEL_EDEFAULT == null ? btm_End_Label != null : !BTM_END_LABEL_EDEFAULT.equals(btm_End_Label);
 			case XcorePackage.CONNECTOR__START_EDGE:
 				return start_Edge != START_EDGE_EDEFAULT;
 			case XcorePackage.CONNECTOR__END_EDGE:
@@ -3920,6 +3868,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ConnectorID: ");
 		result.append(connectorID);
+		result.append(", ConnectorGUID: ");
+		result.append(connectorGUID);
 		result.append(", Direction: ");
 		result.append(direction);
 		result.append(", PtEndX: ");
@@ -3934,10 +3884,6 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(isRoot);
 		result.append(", IsSpec: ");
 		result.append(isSpec);
-		result.append(", MetaType: ");
-		result.append(metaType);
-		result.append(", MiscData: ");
-		result.append(miscData);
 		result.append(", Name: ");
 		result.append(name);
 		result.append(", Notes: ");
@@ -4034,12 +3980,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(top_Mid_Label);
 		result.append(", Top_End_Label: ");
 		result.append(top_End_Label);
-		result.append(", Btm_StartLabel: ");
-		result.append(btm_StartLabel);
-		result.append(", Btm_MidLabel: ");
-		result.append(btm_MidLabel);
-		result.append(", Btm_EndLabel: ");
-		result.append(btm_EndLabel);
+		result.append(", Btm_Start_Label: ");
+		result.append(btm_Start_Label);
+		result.append(", Btm_Mid_Label: ");
+		result.append(btm_Mid_Label);
+		result.append(", Btm_End_Label: ");
+		result.append(btm_End_Label);
 		result.append(", Start_Edge: ");
 		result.append(start_Edge);
 		result.append(", End_Edge: ");

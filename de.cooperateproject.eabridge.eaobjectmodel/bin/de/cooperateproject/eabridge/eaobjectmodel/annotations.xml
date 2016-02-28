@@ -44,7 +44,7 @@
 			<property name="TagID">
 				<column name="PropertyID" />
 				<id />
-				<generated-value/>
+				<generated-value />
 			</property>
 			<property name="Attribute">
 				<join-column name="ElementID" />
@@ -68,6 +68,9 @@
 				<column name="Connector_ID" />
 				<id />
 				<generated-value />
+			</property>
+			<property name="ConnectorGUID">
+				<column name="ea_guid" />
 			</property>
 			<property name="Type">
 				<column name="Connector_Type" />
@@ -131,7 +134,7 @@
 				<generated-value />
 			</property>
 			<property name="Parent">
-				<join-column name="Parent_ID"/>
+				<join-column name="Parent_ID" />
 			</property>
 			<property name="PackageGUID">
 				<column name="ea_guid" />

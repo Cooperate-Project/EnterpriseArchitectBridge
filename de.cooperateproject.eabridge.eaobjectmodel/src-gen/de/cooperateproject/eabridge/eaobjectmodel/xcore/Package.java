@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getBatchSave <em>Batch Save</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCodePath <em>Code Path</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getCreatedDate <em>Created Date</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getDiagrams <em>Diagrams</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getElements <em>Elements</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getFlags <em>Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Package#getIsControlled <em>Is Controlled</em>}</li>
@@ -178,6 +179,24 @@ public interface Package extends EObject {
 	 * @generated
 	 */
 	void setCreatedDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Diagrams</b></em>' containment reference list.
+	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPackage <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Diagrams</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Diagrams</em>' containment reference list.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage#getPackage_Diagrams()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPackage
+	 * @model opposite="Package" containment="true"
+	 * @generated
+	 */
+	EList<Diagram> getDiagrams();
 
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

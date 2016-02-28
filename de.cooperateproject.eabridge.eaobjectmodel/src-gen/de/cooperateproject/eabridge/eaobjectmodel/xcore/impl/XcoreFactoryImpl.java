@@ -7,6 +7,9 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
@@ -70,6 +73,9 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 			case XcorePackage.ATTRIBUTE_CONSTRAINT: return createAttributeConstraint();
 			case XcorePackage.ATTRIBUTE_TAG: return createAttributeTag();
 			case XcorePackage.CONNECTOR: return createConnector();
+			case XcorePackage.DIAGRAM: return createDiagram();
+			case XcorePackage.DIAGRAM_LINK: return createDiagramLink();
+			case XcorePackage.DIAGRAMM_OBJECT: return createDiagrammObject();
 			case XcorePackage.ELEMENT: return createElement();
 			case XcorePackage.METHOD: return createMethod();
 			case XcorePackage.PACKAGE: return createPackage();
@@ -150,6 +156,36 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	public Connector createConnector() {
 		ConnectorImpl connector = new ConnectorImpl();
 		return connector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Diagram createDiagram() {
+		DiagramImpl diagram = new DiagramImpl();
+		return diagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DiagramLink createDiagramLink() {
+		DiagramLinkImpl diagramLink = new DiagramLinkImpl();
+		return diagramLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DiagrammObject createDiagrammObject() {
+		DiagrammObjectImpl diagrammObject = new DiagrammObjectImpl();
+		return diagrammObject;
 	}
 
 	/**
