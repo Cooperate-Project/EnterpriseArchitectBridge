@@ -133,6 +133,9 @@
 				<id />
 				<generated-value />
 			</property>
+			<property name="CorrespondingElement">
+				<primary-key-join-column referenced-column-name="CorrespondingPackage"/>
+			</property>
 			<property name="Parent">
 				<join-column name="Parent_ID" />
 			</property>
@@ -178,7 +181,8 @@
 			<property name="Package">
 				<join-column name="Package_ID" />
 			</property>
-			<property name="CorrespondingElement"><join-column />
+			<property name="CorrespondingPackage">
+				<join-column name="PDATA1"/>
 			</property>
 			<property name="ElementGUID">
 				<column name="ea_guid" />

@@ -36,8 +36,11 @@ public class Bootstrap {
 		elePack.setElementGUID("elementPackageGUID");
 		elePack.setPackage(rootPack);
 		//ID of corresponding Package
-		elePack.setPDATA1("2");
+		elePack.setCorrespondingPackage(pack);
 		elePack.setType("Package");
+		
+		rootPack.setCorrespondingElement(elePack);
+		pack.setCorrespondingElement(elePack);
 		
 		Element ele = XcoreFactory.eINSTANCE.createElement();
 		ele.setName("element1");
