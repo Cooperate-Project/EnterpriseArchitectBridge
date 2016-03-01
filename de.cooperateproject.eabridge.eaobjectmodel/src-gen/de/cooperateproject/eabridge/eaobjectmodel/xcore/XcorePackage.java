@@ -1234,13 +1234,22 @@ public interface XcorePackage extends EPackage {
 	int DIAGRAM__CY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Diagram GUID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM__DIAGRAM_GUID = 4;
+
+	/**
 	 * The feature id for the '<em><b>Diagram ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__DIAGRAM_ID = 4;
+	int DIAGRAM__DIAGRAM_ID = 5;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Links</b></em>' containment reference list.
@@ -1249,7 +1258,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__DIAGRAM_LINKS = 5;
+	int DIAGRAM__DIAGRAM_LINKS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Objects</b></em>' containment reference list.
@@ -1258,43 +1267,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__DIAGRAM_OBJECTS = 6;
-
-	/**
-	 * The feature id for the '<em><b>Extended Style</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__EXTENDED_STYLE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Highlight Imports</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__HIGHLIGHT_IMPORTS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Is Locked</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__IS_LOCKED = 9;
-
-	/**
-	 * The feature id for the '<em><b>Meta Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__META_TYPE = 10;
+	int DIAGRAM__DIAGRAM_OBJECTS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1303,7 +1276,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__NAME = 11;
+	int DIAGRAM__NAME = 8;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -1312,7 +1285,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__NOTES = 12;
+	int DIAGRAM__NOTES = 9;
 
 	/**
 	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
@@ -1321,7 +1294,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__ORIENTATION = 13;
+	int DIAGRAM__ORIENTATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Package</b></em>' container reference.
@@ -1330,34 +1303,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__PACKAGE = 14;
-
-	/**
-	 * The feature id for the '<em><b>Page Height</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__PAGE_HEIGHT = 15;
-
-	/**
-	 * The feature id for the '<em><b>Page Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__PAGE_WIDTH = 16;
-
-	/**
-	 * The feature id for the '<em><b>Parent ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__PARENT_ID = 17;
+	int DIAGRAM__PACKAGE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Scale</b></em>' attribute.
@@ -1366,52 +1312,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__SCALE = 18;
-
-	/**
-	 * The feature id for the '<em><b>Show Details</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__SHOW_DETAILS = 19;
-
-	/**
-	 * The feature id for the '<em><b>Show Package Contents</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__SHOW_PACKAGE_CONTENTS = 20;
-
-	/**
-	 * The feature id for the '<em><b>Show Private</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__SHOW_PRIVATE = 21;
-
-	/**
-	 * The feature id for the '<em><b>Show Protected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__SHOW_PROTECTED = 22;
-
-	/**
-	 * The feature id for the '<em><b>Show Public</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM__SHOW_PUBLIC = 23;
+	int DIAGRAM__SCALE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Stereotype</b></em>' attribute.
@@ -1420,7 +1321,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__STEREOTYPE = 24;
+	int DIAGRAM__STEREOTYPE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Style Ex</b></em>' attribute.
@@ -1429,7 +1330,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__STYLE_EX = 25;
+	int DIAGRAM__STYLE_EX = 14;
 
 	/**
 	 * The feature id for the '<em><b>Swimlanes</b></em>' attribute.
@@ -1438,7 +1339,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__SWIMLANES = 26;
+	int DIAGRAM__SWIMLANES = 15;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1447,7 +1348,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__TYPE = 27;
+	int DIAGRAM__TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1456,7 +1357,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__VERSION = 28;
+	int DIAGRAM__VERSION = 17;
 
 	/**
 	 * The number of structural features of the '<em>Diagram</em>' class.
@@ -1465,7 +1366,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_FEATURE_COUNT = 29;
+	int DIAGRAM_FEATURE_COUNT = 18;
 
 	/**
 	 * The number of operations of the '<em>Diagram</em>' class.
@@ -1487,7 +1388,7 @@ public interface XcorePackage extends EPackage {
 	int DIAGRAM_LINK = 5;
 
 	/**
-	 * The feature id for the '<em><b>Connector</b></em>' containment reference.
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1523,13 +1424,13 @@ public interface XcorePackage extends EPackage {
 	int DIAGRAM_LINK__INSTANCE_ID = 3;
 
 	/**
-	 * The feature id for the '<em><b>Is Hidden</b></em>' attribute.
+	 * The feature id for the '<em><b>Hidden</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_LINK__IS_HIDDEN = 4;
+	int DIAGRAM_LINK__HIDDEN = 4;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -1568,14 +1469,14 @@ public interface XcorePackage extends EPackage {
 	int DIAGRAM_LINK_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagrammObjectImpl <em>Diagramm Object</em>}' class.
+	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagrammObjectImpl
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagramObjectImpl
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDiagramObject()
 	 * @generated
 	 */
-	int DIAGRAMM_OBJECT = 6;
+	int DIAGRAM_OBJECT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Bottom</b></em>' attribute.
@@ -1584,7 +1485,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__BOTTOM = 0;
+	int DIAGRAM_OBJECT__BOTTOM = 0;
 
 	/**
 	 * The feature id for the '<em><b>Diagram</b></em>' container reference.
@@ -1593,16 +1494,16 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__DIAGRAM = 1;
+	int DIAGRAM_OBJECT__DIAGRAM = 1;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' containment reference.
+	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__ELEMENT = 2;
+	int DIAGRAM_OBJECT__ELEMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Instance ID</b></em>' attribute.
@@ -1611,7 +1512,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__INSTANCE_ID = 3;
+	int DIAGRAM_OBJECT__INSTANCE_ID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' attribute.
@@ -1620,7 +1521,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__LEFT = 4;
+	int DIAGRAM_OBJECT__LEFT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Right</b></em>' attribute.
@@ -1629,7 +1530,7 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__RIGHT = 5;
+	int DIAGRAM_OBJECT__RIGHT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Sequence</b></em>' attribute.
@@ -1638,7 +1539,16 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__SEQUENCE = 6;
+	int DIAGRAM_OBJECT__SEQUENCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Object Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_OBJECT__OBJECT_STYLE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Top</b></em>' attribute.
@@ -1647,25 +1557,25 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT__TOP = 7;
+	int DIAGRAM_OBJECT__TOP = 8;
 
 	/**
-	 * The number of structural features of the '<em>Diagramm Object</em>' class.
+	 * The number of structural features of the '<em>Diagram Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT_FEATURE_COUNT = 8;
+	int DIAGRAM_OBJECT_FEATURE_COUNT = 9;
 
 	/**
-	 * The number of operations of the '<em>Diagramm Object</em>' class.
+	 * The number of operations of the '<em>Diagram Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAMM_OBJECT_OPERATION_COUNT = 0;
+	int DIAGRAM_OBJECT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl <em>Element</em>}' class.
@@ -3992,6 +3902,17 @@ public interface XcorePackage extends EPackage {
 	EAttribute getDiagram_Cy();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getDiagramGUID <em>Diagram GUID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Diagram GUID</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getDiagramGUID()
+	 * @see #getDiagram()
+	 * @generated
+	 */
+	EAttribute getDiagram_DiagramGUID();
+
+	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getDiagramID <em>Diagram ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4023,50 +3944,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDiagram_DiagramObjects();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getExtendedStyle <em>Extended Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Extended Style</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getExtendedStyle()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_ExtendedStyle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getHighlightImports <em>Highlight Imports</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Highlight Imports</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getHighlightImports()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_HighlightImports();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getIsLocked <em>Is Locked</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Locked</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getIsLocked()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_IsLocked();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getMetaType <em>Meta Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Meta Type</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getMetaType()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_MetaType();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getName <em>Name</em>}'.
@@ -4113,39 +3990,6 @@ public interface XcorePackage extends EPackage {
 	EReference getDiagram_Package();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPageHeight <em>Page Height</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Page Height</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPageHeight()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_PageHeight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPageWidth <em>Page Width</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Page Width</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getPageWidth()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_PageWidth();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getParentID <em>Parent ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parent ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getParentID()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_ParentID();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getScale <em>Scale</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4155,61 +3999,6 @@ public interface XcorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDiagram_Scale();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowDetails <em>Show Details</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show Details</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowDetails()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_ShowDetails();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowPackageContents <em>Show Package Contents</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show Package Contents</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowPackageContents()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_ShowPackageContents();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowPrivate <em>Show Private</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show Private</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowPrivate()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_ShowPrivate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowProtected <em>Show Protected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show Protected</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowProtected()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_ShowProtected();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowPublic <em>Show Public</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show Public</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getShowPublic()
-	 * @see #getDiagram()
-	 * @generated
-	 */
-	EAttribute getDiagram_ShowPublic();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram#getStereotype <em>Stereotype</em>}'.
@@ -4277,10 +4066,10 @@ public interface XcorePackage extends EPackage {
 	EClass getDiagramLink();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getConnector <em>Connector</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getConnector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Connector</em>'.
+	 * @return the meta object for the reference '<em>Connector</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getConnector()
 	 * @see #getDiagramLink()
 	 * @generated
@@ -4321,15 +4110,15 @@ public interface XcorePackage extends EPackage {
 	EAttribute getDiagramLink_InstanceID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getIsHidden <em>Is Hidden</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getHidden <em>Hidden</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Hidden</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getIsHidden()
+	 * @return the meta object for the attribute '<em>Hidden</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getHidden()
 	 * @see #getDiagramLink()
 	 * @generated
 	 */
-	EAttribute getDiagramLink_IsHidden();
+	EAttribute getDiagramLink_Hidden();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink#getPath <em>Path</em>}'.
@@ -4354,102 +4143,113 @@ public interface XcorePackage extends EPackage {
 	EAttribute getDiagramLink_Style();
 
 	/**
-	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject <em>Diagramm Object</em>}'.
+	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject <em>Diagram Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Diagramm Object</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject
+	 * @return the meta object for class '<em>Diagram Object</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject
 	 * @generated
 	 */
-	EClass getDiagrammObject();
+	EClass getDiagramObject();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getBottom <em>Bottom</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getBottom <em>Bottom</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Bottom</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getBottom()
-	 * @see #getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getBottom()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EAttribute getDiagrammObject_Bottom();
+	EAttribute getDiagramObject_Bottom();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getDiagram <em>Diagram</em>}'.
+	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getDiagram <em>Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Diagram</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getDiagram()
-	 * @see #getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getDiagram()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EReference getDiagrammObject_Diagram();
+	EReference getDiagramObject_Diagram();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getElement <em>Element</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Element</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getElement()
-	 * @see #getDiagrammObject()
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getElement()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EReference getDiagrammObject_Element();
+	EReference getDiagramObject_Element();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getInstanceID <em>Instance ID</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getInstanceID <em>Instance ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Instance ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getInstanceID()
-	 * @see #getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getInstanceID()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EAttribute getDiagrammObject_InstanceID();
+	EAttribute getDiagramObject_InstanceID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getLeft <em>Left</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getLeft <em>Left</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Left</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getLeft()
-	 * @see #getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getLeft()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EAttribute getDiagrammObject_Left();
+	EAttribute getDiagramObject_Left();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getRight <em>Right</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getRight <em>Right</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Right</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getRight()
-	 * @see #getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getRight()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EAttribute getDiagrammObject_Right();
+	EAttribute getDiagramObject_Right();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getSequence <em>Sequence</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getSequence <em>Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Sequence</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getSequence()
-	 * @see #getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getSequence()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EAttribute getDiagrammObject_Sequence();
+	EAttribute getDiagramObject_Sequence();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getTop <em>Top</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getObjectStyle <em>Object Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Object Style</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getObjectStyle()
+	 * @see #getDiagramObject()
+	 * @generated
+	 */
+	EAttribute getDiagramObject_ObjectStyle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getTop <em>Top</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Top</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject#getTop()
-	 * @see #getDiagrammObject()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject#getTop()
+	 * @see #getDiagramObject()
 	 * @generated
 	 */
-	EAttribute getDiagrammObject_Top();
+	EAttribute getDiagramObject_Top();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.Element <em>Element</em>}'.
@@ -6589,6 +6389,14 @@ public interface XcorePackage extends EPackage {
 		EAttribute DIAGRAM__CY = eINSTANCE.getDiagram_Cy();
 
 		/**
+		 * The meta object literal for the '<em><b>Diagram GUID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM__DIAGRAM_GUID = eINSTANCE.getDiagram_DiagramGUID();
+
+		/**
 		 * The meta object literal for the '<em><b>Diagram ID</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6611,38 +6419,6 @@ public interface XcorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DIAGRAM__DIAGRAM_OBJECTS = eINSTANCE.getDiagram_DiagramObjects();
-
-		/**
-		 * The meta object literal for the '<em><b>Extended Style</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__EXTENDED_STYLE = eINSTANCE.getDiagram_ExtendedStyle();
-
-		/**
-		 * The meta object literal for the '<em><b>Highlight Imports</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__HIGHLIGHT_IMPORTS = eINSTANCE.getDiagram_HighlightImports();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Locked</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__IS_LOCKED = eINSTANCE.getDiagram_IsLocked();
-
-		/**
-		 * The meta object literal for the '<em><b>Meta Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__META_TYPE = eINSTANCE.getDiagram_MetaType();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6677,76 +6453,12 @@ public interface XcorePackage extends EPackage {
 		EReference DIAGRAM__PACKAGE = eINSTANCE.getDiagram_Package();
 
 		/**
-		 * The meta object literal for the '<em><b>Page Height</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__PAGE_HEIGHT = eINSTANCE.getDiagram_PageHeight();
-
-		/**
-		 * The meta object literal for the '<em><b>Page Width</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__PAGE_WIDTH = eINSTANCE.getDiagram_PageWidth();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__PARENT_ID = eINSTANCE.getDiagram_ParentID();
-
-		/**
 		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DIAGRAM__SCALE = eINSTANCE.getDiagram_Scale();
-
-		/**
-		 * The meta object literal for the '<em><b>Show Details</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__SHOW_DETAILS = eINSTANCE.getDiagram_ShowDetails();
-
-		/**
-		 * The meta object literal for the '<em><b>Show Package Contents</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__SHOW_PACKAGE_CONTENTS = eINSTANCE.getDiagram_ShowPackageContents();
-
-		/**
-		 * The meta object literal for the '<em><b>Show Private</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__SHOW_PRIVATE = eINSTANCE.getDiagram_ShowPrivate();
-
-		/**
-		 * The meta object literal for the '<em><b>Show Protected</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__SHOW_PROTECTED = eINSTANCE.getDiagram_ShowProtected();
-
-		/**
-		 * The meta object literal for the '<em><b>Show Public</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIAGRAM__SHOW_PUBLIC = eINSTANCE.getDiagram_ShowPublic();
 
 		/**
 		 * The meta object literal for the '<em><b>Stereotype</b></em>' attribute feature.
@@ -6799,7 +6511,7 @@ public interface XcorePackage extends EPackage {
 		EClass DIAGRAM_LINK = eINSTANCE.getDiagramLink();
 
 		/**
-		 * The meta object literal for the '<em><b>Connector</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Connector</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6831,12 +6543,12 @@ public interface XcorePackage extends EPackage {
 		EAttribute DIAGRAM_LINK__INSTANCE_ID = eINSTANCE.getDiagramLink_InstanceID();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Hidden</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Hidden</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIAGRAM_LINK__IS_HIDDEN = eINSTANCE.getDiagramLink_IsHidden();
+		EAttribute DIAGRAM_LINK__HIDDEN = eINSTANCE.getDiagramLink_Hidden();
 
 		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
@@ -6855,14 +6567,14 @@ public interface XcorePackage extends EPackage {
 		EAttribute DIAGRAM_LINK__STYLE = eINSTANCE.getDiagramLink_Style();
 
 		/**
-		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagrammObjectImpl <em>Diagramm Object</em>}' class.
+		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagrammObjectImpl
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDiagrammObject()
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.DiagramObjectImpl
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.XcorePackageImpl#getDiagramObject()
 		 * @generated
 		 */
-		EClass DIAGRAMM_OBJECT = eINSTANCE.getDiagrammObject();
+		EClass DIAGRAM_OBJECT = eINSTANCE.getDiagramObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Bottom</b></em>' attribute feature.
@@ -6870,7 +6582,7 @@ public interface XcorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIAGRAMM_OBJECT__BOTTOM = eINSTANCE.getDiagrammObject_Bottom();
+		EAttribute DIAGRAM_OBJECT__BOTTOM = eINSTANCE.getDiagramObject_Bottom();
 
 		/**
 		 * The meta object literal for the '<em><b>Diagram</b></em>' container reference feature.
@@ -6878,15 +6590,15 @@ public interface XcorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DIAGRAMM_OBJECT__DIAGRAM = eINSTANCE.getDiagrammObject_Diagram();
+		EReference DIAGRAM_OBJECT__DIAGRAM = eINSTANCE.getDiagramObject_Diagram();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DIAGRAMM_OBJECT__ELEMENT = eINSTANCE.getDiagrammObject_Element();
+		EReference DIAGRAM_OBJECT__ELEMENT = eINSTANCE.getDiagramObject_Element();
 
 		/**
 		 * The meta object literal for the '<em><b>Instance ID</b></em>' attribute feature.
@@ -6894,7 +6606,7 @@ public interface XcorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIAGRAMM_OBJECT__INSTANCE_ID = eINSTANCE.getDiagrammObject_InstanceID();
+		EAttribute DIAGRAM_OBJECT__INSTANCE_ID = eINSTANCE.getDiagramObject_InstanceID();
 
 		/**
 		 * The meta object literal for the '<em><b>Left</b></em>' attribute feature.
@@ -6902,7 +6614,7 @@ public interface XcorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIAGRAMM_OBJECT__LEFT = eINSTANCE.getDiagrammObject_Left();
+		EAttribute DIAGRAM_OBJECT__LEFT = eINSTANCE.getDiagramObject_Left();
 
 		/**
 		 * The meta object literal for the '<em><b>Right</b></em>' attribute feature.
@@ -6910,7 +6622,7 @@ public interface XcorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIAGRAMM_OBJECT__RIGHT = eINSTANCE.getDiagrammObject_Right();
+		EAttribute DIAGRAM_OBJECT__RIGHT = eINSTANCE.getDiagramObject_Right();
 
 		/**
 		 * The meta object literal for the '<em><b>Sequence</b></em>' attribute feature.
@@ -6918,7 +6630,15 @@ public interface XcorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIAGRAMM_OBJECT__SEQUENCE = eINSTANCE.getDiagrammObject_Sequence();
+		EAttribute DIAGRAM_OBJECT__SEQUENCE = eINSTANCE.getDiagramObject_Sequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Object Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_OBJECT__OBJECT_STYLE = eINSTANCE.getDiagramObject_ObjectStyle();
 
 		/**
 		 * The meta object literal for the '<em><b>Top</b></em>' attribute feature.
@@ -6926,7 +6646,7 @@ public interface XcorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DIAGRAMM_OBJECT__TOP = eINSTANCE.getDiagrammObject_Top();
+		EAttribute DIAGRAM_OBJECT__TOP = eINSTANCE.getDiagramObject_Top();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.impl.ElementImpl <em>Element</em>}' class.

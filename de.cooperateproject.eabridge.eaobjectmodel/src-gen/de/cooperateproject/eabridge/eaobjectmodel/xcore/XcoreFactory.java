@@ -76,13 +76,13 @@ public interface XcoreFactory extends EFactory {
 	DiagramLink createDiagramLink();
 
 	/**
-	 * Returns a new object of class '<em>Diagramm Object</em>'.
+	 * Returns a new object of class '<em>Diagram Object</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Diagramm Object</em>'.
+	 * @return a new object of class '<em>Diagram Object</em>'.
 	 * @generated
 	 */
-	DiagrammObject createDiagrammObject();
+	DiagramObject createDiagramObject();
 
 	/**
 	 * Returns a new object of class '<em>Element</em>'.

@@ -8,7 +8,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
@@ -111,9 +111,9 @@ public class XcoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XcorePackage.DIAGRAMM_OBJECT: {
-				DiagrammObject diagrammObject = (DiagrammObject)theEObject;
-				T result = caseDiagrammObject(diagrammObject);
+			case XcorePackage.DIAGRAM_OBJECT: {
+				DiagramObject diagramObject = (DiagramObject)theEObject;
+				T result = caseDiagramObject(diagramObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -230,17 +230,17 @@ public class XcoreSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagramm Object</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Diagram Object</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagramm Object</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Diagram Object</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDiagrammObject(DiagrammObject object) {
+	public T caseDiagramObject(DiagramObject object) {
 		return null;
 	}
 

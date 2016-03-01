@@ -192,5 +192,64 @@
 			</property>
 		</eclass>
 
+		<eclass name="Diagram">
+			<property name="DiagramID">
+				<column name="Diagram_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Package">
+				<join-column name="Package_ID" />
+			</property>
+			<property name="Type">
+				<column name="Diagram_Type" />
+			</property>
+			<property name="DiagramGUID">
+				<column name="ea_guid" />
+			</property>
+		</eclass>
+
+		<eclass name="DiagramLink">
+			<table name="t_diagramlinks"></table>
+			<property name="InstanceID">
+				<column name="Instance_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Diagram">
+				<join-column name="DiagramID" />
+			</property>
+			<property name="Connector">
+				<join-column name="ConnectorID" />
+			</property>
+		</eclass>
+
+		<eclass name="DiagramObject">
+			<table name="t_diagramobjects"></table>
+			<property name="InstanceID">
+				<column name="Instance_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Diagram">
+				<join-column name="Diagram_ID" />
+			</property>
+			<property name="Element">
+				<join-column name="Object_ID" />
+			</property>
+			<property name="Right">
+				<column name="RectRight" />
+			</property>
+			<property name="Bottom">
+				<column name="RectBottom" />
+			</property>
+			<property name="Left">
+				<column name="RectLeft" />
+			</property>
+			<property name="Top">
+				<column name="RectTop" />
+			</property>
+		</eclass>
+
 	</epackage>
 </persistence-mapping>

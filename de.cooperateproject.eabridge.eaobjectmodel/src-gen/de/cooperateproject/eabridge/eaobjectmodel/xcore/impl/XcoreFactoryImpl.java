@@ -9,7 +9,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
@@ -75,7 +75,7 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 			case XcorePackage.CONNECTOR: return createConnector();
 			case XcorePackage.DIAGRAM: return createDiagram();
 			case XcorePackage.DIAGRAM_LINK: return createDiagramLink();
-			case XcorePackage.DIAGRAMM_OBJECT: return createDiagrammObject();
+			case XcorePackage.DIAGRAM_OBJECT: return createDiagramObject();
 			case XcorePackage.ELEMENT: return createElement();
 			case XcorePackage.METHOD: return createMethod();
 			case XcorePackage.PACKAGE: return createPackage();
@@ -183,9 +183,9 @@ public class XcoreFactoryImpl extends EFactoryImpl implements XcoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DiagrammObject createDiagrammObject() {
-		DiagrammObjectImpl diagrammObject = new DiagrammObjectImpl();
-		return diagrammObject;
+	public DiagramObject createDiagramObject() {
+		DiagramObjectImpl diagramObject = new DiagramObjectImpl();
+		return diagramObject;
 	}
 
 	/**

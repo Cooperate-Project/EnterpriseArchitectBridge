@@ -8,7 +8,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
@@ -101,8 +101,8 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 				return createDiagramLinkAdapter();
 			}
 			@Override
-			public Adapter caseDiagrammObject(DiagrammObject object) {
-				return createDiagrammObjectAdapter();
+			public Adapter caseDiagramObject(DiagramObject object) {
+				return createDiagramObjectAdapter();
 			}
 			@Override
 			public Adapter caseElement(Element object) {
@@ -221,16 +221,16 @@ public class XcoreAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject <em>Diagramm Object</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject <em>Diagram Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject
 	 * @generated
 	 */
-	public Adapter createDiagrammObjectAdapter() {
+	public Adapter createDiagramObjectAdapter() {
 		return null;
 	}
 

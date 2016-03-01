@@ -9,7 +9,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagrammObject;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
@@ -79,7 +79,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass diagrammObjectEClass = null;
+	private EClass diagramObjectEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1283,7 +1283,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_DiagramID() {
+	public EAttribute getDiagram_DiagramGUID() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1292,8 +1292,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagram_DiagramLinks() {
-		return (EReference)diagramEClass.getEStructuralFeatures().get(5);
+	public EAttribute getDiagram_DiagramID() {
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1301,7 +1301,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagram_DiagramObjects() {
+	public EReference getDiagram_DiagramLinks() {
 		return (EReference)diagramEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1310,35 +1310,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_ExtendedStyle() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_HighlightImports() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_IsLocked() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_MetaType() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(10);
+	public EReference getDiagram_DiagramObjects() {
+		return (EReference)diagramEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1347,7 +1320,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Name() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1356,7 +1329,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Notes() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1365,7 +1338,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Orientation() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1374,34 +1347,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EReference getDiagram_Package() {
-		return (EReference)diagramEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_PageHeight() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_PageWidth() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_ParentID() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(17);
+		return (EReference)diagramEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1410,52 +1356,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Scale() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_ShowDetails() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_ShowPackageContents() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_ShowPrivate() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_ShowProtected() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_ShowPublic() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(23);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1464,7 +1365,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Stereotype() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(24);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1473,7 +1374,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_StyleEx() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(25);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -1482,7 +1383,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Swimlanes() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(26);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1491,7 +1392,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Type() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(27);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -1500,7 +1401,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * @generated
 	 */
 	public EAttribute getDiagram_Version() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(28);
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1553,7 +1454,7 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagramLink_IsHidden() {
+	public EAttribute getDiagramLink_Hidden() {
 		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1580,8 +1481,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDiagrammObject() {
-		return diagrammObjectEClass;
+	public EClass getDiagramObject() {
+		return diagramObjectEClass;
 	}
 
 	/**
@@ -1589,8 +1490,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagrammObject_Bottom() {
-		return (EAttribute)diagrammObjectEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDiagramObject_Bottom() {
+		return (EAttribute)diagramObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1598,8 +1499,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagrammObject_Diagram() {
-		return (EReference)diagrammObjectEClass.getEStructuralFeatures().get(1);
+	public EReference getDiagramObject_Diagram() {
+		return (EReference)diagramObjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1607,8 +1508,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagrammObject_Element() {
-		return (EReference)diagrammObjectEClass.getEStructuralFeatures().get(2);
+	public EReference getDiagramObject_Element() {
+		return (EReference)diagramObjectEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1616,8 +1517,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagrammObject_InstanceID() {
-		return (EAttribute)diagrammObjectEClass.getEStructuralFeatures().get(3);
+	public EAttribute getDiagramObject_InstanceID() {
+		return (EAttribute)diagramObjectEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1625,8 +1526,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagrammObject_Left() {
-		return (EAttribute)diagrammObjectEClass.getEStructuralFeatures().get(4);
+	public EAttribute getDiagramObject_Left() {
+		return (EAttribute)diagramObjectEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1634,8 +1535,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagrammObject_Right() {
-		return (EAttribute)diagrammObjectEClass.getEStructuralFeatures().get(5);
+	public EAttribute getDiagramObject_Right() {
+		return (EAttribute)diagramObjectEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1643,8 +1544,8 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagrammObject_Sequence() {
-		return (EAttribute)diagrammObjectEClass.getEStructuralFeatures().get(6);
+	public EAttribute getDiagramObject_Sequence() {
+		return (EAttribute)diagramObjectEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1652,8 +1553,17 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagrammObject_Top() {
-		return (EAttribute)diagrammObjectEClass.getEStructuralFeatures().get(7);
+	public EAttribute getDiagramObject_ObjectStyle() {
+		return (EAttribute)diagramObjectEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramObject_Top() {
+		return (EAttribute)diagramObjectEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2737,26 +2647,15 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEAttribute(diagramEClass, DIAGRAM__CREATED_DATE);
 		createEAttribute(diagramEClass, DIAGRAM__CX);
 		createEAttribute(diagramEClass, DIAGRAM__CY);
+		createEAttribute(diagramEClass, DIAGRAM__DIAGRAM_GUID);
 		createEAttribute(diagramEClass, DIAGRAM__DIAGRAM_ID);
 		createEReference(diagramEClass, DIAGRAM__DIAGRAM_LINKS);
 		createEReference(diagramEClass, DIAGRAM__DIAGRAM_OBJECTS);
-		createEAttribute(diagramEClass, DIAGRAM__EXTENDED_STYLE);
-		createEAttribute(diagramEClass, DIAGRAM__HIGHLIGHT_IMPORTS);
-		createEAttribute(diagramEClass, DIAGRAM__IS_LOCKED);
-		createEAttribute(diagramEClass, DIAGRAM__META_TYPE);
 		createEAttribute(diagramEClass, DIAGRAM__NAME);
 		createEAttribute(diagramEClass, DIAGRAM__NOTES);
 		createEAttribute(diagramEClass, DIAGRAM__ORIENTATION);
 		createEReference(diagramEClass, DIAGRAM__PACKAGE);
-		createEAttribute(diagramEClass, DIAGRAM__PAGE_HEIGHT);
-		createEAttribute(diagramEClass, DIAGRAM__PAGE_WIDTH);
-		createEAttribute(diagramEClass, DIAGRAM__PARENT_ID);
 		createEAttribute(diagramEClass, DIAGRAM__SCALE);
-		createEAttribute(diagramEClass, DIAGRAM__SHOW_DETAILS);
-		createEAttribute(diagramEClass, DIAGRAM__SHOW_PACKAGE_CONTENTS);
-		createEAttribute(diagramEClass, DIAGRAM__SHOW_PRIVATE);
-		createEAttribute(diagramEClass, DIAGRAM__SHOW_PROTECTED);
-		createEAttribute(diagramEClass, DIAGRAM__SHOW_PUBLIC);
 		createEAttribute(diagramEClass, DIAGRAM__STEREOTYPE);
 		createEAttribute(diagramEClass, DIAGRAM__STYLE_EX);
 		createEAttribute(diagramEClass, DIAGRAM__SWIMLANES);
@@ -2768,19 +2667,20 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		createEReference(diagramLinkEClass, DIAGRAM_LINK__DIAGRAM);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__GEOMETRY);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__INSTANCE_ID);
-		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__IS_HIDDEN);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__HIDDEN);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__PATH);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__STYLE);
 
-		diagrammObjectEClass = createEClass(DIAGRAMM_OBJECT);
-		createEAttribute(diagrammObjectEClass, DIAGRAMM_OBJECT__BOTTOM);
-		createEReference(diagrammObjectEClass, DIAGRAMM_OBJECT__DIAGRAM);
-		createEReference(diagrammObjectEClass, DIAGRAMM_OBJECT__ELEMENT);
-		createEAttribute(diagrammObjectEClass, DIAGRAMM_OBJECT__INSTANCE_ID);
-		createEAttribute(diagrammObjectEClass, DIAGRAMM_OBJECT__LEFT);
-		createEAttribute(diagrammObjectEClass, DIAGRAMM_OBJECT__RIGHT);
-		createEAttribute(diagrammObjectEClass, DIAGRAMM_OBJECT__SEQUENCE);
-		createEAttribute(diagrammObjectEClass, DIAGRAMM_OBJECT__TOP);
+		diagramObjectEClass = createEClass(DIAGRAM_OBJECT);
+		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__BOTTOM);
+		createEReference(diagramObjectEClass, DIAGRAM_OBJECT__DIAGRAM);
+		createEReference(diagramObjectEClass, DIAGRAM_OBJECT__ELEMENT);
+		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__INSTANCE_ID);
+		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__LEFT);
+		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__RIGHT);
+		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__SEQUENCE);
+		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__OBJECT_STYLE);
+		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__TOP);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__ABSTRACT);
@@ -3050,26 +2950,15 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getDiagram_CreatedDate(), theEcorePackage.getEDate(), "CreatedDate", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Cx(), theEcorePackage.getELongObject(), "cx", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Cy(), theEcorePackage.getELongObject(), "cy", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagram_DiagramGUID(), theEcorePackage.getEString(), "DiagramGUID", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_DiagramID(), theEcorePackage.getELongObject(), "DiagramID", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDiagram_DiagramLinks(), this.getDiagramLink(), this.getDiagramLink_Diagram(), "DiagramLinks", null, 0, -1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDiagram_DiagramObjects(), this.getDiagrammObject(), this.getDiagrammObject_Diagram(), "DiagramObjects", null, 0, -1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_ExtendedStyle(), theEcorePackage.getEString(), "ExtendedStyle", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_HighlightImports(), theEcorePackage.getEBooleanObject(), "HighlightImports", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_IsLocked(), theEcorePackage.getEBooleanObject(), "IsLocked", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_MetaType(), theEcorePackage.getEString(), "MetaType", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDiagram_DiagramObjects(), this.getDiagramObject(), this.getDiagramObject_Diagram(), "DiagramObjects", null, 0, -1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Name(), theEcorePackage.getEString(), "Name", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Notes(), theEcorePackage.getEString(), "Notes", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Orientation(), theEcorePackage.getEString(), "Orientation", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDiagram_Package(), this.getPackage(), this.getPackage_Diagrams(), "Package", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_PageHeight(), theEcorePackage.getELongObject(), "PageHeight", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_PageWidth(), theEcorePackage.getELongObject(), "PageWidth", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_ParentID(), theEcorePackage.getELongObject(), "ParentID", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Scale(), theEcorePackage.getELongObject(), "Scale", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_ShowDetails(), theEcorePackage.getELongObject(), "ShowDetails", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_ShowPackageContents(), theEcorePackage.getEBooleanObject(), "ShowPackageContents", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_ShowPrivate(), theEcorePackage.getEBooleanObject(), "ShowPrivate", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_ShowProtected(), theEcorePackage.getEBooleanObject(), "ShowProtected", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagram_ShowPublic(), theEcorePackage.getEBooleanObject(), "ShowPublic", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Stereotype(), theEcorePackage.getEString(), "Stereotype", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_StyleEx(), theEcorePackage.getEString(), "StyleEx", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Swimlanes(), theEcorePackage.getEString(), "Swimlanes", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3077,23 +2966,24 @@ public class XcorePackageImpl extends EPackageImpl implements XcorePackage {
 		initEAttribute(getDiagram_Version(), theEcorePackage.getEString(), "Version", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(diagramLinkEClass, DiagramLink.class, "DiagramLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDiagramLink_Connector(), this.getConnector(), null, "Connector", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDiagramLink_Connector(), this.getConnector(), null, "Connector", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDiagramLink_Diagram(), this.getDiagram(), this.getDiagram_DiagramLinks(), "Diagram", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_Geometry(), theEcorePackage.getEString(), "Geometry", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_InstanceID(), theEcorePackage.getELongObject(), "InstanceID", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagramLink_IsHidden(), theEcorePackage.getEBooleanObject(), "IsHidden", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_Hidden(), theEcorePackage.getEBooleanObject(), "Hidden", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_Path(), theEcorePackage.getEString(), "Path", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_Style(), theEcorePackage.getEString(), "Style", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(diagrammObjectEClass, DiagrammObject.class, "DiagrammObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDiagrammObject_Bottom(), theEcorePackage.getELongObject(), "Bottom", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDiagrammObject_Diagram(), this.getDiagram(), this.getDiagram_DiagramObjects(), "Diagram", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDiagrammObject_Element(), this.getElement(), null, "Element", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagrammObject_InstanceID(), theEcorePackage.getELongObject(), "InstanceID", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagrammObject_Left(), theEcorePackage.getELongObject(), "Left", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagrammObject_Right(), theEcorePackage.getELongObject(), "Right", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagrammObject_Sequence(), theEcorePackage.getELongObject(), "Sequence", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagrammObject_Top(), theEcorePackage.getELongObject(), "Top", null, 0, 1, DiagrammObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(diagramObjectEClass, DiagramObject.class, "DiagramObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDiagramObject_Bottom(), theEcorePackage.getELongObject(), "Bottom", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDiagramObject_Diagram(), this.getDiagram(), this.getDiagram_DiagramObjects(), "Diagram", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDiagramObject_Element(), this.getElement(), null, "Element", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramObject_InstanceID(), theEcorePackage.getELongObject(), "InstanceID", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramObject_Left(), theEcorePackage.getELongObject(), "Left", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramObject_Right(), theEcorePackage.getELongObject(), "Right", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramObject_Sequence(), theEcorePackage.getELongObject(), "Sequence", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramObject_ObjectStyle(), theEcorePackage.getEString(), "ObjectStyle", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramObject_Top(), theEcorePackage.getELongObject(), "Top", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Abstract(), theEcorePackage.getEString(), "Abstract", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

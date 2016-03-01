@@ -1,9 +1,6 @@
 package de.cooperateproject.eabridge.eaobjectmodel;
 
-import java.util.List;
-
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,6 +10,9 @@ import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.ConnectorType;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.Diagram;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramLink;
+import de.cooperateproject.eabridge.eaobjectmodel.xcore.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.xcore.Package;
@@ -91,6 +91,24 @@ public class Bootstrap {
 		connect.setDest(ele2);
 		connect.setDestCard("4");
 		
+		Diagram diagram = XcoreFactory.eINSTANCE.createDiagram();
+		diagram.setPackage(pack);
+		diagram.setType("Logical");
+		diagram.setName("diagram");
+		diagram.setDiagramGUID("diagramGUID");
+		
+		DiagramLink diaLink = XcoreFactory.eINSTANCE.createDiagramLink();
+		diaLink.setDiagram(diagram);
+		diaLink.setConnector(connect);
+
+		DiagramObject diaObj1 = XcoreFactory.eINSTANCE.createDiagramObject();
+		diaObj1.setDiagram(diagram);
+		diaObj1.setElement(ele);
+		
+		DiagramObject diaObj2 = XcoreFactory.eINSTANCE.createDiagramObject();
+		diaObj2.setDiagram(diagram);
+		diaObj2.setElement(ele2);
+		
 		final SessionFactory sessionFac = hbds.getSessionFactory();
 		
 		Session session = sessionFac.openSession();
@@ -98,6 +116,8 @@ public class Bootstrap {
 		
 		trans.begin();
 		session.save(rootPack);
+		session.save(connect);
+		session.save(diagram);
 		trans.commit();
 		
 		// For setting the right PDATA1 in the element of the second package

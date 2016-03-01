@@ -655,7 +655,7 @@ class Diagram {
 	//	The Y dimension of the diagram (the default is 1100).
 	//	
 	//	
-	//Variant	DiagramGUID	//	Read/Write
+	String	DiagramGUID	//	Read/Write
 	//	
 	//	A globally unique ID for this diagram.
 	//	
@@ -670,27 +670,27 @@ class Diagram {
 	//	A list of DiagramLink objects, each containing information about the display characteristics of a connector in a diagram.
 	//	
 	//	
-	contains DiagrammObject[] DiagramObjects opposite Diagram //	Read only
+	contains DiagramObject[] DiagramObjects opposite Diagram //	Read only
 	//	
 	//	A collection of references to DiagramObjects. A DiagramObject is an instance of an element in a diagram, and includes size and display characteristics.
 	//	
 	//	
-	String	ExtendedStyle //	Read/Write
+//	String	ExtendedStyle //	Read/Write
 	//	
 	//	An extended style attribute.
 	//	
 	//	
-	Boolean	HighlightImports //	Read/Write
+//	Boolean	HighlightImports //	Read/Write
 	//	
 	//	A flag to indicate that elements from other Packages should be highlighted.  Corresponds with the 'Show Namespace' option in the diagram properties dialog.
 	//	
 	//	
-	Boolean	IsLocked //	Read/Write
+//	Boolean	IsLocked //	Read/Write
 	//	
 	//	A flag indicating whether this diagram is locked or not.
 	//	
 	//	
-	String	MetaType //	Read only
+//	String	MetaType //	Read only
 	//	
 	//	The diagram's domain-specific meta type, as defined by an MDG Technology.
 	//	
@@ -725,17 +725,17 @@ class Diagram {
 	//	The ID of the Package that this diagram belongs to.
 	//	
 	//	
-	Long	PageHeight //	Read
+//	Long	PageHeight //	Read
 	//	
 	//	The number of pages high the diagram is.
 	//	
 	//	
-	Long	PageWidth //	Read
+//	Long	PageWidth //	Read
 	//	
 	//	The number of pages wide the diagram is.
 	//	
 	//	
-	Long	ParentID //	Read/Write
+//	refers Element	Parent //	Read/Write
 	//	
 	//	The optional ID of an element that 'owns' this diagram; for example, a Sequence diagram owned by a Use Case.
 	//	
@@ -757,27 +757,27 @@ class Diagram {
 	//	You can remove objects from this collection to deselect them, and add elements to the collection by passing the Object ID as a name to select them.
 	//	
 	//	
-	Long	ShowDetails //	Read/Write
-	//	
-	//	A flag to indicate that the Diagram Details text should be shown: 1 = Show, 0 = Hide.
-	//	
-	//	
-	Boolean	ShowPackageContents //	Read/Write
-	//	
-	//	A flag to indicate that the Package contents should be shown in the current diagram.
-	//	
-	//	
-	Boolean	ShowPrivate //	Read/Write
-	//	
-	//	A flag to show or hide Private features.
-	//	
-	//	
-	Boolean	ShowProtected //	Read/Write
-	//	
-	//	A flag to show or hide Protected features.
-	//	
-	//	
-	Boolean	ShowPublic //	Read/Write
+//	Long	ShowDetails //	Read/Write
+//	//	
+//	//	A flag to indicate that the Diagram Details text should be shown: 1 = Show, 0 = Hide.
+//	//	
+//	//	
+//	Boolean	ShowPackageContents //	Read/Write
+//	//	
+//	//	A flag to indicate that the Package contents should be shown in the current diagram.
+//	//	
+//	//	
+//	Boolean	ShowPrivate //	Read/Write
+//	//	
+//	//	A flag to show or hide Private features.
+//	//	
+//	//	
+//	Boolean	ShowProtected //	Read/Write
+//	//	
+//	//	A flag to show or hide Protected features.
+//	//	
+//	//	
+//	Boolean	ShowPublic //	Read/Write
 	//	
 	//	A flag to show or hide Public features.
 	//	
@@ -818,7 +818,7 @@ class Diagram {
 //
 //associated with t_diagramlinks table in .eap file
 class DiagramLink {
-	contains Connector Connector //	Read/Write
+	refers Connector Connector //	Read/Write
 	//	
 	//	The ID of the associated connector.
 	//	
@@ -838,7 +838,7 @@ class DiagramLink {
 	//	The connector identifier for the current model.
 	//	
 	//	
-	Boolean	IsHidden //	Read/Write
+	Boolean	Hidden //	Read/Write
 	//	
 	//	A flag to indicate if this item is hidden or not.
 	//	
@@ -859,7 +859,7 @@ class DiagramLink {
 }
 
 //associated with t_diagramobjects table in .eap file
-class DiagrammObject {
+class DiagramObject {
 	Long	Bottom //	Read/Write
 	//	
 	//	The bottom edge position of the element.
@@ -870,7 +870,7 @@ class DiagrammObject {
 	//	The ID of the associated diagram.
 	//	
 	//	
-	contains Element Element //	Read/Write
+	refers Element Element //	Read/Write
 	//	
 	//	The ElementID of the object instance in this diagram.
 	//	
@@ -902,7 +902,7 @@ class DiagrammObject {
 	//	The Z-order is one-based and the lowest value is in the foreground.
 	//	
 	//	
-	//Variant	Style	//	Read/Write
+	String	ObjectStyle	//	Read/Write
 	//	
 	//	The style information for this object. Returns a semi-colon delimited string that defines the current style settings. Changing a value will completely overwrite the previously existing value, so caution is advised to avoid losing existing style information that you want to keep.
 	//	
