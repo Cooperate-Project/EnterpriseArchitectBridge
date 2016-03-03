@@ -2,44 +2,254 @@
 <persistence-mapping xmlns="http://www.eclipse.org/emft/teneo"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.eclipse.org/emft/teneo https://searchcode.com/codesearch/raw/68608674/">
-	
+
 	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel.xcore">
-	
+
 		<eclass name="Attribute">
-			<eattribute name="AttributeID">
-				<column name="ID"/>
-			</eattribute>
-			<eattribute name="AttributeGUID">
-				<column name="ea_guid"/>
-			</eattribute>
 			<property name="AttributeID">
-          		<id/>
-         	</property>
-			<property name="Parent">
-				<join-column name="Object_ID"/>
+				<column name="ID" />
+				<id />
+				<generated-value />
 			</property>
-		</eclass>	
-		
+			<property name="Parent">
+				<join-column name="Object_ID" />
+			</property>
+			<property name="AttributeGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="IsConst">
+				<column name="Const" />
+			</property>
+			<property name="IsDerived">
+				<column name="Derived" />
+			</property>
+		</eclass>
+
 		<eclass name="AttributeConstraint">
-			<table name="t_attributeconstraints"/>
-			<!--<property name="Attribute">
-          		<id/>
-         	</property> 
-         	<property name="Constraint">
-          		<id/> 
-         	</property> -->
+			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK</id-class>
+			<table name="t_attributeconstraints" />
+			<property name="Attribute">
+				<id />
+				<join-column name="ID" />
+			</property>
+			<property name="Constraint">
+				<id />
+			</property>
 			<property name="ElementOfAttribute">
-				<join-column name="Object_ID"/>
+				<join-column name="Object_ID" />
+			</property>
+		</eclass>
+
+		<eclass name="AttributeTag">
+			<property name="TagID">
+				<column name="PropertyID" />
+				<id />
+				<generated-value />
 			</property>
 			<property name="Attribute">
-				<join-column name="ID"/>
+				<join-column name="ElementID" />
 			</property>
-		</eclass>		
-			
-			
-			
-		<eclass name="Element">
-			<table name="t_object"/>
+			<property name="Value">
+				<column name="VALUE" />
+			</property>
+			<property name="Notes">
+				<column name="NOTES" />
+			</property>
+			<property name="TagGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="Name">
+				<column name="Property" />
+			</property>
 		</eclass>
+
+		<eclass name="Connector">
+			<property name="ConnectorID">
+				<column name="Connector_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="ConnectorGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="Type">
+				<column name="Connector_Type" />
+			</property>
+			<!-- <property name="Diagram"> <join-column name="DiagramID" /> </property> -->
+			<property name="Source">
+				<join-column name="Start_Object_ID" />
+			</property>
+			<property name="Dest">
+				<join-column name="End_Object_ID" />
+			</property>
+		</eclass>
+
+		<!-- <eclass name="ConnectorConstraint"> <id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.ConnectorConstraintPK</id-class> 
+			<property name="Connector"> <join-column name="ConnectorID" /> <id /> </property> 
+			<property name="Constraint"> <id /> </property> </eclass> -->
+
+		<!-- <eclass name="ConnectorTag"> <property name="TagID"> <id /> <generated-value 
+			/> <column name="PropertyID" /> </property> <property name="Connector"> <join-column 
+			name="ElementID" /> </property> <property name="Value"> <column name="VALUE" 
+			/> </property> <property name="Notes"> <column name="NOTES" /> </property> 
+			<property name="TagGUID"> <column name="ea_guid" /> </property> </eclass> -->
+
+		<eclass name="Method">
+			<table name="t_operation" />
+			<property name="MethodID">
+				<column name="OperationID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="ReturnIsArray">
+				<column name="ReturnArray" />
+			</property>
+			<property name="ReturnType">
+				<column name="Type" />
+			</property>
+			<property name="Visibility">
+				<column name="Scope" />
+			</property>
+			<property name="MethodGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="IsConst">
+				<column name="Const" />
+			</property>
+			<property name="IsSynchronized">
+				<column name="Synchronized" />
+			</property>
+			<property name="IsPure">
+				<column name="Pure" />
+			</property>
+			<property name="Parent">
+				<join-column name="Object_ID" />
+			</property>
+		</eclass>
+
+		<eclass name="Package">
+			<property name="PackageID">
+				<column name="Package_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Parent">
+				<join-column name="Parent_ID" />
+			</property>
+			<property name="PackageGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="Flags">
+				<column name="PackageFlags" />
+			</property>
+			<property name="Owner">
+				<column name="PkgOwner" />
+			</property>
+			<property name="TreePos">
+				<column name="TPos" />
+			</property>
+			<property name="PackageGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="IsNamespace">
+				<column name="Namespace" />
+			</property>
+			<property name="IsProtected">
+				<column name="Protected" />
+			</property>
+		</eclass>
+
+		<!-- <eclass name="PostCondition"> <inheritance>TABLE_PER_CLASS</inheritance> 
+			</eclass> -->
+
+		<eclass name="Element">
+			<table name="t_object" />
+			<property name="ElementID">
+				<column name="Object_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Classifier">
+				<join-column name="Classifier" />
+			</property>
+			<property name="Parent">
+				<join-column name="ParentID" />
+			</property>
+			<property name="Package">
+				<join-column name="Package_ID" />
+			</property>
+			<property name="ElementGUID">
+				<column name="ea_guid" />
+			</property>
+			<property name="Notes">
+				<column name="Note" />
+			</property>
+			<property name="TreePos">
+				<column name="TPos" />
+			</property>
+			<property name="Type">
+				<column name="Object_Type" />
+			</property>
+		</eclass>
+
+		<eclass name="Diagram">
+			<property name="DiagramID">
+				<column name="Diagram_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Package">
+				<join-column name="Package_ID" />
+			</property>
+			<property name="Type">
+				<column name="Diagram_Type" />
+			</property>
+			<property name="DiagramGUID">
+				<column name="ea_guid" />
+			</property>
+		</eclass>
+
+		<eclass name="DiagramLink">
+			<table name="t_diagramlinks"></table>
+			<property name="InstanceID">
+				<column name="Instance_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Diagram">
+				<join-column name="DiagramID" />
+			</property>
+			<property name="Connector">
+				<join-column name="ConnectorID" />
+			</property>
+		</eclass>
+
+		<eclass name="DiagramObject">
+			<table name="t_diagramobjects"></table>
+			<property name="InstanceID">
+				<column name="Instance_ID" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="Diagram">
+				<join-column name="Diagram_ID" />
+			</property>
+			<property name="Element">
+				<join-column name="Object_ID" />
+			</property>
+			<property name="Right">
+				<column name="RectRight" />
+			</property>
+			<property name="Bottom">
+				<column name="RectBottom" />
+			</property>
+			<property name="Left">
+				<column name="RectLeft" />
+			</property>
+			<property name="Top">
+				<column name="RectTop" />
+			</property>
+		</eclass>
+
 	</epackage>
 </persistence-mapping>

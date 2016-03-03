@@ -30,9 +30,12 @@ public class Application {
 		public static void main(String[] args) throws SQLException {
 			// the name of the database, this database should exist but does not
 			// need to contain tables
-			String dbName = "eaobjectmodel";
-			doQuickStart(dbName); // ignore return
+			String dbName = "ea2emf";
 			
+			HbDataStore hbds = doQuickStart(dbName);
+			
+			Bootstrap.bootstrap(hbds);
+		
 			Server.createWebServer().start(); 
 		}
 
@@ -49,19 +52,19 @@ public class Application {
 			// Another approach is setting the properties in the HbDataStore.
 			// For more information see section 3.1 of the Hibernate manual
 			final Properties props = new Properties();
-			// props.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
-			// props.setProperty(Environment.USER, "root");
-			// props.setProperty(Environment.URL, "jdbc:mysql://127.0.0.1:3306/" +
-			// dbName);
-			// props.setProperty(Environment.PASS, "root");
-			// props.setProperty(Environment.DIALECT,
-			// org.hibernate.dialect.MySQL5InnoDBDialect.class.getName());
+			 props.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
+			 props.setProperty(Environment.USER, "ea");
+			 props.setProperty(Environment.URL, "jdbc:mysql://mammutbaum36.fzi.de:3306/" +
+			 dbName);
+			 props.setProperty(Environment.PASS, "zjlaisdfasdf3");
+			 props.setProperty(Environment.DIALECT,
+			 org.hibernate.dialect.MySQL5InnoDBDialect.class.getName());
 
-			props.setProperty(Environment.DRIVER, "org.h2.Driver");
-			props.setProperty(Environment.USER, "sa");
-			props.setProperty(Environment.URL, "jdbc:h2:mem:test");
-			props.setProperty(Environment.PASS, "");
-			props.setProperty(Environment.DIALECT, org.hibernate.dialect.H2Dialect.class.getName());
+//			props.setProperty(Environment.DRIVER, "org.h2.Driver");
+//			props.setProperty(Environment.USER, "sa");
+//			props.setProperty(Environment.URL, "jdbc:h2:mem:test");
+//			props.setProperty(Environment.PASS, "");
+//			props.setProperty(Environment.DIALECT, org.hibernate.dialect.H2Dialect.class.getName());
 
 			// set a specific option
 			// see this page
@@ -73,6 +76,20 @@ public class Application {
 					"de/cooperateproject/eabridge/eaobjectmodel/annotations.xml");
 			
 			props.setProperty(PersistenceOptions.SQL_CASE_STRATEGY, "none");
+			
+			props.setProperty(PersistenceOptions.ALWAYS_VERSION, "false");
+			
+			props.setProperty(PersistenceOptions.ALWAYS_MAP_LIST_AS_BAG, "true");
+			
+			// deactivate table creation
+			props.setProperty(Environment.HBM2DDL_AUTO, "none");
+			
+			// link do custom hibernate.hbm.xml
+//			props.setProperty(PersistenceOptions.USE_MAPPING_FILE, "true");
+			
+			//disable generation of econtainer columns
+			//references should be redundant
+			props.setProperty(PersistenceOptions.DISABLE_ECONTAINER_MAPPING, "true");
 			
 			// the name of the session factory
 			final String hbName = "EAObjectModel";
