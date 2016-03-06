@@ -30,9 +30,9 @@ public class Application {
 		public static void main(String[] args) throws SQLException {
 			// the name of the database, this database should exist but does not
 			// need to contain tables
-			String dbName = "ea2emf";
+			String dbName = "enterprise_architect";
 			
-			HbDataStore hbds = doQuickStart(dbName);
+			HbDataStore hbds = doQuickStart(dbName, args[0]);
 			
 			Bootstrap.bootstrap(hbds);
 		
@@ -43,7 +43,7 @@ public class Application {
 		 * The method performing the real action. This method is used by other tutorials therefore has it
 		 * been made public and expects the database name and returns an instance of the HbDataStore.
 		 */
-		public static HbDataStore doQuickStart(String dbName) {
+		public static HbDataStore doQuickStart(String dbName, String password) {
 			
 
 			// The hibernate properties can be set by having a hibernate.properties
@@ -56,7 +56,7 @@ public class Application {
 			 props.setProperty(Environment.USER, "ea");
 			 props.setProperty(Environment.URL, "jdbc:mysql://mammutbaum36.fzi.de:3306/" +
 			 dbName);
-			 props.setProperty(Environment.PASS, "zjlaisdfasdf3");
+			 props.setProperty(Environment.PASS, password);
 			 props.setProperty(Environment.DIALECT,
 			 org.hibernate.dialect.MySQL5InnoDBDialect.class.getName());
 
@@ -82,7 +82,7 @@ public class Application {
 			props.setProperty(PersistenceOptions.ALWAYS_MAP_LIST_AS_BAG, "true");
 			
 			// deactivate table creation
-			props.setProperty(Environment.HBM2DDL_AUTO, "none");
+//			props.setProperty(Environment.HBM2DDL_AUTO, "none");
 			
 			// link do custom hibernate.hbm.xml
 //			props.setProperty(PersistenceOptions.USE_MAPPING_FILE, "true");
