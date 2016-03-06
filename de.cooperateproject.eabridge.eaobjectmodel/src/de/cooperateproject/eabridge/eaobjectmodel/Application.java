@@ -82,7 +82,7 @@ public class Application {
 			props.setProperty(PersistenceOptions.ALWAYS_MAP_LIST_AS_BAG, "true");
 			
 			// deactivate table creation
-//			props.setProperty(Environment.HBM2DDL_AUTO, "none");
+			props.setProperty(Environment.HBM2DDL_AUTO, "none");
 			
 			// link do custom hibernate.hbm.xml
 //			props.setProperty(PersistenceOptions.USE_MAPPING_FILE, "true");

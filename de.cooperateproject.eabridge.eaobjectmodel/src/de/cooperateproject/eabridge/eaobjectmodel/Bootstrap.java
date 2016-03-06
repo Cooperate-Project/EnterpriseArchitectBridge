@@ -116,8 +116,6 @@ public class Bootstrap {
 		
 		trans.begin();
 		session.save(rootPack);
-		session.save(connect);
-		session.save(diagram);
 		trans.commit();
 		
 		// For setting the right PDATA1 in the element of the second package

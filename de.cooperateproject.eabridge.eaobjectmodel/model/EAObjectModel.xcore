@@ -450,7 +450,7 @@ class Connector {
 	//	For Generalization, indicates if the inheritance is virtual.		
 	//			
 	//			
-	refers Element Source
+	container Element Source opposite SourceRelations
 	
 	refers Element Dest
 	
@@ -1416,6 +1416,8 @@ int  Bordercolor
 String Cardinality
 String Concurrency
 String PDATA1
+
+contains Connector[] SourceRelations opposite Source
 }
 
 //associated with t_operation table in .eap file
