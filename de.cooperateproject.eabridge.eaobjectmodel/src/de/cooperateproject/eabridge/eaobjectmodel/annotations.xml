@@ -6,6 +6,7 @@
 	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel">
 
 		<eclass name="Attribute">
+		<inheritance>TABLE_PER_CLASS</inheritance>
 			<property name="AttributeID">
 				<column name="ID" />
 				<id />
@@ -26,6 +27,7 @@
 		</eclass>
 
 		<eclass name="AttributeConstraint">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK</id-class>
 			<table name="t_attributeconstraints" />
 			<property name="Attribute">
@@ -41,6 +43,7 @@
 		</eclass>
 
 		<eclass name="AttributeTag">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<property name="TagID">
 				<column name="PropertyID" />
 				<id />
@@ -64,6 +67,7 @@
 		</eclass>
 
 		<eclass name="Connector">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<property name="ConnectorID">
 				<column name="Connector_ID" />
 				<id />
@@ -95,6 +99,7 @@
 			<property name="TagGUID"> <column name="ea_guid" /> </property> </eclass> -->
 
 		<eclass name="Method">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<table name="t_operation" />
 			<property name="MethodID">
 				<column name="OperationID" />
@@ -128,6 +133,7 @@
 		</eclass>
 
 		<eclass name="Package">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<property name="PackageID">
 				<column name="Package_ID" />
 				<id />
@@ -163,6 +169,7 @@
 			</eclass> -->
 
 		<eclass name="Element">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<table name="t_object" />
 			<property name="ElementID">
 				<column name="Object_ID" />
@@ -193,6 +200,7 @@
 		</eclass>
 
 		<eclass name="Diagram">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<property name="DiagramID">
 				<column name="Diagram_ID" />
 				<id />
@@ -210,6 +218,7 @@
 		</eclass>
 
 		<eclass name="DiagramLink">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<table name="t_diagramlinks"></table>
 			<property name="InstanceID">
 				<column name="Instance_ID" />
@@ -225,6 +234,7 @@
 		</eclass>
 
 		<eclass name="DiagramObject">
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<table name="t_diagramobjects"></table>
 			<property name="InstanceID">
 				<column name="Instance_ID" />
