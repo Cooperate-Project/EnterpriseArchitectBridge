@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.eclipse.org/emft/teneo https://searchcode.com/codesearch/raw/68608674/">
 
-	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel.xcore">
+	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel">
 
 		<eclass name="Attribute">
 			<property name="AttributeID">

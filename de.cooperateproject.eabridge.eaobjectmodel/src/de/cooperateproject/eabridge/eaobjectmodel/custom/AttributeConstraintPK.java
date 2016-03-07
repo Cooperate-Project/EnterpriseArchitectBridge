@@ -2,7 +2,7 @@ package de.cooperateproject.eabridge.eaobjectmodel.custom;
 
 import java.io.Serializable;
 
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Attribute;
+import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 
 /**
  * The id class used in the composite id test case

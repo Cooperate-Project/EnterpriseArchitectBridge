@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated EAObjectModel -->
       <package
-            uri="de.cooperateproject.eabridge.eaobjectmodel.xcore"
-            class="de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage"
+            uri="de.cooperateproject.eabridge.eaobjectmodel"
+            class="de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage"
             genModel="model/EAObjectModel.xcore"/>
    </extension>
 

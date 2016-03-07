@@ -1,4 +1,5 @@
-package de.cooperateproject.eabridge.eaobjectmodel.xcore
+@GenModel(modelName="EAObjectModel")
+package de.cooperateproject.eabridge.eaobjectmodel
 
 //associated with t_attribute table in .eap file
 class Attribute {

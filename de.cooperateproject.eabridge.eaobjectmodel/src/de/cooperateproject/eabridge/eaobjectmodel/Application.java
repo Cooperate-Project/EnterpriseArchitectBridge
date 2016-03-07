@@ -9,12 +9,10 @@ import org.eclipse.emf.teneo.extension.ExtensionManager;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.eclipse.emf.teneo.hibernate.HbHelper;
 import org.eclipse.emf.teneo.mapping.strategy.SQLNameStrategy;
-import org.eclipse.emf.teneo.mapping.strategy.impl.TeneoNewSQLNameStrategy;
 import org.h2.tools.Server;
 import org.hibernate.cfg.Environment;
 
 import de.cooperateproject.eabridge.eaobjectmodel.configuration.CustomNamingStrategy;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
 
 public class Application {
 	
@@ -104,7 +102,7 @@ public class Application {
 			extensionManager.registerExtension(SQLNameStrategy.class.getName(), CustomNamingStrategy.class.getName());
 
 			// sets its epackages stored in this datastore
-			hbds.setEPackages(new EPackage[] { XcorePackage.eINSTANCE });
+			hbds.setEPackages(new EPackage[] { EaobjectmodelPackage.eINSTANCE });
 
 			// initialize, also creates the database tables
 			try {

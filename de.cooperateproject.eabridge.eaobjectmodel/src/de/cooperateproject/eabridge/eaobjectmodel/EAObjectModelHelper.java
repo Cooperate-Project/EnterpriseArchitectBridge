@@ -14,9 +14,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.Package;
-import de.cooperateproject.eabridge.eaobjectmodel.xcore.XcorePackage;
-
 public class EAObjectModelHelper {
 
     static {
@@ -25,7 +22,7 @@ public class EAObjectModelHelper {
         m.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
         
         Registry packageRegistry = EPackage.Registry.INSTANCE;
-        packageRegistry.replace(XcorePackage.eNS_URI, XcorePackage.eINSTANCE);        
+        packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);        
     }
     
     public static Package loadModel(String projectRelativePath) throws IOException {
