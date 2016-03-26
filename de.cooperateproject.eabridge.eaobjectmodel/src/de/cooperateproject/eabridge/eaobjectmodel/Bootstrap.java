@@ -27,5 +27,9 @@ public class Bootstrap {
 		trans.begin();
 		session.save(loadedPackage);
 		trans.commit();
+
+		// Not working
+		// session.createSQLQuery("UPDATE `t_package` SET `Parent_ID`=0 WHERE
+		// `Package_ID`=1").executeUpdate();
 	}
 }
