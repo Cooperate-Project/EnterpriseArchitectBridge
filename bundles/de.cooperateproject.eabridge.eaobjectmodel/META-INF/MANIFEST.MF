@@ -8,18 +8,19 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.cooperateproject.eabridge.eaobjectmodel,
+ de.cooperateproject.eabridge.eaobjectmodel.database,
  de.cooperateproject.eabridge.eaobjectmodel.impl,
  de.cooperateproject.eabridge.eaobjectmodel.util
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: javax.persistence;bundle-version="2.1.0";visibility:=reexport,
+ org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xcore.lib,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.hibernate,
+ org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.teneo.hibernate,
- de.cooperateproject.externals.h2database;bundle-version="1.0.0";visibility:=reexport,
- org.apache.commons.lang;bundle-version="2.6.0",
+ org.eclipse.xtext.xbase.lib,
+ org.hibernate,
  org.apache.commons.logging;bundle-version="1.1.1",
- javax.persistence;bundle-version="2.1.0",
- com.mysql.jdbc;bundle-version="1.0.0"
+ org.apache.commons.lang;bundle-version="2.6.0",
+ org.apache.log4j;bundle-version="1.2.16"
 Bundle-ActivationPolicy: lazy
+Bundle-Activator: de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelActivator

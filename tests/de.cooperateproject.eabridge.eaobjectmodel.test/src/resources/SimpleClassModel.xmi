@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<eaobjectmodel:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel" PackageGUID="rootPackageGUID" Name="rootPackage">
+<eaobjectmodel:RootPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel" PackageGUID="rootPackageGUID" Name="rootPackage">
   <Elements ElementGUID="elementPackageGUID" Name="package" Type="Package" PDATA1="2"/>
   <Packages PackageGUID="packageGUID" Name="package">
     <Diagrams DiagramGUID="diagramGUID" Name="diagram" Type="Logical">
@@ -18,4 +18,4 @@
       <Methods MethodGUID="methodGUID" Name="method"/>
     </Elements>
   </Packages>
-</eaobjectmodel:Package>
+</eaobjectmodel:RootPackage>

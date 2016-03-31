@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.h2.store.fs.FileUtils;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
-import de.cooperateproject.eabridge.eaobjectmodel.Package;
+import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
+import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
 
 public class EAObjectModelHelper {
 
@@ -31,17 +31,7 @@ public class EAObjectModelHelper {
         packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);        
     }
     
-    public static Package loadModel(String projectRelativePath) throws IOException {
-        ResourceSet rs = new ResourceSetImpl();
-        File p = new File(projectRelativePath);
-        URI uri = URI.createFileURI(p.getAbsolutePath());
-        Resource r = rs.createResource(uri);
-        r.load(null);
-        EcoreUtil.resolveAll(r);
-        return (Package) r.getContents().get(0);
-    }
-    
-    public static Package loadModel(InputStream is) throws IOException {
+    public static RootPackage loadModel(InputStream is) throws IOException {
         ResourceSet rs = new ResourceSetImpl();
         File tmpFile = File.createTempFile(RandomStringUtils.randomAlphanumeric(10), ".xmi");
         tmpFile.delete();
@@ -49,10 +39,10 @@ public class EAObjectModelHelper {
         Resource r = rs.createResource(uri);
         r.load(is, null);
         EcoreUtil.resolveAll(r);
-        return (Package) r.getContents().get(0);
+        return (RootPackage) r.getContents().get(0);
     }
     
-    public static void saveModel(Package model, String projectRelativePath) throws IOException {
+    public static void saveModel(PackageBase model, String projectRelativePath) throws IOException {
         ResourceSet rs = new ResourceSetImpl();
         Resource r = rs.createResource(URI.createFileURI(projectRelativePath));
         r.getContents().add(model);

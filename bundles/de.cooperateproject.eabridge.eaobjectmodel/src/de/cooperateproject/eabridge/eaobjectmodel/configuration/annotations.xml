@@ -132,15 +132,14 @@
 			</property>
 		</eclass>
 
-		<eclass name="Package">
-			<inheritance>TABLE_PER_CLASS</inheritance>
+		<eclass name="PackageBase">
+			<table name="t_package" />
+			<inheritance>SINGLE_TABLE</inheritance>
+			<discriminator-formula>CASE WHEN Parent_ID = 0 THEN 'ROOT' WHEN Parent_ID > 0 THEN 'PACKAGE' end</discriminator-formula>
 			<property name="PackageID">
 				<column name="Package_ID" />
 				<id />
 				<generated-value />
-			</property>
-			<property name="Parent">
-				<join-column name="Parent_ID" nullable="true" />
 			</property>
 			<property name="PackageGUID">
 				<column name="ea_guid" />
@@ -162,6 +161,20 @@
 			</property>
 			<property name="IsProtected">
 				<column name="Protected" />
+			</property>
+		</eclass>
+		
+		<eclass name="Package">
+			<discriminator-value>PACKAGE</discriminator-value>
+			<property name="Parent">
+				<join-column name="Parent_ID" />
+			</property>
+		</eclass>
+		
+		<eclass name="RootPackage">
+			<discriminator-value>ROOT</discriminator-value>
+			<property name="Parent">
+				<column name="Parent_ID"/>
 			</property>
 		</eclass>
 

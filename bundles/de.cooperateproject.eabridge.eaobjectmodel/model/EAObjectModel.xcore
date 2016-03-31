@@ -721,7 +721,7 @@ class Diagram {
 	//	The page orientation: P for Portrait or L for Landscape.
 	//	
 	//	
-	container Package Package opposite Diagrams //	Read/Write
+	container PackageBase Package opposite Diagrams //	Read/Write
 	//	
 	//	The ID of the Package that this diagram belongs to.
 	//	
@@ -1194,7 +1194,7 @@ class Element {
 	//	Distinguishes objects referenced through a Dispatch interface.	
 	//		
 	//		
-	container Package Package opposite Elements //	Read/Write	
+	container PackageBase Package opposite Elements //	Read/Write	
 	//		
 	//	A local ID for the Package containing this element.	
 	//		
@@ -1676,10 +1676,8 @@ String GenOption
 ////	
 //}
 
-//associated with t_package table in .eap file
-class Package {
+abstract class PackageBase {
 	String PackageGUID
-	
 	Long	BatchLoad //	Read/Write
 	//	
 	//	Flag to indicate that the Package is batch loaded during batch import from controlled Packages.
@@ -1707,21 +1705,6 @@ class Package {
 	Date	CreatedDate //	Read/Write
 	//	
 	//	Date the Package was created.
-	//	
-	//	
-	contains Diagram[] Diagrams opposite Package //	Read only
-	//	
-	//	A collection of diagrams contained in this Package.
-	//	
-	//	
-//	contains Element Element //	Read only
-//	//	
-//	//	The associated element object; use to get/set common information such as Stereotype, Complexity, Alias, Author, Constraints, Tagged Values and Scenarios.
-//	//	
-//	//	
-	contains Element[] Elements opposite Package //	Read only
-	//	
-	//	A collection of elements that belong to this Package.
 	//	
 	//	
 	String	Flags //	Read/Write
@@ -1798,18 +1781,6 @@ class Package {
 	//	Valid only in this model file.
 	//	
 	//	
-	contains Package[] Packages opposite Parent //	Read only
-	//	
-	//	A collection of contained Packages that can be walked through.
-	//	
-	//	
-	container Package Parent opposite Packages //	Read/Write
-	//	
-	//	The ID of the Package that is the parent of this one.
-	//	
-	//	0 indicates this Package is a model (that is, it has no parent).
-	//	
-	//	
 	Long	TreePos //	Read/Write
 	//	
 	//	The relative position in the tree compared to other Packages (use to sort Packages).
@@ -1831,10 +1802,48 @@ class Package {
 	//	
 	//	
 	String	XMLPath //	Read/Write
-//	
-//	The path to which the XML is saved when using controlled Packages.
-//	
-//	
+	//	
+	//	The path to which the XML is saved when using controlled Packages.
+	//	
+	//	
+	contains Package[] Packages opposite Parent //	Read only
+	//	
+	//	A collection of contained Packages that can be walked through.
+	//	
+	//	
+	contains Diagram[] Diagrams opposite Package //	Read only
+	//	
+	//	A collection of diagrams contained in this Package.
+	//	
+	//	
+//	contains Element Element //	Read only
+//	//	
+//	//	The associated element object; use to get/set common information such as Stereotype, Complexity, Alias, Author, Constraints, Tagged Values and Scenarios.
+//	//	
+//	//	
+	contains Element[] Elements opposite Package //	Read only
+	//	
+	//	A collection of elements that belong to this Package.
+	//	
+	//	
+}
+
+class RootPackage extends PackageBase {
+
+	Long Parent = "0"
+
+}
+
+//associated with t_package table in .eap file
+class Package extends PackageBase {
+
+	container PackageBase Parent opposite Packages //	Read/Write
+	//	
+	//	The ID of the Package that is the parent of this one.
+	//	
+	//	0 indicates this Package is a model (that is, it has no parent).
+	//	
+	//	
 }
 
 ////associated with t_operationparams table in .eap file
