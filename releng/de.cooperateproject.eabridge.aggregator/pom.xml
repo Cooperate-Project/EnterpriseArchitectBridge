@@ -15,9 +15,7 @@
 	<modules>
 		<module>../de.cooperateproject.eabridge.dummy</module>
 		<module>../../features/de.cooperateproject.eabridge.feature</module>
-		<module>../../tests/de.cooperateproject.eabridge.eaobjectmodel.test</module>
+		<module>../../tests/de.cooperateproject.eabridge.eaobjectmodel.tests</module>
 		<module>../../bundles/de.cooperateproject.eabridge.eaobjectmodel</module>
-		<module>../../bundles/de.cooperateproject.externals.h2database</module>
-		<module>../../bundles/de.cooperateproject.externals.liquibase</module>
 	</modules>
 </project> 

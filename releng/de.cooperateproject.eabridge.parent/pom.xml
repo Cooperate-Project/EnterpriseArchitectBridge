@@ -13,6 +13,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.deploy-plugin.version>2.8.2</maven.deploy-plugin.version>
 		<sonar.jacoco.reportPath>../../releng/de.cooperateproject.eabridge.dummy/target/jacoco.exec</sonar.jacoco.reportPath>
 	</properties>
@@ -38,8 +40,12 @@
 			<layout>p2</layout>
 			<url>http://www.elver.org/eclipse/2.1.0/update</url>
 		</repository>
+		<repository>
+			<id>cooperate-externals</id>
+			<layout>p2</layout>
+			<url>https://cooperate-project.github.io/Externals/updatesite/</url>
+		</repository>
 	</repositories>
-
 
 	<build>
 		<plugins>

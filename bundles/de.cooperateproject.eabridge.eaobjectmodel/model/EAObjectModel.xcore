@@ -1,4 +1,4 @@
-@GenModel(modelName="EAObjectModel")
+@GenModel(modelName="EAObjectModel", modelDirectory="/de.cooperateproject.eabridge.eaobjectmodel/src-gen")
 package de.cooperateproject.eabridge.eaobjectmodel
 
 //associated with t_attribute table in .eap file
