@@ -43,7 +43,7 @@
 		<repository>
 			<id>cooperate-externals</id>
 			<layout>p2</layout>
-			<url>https://cooperate-project.github.io/Externals/updatesite/</url>
+			<url>https://cooperate-project.github.io/Externals/updatesite/latest/</url>
 		</repository>
 	</repositories>
 
