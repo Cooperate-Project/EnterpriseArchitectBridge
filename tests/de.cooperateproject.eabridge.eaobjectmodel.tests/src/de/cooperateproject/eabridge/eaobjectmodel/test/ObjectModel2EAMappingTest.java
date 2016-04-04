@@ -34,9 +34,8 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 
          MySQLDatabase db = new MySQLDatabase();
          db.setConnection(new JdbcConnection(getDbConnection()));
-         Liquibase liquibase = new Liquibase((String) null, new ClassLoaderResourceAccessor(),
-         db);
-        // //liquibase.
+         Liquibase liquibase = new Liquibase((String) null, new ClassLoaderResourceAccessor(), db);
+//         liquibase.
 
     }
 

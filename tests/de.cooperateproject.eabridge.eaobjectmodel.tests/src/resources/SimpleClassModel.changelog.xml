@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+	<include file="EABase.changelog.xml" relativeToChangelogFile="true" />
+	<changeSet author="schick" id="1459424567710-1">
+		<insert tableName="t_package">
+			<column name="Package_ID" valueNumeric="1" />
+			<column name="Name" value="rootPackage" />
+			<column name="Parent_ID" valueNumeric="0" />
+			<column name="ea_guid" value="rootPackageGUID" />
+		</insert>
+		<insert tableName="t_package">
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="Name" value="package" />
+			<column name="Parent_ID" valueNumeric="1" />
+			<column name="ea_guid" value="packageGUID" />
+		</insert>
+		<insert tableName="t_object">
+			<column name="Object_ID" valueNumeric="1" />
+			<column name="Object_Type" value="Package" />
+			<column name="Name" value="package" />
+			<column name="Package_ID" valueNumeric="1" />
+			<column name="Backcolor" valueNumeric="0" />
+			<column name="BorderStyle" valueNumeric="0" />
+			<column name="BorderWidth" valueNumeric="0" />
+			<column name="Fontcolor" valueNumeric="0" />
+			<column name="Bordercolor" valueNumeric="0" />
+			<column name="PDATA2" valueNumeric="2" />
+			<column name="Classifier" valueNumeric="0" />
+			<column name="ea_guid" value="elementPackageGUID" />
+		</insert>
+		<insert tableName="t_object">
+			<column name="Object_ID" valueNumeric="2" />
+			<column name="Name" value="element" />
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="Backcolor" valueNumeric="0" />
+			<column name="BorderStyle" valueNumeric="0" />
+			<column name="BorderWidth" valueNumeric="0" />
+			<column name="Fontcolor" valueNumeric="0" />
+			<column name="Bordercolor" valueNumeric="0" />
+			<column name="Classifier" valueNumeric="0" />
+			<column name="ea_guid" value="element1GUID" />
+		</insert>
+		<insert tableName="t_attribute">
+			<column name="Object_ID" valueNumeric="1" />
+			<column name="Name" value="attName" />
+			<column name="AllowDuplicates" valueNumeric="1" />
+			<column name="Notes" value="attNotes" />
+			<column name="Classifier" value="0" />
+			<column name="ea_guid" value="attributeGUID" />
+		</insert>
+		<insert tableName="t_attributeconstraints">
+			<column name="Object_ID" valueNumeric="1" />
+			<column name="ID" valueNumeric="1" />
+			<column name="Constraint" value="testconstraint" />
+		</insert>
+		<insert tableName="t_attributetag">
+			<column name="PropertyID" valueNumeric="1" />
+			<column name="ElementID" valueNumeric="1" />
+			<column name="NOTES" value="attTagNotes" />
+			<column name="ea_guid" value="attTagGUID" />
+			<column name="Property" value="attTagName" />
+		</insert>
+		<insert tableName="t_connector">
+			<column name="Connector_ID" valueNumeric="1" />
+			<column name="Direction" value="Unspecified" />
+			<column name="Connector_Type" value="Association" />
+			<column name="SourceCard" value="1...*" />
+			<column name="DestCard" value="4" />
+			<column name="SourceIsAggregate" valueNumeric="0" />
+			<column name="SourceIsOrdered" valueNumeric="0" />
+			<column name="DestIsAggregate" valueNumeric="0" />
+			<column name="DestIsOrdered" valueNumeric="0" />
+			<column name="Start_Object_ID" valueNumeric="2" />
+			<column name="End_Object_ID" valueNumeric="3" />
+			<column name="ea_guid" value="connectorGUID" />
+		</insert>
+		<insert tableName="t_object">
+			<column name="Object_ID" valueNumeric="3" />
+			<column name="Name" value="element2" />
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="Backcolor" valueNumeric="0" />
+			<column name="BorderStyle" valueNumeric="0" />
+			<column name="BorderWidth" valueNumeric="0" />
+			<column name="Fontcolor" valueNumeric="0" />
+			<column name="Bordercolor" valueNumeric="0" />
+			<column name="Classifier" valueNumeric="0" />
+			<column name="ea_guid" value="element2GUID" />
+		</insert>
+		<insert tableName="t_method">
+			<column name="OperationID" valueNumeric="1" />
+			<column name="Object_ID" valueNumeric="3" />
+			<column name="Name" value="method" />
+			<column name="ea_guid" value="methodGUID" />
+		</insert>
+		<insert tableName="t_diagram">
+			<column name="Diagram_ID" valueNumeric="1" />
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="Diagram_Type" value="Logical" />
+			<column name="Name" value="diagram" />
+			<column name="ea_guid" value="diagramGUID" />
+		</insert>
+		<insert tableName="t_diagramlinks">
+			<column name="DiagramID" valueNumeric="1" />
+			<column name="ConnectorID" valueNumeric="1" />
+			<column name="Instance_ID" valueNumeric="1" />
+		</insert>
+		<insert tableName="t_diagramobjects">
+			<column name="Diagram_ID" valueNumeric="1" />
+			<column name="Object_ID" valueNumeric="2" />
+			<column name="Instance_ID" valueNumeric="1" />
+		</insert>
+		<insert tableName="t_diagramobjects">
+			<column name="Diagram_ID" valueNumeric="1" />
+			<column name="Object_ID" valueNumeric="3" />
+			<column name="Instance_ID" valueNumeric="2" />
+		</insert>
+	</changeSet>
+</databaseChangeLog>
