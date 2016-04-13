@@ -38,10 +38,10 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 
 	@Test
 	public void testAddModel() throws Exception {
-		initTestDb(TestResource.EABaseChangelog);
+		initTestDb(TestResource.EASchemaChangelog);
 
 		Liquibase liquibase = getLiquibase();
-		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class, Table.class);
+		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class);
 		
 		PackageBase loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
 		Session session = getDataStore().getSessionFactory().openSession();
@@ -51,15 +51,17 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		session.save(loadedPackage);
 		trans.commit();
 		
-		System.out.print("-------------------Second-------------------");
-		
-		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class, Table.class);
+		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class);
 
-		H2Database compareDb = new H2Database();
-		compareDb.executeStatements(null, liquibase.getDatabaseChangeLog(), null);
-//
+		MySQLTestDB compare = new MySQLTestDB(TestResource.SimpleClassModelChangelog, "compare");
+		
+		Liquibase compareLiquibase = compare.getLiquibase();
+		compareLiquibase.generateChangeLog(compareLiquibase.getDatabase().getDefaultSchema(), new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class);
+		
 //		Set<Class<? extends DatabaseObject>> types = new HashSet();
 //		types.add(Data.class);
+//
+//		liquibase.diff(liquibase.getDatabase(), compare.getLiquibase().getDatabase(), new CompareControl(types));
 		
 		
 //		DiffResult diff = liquibase.diff(getDatabase(), compareDb, new CompareControl());

@@ -72,8 +72,4 @@ public abstract class TeneoMappingBaseTest {
 		return testDb.getLiquibase();
 	}
 	
-	public Database getDatabase() {
-		return testDb.getDatabase();
-	}
-
 }

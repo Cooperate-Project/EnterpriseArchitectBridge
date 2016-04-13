@@ -15,6 +15,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.database.impl.DatabaseFactoryI
 import de.cooperateproject.eabridge.eaobjectmodel.database.impl.DatabasePropertiesFactoryImpl;
 import liquibase.Liquibase;
 import liquibase.database.Database;
+import liquibase.database.core.H2Database;
 import liquibase.database.core.MySQLDatabase;
 import liquibase.database.jvm.JdbcConnection;
 
@@ -28,8 +29,8 @@ public class MySQLTestDB implements Closeable {
 	private static final DatabasePropertiesFactory dbPropsFactory = new DatabasePropertiesFactoryImpl();
 
 	private static final String JDBC_DRIVER = "org.h2.Driver";
-	private static final String JDBC_USER = "a";
-	private static final String JDBC_PASS = "a";
+	private static final String JDBC_USER = "";
+	private static final String JDBC_PASS = "";
 //	private static final String JDBC_SCHEMA = "TEST";
 //	private static final String JDBC_URL = "jdbc:h2:mem:" + JDBC_SCHEMA
 //			+ ";MODE=MYSQL;DATABASE_TO_UPPER=false;IGNORECASE=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS " + JDBC_SCHEMA;
@@ -38,7 +39,6 @@ public class MySQLTestDB implements Closeable {
 	private final Connection dbConnection;
 	private final HbDataStore dbStore;
 	private final Liquibase liquibase;
-	private final Database database;
 
 	static {
 		try {
@@ -51,13 +51,13 @@ public class MySQLTestDB implements Closeable {
 
 	public MySQLTestDB(TestResource testResource, String schema) throws Exception {
 		String JDBC_URL = "jdbc:h2:mem:" + schema
-				+ ";MODE=MYSQL;DATABASE_TO_UPPER=false;IGNORECASE=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS " + schema;
+				+ ";DATABASE_TO_UPPER=false;IGNORECASE=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS " + schema;
 		
 		Class.forName("org.h2.Driver");
 
 		dbConnection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
 		
-		database = new MySQLDatabase();
+		MySQLDatabase database = new MySQLDatabase ();
 		database.setConnection(new JdbcConnection(dbConnection));
 		liquibase = LiquibaseFactory.getInstance(testResource, database);
 		liquibase.update((String) null);
@@ -89,10 +89,5 @@ public class MySQLTestDB implements Closeable {
 	public Liquibase getLiquibase() {
 		return liquibase;
 	}
-
-	public Database getDatabase() {
-		return database;
-	}
-	
 	
 }
