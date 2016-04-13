@@ -9,14 +9,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.DBChangelogInitializer;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 
 public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 
 	@Test
 	public void testReadSimpleDiagram() throws Exception {
-		initTestDb(new DBChangelogInitializer(TestResource.SimmpleClassDiagramChangelog));
+		initTestDb(TestResource.SimmpleClassDiagramChangelog);
 		
 		Session session = getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();

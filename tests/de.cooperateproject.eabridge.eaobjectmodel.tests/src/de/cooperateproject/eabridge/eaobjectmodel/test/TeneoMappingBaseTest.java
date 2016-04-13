@@ -17,6 +17,9 @@ import org.junit.BeforeClass;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory.LiquibaseLogger;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
+import liquibase.Liquibase;
+import liquibase.database.Database;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB.DBInitializer;
 
 public abstract class TeneoMappingBaseTest {
@@ -53,8 +56,8 @@ public abstract class TeneoMappingBaseTest {
 		testDb.close();
 	}
 
-	protected void initTestDb(DBInitializer initilaizer) throws Exception {
-		testDb = new MySQLTestDB(initilaizer);
+	protected void initTestDb(TestResource testResource) throws Exception {
+		testDb = new MySQLTestDB(testResource, "test");
 	}
 
 	public Connection getDbConnection() {
@@ -63,6 +66,14 @@ public abstract class TeneoMappingBaseTest {
 
 	public HbDataStore getDataStore() {
 		return testDb.getDataStore();
+	}
+	
+	public Liquibase getLiquibase() {
+		return testDb.getLiquibase();
+	}
+	
+	public Database getDatabase() {
+		return testDb.getDatabase();
 	}
 
 }
