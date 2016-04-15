@@ -14,7 +14,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.database.DatabasePropertiesFac
 import de.cooperateproject.eabridge.eaobjectmodel.database.impl.DatabaseFactoryImpl;
 import de.cooperateproject.eabridge.eaobjectmodel.database.impl.DatabasePropertiesFactoryImpl;
 
-public class MySQLTestDB implements Closeable {
+public class H2TestDB implements Closeable {
 
 	public interface DBInitializer {
 		public void init(Connection connection) throws Exception;
@@ -28,22 +28,22 @@ public class MySQLTestDB implements Closeable {
 	private static final String JDBC_PASS = "";
 	private static final String JDBC_SCHEMA = "TEST";
 	private static final String JDBC_URL = "jdbc:h2:mem:" + JDBC_SCHEMA
-			+ ";MODE=MYSQL;DATABASE_TO_UPPER=false;IGNORECASE=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS " + JDBC_SCHEMA;
-	private static final String JDBC_DIALECT = org.hibernate.dialect.MySQLInnoDBDialect.class.getName();
+			+ ";DATABASE_TO_UPPER=false;IGNORECASE=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS " + JDBC_SCHEMA;
+	private static final String JDBC_DIALECT = org.hibernate.dialect.H2Dialect.class.getName();
 
 	private final Connection dbConnection;
 	private final HbDataStore dbStore;
 
-//	static {
-//		try {
-//			org.h2.tools.Server.createWebServer("-webPort", "10500").start();
-//		} catch (SQLException e) {
-//			org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MySQLTestDB.class);
-//			logger.warn("Could not initialize H2 webserver.", e);
-//		}
-//	}
+	static {
+		try {
+			org.h2.tools.Server.createWebServer("-webPort", "10500").start();
+		} catch (SQLException e) {
+			org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(H2TestDB.class);
+			logger.warn("Could not initialize H2 webserver.", e);
+		}
+	}
 
-	public MySQLTestDB(DBInitializer initializer) throws Exception {
+	public H2TestDB(DBInitializer initializer) throws Exception {
 		Class.forName("org.h2.Driver");
 
 		dbConnection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);

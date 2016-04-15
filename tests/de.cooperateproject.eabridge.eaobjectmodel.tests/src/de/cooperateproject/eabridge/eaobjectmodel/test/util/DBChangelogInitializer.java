@@ -2,9 +2,12 @@ package de.cooperateproject.eabridge.eaobjectmodel.test.util;
 
 import java.sql.Connection;
 
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB.DBInitializer;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.H2TestDB.DBInitializer;
 import liquibase.Liquibase;
-import liquibase.database.core.MySQLDatabase;
+import liquibase.database.Database;
+import liquibase.database.DatabaseConnection;
+import liquibase.database.DatabaseFactory;
+import liquibase.database.ObjectQuotingStrategy;
 import liquibase.database.jvm.JdbcConnection;
 
 public class DBChangelogInitializer implements DBInitializer {
@@ -17,8 +20,9 @@ public class DBChangelogInitializer implements DBInitializer {
 
 	@Override
 	public void init(Connection connection) throws Exception {
-		MySQLDatabase db = new MySQLDatabase();
-		db.setConnection(new JdbcConnection(connection));
+		DatabaseConnection liquibaseConnection = new JdbcConnection(connection);
+		Database db = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(liquibaseConnection);
+		db.setObjectQuotingStrategy(ObjectQuotingStrategy.QUOTE_ALL_OBJECTS);
 		Liquibase liquibase = LiquibaseFactory.getInstance(testResource, db);
 		liquibase.update((String) null);
 	}

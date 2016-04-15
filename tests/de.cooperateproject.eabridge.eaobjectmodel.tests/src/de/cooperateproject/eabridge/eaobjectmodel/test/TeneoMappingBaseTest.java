@@ -16,12 +16,12 @@ import org.junit.BeforeClass;
 
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory.LiquibaseLogger;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB.DBInitializer;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.H2TestDB;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.H2TestDB.DBInitializer;
 
 public abstract class TeneoMappingBaseTest {
 
-	private MySQLTestDB testDb;
+	private H2TestDB testDb;
 
 	@BeforeClass
 	public static void init() {
@@ -54,7 +54,7 @@ public abstract class TeneoMappingBaseTest {
 	}
 
 	protected void initTestDb(DBInitializer initilaizer) throws Exception {
-		testDb = new MySQLTestDB(initilaizer);
+		testDb = new H2TestDB(initilaizer);
 	}
 
 	public Connection getDbConnection() {

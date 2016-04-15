@@ -41,7 +41,7 @@ public class LiquibaseFactory {
 	public static Liquibase getInstance(TestResource changelog, Database database)
 			throws LiquibaseException, IOException {
 		init();
-		return new Liquibase(changelog.getFile().getAbsolutePath(), new FileSystemResourceAccessor(), database);
+		return new Liquibase(DBChangeLogFactory.create(changelog.getFile()), new FileSystemResourceAccessor(), database);
 	}
 
 	private static class LiquibaseLogFactory extends LogFactory {
