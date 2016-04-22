@@ -1,38 +1,28 @@
 package de.cooperateproject.eabridge.eaobjectmodel.test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.io.PrintStream;
+import java.nio.charset.Charset;
 
 import org.apache.commons.io.IOUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
+import org.junit.Assert;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.diff.Diff;
 
 import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
 import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.IgnoreAttributeDifferenceEvaluator;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
-import liquibase.CatalogAndSchema;
 import liquibase.Liquibase;
-import liquibase.database.core.H2Database;
-import liquibase.database.core.MySQLDatabase;
-import liquibase.database.jvm.JdbcConnection;
-import liquibase.diff.DiffResult;
-import liquibase.diff.ObjectDifferences;
-import liquibase.diff.compare.CompareControl;
 import liquibase.diff.output.DiffOutputControl;
 import liquibase.diff.output.changelog.DiffToChangeLog;
-import liquibase.diff.output.report.DiffToReport;
-import liquibase.integration.commandline.CommandLineUtils;
-import liquibase.resource.ClassLoaderResourceAccessor;
-import liquibase.snapshot.DatabaseSnapshot;
-import liquibase.structure.DatabaseObject;
 import liquibase.structure.core.Data;
-import liquibase.structure.core.Table;
 
 public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 
@@ -50,27 +40,17 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		trans.begin();
 		session.save(loadedPackage);
 		trans.commit();
-		
-		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class);
 
-		MySQLTestDB compare = new MySQLTestDB(TestResource.SimpleClassModelChangelog, "compare");
+		String content = generateChangelog();
+		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile().getAbsolutePath(), Charset.defaultCharset());
 		
-		Liquibase compareLiquibase = compare.getLiquibase();
-		compareLiquibase.generateChangeLog(compareLiquibase.getDatabase().getDefaultSchema(), new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class);
-		
-//		Set<Class<? extends DatabaseObject>> types = new HashSet();
-//		types.add(Data.class);
-//
-//		liquibase.diff(liquibase.getDatabase(), compare.getLiquibase().getDatabase(), new CompareControl(types));
-		
-		
-//		DiffResult diff = liquibase.diff(getDatabase(), compareDb, new CompareControl());
-		//		DiffToReport diffToReport = new DiffToReport(diff, System.out);
-//		diffToReport.print();
-//		boolean equal = diff.areEqual();
-//
-//		compareTestDb.close();
-
+		Diff myDiff = DiffBuilder.compare(content).withTest(compareContent)
+				.withDifferenceEvaluator(new IgnoreAttributeDifferenceEvaluator("author"))
+				.withDifferenceEvaluator(new IgnoreAttributeDifferenceEvaluator("id"))
+				.checkForSimilar()
+				.build();
+				
+		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
 	}
 
 	private static RootPackage loadModelFromResource(String resourcePath) throws IOException {

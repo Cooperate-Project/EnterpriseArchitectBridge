@@ -1,6 +1,14 @@
 package de.cooperateproject.eabridge.eaobjectmodel.test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
@@ -19,8 +27,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory.Liq
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import liquibase.Liquibase;
-import liquibase.database.Database;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB.DBInitializer;
+import liquibase.diff.output.DiffOutputControl;
+import liquibase.diff.output.changelog.DiffToChangeLog;
+import liquibase.exception.DatabaseException;
+import liquibase.structure.core.Data;
 
 public abstract class TeneoMappingBaseTest {
 
@@ -55,6 +65,25 @@ public abstract class TeneoMappingBaseTest {
 	public void finalize() throws Exception {
 		testDb.close();
 	}
+	
+	public String readFile(String path, Charset encoding) 
+			  throws IOException 
+			{
+			  byte[] encoded = Files.readAllBytes(Paths.get(path));
+			  return new String(encoded, encoding);
+			}
+	public String generateChangelog() throws DatabaseException, IOException, ParserConfigurationException {
+		
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(baos);
+		
+		Liquibase liquibase = getLiquibase();
+		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), ps, Data.class);
+		
+		String content = baos.toString();
+		return content;
+	}
+
 
 	protected void initTestDb(TestResource testResource) throws Exception {
 		testDb = new MySQLTestDB(testResource, "test");
