@@ -19,13 +19,9 @@ deploy:
 cache:
   directories:
   - "$HOME/.m2"
-notifications:
   webhooks:
     urls:
-      - $GITTER_WEBHOOK
+      secure: KC/zTvQs8SveoPGjQAqH7El3N0x4SyWpeQ+LKScXNi7PVgCukyLe9xaXfOUtlXs4/oL9z/pxiQSvHoVEgr7/9SyxJfdvSebEfRue1O5ZYDvFQTforYuOa2M0nW3O1nD7U0whcZsVfRAMYc/RfMdeIHuCFEUXzQ5ePq1NHnAo1fUqmU3RX8DKNIm2hW3orRBHhPzbd5TaXFmrJBZoiDqTqK8enWwXo4$
     on_success: change
     on_failure: always
     on_start: never
-env:
-  global:  
-  - secure: "KOt+jn4iekwi7AXlHMv6b8fd2xqO9IC5+Jk6sgRRQJQOlUIazd7trpR4xJC9ozDQQZROZUWkTwOFCzJP5I82P0Ptflb1rJw2Qu4hHg6+I/3sbOeivsnCmp2RUQ8U+Mi92xE+rOVTuBQ1+cr3eIl565Db/jhP/ALJXFcNxt4u0XS3aPrCJGrQ5eesWv8jmMbb6UYffrZ9HNBPFLBcxV8uqA/UtVRY98WVt0z93sa7Rky3PqyR/5aC1JgLY48VjJpFufASK6sjLqhwpMRWjqkqIaS2ZOyKOzR8dN/vYpWaEt5/Rmq1xWrbq3qoGdwmeNPO0EklL+/XONyhP3aqoIw91mZwSkeV79MptzpDR9Ha2IJOVDlOdLwfXhhtQeoTu341FGLeMgkE89TgzUn0ZUK+dPFHReJloCeWVc/zW+ommk2rxQSs/2QPR0xRP1drroBhYyOqyvsK5/7574rOZdIhKQZSKe5Y2ZmaFGWikvm8LPxRWXmFIOxgmizOyRdkhcOIjMAwB7wBlMWazXDj0SNpW2Yt3LuA6EmH72flSyfRBgLsBqC6bo9KB+mEWqBY35gBqV4vfPfOyk6kEEzgkZ779qyRpmp6pGFoybOcLwcLgF2v23U+GYXbgOkikH92EeH8e3BaqFVQ8Bu4R1jsHq6aomg7Xtk6IoEyZgofTsqgXaU="
