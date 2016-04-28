@@ -19,9 +19,9 @@ deploy:
 cache:
   directories:
   - "$HOME/.m2"
-  webhooks:
-    urls:
-      secure: KC/zTvQs8SveoPGjQAqH7El3N0x4SyWpeQ+LKScXNi7PVgCukyLe9xaXfOUtlXs4/oL9z/pxiQSvHoVEgr7/9SyxJfdvSebEfRue1O5ZYDvFQTforYuOa2M0nW3O1nD7U0whcZsVfRAMYc/RfMdeIHuCFEUXzQ5ePq1NHnAo1fUqmU3RX8DKNIm2hW3orRBHhPzbd5TaXFmrJBZoiDqTqK8enWwXo4$
-    on_success: change
-    on_failure: always
-    on_start: never
+webhooks:
+  urls:
+    secure: KC/zTvQs8SveoPGjQAqH7El3N0x4SyWpeQ+LKScXNi7PVgCukyLe9xaXfOUtlXs4/oL9z/pxiQSvHoVEgr7/9SyxJfdvSebEfRue1O5ZYDvFQTforYuOa2M0nW3O1nD7U0whcZsVfRAMYc/RfMdeIHuCFEUXzQ5ePq1NHnAo1fUqmU3RX8DKNIm2hW3orRBHhPzbd5TaXFmrJBZoiDqTqK8enWwXo4$
+  on_success: change
+  on_failure: always
+  on_start: never
