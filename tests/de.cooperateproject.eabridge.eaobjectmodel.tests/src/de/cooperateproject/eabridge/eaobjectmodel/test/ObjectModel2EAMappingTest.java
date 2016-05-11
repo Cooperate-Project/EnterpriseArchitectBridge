@@ -13,6 +13,8 @@ import org.junit.Test;
 import org.junit.Assert;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.diff.Diff;
+import org.xmlunit.diff.DifferenceEvaluator;
+import org.xmlunit.diff.DifferenceEvaluators;
 
 import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
 import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
@@ -20,6 +22,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.test.util.IgnoreAttributeDiffe
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
 import liquibase.Liquibase;
+import liquibase.diff.DiffResult;
 import liquibase.diff.output.DiffOutputControl;
 import liquibase.diff.output.changelog.DiffToChangeLog;
 import liquibase.structure.core.Data;
@@ -29,7 +32,7 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 	@Test
 	public void testAddModel() throws Exception {
 		initTestDb(TestResource.EASchemaChangelog);
-		
+
 		PackageBase loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
 		Session session = getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
@@ -39,14 +42,13 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		trans.commit();
 
 		String content = generateChangelog();
-		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile().getAbsolutePath(), Charset.defaultCharset());
-		
-		Diff myDiff = DiffBuilder.compare(compareContent).withTest(content)
-				.withDifferenceEvaluator(new IgnoreAttributeDifferenceEvaluator("author"))
-				.withDifferenceEvaluator(new IgnoreAttributeDifferenceEvaluator("id"))
-				.checkForSimilar()
-				.build();
-				
+		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile().getAbsolutePath(),
+				Charset.defaultCharset());
+
+		Diff myDiff = DiffBuilder.compare(compareContent).withTest(content).withDifferenceEvaluator(DifferenceEvaluators
+				.chain(new IgnoreAttributeDifferenceEvaluator("author"), new IgnoreAttributeDifferenceEvaluator("id")))
+				.checkForSimilar().build();
+
 		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
 	}
 
