@@ -36,10 +36,10 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		List<RootPackage> results = query.list();
 		trans.commit();
 
-//		assertEquals(1, results.size());
+		assertEquals(1, results.size());
 		
 		RootPackage content = results.get(0);
-		Element element = content.getElements().get(0);
+//		Element element = content.getElements().get(0);
 		
 		RootPackage compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
 		
