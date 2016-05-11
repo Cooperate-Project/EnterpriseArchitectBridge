@@ -8,6 +8,7 @@ before_install:
 - export M2_HOME=/tmp/apache-maven-3.3.9
 - chmod +x $M2_HOME/bin/mvn
 - export PATH=$M2_HOME/bin:$PATH
+- sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
 install: true
 script:
 - mvn clean verify
@@ -19,3 +20,13 @@ deploy:
 cache:
   directories:
   - "$HOME/.m2"
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/b0294c446510f7e0a4b3
+    on_success: change
+    on_failure: always
+    on_start: never
+  email:
+    on_success: change
+    on_failure: always
