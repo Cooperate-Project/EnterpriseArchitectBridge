@@ -15,7 +15,8 @@ public enum TestResource {
 	EABaseChangelog("resources/EABase.changelog.xml"), EASchemaChangelog(
 			"resources/EASchema.changelog.xml"), SimmpleClassDiagramChangelog(
 					"resources/SimpleClassDiagram.changelog.xml"), SimpleClassModel("resources/SimpleClassModel.xmi"), 
-			SimpleClassModelChangelog("resources/SimpleClassModel.changelog.xml");
+			SimpleClassModelChangelog("resources/SimpleClassModel.changelog.xml"),
+			SimpleClassModelWithSchemaChangelog("resources/SimpleClassModelWithSchema.changelog.xml");
 
 	private static final Logger LOGGER = Logger.getLogger(TestResource.class);
 	private static File tmpDir = null;

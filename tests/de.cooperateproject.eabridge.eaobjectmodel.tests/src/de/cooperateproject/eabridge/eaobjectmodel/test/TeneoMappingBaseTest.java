@@ -2,6 +2,7 @@ package de.cooperateproject.eabridge.eaobjectmodel.test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -10,6 +11,7 @@ import java.sql.Connection;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
@@ -22,8 +24,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
+import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory.LiquibaseLogger;
+import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import liquibase.Liquibase;
@@ -99,6 +103,18 @@ public abstract class TeneoMappingBaseTest {
 	
 	public Liquibase getLiquibase() {
 		return testDb.getLiquibase();
+	}
+	
+	public static RootPackage loadModelFromResource(String resourcePath) throws IOException {
+		RootPackage loadedPackage = null;
+		InputStream is = null;
+		try {
+			is = ObjectModel2EAMappingTest.class.getClassLoader().getResourceAsStream(resourcePath);
+			loadedPackage = EAObjectModelHelper.loadModel(is);
+		} finally {
+			IOUtils.closeQuietly(is);
+		}
+		return loadedPackage;
 	}
 	
 }
