@@ -29,9 +29,6 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 	@Test
 	public void testAddModel() throws Exception {
 		initTestDb(TestResource.EASchemaChangelog);
-
-		Liquibase liquibase = getLiquibase();
-		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class);
 		
 		PackageBase loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
 		Session session = getDataStore().getSessionFactory().openSession();
@@ -44,25 +41,13 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		String content = generateChangelog();
 		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile().getAbsolutePath(), Charset.defaultCharset());
 		
-		Diff myDiff = DiffBuilder.compare(content).withTest(compareContent)
+		Diff myDiff = DiffBuilder.compare(compareContent).withTest(content)
 				.withDifferenceEvaluator(new IgnoreAttributeDifferenceEvaluator("author"))
 				.withDifferenceEvaluator(new IgnoreAttributeDifferenceEvaluator("id"))
 				.checkForSimilar()
 				.build();
 				
 		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
-	}
-
-	private static RootPackage loadModelFromResource(String resourcePath) throws IOException {
-		RootPackage loadedPackage = null;
-		InputStream is = null;
-		try {
-			is = ObjectModel2EAMappingTest.class.getClassLoader().getResourceAsStream(resourcePath);
-			loadedPackage = EAObjectModelHelper.loadModel(is);
-		} finally {
-			IOUtils.closeQuietly(is);
-		}
-		return loadedPackage;
 	}
 
 }
