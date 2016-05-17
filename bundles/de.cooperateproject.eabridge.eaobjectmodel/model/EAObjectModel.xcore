@@ -179,6 +179,15 @@ class AttributeConstraint {
 	//  Needs to be set
 	//
 	container Attribute Attribute opposite Constraints //	Read/Write
+	
+	/*
+	 * Workaround for ID generation of Teneo/Hibernate
+	 */
+	transient readonly derived long AttributeID get
+	{
+		return attribute.attributeID;
+	}
+	
 	//	
 	//	The ID of the attribute this constraint applies to.
 	//	
