@@ -1,21 +1,65 @@
 <?xml version="1.0" encoding="ASCII"?>
-<eaobjectmodel:RootPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel" PackageGUID="rootPackageGUID" Name="rootPackage">
-  <Elements ElementGUID="elementPackageGUID" Name="package" Type="Package" PDATA1="2"/>
-  <Packages PackageGUID="packageGUID" Name="package">
-    <Diagrams DiagramGUID="diagramGUID" Name="diagram" Type="Logical">
-      <DiagramLinks Connector="//@Packages.0/@Elements.0/@SourceRelations.0"/>
-      <DiagramObjects Element="//@Packages.0/@Elements.0"/>
-      <DiagramObjects Element="//@Packages.0/@Elements.1"/>
+<eaobjectmodel:RootPackage
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel"
+    PackageGUID="rootPackageGUID"
+    Name="rootPackage">
+  <Packages
+      PackageGUID="packageGUID"
+      Name="package">
+    <Diagrams
+        DiagramGUID="diagramGUID"
+        Name="diagram"
+        Type="Logical">
+      <DiagramLinks
+          Connector="//@Packages.0/@Elements.0/@SourceRelations.0"
+          Hidden="false"/>
+      <DiagramObjects
+          Element="//@Packages.0/@Elements.0"
+          Sequence="1"/>
+      <DiagramObjects
+          Element="//@Packages.0/@Elements.1"
+          Sequence="2"/>
     </Diagrams>
-    <Elements ElementGUID="element1GUID" Name="element1" Type="Class">
-      <Attributes AllowDuplicates="true" AttributeGUID="attributeGUID" Classifier="0" Name="attName" Notes="attNotes">
-        <Constraints ElementOfAttribute="//@Packages.0/@Elements.0" Constraint="testconstraint"/>
-        <TaggedValues Name="attTagName" Notes="attTagNotes" TagGUID="attTagGuid"/>
+    <Elements
+        ElementGUID="element1GUID"
+        Name="element1"
+        Type="Class">
+      <Attributes
+          AllowDuplicates="true"
+          AttributeGUID="attributeGUID"
+          Classifier="0"
+          Name="attName"
+          Notes="attNotes">
+        <Constraints
+            ElementOfAttribute="//@Packages.0/@Elements.0"
+            Constraint="testconstraint"/>
+        <TaggedValues
+            Name="attTagName"
+            Notes="attTagNotes"
+            TagGUID="attTagGuid"/>
       </Attributes>
-      <SourceRelations ConnectorGUID="connectorGUID" Name="connector" Type="Association" Dest="//@Packages.0/@Elements.1" SourceCard="1...*" DestCard="4"/>
+      <SourceRelations
+          ConnectorGUID="connectorGUID"
+          Name="connector"
+          Type="Association"
+          Dest="//@Packages.0/@Elements.1"
+          SourceCard="1...*"
+          DestCard="4"/>
     </Elements>
-    <Elements ElementGUID="element2GUID" Name="element2" Type="Class">
-      <Methods MethodGUID="methodGUID" Name="method"/>
+    <Elements
+        ElementGUID="element2GUID"
+        Name="element2"
+        Type="Class">
+      <Methods
+          MethodGUID="methodGUID"
+          Name="method"/>
     </Elements>
   </Packages>
+  <Elements
+      ElementGUID="elementPackageGUID"
+      Name="package"
+      Type="Package"
+      PDATA1="2"/>
 </eaobjectmodel:RootPackage>

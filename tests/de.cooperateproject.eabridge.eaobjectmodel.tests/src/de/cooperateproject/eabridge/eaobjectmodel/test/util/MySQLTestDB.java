@@ -57,7 +57,7 @@ public class MySQLTestDB implements Closeable {
 
 		dbConnection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
 		
-		MySQLDatabase database = new MySQLDatabase ();
+		MySQLDatabase database = new MySQLDatabase();
 		database.setConnection(new JdbcConnection(dbConnection));
 		liquibase = LiquibaseFactory.getInstance(testResource, database);
 		liquibase.update((String) null);
