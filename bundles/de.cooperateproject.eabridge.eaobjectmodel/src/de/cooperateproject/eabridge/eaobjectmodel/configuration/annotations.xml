@@ -190,6 +190,7 @@
 				<column name="Object_ID" />
 				<id />
 				<generated-value />
+				<type type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType" />
 			</property>
 			<property name="Classifier">
 				<join-column name="Classifier" />

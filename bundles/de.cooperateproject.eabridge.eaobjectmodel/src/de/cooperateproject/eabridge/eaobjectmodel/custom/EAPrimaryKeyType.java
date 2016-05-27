@@ -10,16 +10,24 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.usertype.UserType;
 
-public class EAReference implements UserType {
+/**
+ * Hibernate data type that represents primary keys as used by Enterprise
+ * Architect.
+ * 
+ * Enterprise Architect (EA) uses primary keys starting including 1 to represent
+ * valid ids. Invalid or missing ids are represented by 0. To make hibernate
+ * handle missing references correctly, this data type converts 0 to null when
+ * reading the value and converts null to 0 when writing the value.
+ */
+public class EAPrimaryKeyType implements UserType {
 
 	private static final int[] SQL_TYPES = { Types.INTEGER };
 	private static final EFactory EFACTORY = EcoreFactory.eINSTANCE;
 	private static final EDataType EDATA_TYPE = EcorePackage.eINSTANCE.getELong();
-	
+
 	@Override
 	public Object assemble(Serializable arg0, Object arg1) {
 		return arg0;
@@ -33,8 +41,10 @@ public class EAReference implements UserType {
 
 	@Override
 	public Serializable disassemble(Object arg0) {
-		return (Serializable)arg0;
+		return (Serializable) arg0;
 	}
+	
+	
 
 	@Override
 	public boolean equals(Object arg0, Object arg1) {
@@ -63,7 +73,7 @@ public class EAReference implements UserType {
 	public Object nullSafeGet(ResultSet arg0, String[] arg1, SessionImplementor arg2, Object arg3) throws SQLException {
 		Long typedData = arg0.getLong(arg1[0]);
 		String data = arg0.getString(arg1[0]);
-		if (data == null || typedData.longValue() == 0l) {
+		if (data == null || typedData.longValue() == 0L) {
 			return null;
 		}
 		return EFACTORY.createFromString(EDATA_TYPE, data);
@@ -74,9 +84,9 @@ public class EAReference implements UserType {
 			throws SQLException {
 		Long pvalue = null;
 		if (arg1 != null) {
-			pvalue = (Long)arg1;
+			pvalue = (Long) arg1;
 		}
-		if (pvalue != null && pvalue != 0l) {
+		if (pvalue != null && pvalue != 0L) {
 			arg0.setLong(arg2, pvalue);
 		} else {
 			arg0.setNull(arg2, Types.INTEGER);
@@ -84,13 +94,14 @@ public class EAReference implements UserType {
 	}
 
 	@Override
-	public Object replace(Object arg0, Object arg1, Object arg2) throws HibernateException {
+	public Object replace(Object arg0, Object arg1, Object arg2) {
 		return arg0;
 	}
 
 	@Override
+	@SuppressWarnings("rawtypes")
 	public Class returnedClass() {
-		return EDATA_TYPE.getInstanceClass();
+		return EDATA_TYPE.getDefaultValue().getClass();
 	}
 
 	@Override
