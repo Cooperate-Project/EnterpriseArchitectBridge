@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <persistence-mapping xmlns="http://www.eclipse.org/emft/teneo"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.eclipse.org/emft/teneo https://searchcode.com/codesearch/raw/68608674/">
+	xsi:schemaLocation="http://www.eclipse.org/emft/teneo http://git.eclipse.org/c/teneo/org.eclipse.emf.teneo.git/plain/hibernate/org.eclipse.emf.teneo.hibernate.mapper/src/org/eclipse/emf/teneo/hibernate/annotations/persistence-mapping.xsd">
 
 	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel">
 
