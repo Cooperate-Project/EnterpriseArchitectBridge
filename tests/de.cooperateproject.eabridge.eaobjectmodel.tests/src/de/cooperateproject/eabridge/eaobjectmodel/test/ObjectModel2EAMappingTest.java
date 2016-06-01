@@ -10,11 +10,13 @@ import org.apache.commons.io.IOUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
+import org.w3c.dom.Node;
 import org.junit.Assert;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.diff.Diff;
 import org.xmlunit.diff.DifferenceEvaluator;
 import org.xmlunit.diff.DifferenceEvaluators;
+import org.xmlunit.util.Predicate;
 
 import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
 import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
@@ -44,9 +46,20 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		String content = generateChangelog();
 		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile().getAbsolutePath(),
 				Charset.defaultCharset());
-
+		
+//		Print changelog for debugging purposes
+//		Liquibase liquibase = getLiquibase();
+//		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), System.out, Data.class);
+		
 		Diff myDiff = DiffBuilder.compare(compareContent).withTest(content).withDifferenceEvaluator(DifferenceEvaluators
 				.chain(new IgnoreAttributeDifferenceEvaluator("author"), new IgnoreAttributeDifferenceEvaluator("id")))
+//				.withNodeFilter(new Predicate<Node>() {
+//					
+//					@Override
+//					public boolean test(Node arg0) {
+//						return !(arg0.getLocalName() == "include");
+//					}
+//				})
 				.checkForSimilar().build();
 
 		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
