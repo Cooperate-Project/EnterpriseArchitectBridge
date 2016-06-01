@@ -19,7 +19,6 @@ public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 	
 	@Test (expected=NonUniqueObjectException.class)
 	public void testIdenticalConstraint() throws Exception {
-		
 		initTestDb(TestResource.SimpleClassModelWithSchemaChangelog);
 		
 		Session session = getDataStore().getSessionFactory().openSession();
@@ -47,6 +46,7 @@ public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 		
 		Attribute existingAttribute = getExistingAttribute(session);
 		
+		//adding a constraint to an attribute which already has constraints
 		AttributeConstraint attConst = EaobjectmodelFactory.eINSTANCE.createAttributeConstraint();
 		attConst.setConstraint("newConstraint");
 		attConst.setAttribute(existingAttribute);
@@ -58,11 +58,14 @@ public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 		newAttribute.setAttributeGUID("newAttributeGUID");
 		newAttribute.setName("newAttributeName");
 		
+		persistEntity(session, newAttribute);
+		
+		//adding a constraint with the same Constraint text to a new Attribute
 		AttributeConstraint newAttConst = EaobjectmodelFactory.eINSTANCE.createAttributeConstraint();
 		newAttConst.setConstraint("newConstraint");
 		newAttConst.setAttribute(newAttribute);
 		
-		persistEntity(session, newAttribute);
+		persistEntity(session, newAttConst);
 	}
 	
 	private static void persistEntity(Session session, Object entity) {
