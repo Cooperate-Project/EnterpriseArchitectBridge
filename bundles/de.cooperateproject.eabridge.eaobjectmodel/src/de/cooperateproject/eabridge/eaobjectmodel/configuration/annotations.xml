@@ -134,14 +134,14 @@
 			</property>
 		</eclass>
 
-		<eclass name="PackageBase">
+		<eclass name="Package">
 			<table name="t_package" />
 			<inheritance>SINGLE_TABLE</inheritance>
-			<discriminator-formula>CASE WHEN Parent_ID = 0 THEN 'ROOT' WHEN Parent_ID > 0 THEN 'PACKAGE' end</discriminator-formula>
 			<property name="PackageID">
 				<column name="Package_ID" />
 				<id />
 				<generated-value />
+				<type type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType" />
 			</property>
 			<property name="PackageGUID">
 				<column name="ea_guid" />
@@ -164,21 +164,12 @@
 			<property name="IsProtected">
 				<column name="Protected" />
 			</property>
-		</eclass>
-		
-		<eclass name="Package">
-			<discriminator-value>PACKAGE</discriminator-value>
 			<property name="Parent">
 				<join-column name="Parent_ID" />
 			</property>
 		</eclass>
 		
-		<eclass name="RootPackage">
-			<discriminator-value>ROOT</discriminator-value>
-			<property name="Parent">
-				<column name="Parent_ID"/>
-			</property>
-		</eclass>
+
 
 		<!-- <eclass name="PostCondition"> <inheritance>TABLE_PER_CLASS</inheritance> 
 			</eclass> -->
