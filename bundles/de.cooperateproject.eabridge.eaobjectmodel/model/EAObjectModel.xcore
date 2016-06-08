@@ -730,7 +730,7 @@ class Diagram {
 	//	The page orientation: P for Portrait or L for Landscape.
 	//	
 	//	
-	container PackageBase Package opposite Diagrams //	Read/Write
+	container Package Package opposite Diagrams //	Read/Write
 	//	
 	//	The ID of the Package that this diagram belongs to.
 	//	
@@ -1203,7 +1203,7 @@ class Element {
 	//	Distinguishes objects referenced through a Dispatch interface.	
 	//		
 	//		
-	container PackageBase Package opposite Elements //	Read/Write	
+	container Package Package opposite Elements //	Read/Write	
 	//		
 	//	A local ID for the Package containing this element.	
 	//		
@@ -1685,7 +1685,7 @@ String GenOption
 ////	
 //}
 
-abstract class PackageBase {
+class Package {
 	String PackageGUID
 	Long	BatchLoad //	Read/Write
 	//	
@@ -1835,28 +1835,12 @@ abstract class PackageBase {
 	//	A collection of elements that belong to this Package.
 	//	
 	//	
+	
+	container Package Parent opposite Packages
 }
 
-class RootPackage extends PackageBase {
 
-	Long Parent = "0"
 
-}
-
-//associated with t_package table in .eap file
-class Package extends PackageBase {
-
-	container PackageBase Parent opposite Packages //	Read/Write
-	//	
-	//	The ID of the Package that is the parent of this one.
-	//	
-	//	0 indicates this Package is a model (that is, it has no parent).
-	//	
-	//	
-}
-
-////associated with t_operationparams table in .eap file
-//class Parameter {
 //	String	Alias //	Read/Write
 //	//	
 //	//	An optional alias for this parameter.
