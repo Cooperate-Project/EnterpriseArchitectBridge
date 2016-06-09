@@ -24,7 +24,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
+import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory.LiquibaseLogger;
 import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
@@ -105,8 +105,8 @@ public abstract class TeneoMappingBaseTest {
 		return testDb.getLiquibase();
 	}
 	
-	public static RootPackage loadModelFromResource(String resourcePath) throws IOException {
-		RootPackage loadedPackage = null;
+	public static Package loadModelFromResource(String resourcePath) throws IOException {
+		Package loadedPackage = null;
 		InputStream is = null;
 		try {
 			is = ObjectModel2EAMappingTest.class.getClassLoader().getResourceAsStream(resourcePath);

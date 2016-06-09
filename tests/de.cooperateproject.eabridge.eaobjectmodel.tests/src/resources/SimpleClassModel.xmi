@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<eaobjectmodel:RootPackage
+<eaobjectmodel:Package
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel"
-    PackageGUID="rootPackageGUID"
-    Name="rootPackage">
+    PackageGUID="PackageGUID"
+    Name="Package">
   <Packages
       PackageGUID="packageGUID"
       Name="package">
@@ -62,4 +62,4 @@
       Name="package"
       Type="Package"
       PDATA1="2"/>
-</eaobjectmodel:RootPackage>
+</eaobjectmodel:Package>

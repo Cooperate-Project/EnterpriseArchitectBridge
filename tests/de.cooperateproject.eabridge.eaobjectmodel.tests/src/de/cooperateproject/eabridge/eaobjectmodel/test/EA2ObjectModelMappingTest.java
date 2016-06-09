@@ -16,10 +16,7 @@ import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
-import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
-import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
-import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 
 public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
@@ -33,21 +30,21 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 
 		trans.begin();
 		Query query = session.createQuery("FROM RootPackage");
-		List<RootPackage> results = query.list();
+		List<Package> results = query.list();
 		trans.commit();
 
 		assertEquals(1, results.size());
 		
-		RootPackage content = results.get(0);
+		Package content = results.get(0);
 //		Element element = content.getElements().get(0);
 		
-		RootPackage compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
+		Package compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
 		
 //		assertEqualsModel(content, compareContent);
 		
 	}
 	
-	private static void assertEqualsModel(RootPackage content, RootPackage compareContent) {		
+	private static void assertEqualsModel(Package content, Package compareContent) {		
 		EcoreUtil.resolveAll(content);
 		EList<Diff> diff = compare(content, compareContent);
 		try {
@@ -59,7 +56,7 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		}
 	}
 	
-	private static EList<Diff> compare(RootPackage content, RootPackage compareContent) {
+	private static EList<Diff> compare(Package content, Package compareContent) {
 		DefaultComparisonScope scope = new DefaultComparisonScope(content, compareContent, null);
 		Comparison comparison = EMFCompare.builder().build().compare(scope);
 		return comparison.getDifferences();

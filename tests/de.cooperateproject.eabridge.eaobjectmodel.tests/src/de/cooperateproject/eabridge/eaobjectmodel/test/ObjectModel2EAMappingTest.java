@@ -16,8 +16,7 @@ import org.xmlunit.diff.Diff;
 import org.xmlunit.diff.DifferenceEvaluator;
 import org.xmlunit.diff.DifferenceEvaluators;
 
-import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
-import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
+import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.IgnoreAttributeDifferenceEvaluator;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
@@ -33,7 +32,7 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 	public void testAddModel() throws Exception {
 		initTestDb(TestResource.EASchemaChangelog);
 
-		PackageBase loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
+		Package loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
 		Session session = getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
 

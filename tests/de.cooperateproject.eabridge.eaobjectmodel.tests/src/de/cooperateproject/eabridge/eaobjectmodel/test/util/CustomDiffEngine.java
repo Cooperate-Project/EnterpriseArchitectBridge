@@ -30,7 +30,7 @@ public class CustomDiffEngine {
 							|| (attribute == EaobjectmodelPackage.Literals.DIAGRAM__DIAGRAM_ID)
 							|| (attribute == EaobjectmodelPackage.Literals.DIAGRAM_LINK__INSTANCE_ID)
 							|| (attribute == EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__INSTANCE_ID)
-							|| (attribute == EaobjectmodelPackage.Literals.PACKAGE_BASE__PACKAGE_ID)
+							|| (attribute == EaobjectmodelPackage.Literals.PACKAGE__PACKAGE_ID)
 							|| super.isIgnoredAttribute(attribute)) {
 						return true;
 					} else {
