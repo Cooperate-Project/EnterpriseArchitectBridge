@@ -132,11 +132,34 @@
 			<property name="Parent">
 				<join-column name="Object_ID" />
 			</property>
+			<property name="Parameters">
+				<join-column name="OperationID" />
+			</property>
 		</eclass>
+		<eclass name="Methodeparam">
+			<inheritance>TABLE_PER_CLASS</inheritance>
+			<table name="t_operationparams" />
+			<property name="Name">
+				<column name="Name" />
+				<id />
+				<generated-value />
+			</property>
+			<property name="MethodID">
+				<column name="OperationID" />
+			</property>
+	
+			<property name="ea_guid">
+				<column name="ea_guid" />
+			</property>
+			<property name="Type">
+				<column name="Type" />
+			</property>
+		</eclass>
+		
 
 		<eclass name="Package">
 			<table name="t_package" />
-			<inheritance>SINGLE_TABLE</inheritance>
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<property name="PackageID">
 				<column name="Package_ID" />
 				<id />

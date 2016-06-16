@@ -2,6 +2,7 @@
 package de.cooperateproject.eabridge.eaobjectmodel
 
 //associated with t_attribute table in .eap file
+
 class Attribute {
 	//	String	Alias //	Read/Write OPTIONAL
 	//	
@@ -838,7 +839,7 @@ class DiagramLink {
 	//	The local ID for the associated diagram.
 	//	
 	//	
-	String	Geometry //	Read/Write
+	unsettable String	Geometry //	Read/Write
 	//	
 	//	The geometry associated with the current connector in this diagram.
 	//	
@@ -864,6 +865,41 @@ class DiagramLink {
 	//	
 	//	
 	String	Style //	Read/Write
+	
+	op void setGeometry(int SX, int SY, int EX, int EY) {
+		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, SY, EX, EY)
+	}
+
+	op void setSX(int input) {
+		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', input, SY, EX, EY)
+	}
+	op void setSY(int input) {
+		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, input, EX, EY)
+	}
+	op void setEX(int input) {
+		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, SY, input, EY)
+	}
+	op void setEY(int input) {
+		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, SY, EX, input)
+	}
+	
+	derived String SX get {
+		 val String[] attributes = geometry.split(';')
+		 attributes.get(0)
+	}
+	derived String SY get {
+		 val String[] attributes = geometry.split(';')
+		 attributes.get(1)
+	}
+	
+	derived String EX get {
+		 val String[] attributes = geometry.split(';')
+		 attributes.get(2)
+	}
+	derived String EY get {
+		 val String[] attributes = geometry.split(';')
+		 attributes.get(3)
+	}
 //	
 //	Additional style information; for example, color or thickness.
 }
@@ -1519,7 +1555,7 @@ class Method {
 	//	Distinguishes objects referenced through a Dispatch interface.	
 	//		
 	//		
-//	contains Parameter[] Parameters //	Read only	
+	contains Methodeparam[] Parameters //	Read only	
 	//		
 	//	The Parameters collection for the current method, used to add and access parameter objects for the current method.	
 	//		
@@ -1599,7 +1635,12 @@ class Method {
 String Concurrency
 String GenOption
 }
-
+class Methodeparam {
+	String	ea_guid //	Read/Write	
+	Long MethodID //	Read only	
+	String Type
+	String Name
+}
 ////associated with t_operationpres and t_operationposts table in .eap file
 //abstract class MethodConstraint {
 ////	container Method Method
@@ -1836,7 +1877,9 @@ class Package {
 	//	
 	//	
 	
+	
 	container Package Parent opposite Packages
+	
 }
 
 
