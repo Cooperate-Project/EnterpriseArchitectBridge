@@ -28,13 +28,11 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		Session session = getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
 
-		trans.begin();
-		Query query = session.createQuery("FROM Package");
+		Query query = session.createQuery("FROM Package WHERE PARENT_ID = 0");
 		List<Package> results = query.list();
-		trans.commit();
-
+		System.out.println(results.size());		
 		assertEquals(1, results.size());
-		
+
 		Package content = results.get(0);
 //		Element element = content.getElements().get(0);
 		

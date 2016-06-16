@@ -3,8 +3,9 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel"
-    PackageGUID="PackageGUID"
-    Name="Package">
+    PackageGUID="PackageGUID3"
+    Name="Package"
+    PackageID="6">
   <Packages
       PackageGUID="packageGUID"
       Name="package">
