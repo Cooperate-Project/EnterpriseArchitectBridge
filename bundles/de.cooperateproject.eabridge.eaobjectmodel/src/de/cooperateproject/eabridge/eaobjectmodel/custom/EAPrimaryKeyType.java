@@ -86,10 +86,10 @@ public class EAPrimaryKeyType implements UserType {
 		if (arg1 != null) {
 			pvalue = (Long) arg1;
 		}
-		if (pvalue != null && pvalue != 0L) {
+		if (pvalue != null ) {
 			arg0.setLong(arg2, pvalue);
 		} else {
-			arg0.setNull(arg2, Types.INTEGER);
+			arg0.setLong(arg2, 0L);
 		}
 	}
 

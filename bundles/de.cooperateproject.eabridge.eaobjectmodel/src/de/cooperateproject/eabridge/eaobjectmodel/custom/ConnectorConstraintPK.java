@@ -67,8 +67,8 @@ public class ConnectorConstraintPK implements Serializable {
 		return Connector;
 	}
 
-	public void setConnector(Long Connector) {
-		Connector = Connector;
+	public void setConnector(Long connector) {
+		Connector = connector;
 	}
 
 }
