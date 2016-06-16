@@ -29,7 +29,7 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		Transaction trans = session.getTransaction();
 
 		trans.begin();
-		Query query = session.createQuery("FROM RootPackage");
+		Query query = session.createQuery("FROM Package");
 		List<Package> results = query.list();
 		trans.commit();
 
