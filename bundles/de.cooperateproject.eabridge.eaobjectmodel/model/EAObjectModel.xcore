@@ -40,7 +40,7 @@ class Attribute {
 	//	The type of containment - Not Specified, By Reference or By Value.
 	//	
 	//	
-	contains AttributeConstraint[] Constraints opposite Attribute //	Read only
+	contains AttributeConstraint[] Constraints //	Read only
 	//	
 	//	A collection of AttributeConstraint objects, used to access and manage constraints associated with this attribute.
 	//	
@@ -178,16 +178,7 @@ class AttributeConstraint {
 	//  The Element of the Attribute of this Constraint 
 	//  Needs to be set
 	//
-	container Attribute Attribute opposite Constraints //	Read/Write
-	
-	/*
-	 * Workaround for ID generation of Teneo/Hibernate
-	 */
-	transient readonly derived long AttributeID get
-	{
-		return attribute.attributeID;
-	}
-	
+	refers Attribute Attribute //	Read/Write
 	//	
 	//	The ID of the attribute this constraint applies to.
 	//	

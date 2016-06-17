@@ -1,33 +1,19 @@
 package de.cooperateproject.eabridge.eaobjectmodel.test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.nio.charset.Charset;
 
-import org.apache.commons.io.IOUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.junit.Test;
-import org.w3c.dom.Node;
 import org.junit.Assert;
+import org.junit.Test;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.diff.Diff;
-import org.xmlunit.diff.DifferenceEvaluator;
 import org.xmlunit.diff.DifferenceEvaluators;
-import org.xmlunit.util.Predicate;
 
+import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
-import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.IgnoreAttributeDifferenceEvaluator;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
-import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
-import liquibase.Liquibase;
-import liquibase.diff.DiffResult;
-import liquibase.diff.output.DiffOutputControl;
-import liquibase.diff.output.changelog.DiffToChangeLog;
-import liquibase.structure.core.Data;
 
 public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 
@@ -38,7 +24,11 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		PackageBase loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
 		Session session = getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
-
+		
+		//needed because of containment workaround
+		Attribute att = loadedPackage.getPackages().get(0).getElements().get(0).getAttributes().get(0);
+		att.getConstraints().get(0).setAttribute(att);
+		
 		trans.begin();
 		session.save(loadedPackage);
 		trans.commit();

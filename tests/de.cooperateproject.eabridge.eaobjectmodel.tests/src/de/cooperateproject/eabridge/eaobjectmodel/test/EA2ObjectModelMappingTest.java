@@ -16,13 +16,10 @@ import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
-import de.cooperateproject.eabridge.eaobjectmodel.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.Package;
-import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
+import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.CustomDiffEngine;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
-import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
 
 public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 
@@ -44,6 +41,10 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		
 		RootPackage compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
 		
+		//needed because of containment workaround
+		Attribute att = compareContent.getPackages().get(0).getElements().get(0).getAttributes().get(0);
+		att.getConstraints().get(0).setAttribute(att);
+		
 //		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramLinks().get(0).setInstanceID((long) 1); 
 //		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(0).setInstanceID((long) 1); 
 //		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(1).setInstanceID((long) 2); 
@@ -54,7 +55,7 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 	}
 	
 	private static void assertEqualsModel(RootPackage content, RootPackage compareContent) {		
-//		EcoreUtil.resolveAll(content);
+		EcoreUtil.resolveAll(content);
 		EList<Diff> diff = compare(content, compareContent);
 		try {
 			Assert.assertTrue(diff.isEmpty());
