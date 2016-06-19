@@ -68,11 +68,11 @@ public class DatabaseFactoryImpl extends DatabaseFactory {
 				String mappingXML = hbds.getMappingXML();
 				mappingXML = XMLModifier.modifyXML(mappingXML);
 				
-				try {
-					FileUtils.writeStringToFile(mappingXMLFile, mappingXML);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+//				try {
+//					FileUtils.writeStringToFile(mappingXMLFile, mappingXML);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
 
 				hbds.close();
 			}
