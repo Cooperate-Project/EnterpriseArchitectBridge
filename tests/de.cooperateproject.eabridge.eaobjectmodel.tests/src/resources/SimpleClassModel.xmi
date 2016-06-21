@@ -34,6 +34,7 @@
           Notes="attNotes">
         <Constraints
             ElementOfAttribute="//@Packages.0/@Elements.0"
+            Attribute="//@Packages.0/@Elements.0/@Attributes.0"
             Constraint="testconstraint"/>
         <TaggedValues
             Name="attTagName"

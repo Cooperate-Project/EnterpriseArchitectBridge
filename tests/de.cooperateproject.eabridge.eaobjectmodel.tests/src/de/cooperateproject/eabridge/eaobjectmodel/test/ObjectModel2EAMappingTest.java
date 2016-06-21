@@ -25,10 +25,6 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		Session session = getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
 		
-		//needed because of containment workaround
-		Attribute att = loadedPackage.getPackages().get(0).getElements().get(0).getAttributes().get(0);
-		att.getConstraints().get(0).setAttribute(att);
-		
 		trans.begin();
 		session.save(loadedPackage);
 		trans.commit();

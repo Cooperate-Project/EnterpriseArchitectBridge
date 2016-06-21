@@ -41,10 +41,6 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		
 		RootPackage compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
 		
-		//needed because of containment workaround
-		Attribute att = compareContent.getPackages().get(0).getElements().get(0).getAttributes().get(0);
-		att.getConstraints().get(0).setAttribute(att);
-		
 //		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramLinks().get(0).setInstanceID((long) 1); 
 //		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(0).setInstanceID((long) 1); 
 //		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(1).setInstanceID((long) 2); 

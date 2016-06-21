@@ -58,21 +58,20 @@ public class DatabaseFactoryImpl extends DatabaseFactory {
 
 			final ExtensionManager extensionManager = hbds.getExtensionManager();
 			extensionManager.registerExtension(SQLNameStrategy.class.getName(), CustomNamingStrategy.class.getName());
-
+			
 			hbds.initialize();
 			
-//			String mappingXML = hbds.getMappingXML();
 //			System.out.println(mappingXML);
 
 			if (i == 0) {
 				String mappingXML = hbds.getMappingXML();
 				mappingXML = XMLModifier.modifyXML(mappingXML);
 				
-//				try {
-//					FileUtils.writeStringToFile(mappingXMLFile, mappingXML);
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
+				try {
+					FileUtils.writeStringToFile(mappingXMLFile, mappingXML);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 
 				hbds.close();
 			}
