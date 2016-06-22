@@ -16,10 +16,9 @@ import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
-import de.cooperateproject.eabridge.eaobjectmodel.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.Package;
-import de.cooperateproject.eabridge.eaobjectmodel.PackageBase;
+import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.RootPackage;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.CustomDiffEngine;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 
 public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
@@ -39,12 +38,16 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		assertEquals(1, results.size());
 		
 		RootPackage content = results.get(0);
-//		Element element = content.getElements().get(0);
 		
 		RootPackage compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
 		
-//		assertEqualsModel(content, compareContent);
+//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramLinks().get(0).setInstanceID((long) 1); 
+//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(0).setInstanceID((long) 1); 
+//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(1).setInstanceID((long) 2); 
 		
+		assertEqualsModel(content, compareContent);
+		
+//		EAObjectModelHelper.saveModel(compareContent,"resources/test.xmi");
 	}
 	
 	private static void assertEqualsModel(RootPackage content, RootPackage compareContent) {		
@@ -61,7 +64,7 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 	
 	private static EList<Diff> compare(RootPackage content, RootPackage compareContent) {
 		DefaultComparisonScope scope = new DefaultComparisonScope(content, compareContent, null);
-		Comparison comparison = EMFCompare.builder().build().compare(scope);
+		Comparison comparison = EMFCompare.builder().setDiffEngine(CustomDiffEngine.DIFF_ENGINE).build().compare(scope);
 		return comparison.getDifferences();
 	}
 	

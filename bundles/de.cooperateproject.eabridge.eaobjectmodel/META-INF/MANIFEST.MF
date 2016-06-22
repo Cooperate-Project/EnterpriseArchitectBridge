@@ -24,3 +24,4 @@ Require-Bundle: javax.persistence;bundle-version="2.1.0";visibility:=reexport,
  org.apache.log4j;bundle-version="1.2.16"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelActivator
+Import-Package: org.apache.commons.io
