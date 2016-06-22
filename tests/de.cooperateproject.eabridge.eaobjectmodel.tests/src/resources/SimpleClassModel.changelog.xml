@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <changeSet author="schick (generated)" id="1463489413548-1">
+    <changeSet author="seiferma (generated)" id="1466606678753-1">
         <insert catalogName="test" schemaName="test" tableName="t_attribute">
             <column name="Object_ID" valueNumeric="1"/>
             <column name="Name" value="attName"/>
@@ -31,7 +31,7 @@
             <column name="StyleEx"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-2">
+    <changeSet author="seiferma (generated)" id="1466606678753-2">
         <insert catalogName="test" schemaName="test" tableName="t_attributeconstraints">
             <column name="Object_ID" valueNumeric="1"/>
             <column name="CONSTRAINT" value="testconstraint"/>
@@ -41,7 +41,7 @@
             <column name="ID" valueNumeric="1"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-3">
+    <changeSet author="seiferma (generated)" id="1466606678753-3">
         <insert catalogName="test" schemaName="test" tableName="t_attributetag">
             <column name="PropertyID" valueNumeric="1"/>
             <column name="ElementID" valueNumeric="1"/>
@@ -51,7 +51,7 @@
             <column name="ea_guid" value="attTagGuid"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-4">
+    <changeSet author="seiferma (generated)" id="1466606678753-4">
         <insert catalogName="test" schemaName="test" tableName="t_connector">
             <column name="Connector_ID" valueNumeric="1"/>
             <column name="Name" value="connector"/>
@@ -134,7 +134,7 @@
             <column name="EventFlags"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-5">
+    <changeSet author="seiferma (generated)" id="1466606678753-5">
         <insert catalogName="test" schemaName="test" tableName="t_diagram">
             <column name="Diagram_ID" valueNumeric="1"/>
             <column name="Package_ID" valueNumeric="2"/>
@@ -167,7 +167,7 @@
             <column name="StyleEx"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-6">
+    <changeSet author="seiferma (generated)" id="1466606678753-6">
         <insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="1"/>
@@ -178,7 +178,7 @@
             <column name="Instance_ID" valueNumeric="1"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-7">
+    <changeSet author="seiferma (generated)" id="1466606678753-7">
         <insert catalogName="test" schemaName="test" tableName="t_diagramobjects">
             <column name="Diagram_ID" valueNumeric="1"/>
             <column name="Object_ID" valueNumeric="1"/>
@@ -202,7 +202,7 @@
             <column name="Instance_ID" valueNumeric="2"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-8">
+    <changeSet author="seiferma (generated)" id="1466606678753-8">
         <insert catalogName="test" schemaName="test" tableName="t_object">
             <column name="Object_ID" valueNumeric="1"/>
             <column name="Object_Type" value="Class"/>
@@ -245,9 +245,9 @@
             <column name="Scope"/>
             <column name="GenOption"/>
             <column name="GenLinks"/>
-            <column name="Classifier"/>
+            <column name="Classifier" valueNumeric="0"/>
             <column name="ea_guid" value="element1GUID"/>
-            <column name="ParentID"/>
+            <column name="ParentID" valueNumeric="0"/>
             <column name="RunState"/>
             <column name="Classifier_guid"/>
             <column name="TPos"/>
@@ -304,9 +304,9 @@
             <column name="Scope"/>
             <column name="GenOption"/>
             <column name="GenLinks"/>
-            <column name="Classifier"/>
+            <column name="Classifier" valueNumeric="0"/>
             <column name="ea_guid" value="element2GUID"/>
-            <column name="ParentID"/>
+            <column name="ParentID" valueNumeric="0"/>
             <column name="RunState"/>
             <column name="Classifier_guid"/>
             <column name="TPos"/>
@@ -363,9 +363,9 @@
             <column name="Scope"/>
             <column name="GenOption"/>
             <column name="GenLinks"/>
-            <column name="Classifier"/>
+            <column name="Classifier" valueNumeric="0"/>
             <column name="ea_guid" value="elementPackageGUID"/>
-            <column name="ParentID"/>
+            <column name="ParentID" valueNumeric="0"/>
             <column name="RunState"/>
             <column name="Classifier_guid"/>
             <column name="TPos"/>
@@ -381,7 +381,7 @@
             <column name="EventFlags"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-9">
+    <changeSet author="seiferma (generated)" id="1466606678753-9">
         <insert catalogName="test" schemaName="test" tableName="t_operation">
             <column name="OperationID" valueNumeric="1"/>
             <column name="Object_ID" valueNumeric="2"/>
@@ -412,7 +412,7 @@
             <column name="StyleEx"/>
         </insert>
     </changeSet>
-    <changeSet author="schick (generated)" id="1463489413548-10">
+    <changeSet author="seiferma (generated)" id="1466606678753-10">
         <insert catalogName="test" schemaName="test" tableName="t_package">
             <column name="Package_ID" valueNumeric="1"/>
             <column name="Name" value="rootPackage"/>
