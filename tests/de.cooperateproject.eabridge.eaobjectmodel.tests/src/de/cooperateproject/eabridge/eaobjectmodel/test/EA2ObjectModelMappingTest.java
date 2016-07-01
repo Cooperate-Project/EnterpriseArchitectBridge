@@ -14,13 +14,13 @@ import org.eclipse.emf.compare.utils.EMFComparePrettyPrinter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.CustomDiffEngine;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
+import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
 
 public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 
@@ -29,26 +29,16 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 		initTestDb(TestResource.SimpleClassModelWithSchemaChangelog);
 		
 		Session session = getDataStore().getSessionFactory().openSession();
-		Transaction trans = session.getTransaction();
 
 		Query query = session.createQuery("FROM Package WHERE PARENT_ID = 0");
-		List<Package> results = query.list();
+		List<Package> results = HibernateUtils.getListFromQuery(query, Package.class);
 		System.out.println(results.size());		
 		assertEquals(1, results.size());
 
-		Package content = results.get(0);
-//		Element element = content.getElements().get(0);
-
-		
+		Package actualContent = results.get(0);
 		Package compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
-		
-//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramLinks().get(0).setInstanceID((long) 1); 
-//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(0).setInstanceID((long) 1); 
-//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(1).setInstanceID((long) 2); 
-		
-		assertEqualsModel(content, compareContent);
-		
-//		EAObjectModelHelper.saveModel(compareContent,"resources/test.xmi");
+
+		assertEqualsModel(actualContent, compareContent);
 	}
 	
 	private static void assertEqualsModel(Package content, Package compareContent) {		

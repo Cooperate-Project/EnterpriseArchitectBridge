@@ -12,6 +12,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 */
 public class AttributeConstraintPK implements Serializable {
 	
+	private static final long serialVersionUID = 2246846269638577448L;
 	private static String delimiter = "__;__";
 	
 	public String Constraint;

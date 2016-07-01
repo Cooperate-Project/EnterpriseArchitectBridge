@@ -12,6 +12,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
+import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
 
 public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 	
@@ -78,7 +79,7 @@ public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 
 		trans.begin();
 		Query query = session.createQuery("FROM Attribute");
-		List<Attribute> results = query.list();
+		List<Attribute> results = HibernateUtils.getListFromQuery(query, Attribute.class);
 		trans.commit();
 		
 		return results.get(0);

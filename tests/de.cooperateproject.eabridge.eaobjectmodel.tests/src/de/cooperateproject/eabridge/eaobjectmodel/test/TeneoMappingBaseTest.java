@@ -16,7 +16,6 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
-import org.apache.log4j.Priority;
 import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
@@ -30,6 +29,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory.Liq
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.MySQLTestDB;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
+import liquibase.CatalogAndSchema;
 import liquibase.Liquibase;
 import liquibase.diff.output.DiffOutputControl;
 import liquibase.diff.output.changelog.DiffToChangeLog;
@@ -44,7 +44,7 @@ public abstract class TeneoMappingBaseTest {
 	public static void init() {
 		BasicConfigurator.resetConfiguration();
 		final ConsoleAppender appender = new ConsoleAppender(new PatternLayout("%m%n"));
-		appender.setThreshold(Priority.INFO);
+		appender.setThreshold(Level.INFO);
 		appender.addFilter(new Filter() {
 			@Override
 			public int decide(LoggingEvent arg0) {
@@ -69,25 +69,27 @@ public abstract class TeneoMappingBaseTest {
 	public void finalize() throws Exception {
 		testDb.close();
 	}
-	
-	public String readFile(String path, Charset encoding) 
-			  throws IOException 
-			{
-			  byte[] encoded = Files.readAllBytes(Paths.get(path));
-			  return new String(encoded, encoding);
-			}
-	public String generateChangelog() throws DatabaseException, IOException, ParserConfigurationException {
-		
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		
-		Liquibase liquibase = getLiquibase();
-		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema() , new DiffToChangeLog(new DiffOutputControl()), ps, Data.class);
-		
-		String content = baos.toString();
-		return content;
+
+	public String readFile(String path, Charset encoding) throws IOException {
+		byte[] encoded = Files.readAllBytes(Paths.get(path));
+		return new String(encoded, encoding);
 	}
 
+	@SuppressWarnings("unchecked")
+	protected String generateChangelog() throws DatabaseException, IOException, ParserConfigurationException {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(baos);
+		try {
+			Liquibase liquibase = getLiquibase();
+			CatalogAndSchema defaultSchema = liquibase.getDatabase().getDefaultSchema();
+			DiffOutputControl diffOutputControl = new DiffOutputControl();
+			liquibase.generateChangeLog(defaultSchema, new DiffToChangeLog(diffOutputControl), ps, Data.class);
+			return baos.toString();
+		} finally {
+			IOUtils.closeQuietly(ps);
+			IOUtils.closeQuietly(baos);
+		}
+	}
 
 	protected void initTestDb(TestResource testResource) throws Exception {
 		testDb = new MySQLTestDB(testResource, "test");
@@ -100,11 +102,11 @@ public abstract class TeneoMappingBaseTest {
 	public HbDataStore getDataStore() {
 		return testDb.getDataStore();
 	}
-	
+
 	public Liquibase getLiquibase() {
 		return testDb.getLiquibase();
 	}
-	
+
 	public static Package loadModelFromResource(String resourcePath) throws IOException {
 		Package loadedPackage = null;
 		InputStream is = null;
@@ -116,5 +118,5 @@ public abstract class TeneoMappingBaseTest {
 		}
 		return loadedPackage;
 	}
-	
+
 }
