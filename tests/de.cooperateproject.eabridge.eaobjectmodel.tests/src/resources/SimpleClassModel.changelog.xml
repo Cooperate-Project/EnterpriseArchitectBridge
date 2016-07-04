@@ -1,467 +1,470 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <changeSet author="seiferma (generated)" id="1466606678753-1">
-        <insert catalogName="test" schemaName="test" tableName="t_attribute">
-            <column name="Object_ID" valueNumeric="1"/>
-            <column name="Name" value="attName"/>
-            <column name="Scope"/>
-            <column name="Stereotype"/>
-            <column name="Containment"/>
-            <column name="IsStatic"/>
-            <column name="IsCollection"/>
-            <column name="IsOrdered"/>
-            <column name="AllowDuplicates" valueNumeric="1"/>
-            <column name="LowerBound"/>
-            <column name="UpperBound"/>
-            <column name="Container"/>
-            <column name="Notes" value="attNotes"/>
-            <column name="Derived"/>
-            <column name="ID" valueNumeric="1"/>
-            <column name="Pos"/>
-            <column name="GenOption"/>
-            <column name="Length"/>
-            <column name="PRECISION"/>
-            <column name="Scale"/>
-            <column name="Const"/>
-            <column name="Style"/>
-            <column name="Classifier" value="0"/>
-            <column name="DEFAULT"/>
-            <column name="Type"/>
-            <column name="ea_guid" value="attributeGUID"/>
-            <column name="StyleEx"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-2">
-        <insert catalogName="test" schemaName="test" tableName="t_attributeconstraints">
-            <column name="Object_ID" valueNumeric="1"/>
-            <column name="CONSTRAINT" value="testconstraint"/>
-            <column name="AttName"/>
-            <column name="Type"/>
-            <column name="Notes"/>
-            <column name="ID" valueNumeric="1"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-3">
-        <insert catalogName="test" schemaName="test" tableName="t_attributetag">
-            <column name="PropertyID" valueNumeric="1"/>
-            <column name="ElementID" valueNumeric="1"/>
-            <column name="Property" value="attTagName"/>
-            <column name="VALUE"/>
-            <column name="NOTES" value="attTagNotes"/>
-            <column name="ea_guid" value="attTagGuid"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-4">
-        <insert catalogName="test" schemaName="test" tableName="t_connector">
-            <column name="Connector_ID" valueNumeric="1"/>
-            <column name="Name" value="connector"/>
-            <column name="Direction" value="Unspecified"/>
-            <column name="Notes"/>
-            <column name="Connector_Type" value="Association"/>
-            <column name="SubType"/>
-            <column name="SourceCard" value="1...*"/>
-            <column name="SourceAccess"/>
-            <column name="SourceElement"/>
-            <column name="DestCard" value="4"/>
-            <column name="DestAccess"/>
-            <column name="DestElement"/>
-            <column name="SourceRole"/>
-            <column name="SourceRoleType"/>
-            <column name="SourceRoleNote"/>
-            <column name="SourceContainment"/>
-            <column name="SourceIsAggregate" valueNumeric="0"/>
-            <column name="SourceIsOrdered" valueNumeric="0"/>
-            <column name="SourceQualifier"/>
-            <column name="DestRole"/>
-            <column name="DestRoleType"/>
-            <column name="DestRoleNote"/>
-            <column name="DestContainment"/>
-            <column name="DestIsAggregate" valueNumeric="0"/>
-            <column name="DestIsOrdered" valueNumeric="0"/>
-            <column name="DestQualifier"/>
-            <column name="Start_Object_ID" valueNumeric="1"/>
-            <column name="End_Object_ID" valueNumeric="2"/>
-            <column name="Top_Start_Label"/>
-            <column name="Top_Mid_Label"/>
-            <column name="Top_End_Label"/>
-            <column name="Btm_Start_Label"/>
-            <column name="Btm_Mid_Label"/>
-            <column name="Btm_End_Label"/>
-            <column name="Start_Edge" valueNumeric="0"/>
-            <column name="End_Edge" valueNumeric="0"/>
-            <column name="PtStartX"/>
-            <column name="PtStartY"/>
-            <column name="PtEndX"/>
-            <column name="PtEndY"/>
-            <column name="SeqNo"/>
-            <column name="HeadStyle" valueNumeric="0"/>
-            <column name="LineStyle" valueNumeric="0"/>
-            <column name="RouteStyle"/>
-            <column name="IsBold" valueNumeric="0"/>
-            <column name="LineColor" valueNumeric="0"/>
-            <column name="Stereotype"/>
-            <column name="VirtualInheritance"/>
-            <column name="LinkAccess"/>
-            <column name="PDATA1"/>
-            <column name="PDATA2"/>
-            <column name="PDATA3"/>
-            <column name="PDATA4"/>
-            <column name="PDATA5"/>
-            <column name="DiagramID" valueNumeric="0"/>
-            <column name="ea_guid" value="connectorGUID"/>
-            <column name="SourceConstraint"/>
-            <column name="DestConstraint"/>
-            <column name="SourceIsNavigable"/>
-            <column name="DestIsNavigable"/>
-            <column name="IsRoot"/>
-            <column name="IsLeaf"/>
-            <column name="IsSpec"/>
-            <column name="SourceChangeable"/>
-            <column name="DestChangeable"/>
-            <column name="SourceTS"/>
-            <column name="DestTS"/>
-            <column name="StateFlags"/>
-            <column name="ActionFlags"/>
-            <column name="IsSignal"/>
-            <column name="IsStimulus"/>
-            <column name="DispatchAction"/>
-            <column name="Target2"/>
-            <column name="StyleEx"/>
-            <column name="SourceStereotype"/>
-            <column name="DestStereotype"/>
-            <column name="SourceStyle"/>
-            <column name="DestStyle"/>
-            <column name="EventFlags"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-5">
-        <insert catalogName="test" schemaName="test" tableName="t_diagram">
-            <column name="Diagram_ID" valueNumeric="1"/>
-            <column name="Package_ID" valueNumeric="2"/>
-            <column name="ParentID" valueNumeric="0"/>
-            <column name="Diagram_Type" value="Logical"/>
-            <column name="Name" value="diagram"/>
-            <column name="Version"/>
-            <column name="Author"/>
-            <column name="ShowDetails" valueNumeric="0"/>
-            <column name="Notes"/>
-            <column name="Stereotype"/>
-            <column name="AttPub"/>
-            <column name="AttPri"/>
-            <column name="AttPro"/>
-            <column name="Orientation"/>
-            <column name="cx"/>
-            <column name="cy"/>
-            <column name="Scale"/>
-            <column name="CreatedDate"/>
-            <column name="ModifiedDate"/>
-            <column name="HTMLPath"/>
-            <column name="ShowForeign"/>
-            <column name="ShowBorder"/>
-            <column name="ShowPackageContents"/>
-            <column name="PDATA"/>
-            <column name="Locked"/>
-            <column name="ea_guid" value="diagramGUID"/>
-            <column name="TPos"/>
-            <column name="Swimlanes"/>
-            <column name="StyleEx"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-6">
-        <insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
-            <column name="DiagramID" valueNumeric="1"/>
-            <column name="ConnectorID" valueNumeric="1"/>
-            <column name="Geometry"/>
-            <column name="Style"/>
-            <column name="Hidden" valueNumeric="0"/>
-            <column name="Path"/>
-            <column name="Instance_ID" valueNumeric="1"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-7">
-        <insert catalogName="test" schemaName="test" tableName="t_diagramobjects">
-            <column name="Diagram_ID" valueNumeric="1"/>
-            <column name="Object_ID" valueNumeric="1"/>
-            <column name="RectTop"/>
-            <column name="RectLeft"/>
-            <column name="RectRight"/>
-            <column name="RectBottom"/>
-            <column name="Sequence" valueNumeric="1"/>
-            <column name="ObjectStyle"/>
-            <column name="Instance_ID" valueNumeric="1"/>
-        </insert>
-        <insert catalogName="test" schemaName="test" tableName="t_diagramobjects">
-            <column name="Diagram_ID" valueNumeric="1"/>
-            <column name="Object_ID" valueNumeric="2"/>
-            <column name="RectTop"/>
-            <column name="RectLeft"/>
-            <column name="RectRight"/>
-            <column name="RectBottom"/>
-            <column name="Sequence" valueNumeric="2"/>
-            <column name="ObjectStyle"/>
-            <column name="Instance_ID" valueNumeric="2"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-8">
-        <insert catalogName="test" schemaName="test" tableName="t_object">
-            <column name="Object_ID" valueNumeric="1"/>
-            <column name="Object_Type" value="Class"/>
-            <column name="Diagram_ID" valueNumeric="0"/>
-            <column name="Name" value="element1"/>
-            <column name="Alias"/>
-            <column name="Author"/>
-            <column name="Version"/>
-            <column name="Note"/>
-            <column name="Package_ID" valueNumeric="2"/>
-            <column name="Stereotype"/>
-            <column name="NType" valueNumeric="0"/>
-            <column name="Complexity"/>
-            <column name="Effort" valueNumeric="0"/>
-            <column name="Style"/>
-            <column name="Backcolor" valueNumeric="0"/>
-            <column name="BorderStyle" valueNumeric="0"/>
-            <column name="BorderWidth" valueNumeric="0"/>
-            <column name="Fontcolor" valueNumeric="0"/>
-            <column name="Bordercolor" valueNumeric="0"/>
-            <column name="CreatedDate"/>
-            <column name="ModifiedDate"/>
-            <column name="Status"/>
-            <column name="Abstract"/>
-            <column name="Tagged" valueNumeric="0"/>
-            <column name="PDATA1"/>
-            <column name="PDATA2"/>
-            <column name="PDATA3"/>
-            <column name="PDATA4"/>
-            <column name="PDATA5"/>
-            <column name="Concurrency"/>
-            <column name="Visibility"/>
-            <column name="Persistence"/>
-            <column name="Cardinality"/>
-            <column name="GenType"/>
-            <column name="GenFile"/>
-            <column name="Header1"/>
-            <column name="Header2"/>
-            <column name="Phase"/>
-            <column name="Scope"/>
-            <column name="GenOption"/>
-            <column name="GenLinks"/>
-            <column name="Classifier" valueNumeric="0"/>
-            <column name="ea_guid" value="element1GUID"/>
-            <column name="ParentID" valueNumeric="0"/>
-            <column name="RunState"/>
-            <column name="Classifier_guid"/>
-            <column name="TPos"/>
-            <column name="IsRoot"/>
-            <column name="IsLeaf"/>
-            <column name="IsSpec"/>
-            <column name="IsActive"/>
-            <column name="StateFlags"/>
-            <column name="PackageFlags"/>
-            <column name="Multiplicity"/>
-            <column name="StyleEx"/>
-            <column name="ActionFlags"/>
-            <column name="EventFlags"/>
-        </insert>
-        <insert catalogName="test" schemaName="test" tableName="t_object">
-            <column name="Object_ID" valueNumeric="2"/>
-            <column name="Object_Type" value="Class"/>
-            <column name="Diagram_ID" valueNumeric="0"/>
-            <column name="Name" value="element2"/>
-            <column name="Alias"/>
-            <column name="Author"/>
-            <column name="Version"/>
-            <column name="Note"/>
-            <column name="Package_ID" valueNumeric="2"/>
-            <column name="Stereotype"/>
-            <column name="NType" valueNumeric="0"/>
-            <column name="Complexity"/>
-            <column name="Effort" valueNumeric="0"/>
-            <column name="Style"/>
-            <column name="Backcolor" valueNumeric="0"/>
-            <column name="BorderStyle" valueNumeric="0"/>
-            <column name="BorderWidth" valueNumeric="0"/>
-            <column name="Fontcolor" valueNumeric="0"/>
-            <column name="Bordercolor" valueNumeric="0"/>
-            <column name="CreatedDate"/>
-            <column name="ModifiedDate"/>
-            <column name="Status"/>
-            <column name="Abstract"/>
-            <column name="Tagged" valueNumeric="0"/>
-            <column name="PDATA1"/>
-            <column name="PDATA2"/>
-            <column name="PDATA3"/>
-            <column name="PDATA4"/>
-            <column name="PDATA5"/>
-            <column name="Concurrency"/>
-            <column name="Visibility"/>
-            <column name="Persistence"/>
-            <column name="Cardinality"/>
-            <column name="GenType"/>
-            <column name="GenFile"/>
-            <column name="Header1"/>
-            <column name="Header2"/>
-            <column name="Phase"/>
-            <column name="Scope"/>
-            <column name="GenOption"/>
-            <column name="GenLinks"/>
-            <column name="Classifier" valueNumeric="0"/>
-            <column name="ea_guid" value="element2GUID"/>
-            <column name="ParentID" valueNumeric="0"/>
-            <column name="RunState"/>
-            <column name="Classifier_guid"/>
-            <column name="TPos"/>
-            <column name="IsRoot"/>
-            <column name="IsLeaf"/>
-            <column name="IsSpec"/>
-            <column name="IsActive"/>
-            <column name="StateFlags"/>
-            <column name="PackageFlags"/>
-            <column name="Multiplicity"/>
-            <column name="StyleEx"/>
-            <column name="ActionFlags"/>
-            <column name="EventFlags"/>
-        </insert>
-        <insert catalogName="test" schemaName="test" tableName="t_object">
-            <column name="Object_ID" valueNumeric="3"/>
-            <column name="Object_Type" value="Package"/>
-            <column name="Diagram_ID" valueNumeric="0"/>
-            <column name="Name" value="package"/>
-            <column name="Alias"/>
-            <column name="Author"/>
-            <column name="Version"/>
-            <column name="Note"/>
-            <column name="Package_ID" valueNumeric="1"/>
-            <column name="Stereotype"/>
-            <column name="NType" valueNumeric="0"/>
-            <column name="Complexity"/>
-            <column name="Effort" valueNumeric="0"/>
-            <column name="Style"/>
-            <column name="Backcolor" valueNumeric="0"/>
-            <column name="BorderStyle" valueNumeric="0"/>
-            <column name="BorderWidth" valueNumeric="0"/>
-            <column name="Fontcolor" valueNumeric="0"/>
-            <column name="Bordercolor" valueNumeric="0"/>
-            <column name="CreatedDate"/>
-            <column name="ModifiedDate"/>
-            <column name="Status"/>
-            <column name="Abstract"/>
-            <column name="Tagged" valueNumeric="0"/>
-            <column name="PDATA1" value="2"/>
-            <column name="PDATA2"/>
-            <column name="PDATA3"/>
-            <column name="PDATA4"/>
-            <column name="PDATA5"/>
-            <column name="Concurrency"/>
-            <column name="Visibility"/>
-            <column name="Persistence"/>
-            <column name="Cardinality"/>
-            <column name="GenType"/>
-            <column name="GenFile"/>
-            <column name="Header1"/>
-            <column name="Header2"/>
-            <column name="Phase"/>
-            <column name="Scope"/>
-            <column name="GenOption"/>
-            <column name="GenLinks"/>
-            <column name="Classifier" valueNumeric="0"/>
-            <column name="ea_guid" value="elementPackageGUID"/>
-            <column name="ParentID" valueNumeric="0"/>
-            <column name="RunState"/>
-            <column name="Classifier_guid"/>
-            <column name="TPos"/>
-            <column name="IsRoot"/>
-            <column name="IsLeaf"/>
-            <column name="IsSpec"/>
-            <column name="IsActive"/>
-            <column name="StateFlags"/>
-            <column name="PackageFlags"/>
-            <column name="Multiplicity"/>
-            <column name="StyleEx"/>
-            <column name="ActionFlags"/>
-            <column name="EventFlags"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-9">
-        <insert catalogName="test" schemaName="test" tableName="t_operation">
-            <column name="OperationID" valueNumeric="1"/>
-            <column name="Object_ID" valueNumeric="2"/>
-            <column name="Name" value="method"/>
-            <column name="Scope"/>
-            <column name="Type"/>
-            <column name="ReturnArray"/>
-            <column name="Stereotype"/>
-            <column name="IsStatic"/>
-            <column name="Concurrency"/>
-            <column name="Notes"/>
-            <column name="Behaviour"/>
-            <column name="Abstract"/>
-            <column name="GenOption"/>
-            <column name="Synchronized"/>
-            <column name="Pos"/>
-            <column name="Const"/>
-            <column name="Style"/>
-            <column name="Pure"/>
-            <column name="Throws"/>
-            <column name="Classifier"/>
-            <column name="Code"/>
-            <column name="IsRoot"/>
-            <column name="IsLeaf"/>
-            <column name="IsQuery"/>
-            <column name="StateFlags"/>
-            <column name="ea_guid" value="methodGUID"/>
-            <column name="StyleEx"/>
-        </insert>
-    </changeSet>
-    <changeSet author="seiferma (generated)" id="1466606678753-10">
-        <insert catalogName="test" schemaName="test" tableName="t_package">
-            <column name="Package_ID" valueNumeric="1"/>
-            <column name="Name" value="rootPackage"/>
-            <column name="Parent_ID" valueNumeric="0"/>
-            <column name="CreatedDate"/>
-            <column name="ModifiedDate"/>
-            <column name="Notes"/>
-            <column name="ea_guid" value="rootPackageGUID"/>
-            <column name="XMLPath"/>
-            <column name="IsControlled"/>
-            <column name="LastLoadDate"/>
-            <column name="LastSaveDate"/>
-            <column name="Version"/>
-            <column name="Protected"/>
-            <column name="PkgOwner"/>
-            <column name="UMLVersion"/>
-            <column name="UseDTD"/>
-            <column name="LogXML"/>
-            <column name="CodePath"/>
-            <column name="Namespace"/>
-            <column name="TPos"/>
-            <column name="PackageFlags"/>
-            <column name="BatchSave"/>
-            <column name="BatchLoad"/>
-        </insert>
-        <insert catalogName="test" schemaName="test" tableName="t_package">
-            <column name="Package_ID" valueNumeric="2"/>
-            <column name="Name" value="package"/>
-            <column name="Parent_ID" valueNumeric="1"/>
-            <column name="CreatedDate"/>
-            <column name="ModifiedDate"/>
-            <column name="Notes"/>
-            <column name="ea_guid" value="packageGUID"/>
-            <column name="XMLPath"/>
-            <column name="IsControlled"/>
-            <column name="LastLoadDate"/>
-            <column name="LastSaveDate"/>
-            <column name="Version"/>
-            <column name="Protected"/>
-            <column name="PkgOwner"/>
-            <column name="UMLVersion"/>
-            <column name="UseDTD"/>
-            <column name="LogXML"/>
-            <column name="CodePath"/>
-            <column name="Namespace"/>
-            <column name="TPos"/>
-            <column name="PackageFlags"/>
-            <column name="BatchSave"/>
-            <column name="BatchLoad"/>
-        </insert>
-    </changeSet>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+	<include file="EASchema.changelog.xml" relativeToChangelogFile="true" />
+	<changeSet author="schick (generated)" id="1463480961660-1">
+		<insert catalogName="test" schemaName="test" tableName="t_attribute">
+			<column name="Object_ID" valueNumeric="1" />
+			<column name="Name" value="attName" />
+			<column name="Scope" />
+			<column name="Stereotype" />
+			<column name="Containment" />
+			<column name="IsStatic" />
+			<column name="IsCollection" />
+			<column name="IsOrdered" />
+			<column name="AllowDuplicates" valueNumeric="1" />
+			<column name="LowerBound" />
+			<column name="UpperBound" />
+			<column name="Container" />
+			<column name="Notes" value="attNotes" />
+			<column name="Derived" />
+			<column name="ID" valueNumeric="1" />
+			<column name="Pos" />
+			<column name="GenOption" />
+			<column name="Length" />
+			<column name="PRECISION" />
+			<column name="Scale" />
+			<column name="Const" />
+			<column name="Style" />
+			<column name="Classifier" value="0" />
+			<column name="DEFAULT" />
+			<column name="Type" />
+			<column name="ea_guid" value="attributeGUID" />
+			<column name="StyleEx" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-2">
+		<insert catalogName="test" schemaName="test" tableName="t_attributeconstraints">
+			<column name="Object_ID" valueNumeric="1" />
+			<column name="CONSTRAINT" value="testconstraint" />
+			<column name="AttName" />
+			<column name="Type" />
+			<column name="Notes" />
+			<column name="ID" valueNumeric="1" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-3">
+		<insert catalogName="test" schemaName="test" tableName="t_attributetag">
+			<column name="PropertyID" valueNumeric="1" />
+			<column name="ElementID" valueNumeric="1" />
+			<column name="Property" value="attTagName" />
+			<column name="VALUE" />
+			<column name="NOTES" value="attTagNotes" />
+			<column name="ea_guid" value="attTagGuid" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-4">
+		<insert catalogName="test" schemaName="test" tableName="t_connector">
+			<column name="Connector_ID" valueNumeric="1" />
+			<column name="Name" value="connector" />
+			<column name="Direction" value="Unspecified" />
+			<column name="Notes" />
+			<column name="Connector_Type" value="Association" />
+			<column name="SubType" />
+			<column name="SourceCard" value="1...*" />
+			<column name="SourceAccess" />
+			<column name="SourceElement" />
+			<column name="DestCard" value="4" />
+			<column name="DestAccess" />
+			<column name="DestElement" />
+			<column name="SourceRole" />
+			<column name="SourceRoleType" />
+			<column name="SourceRoleNote" />
+			<column name="SourceContainment" />
+			<column name="SourceIsAggregate" valueNumeric="0" />
+			<column name="SourceIsOrdered" valueNumeric="0" />
+			<column name="SourceQualifier" />
+			<column name="DestRole" />
+			<column name="DestRoleType" />
+			<column name="DestRoleNote" />
+			<column name="DestContainment" />
+			<column name="DestIsAggregate" valueNumeric="0" />
+			<column name="DestIsOrdered" valueNumeric="0" />
+			<column name="DestQualifier" />
+			<column name="Start_Object_ID" valueNumeric="1" />
+			<column name="End_Object_ID" valueNumeric="2" />
+			<column name="Top_Start_Label" />
+			<column name="Top_Mid_Label" />
+			<column name="Top_End_Label" />
+			<column name="Btm_Start_Label" />
+			<column name="Btm_Mid_Label" />
+			<column name="Btm_End_Label" />
+			<column name="Start_Edge" valueNumeric="0" />
+			<column name="End_Edge" valueNumeric="0" />
+			<column name="PtStartX" />
+			<column name="PtStartY" />
+			<column name="PtEndX" />
+			<column name="PtEndY" />
+			<column name="SeqNo" />
+			<column name="HeadStyle" valueNumeric="0" />
+			<column name="LineStyle" valueNumeric="0" />
+			<column name="RouteStyle" />
+			<column name="IsBold" valueNumeric="0" />
+			<column name="LineColor" valueNumeric="0" />
+			<column name="Stereotype" />
+			<column name="VirtualInheritance" />
+			<column name="LinkAccess" />
+			<column name="PDATA1" />
+			<column name="PDATA2" />
+			<column name="PDATA3" />
+			<column name="PDATA4" />
+			<column name="PDATA5" />
+			<column name="DiagramID" valueNumeric="0" />
+			<column name="ea_guid" value="connectorGUID" />
+			<column name="SourceConstraint" />
+			<column name="DestConstraint" />
+			<column name="SourceIsNavigable" />
+			<column name="DestIsNavigable" />
+			<column name="IsRoot" />
+			<column name="IsLeaf" />
+			<column name="IsSpec" />
+			<column name="SourceChangeable" />
+			<column name="DestChangeable" />
+			<column name="SourceTS" />
+			<column name="DestTS" />
+			<column name="StateFlags" />
+			<column name="ActionFlags" />
+			<column name="IsSignal" />
+			<column name="IsStimulus" />
+			<column name="DispatchAction" />
+			<column name="Target2" />
+			<column name="StyleEx" />
+			<column name="SourceStereotype" />
+			<column name="DestStereotype" />
+			<column name="SourceStyle" />
+			<column name="DestStyle" />
+			<column name="EventFlags" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-5">
+		<insert catalogName="test" schemaName="test" tableName="t_diagram">
+			<column name="Diagram_ID" valueNumeric="1" />
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="ParentID" valueNumeric="0" />
+			<column name="Diagram_Type" value="Logical" />
+			<column name="Name" value="diagram" />
+			<column name="Version" />
+			<column name="Author" />
+			<column name="ShowDetails" valueNumeric="0" />
+			<column name="Notes" />
+			<column name="Stereotype" />
+			<column name="AttPub" />
+			<column name="AttPri" />
+			<column name="AttPro" />
+			<column name="Orientation" />
+			<column name="cx" />
+			<column name="cy" />
+			<column name="Scale" />
+			<column name="CreatedDate" />
+			<column name="ModifiedDate" />
+			<column name="HTMLPath" />
+			<column name="ShowForeign" />
+			<column name="ShowBorder" />
+			<column name="ShowPackageContents" />
+			<column name="PDATA" />
+			<column name="Locked" />
+			<column name="ea_guid" value="diagramGUID" />
+			<column name="TPos" />
+			<column name="Swimlanes" />
+			<column name="StyleEx" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-6">
+		<insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
+			<column name="DiagramID" valueNumeric="1" />
+			<column name="ConnectorID" valueNumeric="1" />
+			<column name="Geometry" />
+			<column name="Style" />
+			<column name="Hidden" valueNumeric="0" />
+			<column name="Path" />
+			<column name="Instance_ID" valueNumeric="1" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-7">
+		<insert catalogName="test" schemaName="test" tableName="t_diagramobjects">
+			<column name="Diagram_ID" valueNumeric="1" />
+			<column name="Object_ID" valueNumeric="1" />
+			<column name="RectTop" />
+			<column name="RectLeft" />
+			<column name="RectRight" />
+			<column name="RectBottom" />
+			<column name="Sequence" valueNumeric="1" />
+			<column name="ObjectStyle" />
+			<column name="Instance_ID" valueNumeric="1" />
+		</insert>
+		<insert catalogName="test" schemaName="test" tableName="t_diagramobjects">
+			<column name="Diagram_ID" valueNumeric="1" />
+			<column name="Object_ID" valueNumeric="2" />
+			<column name="RectTop" />
+			<column name="RectLeft" />
+			<column name="RectRight" />
+			<column name="RectBottom" />
+			<column name="Sequence" valueNumeric="2" />
+			<column name="ObjectStyle" />
+			<column name="Instance_ID" valueNumeric="2" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-8">
+		<insert catalogName="test" schemaName="test" tableName="t_object">
+			<column name="Object_ID" valueNumeric="1" />
+			<column name="Object_Type" value="Class" />
+			<column name="Diagram_ID" valueNumeric="0" />
+			<column name="Name" value="element1" />
+			<column name="Alias" />
+			<column name="Author" />
+			<column name="Version" />
+			<column name="Note" />
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="Stereotype" />
+			<column name="NType" valueNumeric="0" />
+			<column name="Complexity" />
+			<column name="Effort" valueNumeric="0" />
+			<column name="Style" />
+			<column name="Backcolor" valueNumeric="0" />
+			<column name="BorderStyle" valueNumeric="0" />
+			<column name="BorderWidth" valueNumeric="0" />
+			<column name="Fontcolor" valueNumeric="0" />
+			<column name="Bordercolor" valueNumeric="0" />
+			<column name="CreatedDate" />
+			<column name="ModifiedDate" />
+			<column name="Status" />
+			<column name="Abstract" />
+			<column name="Tagged" valueNumeric="0" />
+			<column name="PDATA1" />
+			<column name="PDATA2" />
+			<column name="PDATA3" />
+			<column name="PDATA4" />
+			<column name="PDATA5" />
+			<column name="Concurrency" />
+			<column name="Visibility" />
+			<column name="Persistence" />
+			<column name="Cardinality" />
+			<column name="GenType" />
+			<column name="GenFile" />
+			<column name="Header1" />
+			<column name="Header2" />
+			<column name="Phase" />
+			<column name="Scope" />
+			<column name="GenOption" />
+			<column name="GenLinks" />
+			<column name="Classifier" valueNumeric="0" />
+			<column name="ea_guid" value="element1GUID" />
+			<column name="ParentID" valueNumeric="0" />
+			<column name="RunState" />
+			<column name="Classifier_guid" />
+			<column name="TPos" />
+			<column name="IsRoot" />
+			<column name="IsLeaf" />
+			<column name="IsSpec" />
+			<column name="IsActive" />
+			<column name="StateFlags" />
+			<column name="PackageFlags" />
+			<column name="Multiplicity" />
+			<column name="StyleEx" />
+			<column name="ActionFlags" />
+			<column name="EventFlags" />
+		</insert>
+		<insert catalogName="test" schemaName="test" tableName="t_object">
+			<column name="Object_ID" valueNumeric="2" />
+			<column name="Object_Type" value="Class" />
+			<column name="Diagram_ID" valueNumeric="0" />
+			<column name="Name" value="element2" />
+			<column name="Alias" />
+			<column name="Author" />
+			<column name="Version" />
+			<column name="Note" />
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="Stereotype" />
+			<column name="NType" valueNumeric="0" />
+			<column name="Complexity" />
+			<column name="Effort" valueNumeric="0" />
+			<column name="Style" />
+			<column name="Backcolor" valueNumeric="0" />
+			<column name="BorderStyle" valueNumeric="0" />
+			<column name="BorderWidth" valueNumeric="0" />
+			<column name="Fontcolor" valueNumeric="0" />
+			<column name="Bordercolor" valueNumeric="0" />
+			<column name="CreatedDate" />
+			<column name="ModifiedDate" />
+			<column name="Status" />
+			<column name="Abstract" />
+			<column name="Tagged" valueNumeric="0" />
+			<column name="PDATA1" />
+			<column name="PDATA2" />
+			<column name="PDATA3" />
+			<column name="PDATA4" />
+			<column name="PDATA5" />
+			<column name="Concurrency" />
+			<column name="Visibility" />
+			<column name="Persistence" />
+			<column name="Cardinality" />
+			<column name="GenType" />
+			<column name="GenFile" />
+			<column name="Header1" />
+			<column name="Header2" />
+			<column name="Phase" />
+			<column name="Scope" />
+			<column name="GenOption" />
+			<column name="GenLinks" />
+			<column name="Classifier" valueNumeric="0" />
+			<column name="ea_guid" value="element2GUID" />
+			<column name="ParentID" valueNumeric="0" />
+			<column name="RunState" />
+			<column name="Classifier_guid" />
+			<column name="TPos" />
+			<column name="IsRoot" />
+			<column name="IsLeaf" />
+			<column name="IsSpec" />
+			<column name="IsActive" />
+			<column name="StateFlags" />
+			<column name="PackageFlags" />
+			<column name="Multiplicity" />
+			<column name="StyleEx" />
+			<column name="ActionFlags" />
+			<column name="EventFlags" />
+		</insert>
+		<insert catalogName="test" schemaName="test" tableName="t_object">
+			<column name="Object_ID" valueNumeric="3" />
+			<column name="Object_Type" value="Package" />
+			<column name="Diagram_ID" valueNumeric="0" />
+			<column name="Name" value="package" />
+			<column name="Alias" />
+			<column name="Author" />
+			<column name="Version" />
+			<column name="Note" />
+			<column name="Package_ID" valueNumeric="1" />
+			<column name="Stereotype" />
+			<column name="NType" valueNumeric="0" />
+			<column name="Complexity" />
+			<column name="Effort" valueNumeric="0" />
+			<column name="Style" />
+			<column name="Backcolor" valueNumeric="0" />
+			<column name="BorderStyle" valueNumeric="0" />
+			<column name="BorderWidth" valueNumeric="0" />
+			<column name="Fontcolor" valueNumeric="0" />
+			<column name="Bordercolor" valueNumeric="0" />
+			<column name="CreatedDate" />
+			<column name="ModifiedDate" />
+			<column name="Status" />
+			<column name="Abstract" />
+			<column name="Tagged" valueNumeric="0" />
+			<column name="PDATA1" value="2" />
+			<column name="PDATA2" />
+			<column name="PDATA3" />
+			<column name="PDATA4" />
+			<column name="PDATA5" />
+			<column name="Concurrency" />
+			<column name="Visibility" />
+			<column name="Persistence" />
+			<column name="Cardinality" />
+			<column name="GenType" />
+			<column name="GenFile" />
+			<column name="Header1" />
+			<column name="Header2" />
+			<column name="Phase" />
+			<column name="Scope" />
+			<column name="GenOption" />
+			<column name="GenLinks" />
+			<column name="Classifier" valueNumeric="0" />
+			<column name="ea_guid" value="elementPackageGUID" />
+			<column name="ParentID" valueNumeric="0" />
+			<column name="RunState" />
+			<column name="Classifier_guid" />
+			<column name="TPos" />
+			<column name="IsRoot" />
+			<column name="IsLeaf" />
+			<column name="IsSpec" />
+			<column name="IsActive" />
+			<column name="StateFlags" />
+			<column name="PackageFlags" />
+			<column name="Multiplicity" />
+			<column name="StyleEx" />
+			<column name="ActionFlags" />
+			<column name="EventFlags" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-9">
+		<insert catalogName="test" schemaName="test" tableName="t_operation">
+			<column name="OperationID" valueNumeric="1" />
+			<column name="Object_ID" valueNumeric="2" />
+			<column name="Name" value="method" />
+			<column name="Scope" />
+			<column name="Type" />
+			<column name="ReturnArray" />
+			<column name="Stereotype" />
+			<column name="IsStatic" />
+			<column name="Concurrency" />
+			<column name="Notes" />
+			<column name="Behaviour" />
+			<column name="Abstract" />
+			<column name="GenOption" />
+			<column name="Synchronized" />
+			<column name="Pos" />
+			<column name="Const" />
+			<column name="Style" />
+			<column name="Pure" />
+			<column name="Throws" />
+			<column name="Classifier" />
+			<column name="Code" />
+			<column name="IsRoot" />
+			<column name="IsLeaf" />
+			<column name="IsQuery" />
+			<column name="StateFlags" />
+			<column name="ea_guid" value="methodGUID" />
+			<column name="StyleEx" />
+		</insert>
+	</changeSet>
+	<changeSet author="schick (generated)" id="1463480961660-10">
+		<insert catalogName="test" schemaName="test" tableName="t_package">
+			<column name="Package_ID" valueNumeric="1" />
+			<column name="Name" value="rootPackage" />
+			<column name="Parent_ID" valueNumeric="0" />
+			<column name="CreatedDate" />
+			<column name="ModifiedDate" />
+			<column name="Notes" />
+			<column name="ea_guid" value="rootPackageGUID" />
+			<column name="XMLPath" />
+			<column name="IsControlled" />
+			<column name="LastLoadDate" />
+			<column name="LastSaveDate" />
+			<column name="Version" />
+			<column name="Protected" />
+			<column name="PkgOwner" />
+			<column name="UMLVersion" />
+			<column name="UseDTD" />
+			<column name="LogXML" />
+			<column name="CodePath" />
+			<column name="Namespace" />
+			<column name="TPos" />
+			<column name="PackageFlags" />
+			<column name="BatchSave" />
+			<column name="BatchLoad" />
+		</insert>
+		<insert catalogName="test" schemaName="test" tableName="t_package">
+			<column name="Package_ID" valueNumeric="2" />
+			<column name="Name" value="package" />
+			<column name="Parent_ID" valueNumeric="1" />
+			<column name="CreatedDate" />
+			<column name="ModifiedDate" />
+			<column name="Notes" />
+			<column name="ea_guid" value="packageGUID" />
+			<column name="XMLPath" />
+			<column name="IsControlled" />
+			<column name="LastLoadDate" />
+			<column name="LastSaveDate" />
+			<column name="Version" />
+			<column name="Protected" />
+			<column name="PkgOwner" />
+			<column name="UMLVersion" />
+			<column name="UseDTD" />
+			<column name="LogXML" />
+			<column name="CodePath" />
+			<column name="Namespace" />
+			<column name="TPos" />
+			<column name="PackageFlags" />
+			<column name="BatchSave" />
+			<column name="BatchLoad" />
+		</insert>
+	</changeSet>
 </databaseChangeLog>

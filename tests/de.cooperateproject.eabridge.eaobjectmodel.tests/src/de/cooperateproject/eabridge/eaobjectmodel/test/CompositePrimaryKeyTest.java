@@ -18,7 +18,7 @@ public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 	
 	@Test (expected=NonUniqueObjectException.class)
 	public void testIdenticalConstraint() throws Exception {
-		initTestDb(TestResource.SimpleClassModelWithSchemaChangelog);
+		initTestDb(TestResource.SimpleClassModelChangelog);
 		
 		Session session = getDataStore().getSessionFactory().openSession();
 		
@@ -39,7 +39,7 @@ public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 	
 	@Test
 	public void testSameConstraintDifferentAttribute() throws Exception {
-		initTestDb(TestResource.SimpleClassModelWithSchemaChangelog);
+		initTestDb(TestResource.SimpleClassModelChangelog);
 		
 		Session session = getDataStore().getSessionFactory().openSession();
 		

@@ -1,6 +1,7 @@
 package de.cooperateproject.eabridge.eaobjectmodel.test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -70,8 +71,8 @@ public abstract class TeneoMappingBaseTest {
 		testDb.close();
 	}
 
-	public String readFile(String path, Charset encoding) throws IOException {
-		byte[] encoded = Files.readAllBytes(Paths.get(path));
+	protected String readFile(File f, Charset encoding) throws IOException {
+		byte[] encoded = Files.readAllBytes(Paths.get(f.getAbsolutePath()));
 		return new String(encoded, encoding);
 	}
 

@@ -50,7 +50,7 @@ public class MySQLTestDB implements Closeable {
 		String JDBC_URL = "jdbc:h2:mem:" + schema
 				+ ";DATABASE_TO_UPPER=false;IGNORECASE=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS " + schema;
 		
-		Class.forName("org.h2.Driver");
+		Class.forName(JDBC_DRIVER);
 
 		dbConnection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
 		

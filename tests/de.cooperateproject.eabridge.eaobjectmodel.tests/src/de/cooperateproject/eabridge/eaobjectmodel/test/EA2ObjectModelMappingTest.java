@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
@@ -17,6 +19,7 @@ import org.hibernate.Session;
 import org.junit.Assert;
 import org.junit.Test;
 
+import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.CustomDiffEngine;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
@@ -26,19 +29,36 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 
 	@Test
 	public void testReadSimpleDiagram() throws Exception {
-		initTestDb(TestResource.SimpleClassModelWithSchemaChangelog);
+		initTestDb(TestResource.SimpleClassModelChangelog);
 		
 		Session session = getDataStore().getSessionFactory().openSession();
 
 		Query query = session.createQuery("FROM Package WHERE PARENT_ID = 0");
 		List<Package> results = HibernateUtils.getListFromQuery(query, Package.class);
-		System.out.println(results.size());		
 		assertEquals(1, results.size());
 
 		Package actualContent = results.get(0);
 		Package compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
 
 		assertEqualsModel(actualContent, compareContent);
+	}
+	
+	@Test
+	public void testReadModificationDateOfElement() throws Exception {
+		initTestDb(TestResource.EASingleClassChangelog);
+		
+		Session session = getDataStore().getSessionFactory().openSession();
+
+		Query query = session.createQuery("FROM Element WHERE ElementID = 2");
+		List<Element> results = HibernateUtils.getListFromQuery(query, Element.class);
+		assertEquals(1, results.size());
+
+		Element actualContent = results.get(0);
+		
+		Date expectedDate = new Calendar.Builder().setDate(2016, 6, 4).setTimeOfDay(10, 10, 44).build().getTime();
+		Date actualDate = actualContent.getModifiedDate();
+		
+		assertEquals(expectedDate, actualDate);
 	}
 	
 	private static void assertEqualsModel(Package content, Package compareContent) {		
