@@ -54,6 +54,11 @@ public abstract class TeneoMappingBaseTest {
 						return Filter.DENY;
 					}
 				}
+				if (HbDataStore.class.getName().equals(arg0.getLoggerName())) {
+					if (arg0.getLevel().toInt() <= Level.INFO_INT) {
+						return Filter.DENY;
+					}
+				}
 				return Filter.NEUTRAL;
 			}
 		});

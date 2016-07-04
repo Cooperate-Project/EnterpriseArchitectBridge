@@ -53,9 +53,6 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 
 		String content = generateChangelog();
 		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile(), Charset.defaultCharset());
-
-		System.out.println(content);
-		System.out.println(compareContent);
 		
 		Diff myDiff = createDiffBuilder(compareContent, content).build();
 		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
