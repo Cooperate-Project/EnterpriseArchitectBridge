@@ -822,6 +822,9 @@ class Diagram {
 	//	
 	String	Version //	Read/Write
 //	
+	int AttPub = "1"
+	int AttPri = "1"
+	int AttPro = "1"
 //	The version of the diagram.
 //	
 //	
