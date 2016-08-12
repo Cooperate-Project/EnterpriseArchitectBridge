@@ -2,6 +2,8 @@ package de.cooperateproject.eabridge.eaobjectmodel.custom;
 
 import java.io.Serializable;
 
+import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
+
 /**
  * The id class used in the composite id test case
  *  
@@ -9,28 +11,27 @@ import java.io.Serializable;
  * @version $Revision: 1.4 $
 */
 public class AttributeConstraintPK implements Serializable {
-
-	private static final long serialVersionUID = 3307987927496437247L;
+	
 	private static String delimiter = "__;__";
 	
-	private String constraint;
-	private long attributeID;
+	public String Constraint;
+	public Attribute Attribute;
 	
-	@Override
+	/** No-arg constructor */
+	public AttributeConstraintPK() {}
+	
 	public int hashCode() {
-	    return (int) (constraint.hashCode() + attributeID);
+	    return Constraint.hashCode() + Attribute.hashCode();
 	}
 
-	@Override
 	public String toString() {
-		return constraint + delimiter + attributeID;
+		return Constraint + delimiter + Attribute;
 	}
 
-	@Override
 	public boolean equals(Object other)	{
 	    if (other != null && (other instanceof AttributeConstraintPK)) {
 	        AttributeConstraintPK p = (AttributeConstraintPK)other;
-	        return p.constraint.equals(constraint) && p.attributeID == attributeID;
+	        return p.Constraint.equals(Constraint) && p.Attribute.equals(Attribute);
 	    }
 	    return false;
 	}
@@ -39,27 +40,27 @@ public class AttributeConstraintPK implements Serializable {
 	 * @return the Constraint
 	 */
 	public String getConstraint() {
-		return constraint;
+		return Constraint;
 	}
 
 	/**
 	 * @param Constraint the Constraint to set
 	 */
-	public void setConstraint(String constraint) {
-		this.constraint = constraint;
+	public void setConstraint(String Constraint) {
+		this.Constraint = Constraint;
 	}
 
 	/**
 	 * @return the Attribute
 	 */
-	public long getAttributeID() {
-		return attributeID;
+	public Attribute getAttribute() {
+		return Attribute;
 	}
 
 	/**
 	 * @param Attribute the Attribute to set
 	 */
-	public void setAttribute(long attributeID) {
-		this.attributeID = attributeID;
+	public void setAttribute(Attribute Attribute) {
+		this.Attribute = Attribute;
 	}
 }

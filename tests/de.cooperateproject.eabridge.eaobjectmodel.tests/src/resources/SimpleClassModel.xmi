@@ -3,9 +3,9 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel"
-    PackageGUID="PackageGUID3"
-    Name="Package"
-    PackageID="6">
+    PackageGUID="rootPackageGUID"
+    Name="rootPackage"
+    PackageID="1">
   <Packages
       PackageGUID="packageGUID"
       Name="package">
@@ -35,6 +35,7 @@
           Notes="attNotes">
         <Constraints
             ElementOfAttribute="//@Packages.0/@Elements.0"
+            Attribute="//@Packages.0/@Elements.0/@Attributes.0"
             Constraint="testconstraint"/>
         <TaggedValues
             Name="attTagName"
