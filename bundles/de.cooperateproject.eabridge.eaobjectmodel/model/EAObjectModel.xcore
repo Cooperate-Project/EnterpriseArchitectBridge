@@ -1,5 +1,6 @@
 @GenModel(modelName="EAObjectModel", modelDirectory="/de.cooperateproject.eabridge.eaobjectmodel/src-gen")
 package de.cooperateproject.eabridge.eaobjectmodel
+import de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap
 
 //associated with t_attribute table in .eap file
 
@@ -856,6 +857,7 @@ class Diagram {
 }
 //
 //associated with t_diagramlinks table in .eap file
+type GeometryMap wraps GeometryMap
 class DiagramLink {
 	refers Connector Connector //	Read/Write
 	//	
@@ -868,6 +870,7 @@ class DiagramLink {
 	//	
 	//	
 	unsettable String	Geometry //	Read/Write
+	String	Geometry 
 	//	
 	//	The geometry associated with the current connector in this diagram.
 	//	
@@ -896,37 +899,63 @@ class DiagramLink {
 	
 	op void setGeometry(int SX, int SY, int EX, int EY) {
 		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, SY, EX, EY)
+		val GeometryMap map = new GeometryMap(geometry)
+		map.put("SX", SX)
+		map.put("SY", SY)
+		map.put("EX", EX)
+		map.put("EY", EY)
+		geometry = map.toString()
 	}
 
 	op void setSX(int input) {
 		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', input, SY, EX, EY)
+		val GeometryMap map = new GeometryMap(geometry)
+		map.put("SX", input)
+		geometry = map.toString()
 	}
 	op void setSY(int input) {
 		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, input, EX, EY)
+		val GeometryMap map = new GeometryMap(geometry)
+		map.put("SY", input)
+		geometry = map.toString()
 	}
 	op void setEX(int input) {
 		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, SY, input, EY)
+		val GeometryMap map = new GeometryMap(geometry)
+		map.put("EX", input)
+		geometry = map.toString()
 	}
 	op void setEY(int input) {
 		geometry = 	String.format('SX=%2d;SY=%2d;EX=%2d;EY=%2d;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=', SX, SY, EX, input)
+		val GeometryMap map = new GeometryMap(geometry)
+		map.put("EY", input)
+		geometry = map.toString()
 	}
 	
 	derived String SX get {
 		 val String[] attributes = geometry.split(';')
 		 attributes.get(0)
+		val GeometryMap map = new GeometryMap(geometry)
+		String.valueOf(map.get("SX"))
 	}
 	derived String SY get {
 		 val String[] attributes = geometry.split(';')
 		 attributes.get(1)
+		val GeometryMap map = new GeometryMap(geometry)
+		String.valueOf(map.get("SY"))
 	}
 	
 	derived String EX get {
 		 val String[] attributes = geometry.split(';')
 		 attributes.get(2)
+		val GeometryMap map = new GeometryMap(geometry)
+		String.valueOf(map.get("EX"))
 	}
 	derived String EY get {
 		 val String[] attributes = geometry.split(';')
 		 attributes.get(3)
+		val GeometryMap map = new GeometryMap(geometry)
+		String.valueOf(map.get("EY"))
 	}
 //	
 //	Additional style information; for example, color or thickness.
