@@ -12,6 +12,9 @@
 				<id />
 				<generated-value />
 			</property>
+			<property name="Classifier">
+				<join-column name="Classifier" />
+			</property>
 			<property name="Parent">
 				<join-column name="Object_ID" />
 			</property>
