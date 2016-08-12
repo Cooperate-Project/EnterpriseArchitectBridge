@@ -42,6 +42,15 @@ class Attribute {
 	//	
 	//	
 	String AttributeType //	Read/Write
+	op void setType(Object o) {
+		if(o instanceof Element) {
+			val Element reference =  o;
+			attributeType = reference.name
+		}
+		if(o.class.isEnum()) {
+			   attributeType = o.toString()
+		}
+	}
 	String	Container //	Read/Write
 	//	
 	//	The container type.
