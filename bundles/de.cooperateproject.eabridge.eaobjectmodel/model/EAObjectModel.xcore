@@ -3,6 +3,16 @@ package de.cooperateproject.eabridge.eaobjectmodel
 
 //associated with t_attribute table in .eap file
 
+ enum PrimitiveTye {
+	  Boolean as "boolean"
+	  Int as "int"
+	  Byte as "byte"
+	  Char as "char"
+	  Double as "double"
+	  Float as "float"
+	  Long as "long"
+	  Short as "Short"
+}
 class Attribute {
 	//	String	Alias //	Read/Write OPTIONAL
 	//	
@@ -31,6 +41,7 @@ class Attribute {
 	//	The classifier ID, if appropriate, indicating the base type associated with the attribute, if not a primitive type.
 	//	
 	//	
+	String AttributeType //	Read/Write
 	String	Container //	Read/Write
 	//	
 	//	The container type.
@@ -156,7 +167,6 @@ class Attribute {
 	//	
 	//	A collection of TaggedValue objects belonging to the current attribute and the TaggedValuesEx property of its classifier.
 	//
-	String	Type //	Read/Write
 	//	
 	//	The attribute type (by name; also see ClassifierID).
 	//	
