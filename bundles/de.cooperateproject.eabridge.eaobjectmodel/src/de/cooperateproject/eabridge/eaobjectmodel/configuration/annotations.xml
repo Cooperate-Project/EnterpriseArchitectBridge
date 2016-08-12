@@ -24,6 +24,9 @@
 			<property name="IsDerived">
 				<column name="Derived" />
 			</property>
+			<property name="AttributeType">
+				<column name="Type" />
+			</property>
 		</eclass>
 
 		<eclass name="AttributeConstraint">
@@ -152,6 +155,7 @@
 				<column name="ea_guid" />
 			</property>
 			<property name="Type">
+			<property name="MethodeType">
 				<column name="Type" />
 			</property>
 		</eclass>
