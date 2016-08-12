@@ -36,7 +36,6 @@ class Attribute {
 	//	The local ID number of the attribute.
 	//	
 	//	
-	String Classifier //	Read/Write FOREIGN KEY AS STRING OTHERWISE 0
 	//	
 	//	The classifier ID, if appropriate, indicating the base type associated with the attribute, if not a primitive type.
 	//	
@@ -51,6 +50,7 @@ class Attribute {
 			   attributeType = o.toString()
 		}
 	}
+	refers Element Classifier 
 	String	Container //	Read/Write
 	//	
 	//	The container type.
