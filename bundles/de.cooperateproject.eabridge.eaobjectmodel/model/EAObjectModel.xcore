@@ -1681,7 +1681,7 @@ String GenOption
 class Methodeparam {
 	String	ea_guid //	Read/Write	
 	Long MethodID //	Read only	
-	String Type
+	String MethodeType
 	String Name
 }
 ////associated with t_operationpres and t_operationposts table in .eap file
