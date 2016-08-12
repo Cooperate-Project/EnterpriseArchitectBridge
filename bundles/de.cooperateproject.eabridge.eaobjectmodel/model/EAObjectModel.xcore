@@ -186,9 +186,16 @@ class Attribute {
 	//	
 	//	
 	String	Scope //	Read/Write
+	Scope	Scope //	Read/Write
 //	
 //	Identifies the scope of the attribute - Private, Protected, Public or Package.
 	String GenOption
+}
+enum Scope {
+	Private as "Private"
+	Public as "Public"
+	Package as "Package"
+	Protected as "Protected"
 }
 
 //associated with t_attribute table in .eap file
