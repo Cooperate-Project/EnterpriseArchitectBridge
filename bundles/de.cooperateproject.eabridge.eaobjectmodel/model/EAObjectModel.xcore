@@ -185,7 +185,6 @@ class Attribute {
 	//	A value for the collection upper boundary.
 	//	
 	//	
-	String	Scope //	Read/Write
 	Scope	Scope //	Read/Write
 //	
 //	Identifies the scope of the attribute - Private, Protected, Public or Package.
