@@ -21,6 +21,7 @@ import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
@@ -38,7 +39,7 @@ import liquibase.structure.core.Data;
 
 public abstract class TeneoMappingBaseTest {
 
-	private MySQLTestDB testDb;
+	private static MySQLTestDB testDb;
 
 	@BeforeClass
 	public static void init() {
@@ -59,24 +60,24 @@ public abstract class TeneoMappingBaseTest {
 		BasicConfigurator.configure(appender);
 		LiquibaseFactory.init();
 	}
-
+	/**
 	@Before
 	public void setup() throws Exception {
 		testDb = null;
 	}
-
-	@After
-	public void finalize() throws Exception {
+		@AfterClass
+	public static void finalize() throws Exception {
 		testDb.close();
 	}
-	
-	public String readFile(String path, Charset encoding) 
+	*/
+
+	public static String readFile(String path, Charset encoding) 
 			  throws IOException 
 			{
 			  byte[] encoded = Files.readAllBytes(Paths.get(path));
 			  return new String(encoded, encoding);
 			}
-	public String generateChangelog() throws DatabaseException, IOException, ParserConfigurationException {
+	public static String generateChangelog() throws DatabaseException, IOException, ParserConfigurationException {
 		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
@@ -89,7 +90,7 @@ public abstract class TeneoMappingBaseTest {
 	}
 
 
-	protected void initTestDb(TestResource testResource) throws Exception {
+	protected static void initTestDb(TestResource testResource) throws Exception {
 		testDb = new MySQLTestDB(testResource, "test");
 	}
 
@@ -97,11 +98,11 @@ public abstract class TeneoMappingBaseTest {
 		return testDb.getDbConnection();
 	}
 
-	public HbDataStore getDataStore() {
+	public static HbDataStore getDataStore() {
 		return testDb.getDataStore();
 	}
 	
-	public Liquibase getLiquibase() {
+	public static Liquibase getLiquibase() {
 		return testDb.getLiquibase();
 	}
 	
