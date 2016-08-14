@@ -2,6 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping auto-import="false">
+	<typedef name="eaobjectmodel.GeometryMap" class="org.eclipse.emf.teneo.hibernate.mapping.DefaultToStringUserType">
+		<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+		<param name="edatatype">GeometryMap</param>
+	</typedef>
 	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl" entity-name="Attribute" abstract="false" lazy="false" table="`t_attribute`">
 		<meta attribute="eclassName" inherit="false">Attribute</meta>
 		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
@@ -15,9 +19,12 @@
 		<property name="AttributeGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`ea_guid`"/>
 		</property>
-		<property name="Classifier" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
-			<column not-null="false" unique="false" name="`Classifier`"/>
+		<property name="AttributeType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Type`"/>
 		</property>
+		<many-to-one name="Classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Attribute_Classifier" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Classifier`"/>
+		</many-to-one>
 		<property name="Container" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Container`"/>
 		</property>
@@ -87,14 +94,16 @@
 			</key>
 			<one-to-many entity-name="AttributeTag"/>
 		</bag>
-		<property name="Type" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
-			<column not-null="false" unique="false" name="`Type`"/>
-		</property>
 		<property name="UpperBound" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`UpperBound`"/>
 		</property>
-		<property name="Scope" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+		<property name="Scope" lazy="false" not-null="false" insert="true" update="true" unique="false">
 			<column not-null="false" unique="false" name="`Scope`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
 		</property>
 		<property name="GenOption" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`GenOption`"/>
@@ -442,6 +451,15 @@
 		<property name="Version" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Version`"/>
 		</property>
+		<property name="AttPub" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`AttPub`"/>
+		</property>
+		<property name="AttPri" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`AttPri`"/>
+		</property>
+		<property name="AttPro" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`AttPro`"/>
+		</property>
 	</class>
 	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl" entity-name="DiagramLink" abstract="false" lazy="false" table="`t_diagramlinks`">
 		<meta attribute="eclassName" inherit="false">DiagramLink</meta>
@@ -761,7 +779,7 @@
 		<property name="MethodID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
 			<column not-null="false" unique="false" name="`OperationID`"/>
 		</property>
-		<property name="Type" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+		<property name="MethodeType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Type`"/>
 		</property>
 	</class>
