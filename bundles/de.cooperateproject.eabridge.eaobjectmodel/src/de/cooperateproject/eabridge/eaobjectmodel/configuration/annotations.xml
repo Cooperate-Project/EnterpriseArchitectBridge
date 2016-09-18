@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <persistence-mapping xmlns="http://www.eclipse.org/emft/teneo"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.eclipse.org/emft/teneo http://git.eclipse.org/c/teneo/org.eclipse.emf.teneo.git/plain/hibernate/org.eclipse.emf.teneo.hibernate.mapper/src/org/eclipse/emf/teneo/hibernate/annotations/persistence-mapping.xsd">
+	xsi:schemaLocation="http://www.eclipse.org/emft/teneo https://searchcode.com/codesearch/raw/68608674/">
 
 	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel">
 
@@ -12,9 +12,7 @@
 				<id />
 				<generated-value />
 			</property>
-			<property name="Classifier">
-				<join-column name="Classifier" />
-			</property>
+			
 			<property name="Parent">
 				<join-column name="Object_ID" />
 			</property>
@@ -27,18 +25,32 @@
 			<property name="IsDerived">
 				<column name="Derived" />
 			</property>
-			<property name="AttributeType">
-				<column name="Type" />
+
+			<property  name="AttributeType">
+				<embedded/>
 			</property>
 		</eclass>
+		
+		<eclass name="TypeReference">
+			<embeddable/>
+			<property name="classifier">
+				<join-column name="Classifier" />
+			</property>
+			<property name="typeName">
+				<column name="Type" />
+			</property>
+		</eclass> 
 
 		<eclass name="AttributeConstraint">
 			<inheritance>TABLE_PER_CLASS</inheritance>
 			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK</id-class>
+		
 			<table name="t_attributeconstraints" />
 			<property name="Attribute">
-				<id/>
 				<join-column name="ID" />
+			</property>
+			<property name="AttributeID">
+				<id />
 			</property>
 			<property name="Constraint">
 				<id />
@@ -47,6 +59,8 @@
 				<join-column name="Object_ID" />
 			</property>
 		</eclass>
+		
+
 
 		<eclass name="AttributeTag">
 			<inheritance>TABLE_PER_CLASS</inheritance>
@@ -116,7 +130,7 @@
 				<column name="ReturnArray" />
 			</property>
 			<property name="ReturnType">
-				<column name="Type" />
+				<embedded/>
 			</property>
 			<property name="Visibility">
 				<column name="Scope" />
@@ -140,7 +154,7 @@
 				<join-column name="OperationID" />
 			</property>
 		</eclass>
-		<eclass name="Methodeparam">
+		<eclass name="Methodparameter">
 			<inheritance>TABLE_PER_CLASS</inheritance>
 			<table name="t_operationparams" />
 			<property name="Name">
@@ -155,11 +169,11 @@
 			<property name="ea_guid">
 				<column name="ea_guid" />
 			</property>
-			<property name="MethodeType">
-				<column name="Type" />
+			
+			<property name="ParameterType">
+				<embedded/>
 			</property>
 		</eclass>
-		
 
 		<eclass name="Package">
 			<table name="t_package" />
@@ -296,4 +310,5 @@
 		</eclass>
 
 	</epackage>
+
 </persistence-mapping>
