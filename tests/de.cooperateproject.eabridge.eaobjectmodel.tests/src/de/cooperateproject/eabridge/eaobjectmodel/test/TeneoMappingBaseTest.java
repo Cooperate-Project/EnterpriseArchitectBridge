@@ -60,17 +60,12 @@ public abstract class TeneoMappingBaseTest {
 		BasicConfigurator.configure(appender);
 		LiquibaseFactory.init();
 	}
-	/**
-	@Before
-	public void setup() throws Exception {
-		testDb = null;
-	}
-		@AfterClass
-	public static void finalize() throws Exception {
+	
+	@AfterClass
+	public static void  closeDBConnection() throws IOException   {
 		testDb.close();
 	}
-	*/
-
+	
 	public static String readFile(String path, Charset encoding) 
 			  throws IOException 
 			{
