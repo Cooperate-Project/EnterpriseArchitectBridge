@@ -24,9 +24,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.Methodeparam;
+import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
+import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoMappingBaseTest;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.ObjectModelHelper;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.NodeParserUtil;
@@ -42,7 +43,7 @@ import org.junit.runner.RunWith;
  * 
  */
 @RunWith(Parameterized.class)
-public class BigModelTest  extends TeneoMappingBaseTest {
+public class ObjectModell2EAAttributesTest  extends TeneoMappingBaseTest {
    private static String content;
    private static String compareContent;
    private String attribute;
@@ -83,21 +84,23 @@ public class BigModelTest  extends TeneoMappingBaseTest {
 		Package subPackage = diagramHelper.createSubPackage(root);
 		Element car = diagramHelper.createElement(2, subPackage, "car", "Class");
 		Attribute att = diagramHelper.createElementAttr(5, car, "attribute2", Scope.PUBLIC, "double");
-		Method run = diagramHelper.createElementMethode(car, "run", "int", "public", 4);
-		Methodeparam firstParam = EaobjectmodelFactory.eINSTANCE.createMethodeparam();
+		Method run = diagramHelper.createElementMethode(car, "run", "int", Scope.PUBLIC, 4);
+		Methodparameter firstParam = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam.setMethodID(run.getMethodID());
-		firstParam.setMethodeType("int");
-		Method stop = diagramHelper.createElementMethode(car, "stop", "none", "private", 2);
+		
+		TypeReference t = EaobjectmodelFactory.eINSTANCE.createTypeReference();
+		t.setType("int");
+		firstParam.setParameterType(t);
+		Method stop = diagramHelper.createElementMethode(car, "stop", "none", Scope.PRIVATE, 2);
 		Element car1 = diagramHelper.createElement(3, subPackage, "Car1", "class");
-		Method run1 = diagramHelper.createElementMethode(car1, "run", "int", "public", 19);
-		Methodeparam firstParam1 = EaobjectmodelFactory.eINSTANCE.createMethodeparam();
+		Method run1 = diagramHelper.createElementMethode(car1, "run", "int",Scope.PUBLIC, 19);
+		Methodparameter firstParam1 = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam1.setMethodID(run1.getMethodID());
-		firstParam1.setMethodeType("int");
 		Element car2 = diagramHelper.createElement(5, subPackage, "Car2", "Class");
-		Method run2 = diagramHelper.createElementMethode(car2, "run", "int", "public", 20);
-		Methodeparam firstParam2 = EaobjectmodelFactory.eINSTANCE.createMethodeparam();
+		Method run2 = diagramHelper.createElementMethode(car2, "run", "int", Scope.PUBLIC, 20);
+		Methodparameter firstParam2 = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam1.setMethodID(run2.getMethodID());
-		firstParam1.setMethodeType("int");
+		firstParam2.setParameterType(t);
 		Element rad = diagramHelper.createElement(9, subPackage, "rad", "Class");
 		Element door = diagramHelper.createElement(16, subPackage, "door", "Class");
 		Element carInterface = diagramHelper.createElement(17, subPackage, "carInterface", "Interface");
@@ -124,12 +127,12 @@ public class BigModelTest  extends TeneoMappingBaseTest {
     * @param attribute is a column attribute in Enterprise Architect database. this value is used for showing the name of the tested attribute in a Junit test case.
     * @param node is the whole XML node for a given attribute. this attribute is used from XMLUnit to compare the state of a save node with the state of the tested node.
     */
-   public BigModelTest(String attribute, Node node) {
+   public ObjectModell2EAAttributesTest(String attribute, Node node) {
 	  this.attribute = attribute;
       this.node = node;
    }
    /**
-    * this methode calls the class constructor to set the values of attribute and node for each test case. 
+    * this method calls the class constructor to set the values of attribute and node for each test case. 
     * @return array of all pairs attribute and node that sould be tested.
     */
    @Parameters(name = "Test for attribute: {0}")
