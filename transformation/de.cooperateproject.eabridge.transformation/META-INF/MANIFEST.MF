@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Transformation Plug-in
+Bundle-SymbolicName: de.cooperateproject.eabridge.transformation
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.m2m.qvt.oml,
+ de.cooperateproject.eabridge.eaobjectmodel;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
