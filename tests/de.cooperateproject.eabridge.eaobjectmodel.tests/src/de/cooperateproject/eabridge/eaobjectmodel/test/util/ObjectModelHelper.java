@@ -9,9 +9,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
-import de.cooperateproject.eabridge.eaobjectmodel.Methodeparam;
+import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
+import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
 public class ObjectModelHelper {
 
@@ -30,29 +31,33 @@ public class ObjectModelHelper {
 		return el;
 	}
 
-	public Attribute createElementAttr(int randomInteger, Element element, String name, Scope scope, String type) {
+	public Attribute createElementAttr(int randomInteger, Element element, String name, Scope scope, String typ) {
 		Attribute att = EaobjectmodelFactory.eINSTANCE.createAttribute();
 		att.setParent(element);
 		att.setAllowDuplicates(false);
 		att.setAttributeGUID("attributeGUID_" + randomInteger);
-		att.setClassifier(null);
 		att.setName(name);
 		att.setScope(scope);
-		att.setAttributeType(type);
+		TypeReference t = EaobjectmodelFactory.eINSTANCE.createTypeReference();
+		t.setType(typ);
+		att.setAttributeType(t);
 		return att;
 	}
 	
-	public Method createElementMethode(Element el, String name, String typ, String visibility, int randomInteger) {
+	public Method createElementMethode(Element el, String name, String typ, Scope visibility, int randomInteger) {
 		Method method = EaobjectmodelFactory.eINSTANCE.createMethod();
 		method.setParent(el);
 		method.setName(name);
-		method.setReturnType(typ);
+		TypeReference t = EaobjectmodelFactory.eINSTANCE.createTypeReference();
+		t.setType(typ);
+		
+		method.setReturnType(t);
 		method.setMethodGUID("MethodeGUID_" + randomInteger);
 		method.setVisibility(visibility);
 		method.setPos(0L);
-		Methodeparam firstParam = EaobjectmodelFactory.eINSTANCE.createMethodeparam();
+		Methodparameter firstParam = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam.setMethodID(method.getMethodID());
-		firstParam.setMethodeType(typ);
+		firstParam.setParameterType(t);
 		return method;
 	}
 	
