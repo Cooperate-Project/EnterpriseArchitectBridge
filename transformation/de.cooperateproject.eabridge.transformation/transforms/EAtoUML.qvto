@@ -1,0 +1,218 @@
+transformation EAtoUML(in om: OM,in umlprimitives : UML, out uml1:UML);
+modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+
+main() {
+	var rootPackages := om.objects()[Package]->select(p: Package | p.Parent.oclIsUndefined());
+	rootPackages-> map mapPackages();
+}
+
+mapping Package::mapPackages() : uml::Package
+{
+	name := self.Name;
+	nestedPackage := self.Packages->map mapPackages();
+
+	var classes := self.Elements->select(e:  OM::Element | e.Type="Class");
+	var connectors := classes->collect(SourceRelations);
+	var usages := connectors->select(e : Connector| e.Type = ConnectorType::Usage);
+	var Informationflows :=  connectors->select(e : Connector| e.Type = ConnectorType::InformationFlow);
+	var dependencies :=  connectors->select(e : Connector| e.Type = ConnectorType::Dependency);
+	if (usages -> size() != 0) {
+		packagedElement += usages -> map mapClassesToUsage();
+	};
+	if (Informationflows -> size() != 0) {
+		packagedElement += Informationflows -> map mapClassesToInformationflows();
+	};
+	if (dependencies -> size() != 0) {
+		packagedElement += dependencies -> map mapClassesToDependencies();
+	};
+	packagedElement += classes-> map mapElementsToClasses();
+	
+	//packagedElement += self.Elements->select(e:  OM::Element | e.Type="Interface")-> map mapElementsToClasses();
+}
+
+mapping Connector::mapClassesToUsage():  Usage {
+	name := self.Name;
+	supplier += self.Source.oclAsType(Class);
+	supplier += self.Dest.oclAsType(Class);
+}
+mapping Connector::mapClassesToDependencies():  Dependency {
+	name := self.Name;
+	supplier += self.Source.oclAsType(Class);
+	supplier += self.Dest.oclAsType(Class);	
+}
+mapping Connector::mapClassesToInformationflows():  InformationFlow {
+	name := self.Name;
+	informationSource := self.Source.oclAsType(Class);
+	informationTarget := self.Dest.oclAsType(Class);
+
+}
+mapping Element::mapElementsToClasses() : Class
+{	
+	name := self.Name;
+	ownedAttribute := self.Attributes-> map transformAttributes();
+	ownedOperation := self.Methods-> map transformOperations();
+	visibility := self.Visibility.getAttributeType();
+	
+	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
+	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
+	var abstractions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Abstraction);
+	var generalizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Generalization);
+	var extensions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Extension);
+	var realizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Realisation);
+	var substitutions   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Substitution);
+	var usages   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Usage);
+	
+	if (associations -> size() != 0) {
+		nestedClassifier := associations -> map mapElementsToConnectors();
+	};
+	
+	if (aggregations -> size() != 0) {
+		nestedClassifier := aggregations -> map mapElementsToConnectors();
+	};
+	
+	if (generalizations -> size() != 0) {
+		generalization := generalizations -> map mapConnectoToGeneralization();
+	};
+	if (realizations -> size() != 0) {
+		interfaceRealization := realizations -> map mapConnectoToRealization();
+	};
+	if (substitution -> size() != 0) {
+		substitution := substitutions -> map mapConnectoToSubstitution();
+	};
+	if (substitution -> size() != 0) {
+		substitution := substitutions -> map mapConnectoToSubstitution();
+	};
+	
+}
+mapping Element::mapElementsToInterfaces() :  Interface
+{
+	name := self.Name;
+}
+
+mapping Connector::mapConnectoToGeneralization() :  Generalization
+{
+	general := self.Dest.oclAsType(Class);
+}
+mapping Connector::mapConnectoToSubstitution() :  Substitution
+{
+	supplier := self.Dest.oclAsType(Class);
+}
+mapping Connector::mapConnectoToRealization() :  InterfaceRealization
+{
+	
+}
+mapping Connector::mapElementsToConnectors() : uml::Association
+{	
+	if (self.Type = ConnectorType::Aggregation) {
+		ownedEnd += self -> map transformConnectorToAggregation();	
+	} else {
+		ownedEnd += self -> map transformConnectorToAssociation();
+	};	
+}
+
+mapping Attribute::transformAttributes() :  Property
+{
+	name := self.Name;
+	visibility := self.Scope.getAttributeType();
+	type := self.AttributeType.getRefType();
+}
+
+mapping Connector::transformConnectorToAggregation() :  Property
+{
+	name := self.Source.Name;
+	aggregation := AggregationKind::shared;
+	type :=	self.Source.map mapElementsToClasses().oclAsType(Type)
+}
+
+mapping Connector::transformConnectorToAssociation() :  Property
+{
+	name := self.Source.Name;
+	type :=	self.Source.map mapElementsToClasses().oclAsType(Type);
+	upperValue := self.SourceCard.map StringToCardinality().oclAsType(ValueSpecification);
+	lowerValue := self.DestCard.map StringToCardinality().oclAsType(ValueSpecification);
+}
+
+
+mapping String::StringToCardinality() :  LiteralInteger
+{
+	value := self.toInteger();
+}
+
+
+mapping Element::transformConnectorToComposition() :  Property
+{
+	name := self.Name;
+	aggregation := AggregationKind::composite;
+	type :=	self.map mapElementsToClasses().oclAsType(Type)
+}
+
+mapping Method::transformOperations() :  Operation
+{
+	name := self.Name;
+	ownedParameter := self.Parameters -> map transformParameters();
+	ownedParameter += self.ReturnType.map TypeReferenceToParamter();
+	visibility := self.Visibility.getAttributeType();
+	
+}
+mapping Methodparamter::transformParameters() :  Parameter
+{
+	name := self.Name;
+	type := self.ParameterType.getRefType();
+	direction := ParameterDirectionKind::_in;	
+	
+}
+
+mapping in String::transformDatatypes() : uml::DataType 
+{
+	 name := self;
+
+}
+mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter 
+{
+	direction := ParameterDirectionKind::_return;
+	type  := self.getRefType();
+
+}
+mapping in String::transformPrimitive() : PrimitiveType
+{
+	switch {
+		case (self = 'int') name:='int'; 
+		case (self = 'double') name:='double';
+		case (self = 'boolean') name:='boolean';
+		case (self = 'byte') name:='byte';
+		case (self = 'long') name:='long';
+		case (self = 'char') name:='char';
+		case (self = 'short') name:='short';
+		case (self = 'float') name:='float';
+	};
+	 if(name.oclIsUndefined()) self->transformDatatypes();
+	
+}
+
+query Scope::getAttributeType() : VisibilityKind
+{
+ return switch {
+		case (self = Scope::Private)  VisibilityKind::private; 
+		case (self = Scope::Public) VisibilityKind::public;
+		case (self = Scope::Package) VisibilityKind::package;
+		case (self = Scope::Protected) VisibilityKind::protected;
+		else assert error (false) with log("Illegal enum value");
+	};
+} 
+
+query TypeReference::getRefType() : uml::Type
+{
+	//resolve nutzen: elements wurden schon gemappt 
+	var reference = self.classifier -> map mapElementsToClasses() -> selectOne(p | true).oclAsType(Type);
+	if(reference.name.oclIsInvalid()) {
+		if("int double boolean byte long char short float".indexOf(self.typeName) > 0) {
+			return self.typeName.map transformPrimitive().oclAsType(Type);
+		} else {
+			return self.typeName.map transformDatatypes().oclAsType(Type);
+		};	
+	} else {
+		return reference;
+	};
+	
+} 

@@ -21,7 +21,7 @@ public class XMLParser {
 		 * @param nList
 		 * @return the number of nodes with type Element_Node.
 		 */
-	   public static int getLength(NodeList nList) {
+	   public static int getElementNodeNumber(NodeList nList) {
 		   int result = 0;
 		   for (int temp = 0; temp < nList.getLength(); temp++) {
 				Node nNode = (Node) nList.item(temp);

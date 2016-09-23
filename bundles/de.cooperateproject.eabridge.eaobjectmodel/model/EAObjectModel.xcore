@@ -1,8 +1,111 @@
 @GenModel(modelName="EAObjectModel", modelDirectory="/de.cooperateproject.eabridge.eaobjectmodel/src-gen")
 package de.cooperateproject.eabridge.eaobjectmodel
 import de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap
+import de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher
 
 //associated with t_attribute table in .eap file
+
+import org.eclipse.emf.ecore.EDiagnosticChain
+import org.eclipse.emf.ecore.EMap
+import com.google.common.base.Strings
+
+annotation "teneo.jpa" as JPA
+
+
+
+class TypeReference {
+	@GenModel(suppressedGetVisibility="true", suppressedSetVisibility="true")
+	refers Element classifier
+	@Ecore(constraints="matchesClassifierName")
+	@GenModel(suppressedGetVisibility="true", suppressedSetVisibility="true")
+	String typeName
+
+	op void setType(Element classifier) {
+		val classifierFeature = eClass.EAllStructuralFeatures.findFirst[name == "classifier"]
+		val typeNameFeature = eClass.EAllStructuralFeatures.findFirst[name == "typeName"]
+		val oldClassifier = eGet(classifierFeature) as Element;
+		if (oldClassifier != null && oldClassifier.ID != classifier.ID) {
+			 oldClassifier.eAdapters.removeIf(a | a instanceof TypeReferenceClassifierNameRefresher);
+		}
+		if (classifier != null ) {			
+			if (classifier.eAdapters.isEmpty) {
+				val refreshAdapter = new TypeReferenceClassifierNameRefresher(this)
+				classifier.eAdapters.add(refreshAdapter)
+			}
+			eSet(typeNameFeature, classifier.name)
+		} else {
+			eSet(typeNameFeature, null)
+		}
+		eSet(classifierFeature, classifier)
+	}
+	
+	op void setType(PrimitiveTypes primitiveType) {
+		val classifierFeature = eClass.EAllStructuralFeatures.findFirst[name == "classifier"]
+		val typeNameFeature = eClass.EAllStructuralFeatures.findFirst[name == "typeName"]
+		
+		val oldClassifier = eGet(classifierFeature) as Element;
+		if (oldClassifier != null) {
+			oldClassifier.eAdapters.removeIf(a | a instanceof TypeReferenceClassifierNameRefresher);
+		}
+		
+		if (primitiveType != null) {
+			eSet(typeNameFeature, primitiveType.getName())	
+		} else {
+			eSet(typeNameFeature, null)	
+		}
+		eSet(classifierFeature, null)
+	}
+	op void setType(String notExistentType) {
+		val classifierFeature = eClass.EAllStructuralFeatures.findFirst[name == "classifier"]
+		val typeNameFeature = eClass.EAllStructuralFeatures.findFirst[name == "typeName"]
+		
+		val oldClassifier = eGet(classifierFeature) as Element;
+		if (oldClassifier != null) {
+			oldClassifier.eAdapters.removeIf(a | a instanceof TypeReferenceClassifierNameRefresher);
+		}
+		eSet(typeNameFeature, notExistentType)	
+		eSet(classifierFeature, null)
+	}
+
+	
+	op PrimitiveTypes getPrimitiveType() {
+		val typeName = eGet(eClass.EAllStructuralFeatures.findFirst[name == "typeName"])
+		if (typeName == null) {
+			return null
+		}
+		return PrimitiveTypes.getByName(typeName as String)
+	}
+	
+	op String getType() {
+		val typeName = eGet(eClass.EAllStructuralFeatures.findFirst[name == "typeName"]) as String
+		return typeName
+	}
+	
+	op boolean hasmatchesClassifierName(EDiagnosticChain diagnostics, EMap<Object, Object> context) {
+		val classifierTmp = eGet(eClass.EAllStructuralFeatures.findFirst[name == "classifier"]) as Element
+		val typeName = eGet(eClass.EAllStructuralFeatures.findFirst[name == "typeName"]) as String
+		if (classifierTmp == null || Strings.isNullOrEmpty(classifierTmp.name) || classifierTmp.name.equals(typeName)) {
+			return true
+		} else {
+			
+			return false
+		}
+	}
+	
+}
+
+enum PrimitiveTypes {
+	int
+	boolean
+	byte
+	char
+	double
+	float
+	long
+	short
+}
+
+
 
  enum PrimitiveTye {
 	  Boolean as "boolean"
@@ -14,6 +117,8 @@ import de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap
 	  Long as "long"
 	  Short as "Short"
 }
+
+
 class Attribute {
 	//	String	Alias //	Read/Write OPTIONAL
 	//	
@@ -37,21 +142,15 @@ class Attribute {
 	//	The local ID number of the attribute.
 	//	
 	//	
+	//String Classifier //	Read/Write FOREIGN KEY AS STRING OTHERWISE 0
 	//	
 	//	The classifier ID, if appropriate, indicating the base type associated with the attribute, if not a primitive type.
 	//	
-	//	
-	String AttributeType //	Read/Write
-	op void setType(Object o) {
-		if(o instanceof Element) {
-			val Element reference =  o;
-			attributeType = reference.name
-		}
-		if(o.class.isEnum()) {
-			   attributeType = o.toString()
-		}
-	}
-	refers Element Classifier 
+	//
+	
+	contains TypeReference AttributeType //	Read/Write
+	
+	
 	String	Container //	Read/Write
 	//	
 	//	The container type.
@@ -62,7 +161,7 @@ class Attribute {
 	//	The type of containment - Not Specified, By Reference or By Value.
 	//	
 	//	
-	contains AttributeConstraint[] Constraints //	Read only
+	contains AttributeConstraint[] Constraints opposite Attribute //	Read only
 	//	
 	//	A collection of AttributeConstraint objects, used to access and manage constraints associated with this attribute.
 	//	
@@ -177,6 +276,9 @@ class Attribute {
 	//	
 	//	A collection of TaggedValue objects belonging to the current attribute and the TaggedValuesEx property of its classifier.
 	//
+
+	
+
 	//	
 	//	The attribute type (by name; also see ClassifierID).
 	//	
@@ -198,6 +300,8 @@ enum Scope {
 	Protected as "Protected"
 }
 
+
+
 //associated with t_attribute table in .eap file
 class AttributeConstraint {
 	refers Element ElementOfAttribute // Added due it being in the database and needed by EA 
@@ -205,7 +309,16 @@ class AttributeConstraint {
 	//  The Element of the Attribute of this Constraint 
 	//  Needs to be set
 	//
-	refers Attribute Attribute //	Read/Write
+	container Attribute Attribute opposite Constraints //	Read/Write
+	
+	/*
+	 * Workaround for ID generation of Teneo/Hibernate
+	 */
+	transient readonly derived long AttributeID get
+	{
+		return attribute.attributeID;
+	}
+	
 	//	
 	//	The ID of the attribute this constraint applies to.
 	//	
@@ -328,10 +441,10 @@ class Connector {
 	//			
 	//	The connector direction, which can be set to one of the following:		
 	//			
-	//	ï¿½	Unspecified	
-	//	ï¿½	Bi-Directional	
-	//	ï¿½	Source -> Destination	
-	//	ï¿½	Destination -> Source	
+	//	ä	Unspecified	
+	//	ä	Bi-Directional	
+	//	ä	Source -> Destination	
+	//	ä	Destination -> Source	
 	//			
 	//			
 	//			
@@ -383,8 +496,8 @@ class Connector {
 	//			
 	//	MiscData is zero based, therefore:		
 	//			
-	//	ï¿½	MiscData(0) corresponds to PData1	
-	//	ï¿½	MiscData(1) corresponds to PData2, and so on	
+	//	ä	MiscData(0) corresponds to PData1	
+	//	ä	MiscData(1) corresponds to PData2, and so on	
 	//			
 	//			
 	String	Name //	Read/Write		
@@ -710,7 +823,7 @@ class Diagram {
 	//	
 //	Boolean	HighlightImports //	Read/Write
 	//	
-	//	A flag to indicate that elements from other Packages should be highlighted. ï¿½Corresponds with the 'Show Namespace' option in the diagram properties dialog.
+	//	A flag to indicate that elements from other Packages should be highlighted. äCorresponds with the 'Show Namespace' option in the diagram properties dialog.
 	//	
 	//	
 //	Boolean	IsLocked //	Read/Write
@@ -838,10 +951,14 @@ class Diagram {
 	//	
 	//	
 	String	Version //	Read/Write
-//	
+	
+	//show attributes of a class 
 	int AttPub = "1"
 	int AttPri = "1"
 	int AttPro = "1"
+	
+
+//	 
 //	The version of the diagram.
 //	
 //	
@@ -886,7 +1003,6 @@ class DiagramLink {
 	//	
 	//	
 	String	Style //	Read/Write
-	
 	op void setGeometry(int SX, int SY, int EX, int EY) {
 		val GeometryMap map = new GeometryMap(geometry)
 		map.put("SX", SX)
@@ -934,9 +1050,10 @@ class DiagramLink {
 		val GeometryMap map = new GeometryMap(geometry)
 		String.valueOf(map.get("EY"))
 	}
-//	
-//	Additional style information; for example, color or thickness.
-}
+	
+	//	
+	//	Additional style information; for example, color or thickness.
+	}
 
 //associated with t_diagramobjects table in .eap file
 class DiagramObject {
@@ -994,8 +1111,9 @@ class DiagramObject {
 //	
 }
 
+
 //associated with t_object table in .eap file
-class Element {
+class Element  {
 	String	Abstract //	Read/Write	
 	//		
 	//	Indicates if the element is Abstract (1) or Concrete (0).	
@@ -1124,7 +1242,7 @@ class Element {
 	//	Returns a collection of child elements (sub-elements) attached to this element as seen in the tree view.	
 	//		
 	//	
-//	contains Element[] EmbeddedElements //	Read only Spï¿½ter derived als Untermenge von Elements
+//	contains Element[] EmbeddedElements //	Read only Später derived als Untermenge von Elements
 	//		
 	//	A list of elements that are embedded into this element, such as Ports, Parts, Pins and Parameter Sets.	
 	//		
@@ -1242,8 +1360,8 @@ class Element {
 	//		
 	//	MiscData is zero based, therefore:	
 	//		
-	//	ï¿½	MiscData(0) corresponds to PData1
-	//	ï¿½	MiscData(1) to PData2
+	//	ä	MiscData(0) corresponds to PData1
+	//	ä	MiscData(1) to PData2
 	//		
 	//	and so on.	
 	//		
@@ -1386,18 +1504,18 @@ class Element {
 	//		
 	//	A numeric subtype that qualifies the Type of the main element	
 	//		
-	//	ï¿½	For Event: 0 = Receiver, 1 = Sender
-	//	ï¿½	For Class: 1 = Parameterised, 2 = Instantiated, 3 = Both, 0 = Neither, 
+	//	ä	For Event: 0 = Receiver, 1 = Sender
+	//	ä	For Class: 1 = Parameterised, 2 = Instantiated, 3 = Both, 0 = Neither, 
 	//		17 = Association Class
 	//		
 	//		
 	//		
 	//	If 17, because an Association Class has been created through the user interface, MiscData(3) contains the ID of the related Association; as MiscData is read-only, you cannot create an Association Class through the Automation Interface:	
 	//		
-	//	ï¿½	For Note: 1 = Note linked to connector, 2 = Constraint linked to connector
-	//	ï¿½	For StateNode: 100 = ActivityIntitial, 101 = ActivityFinal
-	//	ï¿½	For Activity: 0 = Activity, 8 = composite Activity (also set to 8 for other composite elements such as Use Cases)
-	//	ï¿½	For Synchronization: 0 = Horizontal, 1 = Vertical
+	//	ä	For Note: 1 = Note linked to connector, 2 = Constraint linked to connector
+	//	ä	For StateNode: 100 = ActivityIntitial, 101 = ActivityFinal
+	//	ä	For Activity: 0 = Activity, 8 = composite Activity (also set to 8 for other composite elements such as Use Cases)
+	//	ä	For Synchronization: 0 = Horizontal, 1 = Vertical
 	//		
 	//		
 	//		
@@ -1452,7 +1570,7 @@ class Element {
 	//	Activity	InteractionOccurrence
 	//	ActivityPartition	InteractionState
 	//	ActivityRegion	Interface
-	//	Actor	InterruptibleActivityRegion
+	//	Actor	InterruptibleActivityRegion 
 	//	Artifact	Issue
 	//	Association	Node
 	//	Boundary	Note
@@ -1480,7 +1598,7 @@ class Element {
 	//	The version of the element.	
 	//		
 	//		
-	String	Visibility //	Read/Write	
+	Scope	Visibility //	Read/Write	
 //		
 //	The Scope of this element within the current Package.	
 //		
@@ -1502,142 +1620,29 @@ contains Connector[] SourceRelations opposite Source
 
 //associated with t_operation table in .eap file
 class Method {
+	contains TypeReference	ReturnType //	Read/Write	
+	contains Methodparameter[] Parameters //	Read only	
 	Boolean	Abstract //	Read/Write	
-	//		
-	//	A flag indicating if the method is abstract (1) or not (0).	
-	//		
-	//		
 	String	Behaviour //	Read/Write	
-	//		
-	//	Some further explanatory behavior notes (for example, pseudocode).	
-	//		
-	//	In earlier releases of Enterprise Architect this attribute had the UK/Australian spelling 'Behaviour'; this is still present for backwards compatibility, but please now use the 'Behavior' attribute for consistency.	
-	//		
-	//		
-	String Classifier //	Read/Write	
-	//		
-	//	The Classifier ID that applies to the ReturnType.	
-	//		
-	//		
 	String	Code //	Read/Write	
-	//		
-	//	An optional field to hold the method code (used for the Initial Code field).	
-	//		
-	//		
-	//Variant	Concurrency	//	Read/Write	
-	//		
-	//	Indicates the concurrency type of the method.	
-	//		
-	//		
 	Boolean	IsConst //	Read/Write	
-	//		
-	//	A flag indicating that the method is Const.	
-	//		
-	//		
 	Boolean	IsLeaf //	Read/Write	
-	//		
-	//	A flag to indicate if the method is Leaf (cannot be overridden).	
-	//		
-	//		
 	Boolean	IsPure //	Read/Write	
-	//		
-	//	A flag indicating that the method is defined as Pure in C++.	
-	//		
-	//		
 	Boolean	IsQuery //	Read/Write	
-	//		
-	//	A flag to indicate if the method is a query (that is, does not alter Class variables).	
-	//		
-	//		
 	Boolean	IsRoot //	Read/Write	
-	//		
-	//	A flag to indicate if the method is Root.	
-	//		
-	//		
 	Boolean	IsStatic //	Read/Write	
-	//		
-	//	A flag to indicate a static method.	
-	//		
-	//		
 	Boolean	IsSynchronized //	Read/Write	
-	//		
-	//	A flag indicating a Synchronized method call.	
-	//		
-	//		
 	String	MethodGUID //	Read/Write	
-	//		
-	//	A globally unique ID for the current method. This is system generated.	
-	//		
-	//		
 	Long	MethodID //	Read only	
-	//		
-	//	A local ID for the current method, only valid within this .EAP file.	
-	//		
-	//		
 	String	Name //	Read/Write	
-	//		
-	//	The method name.	
-	//		
-	//		
 	String	Notes //	Read/Write	
-	//		
-	//	Descriptive notes on the method.	
-	//		
-	//		
-	//ObjectType	ObjectType	//	Read only	
-	//		
-	//	Distinguishes objects referenced through a Dispatch interface.	
-	//		
-	//		
-	contains Methodeparam[] Parameters //	Read only	
-	//		
-	//	The Parameters collection for the current method, used to add and access parameter objects for the current method.	
-	//		
-	//		
+
 	container Element Parent opposite Methods //	Read only	
-	//		
-	//	Returns the ElementID of the element that this method belongs to.	
-	//		
-	//		
 	Long	Pos //	Read/Write	
-	//		
-	//	Specifies the position of the method within the set of operations defined for a Class.	
-	//		
-	//		
-//	contains PreCondition[] PreConditions opposite Method //	Read only	
-//	//		
-//	//	The PostConditions (constraints) as they apply to this method. This returns a MethodConstraint object of type post.	
-//	//		
-//	//		
-//	contains PostCondition[] PostConditions opposite Method //	Read only	
-	//		
-	//	The PreConditions (constraints) as they apply to this method. This returns a MethodConstraint object of type pre.	
-	//		
-	//		
 	Boolean	ReturnIsArray //	Read/Write	
-	//		
-	//	A flag to indicate that the return value is an array.	
-	//		
-	//		
-	String	ReturnType //	Read/Write	
-	//		
-	//	The return type for the method; this can be a primitive data type or a Class or Interface type.	
-	//		
-	//		
+	
 	String	StateFlags //	Read/Write	
-	//		
-	//	Some flags as applied to methods in State elements.	
-	//		
-	//		
 	String	Stereotype //	Read/Write	
-	//		
-	//	The method stereotype (optional).	
-	//		
-	//		
-	//String	StereotypeEx //	Read/Write	DERIVED
-	//		
-	//	All the applied stereotypes of the method in a comma-separated list.	
-	//		
 	//		
 	String	Style //	Read/Write	
 	//		
@@ -1657,22 +1662,23 @@ class Method {
 	//		
 	//	Exception information. Valid input for setting the Throws is:	
 	//		
-	//	ï¿½	GUID String - the GUID of an element in the model or a comma-separated list of element GUIDS
-	//	ï¿½	<none> - removes the existing Throws set
+	//	ä	GUID String - the GUID of an element in the model or a comma-separated list of element GUIDS
+	//	ä	<none> - removes the existing Throws set
 	//		
 	//		
-	String	Visibility //	Read/Write	
+	Scope	Visibility //	Read/Write	
 //		
-//	The method scope - Public, Protected, Private or Package.	
+//	The method scope - Public, Protected, Private or Package.
+		
 //		
 //
 String Concurrency
 String GenOption
 }
-class Methodeparam {
+class Methodparameter {
 	String	ea_guid //	Read/Write	
 	Long MethodID //	Read only	
-	String MethodeType
+	contains TypeReference ParameterType
 	String Name
 }
 ////associated with t_operationpres and t_operationposts table in .eap file

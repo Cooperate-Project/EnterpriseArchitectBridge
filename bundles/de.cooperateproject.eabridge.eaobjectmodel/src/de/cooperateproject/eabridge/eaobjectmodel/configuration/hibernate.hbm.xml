@@ -19,12 +19,16 @@
 		<property name="AttributeGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`ea_guid`"/>
 		</property>
-		<property name="AttributeType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
-			<column not-null="false" unique="false" name="`Type`"/>
-		</property>
-		<many-to-one name="Classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Attribute_Classifier" insert="true" update="true" not-null="false">
-			<column not-null="false" unique="false" name="`Classifier`"/>
-		</many-to-one>
+		<component name="AttributeType" class="de.cooperateproject.eabridge.eaobjectmodel.impl.TypeReferenceImpl">
+			<meta attribute="eclassName" inherit="false">TypeReference</meta>
+			<meta attribute="epackage">de.cooperateproject.eabridge.eaobjectmodel</meta>
+			<many-to-one name="classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="TypeReference_classifier" insert="true" update="true" not-null="false">
+				<column not-null="false" unique="false" name="`Classifier`"/>
+			</many-to-one>
+			<property name="typeName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+				<column not-null="false" unique="false" name="`Type`"/>
+			</property>
+		</component>
 		<property name="Container" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Container`"/>
 		</property>
@@ -113,15 +117,15 @@
 		<meta attribute="eclassName" inherit="false">AttributeConstraint</meta>
 		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
 		<composite-id class="de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK" mapped="true">
-			<key-many-to-one name="Attribute" entity-name="Attribute" foreign-key="AttributeConstraint_Attribute" lazy="false">
-				<column not-null="false" unique="false" name="`ID`"/>
-			</key-many-to-one>
 			<key-property name="Constraint" type="java.lang.String">
 				<column not-null="true" unique="false" name="`Constraint`"/>
 			</key-property>
 		</composite-id>
 		<many-to-one name="ElementOfAttribute" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="AttributeConstraint_ElementOfAttribute" insert="true" update="true" not-null="false">
 			<column not-null="false" unique="false" name="`Object_ID`"/>
+		</many-to-one>
+		<many-to-one name="Attribute" entity-name="Attribute" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="AttributeConstraint_Attribute" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`ID`"/>
 		</many-to-one>
 		<property name="AttName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`AttName`"/>
@@ -637,8 +641,13 @@
 		<property name="Version" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Version`"/>
 		</property>
-		<property name="Visibility" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+		<property name="Visibility" lazy="false" not-null="false" insert="true" update="true" unique="false">
 			<column not-null="false" unique="false" name="`Visibility`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
 		</property>
 		<property name="Style" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Style`"/>
@@ -681,14 +690,27 @@
 			<column not-null="true" unique="false" name="`OperationID`"/>
 			<generator class="native"/>
 		</id>
+		<component name="ReturnType" class="de.cooperateproject.eabridge.eaobjectmodel.impl.TypeReferenceImpl">
+			<meta attribute="eclassName" inherit="false">TypeReference</meta>
+			<meta attribute="epackage">de.cooperateproject.eabridge.eaobjectmodel</meta>
+			<many-to-one name="classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="TypeReference_classifier" insert="true" update="true" not-null="false">
+				<column not-null="false" unique="false" name="`Classifier`"/>
+			</many-to-one>
+			<property name="typeName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+				<column not-null="false" unique="false" name="`Type`"/>
+			</property>
+		</component>
+		<bag name="Parameters" lazy="true" cascade="all,delete-orphan">
+			<key foreign-key="Method_Parameters_key" update="true">
+				<column name="`OperationID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Methodparameter"/>
+		</bag>
 		<property name="Abstract" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
 			<column not-null="false" unique="false" name="`Abstract`"/>
 		</property>
 		<property name="Behaviour" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Behaviour`"/>
-		</property>
-		<property name="Classifier" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
-			<column not-null="false" unique="false" name="`Classifier`"/>
 		</property>
 		<property name="Code" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Code`"/>
@@ -723,12 +745,6 @@
 		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Notes`"/>
 		</property>
-		<bag name="Parameters" lazy="true" cascade="all,delete-orphan">
-			<key foreign-key="Method_Parameters_key" update="true">
-				<column name="`OperationID`" unique="false"/>
-			</key>
-			<one-to-many entity-name="Methodeparam"/>
-		</bag>
 		<many-to-one name="Parent" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Method_Parent" insert="true" update="true" not-null="false">
 			<column not-null="false" unique="false" name="`Object_ID`"/>
 		</many-to-one>
@@ -737,9 +753,6 @@
 		</property>
 		<property name="ReturnIsArray" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
 			<column not-null="false" unique="false" name="`ReturnArray`"/>
-		</property>
-		<property name="ReturnType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
-			<column not-null="false" unique="false" name="`Type`"/>
 		</property>
 		<property name="StateFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`StateFlags`"/>
@@ -756,8 +769,13 @@
 		<property name="Throws" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Throws`"/>
 		</property>
-		<property name="Visibility" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+		<property name="Visibility" lazy="false" not-null="false" insert="true" update="true" unique="false">
 			<column not-null="false" unique="false" name="`Scope`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
 		</property>
 		<property name="Concurrency" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Concurrency`"/>
@@ -766,8 +784,8 @@
 			<column not-null="false" unique="false" name="`GenOption`"/>
 		</property>
 	</class>
-	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.MethodeparamImpl" entity-name="Methodeparam" abstract="false" lazy="false" table="`t_operationparams`">
-		<meta attribute="eclassName" inherit="false">Methodeparam</meta>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl" entity-name="Methodparameter" abstract="false" lazy="false" table="`t_operationparams`">
+		<meta attribute="eclassName" inherit="false">Methodparameter</meta>
 		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
 		<id name="Name" type="java.lang.String">
 			<column not-null="true" unique="false" name="`Name`"/>
@@ -779,9 +797,16 @@
 		<property name="MethodID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
 			<column not-null="false" unique="false" name="`OperationID`"/>
 		</property>
-		<property name="MethodeType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
-			<column not-null="false" unique="false" name="`Type`"/>
-		</property>
+		<component name="ParameterType" class="de.cooperateproject.eabridge.eaobjectmodel.impl.TypeReferenceImpl">
+			<meta attribute="eclassName" inherit="false">TypeReference</meta>
+			<meta attribute="epackage">de.cooperateproject.eabridge.eaobjectmodel</meta>
+			<many-to-one name="classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="TypeReference_classifier" insert="true" update="true" not-null="false">
+				<column not-null="false" unique="false" name="`Classifier`"/>
+			</many-to-one>
+			<property name="typeName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+				<column not-null="false" unique="false" name="`Type`"/>
+			</property>
+		</component>
 	</class>
 	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl" entity-name="Package" abstract="false" lazy="false" table="`t_package`">
 		<meta attribute="eclassName" inherit="false">Package</meta>
