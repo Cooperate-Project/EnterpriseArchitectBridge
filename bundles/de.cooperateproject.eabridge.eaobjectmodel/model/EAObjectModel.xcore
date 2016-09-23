@@ -161,7 +161,7 @@ class Attribute {
 	//	The type of containment - Not Specified, By Reference or By Value.
 	//	
 	//	
-	contains AttributeConstraint[] Constraints opposite Attribute //	Read only
+	contains AttributeConstraint[] Constraints //	Read only
 	//	
 	//	A collection of AttributeConstraint objects, used to access and manage constraints associated with this attribute.
 	//	
@@ -309,16 +309,7 @@ class AttributeConstraint {
 	//  The Element of the Attribute of this Constraint 
 	//  Needs to be set
 	//
-	container Attribute Attribute opposite Constraints //	Read/Write
-	
-	/*
-	 * Workaround for ID generation of Teneo/Hibernate
-	 */
-	transient readonly derived long AttributeID get
-	{
-		return attribute.attributeID;
-	}
-	
+	refers Attribute Attribute //	Read/Write	
 	//	
 	//	The ID of the attribute this constraint applies to.
 	//	
@@ -441,10 +432,10 @@ class Connector {
 	//			
 	//	The connector direction, which can be set to one of the following:		
 	//			
-	//	ä	Unspecified	
-	//	ä	Bi-Directional	
-	//	ä	Source -> Destination	
-	//	ä	Destination -> Source	
+	//	ï¿½	Unspecified	
+	//	ï¿½	Bi-Directional	
+	//	ï¿½	Source -> Destination	
+	//	ï¿½	Destination -> Source	
 	//			
 	//			
 	//			
@@ -496,8 +487,8 @@ class Connector {
 	//			
 	//	MiscData is zero based, therefore:		
 	//			
-	//	ä	MiscData(0) corresponds to PData1	
-	//	ä	MiscData(1) corresponds to PData2, and so on	
+	//	ï¿½	MiscData(0) corresponds to PData1	
+	//	ï¿½	MiscData(1) corresponds to PData2, and so on	
 	//			
 	//			
 	String	Name //	Read/Write		
@@ -823,7 +814,7 @@ class Diagram {
 	//	
 //	Boolean	HighlightImports //	Read/Write
 	//	
-	//	A flag to indicate that elements from other Packages should be highlighted. äCorresponds with the 'Show Namespace' option in the diagram properties dialog.
+	//	A flag to indicate that elements from other Packages should be highlighted. ï¿½Corresponds with the 'Show Namespace' option in the diagram properties dialog.
 	//	
 	//	
 //	Boolean	IsLocked //	Read/Write
@@ -1242,7 +1233,7 @@ class Element  {
 	//	Returns a collection of child elements (sub-elements) attached to this element as seen in the tree view.	
 	//		
 	//	
-//	contains Element[] EmbeddedElements //	Read only Später derived als Untermenge von Elements
+//	contains Element[] EmbeddedElements //	Read only Spï¿½ter derived als Untermenge von Elements
 	//		
 	//	A list of elements that are embedded into this element, such as Ports, Parts, Pins and Parameter Sets.	
 	//		
@@ -1360,8 +1351,8 @@ class Element  {
 	//		
 	//	MiscData is zero based, therefore:	
 	//		
-	//	ä	MiscData(0) corresponds to PData1
-	//	ä	MiscData(1) to PData2
+	//	ï¿½	MiscData(0) corresponds to PData1
+	//	ï¿½	MiscData(1) to PData2
 	//		
 	//	and so on.	
 	//		
@@ -1504,18 +1495,18 @@ class Element  {
 	//		
 	//	A numeric subtype that qualifies the Type of the main element	
 	//		
-	//	ä	For Event: 0 = Receiver, 1 = Sender
-	//	ä	For Class: 1 = Parameterised, 2 = Instantiated, 3 = Both, 0 = Neither, 
+	//	ï¿½	For Event: 0 = Receiver, 1 = Sender
+	//	ï¿½	For Class: 1 = Parameterised, 2 = Instantiated, 3 = Both, 0 = Neither, 
 	//		17 = Association Class
 	//		
 	//		
 	//		
 	//	If 17, because an Association Class has been created through the user interface, MiscData(3) contains the ID of the related Association; as MiscData is read-only, you cannot create an Association Class through the Automation Interface:	
 	//		
-	//	ä	For Note: 1 = Note linked to connector, 2 = Constraint linked to connector
-	//	ä	For StateNode: 100 = ActivityIntitial, 101 = ActivityFinal
-	//	ä	For Activity: 0 = Activity, 8 = composite Activity (also set to 8 for other composite elements such as Use Cases)
-	//	ä	For Synchronization: 0 = Horizontal, 1 = Vertical
+	//	ï¿½	For Note: 1 = Note linked to connector, 2 = Constraint linked to connector
+	//	ï¿½	For StateNode: 100 = ActivityIntitial, 101 = ActivityFinal
+	//	ï¿½	For Activity: 0 = Activity, 8 = composite Activity (also set to 8 for other composite elements such as Use Cases)
+	//	ï¿½	For Synchronization: 0 = Horizontal, 1 = Vertical
 	//		
 	//		
 	//		
@@ -1662,8 +1653,8 @@ class Method {
 	//		
 	//	Exception information. Valid input for setting the Throws is:	
 	//		
-	//	ä	GUID String - the GUID of an element in the model or a comma-separated list of element GUIDS
-	//	ä	<none> - removes the existing Throws set
+	//	ï¿½	GUID String - the GUID of an element in the model or a comma-separated list of element GUIDS
+	//	ï¿½	<none> - removes the existing Throws set
 	//		
 	//		
 	Scope	Visibility //	Read/Write	

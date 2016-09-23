@@ -44,13 +44,10 @@
 		<eclass name="AttributeConstraint">
 			<inheritance>TABLE_PER_CLASS</inheritance>
 			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK</id-class>
-		
 			<table name="t_attributeconstraints" />
 			<property name="Attribute">
+				<id/>
 				<join-column name="ID" />
-			</property>
-			<property name="AttributeID">
-				<id />
 			</property>
 			<property name="Constraint">
 				<id />
