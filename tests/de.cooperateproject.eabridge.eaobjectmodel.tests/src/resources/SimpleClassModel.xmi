@@ -30,7 +30,6 @@
       <Attributes
           AllowDuplicates="true"
           AttributeGUID="attributeGUID"
-          Classifier="0"
           Name="attName"
           Notes="attNotes">
         <Constraints

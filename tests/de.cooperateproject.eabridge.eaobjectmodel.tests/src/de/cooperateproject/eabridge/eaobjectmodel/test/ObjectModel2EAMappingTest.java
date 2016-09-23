@@ -21,14 +21,14 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		initTestDb(TestResource.EASchemaChangelog);
 
 		Package loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
-		Session session = getDataStore().getSessionFactory().openSession();
+		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
 		
 		trans.begin();
 		session.save(loadedPackage);
 		trans.commit();
 
-		String content = generateChangelog();
+		String content = getTestDB().generateChangelog();
 		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile().getAbsolutePath(),
 				Charset.defaultCharset());
 		

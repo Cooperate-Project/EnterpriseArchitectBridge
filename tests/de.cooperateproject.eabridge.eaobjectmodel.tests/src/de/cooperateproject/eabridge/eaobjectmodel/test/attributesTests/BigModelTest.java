@@ -3,12 +3,15 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collection;
+
 import javax.xml.parsers.ParserConfigurationException;
-import org.junit.Test;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.w3c.dom.Node;
@@ -27,13 +30,11 @@ import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodeparam;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
-import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoMappingBaseTest;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.ObjectModelHelper;
+import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoParameterizedBaseTest;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.NodeParserUtil;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.ObjectModelHelper;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.XMLParser;
-
-import org.junit.runner.RunWith;
 
 
 /**
@@ -42,7 +43,7 @@ import org.junit.runner.RunWith;
  * 
  */
 @RunWith(Parameterized.class)
-public class BigModelTest  extends TeneoMappingBaseTest {
+public class BigModelTest extends TeneoParameterizedBaseTest {
    private static String content;
    private static String compareContent;
    private String attribute;
@@ -63,14 +64,14 @@ public class BigModelTest  extends TeneoMappingBaseTest {
    @BeforeClass
    public static void initialize() throws Exception {
 	    initTestDb(TestResource.EASchemaChangelog);
-		Session session = getDataStore().getSessionFactory().openSession();
+		Session session = getTestDb().getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
 		Package objectModel = initObjectModel();
 		trans.begin();
 		session.save(objectModel);
 		trans.commit();
 		compareContent = readFile(logPath, Charset.defaultCharset());
-		content = generateChangelog();
+		content = getTestDb().generateChangelog();
    }
    
    /**

@@ -28,7 +28,7 @@ public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 	public void testReadSimpleDiagram() throws Exception {
 		initTestDb(TestResource.SimpleClassModelWithSchemaChangelog);
 		
-		Session session = getDataStore().getSessionFactory().openSession();
+		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
 
 		Query query = session.createQuery("FROM Package WHERE PARENT_ID = 0");
