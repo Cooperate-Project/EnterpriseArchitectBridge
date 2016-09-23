@@ -2,6 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping auto-import="false">
+	<typedef name="eaobjectmodel.ScopeObject" class="org.eclipse.emf.teneo.hibernate.mapping.DefaultToStringUserType">
+		<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+		<param name="edatatype">ScopeObject</param>
+	</typedef>
 	<typedef name="eaobjectmodel.GeometryMap" class="org.eclipse.emf.teneo.hibernate.mapping.DefaultToStringUserType">
 		<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
 		<param name="edatatype">GeometryMap</param>
@@ -641,13 +645,8 @@
 		<property name="Version" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Version`"/>
 		</property>
-		<property name="Visibility" lazy="false" not-null="false" insert="true" update="true" unique="false">
+		<property name="Visibility" lazy="false" insert="true" update="true" not-null="false" unique="false" type="eaobjectmodel.ScopeObject">
 			<column not-null="false" unique="false" name="`Visibility`"/>
-			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
-				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
-				<param name="eclassifier">Scope</param>
-				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
-			</type>
 		</property>
 		<property name="Style" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Style`"/>

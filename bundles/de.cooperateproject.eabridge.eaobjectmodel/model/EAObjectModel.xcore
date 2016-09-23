@@ -293,11 +293,28 @@ class Attribute {
 //	Identifies the scope of the attribute - Private, Protected, Public or Package.
 	String GenOption
 }
+
+/*
+ * This wrapper is required if the scope shall be optional.
+ * https://wiki.eclipse.org/EMF/Recipes#Recipe:_Generating_enumeration-based_attributes_that_support_null
+ */
+type ScopeObject wraps Scope
+	create {
+		if (it == null) return null
+		val result = Scope.get(it)
+		if (result == null) throw new IllegalArgumentException("The value '" + it + "' is not a valid enumerator of 'Scope'")
+		return result
+	}
+	convert {
+		if (it == null) return null
+		return it.literal
+	}
+
 enum Scope {
-	Private as "Private"
-	Public as "Public"
-	Package as "Package"
-	Protected as "Protected"
+	Private as "Private" = 1
+	Public as "Public" = 2
+	Package as "Package" = 3 
+	Protected as "Protected" = 4
 }
 
 
@@ -1589,7 +1606,7 @@ class Element  {
 	//	The version of the element.	
 	//		
 	//		
-	Scope	Visibility //	Read/Write	
+	ScopeObject Visibility //	Read/Write	
 //		
 //	The Scope of this element within the current Package.	
 //		

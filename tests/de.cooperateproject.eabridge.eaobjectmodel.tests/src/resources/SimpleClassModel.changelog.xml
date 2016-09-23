@@ -7,7 +7,7 @@
 		<insert catalogName="test" schemaName="test" tableName="t_attribute">
 			<column name="Object_ID" valueNumeric="1" />
 			<column name="Name" value="attName" />
-			<column name="Scope" />
+			<column name="Scope" value="Private" />
 			<column name="Stereotype" />
 			<column name="Containment" />
 			<column name="IsStatic" />
@@ -149,9 +149,9 @@
 			<column name="ShowDetails" valueNumeric="0" />
 			<column name="Notes" />
 			<column name="Stereotype" />
-			<column name="AttPub" />
-			<column name="AttPri" />
-			<column name="AttPro" />
+			<column name="AttPub" valueNumeric="1" />
+			<column name="AttPri" valueNumeric="1" />
+			<column name="AttPro" valueNumeric="1" />
 			<column name="Orientation" />
 			<column name="cx" />
 			<column name="cy" />
@@ -389,7 +389,7 @@
 			<column name="OperationID" valueNumeric="1" />
 			<column name="Object_ID" valueNumeric="2" />
 			<column name="Name" value="method" />
-			<column name="Scope" />
+			<column name="Scope" value="Private" />
 			<column name="Type" />
 			<column name="ReturnArray" />
 			<column name="Stereotype" />
@@ -405,7 +405,7 @@
 			<column name="Style" />
 			<column name="Pure" />
 			<column name="Throws" />
-			<column name="Classifier" />
+			<column name="Classifier" value="0" />
 			<column name="Code" />
 			<column name="IsRoot" />
 			<column name="IsLeaf" />
