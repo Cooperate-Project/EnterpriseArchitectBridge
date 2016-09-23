@@ -3,30 +3,14 @@ sudo: false
 jdk:
   - oraclejdk8
 before_install:
-- wget -P /tmp http://www.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
-- unzip -d /tmp -qq /tmp/apache-maven-3.3.9-bin.zip
-- export M2_HOME=/tmp/apache-maven-3.3.9
-- chmod +x $M2_HOME/bin/mvn
-- export PATH=$M2_HOME/bin:$PATH
-- sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
+- git clone --depth 1 https://github.com/Cooperate-Project/BuildUtils.git /tmp/BuildUtils
+- . /tmp/BuildUtils/travisci/setup.sh
 install: true
 script:
-- mvn clean verify
-deploy:
-  provider: script
-  script: mvn deploy
-  on:
-    tags: true
+- mavenBuild.sh
 cache:
   directories:
-  - "$HOME/.m2"
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/b0294c446510f7e0a4b3
-    on_success: change
-    on_failure: always
-    on_start: never
-  email:
-    on_success: change
-    on_failure: always
+  - "$HOME/.m2/repository"
+env:
+  global:  
+  - secure: "czHypDKowG/gHon5KyMv0YbXd8hGwq4vV355geYhKNcriSDCv82YngJVZxF26K754b/+ZW80TMfIHIa2u1/eg8dL9BOn6FfVYdEUU3ndXEvyx3Kv6cJckkxWvjTfX4ExzejsA7ZfQMHHaQdIRnuDw6hfASjaQdF56ev2IzPQw10ha1GfrMhqbBBQyZjt7/GbWZ3Aw2RWpPQPrib5BjqKqftr9SXsocKvTkmt9Pb2UOW7RZuFTwbnr3zlnN9S2Tjjj2SeOJYTcnf45tr2gwvzGm817n4kbq+9NVcOIx5wgZqKw4M0vJhJ+R+G8Mbei00OqqO2jDiDjn0P2aUQp3PJRUChb8G4NE+IGR1S+SxDZHX+9v93efuO4qrS754EDjxlgThJlVVsvGiyNbbXQgQ85czq7XQTyVS7o4sIvCgBF8GtZPAz8b9609mcBMdooLVj86qCIgXy4HibYSoEDY9sRjcmm3cpcubNA8yy75ywPPzbuGo2rTHvSZb9r0yR7vI3X0H9UodS/TgVXfDrZen9DTGfFQVxtVNZJ2aoQsgvlLrGbYBrIhidX+4wlxnxeO7Ahhvv3Ch9/EWMadi57MfGsXzyug6fLQ/MjOg/6FjRvVrzU03BWBIwS3XWyp4qh0NS5ucsXEhWe0F2F2xT6suyw9QcL9ZqHoHm6+h+l3bPFD4="

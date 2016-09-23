@@ -1,14 +1,18 @@
 package de.cooperateproject.eabridge.eaobjectmodel.test.attributesTests;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collection;
+
 import javax.xml.parsers.ParserConfigurationException;
-import org.junit.Test;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.w3c.dom.Node;
@@ -28,14 +32,11 @@ import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
-import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoMappingBaseTest;
 import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoParameterizedBaseTest;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.ObjectModelHelper;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.NodeParserUtil;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.ObjectModelHelper;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.XMLParser;
-
-import org.junit.runner.RunWith;
 
 
 /**
@@ -49,7 +50,7 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
    private static String compareContent;
    private String attribute;
    private Node node;
-   private final static String logPath = TestResource.bigModel.getFile().getAbsolutePath();
+   private final static File logPath = TestResource.bigModel.getFile();
    /**
     * 
     * @throws Exception

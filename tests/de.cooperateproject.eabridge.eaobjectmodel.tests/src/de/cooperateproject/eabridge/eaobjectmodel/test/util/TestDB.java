@@ -8,8 +8,10 @@ import java.sql.Connection;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 
+import liquibase.CatalogAndSchema;
 import liquibase.Liquibase;
 import liquibase.diff.output.DiffOutputControl;
 import liquibase.diff.output.changelog.DiffToChangeLog;
@@ -36,16 +38,20 @@ public class TestDB implements Closeable {
 		return testDb.getLiquibase();
 	}
 
+	@SuppressWarnings("unchecked")
 	public String generateChangelog() throws DatabaseException, IOException, ParserConfigurationException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
-
-		Liquibase liquibase = getLiquibase();
-		liquibase.generateChangeLog(liquibase.getDatabase().getDefaultSchema(),
-				new DiffToChangeLog(new DiffOutputControl()), ps, Data.class);
-
-		String content = baos.toString();
-		return content;
+		try {
+			Liquibase liquibase = getLiquibase();
+			CatalogAndSchema defaultSchema = liquibase.getDatabase().getDefaultSchema();
+			DiffOutputControl diffOutputControl = new DiffOutputControl();
+			liquibase.generateChangeLog(defaultSchema, new DiffToChangeLog(diffOutputControl), ps, Data.class);
+			return baos.toString();
+		} finally {
+			IOUtils.closeQuietly(ps);
+			IOUtils.closeQuietly(baos);
+		}
 	}
 
 	@Override

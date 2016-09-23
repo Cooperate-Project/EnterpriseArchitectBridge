@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
@@ -14,41 +16,49 @@ import org.eclipse.emf.compare.utils.EMFComparePrettyPrinter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
+import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.CustomDiffEngine;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
+import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
 
 public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 
 	@Test
 	public void testReadSimpleDiagram() throws Exception {
-		initTestDb(TestResource.SimpleClassModelWithSchemaChangelog);
+		initTestDb(TestResource.SimpleClassModelChangelog);
 		
 		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
-		Transaction trans = session.getTransaction();
 
 		Query query = session.createQuery("FROM Package WHERE PARENT_ID = 0");
-		List<Package> results = query.list();
-		System.out.println(results.size());		
+		List<Package> results = HibernateUtils.getListFromQuery(query, Package.class);
 		assertEquals(1, results.size());
 
-		Package content = results.get(0);
-//		Element element = content.getElements().get(0);
-
-		
+		Package actualContent = results.get(0);
 		Package compareContent = loadModelFromResource("resources/SimpleClassModel.xmi");
+
+		assertEqualsModel(actualContent, compareContent);
+	}
+	
+	@Test
+	public void testReadModificationDateOfElement() throws Exception {
+		initTestDb(TestResource.EASingleClassChangelog);
 		
-//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramLinks().get(0).setInstanceID((long) 1); 
-//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(0).setInstanceID((long) 1); 
-//		compareContent.getPackages().get(0).getDiagrams().get(0).getDiagramObjects().get(1).setInstanceID((long) 2); 
+		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
+
+		Query query = session.createQuery("FROM Element WHERE ElementID = 2");
+		List<Element> results = HibernateUtils.getListFromQuery(query, Element.class);
+		assertEquals(1, results.size());
+
+		Element actualContent = results.get(0);
 		
-		assertEqualsModel(content, compareContent);
+		Date expectedDate = new Calendar.Builder().setDate(2016, 6, 4).setTimeOfDay(10, 10, 44).build().getTime();
+		Date actualDate = actualContent.getModifiedDate();
 		
-//		EAObjectModelHelper.saveModel(compareContent,"resources/test.xmi");
+		assertEquals(expectedDate, actualDate);
 	}
 	
 	private static void assertEqualsModel(Package content, Package compareContent) {		
