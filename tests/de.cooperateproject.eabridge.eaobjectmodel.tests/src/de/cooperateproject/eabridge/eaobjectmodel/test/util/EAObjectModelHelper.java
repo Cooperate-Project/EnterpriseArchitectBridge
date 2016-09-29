@@ -1,4 +1,4 @@
-package de.cooperateproject.eabridge.eaobjectmodel.util;
+package de.cooperateproject.eabridge.eaobjectmodel.test.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +28,12 @@ public class EAObjectModelHelper {
         
         Registry packageRegistry = EPackage.Registry.INSTANCE;
         packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);        
+    }
+    
+    public static Package loadModel(URI uri) {
+    	ResourceSet rs = new ResourceSetImpl();
+    	Resource r = rs.getResource(uri, true);
+    	return (Package)r.getContents().get(0);
     }
     
     public static Package loadModel(InputStream is) throws IOException {

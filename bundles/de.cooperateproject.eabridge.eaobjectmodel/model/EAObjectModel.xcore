@@ -1,4 +1,4 @@
-@GenModel(modelName="EAObjectModel", modelDirectory="/de.cooperateproject.eabridge.eaobjectmodel/src-gen")
+@GenModel(modelName="EAObjectModel", modelDirectory="/de.cooperateproject.eabridge.eaobjectmodel/src-gen", complianceLevel="6.0")
 package de.cooperateproject.eabridge.eaobjectmodel
 import de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap
 import de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher
@@ -39,7 +39,7 @@ class TypeReference {
 		eSet(classifierFeature, classifier)
 	}
 	
-	op void setType(PrimitiveTypes primitiveType) {
+	op void setType(PrimitiveType primitiveType) {
 		val classifierFeature = eClass.EAllStructuralFeatures.findFirst[name == "classifier"]
 		val typeNameFeature = eClass.EAllStructuralFeatures.findFirst[name == "typeName"]
 		
@@ -68,12 +68,13 @@ class TypeReference {
 	}
 
 	
-	op PrimitiveTypes getPrimitiveType() {
+	op PrimitiveType getPrimitiveType() {
 		val typeName = eGet(eClass.EAllStructuralFeatures.findFirst[name == "typeName"])
 		if (typeName == null) {
 			return null
 		}
-		return PrimitiveTypes.getByName(typeName as String)
+		
+		return PrimitiveType.enumConstants.findFirst[c | (typeName as String).equals(c.getName)]
 	}
 	
 	op String getType() {
@@ -94,22 +95,10 @@ class TypeReference {
 	
 }
 
-enum PrimitiveTypes {
-	int
-	boolean
-	byte
-	char
-	double
-	float
-	long
-	short
-}
 
-
-
- enum PrimitiveTye {
-	  Boolean as "boolean"
+ enum PrimitiveType {
 	  Int as "int"
+	  Boolean as "boolean"
 	  Byte as "byte"
 	  Char as "char"
 	  Double as "double"
@@ -294,21 +283,6 @@ class Attribute {
 	String GenOption
 }
 
-/*
- * This wrapper is required if the scope shall be optional.
- * https://wiki.eclipse.org/EMF/Recipes#Recipe:_Generating_enumeration-based_attributes_that_support_null
- */
-type ScopeObject wraps Scope
-	create {
-		if (it == null) return null
-		val result = Scope.get(it)
-		if (result == null) throw new IllegalArgumentException("The value '" + it + "' is not a valid enumerator of 'Scope'")
-		return result
-	}
-	convert {
-		if (it == null) return null
-		return it.literal
-	}
 
 enum Scope {
 	Private as "Private" = 1
@@ -316,6 +290,22 @@ enum Scope {
 	Package as "Package" = 3 
 	Protected as "Protected" = 4
 }
+
+/*
+ * This wrapper is required if the scope shall be optional.
+ * https://wiki.eclipse.org/EMF/Recipes#Recipe:_Generating_enumeration-based_attributes_that_support_null
+ */
+type ScopeObject wraps Scope
+	create {
+		if (it == null) return null
+		val result = Scope.enumConstants.findFirst[c | it.equals(c.getName)]
+		if (result == null) throw new IllegalArgumentException("The value '" + it + "' is not a valid enumerator of 'Scope'")
+		return result
+	}
+	convert {
+		if (it == null) return null
+		return it.literal
+	}
 
 
 

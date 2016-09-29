@@ -2,24 +2,24 @@ package de.cooperateproject.eabridge.eaobjectmodel.test;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.spi.Filter;
 import org.apache.log4j.spi.LoggingEvent;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.EAObjectModelHelper;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.LiquibaseFactory.LiquibaseLogger;
-import de.cooperateproject.eabridge.eaobjectmodel.util.EAObjectModelHelper;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 
 public abstract class BaseTest {
 
@@ -40,6 +40,7 @@ public abstract class BaseTest {
 						return Filter.DENY;
 					}
 				}
+				
 				return Filter.NEUTRAL;
 			}
 		});
@@ -47,15 +48,9 @@ public abstract class BaseTest {
 		LiquibaseFactory.init();
 	}
 
-	public static Package loadModelFromResource(String resourcePath) throws IOException {
-		Package loadedPackage = null;
-		InputStream is = null;
-		try {
-			is = ObjectModel2EAMappingTest.class.getClassLoader().getResourceAsStream(resourcePath);
-			loadedPackage = EAObjectModelHelper.loadModel(is);
-		} finally {
-			IOUtils.closeQuietly(is);
-		}
+	public static Package loadModelFromResource(TestResource testResource) throws IOException {
+		URI resourceURI = testResource.getURI();
+		Package loadedPackage = EAObjectModelHelper.loadModel(resourceURI);
 		return loadedPackage;
 	}
 

@@ -43,7 +43,7 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 	public void testAddModel() throws Exception {
 		initTestDb(TestResource.EASchemaChangelog);
 
-		Package loadedPackage = loadModelFromResource("resources/SimpleClassModel.xmi");
+		Package loadedPackage = loadModelFromResource(TestResource.SimpleClassModel);
 		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
 		Transaction trans = session.getTransaction();
 
