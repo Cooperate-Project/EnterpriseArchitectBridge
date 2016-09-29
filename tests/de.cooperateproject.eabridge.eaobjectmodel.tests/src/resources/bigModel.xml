@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <changeSet author="turki (generated)" id="1475132319799-1">
+    <changeSet author="turki (generated)" id="1475133421368-1">
         <insert catalogName="test" schemaName="test" tableName="t_attribute">
             <column name="Object_ID" valueNumeric="2"/>
             <column name="Name" value="attribute2"/>
@@ -31,7 +31,7 @@
             <column name="StyleEx"/>
         </insert>
     </changeSet>
-    <changeSet author="turki (generated)" id="1475132319799-2">
+    <changeSet author="turki (generated)" id="1475133421368-2">
         <insert catalogName="test" schemaName="test" tableName="t_connector">
             <column name="Connector_ID" valueNumeric="1"/>
             <column name="Name"/>
@@ -438,7 +438,7 @@
             <column name="EventFlags"/>
         </insert>
     </changeSet>
-    <changeSet author="turki (generated)" id="1475132319799-3">
+    <changeSet author="turki (generated)" id="1475133421368-3">
         <insert catalogName="test" schemaName="test" tableName="t_diagram">
             <column name="Diagram_ID" valueNumeric="1"/>
             <column name="Package_ID" valueNumeric="2"/>
@@ -471,7 +471,7 @@
             <column name="StyleEx"/>
         </insert>
     </changeSet>
-    <changeSet author="turki (generated)" id="1475132319799-4">
+    <changeSet author="turki (generated)" id="1475133421368-4">
         <insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="1"/>
@@ -509,7 +509,7 @@
             <column name="Instance_ID" valueNumeric="4"/>
         </insert>
     </changeSet>
-    <changeSet author="turki (generated)" id="1475132319799-5">
+    <changeSet author="turki (generated)" id="1475133421368-5">
         <insert catalogName="test" schemaName="test" tableName="t_diagramobjects">
             <column name="Diagram_ID" valueNumeric="1"/>
             <column name="Object_ID" valueNumeric="2"/>
@@ -577,7 +577,7 @@
             <column name="Instance_ID" valueNumeric="6"/>
         </insert>
     </changeSet>
-    <changeSet author="turki (generated)" id="1475132319799-6">
+    <changeSet author="turki (generated)" id="1475133421368-6">
         <insert catalogName="test" schemaName="test" tableName="t_object">
             <column name="Object_ID" valueNumeric="1"/>
             <column name="Object_Type" value="class"/>
@@ -609,7 +609,7 @@
             <column name="PDATA4"/>
             <column name="PDATA5"/>
             <column name="Concurrency"/>
-            <column name="Visibility" value="Private"/>
+            <column name="Visibility"/>
             <column name="Persistence"/>
             <column name="Cardinality"/>
             <column name="GenType"/>
@@ -668,7 +668,7 @@
             <column name="PDATA4"/>
             <column name="PDATA5"/>
             <column name="Concurrency"/>
-            <column name="Visibility" value="Private"/>
+            <column name="Visibility"/>
             <column name="Persistence"/>
             <column name="Cardinality"/>
             <column name="GenType"/>
@@ -727,7 +727,7 @@
             <column name="PDATA4"/>
             <column name="PDATA5"/>
             <column name="Concurrency"/>
-            <column name="Visibility" value="Private"/>
+            <column name="Visibility"/>
             <column name="Persistence"/>
             <column name="Cardinality"/>
             <column name="GenType"/>
@@ -786,7 +786,7 @@
             <column name="PDATA4"/>
             <column name="PDATA5"/>
             <column name="Concurrency"/>
-            <column name="Visibility" value="Private"/>
+            <column name="Visibility"/>
             <column name="Persistence"/>
             <column name="Cardinality"/>
             <column name="GenType"/>
@@ -845,7 +845,7 @@
             <column name="PDATA4"/>
             <column name="PDATA5"/>
             <column name="Concurrency"/>
-            <column name="Visibility" value="Private"/>
+            <column name="Visibility"/>
             <column name="Persistence"/>
             <column name="Cardinality"/>
             <column name="GenType"/>
@@ -904,7 +904,7 @@
             <column name="PDATA4"/>
             <column name="PDATA5"/>
             <column name="Concurrency"/>
-            <column name="Visibility" value="Private"/>
+            <column name="Visibility"/>
             <column name="Persistence"/>
             <column name="Cardinality"/>
             <column name="GenType"/>
@@ -933,7 +933,7 @@
             <column name="EventFlags"/>
         </insert>
     </changeSet>
-    <changeSet author="turki (generated)" id="1475132319799-7">
+    <changeSet author="turki (generated)" id="1475133421368-7">
         <insert catalogName="test" schemaName="test" tableName="t_operation">
             <column name="OperationID" valueNumeric="1"/>
             <column name="Object_ID" valueNumeric="1"/>
@@ -1051,7 +1051,7 @@
             <column name="StyleEx"/>
         </insert>
     </changeSet>
-    <changeSet author="turki (generated)" id="1475132319799-8">
+    <changeSet author="turki (generated)" id="1475133421368-8">
         <insert catalogName="test" schemaName="test" tableName="t_package">
             <column name="Package_ID" valueNumeric="1"/>
             <column name="Name" value="root"/>
@@ -1104,4 +1104,3 @@
         </insert>
     </changeSet>
 </databaseChangeLog>
-
