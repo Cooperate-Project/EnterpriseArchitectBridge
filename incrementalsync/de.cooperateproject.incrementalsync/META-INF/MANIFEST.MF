@@ -3,10 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: IncrementalSync
 Bundle-SymbolicName: IncrementalSync
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: incrementalsync.Activator
 Require-Bundle: org.eclipse.core.runtime,
- de.cooperateproject.eabridge.eaobjectmodel;bundle-version="1.0.0",
- org.apache.log4j;bundle-version="1.2.16"
+ de.cooperateproject.eabridge.eaobjectmodel;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.commons.lang;version="1.7.0",
@@ -14,4 +12,7 @@ Import-Package: org.apache.commons.lang;version="1.7.0",
  org.hibernate;version="4.3.7",
  org.hibernate.criterion;version="4.3.7",
  org.hibernate.metadata;version="4.3.7",
- org.hibernate.persister.entity;version="4.3.7"
+ org.hibernate.persister.entity;version="4.3.7", 
+ org.apache.log4j;bundle-version="1.2.16"
+Export-Package: de.cooperateproject.incrementalsync.monitoring,
+ de.cooperateproject.incrementalsync.synchronization
