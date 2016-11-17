@@ -205,8 +205,7 @@ public class IncrementalSync {
 	 *            A TableListener, possibly holding updates from the logging
 	 *            table
 	 */
-	public void sync(TableListener syncTable) {
-		// FIXME: Public for performance tests (make private again)
+	private void sync(TableListener syncTable) {
 		ArrayList<String> updates = syncTable.getUpdates();
 
 		// LOGGING

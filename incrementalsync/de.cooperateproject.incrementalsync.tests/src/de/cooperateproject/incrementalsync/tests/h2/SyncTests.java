@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import org.eclipse.core.internal.registry.osgi.EquinoxUtils;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.hibernate.Session;
 import org.junit.After;
@@ -14,7 +13,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
-import de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoMappingBaseTest;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;

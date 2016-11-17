@@ -5,10 +5,10 @@ package de.cooperateproject.incrementalsync.monitoring;
  */
 public class Table {
 
-	private String tableName;
-	private String entityName;
-	private String identifierColumn;
-	private String identifierProperty;
+	private final String tableName;
+	private final String entityName;
+	private final String identifierColumn;
+	private final String identifierProperty;
 
 	/**
 	 * Creates a new immutable table object with information about the database
