@@ -17,7 +17,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoMappingBaseTest;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.incrementalsync.monitoring.Table;
-import de.cooperateproject.incrementalsync.monitoring.TableListener;
+import de.cooperateproject.incrementalsync.monitoring.TableAdapter;
 import de.cooperateproject.incrementalsync.synchronization.IncrementalSync;
 import de.cooperateproject.incrementalsync.synchronization.IncrementalSync.MODE;
 
@@ -74,13 +74,15 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 		// Initializes a table. In a real environment, this is extracted from
 		// the hibernate mapping.
-		TableListener listener = new TableListener(getTestDB().getDbConnection(), table, "ht_");
-		listener.useH2Dialect();
+		TableAdapter listener = new TableAdapter(getTestDB().getDbConnection(), table, "ht_");
 
 		// Adds a logging entry. In a real environment, this is done by
 		// generated database triggers.
 		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
 
+		// TODO: Konstante rausfinden
+		getTestDB().getDbConnection().createStatement().execute("SELECT * FROM test.t_object");
+		
 		// Gets the update. Should find an entry for element #2.
 		ArrayList<String> updates = listener.getUpdates();
 		assert (updates.size() == 1);
@@ -108,10 +110,10 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 		// Use hibernate to get this element again
 		element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
-		String NewElementName = element.getName();
+		String newElementName = element.getName();
 
 		// Test, if the name has changed correctly
-		assertEquals("ChangedTheName", NewElementName);
+		assertEquals("ChangedTheName", newElementName);
 	}
 
 	@Test

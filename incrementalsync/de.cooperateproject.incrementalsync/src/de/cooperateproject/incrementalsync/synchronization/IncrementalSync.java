@@ -17,7 +17,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import de.cooperateproject.incrementalsync.monitoring.Table;
-import de.cooperateproject.incrementalsync.monitoring.TableListener;
+import de.cooperateproject.incrementalsync.monitoring.TableAdapter;
 
 /**
  * IncrementalSync provides functionality to monitor database changes using
@@ -39,7 +39,7 @@ public class IncrementalSync {
 	private int syncInterval = 1000;
 	private Boolean isH2Dialect = false;
 
-	private static Logger logger = Logger.getLogger(IncrementalSync.class.getName());
+	private static Logger logger = Logger.getLogger(IncrementalSync.class);
 
 	/**
 	 * Creates the incremental synchronization to log and update model changes
@@ -142,12 +142,9 @@ public class IncrementalSync {
 	public void startASync() {
 
 		// Create Table Listeners
-		ArrayList<TableListener> listeners = new ArrayList<TableListener>();
+		ArrayList<TableAdapter> listeners = new ArrayList<TableAdapter>();
 		for (Table table : tables) {
-			TableListener listener = new TableListener(sqlConnection, table, prefix);
-			
-			if(isH2Dialect)
-				listener.useH2Dialect();
+			TableAdapter listener = new TableAdapter(sqlConnection, table, prefix);
 			
 			listeners.add(listener);
 		}
@@ -161,7 +158,7 @@ public class IncrementalSync {
 				while (isRunning()) {
 
 					// Complete the updates from all listeners
-					for (TableListener listener : listeners) {
+					for (TableAdapter listener : listeners) {
 						sync(listener);
 					}
 
@@ -205,7 +202,7 @@ public class IncrementalSync {
 	 *            A TableListener, possibly holding updates from the logging
 	 *            table
 	 */
-	private void sync(TableListener syncTable) {
+	private void sync(TableAdapter syncTable) {
 		ArrayList<String> updates = syncTable.getUpdates();
 
 		// LOGGING
