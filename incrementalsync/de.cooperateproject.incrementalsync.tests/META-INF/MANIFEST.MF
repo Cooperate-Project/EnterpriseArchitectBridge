@@ -5,8 +5,8 @@ Bundle-SymbolicName: IncrementalSyncTest
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: IncrementalSync;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.junit
-Import-Package: de.cooperateproject.eabridge.eaobjectmodel.test,
+Import-Package: de.cooperateproject.eabridge.eaobjectmodel,
+ de.cooperateproject.eabridge.eaobjectmodel.test,
  de.cooperateproject.eabridge.eaobjectmodel.test.util,
  de.cooperateproject.incrementalsync.monitoring,
  de.cooperateproject.incrementalsync.synchronization,
@@ -21,3 +21,4 @@ Import-Package: de.cooperateproject.eabridge.eaobjectmodel.test,
  org.eclipse.emf.compare.scope,
  org.hibernate.dialect,
  org.xmlunit.diff;version="2.1.1"
+Require-Bundle: org.junit;bundle-version="4.12.0"

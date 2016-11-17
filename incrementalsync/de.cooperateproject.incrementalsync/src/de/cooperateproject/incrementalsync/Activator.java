@@ -1,10 +1,5 @@
 package de.cooperateproject.incrementalsync;
 
-import java.net.URL;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-import org.eclipse.core.runtime.FileLocator;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
