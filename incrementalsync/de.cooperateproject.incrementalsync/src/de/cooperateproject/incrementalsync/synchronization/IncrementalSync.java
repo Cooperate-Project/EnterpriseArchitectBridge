@@ -27,6 +27,8 @@ import de.cooperateproject.incrementalsync.monitoring.TableAdapter;
  */
 public class IncrementalSync {
 
+	// TODO: Classpath von Tests refactorn
+	
 	private Connection sqlConnection;
 	private Session session;
 	private ArrayList<Table> tables;
