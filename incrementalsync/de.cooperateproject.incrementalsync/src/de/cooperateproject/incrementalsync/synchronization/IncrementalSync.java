@@ -144,7 +144,7 @@ public class IncrementalSync {
 		ArrayList<TableAdapter> listeners = new ArrayList<TableAdapter>();
 		for (Table table : tables) {
 			TableAdapter listener = new TableAdapter(sqlConnection, table, prefix);
-			
+
 			listeners.add(listener);
 		}
 
@@ -245,10 +245,11 @@ public class IncrementalSync {
 				// Merging RESULTS
 				int sizeHBQuery = Math.toIntExact((long) criteria.uniqueResult());
 				int sizeDBQuery = resultsDB.size();
-				
+
 				if (sizeDBQuery == 1 && sizeHBQuery == 1) {
 
-					// Element found using both queries. Update element and parent
+					// Element found using both queries. Update element and
+					// parent
 
 					EObject elementToRefresh = resultsDB.get(0);
 					EObject parent = elementToRefresh.eContainer();
@@ -264,7 +265,8 @@ public class IncrementalSync {
 
 				} else if (sizeDBQuery == 0 && sizeHBQuery == 1) {
 
-					// Only found using criteria (Probably insert). Update parent
+					// Only found using criteria (Probably insert). Update
+					// parent
 
 					criteria = session.createCriteria(entityName);
 					// FIXME: identifierProperty always Long?
@@ -286,11 +288,10 @@ public class IncrementalSync {
 
 				} else {
 
-					// Did not find the element, but maybe it can be found using EMF
-					
-					logger.debug("Did not find element. Try another lookup.");
-					
-					// Example: Batch-Deleting a package with classes, etc.
+					// Did not find the element. It is part of a batch operation
+					// or should really not be there
+
+					logger.debug("Did not find element. Maybe a batch operation?");
 
 				}
 

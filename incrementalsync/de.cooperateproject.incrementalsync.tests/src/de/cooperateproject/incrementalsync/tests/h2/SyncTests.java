@@ -28,7 +28,7 @@ import de.cooperateproject.incrementalsync.synchronization.IncrementalSync.MODE;
 public class SyncTests extends TeneoMappingBaseTest {
 
 	public static final String DB_SCHEMA = "test";
-	
+
 	private Session session;
 	private IncrementalSync sync;
 	private Table table;
@@ -37,7 +37,7 @@ public class SyncTests extends TeneoMappingBaseTest {
 	public void setUp() throws Exception {
 		// Initializes environment. See: TeneoMappingBaseTest
 		initTestDb(TestResource.EASingleClassChangelog);
-		
+
 		// Initializes logging tables. In a real environment, this is done by
 		// the generated SQL-Code from the IncrementalDbSyncUtil-Project.
 		initLoggingTable();
@@ -95,7 +95,7 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 		// New name for element update
 		final String newName = "ChangedTheName";
-		
+
 		// Use hibernate to get an element
 		Element element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
 
@@ -103,11 +103,13 @@ public class SyncTests extends TeneoMappingBaseTest {
 		sync.startASync();
 
 		// Changes the element name and simulates an entry in the logging table
-		getTestDB().getDbConnection().createStatement().execute(String.format("UPDATE %s.t_object SET Name='%s' WHERE Object_ID=2", DB_SCHEMA, newName));
+		getTestDB().getDbConnection().createStatement()
+				.execute(String.format("UPDATE %s.t_object SET Name='%s' WHERE Object_ID=2", DB_SCHEMA, newName));
 		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
 		getTestDB().getDbConnection().commit();
 
-		// Sleep for 1.1 seconds and let IncrementalSync work (should refresh element)
+		// Sleep for 1.1 seconds and let IncrementalSync work (should refresh
+		// element)
 		Thread.sleep(1100);
 
 		// Test, if the name has changed correctly
@@ -128,10 +130,13 @@ public class SyncTests extends TeneoMappingBaseTest {
 		sync.startASync();
 
 		// Insert a new element an simulate logging entry
-		getTestDB().getDbConnection().createStatement().execute(String.format("INSERT INTO %s.t_object (Name, Object_ID, ea_guid, Package_ID, Object_Type, Author, Complexity, Abstract, Scope, Status, GenType, ParentID, Classifier) VALUES('NewItem', 3, '{143BBD0B-9C9D-4a9b-A983-9D1C5B564CA7}', 2, 'Class', 'sebinside', 1, 0, 'Public', 'Proposed', 'Java', 0, 0)", DB_SCHEMA));
+		getTestDB().getDbConnection().createStatement()
+				.execute(String.format(
+						"INSERT INTO %s.t_object (Name, Object_ID, ea_guid, Package_ID, Object_Type, Author, Complexity, Abstract, Scope, Status, GenType, ParentID, Classifier) VALUES('NewItem', 3, '{143BBD0B-9C9D-4a9b-A983-9D1C5B564CA7}', 2, 'Class', 'sebinside', 1, 0, 'Public', 'Proposed', 'Java', 0, 0)",
+						DB_SCHEMA));
 		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (3, NOW(6));");
 		getTestDB().getDbConnection().commit();
-		
+
 		// Sleep for 1.1 seconds and let IncrementalSync work
 		Thread.sleep(1100);
 
@@ -139,9 +144,10 @@ public class SyncTests extends TeneoMappingBaseTest {
 		assertEquals(2, parent.getElements().size());
 
 	}
-	
+
 	/**
 	 * Tests the behavior of deleting an element.
+	 * 
 	 * @throws Exception
 	 */
 	@Test
@@ -154,15 +160,24 @@ public class SyncTests extends TeneoMappingBaseTest {
 		// Starts IncrementalSync asynchronously
 		sync.startASync();
 
-		// Delete Element and simulate  logging entry
-		getTestDB().getDbConnection().createStatement().execute(String.format("DELETE FROM %s.t_object WHERE Object_ID = 2", DB_SCHEMA));
+		// Delete Element and simulate logging entry
+		getTestDB().getDbConnection().createStatement()
+				.execute(String.format("DELETE FROM %s.t_object WHERE Object_ID = 2", DB_SCHEMA));
 		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
 		getTestDB().getDbConnection().commit();
-		
+
 		// Sleep for 1.1 seconds and let IncrementalSync work
 		Thread.sleep(1100);
-		
-		// Get the root package again and count the elements
+
+		// FIXME: This part should be done by IncremenalSync!
+		Element entity = parent.getElements().get(0);
+		try {
+			session.refresh(entity);
+		} catch (org.hibernate.UnresolvableObjectException e) {
+			session.evict(entity);
+		}
+
+		// Count the elements
 		assertEquals(0, parent.getElements().size());
 
 	}
