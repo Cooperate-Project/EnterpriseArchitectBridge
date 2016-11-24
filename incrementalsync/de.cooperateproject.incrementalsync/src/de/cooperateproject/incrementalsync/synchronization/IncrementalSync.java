@@ -27,8 +27,6 @@ import de.cooperateproject.incrementalsync.monitoring.TableAdapter;
  */
 public class IncrementalSync {
 
-	// TODO: Classpath von Tests refactorn
-	
 	private Connection sqlConnection;
 	private Session session;
 	private ArrayList<Table> tables;
@@ -39,7 +37,6 @@ public class IncrementalSync {
 	private Boolean remoteChangeFlag = false;
 	private boolean running = false;
 	private int syncInterval = 1000;
-	private Boolean isH2Dialect = false;
 
 	private static Logger logger = Logger.getLogger(IncrementalSync.class);
 
@@ -248,24 +245,26 @@ public class IncrementalSync {
 				// Merging RESULTS
 				int sizeHBQuery = Math.toIntExact((long) criteria.uniqueResult());
 				int sizeDBQuery = resultsDB.size();
-
+				
 				if (sizeDBQuery == 1 && sizeHBQuery == 1) {
 
-					// Update: Refresh object only
+					// Element found using both queries. Update element and parent
 
 					EObject elementToRefresh = resultsDB.get(0);
+					EObject parent = elementToRefresh.eContainer();
 
 					synchronized (remoteChangeFlag) {
 						remoteChangeFlag = true;
 
 						session.refresh(elementToRefresh);
+						session.refresh(parent);
 
 						remoteChangeFlag = false;
 					}
 
 				} else if (sizeDBQuery == 0 && sizeHBQuery == 1) {
 
-					// Insert: Refresh parent object (retrieved from criteria)
+					// Only found using criteria (Probably insert). Update parent
 
 					criteria = session.createCriteria(entityName);
 					// FIXME: identifierProperty always Long?
@@ -278,7 +277,7 @@ public class IncrementalSync {
 
 				} else if (sizeDBQuery == 1 && sizeHBQuery == 0) {
 
-					// Delete: Refresh parent object (retrieved from query)
+					// Only found using query (Probably delete). Update parent
 
 					EObject deletedElement = resultsDB.get(0);
 					EObject parent = deletedElement.eContainer();
@@ -287,6 +286,10 @@ public class IncrementalSync {
 
 				} else {
 
+					// Did not find the element, but maybe it can be found using EMF
+					
+					logger.debug("Did not find element. Try another lookup.");
+					
 					// Example: Batch-Deleting a package with classes, etc.
 
 				}
@@ -304,10 +307,4 @@ public class IncrementalSync {
 		LOG_ONLY, SYNC_ONLY, LOG_AND_SYNC
 	}
 
-	/**
-	 * Tells all listeners to use the H2-Dialect instead of the mysql one.
-	 */
-	public void useH2Dialect() {
-		this.isH2Dialect = true;
-	}
 }

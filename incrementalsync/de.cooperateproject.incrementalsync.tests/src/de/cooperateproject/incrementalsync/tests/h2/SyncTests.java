@@ -27,6 +27,8 @@ import de.cooperateproject.incrementalsync.synchronization.IncrementalSync.MODE;
  */
 public class SyncTests extends TeneoMappingBaseTest {
 
+	public static final String DB_SCHEMA = "test";
+	
 	private Session session;
 	private IncrementalSync sync;
 	private Table table;
@@ -35,7 +37,7 @@ public class SyncTests extends TeneoMappingBaseTest {
 	public void setUp() throws Exception {
 		// Initializes environment. See: TeneoMappingBaseTest
 		initTestDb(TestResource.EASingleClassChangelog);
-
+		
 		// Initializes logging tables. In a real environment, this is done by
 		// the generated SQL-Code from the IncrementalDbSyncUtil-Project.
 		initLoggingTable();
@@ -47,12 +49,11 @@ public class SyncTests extends TeneoMappingBaseTest {
 		sync = new IncrementalSync(getTestDB().getDbConnection(), getTestDB().getDataStore(), session, "ht_",
 				MODE.LOG_AND_SYNC);
 
-		// Creates a table. In a real environment, this step ist automated
+		// Creates a table. In a real environment, this step is automated
 		table = new Table("t_object", "Element", "Object_ID", "ElementID");
 		ArrayList<Table> tables = new ArrayList<Table>();
 		tables.add(table);
 		sync.setTables(tables);
-		sync.useH2Dialect();
 
 	}
 
@@ -80,9 +81,6 @@ public class SyncTests extends TeneoMappingBaseTest {
 		// generated database triggers.
 		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
 
-		// TODO: Konstante rausfinden
-		getTestDB().getDbConnection().createStatement().execute("SELECT * FROM test.t_object");
-		
 		// Gets the update. Should find an entry for element #2.
 		ArrayList<String> updates = listener.getUpdates();
 		assert (updates.size() == 1);
@@ -95,53 +93,77 @@ public class SyncTests extends TeneoMappingBaseTest {
 	@Test
 	public void testElementUpdate() throws Exception {
 
-		// Using hibernate to receive a element from the dbstore
+		// New name for element update
+		final String newName = "ChangedTheName";
+		
+		// Use hibernate to get an element
 		Element element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
 
 		// Starts IncrementalSync asynchronously
 		sync.startASync();
 
 		// Changes the element name and simulates an entry in the logging table
-		element.setName("ChangedTheName");
+		getTestDB().getDbConnection().createStatement().execute(String.format("UPDATE %s.t_object SET Name='%s' WHERE Object_ID=2", DB_SCHEMA, newName));
 		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
+		getTestDB().getDbConnection().commit();
 
-		// Sleep for 1.1 seconds and let IncrementalSync work
+		// Sleep for 1.1 seconds and let IncrementalSync work (should refresh element)
 		Thread.sleep(1100);
 
-		// Use hibernate to get this element again
-		element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
-		String newElementName = element.getName();
-
 		// Test, if the name has changed correctly
-		assertEquals("ChangedTheName", newElementName);
+		assertEquals(element.getName(), newName);
 	}
 
+	/**
+	 * Tests the behavior of inserting a new element an refreshing the parent.
+	 */
 	@Test
 	public void testElementInsert() throws Exception {
 
 		// Using hibernate to receive a package from the dbstore
-		Package root = (Package) session.createQuery("FROM Package WHERE Parent_ID = 0").list().get(0);
-		assertEquals(root.getElements().size(), 1);
+		Package parent = (Package) session.createQuery("FROM Package WHERE Parent_ID = 1").list().get(0);
+		assertEquals(parent.getElements().size(), 1);
 
 		// Starts IncrementalSync asynchronously
 		sync.startASync();
 
-		// Using hibernate to receive a element from the dbstore, then create a
-		// own element and add it
-		Element element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
-		Element newElement = EcoreUtil.copy(element);
-		newElement.setElementID(3L);
-		newElement.setName("ANewElement");
-		root.getElements().add(newElement);
-		session.saveOrUpdate(newElement);
+		// Insert a new element an simulate logging entry
+		getTestDB().getDbConnection().createStatement().execute(String.format("INSERT INTO %s.t_object (Name, Object_ID, ea_guid, Package_ID, Object_Type, Author, Complexity, Abstract, Scope, Status, GenType, ParentID, Classifier) VALUES('NewItem', 3, '{143BBD0B-9C9D-4a9b-A983-9D1C5B564CA7}', 2, 'Class', 'sebinside', 1, 0, 'Public', 'Proposed', 'Java', 0, 0)", DB_SCHEMA));
 		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (3, NOW(6));");
-
+		getTestDB().getDbConnection().commit();
+		
 		// Sleep for 1.1 seconds and let IncrementalSync work
 		Thread.sleep(1100);
 
+		// Count Elements again
+		assertEquals(2, parent.getElements().size());
+
+	}
+	
+	/**
+	 * Tests the behavior of deleting an element.
+	 * @throws Exception
+	 */
+	@Test
+	public void testElementDelete() throws Exception {
+
+		// Using hibernate to receive a package from the dbstore
+		Package parent = (Package) session.createQuery("FROM Package WHERE Parent_ID = 1").list().get(0);
+		assertEquals(parent.getElements().size(), 1);
+
+		// Starts IncrementalSync asynchronously
+		sync.startASync();
+
+		// Delete Element and simulate  logging entry
+		getTestDB().getDbConnection().createStatement().execute(String.format("DELETE FROM %s.t_object WHERE Object_ID = 2", DB_SCHEMA));
+		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
+		getTestDB().getDbConnection().commit();
+		
+		// Sleep for 1.1 seconds and let IncrementalSync work
+		Thread.sleep(1100);
+		
 		// Get the root package again and count the elements
-		root = (Package) session.createQuery("FROM Package WHERE Parent_ID = 0").list().get(0);
-		assertEquals(root.getElements().size(), 2);
+		assertEquals(0, parent.getElements().size());
 
 	}
 
