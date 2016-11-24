@@ -13,6 +13,7 @@ import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -27,18 +28,17 @@ import de.cooperateproject.incrementalsync.monitoring.TableAdapter;
  */
 public class IncrementalSync {
 
-	private Connection sqlConnection;
-	private Session session;
+	private final Connection sqlConnection;
+	private final Session session;
+	private final String prefix;
 	private ArrayList<Table> tables;
-	private String prefix;
 	private MODE mode;
-	private TransactionProvider transactionProvider;
 
 	private Boolean remoteChangeFlag = false;
-	private boolean running = false;
-	private int syncInterval = 1000;
+	private volatile boolean running = false;
+	private volatile int syncInterval = 1000;
 
-	private static Logger logger = Logger.getLogger(IncrementalSync.class);
+	private static final Logger logger = Logger.getLogger(IncrementalSync.class);
 
 	/**
 	 * Creates the incremental synchronization to log and update model changes
@@ -61,8 +61,6 @@ public class IncrementalSync {
 		this.prefix = prefix;
 		this.mode = mode;
 		this.session = session;
-
-		this.transactionProvider = new TransactionProvider(session);
 	}
 
 	/**
@@ -70,6 +68,14 @@ public class IncrementalSync {
 	 */
 	public int getSyncInterval() {
 		return syncInterval;
+	}
+	
+	public MODE getMode() {
+		return this.mode;
+	}
+	
+	public void setMode(MODE mode) {
+		this.mode = mode;
 	}
 
 	/**
@@ -123,9 +129,9 @@ public class IncrementalSync {
 					synchronized (remoteChangeFlag) {
 						if (!remoteChangeFlag) {
 
-							transactionProvider.openTransaction();
+							Transaction transaction = session.beginTransaction();
 							session.saveOrUpdate(notifier);
-							transactionProvider.commitTransaction();
+							transaction.commit();
 						}
 					}
 
@@ -204,99 +210,107 @@ public class IncrementalSync {
 	private void sync(TableAdapter syncTable) {
 		ArrayList<String> updates = syncTable.getUpdates();
 
-		// LOGGING
-		if (updates != null && updates.size() > 0) {
+		if (updates != null) {
 
-			String loggingString = "Updates in the last " + syncInterval + " miliseconds ("
-					+ Calendar.getInstance().getTime().toString() + ") at table " + syncTable.getTable().getTableName()
-					+ " (" + syncTable.getTable().getEntityName() + ") " + "at Primary Key(s): "
-					+ SyncUtil.prettyPrintArrayList(updates);
+			if (updates.size() > 0) {
 
-			if (this.mode == MODE.LOG_ONLY || this.mode == MODE.LOG_AND_SYNC) {
-				logger.info(loggingString);
-			} else {
-				logger.debug(loggingString);
+				// LOGGING
+				String loggingString = "Updates in the last " + syncInterval + " miliseconds ("
+						+ Calendar.getInstance().getTime().toString() + ") at table "
+						+ syncTable.getTable().getTableName() + " (" + syncTable.getTable().getEntityName() + ") "
+						+ "at Primary Key(s): " + SyncUtil.prettyPrintArrayList(updates);
+
+				if (this.mode == MODE.LOG_ONLY || this.mode == MODE.LOG_AND_SYNC) {
+					logger.info(loggingString);
+				} else {
+					logger.debug(loggingString);
+				}
 			}
-		}
 
-		// REFRESHING
-		if (this.mode == MODE.SYNC_ONLY || this.mode == MODE.LOG_AND_SYNC) {
+			// REFRESHING
+			if (this.mode == MODE.SYNC_ONLY || this.mode == MODE.LOG_AND_SYNC) {
 
-			// For each update, get Element with query and refresh it
-			for (String update : updates) {
+				// For each update, get Element with query and refresh it
+				for (String update : updates) {
 
-				String entityName = syncTable.getTable().getEntityName();
-				String identifierProperty = syncTable.getTable().getIdentifierProperty();
+					String entityName = syncTable.getTable().getEntityName();
+					String identifierProperty = syncTable.getTable().getIdentifierProperty();
 
-				// Updates using SESSION QUERY
-				transactionProvider.openTransaction();
-				Query query = session
-						.createQuery("FROM " + entityName + " WHERE " + identifierProperty + " = " + update);
-				@SuppressWarnings("unchecked")
-				List<EObject> resultsDB = query.list();
-				transactionProvider.commitTransaction();
+					// Updates using SESSION QUERY
+					Transaction transaction = session.beginTransaction();
+					Query query = session
+							.createQuery("FROM " + entityName + " WHERE " + identifierProperty + " = " + update);
+					@SuppressWarnings("unchecked")
+					List<EObject> resultsDB = query.list();
+					transaction.commit();
 
-				// Updates using CRITERIA
-				Criteria criteria = session.createCriteria(entityName);
-				// FIXME: identifierProperty always Long?
-				criteria.add(Restrictions.eq(identifierProperty, Long.parseLong(update)));
-				criteria.setProjection(Projections.rowCount());
-
-				// Merging RESULTS
-				int sizeHBQuery = Math.toIntExact((long) criteria.uniqueResult());
-				int sizeDBQuery = resultsDB.size();
-
-				if (sizeDBQuery == 1 && sizeHBQuery == 1) {
-
-					// Element found using both queries. Update element and
-					// parent
-
-					EObject elementToRefresh = resultsDB.get(0);
-					EObject parent = elementToRefresh.eContainer();
-
-					synchronized (remoteChangeFlag) {
-						remoteChangeFlag = true;
-
-						session.refresh(elementToRefresh);
-						session.refresh(parent);
-
-						remoteChangeFlag = false;
-					}
-
-				} else if (sizeDBQuery == 0 && sizeHBQuery == 1) {
-
-					// Only found using criteria (Probably insert). Update
-					// parent
-
-					criteria = session.createCriteria(entityName);
+					// Updates using CRITERIA
+					Criteria criteria = session.createCriteria(entityName);
 					// FIXME: identifierProperty always Long?
 					criteria.add(Restrictions.eq(identifierProperty, Long.parseLong(update)));
+					criteria.setProjection(Projections.rowCount());
 
-					EObject insertedElement = (EObject) criteria.list().get(0);
-					EObject parent = insertedElement.eContainer();
+					// Merging RESULTS
+					int sizeHBQuery = Math.toIntExact((long) criteria.uniqueResult());
+					int sizeDBQuery = resultsDB.size();
 
-					session.refresh(parent);
+					if (sizeDBQuery == 1 && sizeHBQuery == 1) {
 
-				} else if (sizeDBQuery == 1 && sizeHBQuery == 0) {
+						// Element found using both queries. Update element and
+						// parent
 
-					// Only found using query (Probably delete). Update parent
+						EObject elementToRefresh = resultsDB.get(0);
+						EObject parent = elementToRefresh.eContainer();
 
-					EObject deletedElement = resultsDB.get(0);
-					EObject parent = deletedElement.eContainer();
+						synchronized (remoteChangeFlag) {
+							remoteChangeFlag = true;
 
-					session.refresh(parent);
+							session.refresh(elementToRefresh);
+							session.refresh(parent);
 
-				} else {
+							remoteChangeFlag = false;
+						}
 
-					// Did not find the element. It is part of a batch operation
-					// or should really not be there
+					} else if (sizeDBQuery == 0 && sizeHBQuery == 1) {
 
-					logger.debug("Did not find element. Maybe a batch operation?");
+						// Only found using criteria (Probably insert). Update
+						// parent
+
+						criteria = session.createCriteria(entityName);
+						// FIXME: identifierProperty always Long?
+						criteria.add(Restrictions.eq(identifierProperty, Long.parseLong(update)));
+
+						EObject insertedElement = (EObject) criteria.list().get(0);
+						EObject parent = insertedElement.eContainer();
+
+						session.refresh(parent);
+
+					} else if (sizeDBQuery == 1 && sizeHBQuery == 0) {
+
+						// Only found using query (Probably delete). Update
+						// parent
+
+						EObject deletedElement = resultsDB.get(0);
+						EObject parent = deletedElement.eContainer();
+
+						session.refresh(parent);
+
+					} else {
+
+						// Did not find the element. It is part of a batch
+						// operation
+						// or should really not be there
+
+						logger.debug("Did not find element. Maybe a batch operation?");
+
+					}
 
 				}
-
 			}
+		} else {
 
+			logger.debug("Retrieving database updates from logging tables failed.");
+			
 		}
 
 	}

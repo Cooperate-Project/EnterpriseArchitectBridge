@@ -20,6 +20,7 @@ import de.cooperateproject.incrementalsync.monitoring.Table;
 import de.cooperateproject.incrementalsync.monitoring.TableAdapter;
 import de.cooperateproject.incrementalsync.synchronization.IncrementalSync;
 import de.cooperateproject.incrementalsync.synchronization.IncrementalSync.MODE;
+import de.cooperateproject.incrementalsync.synchronization.SyncUtil;
 
 /**
  * Contains basic test cases for the IncrementalSync-Project using a
@@ -64,6 +65,17 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 		// Close the opened session
 		session.close();
+	}
+	
+	@Test
+	public void extractMappingTest() throws Exception {
+		
+		// Get the list of tables from the current mapping
+		ArrayList<Table> tables = SyncUtil.getTables(getTestDB().getDataStore());
+		
+		// With the current mapping, there should be 10 elements
+		assertEquals(10, tables.size());
+		
 	}
 
 	/**
@@ -184,7 +196,7 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 	/**
 	 * Generates logging tables for the Enterprise Architect Meta-Model to use
-	 * with the base testcases.
+	 * with the base test cases.
 	 */
 	private void initLoggingTable() throws SQLException {
 		Statement statement = getTestDB().getDbConnection().createStatement();

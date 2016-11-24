@@ -3,6 +3,7 @@ package de.cooperateproject.incrementalsync.synchronization;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Optional;
 
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.hibernate.SessionFactory;
@@ -38,27 +39,37 @@ public class SyncUtil {
 		// Searches the table information in the mapped data
 		for (ClassMetadata classMetadata : classMetadataMap.values()) {
 
-			AbstractEntityPersister aep = (AbstractEntityPersister) classMetadata;
-
-			String idColumn = (aep.getIdentifierColumnNames().length == 1) ? aep.getIdentifierColumnNames()[0] : "";
-
-			String tableName = (aep.getTableName() == null) ? null : aep.getTableName().replace("`", "");
-			String entityName = (aep.getEntityName() == null) ? null : aep.getEntityName().replace("`", "");
-			String column = (idColumn == null) ? null : idColumn.replace("`", "");
-			String property = (aep.getIdentifierPropertyName() == null) ? null
-					: aep.getIdentifierPropertyName().replace("`", "");
-
-			Table elem = new Table(tableName, entityName, column, property);
-
-			// FIXME: Composite-IDs not supported right now!
-			if (column == null || property == null) {
-				continue;
+			Optional<Table> elem = createTableFromMetaData(classMetadata);
+			
+			if(elem.isPresent()) {
+				tableList.add(elem.get());
 			}
-
-			tableList.add(elem);
 		}
 
 		return tableList;
+	}
+	
+	private static Optional<Table> createTableFromMetaData(ClassMetadata classMetadata) {
+		
+		AbstractEntityPersister aep = (AbstractEntityPersister) classMetadata;
+
+		String idColumn = (aep.getIdentifierColumnNames().length == 1) ? aep.getIdentifierColumnNames()[0] : "";
+
+		String tableName = (aep.getTableName() == null) ? null : aep.getTableName().replace("`", "");
+		String entityName = (aep.getEntityName() == null) ? null : aep.getEntityName().replace("`", "");
+		String column = (idColumn == null) ? null : idColumn.replace("`", "");
+		String property = (aep.getIdentifierPropertyName() == null) ? null
+				: aep.getIdentifierPropertyName().replace("`", "");
+
+		// FIXME: Composite-IDs not supported right now!
+		if (column == null || property == null || tableName == null || entityName == null) {
+			return Optional.empty();
+		} else {
+
+			Table elem = new Table(tableName, entityName, column, property);
+			return Optional.of(elem);
+		}
+		
 	}
 
 	/**
