@@ -2,6 +2,7 @@ package de.cooperateproject.incrementalsync.tests.h2;
 
 import static org.junit.Assert.assertEquals;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -187,6 +188,51 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 		// Count the elements
 		assertEquals(0, parent.getElements().size());
+
+	}
+
+	@Test
+	public void testLocalSaving() throws Exception {
+
+		// Using hibernate to receive a parent / root object
+		Package parent = (Package) session.createQuery("FROM Package WHERE Parent_ID = 1").list().get(0);
+
+		// Use hibernate to get an element
+		Element element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
+		String initialName = element.getName();
+
+		// Change the name
+		element.setName("NewName1");
+
+		// Saving was not enabled. This change should be not persisted.
+		ResultSet rs = getTestDB().getDbConnection().createStatement()
+				.executeQuery(String.format("SELECT Name FROM %s.t_object WHERE Object_ID = 2", DB_SCHEMA));
+		rs.next();
+		assertEquals(initialName, rs.getString(1));
+
+		// Now enable adapters (element is child of parent, recursive test!)
+		sync.enableSaving(parent);
+
+		// Change the name again
+		element.setName("NewName2");
+
+		// Now, the change should have been persisted
+		ResultSet rs2 = getTestDB().getDbConnection().createStatement()
+				.executeQuery(String.format("SELECT Name FROM %s.t_object WHERE Object_ID = 2", DB_SCHEMA));
+		rs2.next();
+		assertEquals("NewName2", rs2.getString(1));
+
+		// Now disable adapters again
+		sync.disableSaving();
+
+		// Change the name a last time
+		element.setName("NewName3");
+
+		// The change should not have been persisted again
+		ResultSet rs3 = getTestDB().getDbConnection().createStatement()
+				.executeQuery(String.format("SELECT Name FROM %s.t_object WHERE Object_ID = 2", DB_SCHEMA));
+		rs3.next();
+		assertEquals("NewName2", rs3.getString(1));
 
 	}
 

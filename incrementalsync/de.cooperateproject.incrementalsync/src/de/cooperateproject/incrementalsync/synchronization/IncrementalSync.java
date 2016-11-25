@@ -36,7 +36,11 @@ public class IncrementalSync {
 
 	private Boolean remoteChangeFlag = false;
 	private volatile boolean running = false;
+	private boolean enabledSaving = false;
 	private volatile int syncInterval = 1000;
+	
+	private EContentAdapter savingAdapter = new EContentAdapter();
+	private EObject adapterParent = null;
 
 	private static final Logger logger = Logger.getLogger(IncrementalSync.class);
 
@@ -61,6 +65,49 @@ public class IncrementalSync {
 		this.prefix = prefix;
 		this.mode = mode;
 		this.session = session;
+		
+		initSavingAdapter();
+	}
+	
+	/**
+	 * Initializes the adapter object for detection of local changes.
+	 */
+	private void initSavingAdapter() {
+		savingAdapter = new EContentAdapter() {
+			@Override
+			public void notifyChanged(Notification notification) {
+
+				Object oldValue = notification.getOldValue();
+				Object newValue = notification.getNewValue();
+				Object notifier = notification.getNotifier();
+
+				// TODO: Saving also for Insert & Delete
+
+				// Check first, if this is a real change
+				if (oldValue != null && !oldValue.equals(newValue)
+						|| newValue != null && !newValue.equals(oldValue)) {
+
+					// Now check, if the change comes from the database
+					// refresh
+					// algorithm
+					synchronized (remoteChangeFlag) {
+						if (!remoteChangeFlag) {
+
+							Transaction transaction = session.beginTransaction();
+							try {
+								session.saveOrUpdate(notifier);
+							} catch (Exception e) {
+								logger.debug("Unable to save object: " + notifier.toString());
+							} finally {
+								transaction.commit();
+							}
+						}
+					}
+
+				}
+			}
+		};
+		
 	}
 
 	/**
@@ -69,11 +116,11 @@ public class IncrementalSync {
 	public int getSyncInterval() {
 		return syncInterval;
 	}
-	
+
 	public MODE getMode() {
 		return this.mode;
 	}
-	
+
 	public void setMode(MODE mode) {
 		this.mode = mode;
 	}
@@ -94,40 +141,41 @@ public class IncrementalSync {
 	/**
 	 * Enables automatic saving of model changes for a given object and all
 	 * childs recursively. Changes are detected with Adapters and written into
-	 * the database.
+	 * the database. For more safety while using a recursive adapter, only one
+	 * root/parent object is allowed per instance.
 	 * 
 	 * @param parentObject
 	 *            The root object or a parent object in the model tree
 	 */
 	public void enableSaving(EObject parentObject) {
 
-		parentObject.eAdapters().add(new EContentAdapter() {
-			@Override
-			public void notifyChanged(Notification notification) {
+		if (enabledSaving) {
+			logger.warn("Already enabled saving.");
+		} else {
+			adapterParent = parentObject;
+			parentObject.eAdapters().add(savingAdapter);
+			enabledSaving = !enabledSaving;
+		}
+	}
 
-				Object oldValue = notification.getOldValue();
-				Object newValue = notification.getNewValue();
-				Object notifier = notification.getNotifier();
+	/**
+	 * Disables automatic saving of model changes for a given object and all
+	 * childs recursively.
+	 * 
+	 * @param parentObject
+	 *            The root object or a parent object in the model tree
+	 */
+	public void disableSaving() {
 
-				// TODO: Saving also for Insert & Delete
+		if (!enabledSaving) {
+			logger.warn("Saving is not enabled.");
+		} else {
+			savingAdapter.unsetTarget(adapterParent);
+			adapterParent.eAdapters().remove(savingAdapter);
+			adapterParent = null;
+			enabledSaving = !enabledSaving;
+		}
 
-				// Check first, if this is a real change
-				if (oldValue != null && !oldValue.equals(newValue) || newValue != null && !newValue.equals(oldValue)) {
-
-					// Now check, if the change comes from the database refresh
-					// algorithm
-					synchronized (remoteChangeFlag) {
-						if (!remoteChangeFlag) {
-
-							Transaction transaction = session.beginTransaction();
-							session.saveOrUpdate(notifier);
-							transaction.commit();
-						}
-					}
-
-				}
-			}
-		});
 	}
 
 	/**
@@ -197,6 +245,7 @@ public class IncrementalSync {
 	 *            A TableListener, possibly holding updates from the logging
 	 *            table
 	 */
+	@SuppressWarnings("unchecked")
 	private void sync(TableAdapter syncTable) {
 		ArrayList<String> updates = syncTable.getUpdates();
 
@@ -227,12 +276,18 @@ public class IncrementalSync {
 					String identifierProperty = syncTable.getTable().getIdentifierProperty();
 
 					// Updates using SESSION QUERY
+					List<EObject> resultsDB = new ArrayList<EObject>();
 					Transaction transaction = session.beginTransaction();
-					Query query = session
-							.createQuery("FROM " + entityName + " WHERE " + identifierProperty + " = " + update);
-					@SuppressWarnings("unchecked")
-					List<EObject> resultsDB = query.list();
-					transaction.commit();
+					try {
+
+						Query query = session
+								.createQuery("FROM " + entityName + " WHERE " + identifierProperty + " = " + update);
+						resultsDB = query.list();
+					} catch (Exception e) {
+
+					} finally {
+						transaction.commit();
+					}
 
 					// Updates using CRITERIA
 					Criteria criteria = session.createCriteria(entityName);
@@ -300,7 +355,7 @@ public class IncrementalSync {
 		} else {
 
 			logger.debug("Retrieving database updates from logging tables failed.");
-			
+
 		}
 
 	}

@@ -59,8 +59,8 @@ public class TableAdapter {
 	 *         problem
 	 */
 	private Optional<Timestamp> getCurrentDataBaseTimestamp() {
-		try {
-			Statement s = sqlConnection.createStatement();
+		try (Statement s = sqlConnection.createStatement()) {
+			
 			ResultSet rs = s.executeQuery("SELECT NOW(6) as TS");
 
 			if (rs.next()) {
