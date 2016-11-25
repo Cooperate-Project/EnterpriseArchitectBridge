@@ -141,8 +141,8 @@ public class TableAdapter {
 			}
 
 			return parts[0] + "." + prefix + parts[1];
+		} else {
+			return prefix + table.getTableName();
 		}
-
-		return prefix + table.getTableName();
 	}
 }

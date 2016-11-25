@@ -34,11 +34,13 @@ public class IncrementalSync {
 	private ArrayList<Table> tables;
 	private MODE mode;
 
-	private Boolean remoteChangeFlag = false;
+	private boolean remoteChangeFlag = false;
+	private Object remoteChangeLock = new Object();
+
 	private volatile boolean running = false;
 	private boolean enabledSaving = false;
 	private volatile int syncInterval = 1000;
-	
+
 	private EContentAdapter savingAdapter = new EContentAdapter();
 	private EObject adapterParent = null;
 
@@ -65,10 +67,10 @@ public class IncrementalSync {
 		this.prefix = prefix;
 		this.mode = mode;
 		this.session = session;
-		
+
 		initSavingAdapter();
 	}
-	
+
 	/**
 	 * Initializes the adapter object for detection of local changes.
 	 */
@@ -84,20 +86,19 @@ public class IncrementalSync {
 				// TODO: Saving also for Insert & Delete
 
 				// Check first, if this is a real change
-				if (oldValue != null && !oldValue.equals(newValue)
-						|| newValue != null && !newValue.equals(oldValue)) {
+				if (oldValue != null && !oldValue.equals(newValue) || newValue != null && !newValue.equals(oldValue)) {
 
 					// Now check, if the change comes from the database
 					// refresh
 					// algorithm
-					synchronized (remoteChangeFlag) {
+					synchronized (remoteChangeLock) {
 						if (!remoteChangeFlag) {
 
 							Transaction transaction = session.beginTransaction();
 							try {
 								session.saveOrUpdate(notifier);
 							} catch (Exception e) {
-								logger.debug("Unable to save object: " + notifier.toString());
+								logger.error("Unable to save object: " + notifier.toString(), e);
 							} finally {
 								transaction.commit();
 							}
@@ -107,7 +108,7 @@ public class IncrementalSync {
 				}
 			}
 		};
-		
+
 	}
 
 	/**
@@ -159,11 +160,9 @@ public class IncrementalSync {
 	}
 
 	/**
-	 * Disables automatic saving of model changes for a given object and all
-	 * childs recursively.
+	 * Disables automatic saving of model changes for the already given object
+	 * and all childs recursively.
 	 * 
-	 * @param parentObject
-	 *            The root object or a parent object in the model tree
 	 */
 	public void disableSaving() {
 
@@ -208,7 +207,7 @@ public class IncrementalSync {
 					try {
 						Thread.sleep(syncInterval);
 					} catch (InterruptedException e) {
-						e.printStackTrace();
+						logger.error("Thread Sleep Exception.", e);
 					}
 				}
 			}
@@ -246,23 +245,25 @@ public class IncrementalSync {
 	 *            table
 	 */
 	@SuppressWarnings("unchecked")
-	private void sync(TableAdapter syncTable) {
-		ArrayList<String> updates = syncTable.getUpdates();
+	private void sync(TableAdapter syncTableAdapter) {
+
+		ArrayList<String> updates = syncTableAdapter.getUpdates();
+		Table syncTable = syncTableAdapter.getTable();
 
 		if (updates != null) {
 
 			if (updates.size() > 0) {
 
 				// LOGGING
-				String loggingString = "Updates in the last " + syncInterval + " miliseconds ("
-						+ Calendar.getInstance().getTime().toString() + ") at table "
-						+ syncTable.getTable().getTableName() + " (" + syncTable.getTable().getEntityName() + ") "
-						+ "at Primary Key(s): " + SyncUtil.prettyPrintArrayList(updates);
+				String logging = String.format(
+						"Updates in the last %d miliseconds (%s) at table %s (%s) at Primary Key(s): %s", syncInterval,
+						Calendar.getInstance().getTime().toString(), syncTable.getTableName(),
+						syncTable.getEntityName(), SyncUtil.prettyPrintArrayList(updates));
 
 				if (this.mode == MODE.LOG_ONLY || this.mode == MODE.LOG_AND_SYNC) {
-					logger.info(loggingString);
+					logger.info(logging);
 				} else {
-					logger.debug(loggingString);
+					logger.debug(logging);
 				}
 			}
 
@@ -272,19 +273,19 @@ public class IncrementalSync {
 				// For each update, get Element with query and refresh it
 				for (String update : updates) {
 
-					String entityName = syncTable.getTable().getEntityName();
-					String identifierProperty = syncTable.getTable().getIdentifierProperty();
+					String entityName = syncTable.getEntityName();
+					String identifierProperty = syncTable.getIdentifierProperty();
 
 					// Updates using SESSION QUERY
 					List<EObject> resultsDB = new ArrayList<EObject>();
 					Transaction transaction = session.beginTransaction();
 					try {
 
-						Query query = session
-								.createQuery("FROM " + entityName + " WHERE " + identifierProperty + " = " + update);
+						Query query = session.createQuery(
+								String.format("FROM %s WHERE %s = %s", entityName, identifierProperty, update));
 						resultsDB = query.list();
 					} catch (Exception e) {
-
+						logger.error("Unable to use hiberante query.", e);
 					} finally {
 						transaction.commit();
 					}
@@ -296,10 +297,10 @@ public class IncrementalSync {
 					criteria.setProjection(Projections.rowCount());
 
 					// Merging RESULTS
-					int sizeHBQuery = Math.toIntExact((long) criteria.uniqueResult());
-					int sizeDBQuery = resultsDB.size();
+					boolean sizeHBQuery = (long) criteria.uniqueResult() == 1L;
+					boolean sizeDBQuery = resultsDB.size() == 1;
 
-					if (sizeDBQuery == 1 && sizeHBQuery == 1) {
+					if (sizeDBQuery && sizeHBQuery) {
 
 						// Element found using both queries. Update element and
 						// parent
@@ -307,7 +308,7 @@ public class IncrementalSync {
 						EObject elementToRefresh = resultsDB.get(0);
 						EObject parent = elementToRefresh.eContainer();
 
-						synchronized (remoteChangeFlag) {
+						synchronized (remoteChangeLock) {
 							remoteChangeFlag = true;
 
 							session.refresh(elementToRefresh);
@@ -316,7 +317,7 @@ public class IncrementalSync {
 							remoteChangeFlag = false;
 						}
 
-					} else if (sizeDBQuery == 0 && sizeHBQuery == 1) {
+					} else if (!sizeDBQuery && sizeHBQuery) {
 
 						// Only found using criteria (Probably insert). Update
 						// parent
@@ -330,7 +331,7 @@ public class IncrementalSync {
 
 						session.refresh(parent);
 
-					} else if (sizeDBQuery == 1 && sizeHBQuery == 0) {
+					} else if (sizeDBQuery && !sizeHBQuery) {
 
 						// Only found using query (Probably delete). Update
 						// parent
