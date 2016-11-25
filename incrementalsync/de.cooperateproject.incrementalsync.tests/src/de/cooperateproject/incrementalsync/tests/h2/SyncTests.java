@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;
@@ -32,7 +31,6 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 	private Session session;
 	private IncrementalSync sync;
-	private Table table;
 
 	@Before
 	public void setUp() throws Exception {
@@ -49,13 +47,6 @@ public class SyncTests extends TeneoMappingBaseTest {
 		// Creates the IncrementalSync-Object
 		sync = new IncrementalSync(getTestDB().getDbConnection(), getTestDB().getDataStore(), session, "ht_",
 				MODE.LOG_AND_SYNC);
-
-		// Creates a table. In a real environment, this step is automated
-		table = new Table("t_object", "Element", "Object_ID", "ElementID");
-		ArrayList<Table> tables = new ArrayList<Table>();
-		tables.add(table);
-		sync.setTables(tables);
-
 	}
 
 	@After
@@ -66,16 +57,16 @@ public class SyncTests extends TeneoMappingBaseTest {
 		// Close the opened session
 		session.close();
 	}
-	
+
 	@Test
 	public void extractMappingTest() throws Exception {
-		
+
 		// Get the list of tables from the current mapping
 		ArrayList<Table> tables = SyncUtil.getTables(getTestDB().getDataStore());
-		
+
 		// With the current mapping, there should be 10 elements
 		assertEquals(10, tables.size());
-		
+
 	}
 
 	/**
@@ -85,13 +76,15 @@ public class SyncTests extends TeneoMappingBaseTest {
 	@Test
 	public void testUpdatePolling() throws Exception {
 
-		// Initializes a table. In a real environment, this is extracted from
-		// the hibernate mapping.
+		// Initializes a table and listener. In a real environment, this is
+		// extracted from the hibernate mapping.
+		Table table = new Table(String.format("%s.t_object", DB_SCHEMA), "Element", "Object_ID", "ElementID");
 		TableAdapter listener = new TableAdapter(getTestDB().getDbConnection(), table, "ht_");
 
 		// Adds a logging entry. In a real environment, this is done by
 		// generated database triggers.
-		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
+		getTestDB().getDbConnection().createStatement()
+				.execute(String.format("INSERT INTO %s.ht_t_object VALUES (2, NOW(6));", DB_SCHEMA));
 
 		// Gets the update. Should find an entry for element #2.
 		ArrayList<String> updates = listener.getUpdates();
@@ -117,7 +110,8 @@ public class SyncTests extends TeneoMappingBaseTest {
 		// Changes the element name and simulates an entry in the logging table
 		getTestDB().getDbConnection().createStatement()
 				.execute(String.format("UPDATE %s.t_object SET Name='%s' WHERE Object_ID=2", DB_SCHEMA, newName));
-		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
+		getTestDB().getDbConnection().createStatement()
+				.execute(String.format("INSERT INTO %s.ht_t_object VALUES (2, NOW(6));", DB_SCHEMA));
 		getTestDB().getDbConnection().commit();
 
 		// Sleep for 1.1 seconds and let IncrementalSync work (should refresh
@@ -146,7 +140,8 @@ public class SyncTests extends TeneoMappingBaseTest {
 				.execute(String.format(
 						"INSERT INTO %s.t_object (Name, Object_ID, ea_guid, Package_ID, Object_Type, Author, Complexity, Abstract, Scope, Status, GenType, ParentID, Classifier) VALUES('NewItem', 3, '{143BBD0B-9C9D-4a9b-A983-9D1C5B564CA7}', 2, 'Class', 'sebinside', 1, 0, 'Public', 'Proposed', 'Java', 0, 0)",
 						DB_SCHEMA));
-		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (3, NOW(6));");
+		getTestDB().getDbConnection().createStatement()
+				.execute(String.format("INSERT INTO %s.ht_t_object VALUES (3, NOW(6));", DB_SCHEMA));
 		getTestDB().getDbConnection().commit();
 
 		// Sleep for 1.1 seconds and let IncrementalSync work
@@ -175,7 +170,8 @@ public class SyncTests extends TeneoMappingBaseTest {
 		// Delete Element and simulate logging entry
 		getTestDB().getDbConnection().createStatement()
 				.execute(String.format("DELETE FROM %s.t_object WHERE Object_ID = 2", DB_SCHEMA));
-		getTestDB().getDbConnection().createStatement().execute("INSERT INTO ht_t_object VALUES (2, NOW(6));");
+		getTestDB().getDbConnection().createStatement()
+				.execute(String.format("INSERT INTO %s.ht_t_object VALUES (2, NOW(6));", DB_SCHEMA));
 		getTestDB().getDbConnection().commit();
 
 		// Sleep for 1.1 seconds and let IncrementalSync work
@@ -196,15 +192,18 @@ public class SyncTests extends TeneoMappingBaseTest {
 
 	/**
 	 * Generates logging tables for the Enterprise Architect Meta-Model to use
-	 * with the base test cases.
+	 * with the base test cases. In a real environment, this is done by another
+	 * generator.
 	 */
 	private void initLoggingTable() throws SQLException {
 		Statement statement = getTestDB().getDbConnection().createStatement();
 		String tableNames[] = { "attribute", "attributeconstraints", "attributetag", "connector", "diagram",
-				"diagramlinks", "diagramobjects", "object", "operation", "operationsparams", "package" };
+				"diagramlinks", "diagramobjects", "object", "operation", "operationparams", "package" };
 		for (String tableName : tableNames)
-			statement.execute("CREATE TABLE `ht_t_" + tableName
-					+ "` (`ID` INT(11) NOT NULL,`Timestamp` TIMESTAMP(6) NULL DEFAULT NULL,PRIMARY KEY (`ID`))");
+			statement.execute(String.format(
+					"CREATE TABLE %s.`ht_t_" + tableName
+							+ "` (`ID` INT(11) NOT NULL,`Timestamp` TIMESTAMP(6) NULL DEFAULT NULL,PRIMARY KEY (`ID`))",
+					DB_SCHEMA));
 	}
 
 }

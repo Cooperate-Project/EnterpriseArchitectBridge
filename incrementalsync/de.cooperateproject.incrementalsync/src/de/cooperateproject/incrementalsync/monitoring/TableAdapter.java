@@ -20,7 +20,7 @@ import de.cooperateproject.incrementalsync.synchronization.IncrementalSync;
  * call or since the creation of the adapter.
  */
 public class TableAdapter {
-	
+
 	private static Logger logger = Logger.getLogger(IncrementalSync.class);
 
 	// These are the constants from the logging tables
@@ -70,8 +70,8 @@ public class TableAdapter {
 			}
 
 		} catch (SQLException e) {
-			logger.error(
-					"Unexpected SQLException while initialising adapter for table " + table.getEntityName() + ".", e);
+			logger.error("Unexpected SQLException while initialising adapter for table " + table.getEntityName() + ".",
+					e);
 		}
 		return Optional.empty();
 	}
@@ -105,10 +105,10 @@ public class TableAdapter {
 		try (PreparedStatement ps = sqlConnection.prepareStatement(statement)) {
 
 			// Check timestamp
-			if(!timestamp.isPresent()) {
+			if (!timestamp.isPresent()) {
 				throw new SQLException("No timestamp available!");
 			}
-			
+
 			// Get Updates
 			ps.setTimestamp(1, timestamp.get());
 			ResultSet rs = ps.executeQuery();
@@ -130,6 +130,19 @@ public class TableAdapter {
 
 	private String getTriggerTableName() {
 		// e.G. "ht_" + "t_object" = "ht_t_object"
+		// OR: "test." + "ht_" + "t_object" = "test.ht_t_object"
+
+		if (table.getTableName().contains(".")) {
+			String[] parts = table.getTableName().split("[.]");
+
+			if (parts.length != 2) {
+				logger.debug("Database table name contains more than one sub schema. Unexpected.");
+				return "SCHEMA-ERROR";
+			}
+
+			return parts[0] + "." + prefix + parts[1];
+		}
+
 		return prefix + table.getTableName();
 	}
 }

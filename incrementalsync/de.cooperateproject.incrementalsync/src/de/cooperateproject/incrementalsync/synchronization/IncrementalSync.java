@@ -79,16 +79,6 @@ public class IncrementalSync {
 	}
 
 	/**
-	 * Overrides the tables, created from the HbDataStore Mapping.
-	 * 
-	 * @param tables
-	 *            A ArrayList of tables with proper information
-	 */
-	public void setTables(ArrayList<Table> tables) {
-		this.tables = tables;
-	}
-
-	/**
 	 * Sets the synchronization interval.
 	 * 
 	 * @param syncInterval
