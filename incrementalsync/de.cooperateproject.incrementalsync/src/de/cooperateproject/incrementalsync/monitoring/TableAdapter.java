@@ -85,6 +85,24 @@ public class TableAdapter {
 		return this.table;
 	}
 
+	private String getTriggerTableName() {
+		// e.G. "ht_" + "t_object" = "ht_t_object"
+		// OR: "test." + "ht_" + "t_object" = "test.ht_t_object"
+
+		if (table.getTableName().contains(".")) {
+			String[] parts = table.getTableName().split("[.]");
+
+			if (parts.length != 2) {
+				logger.debug("Database table name contains more than one sub schema. Unexpected.");
+				return "SCHEMA-ERROR";
+			}
+
+			return parts[0] + "." + prefix + parts[1];
+		} else {
+			return prefix + table.getTableName();
+		}
+	}
+
 	/**
 	 * Returns all updates since the last call or the creation of the adapter
 	 * instance.
@@ -125,24 +143,6 @@ public class TableAdapter {
 		} catch (SQLException e) {
 			logger.error("SQL Exception while updating " + table.getEntityName(), e);
 			return null;
-		}
-	}
-
-	private String getTriggerTableName() {
-		// e.G. "ht_" + "t_object" = "ht_t_object"
-		// OR: "test." + "ht_" + "t_object" = "test.ht_t_object"
-
-		if (table.getTableName().contains(".")) {
-			String[] parts = table.getTableName().split("[.]");
-
-			if (parts.length != 2) {
-				logger.debug("Database table name contains more than one sub schema. Unexpected.");
-				return "SCHEMA-ERROR";
-			}
-
-			return parts[0] + "." + prefix + parts[1];
-		} else {
-			return prefix + table.getTableName();
 		}
 	}
 }

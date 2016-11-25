@@ -17,8 +17,27 @@ import de.cooperateproject.incrementalsync.monitoring.Table;
  */
 public class SyncUtil {
 
-	// No instances of this class allowed
-	private SyncUtil() {
+	private static Optional<Table> createTableFromMetaData(ClassMetadata classMetadata) {
+		
+		AbstractEntityPersister aep = (AbstractEntityPersister) classMetadata;
+
+		String idColumn = (aep.getIdentifierColumnNames().length == 1) ? aep.getIdentifierColumnNames()[0] : "";
+
+		String tableName = (aep.getTableName() == null) ? null : aep.getTableName().replace("`", "");
+		String entityName = (aep.getEntityName() == null) ? null : aep.getEntityName().replace("`", "");
+		String column = (idColumn == null) ? null : idColumn.replace("`", "");
+		String property = (aep.getIdentifierPropertyName() == null) ? null
+				: aep.getIdentifierPropertyName().replace("`", "");
+
+		// FIXME: Composite-IDs not supported right now!
+		if (column == null || property == null || tableName == null || entityName == null) {
+			return Optional.empty();
+		} else {
+
+			Table elem = new Table(tableName, entityName, column, property);
+			return Optional.of(elem);
+		}
+		
 	}
 
 	/**
@@ -49,29 +68,6 @@ public class SyncUtil {
 		return tableList;
 	}
 	
-	private static Optional<Table> createTableFromMetaData(ClassMetadata classMetadata) {
-		
-		AbstractEntityPersister aep = (AbstractEntityPersister) classMetadata;
-
-		String idColumn = (aep.getIdentifierColumnNames().length == 1) ? aep.getIdentifierColumnNames()[0] : "";
-
-		String tableName = (aep.getTableName() == null) ? null : aep.getTableName().replace("`", "");
-		String entityName = (aep.getEntityName() == null) ? null : aep.getEntityName().replace("`", "");
-		String column = (idColumn == null) ? null : idColumn.replace("`", "");
-		String property = (aep.getIdentifierPropertyName() == null) ? null
-				: aep.getIdentifierPropertyName().replace("`", "");
-
-		// FIXME: Composite-IDs not supported right now!
-		if (column == null || property == null || tableName == null || entityName == null) {
-			return Optional.empty();
-		} else {
-
-			Table elem = new Table(tableName, entityName, column, property);
-			return Optional.of(elem);
-		}
-		
-	}
-
 	/**
 	 * Makes an ArrayList of Strings pretty again!
 	 * 
@@ -91,6 +87,10 @@ public class SyncUtil {
 		}
 
 		return sb.toString();
+	}
+
+	// No instances of this class allowed
+	private SyncUtil() {
 	}
 
 }

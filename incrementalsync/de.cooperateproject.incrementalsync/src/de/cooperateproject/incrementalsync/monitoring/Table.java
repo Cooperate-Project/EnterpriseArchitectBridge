@@ -32,15 +32,6 @@ public class Table {
 	}
 
 	/**
-	 * Returns the table name in the database
-	 * 
-	 * @return A String, e.G. "t_object"
-	 */
-	public String getTableName() {
-		return tableName;
-	}
-
-	/**
 	 * Returns the mappend entity name in Hibernate
 	 * 
 	 * @return A String, e.G. "Element"
@@ -65,6 +56,15 @@ public class Table {
 	 */
 	public String getIdentifierProperty() {
 		return identifierProperty;
+	}
+
+	/**
+	 * Returns the table name in the database
+	 * 
+	 * @return A String, e.G. "t_object"
+	 */
+	public String getTableName() {
+		return tableName;
 	}
 
 }

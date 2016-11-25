@@ -28,23 +28,30 @@ import de.cooperateproject.incrementalsync.monitoring.TableAdapter;
  */
 public class IncrementalSync {
 
+	/**
+	 * The IncrementalSync mode. Possible are logging and/or synchronization.
+	 */
+	public enum MODE {
+		LOG_ONLY, SYNC_ONLY, LOG_AND_SYNC
+	}
+	private static final Logger logger = Logger.getLogger(IncrementalSync.class);
+	
 	private final Connection sqlConnection;
 	private final Session session;
 	private final String prefix;
+
 	private ArrayList<Table> tables;
 	private MODE mode;
 
 	private boolean remoteChangeFlag = false;
 	private Object remoteChangeLock = new Object();
-
+	
 	private volatile boolean running = false;
 	private boolean enabledSaving = false;
 	private volatile int syncInterval = 1000;
 
 	private EContentAdapter savingAdapter = new EContentAdapter();
 	private EObject adapterParent = null;
-
-	private static final Logger logger = Logger.getLogger(IncrementalSync.class);
 
 	/**
 	 * Creates the incremental synchronization to log and update model changes
@@ -69,6 +76,55 @@ public class IncrementalSync {
 		this.session = session;
 
 		initSavingAdapter();
+	}
+
+	/**
+	 * Disables automatic saving of model changes for the already given object
+	 * and all childs recursively.
+	 * 
+	 */
+	public void disableSaving() {
+
+		if (!enabledSaving) {
+			logger.warn("Saving is not enabled.");
+		} else {
+			savingAdapter.unsetTarget(adapterParent);
+			adapterParent.eAdapters().remove(savingAdapter);
+			adapterParent = null;
+			enabledSaving = !enabledSaving;
+		}
+
+	}
+
+	/**
+	 * Enables automatic saving of model changes for a given object and all
+	 * childs recursively. Changes are detected with Adapters and written into
+	 * the database. For more safety while using a recursive adapter, only one
+	 * root/parent object is allowed per instance.
+	 * 
+	 * @param parentObject
+	 *            The root object or a parent object in the model tree
+	 */
+	public void enableSaving(EObject parentObject) {
+
+		if (enabledSaving) {
+			logger.warn("Already enabled saving.");
+		} else {
+			adapterParent = parentObject;
+			parentObject.eAdapters().add(savingAdapter);
+			enabledSaving = !enabledSaving;
+		}
+	}
+
+	public MODE getMode() {
+		return this.mode;
+	}
+
+	/**
+	 * Returns the currently set synchronization interval in milliseconds.
+	 */
+	public int getSyncInterval() {
+		return syncInterval;
 	}
 
 	/**
@@ -112,14 +168,13 @@ public class IncrementalSync {
 	}
 
 	/**
-	 * Returns the currently set synchronization interval in milliseconds.
+	 * Returns, if the synchronization is running at the moment
+	 * 
+	 * @return true, if the synchronization is running (asynchronously). false,
+	 *         if it does not run or will stop before the next iteration
 	 */
-	public int getSyncInterval() {
-		return syncInterval;
-	}
-
-	public MODE getMode() {
-		return this.mode;
+	public boolean isRunning() {
+		return running;
 	}
 
 	public void setMode(MODE mode) {
@@ -137,44 +192,6 @@ public class IncrementalSync {
 			this.syncInterval = syncInterval;
 		else
 			throw new IllegalArgumentException("SyncInterval must be greater than zero.");
-	}
-
-	/**
-	 * Enables automatic saving of model changes for a given object and all
-	 * childs recursively. Changes are detected with Adapters and written into
-	 * the database. For more safety while using a recursive adapter, only one
-	 * root/parent object is allowed per instance.
-	 * 
-	 * @param parentObject
-	 *            The root object or a parent object in the model tree
-	 */
-	public void enableSaving(EObject parentObject) {
-
-		if (enabledSaving) {
-			logger.warn("Already enabled saving.");
-		} else {
-			adapterParent = parentObject;
-			parentObject.eAdapters().add(savingAdapter);
-			enabledSaving = !enabledSaving;
-		}
-	}
-
-	/**
-	 * Disables automatic saving of model changes for the already given object
-	 * and all childs recursively.
-	 * 
-	 */
-	public void disableSaving() {
-
-		if (!enabledSaving) {
-			logger.warn("Saving is not enabled.");
-		} else {
-			savingAdapter.unsetTarget(adapterParent);
-			adapterParent.eAdapters().remove(savingAdapter);
-			adapterParent = null;
-			enabledSaving = !enabledSaving;
-		}
-
 	}
 
 	/**
@@ -218,16 +235,6 @@ public class IncrementalSync {
 		Thread t = new Thread(r);
 		t.start();
 
-	}
-
-	/**
-	 * Returns, if the synchronization is running at the moment
-	 * 
-	 * @return true, if the synchronization is running (asynchronously). false,
-	 *         if it does not run or will stop before the next iteration
-	 */
-	public boolean isRunning() {
-		return running;
 	}
 
 	/**
@@ -359,13 +366,6 @@ public class IncrementalSync {
 
 		}
 
-	}
-
-	/**
-	 * The IncrementalSync mode. Possible are logging and/or synchronization.
-	 */
-	public enum MODE {
-		LOG_ONLY, SYNC_ONLY, LOG_AND_SYNC
 	}
 
 }
