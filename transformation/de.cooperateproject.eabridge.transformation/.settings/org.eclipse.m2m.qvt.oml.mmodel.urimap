@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="ASCII"?>
 <uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
-  <mapping sourceURI="de.cooperateproject.eabridge.eaobjectmodel" targetURI="platform:/resource/de.cooperateproject.eabridge.eaobjectmodel/model/EAObjectModel.xcore"/>
+  <mapping sourceURI="de.cooperateproject.eabridge.eaobjectmodel" targetURI="platform:/resource/de.cooperateproject.eabridge.eaobjectmodel/model/eaobjectmodel.ecore"/>
 </uriMap:MappingContainer>

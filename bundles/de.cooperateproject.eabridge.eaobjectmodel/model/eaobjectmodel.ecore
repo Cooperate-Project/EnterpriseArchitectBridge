@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eaobjectmodel" nsURI="de.cooperateproject.eabridge.eaobjectmodel"
+    nsPrefix="eaobjectmodel">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="modelName" value="EAObjectModel"/>
+    <details key="modelDirectory" value="/de.cooperateproject.eabridge.eaobjectmodel/src-gen"/>
+    <details key="complianceLevel" value="6.0"/>
+    <details key="basePackage" value="de.cooperateproject.eabridge"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2011/Xcore">
+    <details key="JPA" value="teneo.jpa"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeReference">
+    <eOperations name="setType" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;classifier&quot;));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> classifierFeature = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;&lt;%org.eclipse.emf.ecore.EClass%> _eClass_1 = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures_1 = _eClass_1.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> typeNameFeature = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures_1, _function_1);&#xA;&lt;%java.lang.Object%> _eGet = this.eGet(classifierFeature);&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%> oldClassifier = ((&lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%>) _eGet);&#xA;if (((!&lt;%com.google.common.base.Objects%>.equal(oldClassifier, null)) &amp;&amp; (!&lt;%com.google.common.base.Objects%>.equal(&lt;%org.eclipse.emf.ecore.util.EcoreUtil%>.getID(oldClassifier), &lt;%org.eclipse.emf.ecore.util.EcoreUtil%>.getID(classifier)))))&#xA;{&#xA;&#x9;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _eAdapters = oldClassifier.eAdapters();&#xA;&#x9;final &lt;%java.util.function.Predicate%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _function_2 = new &lt;%java.util.function.Predicate%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>>()&#xA;&#x9;{&#xA;&#x9;&#x9;public boolean test(final &lt;%org.eclipse.emf.common.notify.Adapter%> a)&#xA;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;return (a instanceof &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher%>);&#xA;&#x9;&#x9;}&#xA;&#x9;};&#xA;&#x9;_eAdapters.removeIf(_function_2);&#xA;}&#xA;boolean _notEquals = (!&lt;%com.google.common.base.Objects%>.equal(classifier, null));&#xA;if (_notEquals)&#xA;{&#xA;&#x9;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _eAdapters_1 = classifier.eAdapters();&#xA;&#x9;boolean _isEmpty = _eAdapters_1.isEmpty();&#xA;&#x9;if (_isEmpty)&#xA;&#x9;{&#xA;&#x9;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher%> refreshAdapter = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher%>(this);&#xA;&#x9;&#x9;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _eAdapters_2 = classifier.eAdapters();&#xA;&#x9;&#x9;_eAdapters_2.add(refreshAdapter);&#xA;&#x9;}&#xA;&#x9;&lt;%java.lang.String%> _name = classifier.getName();&#xA;&#x9;this.eSet(typeNameFeature, _name);&#xA;}&#xA;else&#xA;{&#xA;&#x9;this.eSet(typeNameFeature, null);&#xA;}&#xA;this.eSet(classifierFeature, classifier);"/>
+      </eAnnotations>
+      <eParameters name="classifier" unique="false" eType="#//Element"/>
+    </eOperations>
+    <eOperations name="setType" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;classifier&quot;));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> classifierFeature = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;&lt;%org.eclipse.emf.ecore.EClass%> _eClass_1 = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures_1 = _eClass_1.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> typeNameFeature = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures_1, _function_1);&#xA;&lt;%java.lang.Object%> _eGet = this.eGet(classifierFeature);&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%> oldClassifier = ((&lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%>) _eGet);&#xA;boolean _notEquals = (!&lt;%com.google.common.base.Objects%>.equal(oldClassifier, null));&#xA;if (_notEquals)&#xA;{&#xA;&#x9;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _eAdapters = oldClassifier.eAdapters();&#xA;&#x9;final &lt;%java.util.function.Predicate%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _function_2 = new &lt;%java.util.function.Predicate%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>>()&#xA;&#x9;{&#xA;&#x9;&#x9;public boolean test(final &lt;%org.eclipse.emf.common.notify.Adapter%> a)&#xA;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;return (a instanceof &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher%>);&#xA;&#x9;&#x9;}&#xA;&#x9;};&#xA;&#x9;_eAdapters.removeIf(_function_2);&#xA;}&#xA;boolean _notEquals_1 = (!&lt;%com.google.common.base.Objects%>.equal(primitiveType, null));&#xA;if (_notEquals_1)&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _name = primitiveType.getName();&#xA;&#x9;this.eSet(typeNameFeature, _name);&#xA;}&#xA;else&#xA;{&#xA;&#x9;this.eSet(typeNameFeature, null);&#xA;}&#xA;this.eSet(classifierFeature, null);"/>
+      </eAnnotations>
+      <eParameters name="primitiveType" unique="false" eType="#//PrimitiveType"/>
+    </eOperations>
+    <eOperations name="setType" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;classifier&quot;));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> classifierFeature = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;&lt;%org.eclipse.emf.ecore.EClass%> _eClass_1 = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures_1 = _eClass_1.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> typeNameFeature = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures_1, _function_1);&#xA;&lt;%java.lang.Object%> _eGet = this.eGet(classifierFeature);&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%> oldClassifier = ((&lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%>) _eGet);&#xA;boolean _notEquals = (!&lt;%com.google.common.base.Objects%>.equal(oldClassifier, null));&#xA;if (_notEquals)&#xA;{&#xA;&#x9;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _eAdapters = oldClassifier.eAdapters();&#xA;&#x9;final &lt;%java.util.function.Predicate%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>> _function_2 = new &lt;%java.util.function.Predicate%>&lt;&lt;%org.eclipse.emf.common.notify.Adapter%>>()&#xA;&#x9;{&#xA;&#x9;&#x9;public boolean test(final &lt;%org.eclipse.emf.common.notify.Adapter%> a)&#xA;&#x9;&#x9;{&#xA;&#x9;&#x9;&#x9;return (a instanceof &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher%>);&#xA;&#x9;&#x9;}&#xA;&#x9;};&#xA;&#x9;_eAdapters.removeIf(_function_2);&#xA;}&#xA;this.eSet(typeNameFeature, notExistentType);&#xA;this.eSet(classifierFeature, null);"/>
+      </eAnnotations>
+      <eParameters name="notExistentType" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getPrimitiveType" unique="false" eType="#//PrimitiveType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;final &lt;%java.lang.Object%> typeName = this.eGet(_findFirst);&#xA;boolean _equals = &lt;%com.google.common.base.Objects%>.equal(typeName, null);&#xA;if (_equals)&#xA;{&#xA;&#x9;return null;&#xA;}&#xA;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>[] _enumConstants = &lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>.class.getEnumConstants();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>, &lt;%java.lang.Boolean%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%> c)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = c.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(((&lt;%java.lang.String%>) typeName).equals(_name));&#xA;&#x9;}&#xA;};&#xA;return &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>>findFirst(((&lt;%java.lang.Iterable%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function_1);"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getType" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;&lt;%java.lang.Object%> _eGet = this.eGet(_findFirst);&#xA;final &lt;%java.lang.String%> typeName = ((&lt;%java.lang.String%>) _eGet);&#xA;return typeName;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="hasmatchesClassifierName" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;classifier&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;&lt;%java.lang.Object%> _eGet = this.eGet(_findFirst);&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%> classifierTmp = ((&lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%>) _eGet);&#xA;&lt;%org.eclipse.emf.ecore.EClass%> _eClass_1 = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures_1 = _eClass_1.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst_1 = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures_1, _function_1);&#xA;&lt;%java.lang.Object%> _eGet_1 = this.eGet(_findFirst_1);&#xA;final &lt;%java.lang.String%> typeName = ((&lt;%java.lang.String%>) _eGet_1);&#xA;if (((&lt;%com.google.common.base.Objects%>.equal(classifierTmp, null) || &lt;%com.google.common.base.Strings%>.isNullOrEmpty(classifierTmp.getName())) || classifierTmp.getName().equals(typeName)))&#xA;{&#xA;&#x9;return true;&#xA;}&#xA;else&#xA;{&#xA;&#x9;return false;&#xA;}"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+      <eParameters name="context" unique="false">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="#//Element">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedGetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="matchesClassifierName"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedGetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveType">
+    <eLiterals name="Int" literal="int"/>
+    <eLiterals name="Boolean" literal="boolean"/>
+    <eLiterals name="Byte" literal="byte"/>
+    <eLiterals name="Char" literal="char"/>
+    <eLiterals name="Double" literal="double"/>
+    <eLiterals name="Float" literal="float"/>
+    <eLiterals name="Long" literal="long"/>
+    <eLiterals name="Short" literal="Short"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AllowDuplicates" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttributeGUID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttributeID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AttributeType" eType="#//TypeReference"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Container" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Containment" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Constraints" upperBound="-1"
+        eType="#//AttributeConstraint" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Default" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsCollection" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsConst" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsDerived" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsOrdered" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsStatic" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Length" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LowerBound" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Element"
+        eOpposite="#//Element/Attributes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Pos" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Precision" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scale" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stereotype" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Style" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StyleEx" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TaggedValues" upperBound="-1"
+        eType="#//AttributeTag" containment="true" resolveProxies="false" eOpposite="#//AttributeTag/Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UpperBound" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scope" unique="false" eType="#//Scope"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GenOption" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Scope">
+    <eLiterals name="Private" value="1" literal="Private"/>
+    <eLiterals name="Public" value="2" literal="Public"/>
+    <eLiterals name="Package" value="3" literal="Package"/>
+    <eLiterals name="Protected" value="4" literal="Protected"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ScopeObject" instanceClassName="de.cooperateproject.eabridge.eaobjectmodel.Scope">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This wrapper is required if the scope shall be optional.&#xA;https://wiki.eclipse.org/EMF/Recipes#Recipe:_Generating_enumeration-based_attributes_that_support_null"/>
+      <details key="create" value="boolean _equals = &lt;%com.google.common.base.Objects%>.equal(it, null);&#xA;if (_equals)&#xA;{&#xA;&#x9;return null;&#xA;}&#xA;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>[] _enumConstants = &lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>.class.getEnumConstants();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%> c)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = c.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(it.equals(_name));&#xA;&#x9;}&#xA;};&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%> result = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>>findFirst(((&lt;%java.lang.Iterable%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function);&#xA;boolean _equals_1 = &lt;%com.google.common.base.Objects%>.equal(result, null);&#xA;if (_equals_1)&#xA;{&#xA;&#x9;throw new &lt;%java.lang.IllegalArgumentException%>(((&quot;The value \'&quot; + it) + &quot;\' is not a valid enumerator of \'Scope\'&quot;));&#xA;}&#xA;return result;"/>
+      <details key="convert" value="boolean _equals = &lt;%com.google.common.base.Objects%>.equal(it, null);&#xA;if (_equals)&#xA;{&#xA;&#x9;return null;&#xA;}&#xA;return it.getLiteral();"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ElementOfAttribute" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constraint" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttName" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeTag">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" eType="#//Attribute"
+        eOpposite="#//Attribute/TaggedValues"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TagGUID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TagID" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConnectorID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConnectorGUID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Direction" unique="false"
+        eType="#//DirectionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PtEndX" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PtEndY" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventFlags" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeaf" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRoot" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSpec" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RouteStyle" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SeqNo" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PtStartX" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PtStartY" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionFlags" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StateFlags" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stereotype" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StyleEx" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubType" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" unique="false" eType="#//ConnectorType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VirtualInheritance" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" eType="#//Element"
+        eOpposite="#//Element/SourceRelations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Dest" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceCard" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceAccess" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceElement" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceRole" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceRoleType" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceRoleNote" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceContainment" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsAggregate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsOrdered" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceQualifier" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceChangeable" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceConstraint" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsNavigable" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceStereotype" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceStyle" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceTS" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestCard" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestAccess" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestElement" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestRole" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestRoleType" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestRoleNote" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestContainment" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestIsAggregate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestIsOrdered" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestQualifier" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestChangeable" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestConstraint" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestIsNavigable" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestStereotype" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestStyle" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestTS" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Top_Start_Label" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Top_Mid_Label" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Top_End_Label" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Btm_Start_Label" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Btm_Mid_Label" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Btm_End_Label" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Start_Edge" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="End_Edge" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeadStyle" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LineStyle" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DispatchAction" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PDATA1" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PDATA2" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PDATA3" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PDATA4" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PDATA5" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DirectionType">
+    <eLiterals name="Unspecified" literal="Unspecified"/>
+    <eLiterals name="BiDirectional" literal="Bi-Directional"/>
+    <eLiterals name="SourceDestination" literal="Source -> Destination"/>
+    <eLiterals name="DestinationSource" literal="Destination -> Source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConnectorType">
+    <eLiterals name="Connector_Type" literal="Connector_Type"/>
+    <eLiterals name="Abstraction" literal="Abstraction"/>
+    <eLiterals name="Aggregation" literal="Aggregation"/>
+    <eLiterals name="Assembly" literal="Assembly"/>
+    <eLiterals name="Association" literal="Association"/>
+    <eLiterals name="Collaboration" literal="Collaboration"/>
+    <eLiterals name="CommunicationPath" literal="CommunicationPath"/>
+    <eLiterals name="Connector" literal="Connector"/>
+    <eLiterals name="ControlFlow" literal="ControlFlow"/>
+    <eLiterals name="Delegate" literal="Delegate"/>
+    <eLiterals name="Dependency" literal="Dependency"/>
+    <eLiterals name="Deployment" literal="Deployment"/>
+    <eLiterals name="ERLink" literal="ERLink"/>
+    <eLiterals name="Extension" literal="Extension"/>
+    <eLiterals name="Generalization" literal="Generalization"/>
+    <eLiterals name="InformationFlow" literal="InformationFlow"/>
+    <eLiterals name="Instantiation" literal="Instantiation"/>
+    <eLiterals name="InterruptFlow" literal="InterruptFlow"/>
+    <eLiterals name="Manifest" literal="Manifest"/>
+    <eLiterals name="Nesting" literal="Nesting"/>
+    <eLiterals name="NoteLink" literal="NoteLink"/>
+    <eLiterals name="ObjectFlow" literal="ObjectFlow"/>
+    <eLiterals name="Package" literal="Package"/>
+    <eLiterals name="ProtocolConformance" literal="ProtocolConformance"/>
+    <eLiterals name="ProtocolTransition" literal="ProtocolTransition"/>
+    <eLiterals name="Realisation" literal="Realisation"/>
+    <eLiterals name="Sequence" literal="Sequence"/>
+    <eLiterals name="StateFlow" literal="StateFlow"/>
+    <eLiterals name="Substitution" literal="Substitution"/>
+    <eLiterals name="Usage" literal="Usage"/>
+    <eLiterals name="UseCase" literal="UseCase"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Diagram">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Author" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CreatedDate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cx" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cy" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DiagramGUID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DiagramID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DiagramLinks" upperBound="-1"
+        eType="#//DiagramLink" containment="true" resolveProxies="false" eOpposite="#//DiagramLink/Diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DiagramObjects" upperBound="-1"
+        eType="#//DiagramObject" containment="true" resolveProxies="false" eOpposite="#//DiagramObject/Diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Orientation" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//Package"
+        eOpposite="#//Package/Diagrams"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scale" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stereotype" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StyleEx" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Swimlanes" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttPub" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttPri" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttPro" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="GeometryMap" instanceClassName="de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DiagramLink">
+    <eOperations name="setGeometry" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;SX&quot;, &lt;%java.lang.Integer%>.valueOf(SX));&#xA;map.put(&quot;SY&quot;, &lt;%java.lang.Integer%>.valueOf(SY));&#xA;map.put(&quot;EX&quot;, &lt;%java.lang.Integer%>.valueOf(EX));&#xA;map.put(&quot;EY&quot;, &lt;%java.lang.Integer%>.valueOf(EY));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
+      </eAnnotations>
+      <eParameters name="SX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="SY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="EX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="EY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setSX" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;SX&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
+      </eAnnotations>
+      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setSY" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;SY&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
+      </eAnnotations>
+      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setEX" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;EX&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
+      </eAnnotations>
+      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setEY" unique="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;EY&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
+      </eAnnotations>
+      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Connector" eType="#//Connector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Diagram" eType="#//Diagram"
+        eOpposite="#//Diagram/DiagramLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Geometry" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Hidden" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Style" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;SX&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;SY&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;EX&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;EY&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiagramObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bottom" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Diagram" eType="#//Diagram"
+        eOpposite="#//Diagram/DiagramObjects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Element" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InstanceID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Left" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Right" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Sequence" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectStyle" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Top" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abstract" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionFlags" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Alias" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Attributes" upperBound="-1"
+        eType="#//Attribute" containment="true" resolveProxies="false" eOpposite="#//Attribute/Parent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Author" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Classifier" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Classifier_guid" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Complexity" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CreatedDate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ElementGUID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ElementID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//Element" containment="true" resolveProxies="false" eOpposite="#//Element/Parent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventFlags" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GenFile" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Genlinks" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GenType" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsActive" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeaf" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSpec" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Methods" upperBound="-1"
+        eType="#//Method" containment="true" resolveProxies="false" eOpposite="#//Method/Parent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModifiedDate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//Package"
+        eOpposite="#//Package/Elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Element"
+        eOpposite="#//Element/Elements"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Persistence" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Phase" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunState" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stereotype" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StyleEx" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TreePos" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" unique="false"
+        eType="#//ScopeObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Style" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Backcolor" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BorderStyle" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BorderWidth" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Fontcolor" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bordercolor" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cardinality" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Concurrency" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PDATA1" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SourceRelations" upperBound="-1"
+        eType="#//Connector" containment="true" resolveProxies="false" eOpposite="#//Connector/Source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Method">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ReturnType" eType="#//TypeReference"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
+        eType="#//Methodparameter" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abstract" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Behaviour" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsConst" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsLeaf" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsPure" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsQuery" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRoot" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsStatic" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsSynchronized" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MethodGUID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MethodID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Element"
+        eOpposite="#//Element/Methods"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Pos" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnIsArray" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StateFlags" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stereotype" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Style" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StyleEx" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Throws" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" unique="false"
+        eType="#//Scope"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Concurrency" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GenOption" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Methodparameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ea_guid" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MethodID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterType" eType="#//TypeReference"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PackageGUID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BatchLoad" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BatchSave" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CodePath" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CreatedDate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Flags" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsControlled" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsNamespace" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsProtected" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastLoadDate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastSaveDate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LogXML" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModifiedDate" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Notes" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Owner" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PackageID" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TreePos" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UMLVersion" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UseDTD" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="XMLPath" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Packages" upperBound="-1"
+        eType="#//Package" containment="true" resolveProxies="false" eOpposite="#//Package/Parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Diagrams" upperBound="-1"
+        eType="#//Diagram" containment="true" resolveProxies="false" eOpposite="#//Diagram/Package"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//Element" containment="true" resolveProxies="false" eOpposite="#//Element/Package"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Package"
+        eOpposite="#//Package/Packages"/>
+  </eClassifiers>
+</ecore:EPackage>

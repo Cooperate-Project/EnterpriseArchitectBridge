@@ -7,7 +7,7 @@ main() {
 	rootPackages-> map mapPackages();
 }
 
-mapping Package::mapPackages() : uml::Package
+mapping eaobjectmodel::Package::mapPackages() : uml::Package
 {
 	name := self.Name;
 	nestedPackage := self.Packages->map mapPackages();
@@ -155,7 +155,7 @@ mapping Method::transformOperations() :  Operation
 	visibility := self.Visibility.getAttributeType();
 	
 }
-mapping Methodparamter::transformParameters() :  Parameter
+mapping Methodparameter::transformParameters() :  Parameter
 {
 	name := self.Name;
 	type := self.ParameterType.getRefType();
@@ -174,19 +174,20 @@ mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter
 	type  := self.getRefType();
 
 }
-mapping in String::transformPrimitive() : PrimitiveType
+query String::transformPrimitive() : PrimitiveType
 {
 	switch {
-		case (self = 'int') name:='int'; 
-		case (self = 'double') name:='double';
-		case (self = 'boolean') name:='boolean';
-		case (self = 'byte') name:='byte';
-		case (self = 'long') name:='long';
-		case (self = 'char') name:='char';
-		case (self = 'short') name:='short';
-		case (self = 'float') name:='float';
+		case (self = 'int') return PrimitiveType::Int; 
+		case (self = 'double') return PrimitiveType::Double;
+		case (self = 'boolean') return PrimitiveType::Boolean;
+		case (self = 'byte') return PrimitiveType::Byte;
+		case (self = 'long') return PrimitiveType::Long;
+		case (self = 'char') return PrimitiveType::Char;
+		case (self = 'short') return PrimitiveType::Short;
+		case (self = 'float') return PrimitiveType::Float;
 	};
-	 if(name.oclIsUndefined()) self->transformDatatypes();
+	assert error(false) with log("Could not map primitive type name.");
+	return null;
 	
 }
 
@@ -215,4 +216,9 @@ query TypeReference::getRefType() : uml::Type
 		return reference;
 	};
 	
-} 
+}
+
+query ScopeObject::getAttributeType() : VisibilityKind
+{
+	return if self = null then null else self.oclAsType(Scope).getAttributeType() endif;
+}
