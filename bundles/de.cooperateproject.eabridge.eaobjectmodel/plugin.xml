@@ -11,7 +11,7 @@
       <package
             uri="de.cooperateproject.eabridge.eaobjectmodel"
             class="de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage"
-            genModel="model/EAObjectModel.xcore"/>
+            genModel="model/eaobjectmodel.genmodel"/>
    </extension>
 
 </plugin>
