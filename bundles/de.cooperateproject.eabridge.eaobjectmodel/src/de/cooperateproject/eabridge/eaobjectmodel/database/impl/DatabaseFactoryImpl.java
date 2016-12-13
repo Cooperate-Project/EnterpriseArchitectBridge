@@ -12,6 +12,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.teneo.PersistenceOptions;
+import org.eclipse.emf.teneo.classloader.ClassClassLoaderStrategy;
+import org.eclipse.emf.teneo.classloader.ClassLoaderResolver;
 import org.eclipse.emf.teneo.extension.ExtensionManager;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.eclipse.emf.teneo.hibernate.HbHelper;
@@ -47,15 +49,16 @@ public class DatabaseFactoryImpl extends DatabaseFactory {
 			props.setProperty(PersistenceOptions.MAPPING_FILE_PATH, mappingXMLPath.get());
 		}
 
+		// workaround for unit tests
+		ClassLoaderResolver.setClassLoaderStrategy(new ClassClassLoaderStrategy());
+
 		// data store initialization
 		final String hbName = "EAObjectModel";
 		final HbDataStore hbds = HbHelper.INSTANCE.createRegisterDataStore(hbName);
 		hbds.setDataStoreProperties(props);
 		hbds.setEPackages(new EPackage[] { EaobjectmodelPackage.eINSTANCE });
-
 		final ExtensionManager extensionManager = hbds.getExtensionManager();
 		extensionManager.registerExtension(SQLNameStrategy.class.getName(), CustomNamingStrategy.class.getName());
-		
 		hbds.initialize();
 		return hbds;
 	}

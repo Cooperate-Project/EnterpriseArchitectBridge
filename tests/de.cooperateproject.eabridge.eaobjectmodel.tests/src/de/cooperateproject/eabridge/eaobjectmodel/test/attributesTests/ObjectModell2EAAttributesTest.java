@@ -1,12 +1,12 @@
 package de.cooperateproject.eabridge.eaobjectmodel.test.attributesTests;
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.io.IOUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Assert;
@@ -32,11 +32,11 @@ import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
-import de.cooperateproject.eabridge.eaobjectmodel.test.TeneoParameterizedBaseTest;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.NodeParserUtil;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.ObjectModelHelper;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.XMLParser;
+import de.cooperateproject.eabridge.tests.common.TeneoParameterizedBaseTest;
+import de.cooperateproject.eabridge.tests.common.util.TestResource;
 
 
 /**
@@ -50,7 +50,7 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
    private static String compareContent;
    private String attribute;
    private Node node;
-   private final static File logPath = TestResource.bigModel.getFile();
+   private final static TestResource logPath = TestResource.bigModel;
    /**
     * 
     * @throws Exception
@@ -72,7 +72,7 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
 		trans.begin();
 		session.save(objectModel);
 		trans.commit();
-		compareContent = readFile(logPath, Charset.defaultCharset());
+		compareContent = logPath.getContent();
 		content = getTestDb().generateChangelog();
    }
    
@@ -139,7 +139,12 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
     */
    @Parameters(name = "Test for attribute: {0}")
    public static Collection<Object[]> setParameters() throws ParserConfigurationException, SAXException, IOException {
-      return Arrays.asList(XMLParser.XMLtoNodes(TestResource.bigModel.getFile().getAbsolutePath()));
+	   InputStream is = TestResource.bigModel.getInputStream();
+	   try {
+		   return Arrays.asList(XMLParser.XMLtoNodes(is));		   
+	   } finally {
+		   IOUtils.closeQuietly(is);
+	   }
    }
    /**
     * this methode starts the test. it uses the diffBuilder to compare the created logs with the desired logs value.

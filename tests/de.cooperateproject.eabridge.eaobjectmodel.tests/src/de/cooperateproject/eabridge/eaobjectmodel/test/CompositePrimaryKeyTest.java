@@ -11,8 +11,9 @@ import org.junit.Test;
 import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
+import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
+import de.cooperateproject.eabridge.tests.common.util.TestResource;
 
 public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 	

@@ -5,7 +5,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
@@ -34,8 +33,9 @@ import com.google.common.collect.Lists;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
+import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
+import de.cooperateproject.eabridge.tests.common.util.TestResource;
 
 public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 
@@ -52,7 +52,7 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		trans.commit();
 
 		String content = getTestDB().generateChangelog();
-		String compareContent = readFile(TestResource.SimpleClassModelChangelog.getFile(), Charset.defaultCharset());
+		String compareContent = TestResource.SimpleClassModelChangelog.getContent();
 		
 		Diff myDiff = createDiffBuilder(compareContent, content).build();
 		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
@@ -76,7 +76,7 @@ public class ObjectModel2EAMappingTest extends TeneoMappingBaseTest {
 		session.close();
 
 		String changed = getTestDB().generateChangelog();
-		String original = readFile(TestResource.EASingleClassChangelog.getFile(), Charset.defaultCharset());
+		String original = TestResource.EASingleClassChangelog.getContent();
 		Diff myDiff = createDiffBuilder(original, changed).build();
 		
 		assertEquals("Expected one difference, but got more: " + myDiff.toString(),1, Iterables.size(myDiff.getDifferences()));

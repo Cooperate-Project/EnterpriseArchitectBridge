@@ -6,9 +6,12 @@
         <groupId>de.cooperateproject.eabridge</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../releng/de.cooperateproject.eabridge.parent</relativePath>
     </parent>
     <artifactId>de.cooperateproject.eabridge.features</artifactId>
     <packaging>pom</packaging>
+	
+	<modules>
+		<module>de.cooperateproject.eabridge.feature</module>
+	</modules>
 
 </project>

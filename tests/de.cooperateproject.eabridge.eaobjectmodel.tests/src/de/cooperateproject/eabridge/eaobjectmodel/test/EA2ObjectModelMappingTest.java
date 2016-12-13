@@ -22,8 +22,9 @@ import org.junit.Test;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.CustomDiffEngine;
-import de.cooperateproject.eabridge.eaobjectmodel.test.util.TestResource;
 import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
+import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
+import de.cooperateproject.eabridge.tests.common.util.TestResource;
 
 public class EA2ObjectModelMappingTest extends TeneoMappingBaseTest {
 
