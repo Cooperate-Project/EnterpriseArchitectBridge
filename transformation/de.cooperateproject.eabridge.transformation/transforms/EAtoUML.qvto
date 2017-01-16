@@ -1,4 +1,4 @@
-transformation EAtoUML(in om: OM,in umlprimitives : UML, out uml1:UML);
+transformation EAtoUML(in om: OM,in ecorePrimitives : UML, out uml1:UML);
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
@@ -12,7 +12,7 @@ mapping eaobjectmodel::Package::mapPackages() : uml::Package
 	name := self.Name;
 	nestedPackage := self.Packages->map mapPackages();
 
-	var classes := self.Elements->select(e:  OM::Element | e.Type="Class");
+	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
 	var connectors := classes->collect(SourceRelations);
 	var usages := connectors->select(e : Connector| e.Type = ConnectorType::Usage);
 	var Informationflows :=  connectors->select(e : Connector| e.Type = ConnectorType::InformationFlow);
@@ -50,7 +50,7 @@ mapping Connector::mapClassesToInformationflows():  InformationFlow {
 mapping Element::mapElementsToClasses() : Class
 {	
 	name := self.Name;
-	ownedAttribute := self.Attributes-> map transformAttributes();
+	ownedAttribute := self.Attributes-> map transformAttribute();
 	ownedOperation := self.Methods-> map transformOperations();
 	visibility := self.Visibility.getAttributeType();
 	
@@ -85,16 +85,36 @@ mapping Element::mapElementsToClasses() : Class
 	};
 	
 }
-mapping Element::mapElementsToInterfaces() :  Interface
+mapping Element::mapElementsToInterfaces() :  uml::Interface
 {
 	name := self.Name;
+}
+
+mapping Attribute::transformAttribute() :  uml::Property
+disjuncts Attribute::transformAttributeWithoutClassifier, Attribute::transformAttributeWithClassifier
+{}
+
+mapping Attribute::transformAttributeWithoutClassifier() :  uml::Property
+when { self.AttributeType.classifier = null}
+{
+	name := self.Name;
+	visibility := self.Scope.getAttributeType();
+	type := self.AttributeType.typeName.transformPrimitive();
+}
+
+mapping Attribute::transformAttributeWithClassifier() :  uml::Property
+when { self.AttributeType.classifier <> null}
+{
+	name := self.Name;
+	visibility := self.Scope.getAttributeType();
+	type := self.AttributeType.classifier.late resolveone(uml::Classifier);
 }
 
 mapping Connector::mapConnectoToGeneralization() :  Generalization
 {
 	general := self.Dest.oclAsType(Class);
 }
-mapping Connector::mapConnectoToSubstitution() :  Substitution
+mapping eaobjectmodel::Connector::mapConnectoToSubstitution() :  uml::Substitution
 {
 	supplier := self.Dest.oclAsType(Class);
 }
@@ -109,13 +129,6 @@ mapping Connector::mapElementsToConnectors() : uml::Association
 	} else {
 		ownedEnd += self -> map transformConnectorToAssociation();
 	};	
-}
-
-mapping Attribute::transformAttributes() :  Property
-{
-	name := self.Name;
-	visibility := self.Scope.getAttributeType();
-	type := self.AttributeType.getRefType();
 }
 
 mapping Connector::transformConnectorToAggregation() :  Property
@@ -158,7 +171,7 @@ mapping Method::transformOperations() :  Operation
 mapping Methodparameter::transformParameters() :  Parameter
 {
 	name := self.Name;
-	type := self.ParameterType.getRefType();
+	type := type := self.ParameterType.typeName.transformPrimitive();
 	direction := ParameterDirectionKind::_in;	
 	
 }
@@ -171,24 +184,17 @@ mapping in String::transformDatatypes() : uml::DataType
 mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter 
 {
 	direction := ParameterDirectionKind::_return;
-	type  := self.getRefType();
+	type := self.typeName.transformPrimitive();
 
 }
-query String::transformPrimitive() : PrimitiveType
+
+query String::transformPrimitive() : uml::PrimitiveType
 {
-	switch {
-		case (self = 'int') return PrimitiveType::Int; 
-		case (self = 'double') return PrimitiveType::Double;
-		case (self = 'boolean') return PrimitiveType::Boolean;
-		case (self = 'byte') return PrimitiveType::Byte;
-		case (self = 'long') return PrimitiveType::Long;
-		case (self = 'char') return PrimitiveType::Char;
-		case (self = 'short') return PrimitiveType::Short;
-		case (self = 'float') return PrimitiveType::Float;
-	};
-	assert error(false) with log("Could not map primitive type name.");
-	return null;
-	
+	var searchString = "E".concat(self).toLower();
+	var model := ecorePrimitives.rootObjects()[uml::Model]->any(true);
+	var types := model.ownedElement->selectByType(uml::PrimitiveType);
+	var type := types->any(searchString = name.toString().toLower());
+	return type;
 }
 
 query Scope::getAttributeType() : VisibilityKind
@@ -202,21 +208,6 @@ query Scope::getAttributeType() : VisibilityKind
 	};
 } 
 
-query TypeReference::getRefType() : uml::Type
-{
-	//resolve nutzen: elements wurden schon gemappt 
-	var reference = self.classifier -> map mapElementsToClasses() -> selectOne(p | true).oclAsType(Type);
-	if(reference.name.oclIsInvalid()) {
-		if("int double boolean byte long char short float".indexOf(self.typeName) > 0) {
-			return self.typeName.map transformPrimitive().oclAsType(Type);
-		} else {
-			return self.typeName.map transformDatatypes().oclAsType(Type);
-		};	
-	} else {
-		return reference;
-	};
-	
-}
 
 query ScopeObject::getAttributeType() : VisibilityKind
 {
