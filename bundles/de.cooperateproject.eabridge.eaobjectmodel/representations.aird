@@ -667,6 +667,8 @@
   <semanticResources>java:/Objects/sun.util.calendar.Era</semanticResources>
   <semanticResources>java:/Objects/sun.util.calendar.Gregorian</semanticResources>
   <semanticResources>platform:/resource/org.eclipse.emf.ecore.xcore.lib/model/XcoreLang.xcore</semanticResources>
+  <semanticResources>model/eaobjectmodel.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_b-ws8KjJEeWqM_pqByodZA">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_jqBvgKjJEeWqM_pqByodZA" name="ecore class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_jqBvgajJEeWqM_pqByodZA" source="DANNOTATION_CUSTOMIZATION_KEY">
