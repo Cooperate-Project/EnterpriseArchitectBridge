@@ -2859,6 +2859,16 @@ public interface EaobjectmodelPackage extends EPackage {
 	int CONNECTOR_TYPE = 15;
 
 	/**
+	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ElementType <em>Element Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ElementType
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getElementType()
+	 * @generated
+	 */
+	int ELEMENT_TYPE = 16;
+
+	/**
 	 * The meta object id for the '<em>Scope Object</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2866,7 +2876,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getScopeObject()
 	 * @generated
 	 */
-	int SCOPE_OBJECT = 16;
+	int SCOPE_OBJECT = 17;
 
 	/**
 	 * The meta object id for the '<em>Geometry Map</em>' data type.
@@ -2876,7 +2886,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getGeometryMap()
 	 * @generated
 	 */
-	int GEOMETRY_MAP = 17;
+	int GEOMETRY_MAP = 18;
 
 
 	/**
@@ -5988,6 +5998,16 @@ public interface EaobjectmodelPackage extends EPackage {
 	EEnum getConnectorType();
 
 	/**
+	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.ElementType <em>Element Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Element Type</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ElementType
+	 * @generated
+	 */
+	EEnum getElementType();
+
+	/**
 	 * Returns the meta object for data type '{@link de.cooperateproject.eabridge.eaobjectmodel.Scope <em>Scope Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8344,6 +8364,16 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum CONNECTOR_TYPE = eINSTANCE.getConnectorType();
+
+		/**
+		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ElementType <em>Element Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.ElementType
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getElementType()
+		 * @generated
+		 */
+		EEnum ELEMENT_TYPE = eINSTANCE.getElementType();
 
 		/**
 		 * The meta object literal for the '<em>Scope Object</em>' data type.

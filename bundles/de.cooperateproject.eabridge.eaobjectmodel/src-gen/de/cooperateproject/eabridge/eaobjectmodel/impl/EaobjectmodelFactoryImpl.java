@@ -16,6 +16,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
@@ -116,6 +117,8 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return createDirectionTypeFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.CONNECTOR_TYPE:
 				return createConnectorTypeFromString(eDataType, initialValue);
+			case EaobjectmodelPackage.ELEMENT_TYPE:
+				return createElementTypeFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.SCOPE_OBJECT:
 				return createScopeObjectFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.GEOMETRY_MAP:
@@ -141,6 +144,8 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return convertDirectionTypeToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.CONNECTOR_TYPE:
 				return convertConnectorTypeToString(eDataType, instanceValue);
+			case EaobjectmodelPackage.ELEMENT_TYPE:
+				return convertElementTypeToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.SCOPE_OBJECT:
 				return convertScopeObjectToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.GEOMETRY_MAP:
@@ -347,6 +352,26 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 	 * @generated
 	 */
 	public String convertConnectorTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementType createElementTypeFromString(EDataType eDataType, String initialValue) {
+		ElementType result = ElementType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertElementTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

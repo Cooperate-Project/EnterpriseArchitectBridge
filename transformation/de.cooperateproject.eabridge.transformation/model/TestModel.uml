@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_J6PEENwFEeaIZO8MuEKMrQ" name="Root">
+  <packagedElement xmi:type="uml:Package" xmi:id="_J6PEEdwFEeaIZO8MuEKMrQ" name="Package">
+    <packagedElement xmi:type="uml:Class" xmi:id="_J6PEEtwFEeaIZO8MuEKMrQ" name="Car">
+      <ownedAttribute xmi:id="_J6PEE9wFEeaIZO8MuEKMrQ" name="wheels" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_J6PEFNwFEeaIZO8MuEKMrQ" name="manufacturer" visibility="private" type="_J6PEFtwFEeaIZO8MuEKMrQ"/>
+      <ownedOperation xmi:id="_J6PEFdwFEeaIZO8MuEKMrQ" name="startEngine" visibility="private"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_J6PEFtwFEeaIZO8MuEKMrQ" name="Manufacturer"/>
+  </packagedElement>
+</uml:Package>

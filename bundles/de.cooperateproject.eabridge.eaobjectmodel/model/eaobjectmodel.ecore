@@ -669,5 +669,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ElementType">
     <eLiterals name="Class"/>
     <eLiterals name="Package"/>
+    <eLiterals name="Interface"/>
   </eClassifiers>
 </ecore:EPackage>

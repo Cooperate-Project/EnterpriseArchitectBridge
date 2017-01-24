@@ -910,6 +910,7 @@ public interface Element extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.ElementType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
@@ -917,22 +918,24 @@ public interface Element extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ElementType
+	 * @see #setType(ElementType)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getElement_Type()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getType();
+	ElementType getType();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ElementType
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(String value);
+	void setType(ElementType value);
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.

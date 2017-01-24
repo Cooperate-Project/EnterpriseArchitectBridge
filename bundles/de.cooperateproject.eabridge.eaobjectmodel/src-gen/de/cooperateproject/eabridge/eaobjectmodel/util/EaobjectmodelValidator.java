@@ -13,6 +13,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
@@ -140,6 +141,8 @@ public class EaobjectmodelValidator extends EObjectValidator {
 				return validateDirectionType((DirectionType)value, diagnostics, context);
 			case EaobjectmodelPackage.CONNECTOR_TYPE:
 				return validateConnectorType((ConnectorType)value, diagnostics, context);
+			case EaobjectmodelPackage.ELEMENT_TYPE:
+				return validateElementType((ElementType)value, diagnostics, context);
 			case EaobjectmodelPackage.SCOPE_OBJECT:
 				return validateScopeObject((Scope)value, diagnostics, context);
 			case EaobjectmodelPackage.GEOMETRY_MAP:
@@ -310,6 +313,15 @@ public class EaobjectmodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateConnectorType(ConnectorType connectorType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateElementType(ElementType elementType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
