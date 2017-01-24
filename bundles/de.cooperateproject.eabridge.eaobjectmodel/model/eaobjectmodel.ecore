@@ -376,14 +376,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttPub" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttPri" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttPro" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="GeometryMap" instanceClassName="de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap"/>
   <eClassifiers xsi:type="ecore:EClass" name="DiagramLink">
@@ -534,7 +531,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TreePos" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" unique="false" eType="#//ElementType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" unique="false"
@@ -668,5 +665,10 @@
         eType="#//Element" containment="true" resolveProxies="false" eOpposite="#//Element/Package"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Package"
         eOpposite="#//Package/Packages"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ElementType">
+    <eLiterals name="Class"/>
+    <eLiterals name="Package"/>
+    <eLiterals name="Interface"/>
   </eClassifiers>
 </ecore:EPackage>

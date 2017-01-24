@@ -14,6 +14,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
@@ -154,6 +155,13 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	private EEnum connectorTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum elementTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2812,6 +2820,15 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getElementType() {
+		return elementTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getScopeObject() {
 		return scopeObjectEDataType;
 	}
@@ -3151,6 +3168,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		scopeEEnum = createEEnum(SCOPE);
 		directionTypeEEnum = createEEnum(DIRECTION_TYPE);
 		connectorTypeEEnum = createEEnum(CONNECTOR_TYPE);
+		elementTypeEEnum = createEEnum(ELEMENT_TYPE);
 
 		// Create data types
 		scopeObjectEDataType = createEDataType(SCOPE_OBJECT);
@@ -3432,7 +3450,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getElement_Stereotype(), ecorePackage.getEString(), "Stereotype", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_StyleEx(), ecorePackage.getEString(), "StyleEx", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_TreePos(), ecorePackage.getELongObject(), "TreePos", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Type(), ecorePackage.getEString(), "Type", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Type(), this.getElementType(), "Type", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Version(), ecorePackage.getEString(), "Version", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Visibility(), this.getScopeObject(), "Visibility", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Style(), ecorePackage.getEString(), "Style", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3564,6 +3582,11 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEEnumLiteral(connectorTypeEEnum, ConnectorType.SUBSTITUTION);
 		addEEnumLiteral(connectorTypeEEnum, ConnectorType.USAGE);
 		addEEnumLiteral(connectorTypeEEnum, ConnectorType.USE_CASE);
+
+		initEEnum(elementTypeEEnum, ElementType.class, "ElementType");
+		addEEnumLiteral(elementTypeEEnum, ElementType.CLASS);
+		addEEnumLiteral(elementTypeEEnum, ElementType.PACKAGE);
+		addEEnumLiteral(elementTypeEEnum, ElementType.INTERFACE);
 
 		// Initialize data types
 		initEDataType(scopeObjectEDataType, Scope.class, "ScopeObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

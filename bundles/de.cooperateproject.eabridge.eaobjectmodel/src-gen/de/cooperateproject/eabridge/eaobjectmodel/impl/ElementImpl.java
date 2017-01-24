@@ -6,6 +6,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 
@@ -674,7 +675,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TYPE_EDEFAULT = null;
+	protected static final ElementType TYPE_EDEFAULT = ElementType.CLASS;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -684,7 +685,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 * @ordered
 	 */
-	protected String type = TYPE_EDEFAULT;
+	protected ElementType type = TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -1683,7 +1684,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getType() {
+	public ElementType getType() {
 		return type;
 	}
 
@@ -1692,9 +1693,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
+	public void setType(ElementType newType) {
+		ElementType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.ELEMENT__TYPE, oldType, type));
 	}
@@ -2230,7 +2231,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 				setTreePos((Long)newValue);
 				return;
 			case EaobjectmodelPackage.ELEMENT__TYPE:
-				setType((String)newValue);
+				setType((ElementType)newValue);
 				return;
 			case EaobjectmodelPackage.ELEMENT__VERSION:
 				setVersion((String)newValue);
@@ -2498,7 +2499,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case EaobjectmodelPackage.ELEMENT__TREE_POS:
 				return TREE_POS_EDEFAULT == null ? treePos != null : !TREE_POS_EDEFAULT.equals(treePos);
 			case EaobjectmodelPackage.ELEMENT__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return type != TYPE_EDEFAULT;
 			case EaobjectmodelPackage.ELEMENT__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case EaobjectmodelPackage.ELEMENT__VISIBILITY:

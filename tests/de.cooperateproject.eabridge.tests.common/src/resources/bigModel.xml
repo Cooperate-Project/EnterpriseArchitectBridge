@@ -580,7 +580,7 @@
     <changeSet author="turki (generated)" id="1475133421368-6">
         <insert catalogName="test" schemaName="test" tableName="t_object">
             <column name="Object_ID" valueNumeric="1"/>
-            <column name="Object_Type" value="class"/>
+            <column name="Object_Type" value="Class"/>
             <column name="Diagram_ID" valueNumeric="0"/>
             <column name="Name" value="Car1"/>
             <column name="Alias"/>

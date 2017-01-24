@@ -25,17 +25,13 @@ public class CompositePrimaryKeyTest extends TeneoMappingBaseTest {
 		
 		Attribute existingAttribute = getExistingAttribute(session);
 		
-		AttributeConstraint newAttConst = EaobjectmodelFactory.eINSTANCE.createAttributeConstraint();
-		newAttConst.setConstraint("newConstraint");
-		newAttConst.setAttribute(existingAttribute);
+		AttributeConstraint attConst = existingAttribute.getConstraints().get(0);
 		
-		persistEntity(session, newAttConst);
+		AttributeConstraint attConstDuplicate = EaobjectmodelFactory.eINSTANCE.createAttributeConstraint();
+		attConstDuplicate.setConstraint(attConst.getConstraint());
+		attConstDuplicate.setAttribute(existingAttribute);
 		
-		AttributeConstraint newAttConstDuplicate = EaobjectmodelFactory.eINSTANCE.createAttributeConstraint();
-		newAttConstDuplicate.setConstraint("newConstraint");
-		newAttConstDuplicate.setAttribute(existingAttribute);
-		
-		persistEntity(session, newAttConstDuplicate);
+		persistEntity(session, attConstDuplicate);
 	}
 	
 	@Test

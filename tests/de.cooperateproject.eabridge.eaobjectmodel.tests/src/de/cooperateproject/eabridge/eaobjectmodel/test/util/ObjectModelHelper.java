@@ -8,6 +8,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
@@ -22,12 +23,12 @@ public class ObjectModelHelper {
 		//return    (int)(Math.random() * ((100000) + 1));
 	}
 
-	public Element createElement(int randomInteger, Package pack, String name, String typ) {
+	public Element createElement(int randomInteger, Package pack, String name, ElementType eleType) {
 		Element el = EaobjectmodelFactory.eINSTANCE.createElement();
 		el.setName(name);
 		el.setElementGUID("elementGUID_" + randomInteger);
 		el.setPackage(pack);
-		el.setType(typ);
+		el.setType(eleType);
 		return el;
 	}
 
