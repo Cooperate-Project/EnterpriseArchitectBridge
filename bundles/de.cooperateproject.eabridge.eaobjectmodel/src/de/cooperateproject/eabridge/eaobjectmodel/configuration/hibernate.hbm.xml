@@ -408,6 +408,9 @@
 		<property name="CreatedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
 			<column not-null="false" unique="false" name="`CreatedDate`"/>
 		</property>
+		<property name="ModifiedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`ModifiedDate`"/>
+		</property>
 		<property name="cx" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
 			<column not-null="false" unique="false" name="`cx`"/>
 		</property>

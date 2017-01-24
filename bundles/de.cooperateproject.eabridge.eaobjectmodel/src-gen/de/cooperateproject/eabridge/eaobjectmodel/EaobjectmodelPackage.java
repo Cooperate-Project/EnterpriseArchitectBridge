@@ -1310,13 +1310,22 @@ public interface EaobjectmodelPackage extends EPackage {
 	int DIAGRAM__CREATED_DATE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Modified Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM__MODIFIED_DATE = 2;
+
+	/**
 	 * The feature id for the '<em><b>Cx</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__CX = 2;
+	int DIAGRAM__CX = 3;
 
 	/**
 	 * The feature id for the '<em><b>Cy</b></em>' attribute.
@@ -1325,7 +1334,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__CY = 3;
+	int DIAGRAM__CY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Diagram GUID</b></em>' attribute.
@@ -1334,7 +1343,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__DIAGRAM_GUID = 4;
+	int DIAGRAM__DIAGRAM_GUID = 5;
 
 	/**
 	 * The feature id for the '<em><b>Diagram ID</b></em>' attribute.
@@ -1343,7 +1352,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__DIAGRAM_ID = 5;
+	int DIAGRAM__DIAGRAM_ID = 6;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Links</b></em>' containment reference list.
@@ -1352,7 +1361,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__DIAGRAM_LINKS = 6;
+	int DIAGRAM__DIAGRAM_LINKS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Objects</b></em>' containment reference list.
@@ -1361,7 +1370,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__DIAGRAM_OBJECTS = 7;
+	int DIAGRAM__DIAGRAM_OBJECTS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1370,7 +1379,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__NAME = 8;
+	int DIAGRAM__NAME = 9;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' attribute.
@@ -1379,7 +1388,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__NOTES = 9;
+	int DIAGRAM__NOTES = 10;
 
 	/**
 	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
@@ -1388,7 +1397,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__ORIENTATION = 10;
+	int DIAGRAM__ORIENTATION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Package</b></em>' container reference.
@@ -1397,7 +1406,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__PACKAGE = 11;
+	int DIAGRAM__PACKAGE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Scale</b></em>' attribute.
@@ -1406,7 +1415,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__SCALE = 12;
+	int DIAGRAM__SCALE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Stereotype</b></em>' attribute.
@@ -1415,7 +1424,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__STEREOTYPE = 13;
+	int DIAGRAM__STEREOTYPE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Style Ex</b></em>' attribute.
@@ -1424,7 +1433,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__STYLE_EX = 14;
+	int DIAGRAM__STYLE_EX = 15;
 
 	/**
 	 * The feature id for the '<em><b>Swimlanes</b></em>' attribute.
@@ -1433,7 +1442,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__SWIMLANES = 15;
+	int DIAGRAM__SWIMLANES = 16;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1442,7 +1451,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__TYPE = 16;
+	int DIAGRAM__TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1451,7 +1460,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__VERSION = 17;
+	int DIAGRAM__VERSION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Att Pub</b></em>' attribute.
@@ -1460,7 +1469,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__ATT_PUB = 18;
+	int DIAGRAM__ATT_PUB = 19;
 
 	/**
 	 * The feature id for the '<em><b>Att Pri</b></em>' attribute.
@@ -1469,7 +1478,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__ATT_PRI = 19;
+	int DIAGRAM__ATT_PRI = 20;
 
 	/**
 	 * The feature id for the '<em><b>Att Pro</b></em>' attribute.
@@ -1478,7 +1487,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM__ATT_PRO = 20;
+	int DIAGRAM__ATT_PRO = 21;
 
 	/**
 	 * The number of structural features of the '<em>Diagram</em>' class.
@@ -1487,7 +1496,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_FEATURE_COUNT = 21;
+	int DIAGRAM_FEATURE_COUNT = 22;
 
 	/**
 	 * The number of operations of the '<em>Diagram</em>' class.
@@ -4284,6 +4293,17 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDiagram_CreatedDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getModifiedDate <em>Modified Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modified Date</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Diagram#getModifiedDate()
+	 * @see #getDiagram()
+	 * @generated
+	 */
+	EAttribute getDiagram_ModifiedDate();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getCx <em>Cx</em>}'.
@@ -7088,6 +7108,14 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DIAGRAM__CREATED_DATE = eINSTANCE.getDiagram_CreatedDate();
+
+		/**
+		 * The meta object literal for the '<em><b>Modified Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM__MODIFIED_DATE = eINSTANCE.getDiagram_ModifiedDate();
 
 		/**
 		 * The meta object literal for the '<em><b>Cx</b></em>' attribute feature.

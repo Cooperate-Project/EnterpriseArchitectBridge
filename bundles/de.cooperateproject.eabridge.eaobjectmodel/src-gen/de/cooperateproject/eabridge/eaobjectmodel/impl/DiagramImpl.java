@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl#getCreatedDate <em>Created Date</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl#getModifiedDate <em>Modified Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl#getCx <em>Cx</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl#getCy <em>Cy</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl#getDiagramGUID <em>Diagram GUID</em>}</li>
@@ -98,6 +99,26 @@ public class DiagramImpl extends MinimalEObjectImpl.Container implements Diagram
 	 * @ordered
 	 */
 	protected Date createdDate = CREATED_DATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getModifiedDate() <em>Modified Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModifiedDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date MODIFIED_DATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getModifiedDate() <em>Modified Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModifiedDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date modifiedDate = MODIFIED_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCx() <em>Cx</em>}' attribute.
@@ -498,6 +519,27 @@ public class DiagramImpl extends MinimalEObjectImpl.Container implements Diagram
 		createdDate = newCreatedDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.DIAGRAM__CREATED_DATE, oldCreatedDate, createdDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModifiedDate(Date newModifiedDate) {
+		Date oldModifiedDate = modifiedDate;
+		modifiedDate = newModifiedDate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.DIAGRAM__MODIFIED_DATE, oldModifiedDate, modifiedDate));
 	}
 
 	/**
@@ -976,6 +1018,8 @@ public class DiagramImpl extends MinimalEObjectImpl.Container implements Diagram
 				return getAuthor();
 			case EaobjectmodelPackage.DIAGRAM__CREATED_DATE:
 				return getCreatedDate();
+			case EaobjectmodelPackage.DIAGRAM__MODIFIED_DATE:
+				return getModifiedDate();
 			case EaobjectmodelPackage.DIAGRAM__CX:
 				return getCx();
 			case EaobjectmodelPackage.DIAGRAM__CY:
@@ -1033,6 +1077,9 @@ public class DiagramImpl extends MinimalEObjectImpl.Container implements Diagram
 				return;
 			case EaobjectmodelPackage.DIAGRAM__CREATED_DATE:
 				setCreatedDate((Date)newValue);
+				return;
+			case EaobjectmodelPackage.DIAGRAM__MODIFIED_DATE:
+				setModifiedDate((Date)newValue);
 				return;
 			case EaobjectmodelPackage.DIAGRAM__CX:
 				setCx((Long)newValue);
@@ -1111,6 +1158,9 @@ public class DiagramImpl extends MinimalEObjectImpl.Container implements Diagram
 			case EaobjectmodelPackage.DIAGRAM__CREATED_DATE:
 				setCreatedDate(CREATED_DATE_EDEFAULT);
 				return;
+			case EaobjectmodelPackage.DIAGRAM__MODIFIED_DATE:
+				setModifiedDate(MODIFIED_DATE_EDEFAULT);
+				return;
 			case EaobjectmodelPackage.DIAGRAM__CX:
 				setCx(CX_EDEFAULT);
 				return;
@@ -1184,6 +1234,8 @@ public class DiagramImpl extends MinimalEObjectImpl.Container implements Diagram
 				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
 			case EaobjectmodelPackage.DIAGRAM__CREATED_DATE:
 				return CREATED_DATE_EDEFAULT == null ? createdDate != null : !CREATED_DATE_EDEFAULT.equals(createdDate);
+			case EaobjectmodelPackage.DIAGRAM__MODIFIED_DATE:
+				return MODIFIED_DATE_EDEFAULT == null ? modifiedDate != null : !MODIFIED_DATE_EDEFAULT.equals(modifiedDate);
 			case EaobjectmodelPackage.DIAGRAM__CX:
 				return CX_EDEFAULT == null ? cx != null : !CX_EDEFAULT.equals(cx);
 			case EaobjectmodelPackage.DIAGRAM__CY:
@@ -1240,6 +1292,8 @@ public class DiagramImpl extends MinimalEObjectImpl.Container implements Diagram
 		result.append(author);
 		result.append(", CreatedDate: ");
 		result.append(createdDate);
+		result.append(", ModifiedDate: ");
+		result.append(modifiedDate);
 		result.append(", cx: ");
 		result.append(cx);
 		result.append(", cy: ");

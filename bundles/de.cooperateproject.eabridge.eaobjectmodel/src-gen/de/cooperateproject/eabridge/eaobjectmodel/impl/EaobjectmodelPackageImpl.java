@@ -1407,7 +1407,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Cx() {
+	public EAttribute getDiagram_ModifiedDate() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1416,7 +1416,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Cy() {
+	public EAttribute getDiagram_Cx() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1425,7 +1425,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_DiagramGUID() {
+	public EAttribute getDiagram_Cy() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1434,7 +1434,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_DiagramID() {
+	public EAttribute getDiagram_DiagramGUID() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1443,8 +1443,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagram_DiagramLinks() {
-		return (EReference)diagramEClass.getEStructuralFeatures().get(6);
+	public EAttribute getDiagram_DiagramID() {
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1452,7 +1452,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDiagram_DiagramObjects() {
+	public EReference getDiagram_DiagramLinks() {
 		return (EReference)diagramEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1461,8 +1461,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Name() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(8);
+	public EReference getDiagram_DiagramObjects() {
+		return (EReference)diagramEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1470,7 +1470,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Notes() {
+	public EAttribute getDiagram_Name() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1479,7 +1479,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Orientation() {
+	public EAttribute getDiagram_Notes() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1488,8 +1488,17 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDiagram_Orientation() {
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getDiagram_Package() {
-		return (EReference)diagramEClass.getEStructuralFeatures().get(11);
+		return (EReference)diagramEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1498,15 +1507,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	public EAttribute getDiagram_Scale() {
-		return (EAttribute)diagramEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiagram_Stereotype() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -1515,7 +1515,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_StyleEx() {
+	public EAttribute getDiagram_Stereotype() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -1524,7 +1524,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Swimlanes() {
+	public EAttribute getDiagram_StyleEx() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -1533,7 +1533,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Type() {
+	public EAttribute getDiagram_Swimlanes() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -1542,7 +1542,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_Version() {
+	public EAttribute getDiagram_Type() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -1551,7 +1551,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_AttPub() {
+	public EAttribute getDiagram_Version() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -1560,7 +1560,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_AttPri() {
+	public EAttribute getDiagram_AttPub() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -1569,8 +1569,17 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDiagram_AttPro() {
+	public EAttribute getDiagram_AttPri() {
 		return (EAttribute)diagramEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagram_AttPro() {
+		return (EAttribute)diagramEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -3003,6 +3012,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		diagramEClass = createEClass(DIAGRAM);
 		createEAttribute(diagramEClass, DIAGRAM__AUTHOR);
 		createEAttribute(diagramEClass, DIAGRAM__CREATED_DATE);
+		createEAttribute(diagramEClass, DIAGRAM__MODIFIED_DATE);
 		createEAttribute(diagramEClass, DIAGRAM__CX);
 		createEAttribute(diagramEClass, DIAGRAM__CY);
 		createEAttribute(diagramEClass, DIAGRAM__DIAGRAM_GUID);
@@ -3354,6 +3364,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEClass(diagramEClass, Diagram.class, "Diagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDiagram_Author(), ecorePackage.getEString(), "Author", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_CreatedDate(), ecorePackage.getEDate(), "CreatedDate", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagram_ModifiedDate(), ecorePackage.getEDate(), "ModifiedDate", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Cx(), ecorePackage.getELongObject(), "cx", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_Cy(), ecorePackage.getELongObject(), "cy", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagram_DiagramGUID(), ecorePackage.getEString(), "DiagramGUID", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

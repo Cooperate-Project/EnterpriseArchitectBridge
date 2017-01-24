@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getAuthor <em>Author</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getCreatedDate <em>Created Date</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getModifiedDate <em>Modified Date</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getCx <em>Cx</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getCy <em>Cy</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getDiagramGUID <em>Diagram GUID</em>}</li>
@@ -96,6 +97,32 @@ public interface Diagram extends EObject {
 	 * @generated
 	 */
 	void setCreatedDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Modified Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Modified Date</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Modified Date</em>' attribute.
+	 * @see #setModifiedDate(Date)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagram_ModifiedDate()
+	 * @model unique="false"
+	 * @generated
+	 */
+	Date getModifiedDate();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram#getModifiedDate <em>Modified Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Modified Date</em>' attribute.
+	 * @see #getModifiedDate()
+	 * @generated
+	 */
+	void setModifiedDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Cx</b></em>' attribute.

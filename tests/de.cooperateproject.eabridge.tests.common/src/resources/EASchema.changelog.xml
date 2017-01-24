@@ -321,8 +321,8 @@
             <column defaultValueNumeric="0" name="cx" type="INT"/>
             <column defaultValueNumeric="0" name="cy" type="INT"/>
             <column defaultValueNumeric="100" name="Scale" type="INT"/>
-            <column name="CreatedDate" type="date"/>
-            <column name="ModifiedDate" type="date"/>
+            <column name="CreatedDate" type="datetime"/>
+            <column name="ModifiedDate" type="datetime"/>
             <column name="HTMLPath" type="VARCHAR(255)"/>
             <column name="ShowForeign" type="INT"/>
             <column name="ShowBorder" type="INT"/>
