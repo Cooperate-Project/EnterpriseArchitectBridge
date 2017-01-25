@@ -16,7 +16,7 @@ public class ModellingHelper extends TeneoMappingBaseTest {
 
 	@Test
 	public void changelog2xmi() throws Exception {
-		initTestDb(TestResource.GameChangelog);
+		initTestDb(TestResource.PeopleChangelog);
 		
 		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
 
@@ -26,7 +26,7 @@ public class ModellingHelper extends TeneoMappingBaseTest {
 
 		Package actualContent = results.get(0);
 	
-		EAObjectModelHelper.saveModel(actualContent, "src/resources/Game.xmi");
+		EAObjectModelHelper.saveModel(actualContent, "src/resources/People.xmi");
 	}
 
 }

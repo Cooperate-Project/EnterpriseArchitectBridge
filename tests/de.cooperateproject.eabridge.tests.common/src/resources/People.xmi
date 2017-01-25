@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<eaobjectmodel:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel" PackageGUID="{02BAEABD-6A12-4489-BCA3-8D33C05B81DB}" BatchLoad="0" BatchSave="0" CreatedDate="2012-04-17T00:00:00.000+0200" IsControlled="false" IsProtected="false" LogXML="false" ModifiedDate="2012-04-17T00:00:00.000+0200" Name="Model" PackageID="1" UseDTD="false">
+  <Packages PackageGUID="{56278326-5383-4268-8F08-6F102DB13247}" BatchLoad="0" BatchSave="0" CreatedDate="2017-01-25T16:43:40.000+0100" Flags="isModel=1;VICON=3;" LogXML="false" ModifiedDate="2017-01-25T16:43:40.000+0100" Name="People" PackageID="3" Version="1.0">
+    <Diagrams Author="hahner" CreatedDate="2017-01-25T16:43:46.000+0100" ModifiedDate="2017-01-25T16:52:55.000+0100" cx="791" cy="1134" DiagramGUID="{928F028F-99B1-4d46-A57F-8C5D1C894837}" DiagramID="1" Name="People" Orientation="P" Scale="100" StyleEx="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=3DF2441F;" Swimlanes="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;hl=1;cls=0;" Type="Logical" Version="1.0">
+      <DiagramObjects Bottom="-291" Element="//@Packages.0/@Elements.0" InstanceID="1" Left="557" Right="796" Sequence="1" ObjectStyle="DUID=855A3FA5;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;" Top="-182"/>
+    </Diagrams>
+    <Elements Abstract="0" Author="hahner" Complexity="1" CreatedDate="2017-01-25T16:44:26.000+0100" ElementGUID="{223A806F-C7B1-4885-85CA-7D31DE507D43}" ElementID="2" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-01-25T16:50:58.000+0100" Name="Person" Phase="1.0" Status="Proposed" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1">
+      <Attributes AllowDuplicates="false" AttributeGUID="{F3216DBF-3B77-4154-BB89-A09602A9CE8A}" AttributeID="1" Containment="Not Specified" IsCollection="false" IsOrdered="false" IsStatic="false" LowerBound="1" Name="age" Pos="0" StyleEx="volatile=0;" UpperBound="1">
+        <AttributeType typeName="int"/>
+      </Attributes>
+      <Attributes AllowDuplicates="false" AttributeGUID="{899F0AD5-6B44-4ce8-8386-308E674AD0B9}" AttributeID="2" Containment="Not Specified" IsCollection="false" IsOrdered="false" IsStatic="false" LowerBound="1" Name="name" Pos="1" StyleEx="volatile=0;" UpperBound="1">
+        <AttributeType typeName="String"/>
+      </Attributes>
+      <Methods MethodGUID="{316769E7-2D54-4d36-8368-9A4474D16AFE}" MethodID="1" Name="isAdult" Pos="0" Visibility="Public" Concurrency="Sequential">
+        <ReturnType typeName="boolean"/>
+      </Methods>
+      <Methods MethodGUID="{1478D5A5-0E52-4116-929A-FE96D215F82F}" MethodID="3" Name="sayHiTo" Pos="2" Visibility="Public" Concurrency="Sequential">
+        <Parameters ea_guid="{D2AFF444-2756-4627-B504-F0566D27E25B}" MethodID="3" Name="name">
+          <ParameterType typeName="String"/>
+        </Parameters>
+      </Methods>
+      <Methods MethodGUID="{41990079-4A8C-41f5-8507-D951EF0915B7}" MethodID="4" Name="tellAJoke" Pos="2" Visibility="Public" Concurrency="Sequential">
+        <ReturnType typeName="String"/>
+        <Parameters ea_guid="{4BCEAF8F-DEEA-49a9-A138-7342032E254F}" MethodID="4" Name="about">
+          <ParameterType classifier="//@Packages.0/@Elements.0" typeName="Person"/>
+        </Parameters>
+        <Parameters ea_guid="{4BF1E15A-287F-48fa-80C0-0379C7787E4A}" MethodID="4" Name="funny">
+          <ParameterType typeName="boolean"/>
+        </Parameters>
+        <Parameters ea_guid="{BC7A6AB8-F316-497f-9A41-0DA6702EF69D}" MethodID="4" Name="times">
+          <ParameterType typeName="int"/>
+        </Parameters>
+        <Parameters ea_guid="{6AE4AEBC-8970-4c0d-AC1D-0992916A1910}" MethodID="4" Name="topic">
+          <ParameterType typeName="String"/>
+        </Parameters>
+      </Methods>
+    </Elements>
+  </Packages>
+  <Elements Abstract="0" Author="hahner" Complexity="1" CreatedDate="2017-01-25T16:43:40.000+0100" ElementGUID="{56278326-5383-4268-8F08-6F102DB13247}" ElementID="1" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-01-25T16:43:40.000+0100" Name="People" Phase="1.0" Status="Proposed" Type="Package" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1" PDATA1="3"/>
+</eaobjectmodel:Package>

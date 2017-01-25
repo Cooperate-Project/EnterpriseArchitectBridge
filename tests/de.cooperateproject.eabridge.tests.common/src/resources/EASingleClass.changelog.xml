@@ -12745,8 +12745,8 @@
             <column name="cx" valueNumeric="795"/>
             <column name="cy" valueNumeric="1142"/>
             <column name="Scale" valueNumeric="100"/>
-            <column name="CreatedDate" valueDate="2016-07-04"/>
-            <column name="ModifiedDate" valueDate="2016-07-04"/>
+            <column name="CreatedDate" valueDate="2016-07-04 00:00:00.0"/>
+            <column name="ModifiedDate" valueDate="2016-07-04 00:00:00.0"/>
             <column name="HTMLPath"/>
             <column name="ShowForeign" valueNumeric="0"/>
             <column name="ShowBorder" valueNumeric="0"/>

@@ -22,7 +22,8 @@ public enum TestResource {
 	EASingleClassChangelog("resources/EASingleClass.changelog.xml"),
 	EASingleClassModel("resources/EASingleClass.xmi"),
 	bigModel("resources/bigModel.xml"),
-	GameChangelog("resources/Game.changelog.xml");
+	GameChangelog("resources/Game.changelog.xml"),
+	PeopleChangelog("resources/People.changelog.xml");
 
 //	private static File TMP_DIR = null;
 //	private final File tmpFile;
