@@ -1,0 +1,23 @@
+transformation UMLtoEA(in uml: UML,in ecorePrimitives : UML, out om: OM);
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
+
+main() {
+
+	var rootPackages := uml.rootObjects()[Package];
+	assert fatal (rootPackages->size() = 1);
+
+	log('Root Packages', rootPackages);
+	
+	rootPackages -> map mapPackages();
+
+}
+
+mapping uml::Package::mapPackages() : eaobjectmodel::Package {
+	
+	log("Mapping package.", self);
+	
+	Name := self.name;
+	result.Packages := self.nestedPackage-> map mapPackages();
+	
+}
