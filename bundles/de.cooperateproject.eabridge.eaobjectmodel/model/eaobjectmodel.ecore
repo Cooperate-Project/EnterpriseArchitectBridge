@@ -672,5 +672,6 @@
     <eLiterals name="Class"/>
     <eLiterals name="Package"/>
     <eLiterals name="Interface"/>
+    <eLiterals name="Note" literal="Note"/>
   </eClassifiers>
 </ecore:EPackage>

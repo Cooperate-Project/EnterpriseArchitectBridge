@@ -3598,6 +3598,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEEnumLiteral(elementTypeEEnum, ElementType.CLASS);
 		addEEnumLiteral(elementTypeEEnum, ElementType.PACKAGE);
 		addEEnumLiteral(elementTypeEEnum, ElementType.INTERFACE);
+		addEEnumLiteral(elementTypeEEnum, ElementType.NOTE);
 
 		// Initialize data types
 		initEDataType(scopeObjectEDataType, Scope.class, "ScopeObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

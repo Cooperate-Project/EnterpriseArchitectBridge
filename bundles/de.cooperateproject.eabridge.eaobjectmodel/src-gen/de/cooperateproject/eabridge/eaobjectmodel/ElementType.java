@@ -44,7 +44,15 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INTERFACE(0, "Interface", "Interface");
+	INTERFACE(0, "Interface", "Interface"), /**
+	 * The '<em><b>Note</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOTE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOTE(0, "Note", "Note");
 
 	/**
 	 * The '<em><b>Class</b></em>' literal value.
@@ -92,6 +100,21 @@ public enum ElementType implements Enumerator {
 	public static final int INTERFACE_VALUE = 0;
 
 	/**
+	 * The '<em><b>Note</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Note</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NOTE
+	 * @model name="Note"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOTE_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Element Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,6 +125,7 @@ public enum ElementType implements Enumerator {
 			CLASS,
 			PACKAGE,
 			INTERFACE,
+			NOTE,
 		};
 
 	/**
