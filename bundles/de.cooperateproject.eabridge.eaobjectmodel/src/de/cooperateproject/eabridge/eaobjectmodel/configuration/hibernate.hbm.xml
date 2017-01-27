@@ -815,6 +815,14 @@
 				<column not-null="false" unique="false" name="`Type`"/>
 			</property>
 		</component>
+		<property name="Kind" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Kind`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection</param>
+				<param name="eclassifier">ParameterDirection</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
 	</class>
 	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl" entity-name="Package" abstract="false" lazy="false" table="`t_package`">
 		<meta attribute="eclassName" inherit="false">Package</meta>

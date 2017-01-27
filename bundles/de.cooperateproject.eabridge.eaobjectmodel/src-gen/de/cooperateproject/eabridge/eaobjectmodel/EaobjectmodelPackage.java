@@ -2548,13 +2548,22 @@ public interface EaobjectmodelPackage extends EPackage {
 	int METHODPARAMETER__METHOD = 3;
 
 	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHODPARAMETER__KIND = 4;
+
+	/**
 	 * The number of structural features of the '<em>Methodparameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHODPARAMETER_FEATURE_COUNT = 4;
+	int METHODPARAMETER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Methodparameter</em>' class.
@@ -2878,6 +2887,16 @@ public interface EaobjectmodelPackage extends EPackage {
 	int ELEMENT_TYPE = 16;
 
 	/**
+	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection <em>Parameter Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getParameterDirection()
+	 * @generated
+	 */
+	int PARAMETER_DIRECTION = 17;
+
+	/**
 	 * The meta object id for the '<em>Scope Object</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2885,7 +2904,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getScopeObject()
 	 * @generated
 	 */
-	int SCOPE_OBJECT = 17;
+	int SCOPE_OBJECT = 18;
 
 	/**
 	 * The meta object id for the '<em>Geometry Map</em>' data type.
@@ -2895,7 +2914,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getGeometryMap()
 	 * @generated
 	 */
-	int GEOMETRY_MAP = 18;
+	int GEOMETRY_MAP = 19;
 
 
 	/**
@@ -5682,6 +5701,17 @@ public interface EaobjectmodelPackage extends EPackage {
 	EReference getMethodparameter_Method();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kind</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getKind()
+	 * @see #getMethodparameter()
+	 * @generated
+	 */
+	EAttribute getMethodparameter_Kind();
+
+	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6026,6 +6056,16 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getElementType();
+
+	/**
+	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection <em>Parameter Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Parameter Direction</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection
+	 * @generated
+	 */
+	EEnum getParameterDirection();
 
 	/**
 	 * Returns the meta object for data type '{@link de.cooperateproject.eabridge.eaobjectmodel.Scope <em>Scope Object</em>}'.
@@ -8136,6 +8176,14 @@ public interface EaobjectmodelPackage extends EPackage {
 		EReference METHODPARAMETER__METHOD = eINSTANCE.getMethodparameter_Method();
 
 		/**
+		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METHODPARAMETER__KIND = eINSTANCE.getMethodparameter_Kind();
+
+		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8402,6 +8450,16 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ELEMENT_TYPE = eINSTANCE.getElementType();
+
+		/**
+		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection <em>Parameter Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getParameterDirection()
+		 * @generated
+		 */
+		EEnum PARAMETER_DIRECTION = eINSTANCE.getParameterDirection();
 
 		/**
 		 * The meta object literal for the '<em>Scope Object</em>' data type.

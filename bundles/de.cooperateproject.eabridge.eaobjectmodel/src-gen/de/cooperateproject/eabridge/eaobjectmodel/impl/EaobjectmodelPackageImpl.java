@@ -17,6 +17,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
+import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
@@ -162,6 +163,13 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	private EEnum elementTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterDirectionEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2550,6 +2558,15 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMethodparameter_Kind() {
+		return (EAttribute)methodparameterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -2831,6 +2848,15 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 */
 	public EEnum getElementType() {
 		return elementTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterDirection() {
+		return parameterDirectionEEnum;
 	}
 
 	/**
@@ -3144,6 +3170,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEReference(methodparameterEClass, METHODPARAMETER__PARAMETER_TYPE);
 		createEAttribute(methodparameterEClass, METHODPARAMETER__NAME);
 		createEReference(methodparameterEClass, METHODPARAMETER__METHOD);
+		createEAttribute(methodparameterEClass, METHODPARAMETER__KIND);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__PACKAGE_GUID);
@@ -3179,6 +3206,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		directionTypeEEnum = createEEnum(DIRECTION_TYPE);
 		connectorTypeEEnum = createEEnum(CONNECTOR_TYPE);
 		elementTypeEEnum = createEEnum(ELEMENT_TYPE);
+		parameterDirectionEEnum = createEEnum(PARAMETER_DIRECTION);
 
 		// Create data types
 		scopeObjectEDataType = createEDataType(SCOPE_OBJECT);
@@ -3509,6 +3537,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEReference(getMethodparameter_ParameterType(), this.getTypeReference(), null, "ParameterType", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodparameter_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethodparameter_Method(), this.getMethod(), null, "Method", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethodparameter_Kind(), this.getParameterDirection(), "Kind", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageEClass, de.cooperateproject.eabridge.eaobjectmodel.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_PackageGUID(), ecorePackage.getEString(), "PackageGUID", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3599,6 +3628,12 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEEnumLiteral(elementTypeEEnum, ElementType.PACKAGE);
 		addEEnumLiteral(elementTypeEEnum, ElementType.INTERFACE);
 		addEEnumLiteral(elementTypeEEnum, ElementType.NOTE);
+
+		initEEnum(parameterDirectionEEnum, ParameterDirection.class, "ParameterDirection");
+		addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.IN);
+		addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.INOUT);
+		addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.OUT);
+		addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.RETURN);
 
 		// Initialize data types
 		initEDataType(scopeObjectEDataType, Scope.class, "ScopeObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

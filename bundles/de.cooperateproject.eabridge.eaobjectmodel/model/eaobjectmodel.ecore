@@ -616,6 +616,7 @@
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Method" eType="#//Method"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kind" eType="#//ParameterDirection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="PackageGUID" unique="false"
@@ -672,5 +673,11 @@
     <eLiterals name="Package"/>
     <eLiterals name="Interface"/>
     <eLiterals name="Note" literal="Note"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParameterDirection">
+    <eLiterals name="in"/>
+    <eLiterals name="inout"/>
+    <eLiterals name="out"/>
+    <eLiterals name="return"/>
   </eClassifiers>
 </ecore:EPackage>

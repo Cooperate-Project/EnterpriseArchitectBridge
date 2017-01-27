@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getParameterType <em>Parameter Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getKind <em>Kind</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter()
@@ -127,5 +128,34 @@ public interface Methodparameter extends EObject {
 	 * @generated
 	 */
 	void setMethod(Method value);
+
+	/**
+	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Kind</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Kind</em>' attribute.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection
+	 * @see #setKind(ParameterDirection)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter_Kind()
+	 * @model
+	 * @generated
+	 */
+	ParameterDirection getKind();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getKind <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Kind</em>' attribute.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection
+	 * @see #getKind()
+	 * @generated
+	 */
+	void setKind(ParameterDirection value);
 
 } // Methodparameter

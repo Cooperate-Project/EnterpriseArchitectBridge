@@ -19,6 +19,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
+import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
@@ -119,6 +120,8 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return createConnectorTypeFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.ELEMENT_TYPE:
 				return createElementTypeFromString(eDataType, initialValue);
+			case EaobjectmodelPackage.PARAMETER_DIRECTION:
+				return createParameterDirectionFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.SCOPE_OBJECT:
 				return createScopeObjectFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.GEOMETRY_MAP:
@@ -146,6 +149,8 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return convertConnectorTypeToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.ELEMENT_TYPE:
 				return convertElementTypeToString(eDataType, instanceValue);
+			case EaobjectmodelPackage.PARAMETER_DIRECTION:
+				return convertParameterDirectionToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.SCOPE_OBJECT:
 				return convertScopeObjectToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.GEOMETRY_MAP:
@@ -372,6 +377,26 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 	 * @generated
 	 */
 	public String convertElementTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterDirection createParameterDirectionFromString(EDataType eDataType, String initialValue) {
+		ParameterDirection result = ParameterDirection.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertParameterDirectionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

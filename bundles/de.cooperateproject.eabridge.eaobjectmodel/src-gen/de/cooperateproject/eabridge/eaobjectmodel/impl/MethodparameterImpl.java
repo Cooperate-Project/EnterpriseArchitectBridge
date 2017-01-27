@@ -5,6 +5,7 @@ package de.cooperateproject.eabridge.eaobjectmodel.impl;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
+import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getParameterType <em>Parameter Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getKind <em>Kind</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +94,26 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Method method;
+
+	/**
+	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ParameterDirection KIND_EDEFAULT = ParameterDirection.IN;
+
+	/**
+	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterDirection kind = KIND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,6 +262,27 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ParameterDirection getKind() {
+		return kind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setKind(ParameterDirection newKind) {
+		ParameterDirection oldKind = kind;
+		kind = newKind == null ? KIND_EDEFAULT : newKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.METHODPARAMETER__KIND, oldKind, kind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -266,6 +309,8 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
 				if (resolve) return getMethod();
 				return basicGetMethod();
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				return getKind();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,6 +334,9 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
 				setMethod((Method)newValue);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				setKind((ParameterDirection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -314,6 +362,9 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
 				setMethod((Method)null);
 				return;
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				setKind(KIND_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -334,6 +385,8 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
 				return method != null;
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				return kind != KIND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -352,6 +405,8 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 		result.append(ea_guid);
 		result.append(", Name: ");
 		result.append(name);
+		result.append(", Kind: ");
+		result.append(kind);
 		result.append(')');
 		return result.toString();
 	}

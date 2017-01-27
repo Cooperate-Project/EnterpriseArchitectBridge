@@ -7,11 +7,12 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
-
+import static org.junit.Assert.assertEquals;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
+import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
 import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
@@ -70,6 +71,18 @@ public class MethodparameterTest extends TeneoMappingBaseTest {
 		newMethodparam.setEa_guid(TEST_EA_GUID);
 		
 		persistEntity(session, newMethodparam);
+	}
+	
+	@Test
+	public void testKind() throws Exception {
+		initTestDb(TestResource.PeopleChangelog);
+		
+		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
+		
+		Method method2 = getSecondMethod(session);
+		Methodparameter methodparam = method2.getParameters().get(0);
+		assertEquals(ParameterDirection.IN, methodparam.getKind());
+
 	}
 	
 	private static void persistEntity(Session session, Object entity) {
