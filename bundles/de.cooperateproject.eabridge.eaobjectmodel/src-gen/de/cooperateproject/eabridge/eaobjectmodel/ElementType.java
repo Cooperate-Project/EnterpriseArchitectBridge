@@ -36,7 +36,9 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PACKAGE(0, "Package", "Package"), /**
+	PACKAGE(0, "Package", "Package"),
+
+	/**
 	 * The '<em><b>Interface</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,7 +46,9 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INTERFACE(0, "Interface", "Interface"), /**
+	INTERFACE(0, "Interface", "Interface"),
+
+	/**
 	 * The '<em><b>Note</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

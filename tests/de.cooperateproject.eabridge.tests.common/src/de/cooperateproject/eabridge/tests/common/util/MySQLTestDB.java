@@ -34,14 +34,14 @@ public class MySQLTestDB implements Closeable {
 	private final Liquibase liquibase;
 
 	static {
-		/*
-		try {
-			org.h2.tools.Server.createWebServer("-webPort", "10500").start();
-		} catch (SQLException e) {
-			org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MySQLTestDB.class);
-			logger.warn("Could not initialize H2 webserver.", e);
-		}
-		*/
+
+//		try {
+//			org.h2.tools.Server.createWebServer("-webPort", "10500").start();
+//		} catch (SQLException e) {
+//			org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(MySQLTestDB.class);
+//			logger.warn("Could not initialize H2 webserver.", e);
+//		}
+
 	}
 
 	public MySQLTestDB(TestResource testResource, String schema) throws Exception {

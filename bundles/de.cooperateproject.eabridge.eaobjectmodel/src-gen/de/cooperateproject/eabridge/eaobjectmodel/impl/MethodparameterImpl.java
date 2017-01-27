@@ -3,6 +3,7 @@
 package de.cooperateproject.eabridge.eaobjectmodel.impl;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
+import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
@@ -24,9 +25,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getEa_guid <em>Ea guid</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getMethodID <em>Method ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getParameterType <em>Parameter Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,26 +52,6 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String ea_guid = EA_GUID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMethodID() <em>Method ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMethodID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long METHOD_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMethodID() <em>Method ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMethodID()
-	 * @generated
-	 * @ordered
-	 */
-	protected Long methodID = METHOD_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' containment reference.
@@ -101,6 +82,16 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMethod() <em>Method</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected Method method;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,27 +131,6 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 		ea_guid = newEa_guid;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.METHODPARAMETER__EA_GUID, oldEa_guid, ea_guid));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Long getMethodID() {
-		return methodID;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMethodID(Long newMethodID) {
-		Long oldMethodID = methodID;
-		methodID = newMethodID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.METHODPARAMETER__METHOD_ID, oldMethodID, methodID));
 	}
 
 	/**
@@ -232,6 +202,44 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Method getMethod() {
+		if (method != null && method.eIsProxy()) {
+			InternalEObject oldMethod = (InternalEObject)method;
+			method = (Method)eResolveProxy(oldMethod);
+			if (method != oldMethod) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaobjectmodelPackage.METHODPARAMETER__METHOD, oldMethod, method));
+			}
+		}
+		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Method basicGetMethod() {
+		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMethod(Method newMethod) {
+		Method oldMethod = method;
+		method = newMethod;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.METHODPARAMETER__METHOD, oldMethod, method));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -251,12 +259,13 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
 				return getEa_guid();
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD_ID:
-				return getMethodID();
 			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
 				return getParameterType();
 			case EaobjectmodelPackage.METHODPARAMETER__NAME:
 				return getName();
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				if (resolve) return getMethod();
+				return basicGetMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,14 +281,14 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
 				setEa_guid((String)newValue);
 				return;
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD_ID:
-				setMethodID((Long)newValue);
-				return;
 			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
 				setParameterType((TypeReference)newValue);
 				return;
 			case EaobjectmodelPackage.METHODPARAMETER__NAME:
 				setName((String)newValue);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				setMethod((Method)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -296,14 +305,14 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
 				setEa_guid(EA_GUID_EDEFAULT);
 				return;
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD_ID:
-				setMethodID(METHOD_ID_EDEFAULT);
-				return;
 			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
 				setParameterType((TypeReference)null);
 				return;
 			case EaobjectmodelPackage.METHODPARAMETER__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				setMethod((Method)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -319,12 +328,12 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
 				return EA_GUID_EDEFAULT == null ? ea_guid != null : !EA_GUID_EDEFAULT.equals(ea_guid);
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD_ID:
-				return METHOD_ID_EDEFAULT == null ? methodID != null : !METHOD_ID_EDEFAULT.equals(methodID);
 			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
 				return parameterType != null;
 			case EaobjectmodelPackage.METHODPARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				return method != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -341,8 +350,6 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ea_guid: ");
 		result.append(ea_guid);
-		result.append(", MethodID: ");
-		result.append(methodID);
 		result.append(", Name: ");
 		result.append(name);
 		result.append(')');

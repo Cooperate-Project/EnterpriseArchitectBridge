@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getEa_guid <em>Ea guid</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethodID <em>Method ID</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getParameterType <em>Parameter Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getName <em>Name</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter()
@@ -49,32 +49,6 @@ public interface Methodparameter extends EObject {
 	 * @generated
 	 */
 	void setEa_guid(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Method ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Method ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Method ID</em>' attribute.
-	 * @see #setMethodID(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter_MethodID()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getMethodID();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethodID <em>Method ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Method ID</em>' attribute.
-	 * @see #getMethodID()
-	 * @generated
-	 */
-	void setMethodID(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Type</b></em>' containment reference.
@@ -127,5 +101,31 @@ public interface Methodparameter extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Method</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Method</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Method</em>' reference.
+	 * @see #setMethod(Method)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter_Method()
+	 * @model
+	 * @generated
+	 */
+	Method getMethod();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Method</em>' reference.
+	 * @see #getMethod()
+	 * @generated
+	 */
+	void setMethod(Method value);
 
 } // Methodparameter

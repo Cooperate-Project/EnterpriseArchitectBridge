@@ -89,7 +89,7 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
 		Attribute att = diagramHelper.createElementAttr(5, car, "attribute2", Scope.PUBLIC, "double");
 		Method run = diagramHelper.createElementMethode(car, "run", "int", Scope.PUBLIC, 4);
 		Methodparameter firstParam = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
-		firstParam.setMethodID(run.getMethodID());
+		firstParam.setMethod(run);
 		
 		TypeReference t = EaobjectmodelFactory.eINSTANCE.createTypeReference();
 		t.setType("int");
@@ -98,11 +98,11 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
 		Element car1 = diagramHelper.createElement(3, subPackage, "Car1", ElementType.CLASS);
 		Method run1 = diagramHelper.createElementMethode(car1, "run", "int",Scope.PUBLIC, 19);
 		Methodparameter firstParam1 = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
-		firstParam1.setMethodID(run1.getMethodID());
+		firstParam1.setMethod(run1);
 		Element car2 = diagramHelper.createElement(5, subPackage, "Car2", ElementType.CLASS);
 		Method run2 = diagramHelper.createElementMethode(car2, "run", "int", Scope.PUBLIC, 20);
 		Methodparameter firstParam2 = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
-		firstParam1.setMethodID(run2.getMethodID());
+		firstParam1.setMethod(run2);
 		firstParam2.setParameterType(t);
 		Element rad = diagramHelper.createElement(9, subPackage, "rad", ElementType.CLASS);
 		Element door = diagramHelper.createElement(16, subPackage, "door", ElementType.CLASS);

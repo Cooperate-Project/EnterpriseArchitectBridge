@@ -151,26 +151,26 @@
 				<join-column name="OperationID" />
 			</property>
 		</eclass>
+		
 		<eclass name="Methodparameter">
 			<inheritance>TABLE_PER_CLASS</inheritance>
+			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.MethodParameterPK</id-class>
 			<table name="t_operationparams" />
+			<property name="Method">
+				<id/>
+				<join-column name="OperationID" />
+			</property>
 			<property name="Name">
-				<column name="Name" />
 				<id />
-				<generated-value />
-			</property>
-			<property name="MethodID">
-				<column name="OperationID" />
-			</property>
-	
+			</property>	
 			<property name="ea_guid">
 				<column name="ea_guid" />
-			</property>
-			
+			</property>			
 			<property name="ParameterType">
 				<embedded/>
 			</property>
 		</eclass>
+		
 
 		<eclass name="Package">
 			<table name="t_package" />

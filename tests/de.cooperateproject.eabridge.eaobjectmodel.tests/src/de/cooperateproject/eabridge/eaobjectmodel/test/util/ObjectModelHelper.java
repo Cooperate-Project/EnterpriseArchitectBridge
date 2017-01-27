@@ -57,7 +57,7 @@ public class ObjectModelHelper {
 		method.setVisibility(visibility);
 		method.setPos(0L);
 		Methodparameter firstParam = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
-		firstParam.setMethodID(method.getMethodID());
+		firstParam.setMethod(method);
 		firstParam.setParameterType(t);
 		return method;
 	}

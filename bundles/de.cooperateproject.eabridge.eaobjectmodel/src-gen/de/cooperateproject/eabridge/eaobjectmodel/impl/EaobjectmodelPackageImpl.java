@@ -2523,17 +2523,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMethodparameter_MethodID() {
-		return (EAttribute)methodparameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getMethodparameter_ParameterType() {
-		return (EReference)methodparameterEClass.getEStructuralFeatures().get(2);
+		return (EReference)methodparameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2542,7 +2533,16 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	public EAttribute getMethodparameter_Name() {
-		return (EAttribute)methodparameterEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)methodparameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMethodparameter_Method() {
+		return (EReference)methodparameterEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3141,9 +3141,9 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 
 		methodparameterEClass = createEClass(METHODPARAMETER);
 		createEAttribute(methodparameterEClass, METHODPARAMETER__EA_GUID);
-		createEAttribute(methodparameterEClass, METHODPARAMETER__METHOD_ID);
 		createEReference(methodparameterEClass, METHODPARAMETER__PARAMETER_TYPE);
 		createEAttribute(methodparameterEClass, METHODPARAMETER__NAME);
+		createEReference(methodparameterEClass, METHODPARAMETER__METHOD);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__PACKAGE_GUID);
@@ -3506,9 +3506,9 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 
 		initEClass(methodparameterEClass, Methodparameter.class, "Methodparameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethodparameter_Ea_guid(), ecorePackage.getEString(), "ea_guid", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethodparameter_MethodID(), ecorePackage.getELongObject(), "MethodID", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethodparameter_ParameterType(), this.getTypeReference(), null, "ParameterType", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodparameter_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethodparameter_Method(), this.getMethod(), null, "Method", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageEClass, de.cooperateproject.eabridge.eaobjectmodel.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_PackageGUID(), ecorePackage.getEString(), "PackageGUID", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2521,22 +2521,13 @@ public interface EaobjectmodelPackage extends EPackage {
 	int METHODPARAMETER__EA_GUID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Method ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHODPARAMETER__METHOD_ID = 1;
-
-	/**
 	 * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHODPARAMETER__PARAMETER_TYPE = 2;
+	int METHODPARAMETER__PARAMETER_TYPE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2545,7 +2536,16 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHODPARAMETER__NAME = 3;
+	int METHODPARAMETER__NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Method</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHODPARAMETER__METHOD = 3;
 
 	/**
 	 * The number of structural features of the '<em>Methodparameter</em>' class.
@@ -5649,17 +5649,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getMethodparameter_Ea_guid();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethodID <em>Method ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Method ID</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethodID()
-	 * @see #getMethodparameter()
-	 * @generated
-	 */
-	EAttribute getMethodparameter_MethodID();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getParameterType <em>Parameter Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5680,6 +5669,17 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMethodparameter_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Method</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod()
+	 * @see #getMethodparameter()
+	 * @generated
+	 */
+	EReference getMethodparameter_Method();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.Package <em>Package</em>}'.
@@ -8112,14 +8112,6 @@ public interface EaobjectmodelPackage extends EPackage {
 		EAttribute METHODPARAMETER__EA_GUID = eINSTANCE.getMethodparameter_Ea_guid();
 
 		/**
-		 * The meta object literal for the '<em><b>Method ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute METHODPARAMETER__METHOD_ID = eINSTANCE.getMethodparameter_MethodID();
-
-		/**
 		 * The meta object literal for the '<em><b>Parameter Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8134,6 +8126,14 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute METHODPARAMETER__NAME = eINSTANCE.getMethodparameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Method</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHODPARAMETER__METHOD = eINSTANCE.getMethodparameter_Method();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl <em>Package</em>}' class.
