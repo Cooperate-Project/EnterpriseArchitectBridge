@@ -107,7 +107,7 @@
     <Elements Abstract="0" Author="sidner" Complexity="1" CreatedDate="2012-11-22T16:25:34.000+0100" ElementGUID="{638B2445-2A90-4c79-9561-1C31D7260075}" ElementID="22" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2012-11-22T16:33:21.000+0100" Name="EnemyBoard" Phase="1.0" Status="Proposed" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1">
       <Methods Abstract="false" IsConst="false" IsLeaf="false" IsPure="false" IsQuery="false" IsRoot="false" IsStatic="false" IsSynchronized="false" MethodGUID="{EBFCC3BA-EAEB-4b3e-8776-0F692F398BD7}" MethodID="7" Name="hit" Notes="Receives house from player to hit, checks enemy's board to see if it has ship and alters the player's enemy representation of the board to reflect the hit." Pos="0" ReturnIsArray="false" Visibility="Public" Concurrency="Sequential">
         <ReturnType typeName="int"/>
-        <Parameters ea_guid="{8BFE5B9F-73D3-4bf7-87A9-0183B0C9C60E}" MethodID="7" Name="house">
+        <Parameters ea_guid="{8BFE5B9F-73D3-4bf7-87A9-0183B0C9C60E}" Name="house" Method="//@Packages.0/@Elements.6/@Methods.0">
           <ParameterType typeName="House"/>
         </Parameters>
       </Methods>
@@ -117,13 +117,13 @@
     <Elements Abstract="0" Author="sidner" Complexity="1" CreatedDate="2012-11-22T16:26:18.000+0100" ElementGUID="{EE6EA744-39E3-4059-BE05-3F566113846F}" ElementID="23" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2012-11-22T16:26:39.000+0100" Name="MyBoard" Phase="1.0" Status="Proposed" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1">
       <Methods Abstract="false" IsLeaf="false" IsPure="false" IsQuery="false" IsRoot="false" IsStatic="false" MethodGUID="{22B6DADD-D79B-4e68-9921-33733D92970F}" MethodID="3" Name="deploy" Notes="Inserts ship into board." Pos="0" Visibility="Public">
         <ReturnType typeName="boolean"/>
-        <Parameters ea_guid="{7B9EC612-B069-4a99-B6CB-B0AE9145572E}" MethodID="3" Name="ship">
+        <Parameters ea_guid="{7B9EC612-B069-4a99-B6CB-B0AE9145572E}" Name="ship" Method="//@Packages.0/@Elements.7/@Methods.0">
           <ParameterType typeName="Ship"/>
         </Parameters>
       </Methods>
       <Methods Abstract="false" IsConst="false" IsLeaf="false" IsPure="false" IsQuery="false" IsRoot="false" IsStatic="false" IsSynchronized="false" MethodGUID="{C2A1747A-8237-4d66-AC59-FB3FF4598D52}" MethodID="8" Name="hit" Notes="Receives house from player to hit, checks enemy's board to see if it has ship and alters the player's enemy representation of the board to reflect the hit.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;returns:&#xD;&#xA;0 =&amp;gt; miss&#xD;&#xA;1 =&amp;gt; hit&#xD;&#xA;2 =&amp;gt; ship sunk&#xD;&#xA;3 =&amp;gt; fleet destroyed" Pos="1" ReturnIsArray="false" Visibility="Public" Concurrency="Sequential">
         <ReturnType typeName="int"/>
-        <Parameters ea_guid="{8BFE5B9F-73D3-4bf7-87A9-0183B0C9C60E}" MethodID="7" Name="house">
+        <Parameters ea_guid="{516946BA-79C0-4f61-A1BA-773D5D585178}" Name="house" Method="//@Packages.0/@Elements.7/@Methods.1">
           <ParameterType typeName="House"/>
         </Parameters>
       </Methods>
@@ -134,7 +134,7 @@
     <Elements Abstract="1" Author="sidner" Complexity="1" CreatedDate="2012-11-22T16:27:07.000+0100" ElementGUID="{9751247E-8F00-4d44-8DFD-C803571F1219}" ElementID="24" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2012-11-22T16:31:32.000+0100" Name="Deployable" Phase="1.0" Status="Proposed" Stereotype="interface" Type="Interface" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1">
       <Methods Abstract="true" IsLeaf="false" IsPure="false" IsQuery="false" IsRoot="false" IsStatic="false" MethodGUID="{C1EDB3B8-A2ED-46b8-8D65-429D92F0D512}" MethodID="1" Name="deploy" Notes="Inserts ship into board." Pos="0" Visibility="Public">
         <ReturnType typeName="boolean"/>
-        <Parameters ea_guid="{7B9EC612-B069-4a99-B6CB-B0AE9145572E}" MethodID="3" Name="ship">
+        <Parameters ea_guid="{1374FAFF-94B4-4770-93B1-F04D23442BCC}" Name="ship" Method="//@Packages.0/@Elements.8/@Methods.0">
           <ParameterType typeName="Ship"/>
         </Parameters>
       </Methods>
@@ -142,7 +142,7 @@
     <Elements Abstract="1" Author="sidner" Complexity="1" CreatedDate="2012-11-22T16:31:46.000+0100" ElementGUID="{B2DA7CF7-4FA9-4239-874D-1AB71C0B82DC}" ElementID="25" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2012-11-22T16:31:55.000+0100" Name="Hittable" Phase="1.0" Status="Proposed" Stereotype="interface" Type="Interface" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1">
       <Methods Abstract="true" IsConst="false" IsLeaf="false" IsPure="false" IsQuery="false" IsRoot="false" IsStatic="false" IsSynchronized="false" MethodGUID="{325821D4-6145-4116-B86D-924BCEF69874}" MethodID="4" Name="hit" Notes="Receives house from player to hit, checks enemy's board to see if it has ship and alters the player's enemy representation of the board to reflect the hit." Pos="0" ReturnIsArray="false" Visibility="Public" Concurrency="Sequential">
         <ReturnType typeName="int"/>
-        <Parameters ea_guid="{8BFE5B9F-73D3-4bf7-87A9-0183B0C9C60E}" MethodID="7" Name="house">
+        <Parameters ea_guid="{16DA4A2F-6781-4520-84D2-41EDE1BDBAC7}" Name="house" Method="//@Packages.0/@Elements.9/@Methods.0">
           <ParameterType typeName="House"/>
         </Parameters>
       </Methods>

@@ -15,22 +15,22 @@
         <ReturnType typeName="boolean"/>
       </Methods>
       <Methods MethodGUID="{1478D5A5-0E52-4116-929A-FE96D215F82F}" MethodID="3" Name="sayHiTo" Pos="2" Visibility="Public" Concurrency="Sequential">
-        <Parameters ea_guid="{D2AFF444-2756-4627-B504-F0566D27E25B}" MethodID="3" Name="name">
+        <Parameters ea_guid="{D2AFF444-2756-4627-B504-F0566D27E25B}" Name="name" Method="//@Packages.0/@Elements.0/@Methods.1">
           <ParameterType typeName="String"/>
         </Parameters>
       </Methods>
       <Methods MethodGUID="{41990079-4A8C-41f5-8507-D951EF0915B7}" MethodID="4" Name="tellAJoke" Pos="2" Visibility="Public" Concurrency="Sequential">
         <ReturnType typeName="String"/>
-        <Parameters ea_guid="{4BCEAF8F-DEEA-49a9-A138-7342032E254F}" MethodID="4" Name="about">
+        <Parameters ea_guid="{4BCEAF8F-DEEA-49a9-A138-7342032E254F}" Name="about" Method="//@Packages.0/@Elements.0/@Methods.2">
           <ParameterType classifier="//@Packages.0/@Elements.0" typeName="Person"/>
         </Parameters>
-        <Parameters ea_guid="{4BF1E15A-287F-48fa-80C0-0379C7787E4A}" MethodID="4" Name="funny">
+        <Parameters ea_guid="{4BF1E15A-287F-48fa-80C0-0379C7787E4A}" Name="funny" Method="//@Packages.0/@Elements.0/@Methods.2">
           <ParameterType typeName="boolean"/>
         </Parameters>
-        <Parameters ea_guid="{BC7A6AB8-F316-497f-9A41-0DA6702EF69D}" MethodID="4" Name="times">
+        <Parameters ea_guid="{BC7A6AB8-F316-497f-9A41-0DA6702EF69D}" Name="times" Method="//@Packages.0/@Elements.0/@Methods.2">
           <ParameterType typeName="int"/>
         </Parameters>
-        <Parameters ea_guid="{6AE4AEBC-8970-4c0d-AC1D-0992916A1910}" MethodID="4" Name="topic">
+        <Parameters ea_guid="{6AE4AEBC-8970-4c0d-AC1D-0992916A1910}" Name="topic" Method="//@Packages.0/@Elements.0/@Methods.2">
           <ParameterType typeName="String"/>
         </Parameters>
       </Methods>
