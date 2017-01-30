@@ -21,7 +21,7 @@ import de.cooperateproject.eabridge.tests.common.util.TestResource;
 public class PrimitiveTypesTest extends TeneoMappingBaseTest {
 
 	@Test
-	public void test() throws Exception {
+	public void testPrimitiveTypes() throws Exception {
 		initTestDb(TestResource.PrimitiveChangelog);		
 		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
 		

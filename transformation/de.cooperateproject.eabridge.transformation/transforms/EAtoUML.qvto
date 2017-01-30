@@ -98,23 +98,12 @@ mapping Element::mapElementsToInterfaces() :  uml::Interface
 }
 
 mapping Attribute::transformAttribute() :  uml::Property
-disjuncts Attribute::transformAttributeWithoutClassifier, Attribute::transformAttributeWithClassifier
-{}
-
-mapping Attribute::transformAttributeWithoutClassifier() :  uml::Property
-when { self.AttributeType.classifier = null}
 {
 	name := self.Name;
 	visibility := self.Scope.getAttributeType();
-	type := self.AttributeType.transformDataType();
-}
-
-mapping Attribute::transformAttributeWithClassifier() :  uml::Property
-when { self.AttributeType.classifier <> null}
-{
-	name := self.Name;
-	visibility := self.Scope.getAttributeType();
-	type := self.AttributeType.classifier.late resolveone(uml::Classifier);
+	var test := self.AttributeType.getPrimitiveType();
+	type := self.AttributeType.typeName.transformPrimitive();
+	if (type=null) then (type := self.AttributeType.classifier.late resolveone(uml::Classifier)) endif;
 }
 
 mapping Connector::mapConnectoToGeneralization() :  Generalization
@@ -175,23 +164,20 @@ mapping Method::transformOperations() :  Operation
 	visibility := self.Visibility.getAttributeType();
 	
 }
-mapping Methodparameter::transformParameters() :  Parameter
+mapping Methodparameter::transformParameters() :  uml::Parameter
 {
 	name := self.Name;
-	type := type := self.ParameterType.transformDataType();
+	type := self.ParameterType.typeName.transformPrimitive();
+	if (type=null) then (type := self.ParameterType.classifier.late resolveone(uml::Classifier)) endif;
 	direction := ParameterDirectionKind::_in;	
 	
 }
 
-//mapping in String::transformDatatypes() : uml::DataType 
-//{
-//	 name := self;
-//
-//}
 mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter 
 {
 	direction := ParameterDirectionKind::_return;
-	type := self.transformDataType();
+	type := self.typeName.transformPrimitive();
+	if (type=null) then (type := self.classifier.late resolveone(uml::Classifier)) endif;
 
 }
 
@@ -202,15 +188,6 @@ query String::transformPrimitive() : uml::PrimitiveType
 	var types := model.ownedElement->selectByType(uml::PrimitiveType);
 	var type := types->any(searchString = name.toString().toLower());
 	return type;
-}
-
-query TypeReference::transformDataType() : uml::DataType {
-
-	var primitiveValue = self.typeName.transformPrimitive();
-	
-	if (primitiveValue.=(null)) then log("No primitive Type: ", self) endif;
-	
-	return primitiveValue;
 }
 
 query Scope::getAttributeType() : VisibilityKind
