@@ -4,7 +4,14 @@ modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
 main() {
 	var rootPackages := om.objects()[Package]->select(p: Package | p.Parent.oclIsUndefined());
-	rootPackages-> map mapPackages();
+	rootPackages-> map mapRootPackages();
+}
+
+// Fits to the way papyrus creates new diagrams/models
+mapping eaobjectmodel::Package::mapRootPackages() : uml::Model {
+	
+	name := self.Name;
+	nestedPackage := self.Packages-> map mapPackages();
 }
 
 mapping eaobjectmodel::Package::mapPackages() : uml::Package
@@ -99,7 +106,7 @@ when { self.AttributeType.classifier = null}
 {
 	name := self.Name;
 	visibility := self.Scope.getAttributeType();
-	type := self.AttributeType.typeName.transformPrimitive();
+	type := self.AttributeType.transformDataType();
 }
 
 mapping Attribute::transformAttributeWithClassifier() :  uml::Property
@@ -171,20 +178,20 @@ mapping Method::transformOperations() :  Operation
 mapping Methodparameter::transformParameters() :  Parameter
 {
 	name := self.Name;
-	type := type := self.ParameterType.typeName.transformPrimitive();
+	type := type := self.ParameterType.transformDataType();
 	direction := ParameterDirectionKind::_in;	
 	
 }
 
-mapping in String::transformDatatypes() : uml::DataType 
-{
-	 name := self;
-
-}
+//mapping in String::transformDatatypes() : uml::DataType 
+//{
+//	 name := self;
+//
+//}
 mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter 
 {
 	direction := ParameterDirectionKind::_return;
-	type := self.typeName.transformPrimitive();
+	type := self.transformDataType();
 
 }
 
@@ -195,6 +202,15 @@ query String::transformPrimitive() : uml::PrimitiveType
 	var types := model.ownedElement->selectByType(uml::PrimitiveType);
 	var type := types->any(searchString = name.toString().toLower());
 	return type;
+}
+
+query TypeReference::transformDataType() : uml::DataType {
+
+	var primitiveValue = self.typeName.transformPrimitive();
+	
+	if (primitiveValue.=(null)) then log("No primitive Type: ", self) endif;
+	
+	return primitiveValue;
 }
 
 query Scope::getAttributeType() : VisibilityKind
