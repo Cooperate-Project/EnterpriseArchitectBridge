@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel modelName='EAObjectModel' modelDirectory='/de.cooperateproject.eabridge.eaobjectmodel/src-gen' complianceLevel='6.0' basePackage='de.cooperateproject.eabridge'"
- *        annotation="http://www.eclipse.org/emf/2011/Xcore JPA='teneo.jpa'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel modelName='EAObjectModel' modelDirectory='/de.cooperateproject.eabridge.eaobjectmodel/src-gen' complianceLevel='8.0' basePackage='de.cooperateproject.eabridge'"
  * @generated
  */
 public interface EaobjectmodelPackage extends EPackage {
@@ -2928,11 +2927,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EClass getTypeReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference <em>Classifier</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Classifier</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.TypeReference
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.TypeReference#getClassifier()
 	 * @see #getTypeReference()
 	 * @generated
 	 */

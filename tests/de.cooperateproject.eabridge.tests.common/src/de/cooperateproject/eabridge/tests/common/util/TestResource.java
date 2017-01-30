@@ -24,7 +24,8 @@ public enum TestResource {
 	bigModel("resources/bigModel.xml"),
 	GameChangelog("resources/Game.changelog.xml"),
 	GameModel("resources/Game.xmi"),
-	PeopleChangelog("resources/People.changelog.xml");
+	PeopleChangelog("resources/People.changelog.xml"),
+	DataTypeChangelog("resources/DataType.changelog.xml");
 
 //	private static File TMP_DIR = null;
 //	private final File tmpFile;

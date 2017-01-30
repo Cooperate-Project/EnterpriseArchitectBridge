@@ -5,11 +5,8 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="modelName" value="EAObjectModel"/>
     <details key="modelDirectory" value="/de.cooperateproject.eabridge.eaobjectmodel/src-gen"/>
-    <details key="complianceLevel" value="6.0"/>
+    <details key="complianceLevel" value="8.0"/>
     <details key="basePackage" value="de.cooperateproject.eabridge"/>
-  </eAnnotations>
-  <eAnnotations source="http://www.eclipse.org/emf/2011/Xcore">
-    <details key="JPA" value="teneo.jpa"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="TypeReference">
     <eOperations name="setType" unique="false">
@@ -32,7 +29,7 @@
     </eOperations>
     <eOperations name="getPrimitiveType" unique="false" eType="#//PrimitiveType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;final &lt;%java.lang.Object%> typeName = this.eGet(_findFirst);&#xA;boolean _equals = &lt;%com.google.common.base.Objects%>.equal(typeName, null);&#xA;if (_equals)&#xA;{&#xA;&#x9;return null;&#xA;}&#xA;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>[] _enumConstants = &lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>.class.getEnumConstants();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>, &lt;%java.lang.Boolean%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%> c)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = c.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(((&lt;%java.lang.String%>) typeName).equals(_name));&#xA;&#x9;}&#xA;};&#xA;return &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>>findFirst(((&lt;%java.lang.Iterable%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function_1);"/>
+        <details key="body" value="Optional&lt;PrimitiveType> primitive = PrimitiveType.VALUES&#xD;&#xA;&#x9;&#x9;.stream()&#xD;&#xA;&#x9;&#x9;.filter(prim -> prim.toString().equalsIgnoreCase(typeName))&#xD;&#xA;&#x9;&#x9;.findFirst();&#xD;&#xA;&#xD;&#xA;if (primitive.isPresent()) {&#xD;&#xA;&#x9;return primitive.get();&#xD;&#xA;} else {&#xD;&#xA;&#x9;return null;&#xD;&#xA;}"/>
       </eAnnotations>
     </eOperations>
     <eOperations name="getType" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -54,7 +51,6 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="#//Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="suppressedGetVisibility" value="true"/>
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>

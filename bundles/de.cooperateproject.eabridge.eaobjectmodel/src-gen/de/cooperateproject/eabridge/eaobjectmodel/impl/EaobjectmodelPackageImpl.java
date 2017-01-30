@@ -3643,26 +3643,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createResource(eNS_URI);
 
 		// Create annotations
-		// http://www.eclipse.org/emf/2011/Xcore
-		createXcoreAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2011/Xcore</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createXcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2011/Xcore";	
-		addAnnotation
-		  (this, 
-		   source, 
-		   new String[] {
-			 "JPA", "teneo.jpa"
-		   });
 	}
 
 	/**

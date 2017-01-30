@@ -17,16 +17,31 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference#getClassifier <em>Classifier</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getTypeReference()
- * @model features="classifier typeName" 
- *        classifierType="de.cooperateproject.eabridge.eaobjectmodel.Element" classifierSuppressedGetVisibility="true" classifierSuppressedSetVisibility="true"
+ * @model features="typeName" 
  *        typeNameUnique="false" typeNameDataType="org.eclipse.emf.ecore.EString" typeNameSuppressedGetVisibility="true" typeNameSuppressedSetVisibility="true"
  *        typeNameAnnotation="http://www.eclipse.org/emf/2002/Ecore constraints='matchesClassifierName'"
  * @generated
  */
 public interface TypeReference extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Classifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Classifier</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Classifier</em>' reference.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getTypeReference_Classifier()
+	 * @model suppressedSetVisibility="true"
+	 * @generated
+	 */
+	Element getClassifier();
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +73,7 @@ public interface TypeReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();\n<%org.eclipse.emf.common.util.EList%><<%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%org.eclipse.emf.ecore.EStructuralFeature%>, <%java.lang.Boolean%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%org.eclipse.emf.ecore.EStructuralFeature%>, <%java.lang.Boolean%>>()\n{\n\tpublic <%java.lang.Boolean%> apply(final <%org.eclipse.emf.ecore.EStructuralFeature%> it)\n\t{\n\t\t<%java.lang.String%> _name = it.getName();\n\t\treturn <%java.lang.Boolean%>.valueOf(<%com.google.common.base.Objects%>.equal(_name, \"typeName\"));\n\t}\n};\n<%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst = <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);\nfinal <%java.lang.Object%> typeName = this.eGet(_findFirst);\nboolean _equals = <%com.google.common.base.Objects%>.equal(typeName, null);\nif (_equals)\n{\n\treturn null;\n}\n<%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>[] _enumConstants = <%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>.class.getEnumConstants();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>, <%java.lang.Boolean%>> _function_1 = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>, <%java.lang.Boolean%>>()\n{\n\tpublic <%java.lang.Boolean%> apply(final <%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%> c)\n\t{\n\t\t<%java.lang.String%> _name = c.getName();\n\t\treturn <%java.lang.Boolean%>.valueOf(((<%java.lang.String%>) typeName).equals(_name));\n\t}\n};\nreturn <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>>findFirst(((<%java.lang.Iterable%><<%de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function_1);'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='Optional<PrimitiveType> primitive = PrimitiveType.VALUES\r\n\t\t.stream()\r\n\t\t.filter(prim -> prim.toString().equalsIgnoreCase(typeName))\r\n\t\t.findFirst();\r\n\r\nif (primitive.isPresent()) {\r\n\treturn primitive.get();\r\n} else {\r\n\treturn null;\r\n}'"
 	 * @generated
 	 */
 	PrimitiveType getPrimitiveType();

@@ -4,7 +4,7 @@
     modelPluginID="de.cooperateproject.eabridge.eaobjectmodel" runtimeJar="true" modelName="EAObjectModel"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testsDirectory="" booleanFlagsField="" importerID="org.eclipse.emf.ecore.xcore.importer"
-    containmentProxies="true" complianceLevel="6.0" language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    containmentProxies="true" complianceLevel="8.0" language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
     operationReflection="true" importOrganizing="true" decoration="Live" oSGiCompatible="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
     <genAnnotations source="selectedPackages">
@@ -77,6 +77,18 @@
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ConnectorType/Substitution"/>
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ConnectorType/Usage"/>
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ConnectorType/UseCase"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eaobjectmodel.ecore#//ElementType">
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ElementType/Class"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ElementType/Package"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ElementType/Interface"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ElementType/Note"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eaobjectmodel.ecore#//ParameterDirection">
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ParameterDirection/in"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ParameterDirection/inout"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ParameterDirection/out"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ParameterDirection/return"/>
     </genEnums>
     <genDataTypes ecoreDataType="eaobjectmodel.ecore#//ScopeObject"/>
     <genDataTypes ecoreDataType="eaobjectmodel.ecore#//GeometryMap"/>
@@ -222,6 +234,7 @@
     <genClasses ecoreClass="eaobjectmodel.ecore#//Diagram">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Diagram/Author"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Diagram/CreatedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Diagram/ModifiedDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Diagram/cx"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Diagram/cy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Diagram/DiagramGUID"/>
@@ -363,9 +376,10 @@
     </genClasses>
     <genClasses ecoreClass="eaobjectmodel.ecore#//Methodparameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Methodparameter/ea_guid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Methodparameter/MethodID"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eaobjectmodel.ecore#//Methodparameter/ParameterType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Methodparameter/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eaobjectmodel.ecore#//Methodparameter/Method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Methodparameter/Kind"/>
     </genClasses>
     <genClasses ecoreClass="eaobjectmodel.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Package/PackageGUID"/>

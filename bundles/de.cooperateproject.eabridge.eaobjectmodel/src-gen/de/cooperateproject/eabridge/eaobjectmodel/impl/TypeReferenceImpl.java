@@ -11,13 +11,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
 import de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher;
-
-import java.lang.Iterable;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Map;
-
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -308,28 +305,16 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public PrimitiveType getPrimitiveType() {
-		EClass _eClass = this.eClass();
-		EList<EStructuralFeature> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();
-		final Function1<EStructuralFeature, Boolean> _function = new Function1<EStructuralFeature, Boolean>() {
-			public Boolean apply(final EStructuralFeature it) {
-				String _name = it.getName();
-				return Boolean.valueOf(Objects.equal(_name, "typeName"));
-			}
-		};
-		EStructuralFeature _findFirst = IterableExtensions.<EStructuralFeature>findFirst(_eAllStructuralFeatures, _function);
-		final Object typeName = this.eGet(_findFirst);
-		boolean _equals = Objects.equal(typeName, null);
-		if (_equals) {
+		Optional<PrimitiveType> primitive = PrimitiveType.VALUES
+				.stream()
+				.filter(prim -> prim.toString().equalsIgnoreCase(typeName))
+				.findFirst();
+		
+		if (primitive.isPresent()) {
+			return primitive.get();
+		} else {
 			return null;
 		}
-		PrimitiveType[] _enumConstants = PrimitiveType.class.getEnumConstants();
-		final Function1<PrimitiveType, Boolean> _function_1 = new Function1<PrimitiveType, Boolean>() {
-			public Boolean apply(final PrimitiveType c) {
-				String _name = c.getName();
-				return Boolean.valueOf(((String) typeName).equals(_name));
-			}
-		};
-		return IterableExtensions.<PrimitiveType>findFirst(((Iterable<PrimitiveType>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function_1);
 	}
 
 	/**
