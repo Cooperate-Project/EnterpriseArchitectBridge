@@ -3577,6 +3577,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEEnumLiteral(primitiveTypeEEnum, PrimitiveType.FLOAT);
 		addEEnumLiteral(primitiveTypeEEnum, PrimitiveType.LONG);
 		addEEnumLiteral(primitiveTypeEEnum, PrimitiveType.SHORT);
+		addEEnumLiteral(primitiveTypeEEnum, PrimitiveType.STRING);
 
 		initEEnum(scopeEEnum, Scope.class, "Scope");
 		addEEnumLiteral(scopeEEnum, Scope.PRIVATE);

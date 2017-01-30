@@ -74,6 +74,7 @@
     <eLiterals name="Float" literal="float"/>
     <eLiterals name="Long" literal="long"/>
     <eLiterals name="Short" literal="Short"/>
+    <eLiterals name="String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AllowDuplicates" unique="false"
