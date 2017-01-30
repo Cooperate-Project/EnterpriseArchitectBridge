@@ -66,7 +66,7 @@ public class SyncTest extends TeneoMappingBaseTest {
 		ArrayList<Table> tables = SyncUtil.getTables(getTestDB().getDataStore());
 
 		// With the current mapping, there should be 10 elements
-		assertEquals(10, tables.size());
+		assertEquals(9, tables.size());
 
 	}
 
