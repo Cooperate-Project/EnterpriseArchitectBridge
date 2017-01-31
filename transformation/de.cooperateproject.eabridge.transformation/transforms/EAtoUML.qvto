@@ -60,6 +60,7 @@ mapping Element::mapElementsToClasses() : Class
 	ownedAttribute := self.Attributes-> map transformAttribute();
 	ownedOperation := self.Methods-> map transformOperations();
 	visibility := self.Visibility.getAttributeType();
+	isAbstract := if (self.Abstract.equalsIgnoreCase("1")) then true else false endif;
 	
 	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
 	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
