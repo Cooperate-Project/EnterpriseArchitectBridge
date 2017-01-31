@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
@@ -14,9 +15,9 @@ import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
 
 public class ModellingHelper extends TeneoMappingBaseTest {
 
-	@Test
+	@Ignore @Test
 	public void changelog2xmi() throws Exception {
-		initTestDb(TestResource.PeopleChangelog);
+		initTestDb(TestResource.SimpleAssociationChangelog);
 		
 		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
 
@@ -26,7 +27,7 @@ public class ModellingHelper extends TeneoMappingBaseTest {
 
 		Package actualContent = results.get(0);
 	
-		EAObjectModelHelper.saveModel(actualContent, "src/resources/People.xmi");
+		EAObjectModelHelper.saveModel(actualContent, "src/resources/SimpleAssociation.xmi");
 	}
 
 }
