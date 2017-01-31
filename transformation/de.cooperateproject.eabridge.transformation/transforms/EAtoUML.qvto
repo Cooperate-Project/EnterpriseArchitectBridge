@@ -20,6 +20,7 @@ mapping eaobjectmodel::Package::mapPackages() : uml::Package
 	nestedPackage := self.Packages->map mapPackages();
 
 	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
+	var interfaces :=  self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
 	var connectors := classes->collect(SourceRelations);
 	var usages := connectors->select(e : Connector| e.Type = ConnectorType::Usage);
 	var Informationflows :=  connectors->select(e : Connector| e.Type = ConnectorType::InformationFlow);
@@ -33,9 +34,9 @@ mapping eaobjectmodel::Package::mapPackages() : uml::Package
 	if (dependencies -> size() != 0) {
 		packagedElement += dependencies -> map mapClassesToDependencies();
 	};
-	packagedElement += classes-> map mapElementsToClasses();
 	
-	//packagedElement += self.Elements->select(e:  OM::Element | e.Type="Interface")-> map mapElementsToClasses();
+	packagedElement += classes-> map mapElementsToClasses();	
+	packagedElement += interfaces-> map mapElementsToClasses();
 }
 
 mapping Connector::mapClassesToUsage():  Usage {
@@ -54,7 +55,7 @@ mapping Connector::mapClassesToInformationflows():  InformationFlow {
 	informationTarget := self.Dest.oclAsType(Class);
 
 }
-mapping Element::mapElementsToClasses() : Class
+mapping Element::mapElementsToClasses() : uml::Class
 {	
 	name := self.Name;
 	ownedAttribute := self.Attributes-> map transformAttribute();
@@ -96,6 +97,37 @@ mapping Element::mapElementsToClasses() : Class
 mapping Element::mapElementsToInterfaces() :  uml::Interface
 {
 	name := self.Name;
+	ownedAttribute := self.Attributes-> map transformAttribute();
+	ownedOperation := self.Methods-> map transformOperations();
+	visibility := self.Visibility.getAttributeType();
+	isAbstract := if (self.Abstract.equalsIgnoreCase("1")) then true else false endif;
+	
+	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
+	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
+	var abstractions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Abstraction);
+	var generalizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Generalization);
+	var extensions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Extension);
+	var realizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Realisation);
+	var substitutions   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Substitution);
+	var usages   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Usage);
+	
+	if (associations -> size() != 0) {
+		nestedClassifier := associations -> map mapElementsToConnectors();
+	};
+	
+	if (aggregations -> size() != 0) {
+		nestedClassifier := aggregations -> map mapElementsToConnectors();
+	};
+	
+	if (generalizations -> size() != 0) {
+		generalization := generalizations -> map mapConnectoToGeneralization();
+	};
+	if (substitution -> size() != 0) {
+		substitution := substitutions -> map mapConnectoToSubstitution();
+	};
+	if (substitution -> size() != 0) {
+		substitution := substitutions -> map mapConnectoToSubstitution();
+	};
 }
 
 mapping Attribute::transformAttribute() :  uml::Property
