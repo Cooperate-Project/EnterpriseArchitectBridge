@@ -36,7 +36,7 @@ mapping eaobjectmodel::Package::mapPackages() : uml::Package
 	};
 	
 	packagedElement += classes-> map mapElementsToClasses();	
-	packagedElement += interfaces-> map mapElementsToClasses();
+	packagedElement += interfaces-> map mapElementsToInterfaces();
 }
 
 mapping Connector::mapClassesToUsage():  Usage {
@@ -143,15 +143,16 @@ mapping Attribute::transformAttribute() :  uml::Property
 
 mapping Connector::mapConnectoToGeneralization() :  Generalization
 {
-	general := self.Dest.oclAsType(Class);
+	general := self.Dest.late resolveone(uml::Classifier);
 }
-mapping eaobjectmodel::Connector::mapConnectoToSubstitution() :  uml::Substitution
+mapping Connector::mapConnectoToSubstitution() :  uml::Substitution
 {
-	supplier := self.Dest.oclAsType(Class);
+	supplier := self.Dest.late resolveone(uml::Classifier);
 }
 mapping Connector::mapConnectoToRealization() :  InterfaceRealization
 {
-	
+	supplier := self.Dest.late resolveone(uml::Classifier);
+	contract := self.Dest.late resolveone(uml::Interface);
 }
 mapping Connector::mapElementsToConnectors() : uml::Association
 {	
