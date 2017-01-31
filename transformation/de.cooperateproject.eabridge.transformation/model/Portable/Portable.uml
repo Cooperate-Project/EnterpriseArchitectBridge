@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ljrskOebEeaELObpPx7s_w" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_oVRDYOebEeaELObpPx7s_w" name="Portable">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_tZw4AOebEeaELObpPx7s_w" name="Portable">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1D7uYOebEeaELObpPx7s_w" name="carry"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_5_iFsOebEeaELObpPx7s_w" name="canBePickedUp">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_5_iFseebEeaELObpPx7s_w" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_DtcVcOecEeaELObpPx7s_w" name="Box">
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_DBAbUOeeEeaELObpPx7s_w" client="_DtcVcOecEeaELObpPx7s_w" supplier="_tZw4AOebEeaELObpPx7s_w" contract="_tZw4AOebEeaELObpPx7s_w"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_nAArMOecEeaELObpPx7s_w" name="carry"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_nAArMeecEeaELObpPx7s_w" name="canBePickedUp">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nAArMuecEeaELObpPx7s_w" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

@@ -26,7 +26,8 @@ public enum TestResource {
 	PeopleChangelog("resources/People.changelog.xml"),
 	DataTypeChangelog("resources/DataType.changelog.xml"),
 	PrimitiveChangelog("resources/Primitive.changelog.xml"),
-	VehicleChangelog("resources/Vehicles.changelog.xml");
+	VehicleChangelog("resources/Vehicles.changelog.xml"),
+	PortableChangelog("resources/Portable.changelog.xml");
 
 //	private static File TMP_DIR = null;
 //	private final File tmpFile;

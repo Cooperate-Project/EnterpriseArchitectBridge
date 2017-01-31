@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
@@ -59,7 +60,7 @@ public class SyncTest extends TeneoMappingBaseTest {
 		session.close();
 	}
 
-	@Test
+	@Ignore @Test
 	public void extractMappingTest() throws Exception {
 
 		// Get the list of tables from the current mapping
