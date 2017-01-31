@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_xZhN8OeiEeaELObpPx7s_w" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_xZhN8eeiEeaELObpPx7s_w" name="SimpleAssociation">
+    <packagedElement xmi:type="uml:Class" xmi:id="_xZhN8ueiEeaELObpPx7s_w" name="A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xZhN8-eiEeaELObpPx7s_w" name="B">
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_xZhN9OeiEeaELObpPx7s_w" memberEnd="_xZhN9eeiEeaELObpPx7s_w">
+        <ownedEnd xmi:id="_xZhN9eeiEeaELObpPx7s_w" name="B" type="_xZhN8-eiEeaELObpPx7s_w" association="_xZhN9OeiEeaELObpPx7s_w"/>
+      </nestedClassifier>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xZhN9ueiEeaELObpPx7s_w" name="C">
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_xZhN9-eiEeaELObpPx7s_w" memberEnd="_xZhN-OeiEeaELObpPx7s_w">
+        <ownedEnd xmi:id="_xZhN-OeiEeaELObpPx7s_w" name="C" type="_xZhN9ueiEeaELObpPx7s_w" association="_xZhN9-eiEeaELObpPx7s_w"/>
+      </nestedClassifier>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xZhN-eeiEeaELObpPx7s_w" name="D">
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_xZhN-ueiEeaELObpPx7s_w" memberEnd="_xZhN--eiEeaELObpPx7s_w">
+        <ownedEnd xmi:id="_xZhN--eiEeaELObpPx7s_w" name="D" type="_xZhN-eeiEeaELObpPx7s_w" aggregation="shared" association="_xZhN-ueiEeaELObpPx7s_w"/>
+      </nestedClassifier>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xZhN_OeiEeaELObpPx7s_w" name="E">
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_xZhN_eeiEeaELObpPx7s_w" memberEnd="_xZhN_ueiEeaELObpPx7s_w">
+        <ownedEnd xmi:id="_xZhN_ueiEeaELObpPx7s_w" name="E" type="_xZhN_OeiEeaELObpPx7s_w" aggregation="shared" association="_xZhN_eeiEeaELObpPx7s_w"/>
+      </nestedClassifier>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
