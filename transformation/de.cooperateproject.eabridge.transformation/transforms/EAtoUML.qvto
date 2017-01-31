@@ -1,4 +1,4 @@
-transformation EAtoUML(in om: OM,in ecorePrimitives : UML, out uml1:UML);
+transformation EAtoUML(inout om: OM,in ecorePrimitives : UML, out uml1:UML);
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
@@ -102,6 +102,7 @@ mapping Attribute::transformAttribute() :  uml::Property
 	name := self.Name;
 	visibility := self.Scope.getAttributeType();
 	var test := self.AttributeType.getPrimitiveType();
+	log (test.toString());
 	type := self.AttributeType.typeName.transformPrimitive();
 	if (type=null) then (type := self.AttributeType.classifier.late resolveone(uml::Classifier)) endif;
 }
@@ -187,6 +188,7 @@ query String::transformPrimitive() : uml::PrimitiveType
 	var model := ecorePrimitives.rootObjects()[uml::Model]->any(true);
 	var types := model.ownedElement->selectByType(uml::PrimitiveType);
 	var type := types->any(searchString = name.toString().toLower());
+	assert warning (type <> null) with log ('Could not interpret primitive datatype \"' + self + '\"');
 	return type;
 }
 

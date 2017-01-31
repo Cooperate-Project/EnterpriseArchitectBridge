@@ -29,25 +29,8 @@
     </eOperations>
     <eOperations name="getPrimitiveType" unique="false" eType="#//PrimitiveType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="Optional&lt;PrimitiveType> primitive = PrimitiveType.VALUES&#xD;&#xA;&#x9;&#x9;.stream()&#xD;&#xA;&#x9;&#x9;.filter(prim -> prim.toString().equalsIgnoreCase(typeName))&#xD;&#xA;&#x9;&#x9;.findFirst();&#xD;&#xA;&#xD;&#xA;if (primitive.isPresent()) {&#xD;&#xA;&#x9;return primitive.get();&#xD;&#xA;} else {&#xD;&#xA;&#x9;return null;&#xD;&#xA;}"/>
+        <details key="body" value="Optional&lt;PrimitiveType> primitive = PrimitiveType.VALUES&#xD;&#xA;&#x9;&#x9;.stream()&#xD;&#xA;&#x9;&#x9;.filter(prim -> prim.toString().equalsIgnoreCase(getTypeName()))&#xD;&#xA;&#x9;&#x9;.findFirst();&#xD;&#xA;&#xD;&#xA;if (primitive.isPresent()) {&#xD;&#xA;&#x9;return primitive.get();&#xD;&#xA;} else {&#xD;&#xA;&#x9;return null;&#xD;&#xA;}"/>
       </eAnnotations>
-    </eOperations>
-    <eOperations name="getType" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;&lt;%java.lang.Object%> _eGet = this.eGet(_findFirst);&#xA;final &lt;%java.lang.String%> typeName = ((&lt;%java.lang.String%>) _eGet);&#xA;return typeName;"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="hasmatchesClassifierName" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%org.eclipse.emf.ecore.EClass%> _eClass = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;classifier&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures, _function);&#xA;&lt;%java.lang.Object%> _eGet = this.eGet(_findFirst);&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%> classifierTmp = ((&lt;%de.cooperateproject.eabridge.eaobjectmodel.Element%>) _eGet);&#xA;&lt;%org.eclipse.emf.ecore.EClass%> _eClass_1 = this.eClass();&#xA;&lt;%org.eclipse.emf.common.util.EList%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>> _eAllStructuralFeatures_1 = _eClass_1.getEAllStructuralFeatures();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>> _function_1 = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%org.eclipse.emf.ecore.EStructuralFeature%> it)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = it.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(&lt;%com.google.common.base.Objects%>.equal(_name, &quot;typeName&quot;));&#xA;&#x9;}&#xA;};&#xA;&lt;%org.eclipse.emf.ecore.EStructuralFeature%> _findFirst_1 = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature%>>findFirst(_eAllStructuralFeatures_1, _function_1);&#xA;&lt;%java.lang.Object%> _eGet_1 = this.eGet(_findFirst_1);&#xA;final &lt;%java.lang.String%> typeName = ((&lt;%java.lang.String%>) _eGet_1);&#xA;if (((&lt;%com.google.common.base.Objects%>.equal(classifierTmp, null) || &lt;%com.google.common.base.Strings%>.isNullOrEmpty(classifierTmp.getName())) || classifierTmp.getName().equals(typeName)))&#xA;{&#xA;&#x9;return true;&#xA;}&#xA;else&#xA;{&#xA;&#x9;return false;&#xA;}"/>
-      </eAnnotations>
-      <eParameters name="diagnostics" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-      <eParameters name="context" unique="false">
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-        </eGenericType>
-      </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="#//Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -60,7 +43,6 @@
         <details key="constraints" value="matchesClassifierName"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="suppressedGetVisibility" value="true"/>
         <details key="suppressedSetVisibility" value="true"/>
       </eAnnotations>
     </eStructuralFeatures>

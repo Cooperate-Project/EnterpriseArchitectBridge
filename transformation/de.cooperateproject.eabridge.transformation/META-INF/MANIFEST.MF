@@ -5,6 +5,13 @@ Bundle-SymbolicName: de.cooperateproject.eabridge.transformation
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.m2m.qvt.oml,
- de.cooperateproject.eabridge.eaobjectmodel;bundle-version="1.0.0"
+ de.cooperateproject.eabridge.eaobjectmodel;bundle-version="1.0.0",
+ org.apache.log4j;bundle-version="1.2.15",
+ org.junit;bundle-version="4.12.0",
+ org.eclipse.uml2.uml;bundle-version="5.2.2",
+ com.google.guava;bundle-version="15.0.0",
+ org.eclipse.core.resources;bundle-version="3.11.1",
+ org.eclipse.uml2.uml.resources;bundle-version="5.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.commons.logging.impl

@@ -3,8 +3,9 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.cooperateproject.eabridge.eaobjectmodel/src-gen"
     modelPluginID="de.cooperateproject.eabridge.eaobjectmodel" runtimeJar="true" modelName="EAObjectModel"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    testsDirectory="" booleanFlagsField="" importerID="org.eclipse.emf.ecore.xcore.importer"
-    containmentProxies="true" complianceLevel="8.0" language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    reflectiveDelegation="true" testsDirectory="" booleanFlagsField="" importerID="org.eclipse.emf.ecore.xcore.importer"
+    featureDelegation="Reflective" containmentProxies="true" complianceLevel="8.0"
+    language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
     operationReflection="true" importOrganizing="true" decoration="Live" oSGiCompatible="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
     <genAnnotations source="selectedPackages">
@@ -32,6 +33,7 @@
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//PrimitiveType/Float"/>
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//PrimitiveType/Long"/>
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//PrimitiveType/Short"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//PrimitiveType/String"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eaobjectmodel.ecore#//Scope">
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//Scope/Private"/>

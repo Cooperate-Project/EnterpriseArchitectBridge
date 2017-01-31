@@ -134,31 +134,13 @@ public interface EaobjectmodelPackage extends EPackage {
 	int TYPE_REFERENCE___GET_PRIMITIVE_TYPE = 3;
 
 	/**
-	 * The operation id for the '<em>Get Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE___GET_TYPE = 4;
-
-	/**
-	 * The operation id for the '<em>Hasmatches Classifier Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_REFERENCE___HASMATCHES_CLASSIFIER_NAME__DIAGNOSTICCHAIN_MAP = 5;
-
-	/**
 	 * The number of operations of the '<em>Type Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_REFERENCE_OPERATION_COUNT = 6;
+	int TYPE_REFERENCE_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -2938,11 +2920,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EReference getTypeReference_Classifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference <em>Type Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference#getTypeName <em>Type Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type Name</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.TypeReference
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.TypeReference#getTypeName()
 	 * @see #getTypeReference()
 	 * @generated
 	 */
@@ -2987,26 +2969,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTypeReference__GetPrimitiveType();
-
-	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference#getType() <em>Get Type</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Type</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.TypeReference#getType()
-	 * @generated
-	 */
-	EOperation getTypeReference__GetType();
-
-	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference#hasmatchesClassifierName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Hasmatches Classifier Name</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Hasmatches Classifier Name</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.TypeReference#hasmatchesClassifierName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getTypeReference__HasmatchesClassifierName__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute <em>Attribute</em>}'.
@@ -6169,22 +6131,6 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TYPE_REFERENCE___GET_PRIMITIVE_TYPE = eINSTANCE.getTypeReference__GetPrimitiveType();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TYPE_REFERENCE___GET_TYPE = eINSTANCE.getTypeReference__GetType();
-
-		/**
-		 * The meta object literal for the '<em><b>Hasmatches Classifier Name</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TYPE_REFERENCE___HASMATCHES_CLASSIFIER_NAME__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTypeReference__HasmatchesClassifierName__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl <em>Attribute</em>}' class.

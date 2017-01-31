@@ -3,8 +3,6 @@
 package de.cooperateproject.eabridge.eaobjectmodel.impl;
 
 import com.google.common.base.Objects;
-import com.google.common.base.Strings;
-
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
@@ -12,22 +10,14 @@ import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
 import de.cooperateproject.eabridge.eaobjectmodel.util.TypeReferenceClassifierNameRefresher;
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Map;
 import java.util.Optional;
 import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -52,36 +42,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  */
 public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements TypeReference {
 	/**
-	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClassifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected Element classifier;
-
-	/**
-	 * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TYPE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String typeName = TYPE_NAME_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -105,16 +65,9 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getClassifier() {
-		if (classifier != null && classifier.eIsProxy()) {
-			InternalEObject oldClassifier = (InternalEObject)classifier;
-			classifier = (Element)eResolveProxy(oldClassifier);
-			if (classifier != oldClassifier) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER, oldClassifier, classifier));
-			}
-		}
-		return classifier;
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	/**
@@ -122,8 +75,8 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetClassifier() {
-		return classifier;
+	public Element getClassifier() {
+		return (Element)eGet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__CLASSIFIER, true);
 	}
 
 	/**
@@ -132,10 +85,7 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public void setClassifier(Element newClassifier) {
-		Element oldClassifier = classifier;
-		classifier = newClassifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER, oldClassifier, classifier));
+		eSet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__CLASSIFIER, newClassifier);
 	}
 
 	/**
@@ -144,7 +94,7 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public String getTypeName() {
-		return typeName;
+		return (String)eGet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__TYPE_NAME, true);
 	}
 
 	/**
@@ -153,10 +103,7 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public void setTypeName(String newTypeName) {
-		String oldTypeName = typeName;
-		typeName = newTypeName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME, oldTypeName, typeName));
+		eSet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__TYPE_NAME, newTypeName);
 	}
 
 	/**
@@ -307,7 +254,7 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	public PrimitiveType getPrimitiveType() {
 		Optional<PrimitiveType> primitive = PrimitiveType.VALUES
 				.stream()
-				.filter(prim -> prim.toString().equalsIgnoreCase(typeName))
+				.filter(prim -> prim.toString().equalsIgnoreCase(getTypeName()))
 				.findFirst();
 		
 		if (primitive.isPresent()) {
@@ -315,131 +262,6 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 		} else {
 			return null;
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getType() {
-		EClass _eClass = this.eClass();
-		EList<EStructuralFeature> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();
-		final Function1<EStructuralFeature, Boolean> _function = new Function1<EStructuralFeature, Boolean>() {
-			public Boolean apply(final EStructuralFeature it) {
-				String _name = it.getName();
-				return Boolean.valueOf(Objects.equal(_name, "typeName"));
-			}
-		};
-		EStructuralFeature _findFirst = IterableExtensions.<EStructuralFeature>findFirst(_eAllStructuralFeatures, _function);
-		Object _eGet = this.eGet(_findFirst);
-		final String typeName = ((String) _eGet);
-		return typeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean hasmatchesClassifierName(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-		EClass _eClass = this.eClass();
-		EList<EStructuralFeature> _eAllStructuralFeatures = _eClass.getEAllStructuralFeatures();
-		final Function1<EStructuralFeature, Boolean> _function = new Function1<EStructuralFeature, Boolean>() {
-			public Boolean apply(final EStructuralFeature it) {
-				String _name = it.getName();
-				return Boolean.valueOf(Objects.equal(_name, "classifier"));
-			}
-		};
-		EStructuralFeature _findFirst = IterableExtensions.<EStructuralFeature>findFirst(_eAllStructuralFeatures, _function);
-		Object _eGet = this.eGet(_findFirst);
-		final Element classifierTmp = ((Element) _eGet);
-		EClass _eClass_1 = this.eClass();
-		EList<EStructuralFeature> _eAllStructuralFeatures_1 = _eClass_1.getEAllStructuralFeatures();
-		final Function1<EStructuralFeature, Boolean> _function_1 = new Function1<EStructuralFeature, Boolean>() {
-			public Boolean apply(final EStructuralFeature it) {
-				String _name = it.getName();
-				return Boolean.valueOf(Objects.equal(_name, "typeName"));
-			}
-		};
-		EStructuralFeature _findFirst_1 = IterableExtensions.<EStructuralFeature>findFirst(_eAllStructuralFeatures_1, _function_1);
-		Object _eGet_1 = this.eGet(_findFirst_1);
-		final String typeName = ((String) _eGet_1);
-		if (((Objects.equal(classifierTmp, null) || Strings.isNullOrEmpty(classifierTmp.getName())) || classifierTmp.getName().equals(typeName))) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
-				if (resolve) return getClassifier();
-				return basicGetClassifier();
-			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
-				return getTypeName();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
-				setClassifier((Element)newValue);
-				return;
-			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
-				setTypeName((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
-				setClassifier((Element)null);
-				return;
-			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
-				setTypeName(TYPE_NAME_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
-				return classifier != null;
-			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
-				return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
-		}
-		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -462,28 +284,8 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 				return null;
 			case EaobjectmodelPackage.TYPE_REFERENCE___GET_PRIMITIVE_TYPE:
 				return getPrimitiveType();
-			case EaobjectmodelPackage.TYPE_REFERENCE___GET_TYPE:
-				return getType();
-			case EaobjectmodelPackage.TYPE_REFERENCE___HASMATCHES_CLASSIFIER_NAME__DIAGNOSTICCHAIN_MAP:
-				return hasmatchesClassifierName((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (typeName: ");
-		result.append(typeName);
-		result.append(')');
-		return result.toString();
 	}
 
 } //TypeReferenceImpl

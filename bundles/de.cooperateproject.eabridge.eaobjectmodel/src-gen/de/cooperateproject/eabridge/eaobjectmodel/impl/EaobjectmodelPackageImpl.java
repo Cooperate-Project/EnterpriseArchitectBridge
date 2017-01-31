@@ -21,19 +21,15 @@ import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
-
-import de.cooperateproject.eabridge.eaobjectmodel.util.EaobjectmodelValidator;
 import de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -240,15 +236,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		// Initialize created meta-data
 		theEaobjectmodelPackage.initializePackageContents();
 
-		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theEaobjectmodelPackage, 
-			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
-					 return EaobjectmodelValidator.INSTANCE;
-				 }
-			 });
-
 		// Mark meta-data to indicate it can't be changed
 		theEaobjectmodelPackage.freeze();
 
@@ -319,24 +306,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 */
 	public EOperation getTypeReference__GetPrimitiveType() {
 		return typeReferenceEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTypeReference__GetType() {
-		return typeReferenceEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTypeReference__HasmatchesClassifierName__DiagnosticChain_Map() {
-		return typeReferenceEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -2912,8 +2881,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEOperation(typeReferenceEClass, TYPE_REFERENCE___SET_TYPE__PRIMITIVETYPE);
 		createEOperation(typeReferenceEClass, TYPE_REFERENCE___SET_TYPE__STRING);
 		createEOperation(typeReferenceEClass, TYPE_REFERENCE___GET_PRIMITIVE_TYPE);
-		createEOperation(typeReferenceEClass, TYPE_REFERENCE___GET_TYPE);
-		createEOperation(typeReferenceEClass, TYPE_REFERENCE___HASMATCHES_CLASSIFIER_NAME__DIAGNOSTICCHAIN_MAP);
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__ALLOW_DUPLICATES);
@@ -3257,17 +3224,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEParameter(op, ecorePackage.getEString(), "notExistentType", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTypeReference__GetPrimitiveType(), this.getPrimitiveType(), "getPrimitiveType", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getTypeReference__GetType(), ecorePackage.getEString(), "getType", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getTypeReference__HasmatchesClassifierName__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hasmatchesClassifierName", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_AllowDuplicates(), ecorePackage.getEBooleanObject(), "AllowDuplicates", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
