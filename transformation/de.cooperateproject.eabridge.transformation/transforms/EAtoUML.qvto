@@ -102,9 +102,10 @@ mapping Attribute::transformAttribute() :  uml::Property
 {
 	name := self.Name;
 	visibility := self.Scope.getAttributeType();
-	var test := self.AttributeType.getPrimitiveType();
-	log (test.toString());
-	type := self.AttributeType.typeName.transformPrimitive();
+	if (self.AttributeType.classifier=null) 
+		then type := self.AttributeType.getPrimitiveType().transformPrimitive() 
+		else (type := self.AttributeType.classifier.late resolveone(uml::Classifier)) 
+	endif;
 	if (type=null) then (type := self.AttributeType.classifier.late resolveone(uml::Classifier)) endif;
 }
 
@@ -169,8 +170,10 @@ mapping Method::transformOperations() :  Operation
 mapping Methodparameter::transformParameters() :  uml::Parameter
 {
 	name := self.Name;
-	type := self.ParameterType.typeName.transformPrimitive();
-	if (type=null) then (type := self.ParameterType.classifier.late resolveone(uml::Classifier)) endif;
+	if (self.ParameterType.classifier=null) 
+		then type := self.ParameterType.getPrimitiveType().transformPrimitive() 
+		else (type := self.ParameterType.classifier.late resolveone(uml::Classifier)) 
+	endif;
 	direction := ParameterDirectionKind::_in;	
 	
 }
@@ -178,19 +181,35 @@ mapping Methodparameter::transformParameters() :  uml::Parameter
 mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter 
 {
 	direction := ParameterDirectionKind::_return;
-	type := self.typeName.transformPrimitive();
-	if (type=null) then (type := self.classifier.late resolveone(uml::Classifier)) endif;
+	if (self.classifier=null) 
+		then type := self.getPrimitiveType().transformPrimitive() 
+		else (type := self.classifier.late resolveone(uml::Classifier)) 
+	endif;
 
 }
 
-query String::transformPrimitive() : uml::PrimitiveType
+query PrimitiveType::transformPrimitive() : uml::PrimitiveType
 {
-	var searchString = "E".concat(self).toLower();
-	var model := ecorePrimitives.rootObjects()[uml::Model]->any(true);
-	var types := model.ownedElement->selectByType(uml::PrimitiveType);
-	var type := types->any(searchString = name.toString().toLower());
-	assert warning (type <> null) with log ('Could not interpret primitive datatype \"' + self + '\"');
+	var type = switch {
+		case (self = PrimitiveType::Int) getPrimitive('EInt');
+		case (self = PrimitiveType::Boolean) getPrimitive('EBoolean');
+		case (self = PrimitiveType::Byte) getPrimitive('EByte');
+		case (self = PrimitiveType::Char) getPrimitive('EChar');
+		case (self = PrimitiveType::Double) getPrimitive('EDouble');
+		case (self = PrimitiveType::Float) getPrimitive('EFloat');
+		case (self = PrimitiveType::Long) getPrimitive('ELong');
+		case (self = PrimitiveType::Short) getPrimitive('EShort');
+		case (self = PrimitiveType::String) getPrimitive('EString');
+	};
+	assert warning (type <> null) with log ('Could not interpret primitive datatype \"' + self.toString() + '\".');
 	return type;
+}
+
+query getPrimitive(typeName : String) : uml::PrimitiveType
+{
+	var model := ecorePrimitives.rootObjects()[uml::Model]->any(true);
+	var primitives := model.ownedElement->selectByType(uml::PrimitiveType);
+	return primitives->any(typeName = name);
 }
 
 query Scope::getAttributeType() : VisibilityKind
