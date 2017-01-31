@@ -12,7 +12,6 @@ import com.google.common.io.Files;
 
 
 public enum TestResource {
-
 	
 	EABaseChangelog("resources/EABase.changelog.xml"),
 	EASchemaChangelog("resources/EASchema.changelog.xml"),
@@ -26,7 +25,8 @@ public enum TestResource {
 	GameModel("resources/Game.xmi"),
 	PeopleChangelog("resources/People.changelog.xml"),
 	DataTypeChangelog("resources/DataType.changelog.xml"),
-	PrimitiveChangelog("resources/Primitive.changelog.xml");
+	PrimitiveChangelog("resources/Primitive.changelog.xml"),
+	VehicleChangelog("resources/Vehicles.changelog.xml");
 
 //	private static File TMP_DIR = null;
 //	private final File tmpFile;
