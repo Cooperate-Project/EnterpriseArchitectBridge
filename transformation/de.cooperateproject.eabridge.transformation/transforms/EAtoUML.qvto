@@ -35,8 +35,8 @@ mapping eaobjectmodel::Package::mapPackages() : uml::Package
 		packagedElement += dependencies -> map mapClassesToDependencies();
 	};
 	
-	packagedElement += classes-> map mapElementsToClasses();	
-	packagedElement += interfaces-> map mapElementsToInterfaces();
+	packagedElement += classes-> map mapElementToClass();	
+	packagedElement += interfaces-> map mapElementToInterface();
 }
 
 mapping Connector::mapClassesToUsage():  Usage {
@@ -55,78 +55,58 @@ mapping Connector::mapClassesToInformationflows():  InformationFlow {
 	informationTarget := self.Dest.oclAsType(Class);
 
 }
-mapping Element::mapElementsToClasses() : uml::Class
-{	
+
+abstract mapping Element::mapElementToClassifier() : uml::Classifier {
 	name := self.Name;
-	ownedAttribute := self.Attributes-> map transformAttribute();
-	ownedOperation := self.Methods-> map transformOperations();
 	visibility := self.Visibility.getAttributeType();
 	isAbstract := if (self.Abstract.equalsIgnoreCase("1")) then true else false endif;
 	
-	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
-	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
-	var abstractions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Abstraction);
 	var generalizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Generalization);
-	var extensions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Extension);
-	var realizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Realisation);
 	var substitutions   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Substitution);
-	var usages   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Usage);
-	
-	if (associations -> size() != 0) {
-		nestedClassifier := associations -> map mapElementsToConnectors();
-	};
-	
-	if (aggregations -> size() != 0) {
-		nestedClassifier := aggregations -> map mapElementsToConnectors();
-	};
 	
 	if (generalizations -> size() != 0) {
 		generalization := generalizations -> map mapConnectoToGeneralization();
-	};
-	if (realizations -> size() != 0) {
-		interfaceRealization := realizations -> map mapConnectoToRealization();
-	};
-	if (substitution -> size() != 0) {
-		substitution := substitutions -> map mapConnectoToSubstitution();
 	};
 	if (substitution -> size() != 0) {
 		substitution := substitutions -> map mapConnectoToSubstitution();
 	};
 	
 }
-mapping Element::mapElementsToInterfaces() :  uml::Interface
-{
-	name := self.Name;
+
+mapping Element::mapElementToClass() : uml::Class
+inherits Element::mapElementToClassifier {	
 	ownedAttribute := self.Attributes-> map transformAttribute();
 	ownedOperation := self.Methods-> map transformOperations();
-	visibility := self.Visibility.getAttributeType();
-	isAbstract := if (self.Abstract.equalsIgnoreCase("1")) then true else false endif;
 	
 	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
 	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
-	var abstractions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Abstraction);
-	var generalizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Generalization);
-	var extensions = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Extension);
 	var realizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Realisation);
-	var substitutions   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Substitution);
-	var usages   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Usage);
 	
 	if (associations -> size() != 0) {
 		nestedClassifier := associations -> map mapElementsToConnectors();
 	};
-	
 	if (aggregations -> size() != 0) {
 		nestedClassifier := aggregations -> map mapElementsToConnectors();
 	};
+	if (realizations -> size() != 0) {
+		interfaceRealization := realizations -> map mapConnectoToRealization();
+	};
+}
+
+mapping Element::mapElementToInterface() :  uml::Interface
+inherits Element::mapElementToClassifier
+{
+	ownedAttribute := self.Attributes-> map transformAttribute();
+	ownedOperation := self.Methods-> map transformOperations();
 	
-	if (generalizations -> size() != 0) {
-		generalization := generalizations -> map mapConnectoToGeneralization();
+	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
+	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
+	
+	if (associations -> size() != 0) {
+		nestedClassifier := associations -> map mapElementsToConnectors();
 	};
-	if (substitution -> size() != 0) {
-		substitution := substitutions -> map mapConnectoToSubstitution();
-	};
-	if (substitution -> size() != 0) {
-		substitution := substitutions -> map mapConnectoToSubstitution();
+	if (aggregations -> size() != 0) {
+		nestedClassifier := aggregations -> map mapElementsToConnectors();
 	};
 }
 
@@ -167,13 +147,13 @@ mapping Connector::transformConnectorToAggregation() :  Property
 {
 	name := self.Source.Name;
 	aggregation := AggregationKind::shared;
-	type :=	self.Source.map mapElementsToClasses().oclAsType(Type)
+	type :=	self.Source.map mapElementToClass().oclAsType(Type)
 }
 
 mapping Connector::transformConnectorToAssociation() :  Property
 {
 	name := self.Source.Name;
-	type :=	self.Source.map mapElementsToClasses().oclAsType(Type);
+	type :=	self.Source.map mapElementToClass().oclAsType(Type);
 	upperValue := self.SourceCard.map StringToCardinality().oclAsType(ValueSpecification);
 	lowerValue := self.DestCard.map StringToCardinality().oclAsType(ValueSpecification);
 }
@@ -189,7 +169,7 @@ mapping Element::transformConnectorToComposition() :  Property
 {
 	name := self.Name;
 	aggregation := AggregationKind::composite;
-	type :=	self.map mapElementsToClasses().oclAsType(Type)
+	type :=	self.map mapElementToClass().oclAsType(Type)
 }
 
 mapping Method::transformOperations() :  Operation
