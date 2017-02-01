@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_cisgcOicEea9mOXkppXw1g" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_cisgceicEea9mOXkppXw1g" name="Portable">
+    <packagedElement xmi:type="uml:Class" xmi:id="_citHgOicEea9mOXkppXw1g">
+      <interfaceRealization xmi:id="_citHgeicEea9mOXkppXw1g" client="_citHgOicEea9mOXkppXw1g" supplier="_citHheicEea9mOXkppXw1g" contract="_citHheicEea9mOXkppXw1g"/>
+      <ownedOperation xmi:id="_citHguicEea9mOXkppXw1g" name="canBePickedUp" visibility="public">
+        <ownedParameter xmi:id="_citHg-icEea9mOXkppXw1g" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_citHhOicEea9mOXkppXw1g" name="carry" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_citHheicEea9mOXkppXw1g" isAbstract="true">
+      <ownedOperation xmi:id="_citHhuicEea9mOXkppXw1g" name="carry" visibility="public"/>
+      <ownedOperation xmi:id="_citHh-icEea9mOXkppXw1g" name="canBePickedUp" visibility="public">
+        <ownedParameter xmi:id="_citHiOicEea9mOXkppXw1g" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

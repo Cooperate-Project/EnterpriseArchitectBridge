@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_j2N6AOfvEeaBiKsfBYtnig" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_j2N6AefvEeaBiKsfBYtnig" name="People">
+    <packagedElement xmi:type="uml:Class" xmi:id="_j2N6AufvEeaBiKsfBYtnig" name="Person">
+      <ownedAttribute xmi:id="_j2N6A-fvEeaBiKsfBYtnig" name="age" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_j2N6BOfvEeaBiKsfBYtnig" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_j2N6BefvEeaBiKsfBYtnig" name="isAdult" visibility="public">
+        <ownedParameter xmi:id="_j2N6BufvEeaBiKsfBYtnig" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_j2N6B-fvEeaBiKsfBYtnig" name="sayHiTo" visibility="public">
+        <ownedParameter xmi:id="_j2N6COfvEeaBiKsfBYtnig" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_j2N6CefvEeaBiKsfBYtnig" name="tellAJoke" visibility="public">
+        <ownedParameter xmi:id="_j2N6CufvEeaBiKsfBYtnig" name="about" type="_j2N6AufvEeaBiKsfBYtnig"/>
+        <ownedParameter xmi:id="_j2N6C-fvEeaBiKsfBYtnig" name="funny">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_j2N6DOfvEeaBiKsfBYtnig" name="times">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_j2N6DefvEeaBiKsfBYtnig" name="topic">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_j2N6DufvEeaBiKsfBYtnig" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

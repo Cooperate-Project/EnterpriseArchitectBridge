@@ -1,7 +1,7 @@
-<?xml version="1.1" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <include file="EASchema.changelog.xml" relativeToChangelogFile="true" />
-    <changeSet author="hahner (generated)" id="1485859352444-1">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <include file="EASchema.changelog.xml" relativeToChangelogFile="true" />      
+    <changeSet author="schick (generated)" id="1485970290067-1">
         <insert tableName="t_cardinality">
             <column name="Cardinality" value="*"/>
         </insert>
@@ -24,7 +24,7 @@
             <column name="Cardinality" value="1..*"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-2">
+    <changeSet author="schick (generated)" id="1485970290067-2">
         <insert tableName="t_complexitytypes">
             <column name="Complexity" value="V.Low"/>
             <column name="NumericWeight" valueNumeric="1"/>
@@ -50,7 +50,7 @@
             <column name="NumericWeight" valueNumeric="6"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-3">
+    <changeSet author="schick (generated)" id="1485970290067-3">
         <insert tableName="t_connector">
             <column name="Connector_ID" valueNumeric="1"/>
             <column name="Name"/>
@@ -86,12 +86,12 @@
             <column name="Btm_Start_Label"/>
             <column name="Btm_Mid_Label"/>
             <column name="Btm_End_Label"/>
-            <column name="Start_Edge" valueNumeric="2"/>
-            <column name="End_Edge" valueNumeric="4"/>
-            <column name="PtStartX" valueNumeric="287"/>
-            <column name="PtStartY" valueNumeric="-267"/>
-            <column name="PtEndX" valueNumeric="370"/>
-            <column name="PtEndY" valueNumeric="-207"/>
+            <column name="Start_Edge" valueNumeric="0"/>
+            <column name="End_Edge" valueNumeric="0"/>
+            <column name="PtStartX" valueNumeric="0"/>
+            <column name="PtStartY" valueNumeric="0"/>
+            <column name="PtEndX" valueNumeric="0"/>
+            <column name="PtEndY" valueNumeric="0"/>
             <column name="SeqNo" valueNumeric="0"/>
             <column name="HeadStyle" valueNumeric="0"/>
             <column name="LineStyle" valueNumeric="0"/>
@@ -180,7 +180,7 @@
             <column name="IsBold" valueNumeric="0"/>
             <column name="LineColor" valueNumeric="-1"/>
             <column name="Stereotype"/>
-            <column name="VirtualInheritance" value="0"/>
+            <column name="VirtualInheritance"/>
             <column name="LinkAccess"/>
             <column name="PDATA1"/>
             <column name="PDATA2"/>
@@ -192,7 +192,7 @@
             <column name="SourceConstraint"/>
             <column name="DestConstraint"/>
             <column name="SourceIsNavigable" valueNumeric="0"/>
-            <column name="DestIsNavigable" valueNumeric="0"/>
+            <column name="DestIsNavigable" valueNumeric="1"/>
             <column name="IsRoot" valueNumeric="0"/>
             <column name="IsLeaf" valueNumeric="0"/>
             <column name="IsSpec"/>
@@ -209,7 +209,7 @@
             <column name="StyleEx"/>
             <column name="SourceStereotype"/>
             <column name="DestStereotype"/>
-            <column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+            <column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
             <column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
             <column name="EventFlags"/>
         </insert>
@@ -300,7 +300,7 @@
             <column name="Direction" value="Source -&gt; Destination"/>
             <column name="Notes"/>
             <column name="Connector_Type" value="Aggregation"/>
-            <column name="SubType"/>
+            <column name="SubType" value="Weak"/>
             <column name="SourceCard"/>
             <column name="SourceAccess" value="Public"/>
             <column name="SourceElement"/>
@@ -342,7 +342,7 @@
             <column name="IsBold" valueNumeric="0"/>
             <column name="LineColor" valueNumeric="-1"/>
             <column name="Stereotype"/>
-            <column name="VirtualInheritance" value="0"/>
+            <column name="VirtualInheritance"/>
             <column name="LinkAccess"/>
             <column name="PDATA1"/>
             <column name="PDATA2"/>
@@ -376,7 +376,7 @@
             <column name="EventFlags"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-4">
+    <changeSet author="schick (generated)" id="1485970290067-4">
         <insert tableName="t_connectortypes">
             <column name="Connector_Type" value="Abstraction"/>
             <column name="Description" value="Abstraction"/>
@@ -498,7 +498,7 @@
             <column name="Description" value="UseCase"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-5">
+    <changeSet author="schick (generated)" id="1485970290067-5">
         <insert tableName="t_constants">
             <column name="ConstantName" value="CompanyName"/>
             <column name="ConstantValue" value="Sparx Systems"/>
@@ -528,7 +528,7 @@
             <column name="ConstantValue" value="0.01"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-6">
+    <changeSet author="schick (generated)" id="1485970290067-6">
         <insert tableName="t_constrainttypes">
             <column name="Constraint" value="Invariant"/>
             <column name="Description" value="A state the object must always be in"/>
@@ -550,7 +550,7 @@
             <column name="Notes"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-7">
+    <changeSet author="schick (generated)" id="1485970290067-7">
         <insert tableName="t_datatypes">
             <column name="Type" value="DDL"/>
             <column name="ProductName" value="Oracle"/>
@@ -13052,7 +13052,7 @@
             <column name="DatatypeID" valueNumeric="826"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-8">
+    <changeSet author="schick (generated)" id="1485970290067-8">
         <insert tableName="t_diagram">
             <column name="Diagram_ID" valueNumeric="1"/>
             <column name="Package_ID" valueNumeric="2"/>
@@ -13072,7 +13072,7 @@
             <column name="cy" valueNumeric="1134"/>
             <column name="Scale" valueNumeric="100"/>
             <column name="CreatedDate" valueDate="2017-01-31 11:34:11.0"/>
-            <column name="ModifiedDate" valueDate="2017-01-31 11:36:26.0"/>
+            <column name="ModifiedDate" valueDate="2017-02-01 18:14:05.0"/>
             <column name="HTMLPath"/>
             <column name="ShowForeign" valueNumeric="0"/>
             <column name="ShowBorder" valueNumeric="0"/>
@@ -13082,10 +13082,10 @@
             <column name="ea_guid" value="{5B2556BA-8A93-499a-9942-46FC319BF970}"/>
             <column name="TPos"/>
             <column name="Swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;hl=1;cls=0;"/>
-            <column name="StyleEx" value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=8697813C;"/>
+            <column name="StyleEx" value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=C9781A48;"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-9">
+    <changeSet author="schick (generated)" id="1485970290067-9">
         <insert tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="1"/>
@@ -13098,7 +13098,7 @@
         <insert tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="2"/>
-            <column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+            <column name="Geometry" value="SX=-25;SY=23;EX=45;EY=-35;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
             <column name="Style" value="Mode=3;EOID=4F8513A7;SOID=DD66CBBC;Color=-1;LWidth=0;"/>
             <column name="Hidden" valueNumeric="0"/>
             <column name="Path"/>
@@ -13123,7 +13123,7 @@
             <column name="Instance_ID" valueNumeric="4"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-10">
+    <changeSet author="schick (generated)" id="1485970290067-10">
         <insert tableName="t_diagramobjects">
             <column name="Diagram_ID" valueNumeric="1"/>
             <column name="Object_ID" valueNumeric="2"/>
@@ -13180,7 +13180,7 @@
             <column name="Instance_ID" valueNumeric="5"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-11">
+    <changeSet author="schick (generated)" id="1485970290067-11">
         <insert tableName="t_diagramtypes">
             <column name="Diagram_Type" value="Activity"/>
             <column name="Name" value="Activity"/>
@@ -13257,7 +13257,7 @@
             <column name="Package_ID" valueNumeric="1"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-12">
+    <changeSet author="schick (generated)" id="1485970290067-12">
         <insert tableName="t_ecf">
             <column name="ECFID" value="ECF01"/>
             <column name="Description" value="Familiar with Rational Unified Process"/>
@@ -13315,7 +13315,7 @@
             <column name="Notes"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-13">
+    <changeSet author="schick (generated)" id="1485970290067-13">
         <insert tableName="t_efforttypes">
             <column name="EffortType" value="Analysis"/>
             <column name="Description" value="Analyzing System"/>
@@ -13353,7 +13353,7 @@
             <column name="Notes" value="The Transition phase revolves around the implementation of the project and the acceptance testing carried out by the end user"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-14">
+    <changeSet author="schick (generated)" id="1485970290067-14">
         <insert tableName="t_genopt">
             <column name="AppliesTo" value="CMACRO"/>
             <column name="Option" value="_AFX_NO_DEBUG_CRT;_AFX_NO_OCC_SUPPORT;_AFX_OLD_EXCEPTIONS;_AFX_PACKING;_AFXDLL;_DEBUG;_MSC_VER;_UNICODE;AFX_CDECL;AFX_COMDAT;AFX_DATA;AFX_DATADEF;AFX_NOVTABLE;AFXAPI;APICALL;BEGIN_INTERFACE_PART ^ END_INTERFACE_PART;BEGIN_PARAM_MAP ^ END_PARAM_MAP;CONTROLLER_API;DECLARE_DYNAMIC();DECLARE_DYNCREATE();DECLARE_INTERFACE_MAP();DECLARE_MESSAGE_MAP();defined();PASCAL;SWLAPI;WINAPI;"/>
@@ -13361,10 +13361,6 @@
         <insert tableName="t_genopt">
             <column name="AppliesTo" value="Status"/>
             <column name="Option"/>
-        </insert>
-        <insert tableName="t_genopt">
-            <column name="AppliesTo" value="class"/>
-            <column name="Option" value="nKill=0;nLang=1;sLang=Java;bConstructor=1;bConInline=0;sConScope=Public;bCpyConstructor=0;bCpyConInline=0;sCpyConScope=Public;bDestructor=1;bDesVirtual=1;bDesInline=0;sDesScope=Public;CHeader=.h;CBody=.cpp;JBody=.java;VBody=.cls;VBNetBody=.vb;WFSBody=.vbs;JavaScriptBody=.js;sAssocName=m_$LinkClass;bGetSet=1;bGenInterfaces=1;JCol=Vector;CCol=[];VCol=Collection;bVMultiuse=1;bVPersist=0;bVDatabind=0;bVDatasource=0;bVGlobal=0;bVCreatable=1;bVExposed=0;sMTS=0;sCRefType=*;sCGetPrefix=Get;sCSetPrefix=Set;sJGetPrefix=get;sJSetPrefix=set;sCSGetPrefix=Get;sCSSetPrefix=Set;sVVersion=6.0;CSBody=.cs;DBody=.pas;bJInnerClasses=1;sJCollection=;sCodePage=;sPHPBody=.php;sPHPVersion=;sPHPGetPrefix=get;sPHPSetPrefix=set;ASBody=.as;PyBody=.py;CPPVersion=;ASVersion=2.0;ANSICHeader=.h;ANSICBody=.c;ANSIC_OOSupport=0;ANSIC_NSDLMT=_;ANSIC_RefParam=1;ANSIC_RefStyle=*;ANSIC_RefName=this;ANSIC_ConstructorName=new;ANSIC_DestructorName=delete;CPPCollections=CArray&lt;#TYPE#&gt;&#31;CMap&lt;CString,LPCTSTR,#TYPE#*,#TYPE#*&gt;&#31;;CSCollections=List&lt;#TYPE#&gt;&#31;Stack&lt;#TYPE#&gt;&#31;Queue&lt;#TYPE#&gt;&#31;;JCollections=HashSet&lt;#TYPE#&gt;&#31;Map&lt;String,#TYPE#&gt;&#31;List&lt;#TYPE#&gt;&#31;;"/>
         </insert>
         <insert tableName="t_genopt">
             <column name="AppliesTo" value="mdgtech"/>
@@ -13386,8 +13382,12 @@
             <column name="AppliesTo" value="mdgtech"/>
             <column name="Option" value="{vhdl}DefaultExtension=vhdl;ImportFileExtensions=.vhdl;.vhd;CollClassID=VHDL;"/>
         </insert>
+        <insert tableName="t_genopt">
+            <column name="AppliesTo" value="scenario"/>
+            <column name="Option" value="usesManagedList=0;"/>
+        </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-15">
+    <changeSet author="schick (generated)" id="1485970290067-15">
         <insert tableName="t_implement">
             <column name="Type" value="Requirement"/>
         </insert>
@@ -13398,7 +13398,7 @@
             <column name="Type" value="Component"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-16">
+    <changeSet author="schick (generated)" id="1485970290067-16">
         <insert tableName="t_lists">
             <column name="ListID" value="{1E9843C4-0788-4948-8FCA-EF9E0D9B9369}"/>
             <column name="Category" value="ConstStatusType"/>
@@ -13442,7 +13442,7 @@
             <column name="Notes"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-17">
+    <changeSet author="schick (generated)" id="1485970290067-17">
         <insert tableName="t_metrictypes">
             <column name="Metric" value="Breakage"/>
             <column name="Description" value="Convergence, rework, software scrap"/>
@@ -13474,7 +13474,7 @@
             <column name="Notes" value="Resource turnover"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-18">
+    <changeSet author="schick (generated)" id="1485970290067-18">
         <insert tableName="t_object">
             <column name="Object_ID" valueNumeric="1"/>
             <column name="Object_Type" value="Package"/>
@@ -13830,7 +13830,7 @@
             <column name="EventFlags"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-19">
+    <changeSet author="schick (generated)" id="1485970290067-19">
         <insert tableName="t_objecttypes">
             <column name="Object_Type" value="Action"/>
             <column name="Description" value="Action"/>
@@ -14300,7 +14300,7 @@
             <column name="ImageID" valueNumeric="0"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-20">
+    <changeSet author="schick (generated)" id="1485970290067-20">
         <insert tableName="t_ocf">
             <column name="ObjectType" value="Actor"/>
             <column name="ComplexityWeight" valueNumeric="1.0"/>
@@ -14310,7 +14310,7 @@
             <column name="ComplexityWeight" valueNumeric="5.0"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-21">
+    <changeSet author="schick (generated)" id="1485970290067-21">
         <insert tableName="t_package">
             <column name="Package_ID" valueNumeric="1"/>
             <column name="Name" value="Model"/>
@@ -14362,7 +14362,7 @@
             <column name="BatchLoad" valueNumeric="0"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-22">
+    <changeSet author="schick (generated)" id="1485970290067-22">
         <insert tableName="t_problemtypes">
             <column name="ProblemType" value="HW"/>
             <column name="Description" value="Hardware related"/>
@@ -14394,7 +14394,7 @@
             <column name="Notes" value="Problems caused by user"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-23">
+    <changeSet author="schick (generated)" id="1485970290067-23">
         <insert tableName="t_projectroles">
             <column name="Role" value="Application Analyst"/>
             <column name="Description" value="Define and model the application structure"/>
@@ -14441,7 +14441,7 @@
             <column name="Notes"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-24">
+    <changeSet author="schick (generated)" id="1485970290067-24">
         <insert tableName="t_requiretypes">
             <column name="Requirement" value="Display"/>
             <column name="Description" value="System will display in a specified format"/>
@@ -14485,7 +14485,7 @@
             <column name="Notes" value="The system will validate a specific rule as supplied in the business requirements"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-25">
+    <changeSet author="schick (generated)" id="1485970290067-25">
         <insert tableName="t_scenariotypes">
             <column name="ScenarioType" value="Alternate"/>
             <column name="Description" value="Alternate pathway"/>
@@ -14505,7 +14505,7 @@
             <column name="Notes" value="Used to describe ordinary usage"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-26">
+    <changeSet author="schick (generated)" id="1485970290067-26">
         <insert tableName="t_statustypes">
             <column name="Status" value="Approved"/>
             <column name="Description" value="Item is approved"/>
@@ -14527,7 +14527,7 @@
             <column name="Description" value="Approved and Checked"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-27">
+    <changeSet author="schick (generated)" id="1485970290067-27">
         <insert tableName="t_stereotypes">
             <column name="Stereotype" value="process"/>
             <column name="AppliesTo" value="activity"/>
@@ -15849,7 +15849,7 @@
             <column name="VisualType"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-28">
+    <changeSet author="schick (generated)" id="1485970290067-28">
         <insert tableName="t_tcf">
             <column name="TCFID" value="TCF01"/>
             <column name="Description" value="Distributed System"/>
@@ -15942,7 +15942,7 @@
             <column name="Notes"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-29">
+    <changeSet author="schick (generated)" id="1485970290067-29">
         <insert tableName="t_testtypes">
             <column name="TestType" value="Load"/>
             <column name="Description" value="Performance under load"/>
@@ -15962,7 +15962,7 @@
             <column name="Notes" value="Used to test basic path"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-30">
+    <changeSet author="schick (generated)" id="1485970290067-30">
         <insert tableName="t_xrefsystem">
             <column name="XrefID" value="{6E5FED3A-DF6C-40db-BEEC-4528AB8C8A2E}"/>
             <column name="Name" value="Model Views"/>
@@ -15980,7 +15980,7 @@
             <column name="ToolID"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-31">
+    <changeSet author="schick (generated)" id="1485970290067-31">
         <insert tableName="usys_system">
             <column name="Property" value="310_Category"/>
             <column name="Value" value="1"/>
@@ -16354,7 +16354,7 @@
             <column name="Value" value="1"/>
         </insert>
     </changeSet>
-    <changeSet author="hahner (generated)" id="1485859352444-32">
+    <changeSet author="schick (generated)" id="1485970290067-32">
         <insert tableName="usystables">
             <column name="TableName" value="t_attribute"/>
             <column name="RelOrder" valueNumeric="6"/>
