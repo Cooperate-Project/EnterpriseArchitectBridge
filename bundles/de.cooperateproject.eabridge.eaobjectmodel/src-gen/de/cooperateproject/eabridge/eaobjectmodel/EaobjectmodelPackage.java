@@ -2838,6 +2838,16 @@ public interface EaobjectmodelPackage extends EPackage {
 	int SCOPE = 13;
 
 	/**
+	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.IsAggregate <em>Is Aggregate</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getIsAggregate()
+	 * @generated
+	 */
+	int IS_AGGREGATE = 14;
+
+	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DirectionType <em>Direction Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2845,7 +2855,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getDirectionType()
 	 * @generated
 	 */
-	int DIRECTION_TYPE = 14;
+	int DIRECTION_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ConnectorType <em>Connector Type</em>}' enum.
@@ -2855,7 +2865,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getConnectorType()
 	 * @generated
 	 */
-	int CONNECTOR_TYPE = 15;
+	int CONNECTOR_TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ElementType <em>Element Type</em>}' enum.
@@ -2865,7 +2875,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getElementType()
 	 * @generated
 	 */
-	int ELEMENT_TYPE = 16;
+	int ELEMENT_TYPE = 17;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection <em>Parameter Direction</em>}' enum.
@@ -2875,7 +2885,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getParameterDirection()
 	 * @generated
 	 */
-	int PARAMETER_DIRECTION = 17;
+	int PARAMETER_DIRECTION = 18;
 
 	/**
 	 * The meta object id for the '<em>Scope Object</em>' data type.
@@ -2885,7 +2895,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getScopeObject()
 	 * @generated
 	 */
-	int SCOPE_OBJECT = 18;
+	int SCOPE_OBJECT = 19;
 
 	/**
 	 * The meta object id for the '<em>Geometry Map</em>' data type.
@@ -2895,7 +2905,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getGeometryMap()
 	 * @generated
 	 */
-	int GEOMETRY_MAP = 19;
+	int GEOMETRY_MAP = 20;
 
 
 	/**
@@ -3792,11 +3802,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getConnector_SourceContainment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsAggregate <em>Source Is Aggregate</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsAggregate <em>Source Is Aggregate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Source Is Aggregate</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsAggregate()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsAggregate()
 	 * @see #getConnector()
 	 * @generated
 	 */
@@ -3847,11 +3857,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getConnector_SourceConstraint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsNavigable <em>Source Is Navigable</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsNavigable <em>Source Is Navigable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Source Is Navigable</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsNavigable()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsNavigable()
 	 * @see #getConnector()
 	 * @generated
 	 */
@@ -3968,11 +3978,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getConnector_DestContainment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsAggregate <em>Dest Is Aggregate</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsAggregate <em>Dest Is Aggregate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Dest Is Aggregate</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsAggregate()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsAggregate()
 	 * @see #getConnector()
 	 * @generated
 	 */
@@ -4023,11 +4033,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getConnector_DestConstraint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsNavigable <em>Dest Is Navigable</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsNavigable <em>Dest Is Navigable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Dest Is Navigable</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsNavigable()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsNavigable()
 	 * @see #getConnector()
 	 * @generated
 	 */
@@ -5987,6 +5997,16 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getScope();
+
+	/**
+	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.IsAggregate <em>Is Aggregate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Is Aggregate</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
+	 * @generated
+	 */
+	EEnum getIsAggregate();
 
 	/**
 	 * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.DirectionType <em>Direction Type</em>}'.
@@ -8365,6 +8385,16 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SCOPE = eINSTANCE.getScope();
+
+		/**
+		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.IsAggregate <em>Is Aggregate</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
+		 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getIsAggregate()
+		 * @generated
+		 */
+		EEnum IS_AGGREGATE = eINSTANCE.getIsAggregate();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DirectionType <em>Direction Type</em>}' enum.

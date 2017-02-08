@@ -202,7 +202,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceContainment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsAggregate" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="#//IsAggregate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsOrdered" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceQualifier" unique="false"
@@ -212,7 +212,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceConstraint" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsNavigable" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceStereotype" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceStyle" unique="false"
@@ -234,7 +234,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestContainment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestIsAggregate" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="#//IsAggregate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestIsOrdered" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestQualifier" unique="false"
@@ -244,7 +244,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestConstraint" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestIsNavigable" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestStereotype" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestStyle" unique="false"
@@ -283,6 +283,11 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="PDATA5" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IsAggregate">
+    <eLiterals name="False"/>
+    <eLiterals name="Aggregation" value="1"/>
+    <eLiterals name="Composition" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DirectionType">
     <eLiterals name="Unspecified" literal="Unspecified"/>

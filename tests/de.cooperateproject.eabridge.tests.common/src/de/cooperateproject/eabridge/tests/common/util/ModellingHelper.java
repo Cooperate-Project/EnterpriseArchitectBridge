@@ -15,7 +15,7 @@ import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
 
 public class ModellingHelper extends TeneoMappingBaseTest {
 
-	@Ignore @Test
+	@Test
 	public void changelog2xmi() throws Exception {
 		initTestDb(TestResource.SimpleAssociationChangelog);
 		

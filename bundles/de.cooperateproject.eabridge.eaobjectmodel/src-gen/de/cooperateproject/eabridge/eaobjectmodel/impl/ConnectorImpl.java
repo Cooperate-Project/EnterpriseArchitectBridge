@@ -7,6 +7,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.IsAggregate;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -49,12 +50,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceRoleType <em>Source Role Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceRoleNote <em>Source Role Note</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceContainment <em>Source Containment</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#isSourceIsAggregate <em>Source Is Aggregate</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceIsAggregate <em>Source Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#isSourceIsOrdered <em>Source Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceQualifier <em>Source Qualifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceChangeable <em>Source Changeable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceConstraint <em>Source Constraint</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceIsNavigable <em>Source Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#isSourceIsNavigable <em>Source Is Navigable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceStereotype <em>Source Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceStyle <em>Source Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getSourceTS <em>Source TS</em>}</li>
@@ -65,12 +66,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestRoleType <em>Dest Role Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestRoleNote <em>Dest Role Note</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestContainment <em>Dest Containment</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#isDestIsAggregate <em>Dest Is Aggregate</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestIsAggregate <em>Dest Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#isDestIsOrdered <em>Dest Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestQualifier <em>Dest Qualifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestChangeable <em>Dest Changeable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestConstraint <em>Dest Constraint</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestIsNavigable <em>Dest Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#isDestIsNavigable <em>Dest Is Navigable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestStereotype <em>Dest Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestStyle <em>Dest Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl#getDestTS <em>Dest TS</em>}</li>
@@ -687,8 +688,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSourceIsAggregate() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_AGGREGATE, true);
+	public IsAggregate getSourceIsAggregate() {
+		return (IsAggregate)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_AGGREGATE, true);
 	}
 
 	/**
@@ -696,7 +697,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceIsAggregate(boolean newSourceIsAggregate) {
+	public void setSourceIsAggregate(IsAggregate newSourceIsAggregate) {
 		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_AGGREGATE, newSourceIsAggregate);
 	}
 
@@ -777,8 +778,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSourceIsNavigable() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_NAVIGABLE, true);
+	public boolean isSourceIsNavigable() {
+		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_NAVIGABLE, true);
 	}
 
 	/**
@@ -786,7 +787,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceIsNavigable(String newSourceIsNavigable) {
+	public void setSourceIsNavigable(boolean newSourceIsNavigable) {
 		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_NAVIGABLE, newSourceIsNavigable);
 	}
 
@@ -975,8 +976,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isDestIsAggregate() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_AGGREGATE, true);
+	public IsAggregate getDestIsAggregate() {
+		return (IsAggregate)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_AGGREGATE, true);
 	}
 
 	/**
@@ -984,7 +985,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDestIsAggregate(boolean newDestIsAggregate) {
+	public void setDestIsAggregate(IsAggregate newDestIsAggregate) {
 		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_AGGREGATE, newDestIsAggregate);
 	}
 
@@ -1065,8 +1066,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDestIsNavigable() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_NAVIGABLE, true);
+	public boolean isDestIsNavigable() {
+		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_NAVIGABLE, true);
 	}
 
 	/**
@@ -1074,7 +1075,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDestIsNavigable(String newDestIsNavigable) {
+	public void setDestIsNavigable(boolean newDestIsNavigable) {
 		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_NAVIGABLE, newDestIsNavigable);
 	}
 

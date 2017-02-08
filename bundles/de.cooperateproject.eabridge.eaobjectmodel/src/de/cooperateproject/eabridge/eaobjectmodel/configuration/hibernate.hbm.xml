@@ -271,8 +271,13 @@
 		<property name="SourceContainment" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`SourceContainment`"/>
 		</property>
-		<property name="SourceIsAggregate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="boolean">
+		<property name="SourceIsAggregate" lazy="false" not-null="false" insert="true" update="true" unique="false">
 			<column not-null="false" unique="false" name="`SourceIsAggregate`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserIntegerType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.IsAggregate</param>
+				<param name="eclassifier">IsAggregate</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
 		</property>
 		<property name="SourceIsOrdered" lazy="false" insert="true" update="true" not-null="false" unique="false" type="boolean">
 			<column not-null="false" unique="false" name="`SourceIsOrdered`"/>
@@ -286,7 +291,7 @@
 		<property name="SourceConstraint" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`SourceConstraint`"/>
 		</property>
-		<property name="SourceIsNavigable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+		<property name="SourceIsNavigable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="org.hibernate.type.NumericBooleanType">
 			<column not-null="false" unique="false" name="`SourceIsNavigable`"/>
 		</property>
 		<property name="SourceStereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
@@ -319,8 +324,13 @@
 		<property name="DestContainment" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`DestContainment`"/>
 		</property>
-		<property name="DestIsAggregate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="boolean">
+		<property name="DestIsAggregate" lazy="false" not-null="false" insert="true" update="true" unique="false">
 			<column not-null="false" unique="false" name="`DestIsAggregate`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserIntegerType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.IsAggregate</param>
+				<param name="eclassifier">IsAggregate</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
 		</property>
 		<property name="DestIsOrdered" lazy="false" insert="true" update="true" not-null="false" unique="false" type="boolean">
 			<column not-null="false" unique="false" name="`DestIsOrdered`"/>
@@ -334,7 +344,7 @@
 		<property name="DestConstraint" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`DestConstraint`"/>
 		</property>
-		<property name="DestIsNavigable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+		<property name="DestIsNavigable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="org.hibernate.type.NumericBooleanType">
 			<column not-null="false" unique="false" name="`DestIsNavigable`"/>
 		</property>
 		<property name="DestStereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">

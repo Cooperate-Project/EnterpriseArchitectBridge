@@ -44,12 +44,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceRoleType <em>Source Role Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceRoleNote <em>Source Role Note</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceContainment <em>Source Containment</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsAggregate <em>Source Is Aggregate</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsAggregate <em>Source Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsOrdered <em>Source Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceQualifier <em>Source Qualifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceChangeable <em>Source Changeable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceConstraint <em>Source Constraint</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsNavigable <em>Source Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsNavigable <em>Source Is Navigable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceStereotype <em>Source Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceStyle <em>Source Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceTS <em>Source TS</em>}</li>
@@ -60,12 +60,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestRoleType <em>Dest Role Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestRoleNote <em>Dest Role Note</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestContainment <em>Dest Containment</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsAggregate <em>Dest Is Aggregate</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsAggregate <em>Dest Is Aggregate</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsOrdered <em>Dest Is Ordered</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestQualifier <em>Dest Qualifier</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestChangeable <em>Dest Changeable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestConstraint <em>Dest Constraint</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsNavigable <em>Dest Is Navigable</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsNavigable <em>Dest Is Navigable</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestStereotype <em>Dest Stereotype</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestStyle <em>Dest Style</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestTS <em>Dest TS</em>}</li>
@@ -908,6 +908,7 @@ public interface Connector extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Source Is Aggregate</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.IsAggregate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source Is Aggregate</em>' attribute isn't clear,
@@ -915,22 +916,24 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Is Aggregate</em>' attribute.
-	 * @see #setSourceIsAggregate(boolean)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
+	 * @see #setSourceIsAggregate(IsAggregate)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getConnector_SourceIsAggregate()
 	 * @model unique="false"
 	 * @generated
 	 */
-	boolean isSourceIsAggregate();
+	IsAggregate getSourceIsAggregate();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsAggregate <em>Source Is Aggregate</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsAggregate <em>Source Is Aggregate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source Is Aggregate</em>' attribute.
-	 * @see #isSourceIsAggregate()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
+	 * @see #getSourceIsAggregate()
 	 * @generated
 	 */
-	void setSourceIsAggregate(boolean value);
+	void setSourceIsAggregate(IsAggregate value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Is Ordered</b></em>' attribute.
@@ -1045,22 +1048,22 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Is Navigable</em>' attribute.
-	 * @see #setSourceIsNavigable(String)
+	 * @see #setSourceIsNavigable(boolean)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getConnector_SourceIsNavigable()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getSourceIsNavigable();
+	boolean isSourceIsNavigable();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceIsNavigable <em>Source Is Navigable</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isSourceIsNavigable <em>Source Is Navigable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source Is Navigable</em>' attribute.
-	 * @see #getSourceIsNavigable()
+	 * @see #isSourceIsNavigable()
 	 * @generated
 	 */
-	void setSourceIsNavigable(String value);
+	void setSourceIsNavigable(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Stereotype</b></em>' attribute.
@@ -1324,6 +1327,7 @@ public interface Connector extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Dest Is Aggregate</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.IsAggregate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dest Is Aggregate</em>' attribute isn't clear,
@@ -1331,22 +1335,24 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dest Is Aggregate</em>' attribute.
-	 * @see #setDestIsAggregate(boolean)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
+	 * @see #setDestIsAggregate(IsAggregate)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getConnector_DestIsAggregate()
 	 * @model unique="false"
 	 * @generated
 	 */
-	boolean isDestIsAggregate();
+	IsAggregate getDestIsAggregate();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsAggregate <em>Dest Is Aggregate</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsAggregate <em>Dest Is Aggregate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Dest Is Aggregate</em>' attribute.
-	 * @see #isDestIsAggregate()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
+	 * @see #getDestIsAggregate()
 	 * @generated
 	 */
-	void setDestIsAggregate(boolean value);
+	void setDestIsAggregate(IsAggregate value);
 
 	/**
 	 * Returns the value of the '<em><b>Dest Is Ordered</b></em>' attribute.
@@ -1461,22 +1467,22 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dest Is Navigable</em>' attribute.
-	 * @see #setDestIsNavigable(String)
+	 * @see #setDestIsNavigable(boolean)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getConnector_DestIsNavigable()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getDestIsNavigable();
+	boolean isDestIsNavigable();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestIsNavigable <em>Dest Is Navigable</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#isDestIsNavigable <em>Dest Is Navigable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Dest Is Navigable</em>' attribute.
-	 * @see #getDestIsNavigable()
+	 * @see #isDestIsNavigable()
 	 * @generated
 	 */
-	void setDestIsNavigable(String value);
+	void setDestIsNavigable(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Dest Stereotype</b></em>' attribute.

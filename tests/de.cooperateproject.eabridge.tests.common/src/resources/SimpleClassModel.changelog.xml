@@ -114,8 +114,8 @@
 			<column name="ea_guid" value="connectorGUID" />
 			<column name="SourceConstraint" />
 			<column name="DestConstraint" />
-			<column name="SourceIsNavigable" />
-			<column name="DestIsNavigable" />
+			<column name="SourceIsNavigable" valueNumeric="0"/>
+			<column name="DestIsNavigable" valueNumeric="0"/>
 			<column name="IsRoot" />
 			<column name="IsLeaf" />
 			<column name="IsSpec" />

@@ -103,6 +103,18 @@
 			<property name="Dest">
 				<join-column name="End_Object_ID" />
 			</property>
+			<property name="SourceIsAggregate">
+				<enumerated>ORDINAL</enumerated>
+			</property>
+			<property name="DestIsAggregate">
+				<enumerated>ORDINAL</enumerated>
+			</property>
+			<property name="SourceIsNavigable">
+				<type type="org.hibernate.type.NumericBooleanType"></type>
+			</property>
+			<property name="DestIsNavigable">
+				<type type="org.hibernate.type.NumericBooleanType"></type>
+			</property>
 		</eclass>
 
 		<!-- <eclass name="ConnectorConstraint"> <id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.ConnectorConstraintPK</id-class> 

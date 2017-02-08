@@ -15,6 +15,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
+import de.cooperateproject.eabridge.eaobjectmodel.IsAggregate;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
@@ -138,6 +139,13 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	private EEnum scopeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum isAggregateEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2797,6 +2805,15 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getIsAggregate() {
+		return isAggregateEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDirectionType() {
 		return directionTypeEEnum;
 	}
@@ -3170,6 +3187,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		// Create enums
 		primitiveTypeEEnum = createEEnum(PRIMITIVE_TYPE);
 		scopeEEnum = createEEnum(SCOPE);
+		isAggregateEEnum = createEEnum(IS_AGGREGATE);
 		directionTypeEEnum = createEEnum(DIRECTION_TYPE);
 		connectorTypeEEnum = createEEnum(CONNECTOR_TYPE);
 		elementTypeEEnum = createEEnum(ELEMENT_TYPE);
@@ -3303,12 +3321,12 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getConnector_SourceRoleType(), ecorePackage.getEString(), "SourceRoleType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceRoleNote(), ecorePackage.getEString(), "SourceRoleNote", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceContainment(), ecorePackage.getEString(), "SourceContainment", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_SourceIsAggregate(), ecorePackage.getEBoolean(), "SourceIsAggregate", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceIsAggregate(), this.getIsAggregate(), "SourceIsAggregate", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceIsOrdered(), ecorePackage.getEBoolean(), "SourceIsOrdered", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceQualifier(), ecorePackage.getEString(), "SourceQualifier", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceChangeable(), ecorePackage.getEString(), "SourceChangeable", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceConstraint(), ecorePackage.getEString(), "SourceConstraint", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_SourceIsNavigable(), ecorePackage.getEString(), "SourceIsNavigable", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceIsNavigable(), ecorePackage.getEBoolean(), "SourceIsNavigable", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceStereotype(), ecorePackage.getEString(), "SourceStereotype", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceStyle(), ecorePackage.getEString(), "SourceStyle", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceTS(), ecorePackage.getEString(), "SourceTS", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3319,12 +3337,12 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getConnector_DestRoleType(), ecorePackage.getEString(), "DestRoleType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestRoleNote(), ecorePackage.getEString(), "DestRoleNote", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestContainment(), ecorePackage.getEString(), "DestContainment", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_DestIsAggregate(), ecorePackage.getEBoolean(), "DestIsAggregate", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestIsAggregate(), this.getIsAggregate(), "DestIsAggregate", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestIsOrdered(), ecorePackage.getEBoolean(), "DestIsOrdered", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestQualifier(), ecorePackage.getEString(), "DestQualifier", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestChangeable(), ecorePackage.getEString(), "DestChangeable", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestConstraint(), ecorePackage.getEString(), "DestConstraint", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_DestIsNavigable(), ecorePackage.getEString(), "DestIsNavigable", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_DestIsNavigable(), ecorePackage.getEBoolean(), "DestIsNavigable", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestStereotype(), ecorePackage.getEString(), "DestStereotype", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestStyle(), ecorePackage.getEString(), "DestStyle", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_DestTS(), ecorePackage.getEString(), "DestTS", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3540,6 +3558,11 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEEnumLiteral(scopeEEnum, Scope.PUBLIC);
 		addEEnumLiteral(scopeEEnum, Scope.PACKAGE);
 		addEEnumLiteral(scopeEEnum, Scope.PROTECTED);
+
+		initEEnum(isAggregateEEnum, IsAggregate.class, "IsAggregate");
+		addEEnumLiteral(isAggregateEEnum, IsAggregate.FALSE);
+		addEEnumLiteral(isAggregateEEnum, IsAggregate.AGGREGATION);
+		addEEnumLiteral(isAggregateEEnum, IsAggregate.COMPOSITION);
 
 		initEEnum(directionTypeEEnum, DirectionType.class, "DirectionType");
 		addEEnumLiteral(directionTypeEEnum, DirectionType.UNSPECIFIED);

@@ -21,10 +21,14 @@ mapping eaobjectmodel::Package::mapPackages() : uml::Package
 
 	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
 	var interfaces :=  self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
+	var associations = self.Elements.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	var connectors := classes->collect(SourceRelations);
 	var usages := connectors->select(e : Connector| e.Type = ConnectorType::Usage);
 	var Informationflows :=  connectors->select(e : Connector| e.Type = ConnectorType::InformationFlow);
 	var dependencies :=  connectors->select(e : Connector| e.Type = ConnectorType::Dependency);
+	if (associations -> size() != 0) {
+		packagedElement += associations -> map mapConnectorToAssociation();
+	};
 	if (usages -> size() != 0) {
 		packagedElement += usages -> map mapClassesToUsage();
 	};
@@ -74,20 +78,19 @@ abstract mapping Element::mapElementToClassifier() : uml::Classifier {
 }
 
 mapping Element::mapElementToClass() : uml::Class
-inherits Element::mapElementToClassifier {	
-	ownedAttribute := self.Attributes-> map transformAttribute();
-	ownedOperation := self.Methods-> map transformOperations();
+inherits Element::mapElementToClassifier 
+{	
+	ownedAttribute += self.Attributes-> map transformAttribute();
+	ownedOperation += self.Methods-> map transformOperations();
 	
-	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
-	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
-	var realizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Realisation);
+	var realizations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Realisation);	
+	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	
-	if (associations -> size() != 0) {
-		nestedClassifier := associations -> map mapElementsToConnectors();
+	// is this working incrementally?
+	associations->forEach(c | c.DestIsNavigable) {
+		ownedAttribute += c.map mapDestToProperty();
 	};
-	if (aggregations -> size() != 0) {
-		nestedClassifier := aggregations -> map mapElementsToConnectors();
-	};
+	
 	if (realizations -> size() != 0) {
 		interfaceRealization := realizations -> map mapConnectoToRealization();
 	};
@@ -99,14 +102,12 @@ inherits Element::mapElementToClassifier
 	ownedAttribute := self.Attributes-> map transformAttribute();
 	ownedOperation := self.Methods-> map transformOperations();
 	
-	var associations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Association);
-	var aggregations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Aggregation);
+	var realizations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Realisation);	
+	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	
-	if (associations -> size() != 0) {
-		nestedClassifier := associations -> map mapElementsToConnectors();
-	};
-	if (aggregations -> size() != 0) {
-		nestedClassifier := aggregations -> map mapElementsToConnectors();
+	// is this working incrementally?
+	associations->forEach(c | c.DestIsNavigable) {
+		ownedAttribute += c.map mapDestToProperty();
 	};
 }
 
@@ -134,42 +135,44 @@ mapping Connector::mapConnectoToRealization() :  InterfaceRealization
 	supplier := self.Dest.late resolveone(uml::Classifier);
 	contract := self.Dest.late resolveone(uml::Interface);
 }
-mapping Connector::mapElementsToConnectors() : uml::Association
+
+mapping Connector::mapConnectorToAssociation() : uml::Association
 {	
-	if (self.Type = ConnectorType::Aggregation) {
-		ownedEnd += self -> map transformConnectorToAggregation();	
-	} else {
-		ownedEnd += self -> map transformConnectorToAssociation();
-	};	
+	name := self.Name;
+	//this relation does not work yet
+	if (not self.SourceIsNavigable) then (memberEnd += self.map mapSourceToProperty()) endif;
+	if (not self.DestIsNavigable) then (memberEnd += self.map mapDestToProperty()) endif;
 }
 
-mapping Connector::transformConnectorToAggregation() :  Property
+//EA uses the aggregation property the other way round
+//this has to be dealt with in the following 2 mappings
+mapping Connector::mapSourceToProperty() : uml::Property
 {
-	name := self.Source.Name;
-	aggregation := AggregationKind::shared;
-	type :=	self.Source.map mapElementToClass().oclAsType(Type)
+	aggregation := self.DestIsAggregate.transformAssociationType();
+	type := self.Source.late resolveone(uml::Classifier);
+	result.association := self.late resolveone(uml::Association);
 }
 
-mapping Connector::transformConnectorToAssociation() :  Property
+mapping Connector::mapDestToProperty() : uml::Property
 {
-	name := self.Source.Name;
-	type :=	self.Source.map mapElementToClass().oclAsType(Type);
-	upperValue := self.SourceCard.map StringToCardinality().oclAsType(ValueSpecification);
-	lowerValue := self.DestCard.map StringToCardinality().oclAsType(ValueSpecification);
+	aggregation := self.SourceIsAggregate.transformAssociationType();
+	type := self.Dest.late resolveone(uml::Classifier);
+	result.association := self.late resolveone(uml::Association);
 }
 
+query IsAggregate::transformAssociationType() : uml::AggregationKind
+{
+	return switch {
+		case (self = IsAggregate::False) AggregationKind::none;
+		case (self = IsAggregate::Aggregation) AggregationKind::shared;
+		case (self = IsAggregate::Composition) AggregationKind::composite;
+		else assert error (false) with log("Illegal enum value");
+	};
+}
 
 mapping String::StringToCardinality() :  LiteralInteger
 {
 	value := self.toInteger();
-}
-
-
-mapping Element::transformConnectorToComposition() :  Property
-{
-	name := self.Name;
-	aggregation := AggregationKind::composite;
-	type :=	self.map mapElementToClass().oclAsType(Type)
 }
 
 mapping Method::transformOperations() :  Operation

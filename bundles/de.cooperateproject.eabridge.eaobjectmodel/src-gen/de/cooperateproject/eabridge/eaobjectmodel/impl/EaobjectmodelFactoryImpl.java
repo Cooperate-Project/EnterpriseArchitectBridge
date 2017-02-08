@@ -17,6 +17,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
+import de.cooperateproject.eabridge.eaobjectmodel.IsAggregate;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
@@ -114,6 +115,8 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return createPrimitiveTypeFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.SCOPE:
 				return createScopeFromString(eDataType, initialValue);
+			case EaobjectmodelPackage.IS_AGGREGATE:
+				return createIsAggregateFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.DIRECTION_TYPE:
 				return createDirectionTypeFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.CONNECTOR_TYPE:
@@ -143,6 +146,8 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return convertPrimitiveTypeToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.SCOPE:
 				return convertScopeToString(eDataType, instanceValue);
+			case EaobjectmodelPackage.IS_AGGREGATE:
+				return convertIsAggregateToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.DIRECTION_TYPE:
 				return convertDirectionTypeToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.CONNECTOR_TYPE:
@@ -317,6 +322,26 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 	 * @generated
 	 */
 	public String convertScopeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsAggregate createIsAggregateFromString(EDataType eDataType, String initialValue) {
+		IsAggregate result = IsAggregate.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIsAggregateToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

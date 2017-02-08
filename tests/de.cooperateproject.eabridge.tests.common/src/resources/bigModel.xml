@@ -91,8 +91,8 @@
             <column name="ea_guid" value="connectorGUID_30"/>
             <column name="SourceConstraint"/>
             <column name="DestConstraint"/>
-            <column name="SourceIsNavigable"/>
-            <column name="DestIsNavigable"/>
+            <column name="SourceIsNavigable" valueNumeric="0"/>
+            <column name="DestIsNavigable" valueNumeric="0"/>
             <column name="IsRoot"/>
             <column name="IsLeaf"/>
             <column name="IsSpec"/>
@@ -172,8 +172,8 @@
             <column name="ea_guid" value="connectorGUID_32"/>
             <column name="SourceConstraint"/>
             <column name="DestConstraint"/>
-            <column name="SourceIsNavigable"/>
-            <column name="DestIsNavigable"/>
+            <column name="SourceIsNavigable" valueNumeric="0"/>
+            <column name="DestIsNavigable" valueNumeric="0"/>
             <column name="IsRoot"/>
             <column name="IsLeaf"/>
             <column name="IsSpec"/>
@@ -253,8 +253,8 @@
             <column name="ea_guid" value="connectorGUID_34"/>
             <column name="SourceConstraint"/>
             <column name="DestConstraint"/>
-            <column name="SourceIsNavigable"/>
-            <column name="DestIsNavigable"/>
+            <column name="SourceIsNavigable" valueNumeric="0"/>
+            <column name="DestIsNavigable" valueNumeric="0"/>
             <column name="IsRoot"/>
             <column name="IsLeaf"/>
             <column name="IsSpec"/>
@@ -334,8 +334,8 @@
             <column name="ea_guid" value="connectorGUID_31"/>
             <column name="SourceConstraint"/>
             <column name="DestConstraint"/>
-            <column name="SourceIsNavigable"/>
-            <column name="DestIsNavigable"/>
+            <column name="SourceIsNavigable" valueNumeric="0"/>
+            <column name="DestIsNavigable" valueNumeric="0"/>
             <column name="IsRoot"/>
             <column name="IsLeaf"/>
             <column name="IsSpec"/>
@@ -415,8 +415,8 @@
             <column name="ea_guid" value="connectorGUID_33"/>
             <column name="SourceConstraint"/>
             <column name="DestConstraint"/>
-            <column name="SourceIsNavigable"/>
-            <column name="DestIsNavigable"/>
+            <column name="SourceIsNavigable" valueNumeric="0"/>
+            <column name="DestIsNavigable" valueNumeric="0"/>
             <column name="IsRoot"/>
             <column name="IsLeaf"/>
             <column name="IsSpec"/>
