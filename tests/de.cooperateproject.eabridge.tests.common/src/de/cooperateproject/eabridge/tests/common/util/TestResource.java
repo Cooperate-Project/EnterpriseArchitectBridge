@@ -1,14 +1,9 @@
 package de.cooperateproject.eabridge.tests.common.util;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.eclipse.emf.common.util.URI;
-
-import com.google.common.io.Files;
 
 
 public enum TestResource {
@@ -28,7 +23,8 @@ public enum TestResource {
 	PrimitiveChangelog("resources/Primitive.changelog.xml"),
 	VehicleChangelog("resources/Vehicles.changelog.xml"),
 	PortableChangelog("resources/Portable.changelog.xml"),
-	SimpleAssociationChangelog("resources/SimpleAssociation.changelog.xml");
+	SimpleAssociationChangelog("resources/SimpleAssociation.changelog.xml"),
+	AdvancedAssociationChangelog("resources/AdvancedAssociation.changelog.xml");
 
 //	private static File TMP_DIR = null;
 //	private final File tmpFile;

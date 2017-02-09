@@ -153,19 +153,25 @@ mapping Connector::mapConnectorToAssociation() : uml::Association
 	endif;
 }
 
-//EA uses the aggregation property the other way round
-//this has to be dealt with in the following 2 mappings
+//for more properties the semikolon seperated lists SourceStyle and DestSystle need to be parsed
 mapping Connector::mapSourceToProperty() : uml::Property
 {
+	//EA uses the aggregation property the other way round
 	aggregation := self.DestIsAggregate.transformAssociationType();
+	
 	type := self.Source.late resolveone(uml::Classifier);
+	lower := self.getSourceLower();
+	upper := self.getSourceUpper();
 }
 
 mapping Connector::mapDestToProperty() : uml::Property
 {
+	//EA uses the aggregation property the other way round
 	aggregation := self.SourceIsAggregate.transformAssociationType();
-	type := self.Dest.late resolveone(uml::Classifier);
 	
+	type := self.Dest.late resolveone(uml::Classifier);
+	lower := self.getDestLower();
+	upper := self.getDestUpper();
 }
 
 query IsAggregate::transformAssociationType() : uml::AggregationKind

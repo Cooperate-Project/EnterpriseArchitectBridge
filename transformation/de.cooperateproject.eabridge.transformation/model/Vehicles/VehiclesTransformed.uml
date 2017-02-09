@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_aEFcke7JEea-_KUimhZEWQ" name="Model">
-  <packagedElement xmi:type="uml:Package" xmi:id="_aEFcku7JEea-_KUimhZEWQ" name="Vehicles">
-    <packagedElement xmi:type="uml:Class" xmi:id="_aEFck-7JEea-_KUimhZEWQ" name="Vehicle" isAbstract="true">
-      <ownedAttribute xmi:id="_aEFclO7JEea-_KUimhZEWQ" name="weight" visibility="private">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_1NyKwe7qEeaT8pEeUIKOcg" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_1NyKwu7qEeaT8pEeUIKOcg" name="Vehicles">
+    <packagedElement xmi:type="uml:Class" xmi:id="_1NyKw-7qEeaT8pEeUIKOcg" name="Vehicle" isAbstract="true">
+      <ownedAttribute xmi:id="_1NyKxO7qEeaT8pEeUIKOcg" name="weight" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
       </ownedAttribute>
-      <ownedOperation xmi:id="_aEFcle7JEea-_KUimhZEWQ" name="testLicense" visibility="public">
-        <ownedParameter xmi:id="_aEFclu7JEea-_KUimhZEWQ" direction="return">
+      <ownedOperation xmi:id="_1NyKxe7qEeaT8pEeUIKOcg" name="testLicense" visibility="public">
+        <ownedParameter xmi:id="_1NyKxu7qEeaT8pEeUIKOcg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_aEFcl-7JEea-_KUimhZEWQ" name="Bicycle">
-      <generalization xmi:id="_aEFcmO7JEea-_KUimhZEWQ" general="_aEFck-7JEea-_KUimhZEWQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1NyKx-7qEeaT8pEeUIKOcg" name="Bicycle">
+      <generalization xmi:id="_1NyKyO7qEeaT8pEeUIKOcg" general="_1NyKw-7qEeaT8pEeUIKOcg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_aEFcme7JEea-_KUimhZEWQ" name="Car">
-      <generalization xmi:id="_aEFcmu7JEea-_KUimhZEWQ" general="_aEFck-7JEea-_KUimhZEWQ"/>
-      <ownedAttribute xmi:id="_aEFcm-7JEea-_KUimhZEWQ" name="seatCount" visibility="private">
+    <packagedElement xmi:type="uml:Class" xmi:id="_1NyKye7qEeaT8pEeUIKOcg" name="Car">
+      <generalization xmi:id="_1NyKyu7qEeaT8pEeUIKOcg" general="_1NyKw-7qEeaT8pEeUIKOcg"/>
+      <ownedAttribute xmi:id="_1NyKy-7qEeaT8pEeUIKOcg" name="seatCount" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_aEFcnO7JEea-_KUimhZEWQ" name="Truck">
-      <generalization xmi:id="_aEFcne7JEea-_KUimhZEWQ" general="_aEFcme7JEea-_KUimhZEWQ"/>
-      <ownedOperation xmi:id="_aEFcnu7JEea-_KUimhZEWQ" name="checkLoad" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1NyKzO7qEeaT8pEeUIKOcg" name="Truck">
+      <generalization xmi:id="_1NyKze7qEeaT8pEeUIKOcg" general="_1NyKye7qEeaT8pEeUIKOcg"/>
+      <ownedOperation xmi:id="_1NyKzu7qEeaT8pEeUIKOcg" name="checkLoad" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_aEFcn-7JEea-_KUimhZEWQ" name="Cab">
-      <generalization xmi:id="_aEFcoO7JEea-_KUimhZEWQ" general="_aEFcme7JEea-_KUimhZEWQ"/>
-      <ownedOperation xmi:id="_aEFcoe7JEea-_KUimhZEWQ" name="testLicense" visibility="public">
-        <ownedParameter xmi:id="_aEFcou7JEea-_KUimhZEWQ" direction="return">
+    <packagedElement xmi:type="uml:Class" xmi:id="_1NyKz-7qEeaT8pEeUIKOcg" name="Cab">
+      <generalization xmi:id="_1Nyx0O7qEeaT8pEeUIKOcg" general="_1NyKye7qEeaT8pEeUIKOcg"/>
+      <ownedOperation xmi:id="_1Nyx0e7qEeaT8pEeUIKOcg" name="testLicense" visibility="public">
+        <ownedParameter xmi:id="_1Nyx0u7qEeaT8pEeUIKOcg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
         </ownedParameter>
       </ownedOperation>

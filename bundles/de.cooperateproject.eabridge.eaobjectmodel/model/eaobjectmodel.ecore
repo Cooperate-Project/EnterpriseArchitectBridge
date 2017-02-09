@@ -144,6 +144,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eOperations name="getSourceLower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&#x9;&#x9;String sourceCard = getSourceCard();&#xD;&#xA;&#x9;&#x9;if (sourceCard != null) {&#xD;&#xA;&#x9;&#x9;String[] cards = sourceCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return Integer.parseInt(cards[0]);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getSourceUpper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&#x9;&#x9;String sourceCard = getSourceCard();&#xD;&#xA;&#x9;&#x9;if (sourceCard != null) {&#xD;&#xA;&#x9;&#x9;String[] cards = sourceCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return Integer.parseInt(cards[cards.length - 1]);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getDestLower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&#x9;&#x9;String destCard = getDestCard();&#xD;&#xA;&#x9;&#x9;if (destCard != null) {&#xD;&#xA;&#x9;&#x9;String[] cards = destCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return Integer.parseInt(cards[0]);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getDestUpper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&#x9;&#x9;String destCard = getDestCard();&#xD;&#xA;&#x9;&#x9;if (destCard != null) {&#xD;&#xA;&#x9;&#x9;String[] cards = destCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return Integer.parseInt(cards[cards.length - 1]);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConnectorID" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConnectorGUID" unique="false"
