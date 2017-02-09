@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
@@ -31,6 +32,8 @@ import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 import org.eclipse.m2m.qvt.oml.util.Trace;
 import org.eclipse.uml2.uml.util.UMLUtil;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.eclipse.uml2.uml.resource.UMLResource;
@@ -39,7 +42,12 @@ import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
 import com.google.common.collect.Iterables;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
+import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.database.DatabaseFactory;
+import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
+import de.cooperateproject.eabridge.tests.common.util.EAObjectModelHelper;
+import de.cooperateproject.eabridge.tests.common.util.TestDB;
+import de.cooperateproject.eabridge.tests.common.util.TestResource;
 
 public abstract class TransformationTestBase {
 	
@@ -60,6 +68,31 @@ public abstract class TransformationTestBase {
 	        packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);  
 		}
 	}
+	
+	protected static void generateXMI(TestResource changelog, String xmiPath) throws Exception {
+		TestDB testDB = new TestDB(changelog);
+		
+		Session session = testDB.getDataStore().getSessionFactory().openSession();
+
+		Query query = session.createQuery("FROM Package WHERE PARENT_ID = 0");
+		List<Package> results = HibernateUtils.getListFromQuery(query, Package.class);
+		assertEquals(1, results.size());
+
+		Package actualContent = results.get(0);
+	
+		EAObjectModelHelper.saveModel(actualContent, String.format("model/%s", xmiPath));
+		
+		testDB.close();
+	}
+	
+	protected static String makeXMIPath(String testName) {
+		return String.format("%s/%s.xmi", testName, testName);
+	}
+	
+	protected static String makeUMLPath(String testName) {
+		return String.format("%s/%sTransformed.uml", testName, testName);
+	}
+
 	
 	@Before
 	public void setup() throws Exception {

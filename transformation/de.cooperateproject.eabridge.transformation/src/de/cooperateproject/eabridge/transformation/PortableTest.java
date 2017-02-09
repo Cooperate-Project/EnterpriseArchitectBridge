@@ -1,23 +1,59 @@
 package de.cooperateproject.eabridge.transformation;
 
+import java.util.List;
 
-import java.util.Arrays;
-import java.util.Collections;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.m2m.qvt.oml.BasicModelExtent;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
-import org.eclipse.m2m.qvt.oml.util.Trace;
-import org.eclipse.uml2.uml.resource.UMLResource;
+import org.eclipse.uml2.uml.Interface;
+import org.eclipse.uml2.uml.internal.impl.ClassImpl;
+import org.eclipse.uml2.uml.internal.impl.ModelImpl;
+import org.eclipse.uml2.uml.internal.impl.PackageImpl;
+import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.cooperateproject.eabridge.tests.common.util.TestResource;
+
+@SuppressWarnings("restriction")
 public class PortableTest extends TransformationTestBase {
 
+	private static String transformationPath = "EAtoUML.qvto";
+	private static String testName = "Portable";
+	private static TestResource changelog = TestResource.PortableChangelog;
+		
+	@BeforeClass
+	public static void initXMI() throws Exception {
+		generateXMI(changelog, makeXMIPath(testName));
+	}
+	
 	@Test
-	public void test() throws Exception {
-		runTransformation("EAtoUML.qvto", "Portable/Portable.xmi", "Portable/PortableTransformed.uml");
+	public void testTransformation() throws Exception {
+		runTransformation(transformationPath, makeXMIPath(testName), makeUMLPath(testName));
+	}
+
+	@Test
+	public void testImplementation() throws Exception {
+		runTransformation(transformationPath, makeXMIPath(testName), makeUMLPath(testName));
+		ModelExtent uml = new BasicModelExtent(
+				getResourceSet().getResource(createResourceModelURI(makeUMLPath(testName)), true).getContents());
+		List<EObject> content = uml.getContents();
+
+		// Base Model
+		Assert.assertEquals(1, content.size());
+
+		ModelImpl model = (ModelImpl) content.get(0);
+		PackageImpl portable = (PackageImpl) model.getPackagedElements().get(0);
+
+		// Class and Interface
+		Assert.assertEquals(portable.getPackagedElements().size(), 2);
+
+		ClassImpl box = (ClassImpl) portable.getPackagedElement("Box");
+		List<Interface> implementedInterfaces = box.getImplementedInterfaces();
+
+		// Interface implementation
+		Assert.assertEquals(implementedInterfaces.size(), 1);
+		Assert.assertSame(implementedInterfaces.get(0), portable.getPackagedElement("Portable"));
 	}
 
 }
