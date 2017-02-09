@@ -9,9 +9,12 @@ main() {
 
 // Fits to the way papyrus creates new diagrams/models
 mapping eaobjectmodel::Package::mapRootPackages() : uml::Model {
-	
 	name := self.Name;
 	nestedPackage := self.Packages-> map mapPackages();
+	
+	// maybe needs some flattening?
+	var associations = self.Packages.Elements.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
+	packagedElement += associations -> map mapConnectorToAssociation();
 }
 
 mapping eaobjectmodel::Package::mapPackages() : uml::Package
@@ -21,14 +24,11 @@ mapping eaobjectmodel::Package::mapPackages() : uml::Package
 
 	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
 	var interfaces :=  self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
-	var associations = self.Elements.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	var connectors := classes->collect(SourceRelations);
 	var usages := connectors->select(e : Connector| e.Type = ConnectorType::Usage);
 	var Informationflows :=  connectors->select(e : Connector| e.Type = ConnectorType::InformationFlow);
 	var dependencies :=  connectors->select(e : Connector| e.Type = ConnectorType::Dependency);
-	if (associations -> size() != 0) {
-		packagedElement += associations -> map mapConnectorToAssociation();
-	};
+	
 	if (usages -> size() != 0) {
 		packagedElement += usages -> map mapClassesToUsage();
 	};
@@ -87,6 +87,7 @@ inherits Element::mapElementToClassifier
 	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	
 	// is this working incrementally?
+	// also functionality for SourceIsNavigable is missing
 	associations->forEach(c | c.DestIsNavigable) {
 		ownedAttribute += c.map mapDestToProperty();
 	};
@@ -139,9 +140,17 @@ mapping Connector::mapConnectoToRealization() :  InterfaceRealization
 mapping Connector::mapConnectorToAssociation() : uml::Association
 {	
 	name := self.Name;
-	//this relation does not work yet
-	if (not self.SourceIsNavigable) then (memberEnd += self.map mapSourceToProperty()) endif;
-	if (not self.DestIsNavigable) then (memberEnd += self.map mapDestToProperty()) endif;
+	memberEnd += self.map mapSourceToProperty();
+	memberEnd += self.map mapDestToProperty();
+	// does not work for ownedAttributes of Interfaces
+	if (self.SourceIsNavigable) 
+		then (self.Dest.resolveone(uml::StructuredClassifier).ownedAttribute += self.resolveoneIn(Connector::mapSourceToProperty))
+		else (ownedEnd += self.resolveoneIn(Connector::mapSourceToProperty))
+	endif;
+	if (self.DestIsNavigable)
+		then (self.Source.resolveone(uml::StructuredClassifier).ownedAttribute += self.resolveoneIn(Connector::mapDestToProperty))
+		else (ownedEnd += self.resolveoneIn(Connector::mapDestToProperty))
+	endif;
 }
 
 //EA uses the aggregation property the other way round
@@ -150,14 +159,13 @@ mapping Connector::mapSourceToProperty() : uml::Property
 {
 	aggregation := self.DestIsAggregate.transformAssociationType();
 	type := self.Source.late resolveone(uml::Classifier);
-	result.association := self.late resolveone(uml::Association);
 }
 
 mapping Connector::mapDestToProperty() : uml::Property
 {
 	aggregation := self.SourceIsAggregate.transformAssociationType();
 	type := self.Dest.late resolveone(uml::Classifier);
-	result.association := self.late resolveone(uml::Association);
+	
 }
 
 query IsAggregate::transformAssociationType() : uml::AggregationKind
