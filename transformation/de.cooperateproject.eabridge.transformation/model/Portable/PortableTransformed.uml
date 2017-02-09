@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_wlDfYO7aEea1Bdxp8RPD9w" name="Model">
-  <packagedElement xmi:type="uml:Package" xmi:id="_wlDfYe7aEea1Bdxp8RPD9w" name="Portable">
-    <packagedElement xmi:type="uml:Class" xmi:id="_wlDfYu7aEea1Bdxp8RPD9w" name="Box">
-      <interfaceRealization xmi:id="_wlDfY-7aEea1Bdxp8RPD9w" client="_wlDfYu7aEea1Bdxp8RPD9w" supplier="_wlDfZ-7aEea1Bdxp8RPD9w" contract="_wlDfZ-7aEea1Bdxp8RPD9w"/>
-      <ownedOperation xmi:id="_wlDfZO7aEea1Bdxp8RPD9w" name="canBePickedUp" visibility="public">
-        <ownedParameter xmi:id="_wlDfZe7aEea1Bdxp8RPD9w" direction="return">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_nXvS4O7oEeajKKH97cnQ4g" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_nXvS4e7oEeajKKH97cnQ4g" name="Portable">
+    <packagedElement xmi:type="uml:Class" xmi:id="_nXvS4u7oEeajKKH97cnQ4g" name="Box">
+      <interfaceRealization xmi:id="_nXvS4-7oEeajKKH97cnQ4g" client="_nXvS4u7oEeajKKH97cnQ4g" supplier="_nXvS5-7oEeajKKH97cnQ4g" contract="_nXvS5-7oEeajKKH97cnQ4g"/>
+      <ownedOperation xmi:id="_nXvS5O7oEeajKKH97cnQ4g" name="canBePickedUp" visibility="public">
+        <ownedParameter xmi:id="_nXvS5e7oEeajKKH97cnQ4g" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:id="_wlDfZu7aEea1Bdxp8RPD9w" name="carry" visibility="public"/>
+      <ownedOperation xmi:id="_nXvS5u7oEeajKKH97cnQ4g" name="carry" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_wlDfZ-7aEea1Bdxp8RPD9w" name="Portable" isAbstract="true">
-      <ownedOperation xmi:id="_wlDfaO7aEea1Bdxp8RPD9w" name="carry" visibility="public"/>
-      <ownedOperation xmi:id="_wlDfae7aEea1Bdxp8RPD9w" name="canBePickedUp" visibility="public">
-        <ownedParameter xmi:id="_wlDfau7aEea1Bdxp8RPD9w" direction="return">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_nXvS5-7oEeajKKH97cnQ4g" name="Portable" isAbstract="true">
+      <ownedOperation xmi:id="_nXvS6O7oEeajKKH97cnQ4g" name="carry" visibility="public"/>
+      <ownedOperation xmi:id="_nXvS6e7oEeajKKH97cnQ4g" name="canBePickedUp" visibility="public">
+        <ownedParameter xmi:id="_nXvS6u7oEeajKKH97cnQ4g" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedParameter>
       </ownedOperation>
