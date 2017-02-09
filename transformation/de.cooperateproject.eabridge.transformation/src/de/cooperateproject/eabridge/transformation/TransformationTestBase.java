@@ -31,13 +31,12 @@ import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 import org.eclipse.m2m.qvt.oml.util.Trace;
-import org.eclipse.uml2.uml.util.UMLUtil;
+import org.eclipse.uml2.uml.resource.UMLResource;
+import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.eclipse.uml2.uml.resource.UMLResource;
-import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
 
 import com.google.common.collect.Iterables;
 
