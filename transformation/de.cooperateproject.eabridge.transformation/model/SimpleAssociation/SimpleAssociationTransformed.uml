@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_SVitcO7SEeaT86y3y4sbIg" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_SVitce7SEeaT86y3y4sbIg" name="SimpleAssociation">
+    <packagedElement xmi:type="uml:Class" xmi:id="_SVitcu7SEeaT86y3y4sbIg" name="A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SVitc-7SEeaT86y3y4sbIg" name="B">
+      <ownedAttribute xmi:id="_SVitdO7SEeaT86y3y4sbIg" type="_SVitcu7SEeaT86y3y4sbIg" association="_SViteu7SEeaT86y3y4sbIg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SVitde7SEeaT86y3y4sbIg" name="C"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SVitdu7SEeaT86y3y4sbIg" name="D">
+      <ownedAttribute xmi:id="_SVitd-7SEeaT86y3y4sbIg" type="_SVitde7SEeaT86y3y4sbIg" association="_SVitf-7SEeaT86y3y4sbIg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SViteO7SEeaT86y3y4sbIg" name="E">
+      <ownedAttribute xmi:id="_SVitee7SEeaT86y3y4sbIg" type="_SVitdu7SEeaT86y3y4sbIg" association="_SVitge7SEeaT86y3y4sbIg"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SViteu7SEeaT86y3y4sbIg" memberEnd="_SVite-7SEeaT86y3y4sbIg _SVitdO7SEeaT86y3y4sbIg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_SVite-7SEeaT86y3y4sbIg" type="_SVitc-7SEeaT86y3y4sbIg" association="_SViteu7SEeaT86y3y4sbIg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SVitfO7SEeaT86y3y4sbIg" memberEnd="_SVitfe7SEeaT86y3y4sbIg _SVitfu7SEeaT86y3y4sbIg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_SVitfe7SEeaT86y3y4sbIg" type="_SVitde7SEeaT86y3y4sbIg" association="_SVitfO7SEeaT86y3y4sbIg"/>
+    <ownedEnd xmi:id="_SVitfu7SEeaT86y3y4sbIg" type="_SVitcu7SEeaT86y3y4sbIg" association="_SVitfO7SEeaT86y3y4sbIg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SVitf-7SEeaT86y3y4sbIg" memberEnd="_SVitgO7SEeaT86y3y4sbIg _SVitd-7SEeaT86y3y4sbIg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_SVitgO7SEeaT86y3y4sbIg" type="_SVitdu7SEeaT86y3y4sbIg" aggregation="composite" association="_SVitf-7SEeaT86y3y4sbIg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SVitge7SEeaT86y3y4sbIg" memberEnd="_SVitgu7SEeaT86y3y4sbIg _SVitee7SEeaT86y3y4sbIg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_SVitgu7SEeaT86y3y4sbIg" type="_SViteO7SEeaT86y3y4sbIg" aggregation="shared" association="_SVitge7SEeaT86y3y4sbIg"/>
+  </packagedElement>
+</uml:Model>

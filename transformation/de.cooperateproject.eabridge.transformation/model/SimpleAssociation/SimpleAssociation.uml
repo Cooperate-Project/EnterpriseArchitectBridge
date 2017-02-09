@@ -19,7 +19,7 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_bi4cZOejEeaELObpPx7s_w" type="_FZlC8OejEeaELObpPx7s_w" association="_bi4cYOejEeaELObpPx7s_w"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_bi4cY-ejEeaELObpPx7s_w" type="_F8imEOejEeaELObpPx7s_w" aggregation="composite" association="_bi4cYOejEeaELObpPx7s_w"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_jq-k4OejEeaELObpPx7s_w" memberEnd="_jq-k4-ejEeaELObpPx7s_w _jq-k5OejEeaELObpPx7s_w">
+  <packagedElement xmi:type="uml:Association" xmi:id="_jq-k4OejEeaELObpPx7s_w" memberEnd="_jq-k4-ejEeaELObpPx7s_w _jq-k5OejEeaELObpPx7s_w" navigableOwnedEnd="_jq-k4-ejEeaELObpPx7s_w">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jq-k4eejEeaELObpPx7s_w" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jq-k4uejEeaELObpPx7s_w" key="nature" value="UML_Nature"/>
     </eAnnotations>
