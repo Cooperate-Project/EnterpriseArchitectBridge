@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Vh7dAOeXEeaELObpPx7s_w" name="Model">
-  <packagedElement xmi:type="uml:Package" xmi:id="_Vh7dAeeXEeaELObpPx7s_w" name="Vehicles">
-    <packagedElement xmi:type="uml:Class" xmi:id="_Vh7dAueXEeaELObpPx7s_w" name="Vehicle" isAbstract="true">
-      <ownedAttribute xmi:id="_Vh7dA-eXEeaELObpPx7s_w" name="weight" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-      </ownedAttribute>
-      <ownedOperation xmi:id="_Vh7dBOeXEeaELObpPx7s_w" name="testLicense" visibility="public">
-        <ownedParameter xmi:id="_Vh7dBeeXEeaELObpPx7s_w" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-        </ownedParameter>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_9MtmcO65EeadFLrn_P7Vvw" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_9Mtmce65EeadFLrn_P7Vvw" name="Vehicles">
+    <packagedElement xmi:type="uml:Class" xmi:id="_9Mtmcu65EeadFLrn_P7Vvw" name="Vehicle" isAbstract="true">
+      <ownedAttribute xmi:id="_9Mtmc-65EeadFLrn_P7Vvw" name="weight" visibility="private"/>
+      <ownedOperation xmi:id="_9MtmdO65EeadFLrn_P7Vvw" name="testLicense" visibility="public">
+        <ownedParameter xmi:id="_9Mtmde65EeadFLrn_P7Vvw" direction="return"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Vh7dBueXEeaELObpPx7s_w" name="Bicycle">
-      <generalization xmi:id="_Vh7dB-eXEeaELObpPx7s_w"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9Mtmdu65EeadFLrn_P7Vvw" name="Bicycle">
+      <generalization xmi:id="_9Mtmd-65EeadFLrn_P7Vvw" general="_9Mtmcu65EeadFLrn_P7Vvw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Vh7dCOeXEeaELObpPx7s_w" name="Car">
-      <generalization xmi:id="_Vh7dCeeXEeaELObpPx7s_w"/>
-      <ownedAttribute xmi:id="_Vh7dCueXEeaELObpPx7s_w" name="seatCount" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-      </ownedAttribute>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9MtmeO65EeadFLrn_P7Vvw" name="Car">
+      <generalization xmi:id="_9Mtmee65EeadFLrn_P7Vvw" general="_9Mtmcu65EeadFLrn_P7Vvw"/>
+      <ownedAttribute xmi:id="_9Mtmeu65EeadFLrn_P7Vvw" name="seatCount" visibility="private"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Vh7dC-eXEeaELObpPx7s_w" name="Truck">
-      <generalization xmi:id="_Vh7dDOeXEeaELObpPx7s_w"/>
-      <ownedOperation xmi:id="_Vh7dDeeXEeaELObpPx7s_w" name="checkLoad" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9Mtme-65EeadFLrn_P7Vvw" name="Truck">
+      <generalization xmi:id="_9MtmfO65EeadFLrn_P7Vvw" general="_9MtmeO65EeadFLrn_P7Vvw"/>
+      <ownedOperation xmi:id="_9Mtmfe65EeadFLrn_P7Vvw" name="checkLoad" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Vh7dDueXEeaELObpPx7s_w" name="Cab">
-      <generalization xmi:id="_Vh7dD-eXEeaELObpPx7s_w"/>
-      <ownedOperation xmi:id="_Vh7dEOeXEeaELObpPx7s_w" name="testLicense" visibility="public">
-        <ownedParameter xmi:id="_Vh7dEeeXEeaELObpPx7s_w" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-        </ownedParameter>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9Mtmfu65EeadFLrn_P7Vvw" name="Cab">
+      <generalization xmi:id="_9Mtmf-65EeadFLrn_P7Vvw" general="_9MtmeO65EeadFLrn_P7Vvw"/>
+      <ownedOperation xmi:id="_9MtmgO65EeadFLrn_P7Vvw" name="testLicense" visibility="public">
+        <ownedParameter xmi:id="_9Mtmge65EeadFLrn_P7Vvw" direction="return"/>
       </ownedOperation>
     </packagedElement>
   </packagedElement>

@@ -15,9 +15,9 @@ import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
 
 public class ModellingHelper extends TeneoMappingBaseTest {
 
-	@Test
+	@Ignore @Test
 	public void changelog2xmi() throws Exception {
-		initTestDb(TestResource.SimpleAssociationChangelog);
+		initTestDb(TestResource.VehicleChangelog);
 		
 		Session session = getTestDB().getDataStore().getSessionFactory().openSession();
 
@@ -27,7 +27,7 @@ public class ModellingHelper extends TeneoMappingBaseTest {
 
 		Package actualContent = results.get(0);
 	
-		EAObjectModelHelper.saveModel(actualContent, "src/resources/SimpleAssociation.xmi");
+		EAObjectModelHelper.saveModel(actualContent, "src/resources/Vehicle.xmi");
 	}
 
 }
