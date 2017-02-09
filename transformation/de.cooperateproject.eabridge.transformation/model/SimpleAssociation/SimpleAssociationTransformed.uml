@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_1PA50O7qEeaT8pEeUIKOcg" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_1PA50e7qEeaT8pEeUIKOcg" name="SimpleAssociation">
+    <packagedElement xmi:type="uml:Class" xmi:id="_1PA50u7qEeaT8pEeUIKOcg" name="A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1PA50-7qEeaT8pEeUIKOcg" name="B">
+      <ownedAttribute xmi:id="_1PA51O7qEeaT8pEeUIKOcg" type="_1PA50u7qEeaT8pEeUIKOcg" association="_1PA54O7qEeaT8pEeUIKOcg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PA51e7qEeaT8pEeUIKOcg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PA51u7qEeaT8pEeUIKOcg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1PA51-7qEeaT8pEeUIKOcg" name="C"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1PA52O7qEeaT8pEeUIKOcg" name="D">
+      <ownedAttribute xmi:id="_1PA52e7qEeaT8pEeUIKOcg" type="_1PA51-7qEeaT8pEeUIKOcg" association="_1PA56-7qEeaT8pEeUIKOcg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PA52u7qEeaT8pEeUIKOcg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PA52-7qEeaT8pEeUIKOcg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1PA53O7qEeaT8pEeUIKOcg" name="E">
+      <ownedAttribute xmi:id="_1PA53e7qEeaT8pEeUIKOcg" type="_1PA52O7qEeaT8pEeUIKOcg" association="_1PBg4u7qEeaT8pEeUIKOcg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PA53u7qEeaT8pEeUIKOcg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PA53-7qEeaT8pEeUIKOcg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1PA54O7qEeaT8pEeUIKOcg" memberEnd="_1PA54e7qEeaT8pEeUIKOcg _1PA51O7qEeaT8pEeUIKOcg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_1PA54e7qEeaT8pEeUIKOcg" type="_1PA50-7qEeaT8pEeUIKOcg" association="_1PA54O7qEeaT8pEeUIKOcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PA54u7qEeaT8pEeUIKOcg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PA54-7qEeaT8pEeUIKOcg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1PA55O7qEeaT8pEeUIKOcg" memberEnd="_1PA55e7qEeaT8pEeUIKOcg _1PA56O7qEeaT8pEeUIKOcg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_1PA55e7qEeaT8pEeUIKOcg" type="_1PA51-7qEeaT8pEeUIKOcg" association="_1PA55O7qEeaT8pEeUIKOcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PA55u7qEeaT8pEeUIKOcg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PA55-7qEeaT8pEeUIKOcg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_1PA56O7qEeaT8pEeUIKOcg" type="_1PA50u7qEeaT8pEeUIKOcg" association="_1PA55O7qEeaT8pEeUIKOcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PA56e7qEeaT8pEeUIKOcg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PA56u7qEeaT8pEeUIKOcg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1PA56-7qEeaT8pEeUIKOcg" memberEnd="_1PA57O7qEeaT8pEeUIKOcg _1PA52e7qEeaT8pEeUIKOcg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_1PA57O7qEeaT8pEeUIKOcg" type="_1PA52O7qEeaT8pEeUIKOcg" aggregation="composite" association="_1PA56-7qEeaT8pEeUIKOcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PBg4O7qEeaT8pEeUIKOcg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PBg4e7qEeaT8pEeUIKOcg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1PBg4u7qEeaT8pEeUIKOcg" memberEnd="_1PBg4-7qEeaT8pEeUIKOcg _1PA53e7qEeaT8pEeUIKOcg">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_1PBg4-7qEeaT8pEeUIKOcg" type="_1PA53O7qEeaT8pEeUIKOcg" aggregation="shared" association="_1PBg4u7qEeaT8pEeUIKOcg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1PBg5O7qEeaT8pEeUIKOcg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1PBg5e7qEeaT8pEeUIKOcg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
