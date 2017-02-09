@@ -21,12 +21,12 @@ public class PortableTest extends TransformationTestBase {
 	private static String transformationPath = "EAtoUML.qvto";
 	private static String testName = "Portable";
 	private static TestResource changelog = TestResource.PortableChangelog;
-		
+
 	@BeforeClass
 	public static void initXMI() throws Exception {
 		generateXMI(changelog, makeXMIPath(testName));
 	}
-	
+
 	@Test
 	public void testTransformation() throws Exception {
 		runTransformation(transformationPath, makeXMIPath(testName), makeUMLPath(testName));

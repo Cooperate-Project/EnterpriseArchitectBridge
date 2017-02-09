@@ -78,7 +78,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sskbE-b8EeaxT9vDAagVuw"/>
     </children>
     <element xmi:type="uml:Package" href="People.uml#_ssaqEOb8EeaxT9vDAagVuw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ssaqEub8EeaxT9vDAagVuw" x="30" y="30" width="543" height="233"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ssaqEub8EeaxT9vDAagVuw" x="30" y="30" width="541" height="256"/>
   </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="_BGhiUebzEeaxT9vDAagVuw" name="diagram_compatibility_version" stringValue="1.2.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_BGhiUubzEeaxT9vDAagVuw"/>
