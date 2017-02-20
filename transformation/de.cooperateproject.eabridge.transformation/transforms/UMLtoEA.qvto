@@ -4,20 +4,105 @@ modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 
 main() {
 
-	var rootPackages := uml.rootObjects()[Package];
-	assert fatal (rootPackages->size() = 1);
+	var rootModels := uml.rootObjects()[Model];
+	assert fatal (rootModels->size() = 1);
 
-	log('Root Packages', rootPackages);
+	log("Found Root Models", rootModels);
 	
-	rootPackages -> map mapPackages();
+	rootModels -> map mapRootModel();
 
+}
+
+mapping uml::Model::mapRootModel() : eaobjectmodel::Package {
+	
+	log("Mapping root model", self);
+	
+	Name := self.name;
+	Packages := self.nestedPackage-> map mapPackages();
+	
+	// FIXME: Root Model package ID always 1?
+	PackageID := 1;
+	
+	// Create package element
+	Elements := self.nestedPackage-> map mapPackageToElement();
+	
+	// TODO: Map Associations
+	
 }
 
 mapping uml::Package::mapPackages() : eaobjectmodel::Package {
 	
-	log("Mapping package.", self);
+	log("Mapping package", self);
+	
+	// TODO: Package ID?
+	
+	Name := self.name;	
+	Packages := self.nestedPackage-> map mapPackages();
+	
+	// Create package element
+	Elements := self.nestedPackage-> map mapPackageToElement();
+	
+	// Map Package content
+	var classes := self.packagedElement->selectByType(UML::Class);
+	var interfaces := self.packagedElement->selectByType(UML::Interface);
+	
+	Elements += classes -> map mapClassToElement();
+	// TODO: Elements += interfaces -> map mapInterfaceToElement();
+	
+	// TODO: What else?
+}
+
+mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	
 	Name := self.name;
-	result.Packages := self.nestedPackage-> map mapPackages();
+	
+}
+
+mapping uml::Class::mapClassToElement(): eaobjectmodel::Element {
+	
+	log("Mapping class", self);
+	
+	Name := self.name;
+	Abstract := if (self.isAbstract) then "1" else "0" endif;
+	
+	// FIXME: Conversion of Scope to ScopeObject fails
+	Visibility := self.visibility.getVisibilityScope().oclAsType(OM::ScopeObject);
+
+	
+	log("Input element visibility:", self.visibility);
+	log("Output element visibility:", result.Visibility);
+	
+	// TODO: Generalisation etc.
+	
+	// TODO: Attributes & Operations
+	Attributes := self.ownedAttribute -> map mapPropertyToAttribute();
+	
+}
+
+query VisibilityKind::getVisibilityScope() : Scope {
+	
+	// Incremental?
+	var visibilityScope = switch {
+		case (self = VisibilityKind::public) Scope::Public;
+		case (self = VisibilityKind::private) Scope::Private;
+		case (self = VisibilityKind::protected) Scope::Protected;
+		case (self = VisibilityKind::package) Scope::Package;
+		else assert error (false) with log("Illegal enum value");
+	};
+	
+	return visibilityScope;
+	
+}
+
+mapping uml::Property::mapPropertyToAttribute(): Attribute {
+	
+	log("Mapping attribute", self);
+	
+	Name := self.name;
+	
+	// TODO: Fix Scope
+	//Scope := self.visibility.getVisibilityScope();
+	
+	// TODO: Set Attribute Type (primitive or classifier)
 	
 }
