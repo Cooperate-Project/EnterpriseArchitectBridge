@@ -65,8 +65,8 @@ mapping uml::Class::mapClassToElement(): eaobjectmodel::Element {
 	Name := self.name;
 	Abstract := if (self.isAbstract) then "1" else "0" endif;
 	
-	// FIXME: Conversion of Scope to ScopeObject fails
-	Visibility := self.visibility.getVisibilityScope().oclAsType(OM::ScopeObject);
+	// FIXME: Conversion of Scope to ScopeObject fails (but ScopeObject -> Scope works)
+	Visibility := self.visibility.transformVisibility().oclAsType(ScopeObject);
 
 	
 	log("Input element visibility:", self.visibility);
@@ -79,7 +79,7 @@ mapping uml::Class::mapClassToElement(): eaobjectmodel::Element {
 	
 }
 
-query VisibilityKind::getVisibilityScope() : Scope {
+query VisibilityKind::transformVisibility() : Scope {
 	
 	// Incremental?
 	var visibilityScope = switch {
@@ -99,10 +99,28 @@ mapping uml::Property::mapPropertyToAttribute(): Attribute {
 	log("Mapping attribute", self);
 	
 	Name := self.name;
+
+	result.Scope := self.visibility.transformVisibility();
+	AttributeType := self.type.map mapTypeToTypeReference();
 	
-	// TODO: Fix Scope
-	//Scope := self.visibility.getVisibilityScope();
+}
+
+mapping uml::Type::mapTypeToTypeReference(): TypeReference 
+disjuncts 
+uml::PrimitiveType::primitiveTypeToTypeReference, 
+uml::DataType::dataTypeToTypeReference 
+{}
+
+mapping uml::PrimitiveType::primitiveTypeToTypeReference() : TypeReference {
 	
-	// TODO: Set Attribute Type (primitive or classifier)
+	log("Mapping primitive type", self);
 	
+	// TODO
+}
+
+mapping uml::DataType::dataTypeToTypeReference() : TypeReference {
+	
+	log("Mapping type reference", self);
+	
+	// TODO
 }
