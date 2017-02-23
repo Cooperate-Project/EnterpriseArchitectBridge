@@ -72,10 +72,10 @@ mapping uml::Class::mapClassToElement(): eaobjectmodel::Element {
 	log("Input element visibility:", self.visibility);
 	log("Output element visibility:", result.Visibility);
 	
-	// TODO: Generalisation etc.
+	// TODO: Generalisation, (Realization), Association
 	
-	// TODO: Attributes & Operations
 	Attributes := self.ownedAttribute -> map mapPropertyToAttribute();
+	Methods := self.ownedOperation -> map mapOperationToMethod();
 	
 }
 
@@ -105,22 +105,80 @@ mapping uml::Property::mapPropertyToAttribute(): Attribute {
 	
 }
 
-mapping uml::Type::mapTypeToTypeReference(): TypeReference 
+mapping uml::Type::mapTypeToTypeReference(): TypeReference
 disjuncts 
 uml::PrimitiveType::primitiveTypeToTypeReference, 
-uml::DataType::dataTypeToTypeReference 
+uml::Class::classToTypeReference 
 {}
 
 mapping uml::PrimitiveType::primitiveTypeToTypeReference() : TypeReference {
 	
 	log("Mapping primitive type", self);
 	
-	// TODO
+	// FIXME: Sometimes missing type reference?!
+	// Solution: this should be a query, no mapping. Replace disjuncts
+	var type = self.transformPrimitive();
+	result.typeName := 	type.toString();
+
 }
 
-mapping uml::DataType::dataTypeToTypeReference() : TypeReference {
+query uml::PrimitiveType::transformPrimitive() : OM::PrimitiveType {
+	var type = switch {
+		case (self.name = "EInt") OM::PrimitiveType::Int;
+		case (self.name = "EBoolean") OM::PrimitiveType::Boolean;
+		case (self.name = "EByte") OM::PrimitiveType::Byte;
+		case (self.name = "EChar") OM::PrimitiveType::Char;
+		case (self.name = "EDouble") OM::PrimitiveType::Double;
+		case (self.name = "ELong") OM::PrimitiveType::Long;
+		case (self.name = "EFloat") OM::PrimitiveType::Float;
+		case (self.name = "EShort") OM::PrimitiveType::Short;
+		case (self.name = "EString") OM::PrimitiveType::String;
+	};
 	
-	log("Mapping type reference", self);
+	assert warning (type <> null) with log ("Could not interpret primitive datatype \"" + self.name + "\".");
+	return type;
+}
+
+mapping uml::Class::classToTypeReference() : TypeReference {
 	
-	// TODO
+	log("Mapping class", self);
+	
+	// TODO: Not working correctly
+	// classifier = self.name.late resolveone(uml::Element);
+	
+}
+
+mapping Operation::mapOperationToMethod() : Method {
+	
+	log("Mapping operation", self);
+	
+	Name := self.name;
+	Visibility := self.visibility.transformVisibility();
+	
+	self.ownedParameter-> forEach(param) {
+		if(param.direction = ParameterDirectionKind::_return) then 
+		result.ReturnType := param.type.map mapTypeToTypeReference() endif;
+		
+		if(param.direction <> ParameterDirectionKind::_return) then
+		result.Parameters += param.map transformParameters() endif;
+	};
+	
+}
+
+mapping uml::Parameter::transformParameters() : Methodparameter {
+	
+	log("Mapping parameter", self);
+	
+	Name := self.name;
+	Kind := self.direction.transformParameterDirection();
+	ParameterType := self.type.map mapTypeToTypeReference();
+}
+
+query uml::ParameterDirectionKind::transformParameterDirection() : ParameterDirection {
+	return switch {
+		case (self = ParameterDirectionKind::_in) ParameterDirection::_in;
+		case (self = ParameterDirectionKind::_out) ParameterDirection::_out;
+		case (self = ParameterDirectionKind::_inout) ParameterDirection::_inout;
+		case (self = ParameterDirectionKind::_return) ParameterDirection::_return;
+	};
 }
