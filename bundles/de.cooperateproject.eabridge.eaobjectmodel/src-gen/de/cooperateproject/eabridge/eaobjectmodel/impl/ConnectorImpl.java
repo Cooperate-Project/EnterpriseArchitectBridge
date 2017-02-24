@@ -10,6 +10,8 @@ import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.IsAggregate;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Optional;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -1433,12 +1435,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Integer getSourceLower() {
-				String sourceCard = getSourceCard();
-				if (sourceCard != null) {
-				String[] cards = sourceCard.split("\\.\\.");
-					return Integer.parseInt(cards[0]);
-				}
-				return null;
+		String sourceCard = getSourceCard();
+		if (sourceCard != null) {
+		String[] cards = sourceCard.split("\\.\\.");
+			return Integer.parseInt(cards[0]);
+		}
+		return null;
 	}
 
 	/**
@@ -1447,12 +1449,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Integer getSourceUpper() {
-				String sourceCard = getSourceCard();
-				if (sourceCard != null) {
-				String[] cards = sourceCard.split("\\.\\.");
-					return Integer.parseInt(cards[cards.length - 1]);
-				}
-				return null;
+		String sourceCard = getSourceCard();
+		if (sourceCard != null) {
+		String[] cards = sourceCard.split("\\.\\.");
+			return Integer.parseInt(cards[cards.length - 1]);
+		}
+		return null;
 	}
 
 	/**
@@ -1461,12 +1463,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Integer getDestLower() {
-				String destCard = getDestCard();
-				if (destCard != null) {
-				String[] cards = destCard.split("\\.\\.");
-					return Integer.parseInt(cards[0]);
-				}
-				return null;
+		String destCard = getDestCard();
+		if (destCard != null) {
+		String[] cards = destCard.split("\\.\\.");
+			return Integer.parseInt(cards[0]);
+		}
+		return null;
 	}
 
 	/**
@@ -1475,12 +1477,38 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Integer getDestUpper() {
-				String destCard = getDestCard();
-				if (destCard != null) {
-				String[] cards = destCard.split("\\.\\.");
-					return Integer.parseInt(cards[cards.length - 1]);
-				}
-				return null;
+		String destCard = getDestCard();
+		if (destCard != null) {
+		String[] cards = destCard.split("\\.\\.");
+			return Integer.parseInt(cards[cards.length - 1]);
+		}
+		return null;
+	}
+	
+	public String getSourceAlias() {
+		String sourceStyle = getSourceStyle();
+		Optional<String> alias = Arrays.asList(sourceStyle.split(";")).stream()
+			.filter(att -> att.startsWith("alias"))
+			.findAny();
+		
+		if (alias.isPresent() && alias.get().split("=").length == 2) {
+			return alias.get().split("=")[1];
+		} else {
+			return "";
+		}
+	}
+	
+	public String getDestAlias() {
+		String destStyle = getSourceStyle();
+		Optional<String> alias = Arrays.asList(destStyle.split(";")).stream()
+			.filter(att -> att.startsWith("alias"))
+			.findAny();
+		
+		if (alias.isPresent() && alias.get().split("=").length == 2) {
+			return alias.get().split("=")[1];
+		} else {
+			return "";
+		}
 	}
 
 	/**
@@ -1499,6 +1527,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				return getDestLower();
 			case EaobjectmodelPackage.CONNECTOR___GET_DEST_UPPER:
 				return getDestUpper();
+			case EaobjectmodelPackage.CONNECTOR___GET_SOURCE_ALIAS:
+				return getSourceAlias();
+			case EaobjectmodelPackage.CONNECTOR___GET_DEST_ALIAS:
+				return getDestAlias();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

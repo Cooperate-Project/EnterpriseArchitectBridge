@@ -1290,13 +1290,31 @@ public interface EaobjectmodelPackage extends EPackage {
 	int CONNECTOR___GET_DEST_UPPER = 3;
 
 	/**
+	 * The operation id for the '<em>Get Source Alias</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR___GET_SOURCE_ALIAS = 4;
+
+	/**
+	 * The operation id for the '<em>Get Dest Alias</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR___GET_DEST_ALIAS = 5;
+
+	/**
 	 * The number of operations of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_OPERATION_COUNT = 4;
+	int CONNECTOR_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl <em>Diagram</em>}' class.
@@ -4329,6 +4347,26 @@ public interface EaobjectmodelPackage extends EPackage {
 	EOperation getConnector__GetDestUpper();
 
 	/**
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceAlias() <em>Get Source Alias</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Source Alias</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceAlias()
+	 * @generated
+	 */
+	EOperation getConnector__GetSourceAlias();
+
+	/**
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestAlias() <em>Get Dest Alias</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Dest Alias</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestAlias()
+	 * @generated
+	 */
+	EOperation getConnector__GetDestAlias();
+
+	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.Diagram <em>Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7195,6 +7233,22 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONNECTOR___GET_DEST_UPPER = eINSTANCE.getConnector__GetDestUpper();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Source Alias</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONNECTOR___GET_SOURCE_ALIAS = eINSTANCE.getConnector__GetSourceAlias();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Dest Alias</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONNECTOR___GET_DEST_ALIAS = eINSTANCE.getConnector__GetDestAlias();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl <em>Diagram</em>}' class.

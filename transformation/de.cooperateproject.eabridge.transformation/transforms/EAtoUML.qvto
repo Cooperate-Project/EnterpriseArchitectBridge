@@ -86,12 +86,6 @@ inherits Element::mapElementToClassifier
 	var realizations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Realisation);	
 	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	
-	// is this working incrementally?
-	// also functionality for SourceIsNavigable is missing
-	associations->forEach(c | c.DestIsNavigable) {
-		ownedAttribute += c.map mapDestToProperty();
-	};
-	
 	if (realizations -> size() != 0) {
 		interfaceRealization := realizations -> map mapConnectoToRealization();
 	};
@@ -102,14 +96,10 @@ inherits Element::mapElementToClassifier
 {
 	ownedAttribute := self.Attributes-> map transformAttribute();
 	ownedOperation := self.Methods-> map transformOperations();
+	isAbstract := false;
 	
 	var realizations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Realisation);	
-	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
-	
-	// is this working incrementally?
-	associations->forEach(c | c.DestIsNavigable) {
-		ownedAttribute += c.map mapDestToProperty();
-	};
+	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);	
 }
 
 mapping Attribute::transformAttribute() :  uml::Property
@@ -158,20 +148,22 @@ mapping Connector::mapSourceToProperty() : uml::Property
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.DestIsAggregate.transformAssociationType();
+	name := self.getSourceAlias();
 	
 	type := self.Source.late resolveone(uml::Classifier);
-	lower := self.getSourceLower();
-	upper := self.getSourceUpper();
+	if (self.getSourceLower() != 1) then lower := self.getSourceLower() endif;
+	if (self.getSourceUpper() != 1) then upper := self.getSourceUpper() endif;
 }
 
 mapping Connector::mapDestToProperty() : uml::Property
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.SourceIsAggregate.transformAssociationType();
+	name := self.getDestAlias();
 	
 	type := self.Dest.late resolveone(uml::Classifier);
-	lower := self.getDestLower();
-	upper := self.getDestUpper();
+	if (self.getDestLower() != 1) then lower := self.getDestLower() endif;
+	if (self.getDestUpper() != 1) then upper := self.getDestUpper() endif;
 }
 
 query IsAggregate::transformAssociationType() : uml::AggregationKind

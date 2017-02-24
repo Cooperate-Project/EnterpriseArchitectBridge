@@ -1402,6 +1402,24 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getConnector__GetSourceAlias() {
+		return connectorEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getConnector__GetDestAlias() {
+		return connectorEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDiagram() {
 		return diagramEClass;
 	}
@@ -3059,6 +3077,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEOperation(connectorEClass, CONNECTOR___GET_SOURCE_UPPER);
 		createEOperation(connectorEClass, CONNECTOR___GET_DEST_LOWER);
 		createEOperation(connectorEClass, CONNECTOR___GET_DEST_UPPER);
+		createEOperation(connectorEClass, CONNECTOR___GET_SOURCE_ALIAS);
+		createEOperation(connectorEClass, CONNECTOR___GET_DEST_ALIAS);
 
 		diagramEClass = createEClass(DIAGRAM);
 		createEAttribute(diagramEClass, DIAGRAM__AUTHOR);
@@ -3411,6 +3431,10 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEOperation(getConnector__GetDestLower(), ecorePackage.getEIntegerObject(), "getDestLower", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getConnector__GetDestUpper(), ecorePackage.getEIntegerObject(), "getDestUpper", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConnector__GetSourceAlias(), ecorePackage.getEString(), "getSourceAlias", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getConnector__GetDestAlias(), ecorePackage.getEString(), "getDestAlias", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(diagramEClass, Diagram.class, "Diagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDiagram_Author(), ecorePackage.getEString(), "Author", null, 0, 1, Diagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
