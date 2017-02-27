@@ -1,4 +1,4 @@
-package de.cooperateproject.eabridge.transformation;
+package de.cooperateproject.eabridge.transformation.ea2uml;
 
 
 import java.util.List;
@@ -16,6 +16,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
+import de.cooperateproject.eabridge.transformation.TransformationTestBase;
 
 @SuppressWarnings("restriction")
 public class SimpleAssociationTest extends TransformationTestBase {
@@ -31,14 +32,14 @@ public class SimpleAssociationTest extends TransformationTestBase {
 
 	@Test
 	public void testTransformation() throws Exception {
-		runTransformation(transformationPath, makeXMIPath(testName), makeUMLPath(testName));
+		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName));
 	}
 	
 	@Test
 	public void testAssociations() throws Exception {
-		runTransformation(transformationPath, makeXMIPath(testName), makeUMLPath(testName));
+		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName));
 		ModelExtent uml = new BasicModelExtent(
-				getResourceSet().getResource(createResourceModelURI(makeUMLPath(testName)), true).getContents());
+				getResourceSet().getResource(createResourceModelURI(makeUMLTransformedPath(testName)), true).getContents());
 		List<EObject> content = uml.getContents();
 
 		// Base Model

@@ -89,6 +89,14 @@ public abstract class TransformationTestBase {
 	}
 	
 	protected static String makeUMLPath(String testName) {
+		return String.format("%s/%s.uml", testName, testName);
+	}
+	
+	protected static String makeXMITransformedPath(String testName) {
+		return String.format("%s/%sTransformed.xmi", testName, testName);
+	}
+	
+	protected static String makeUMLTransformedPath(String testName) {
 		return String.format("%s/%sTransformed.uml", testName, testName);
 	}
 
@@ -104,7 +112,7 @@ public abstract class TransformationTestBase {
 	}
 	
 	@SuppressWarnings("restriction")
-	protected void runTransformation(String transformationPath, String xmiPath, String umlPath) throws IOException {
+	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath) throws IOException {
 		TransformationExecutor executor = new TransformationExecutor(createTransformationURI(transformationPath));
 		ExecutionContextImpl ctx = new ExecutionContextImpl();
 		ctx.setLog(new Log4JLogger(LOGGER, Level.INFO));
@@ -121,6 +129,29 @@ public abstract class TransformationTestBase {
 		
 		Resource resultResource = getResourceSet().createResource(createResourceModelURI(umlPath));
 		resultResource.getContents().addAll(uml.getContents());
+		resultResource.save(null);
+	}
+	
+	// TODO: Refactor
+	
+	@SuppressWarnings("restriction")
+	protected void runUMLtoEATransformation(String transformationPath, String umlPath, String xmiPath) throws IOException {
+		TransformationExecutor executor = new TransformationExecutor(createTransformationURI(transformationPath));
+		ExecutionContextImpl ctx = new ExecutionContextImpl();
+		ctx.setLog(new Log4JLogger(LOGGER, Level.INFO));
+		Trace traceModel = new Trace(Collections.emptyList());
+		ctx.getSessionData().setValue(QVTEvaluationOptions.INCREMENTAL_UPDATE_TRACE, traceModel);
+		
+		ModelExtent xmi = new BasicModelExtent();
+		ModelExtent primitives = new BasicModelExtent(getResourceSet().getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents());
+		ModelExtent uml = new BasicModelExtent(getResourceSet().getResource(createResourceModelURI(umlPath), true).getContents());
+		Iterable<ModelExtent> transformationParameters = Arrays.asList(uml, primitives, xmi);
+		
+		ExecutionDiagnostic result = executor.execute(ctx, Iterables.toArray(transformationParameters, ModelExtent.class));
+		assertEquals(ExecutionDiagnostic.OK, result.getSeverity());
+		
+		Resource resultResource = getResourceSet().createResource(createResourceModelURI(xmiPath));
+		resultResource.getContents().addAll(xmi.getContents());
 		resultResource.save(null);
 	}
 	
