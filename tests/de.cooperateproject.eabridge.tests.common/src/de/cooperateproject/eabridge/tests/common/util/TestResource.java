@@ -24,7 +24,8 @@ public enum TestResource {
 	VehicleChangelog("resources/Vehicles.changelog.xml"),
 	PortableChangelog("resources/Portable.changelog.xml"),
 	SimpleAssociationChangelog("resources/SimpleAssociation.changelog.xml"),
-	AdvancedAssociationChangelog("resources/AdvancedAssociation.changelog.xml");
+	AdvancedAssociationChangelog("resources/AdvancedAssociation.changelog.xml"),
+	NestedChangelog("resources/Nested.changelog.xml");
 
 //	private static File TMP_DIR = null;
 //	private final File tmpFile;
