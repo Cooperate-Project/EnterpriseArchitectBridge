@@ -20,7 +20,6 @@ mapping uml::Model::mapRootModel() : eaobjectmodel::Package {
 	Name := self.name;
 	Packages := self.nestedPackage-> map mapPackages();
 	
-	// FIXME: Root Model package ID always 1?
 	PackageID := 1;
 	
 	// Create package element
@@ -44,8 +43,7 @@ mapping uml::Package::mapPackages() : eaobjectmodel::Package {
 	
 	Elements += classes -> map mapClassToElement();
 	Elements += interfaces -> map mapInterfaceToElement();
-	
-	// TODO: What else?
+
 }
 
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
@@ -72,10 +70,10 @@ abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Eleme
 	
 	var associations = uml.rootObjects()[Model].packagedElement->selectByType(uml::Association);
 	
-	// FIXME: Find a correct for finding the "owned" associations
+	// FIXME: Find a correct way for finding "owned" associations
 	var myAssociations = associations->select(a : Association| a.memberEnd->size() > 0 and a.memberEnd->first().type = self);
 
-	//SourceRelations += myAssociations.map mapAssociationToConnector();
+	SourceRelations += myAssociations.map mapAssociationToConnector();
 }
 
 mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
@@ -83,19 +81,29 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	log("Mapping association", self);
 		
 	Name := self.name;
+
+	// FIXME: Find a correct way for finding Source and Dest
+	Source := self.memberEnd->at(1).type.late resolveone(OM::Element);
+	Dest := self.memberEnd->at(2).type.late resolveone(OM::Element);
 	
-	// FIXME: Correct way?
-	//Source := self.memberEnd->at(1).map mapPropertyToElement();
-	//Dest := self.memberEnd->at(2).map mapPropertyToElement();
+	SourceIsAggregate := self.memberEnd->at(1).transformAssociationType();
+	DestIsAggregate := self.memberEnd->at(2).transformAssociationType();
+	
+	result.Type := ConnectorType::Association;
+	result.Direction := DirectionType::SourceDestination;
 	
 	// TODO: isNavigable
 }
 
-mapping uml::Property::mapPropertyToElement() : eaobjectmodel::Element {
+query uml::Property::transformAssociationType() : IsAggregate {
 	
-	// result.Classifier := self.type.late resolveone(OM::Element);
+	return switch {
+		case (self.aggregation = AggregationKind::none) IsAggregate::False;
+		case (self.aggregation = AggregationKind::shared) IsAggregate::Aggregation;
+		case (self.aggregation = AggregationKind::composite) IsAggregate::Composition;
+		else assert error (false) with log("Illegal enum value");
+	};
 	
-	// FIXME: Probably the wrong way...?!!
 }
 
 mapping uml::Generalization::mapGeneralizationToConnector() : eaobjectmodel::Connector {
@@ -104,7 +112,6 @@ mapping uml::Generalization::mapGeneralizationToConnector() : eaobjectmodel::Con
 	
 	Dest := self.general.late resolveone(OM::Element);
 	
-	// FIXME: Always like this?
 	Direction := DirectionType::SourceDestination;
 	result.Type := ConnectorType::Generalization;
 	
@@ -116,7 +123,6 @@ mapping uml::Substitution::mapSubstitutionToConnector() : eaobjectmodel::Connect
 	
 	Dest := self.supplier.late resolveone(OM::Element);
 	
-	// FIXME: Always like this?
 	Direction := DirectionType::SourceDestination;
 	result.Type := ConnectorType::Substitution;
 	
@@ -151,10 +157,7 @@ mapping uml::InterfaceRealization::mapRealizationToConnector() : eaobjectmodel::
 	log("Mapping realization", self);
 	
 	Dest := self.supplier.late resolveone(OM::Element);
-	
-	// TODO: SourceAccess & DestAccess after late resolve?
-	
-	// FIXME: Always like this?
+
 	Direction := DirectionType::SourceDestination;
 	result.Type := ConnectorType::Realisation;
 	
@@ -162,7 +165,6 @@ mapping uml::InterfaceRealization::mapRealizationToConnector() : eaobjectmodel::
 
 query VisibilityKind::transformVisibility() : Scope {
 	
-	// FIXME: Incremental?
 	var visibilityScope = switch {
 		case (self = VisibilityKind::public) Scope::Public;
 		case (self = VisibilityKind::private) Scope::Private;
