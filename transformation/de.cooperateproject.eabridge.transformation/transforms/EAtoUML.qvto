@@ -19,6 +19,11 @@ mapping eaobjectmodel::Package::mapRootPackages() : uml::Model {
 
 mapping eaobjectmodel::Package::mapPackages() : uml::Package
 {
+
+	// FIXME: EA creates for each package (type: Package) an element (type: Element) 
+	// with the same name. Find this class and ignore it (do not map it.)
+	// Use the nested roundtrip test case (Nested.uml -> NestedTransformed.xmi -> NestedTransformed.uml) to test this.
+
 	name := self.Name;
 	nestedPackage := self.Packages->map mapPackages();
 
