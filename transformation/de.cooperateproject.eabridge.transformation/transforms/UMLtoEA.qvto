@@ -70,7 +70,7 @@ abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Eleme
 	
 	var associations = uml.rootObjects()[Model].packagedElement->selectByType(uml::Association);
 	
-	// FIXME: Find a correct way for finding "owned" associations
+	// TODO: There might be a better way to solve this
 	var myAssociations = associations->select(a : Association| a.memberEnd->size() > 0 and a.memberEnd->first().type = self);
 
 	SourceRelations += myAssociations.map mapAssociationToConnector();
@@ -82,7 +82,6 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 		
 	Name := self.name;
 
-	// FIXME: Find a correct way for finding Source and Dest
 	Source := self.memberEnd->at(1).type.late resolveone(OM::Element);
 	Dest := self.memberEnd->at(2).type.late resolveone(OM::Element);
 	
@@ -92,7 +91,6 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	result.Type := ConnectorType::Association;
 	result.Direction := DirectionType::SourceDestination;
 	
-	// TODO: isNavigable
 }
 
 query uml::Property::transformAssociationType() : IsAggregate {
@@ -133,7 +131,10 @@ inherits uml::Classifier::mapClassifierToElement {
 	
 	log("Mapping class", self);
 	
-	Attributes := self.ownedAttribute -> map mapPropertyToAttribute();
+	Attributes := self.ownedAttribute ->forEach (a | a.aggregation = null) {
+		a.map mapPropertyToAttribute();
+	 };
+	 
 	Methods := self.ownedOperation -> map mapOperationToMethod();
 	
 	SourceRelations += self.interfaceRealization.map mapRealizationToConnector();
@@ -190,7 +191,7 @@ mapping uml::Property::mapPropertyToAttribute(): Attribute {
 
 query uml::Type::transformType(): TypeReference {
 
-	//FIXME: Good idea?
+	//FIXME: Good idea? (Alternative: Code dublication)
 	var reference = new TypeReference();
 
 	if (self.oclIsTypeOf(uml::PrimitiveType)) then {
@@ -199,7 +200,7 @@ query uml::Type::transformType(): TypeReference {
 	} else {
 		log("Late resolving class type", self);
 		reference.classifier := self.oclAsType(uml::Class).late resolveone(OM::Element);
-		// FIXME: After resolving the classifier, set the typeName
+		// FIXME: After resolving the classifier, set the typeName (Maybe not needed)
 		//reference.typeName := self.oclAsType(uml::Class).late resolveone(OM::Element)->any(t | t = self.toString());
 	} endif;
 	
