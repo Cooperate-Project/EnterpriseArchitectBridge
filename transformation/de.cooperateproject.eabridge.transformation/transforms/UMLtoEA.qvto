@@ -131,6 +131,7 @@ inherits uml::Classifier::mapClassifierToElement {
 	
 	log("Mapping class", self);
 	
+	// FIXME: Broken (Poeple testcase)
 	Attributes := self.ownedAttribute ->forEach (a | a.aggregation = null) {
 		a.map mapPropertyToAttribute();
 	 };
@@ -146,6 +147,7 @@ inherits uml::Classifier::mapClassifierToElement {
 	
 	log("Mapping interface", self);
 	
+	// TODO: Code from classifier above
 	Attributes := self.ownedAttribute -> map mapPropertyToAttribute();
 	Methods := self.ownedOperation -> map mapOperationToMethod();
 	
