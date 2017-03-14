@@ -49,6 +49,7 @@ mapping uml::Package::mapPackages() : eaobjectmodel::Package {
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	
 	Name := self.name;
+	result.Type := eaobjectmodel::ElementType::Package;
 	
 }
 
@@ -131,12 +132,14 @@ inherits uml::Classifier::mapClassifierToElement {
 	
 	log("Mapping class", self);
 	
-	// FIXME: Broken (Poeple testcase)
+	// FIXME: Broken (People testcase)
 	Attributes := self.ownedAttribute ->forEach (a | a.aggregation = null) {
 		a.map mapPropertyToAttribute();
 	 };
 	 
 	Methods := self.ownedOperation -> map mapOperationToMethod();
+	
+	result.Type := eaobjectmodel::ElementType::Class;
 	
 	SourceRelations += self.interfaceRealization.map mapRealizationToConnector();
 	
@@ -150,6 +153,8 @@ inherits uml::Classifier::mapClassifierToElement {
 	// TODO: Code from classifier above
 	Attributes := self.ownedAttribute -> map mapPropertyToAttribute();
 	Methods := self.ownedOperation -> map mapOperationToMethod();
+	
+	result.Type := eaobjectmodel::ElementType::Interface;
 	
 	result.Abstract := "0";
 	
