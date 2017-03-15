@@ -117,12 +117,12 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
 		DiagramLink dl2 = diagramHelper.createDiagramLink(52, d, c2, 0, 0, 0, 0);
 		DiagramLink dl3 = diagramHelper.createDiagramLink(53, d, c3, 0, 0, 0, 0);
 		DiagramLink dl4 = diagramHelper.createDiagramLink(54, d, c4, 0, 0, 0, 0);
-		DiagramObject do1 = diagramHelper.createDiagrammObject(d, car, 356L, 467L, -93L, -189L);
-		DiagramObject do2 = diagramHelper.createDiagrammObject(d, car1, 161L, 280L, -310L, -418L);
-		DiagramObject do3 = diagramHelper.createDiagrammObject(d, car2, 584L, 689L, -349L, -419L);
-		DiagramObject do4 = diagramHelper.createDiagrammObject(d, carInterface, 600L, 690L, -85L, -175L);
-		DiagramObject do5 = diagramHelper.createDiagrammObject(d, rad, 454L, 544L, -552L, -622L);
-		DiagramObject do6 = diagramHelper.createDiagrammObject(d, door, 701L, 791L, -544L, -614L);
+		DiagramObject do1 = diagramHelper.createDiagrammObject(d, car, 356, 467, -93, -189);
+		DiagramObject do2 = diagramHelper.createDiagrammObject(d, car1, 161, 280, -310, -418);
+		DiagramObject do3 = diagramHelper.createDiagrammObject(d, car2, 584, 689, -349, -419);
+		DiagramObject do4 = diagramHelper.createDiagrammObject(d, carInterface, 600, 690, -85, -175);
+		DiagramObject do5 = diagramHelper.createDiagrammObject(d, rad, 454, 544, -552, -622);
+		DiagramObject do6 = diagramHelper.createDiagrammObject(d, door, 701, 791, -544, -614);
 	    return root;
    }
    /**

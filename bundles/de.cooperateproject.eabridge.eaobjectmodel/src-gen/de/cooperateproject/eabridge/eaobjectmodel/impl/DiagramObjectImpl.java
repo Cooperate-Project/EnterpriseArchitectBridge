@@ -67,8 +67,8 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getBottom() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__BOTTOM, true);
+	public int getBottom() {
+		return (Integer)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__BOTTOM, true);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBottom(Long newBottom) {
+	public void setBottom(int newBottom) {
 		eSet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__BOTTOM, newBottom);
 	}
 
@@ -139,8 +139,8 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getLeft() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__LEFT, true);
+	public int getLeft() {
+		return (Integer)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__LEFT, true);
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeft(Long newLeft) {
+	public void setLeft(int newLeft) {
 		eSet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__LEFT, newLeft);
 	}
 
@@ -157,8 +157,8 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getRight() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__RIGHT, true);
+	public int getRight() {
+		return (Integer)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__RIGHT, true);
 	}
 
 	/**
@@ -166,7 +166,7 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRight(Long newRight) {
+	public void setRight(int newRight) {
 		eSet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__RIGHT, newRight);
 	}
 
@@ -211,8 +211,8 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getTop() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__TOP, true);
+	public int getTop() {
+		return (Integer)eGet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__TOP, true);
 	}
 
 	/**
@@ -220,7 +220,7 @@ public class DiagramObjectImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTop(Long newTop) {
+	public void setTop(int newTop) {
 		eSet(EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__TOP, newTop);
 	}
 

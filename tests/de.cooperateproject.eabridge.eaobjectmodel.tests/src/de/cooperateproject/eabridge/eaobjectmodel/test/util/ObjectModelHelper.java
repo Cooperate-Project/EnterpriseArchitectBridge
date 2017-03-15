@@ -95,7 +95,7 @@ public class ObjectModelHelper {
 		return diaLink;
 	}
 	
-	public DiagramObject createDiagrammObject(Diagram d, Element el, Long left, Long right, Long top, Long bottom) {
+	public DiagramObject createDiagrammObject(Diagram d, Element el, int left, int right, int top, int bottom) {
 		DiagramObject diaObj = EaobjectmodelFactory.eINSTANCE.createDiagramObject();
 		diaObj.setDiagram(d);
 		diaObj.setElement(el);

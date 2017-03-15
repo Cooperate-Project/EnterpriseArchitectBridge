@@ -515,7 +515,7 @@
 			<column not-null="true" unique="false" name="`Instance_ID`"/>
 			<generator class="native"/>
 		</id>
-		<property name="Bottom" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+		<property name="Bottom" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
 			<column not-null="false" unique="false" name="`RectBottom`"/>
 		</property>
 		<many-to-one name="Diagram" entity-name="Diagram" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="DiagramObject_Diagram" insert="true" update="true" not-null="false">
@@ -524,10 +524,10 @@
 		<many-to-one name="Element" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="DiagramObject_Element" insert="true" update="true" not-null="false">
 			<column not-null="false" unique="false" name="`Object_ID`"/>
 		</many-to-one>
-		<property name="Left" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+		<property name="Left" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
 			<column not-null="false" unique="false" name="`RectLeft`"/>
 		</property>
-		<property name="Right" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+		<property name="Right" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
 			<column not-null="false" unique="false" name="`RectRight`"/>
 		</property>
 		<property name="Sequence" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
@@ -536,7 +536,7 @@
 		<property name="ObjectStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`ObjectStyle`"/>
 		</property>
-		<property name="Top" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+		<property name="Top" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
 			<column not-null="false" unique="false" name="`RectTop`"/>
 		</property>
 	</class>

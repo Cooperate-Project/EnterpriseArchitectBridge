@@ -38,12 +38,12 @@ public interface DiagramObject extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bottom</em>' attribute.
-	 * @see #setBottom(Long)
+	 * @see #setBottom(int)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramObject_Bottom()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getBottom();
+	int getBottom();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramObject#getBottom <em>Bottom</em>}' attribute.
@@ -53,7 +53,7 @@ public interface DiagramObject extends EObject {
 	 * @see #getBottom()
 	 * @generated
 	 */
-	void setBottom(Long value);
+	void setBottom(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Diagram</b></em>' container reference.
@@ -144,12 +144,12 @@ public interface DiagramObject extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Left</em>' attribute.
-	 * @see #setLeft(Long)
+	 * @see #setLeft(int)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramObject_Left()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getLeft();
+	int getLeft();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramObject#getLeft <em>Left</em>}' attribute.
@@ -159,7 +159,7 @@ public interface DiagramObject extends EObject {
 	 * @see #getLeft()
 	 * @generated
 	 */
-	void setLeft(Long value);
+	void setLeft(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Right</b></em>' attribute.
@@ -170,12 +170,12 @@ public interface DiagramObject extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Right</em>' attribute.
-	 * @see #setRight(Long)
+	 * @see #setRight(int)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramObject_Right()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getRight();
+	int getRight();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramObject#getRight <em>Right</em>}' attribute.
@@ -185,7 +185,7 @@ public interface DiagramObject extends EObject {
 	 * @see #getRight()
 	 * @generated
 	 */
-	void setRight(Long value);
+	void setRight(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' attribute.
@@ -248,12 +248,12 @@ public interface DiagramObject extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Top</em>' attribute.
-	 * @see #setTop(Long)
+	 * @see #setTop(int)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramObject_Top()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Long getTop();
+	int getTop();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramObject#getTop <em>Top</em>}' attribute.
@@ -263,6 +263,6 @@ public interface DiagramObject extends EObject {
 	 * @see #getTop()
 	 * @generated
 	 */
-	void setTop(Long value);
+	void setTop(int value);
 
 } // DiagramObject

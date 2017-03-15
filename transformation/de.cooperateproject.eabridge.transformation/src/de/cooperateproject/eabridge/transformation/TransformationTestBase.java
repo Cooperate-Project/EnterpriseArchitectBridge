@@ -99,6 +99,10 @@ public abstract class TransformationTestBase {
 	protected static String makeUMLTransformedPath(String testName) {
 		return String.format("%s/%sTransformed.uml", testName, testName);
 	}
+	
+	protected static String makeNotationTransformedPath(String testName) {
+		return String.format("%s/%sTransformed.notation", testName, testName);
+	}
 
 	
 	@Before
@@ -112,7 +116,7 @@ public abstract class TransformationTestBase {
 	}
 	
 	@SuppressWarnings("restriction")
-	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath) throws IOException {
+	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath, String notationPath) throws IOException {
 		TransformationExecutor executor = new TransformationExecutor(createTransformationURI(transformationPath));
 		ExecutionContextImpl ctx = new ExecutionContextImpl();
 		ctx.setLog(new Log4JLogger(LOGGER, Level.INFO));
@@ -122,14 +126,19 @@ public abstract class TransformationTestBase {
 		ModelExtent xmi = new BasicModelExtent(getResourceSet().getResource(createResourceModelURI(xmiPath), true).getContents());
 		ModelExtent primitives = new BasicModelExtent(getResourceSet().getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents());
 		ModelExtent uml = new BasicModelExtent();
-		Iterable<ModelExtent> transformationParameters = Arrays.asList(xmi, primitives, uml);
+		ModelExtent notation = new BasicModelExtent();
+		Iterable<ModelExtent> transformationParameters = Arrays.asList(xmi, primitives, uml, notation);
 		
 		ExecutionDiagnostic result = executor.execute(ctx, Iterables.toArray(transformationParameters, ModelExtent.class));
 		assertEquals(ExecutionDiagnostic.OK, result.getSeverity());
 		
-		Resource resultResource = getResourceSet().createResource(createResourceModelURI(umlPath));
-		resultResource.getContents().addAll(uml.getContents());
-		resultResource.save(null);
+		Resource umlResultResource = getResourceSet().createResource(createResourceModelURI(umlPath));
+		umlResultResource.getContents().addAll(uml.getContents());
+		umlResultResource.save(null);
+		
+		Resource notationResultResource = getResourceSet().createResource(createResourceModelURI(notationPath));
+		notationResultResource.getContents().addAll(notation.getContents());
+		notationResultResource.save(null);
 	}
 	
 	// TODO: Refactor

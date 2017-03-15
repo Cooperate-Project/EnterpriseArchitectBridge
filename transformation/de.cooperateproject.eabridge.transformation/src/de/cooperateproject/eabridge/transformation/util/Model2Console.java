@@ -23,7 +23,7 @@ import de.cooperateproject.eabridge.transformation.TransformationTestBase;
  */
 public class Model2Console extends TransformationTestBase {
 
-	private static final String testFile = "People/PeopleTransformed.xmi";
+	private static final String testFile = "Nested/NestedTransformed.xmi";
 
 	private static final Boolean useFeatureFilter = false;
 	private static final List<String> featuresToPrint = Arrays.asList(new String[] { "Name" });

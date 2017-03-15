@@ -1,26 +1,35 @@
-transformation EAtoUML(inout om: OM,in ecorePrimitives : UML, out uml1:UML);
+import TransformationUtils;
+
+transformation EAtoUML(in om: OM, in ecorePrimitives : UML, out uml:UML, inout graphical : NOTATION);
+
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 
 main() {
-	var rootPackages := om.objects()[Package]->select(p: Package | p.Parent.oclIsUndefined());
-	rootPackages-> map mapRootPackages();
+	var rootPackage := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
+	rootPackage.map mapRootPackage();
+	
+	var diagrams = rootPackage.Packages.Diagrams;
+	diagrams->map diagramToDiagram()
 }
 
+// mappings for transformation to uml
+
 // Fits to the way papyrus creates new diagrams/models
-mapping eaobjectmodel::Package::mapRootPackages() : uml::Model {
+mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	name := self.Name;
-	nestedPackage := self.Packages-> map mapPackages();
+	nestedPackage := self.Packages-> map mapPackage();
 	
 	// maybe needs some flattening?
 	var associations = self.Packages.Elements.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	packagedElement += associations -> map mapConnectorToAssociation();
 }
 
-mapping eaobjectmodel::Package::mapPackages() : uml::Package
+mapping eaobjectmodel::Package::mapPackage() : uml::Package
 {
 	name := self.Name;
-	nestedPackage := self.Packages->map mapPackages();
+	nestedPackage := self.Packages->map mapPackage();
 
 	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
 	var interfaces :=  self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
@@ -210,6 +219,8 @@ mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter
 
 }
 
+// queries for transformation to uml
+
 query PrimitiveType::transformPrimitive() : uml::PrimitiveType
 {
 	var type = switch {
@@ -249,4 +260,49 @@ query Scope::getAttributeType() : VisibilityKind
 query ScopeObject::getAttributeType() : VisibilityKind
 {
 	return if self = null then null else self.oclAsType(Scope).getAttributeType() endif;
+}
+
+// mappings for transformation to notation
+
+mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
+	type := "PapyrusUMLClassDiagram";
+	name := self.Name;
+	measurementUnit := notation::MeasurementUnit::Pixel;
+	
+	var eaRootElement := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
+	var rootPackage := eaRootElement.resolveone(uml::Model).oclAsType(uml::Package);
+	element := rootPackage.toEObject();
+	
+	children += self.DiagramObjects-> map diagramObjectToShape();
+}
+
+mapping DiagramObject::diagramObjectToShape() : Shape
+merges DiagramObject::classToShape {
+	element := self.Element.resolveone(uml::Classifier).toEObject();
+	
+	children += self.map diagramObjectToNameDecorationNode();
+	
+	layoutConstraint := self.map diagramObjectToLayoutConstraint();
+}
+
+mapping DiagramObject::classToShape() : Shape 
+when {self.Element.Type = ElementType::Class} {
+	type := PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR;
+}
+
+mapping DiagramObject::diagramObjectToNameDecorationNode() : DecorationNode
+merges DiagramObject::classToNameDecorationNode {
+	
+}
+
+mapping DiagramObject::classToNameDecorationNode() : DecorationNode 
+when {self.Element.Type = ElementType::Class} {
+	type := PAPYRUS_NOTATION_NODE_CLASS_NAME_REGULAR;
+}
+
+mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
+	width := self.Right - self.Left;
+	height := (self.Bottom - self.Top) * -1;
+	x := (width/2).floor();
+	y := (height/2).floor();
 }
