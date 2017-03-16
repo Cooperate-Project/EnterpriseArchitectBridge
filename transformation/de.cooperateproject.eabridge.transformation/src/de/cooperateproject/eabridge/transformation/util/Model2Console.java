@@ -1,6 +1,7 @@
 package de.cooperateproject.eabridge.transformation.util;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import de.cooperateproject.eabridge.transformation.TransformationTestBase;
  */
 public class Model2Console extends TransformationTestBase {
 
-	private static final String testFile = "Nested/NestedTransformed.xmi";
+	private static final String testFile = "People/PeopleTransformed.xmi";
 
 	private static final Boolean useFeatureFilter = false;
 	private static final List<String> featuresToPrint = Arrays.asList(new String[] { "Name" });
@@ -75,6 +76,8 @@ public class Model2Console extends TransformationTestBase {
 	private void printWithIndent(String content, int layer) {
 
 		String text = "";
+		
+		text += getLineNumberText() + " ";
 
 		for (int i = 0; i < layer; i++) {
 			text += "|\t";
@@ -83,6 +86,12 @@ public class Model2Console extends TransformationTestBase {
 		text += content;
 
 		System.out.println(text);
+	}
+	
+	private int lineNumber = 1;
+	
+	private String getLineNumberText() {
+		return String.format("%04d", lineNumber++); 
 	}
 
 	private String eaobjectModelName(Object object) {
