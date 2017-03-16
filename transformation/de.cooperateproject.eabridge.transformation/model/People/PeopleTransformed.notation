@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" type="PapyrusUMLClassDiagram" name="People" measurementUnit="Pixel">
+  <children xsi:type="notation:Shape" type="Class_Shape">
+    <children xsi:type="notation:DecorationNode" type="Class_NameLabel"/>
+    <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel">
+      <layoutConstraint xsi:type="notation:Location" y="5"/>
+    </children>
+    <element href="PeopleTransformed.uml#_44-KAgo8Eee537tO5VfFww"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="119" y="54" width="239" height="109"/>
+  </children>
+  <element href="PeopleTransformed.uml#_44-KAAo8Eee537tO5VfFww"/>
+</notation:Diagram>

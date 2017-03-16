@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.uml2.uml.resources;bundle-version="5.2.0",
  de.cooperateproject.eabridge.tests.common,
  org.eclipse.emf.teneo.hibernate,
- org.hibernate
+ org.hibernate,
+ org.eclipse.gmf.runtime.notation;bundle-version="1.8.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.commons.logging.impl

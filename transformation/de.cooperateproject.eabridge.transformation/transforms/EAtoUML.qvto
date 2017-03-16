@@ -1,6 +1,6 @@
 import TransformationUtils;
 
-transformation EAtoUML(in om: OM, in ecorePrimitives : UML, out uml:UML, inout graphical : NOTATION);
+transformation EAtoUML(inout om: OM, in ecorePrimitives : UML, out uml:UML, out graphical : NOTATION);
 
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
@@ -281,6 +281,7 @@ merges DiagramObject::classToShape {
 	element := self.Element.resolveone(uml::Classifier).toEObject();
 	
 	children += self.map diagramObjectToNameDecorationNode();
+	children += self.map diagramObjectToFloatingLabelDecorationNode();
 	
 	layoutConstraint := self.map diagramObjectToLayoutConstraint();
 }
@@ -305,4 +306,18 @@ mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 	height := (self.Bottom - self.Top) * -1;
 	x := (width/2).floor();
 	y := (height/2).floor();
+}
+
+mapping DiagramObject::diagramObjectToFloatingLabelDecorationNode() : DecorationNode
+merges DiagramObject::classToFloatingLabelDecorationNode {
+	layoutConstraint := self.map diagramObjectToFloatingLabelDecorationNodeLayoutConstraint();
+}
+
+mapping DiagramObject::classToFloatingLabelDecorationNode() : DecorationNode 
+when {self.Element.Type = ElementType::Class} {
+	type := PAPYRUS_NOTATION_NODE_CLASS_FLOATINGLABEL_REGULAR;
+}
+
+mapping DiagramObject::diagramObjectToFloatingLabelDecorationNodeLayoutConstraint() : Location {
+	y := 5;
 }
