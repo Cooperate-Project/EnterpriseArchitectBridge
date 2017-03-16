@@ -117,11 +117,10 @@ public abstract class TransformationTestBase {
 	protected ResourceSet getResourceSet() {
 		return resourceSet;
 	}
-	
-	// FIXME: New transformation is unable to complete.
-	// Message: Compilation errors found in unit 'platform:/resource/de.cooperateproject.eabridge.transformation/transforms/EAtoUML.qvto'
+
+	@SuppressWarnings("restriction")
 	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath) throws IOException {
-		runEAtoUMLTransformation("EAtoUMLold.qvto", xmiPath, umlPath, "Dummy.notation");
+		runEAtoUMLTransformation(transformationPath, xmiPath, umlPath, "");
 	}
 	
 	@SuppressWarnings("restriction")
@@ -139,16 +138,17 @@ public abstract class TransformationTestBase {
 		Iterable<ModelExtent> transformationParameters = Arrays.asList(xmi, primitives, uml, notation);
 		
 		ExecutionDiagnostic result = executor.execute(ctx, Iterables.toArray(transformationParameters, ModelExtent.class));
-		
-		System.out.println(String.format("Code %d: %s", result.getSeverity(), result.getMessage()));
+		assertEquals(ExecutionDiagnostic.OK, result.getSeverity());
 		
 		Resource umlResultResource = getResourceSet().createResource(createResourceModelURI(umlPath));
 		umlResultResource.getContents().addAll(uml.getContents());
 		umlResultResource.save(null);
 		
-		Resource notationResultResource = getResourceSet().createResource(createResourceModelURI(notationPath));
-		notationResultResource.getContents().addAll(notation.getContents());
-		notationResultResource.save(null);
+		if(notationPath != "") {
+			Resource notationResultResource = getResourceSet().createResource(createResourceModelURI(notationPath));
+			notationResultResource.getContents().addAll(notation.getContents());
+			notationResultResource.save(null);
+		}
 	}
 	
 	// TODO: Refactor
