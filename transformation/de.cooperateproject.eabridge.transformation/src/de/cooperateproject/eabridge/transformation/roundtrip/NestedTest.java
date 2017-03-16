@@ -1,17 +1,26 @@
 package de.cooperateproject.eabridge.transformation.roundtrip;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.cooperateproject.eabridge.transformation.TransformationTestBase;
+import de.cooperateproject.eabridge.transformation.RoundtripTestBase;
 
-public class NestedTest extends TransformationTestBase {
+public class NestedTest extends RoundtripTestBase {
 
-	private static String testName = "Nested";
+	@BeforeClass
+	public static void setName() throws Exception {
+		setTestModelName("Nested");
+	}
 
 	@Test
 	public void testTransformation() throws Exception {
-		runUMLtoEATransformation("UMLtoEA.qvto", makeUMLPath(testName), makeXMITransformedPath(testName));
-		runEAtoUMLTransformation("EAtoUML.qvto", makeXMITransformedPath(testName), makeUMLTransformedPath(testName));
+		runTransformation();
 	}
-	
+
+	@Test
+	public void testResults() throws Exception {
+		runTransformation();
+		compareResults();
+	}
+
 }

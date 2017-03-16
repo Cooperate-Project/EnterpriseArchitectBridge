@@ -50,30 +50,32 @@ import de.cooperateproject.eabridge.tests.common.util.TestDB;
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
 
 public abstract class TransformationTestBase {
-	
+
 	private static final Logger LOGGER = Logger.getLogger(TransformationTestBase.class);
 	private ResourceSet resourceSet;
-	
+
 	@BeforeClass
 	public static void init() throws Exception {
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(new ConsoleAppender(new PatternLayout("%m%n")));
-		
+
 		if (!isPluginEnvironment()) {
-			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.eaobjectmodel", determinePluginUri("de.cooperateproject.eabridge.eaobjectmodel", DatabaseFactory.class));
-			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.transformation", determinePluginUri("de.cooperateproject.eabridge.transformation", TransformationTestBase.class));
+			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.eaobjectmodel",
+					determinePluginUri("de.cooperateproject.eabridge.eaobjectmodel", DatabaseFactory.class));
+			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.transformation",
+					determinePluginUri("de.cooperateproject.eabridge.transformation", TransformationTestBase.class));
 
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-	        Registry packageRegistry = EPackage.Registry.INSTANCE;
-	        packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);  
-	        
-            NotationPackage.eINSTANCE.eClass();
+			Registry packageRegistry = EPackage.Registry.INSTANCE;
+			packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);
+
+			NotationPackage.eINSTANCE.eClass();
 		}
 	}
-	
+
 	protected static void generateXMI(TestResource changelog, String xmiPath) throws Exception {
 		TestDB testDB = new TestDB(changelog);
-		
+
 		Session session = testDB.getDataStore().getSessionFactory().openSession();
 
 		Query query = session.createQuery("FROM Package WHERE PARENT_ID = 0");
@@ -81,121 +83,129 @@ public abstract class TransformationTestBase {
 		assertEquals(1, results.size());
 
 		Package actualContent = results.get(0);
-	
+
 		EAObjectModelHelper.saveModel(actualContent, String.format("model/%s", xmiPath));
-		
+
 		testDB.close();
 	}
-	
+
 	protected static String makeXMIPath(String testName) {
 		return String.format("%s/%s.xmi", testName, testName);
 	}
-	
+
 	protected static String makeUMLPath(String testName) {
 		return String.format("%s/%s.uml", testName, testName);
 	}
-	
+
 	protected static String makeXMITransformedPath(String testName) {
 		return String.format("%s/%sTransformed.xmi", testName, testName);
 	}
-	
+
 	protected static String makeUMLTransformedPath(String testName) {
 		return String.format("%s/%sTransformed.uml", testName, testName);
 	}
-	
+
 	protected static String makeNotationTransformedPath(String testName) {
 		return String.format("%s/%sTransformed.notation", testName, testName);
 	}
 
-	
 	@Before
 	public void setup() throws Exception {
 		resourceSet = new ResourceSetImpl();
 		UMLResourcesUtil.init(resourceSet);
 	}
-	
+
 	protected ResourceSet getResourceSet() {
 		return resourceSet;
 	}
 
 	@SuppressWarnings("restriction")
-	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath) throws IOException {
+	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath)
+			throws IOException {
 		runEAtoUMLTransformation(transformationPath, xmiPath, umlPath, "");
 	}
-	
+
 	@SuppressWarnings("restriction")
-	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath, String notationPath) throws IOException {
+	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath,
+			String notationPath) throws IOException {
 		TransformationExecutor executor = new TransformationExecutor(createTransformationURI(transformationPath));
 		ExecutionContextImpl ctx = new ExecutionContextImpl();
 		ctx.setLog(new Log4JLogger(LOGGER, Level.INFO));
 		Trace traceModel = new Trace(Collections.emptyList());
 		ctx.getSessionData().setValue(QVTEvaluationOptions.INCREMENTAL_UPDATE_TRACE, traceModel);
-		
-		ModelExtent xmi = new BasicModelExtent(getResourceSet().getResource(createResourceModelURI(xmiPath), true).getContents());
-		ModelExtent primitives = new BasicModelExtent(getResourceSet().getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents());
+
+		ModelExtent xmi = new BasicModelExtent(
+				getResourceSet().getResource(createResourceModelURI(xmiPath), true).getContents());
+		ModelExtent primitives = new BasicModelExtent(getResourceSet()
+				.getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents());
 		ModelExtent uml = new BasicModelExtent();
 		ModelExtent notation = new BasicModelExtent();
 		Iterable<ModelExtent> transformationParameters = Arrays.asList(xmi, primitives, uml, notation);
-		
-		ExecutionDiagnostic result = executor.execute(ctx, Iterables.toArray(transformationParameters, ModelExtent.class));
+
+		ExecutionDiagnostic result = executor.execute(ctx,
+				Iterables.toArray(transformationParameters, ModelExtent.class));
 		assertEquals(ExecutionDiagnostic.OK, result.getSeverity());
-		
+
 		Resource umlResultResource = getResourceSet().createResource(createResourceModelURI(umlPath));
 		umlResultResource.getContents().addAll(uml.getContents());
 		umlResultResource.save(null);
-		
-		if(notationPath != "") {
+
+		if (notationPath != "") {
 			Resource notationResultResource = getResourceSet().createResource(createResourceModelURI(notationPath));
 			notationResultResource.getContents().addAll(notation.getContents());
 			notationResultResource.save(null);
 		}
 	}
-	
+
 	// TODO: Refactor
-	
+
 	@SuppressWarnings("restriction")
-	protected void runUMLtoEATransformation(String transformationPath, String umlPath, String xmiPath) throws IOException {
+	protected void runUMLtoEATransformation(String transformationPath, String umlPath, String xmiPath)
+			throws IOException {
 		TransformationExecutor executor = new TransformationExecutor(createTransformationURI(transformationPath));
 		ExecutionContextImpl ctx = new ExecutionContextImpl();
 		ctx.setLog(new Log4JLogger(LOGGER, Level.INFO));
 		Trace traceModel = new Trace(Collections.emptyList());
 		ctx.getSessionData().setValue(QVTEvaluationOptions.INCREMENTAL_UPDATE_TRACE, traceModel);
-		
+
 		ModelExtent xmi = new BasicModelExtent();
-		ModelExtent primitives = new BasicModelExtent(getResourceSet().getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents());
-		ModelExtent uml = new BasicModelExtent(getResourceSet().getResource(createResourceModelURI(umlPath), true).getContents());
+		ModelExtent primitives = new BasicModelExtent(getResourceSet()
+				.getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents());
+		ModelExtent uml = new BasicModelExtent(
+				getResourceSet().getResource(createResourceModelURI(umlPath), true).getContents());
 		Iterable<ModelExtent> transformationParameters = Arrays.asList(uml, primitives, xmi);
-		
-		ExecutionDiagnostic result = executor.execute(ctx, Iterables.toArray(transformationParameters, ModelExtent.class));
+
+		ExecutionDiagnostic result = executor.execute(ctx,
+				Iterables.toArray(transformationParameters, ModelExtent.class));
 		assertEquals(ExecutionDiagnostic.OK, result.getSeverity());
-		
+
 		Resource resultResource = getResourceSet().createResource(createResourceModelURI(xmiPath));
 		resultResource.getContents().addAll(xmi.getContents());
 		resultResource.save(null);
 	}
-	
+
 	protected static URI createTransformationURI(String filename) {
 		String pathName = String.format("/%s/transforms/%s", "de.cooperateproject.eabridge.transformation", filename);
 		return createPlatformURI(pathName);
 	}
-	
+
 	protected static URI createResourceModelURI(String filename) {
 		String pathName = String.format("/%s/model/%s", "de.cooperateproject.eabridge.transformation", filename);
 		return createPlatformURI(pathName);
 	}
-	
+
 	private static boolean isPluginEnvironment() {
 		return ResourcesPlugin.getPlugin() != null;
 	}
-	
+
 	private static URI createPlatformURI(String pathName) {
 		if (!isPluginEnvironment()) {
-			return URI.createPlatformResourceURI(pathName, true);			
+			return URI.createPlatformResourceURI(pathName, true);
 		} else {
 			return URI.createPlatformPluginURI(pathName, true);
 		}
 	}
-	
+
 	private static URI determinePluginUri(String pluginId, Class<?> classOfPlugin) throws URISyntaxException {
 		Path p = Paths.get(classOfPlugin.getProtectionDomain().getCodeSource().getLocation().toURI());
 		while (p.getParent() != null && !p.getFileName().toString().equals(pluginId)) {
@@ -203,5 +213,5 @@ public abstract class TransformationTestBase {
 		}
 		return URI.createFileURI(p.toAbsolutePath().toFile().toString() + "/");
 	}
-	
+
 }
