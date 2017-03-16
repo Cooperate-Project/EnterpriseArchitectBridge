@@ -26,6 +26,8 @@ public class Model2Console extends TransformationTestBase {
 
 	private static final String testFile = "People/PeopleTransformed.xmi";
 
+	private static final Boolean printNullValues = false;
+
 	private static final Boolean useFeatureFilter = false;
 	private static final List<String> featuresToPrint = Arrays.asList(new String[] { "Name" });
 
@@ -61,8 +63,9 @@ public class Model2Console extends TransformationTestBase {
 						value = valueObject.toString();
 						value += eaobjectModelName(valueObject);
 					}
-
-					printWithIndent("+ " + feature.getName() + ":\t\t" + value, layer + 1);
+					
+					if (printNullValues || valueObject != null)
+						printWithIndent("+ " + feature.getName() + ":\t\t" + value, layer + 1);
 				}
 			}
 
@@ -76,7 +79,7 @@ public class Model2Console extends TransformationTestBase {
 	private void printWithIndent(String content, int layer) {
 
 		String text = "";
-		
+
 		text += getLineNumberText() + " ";
 
 		for (int i = 0; i < layer; i++) {
@@ -87,11 +90,11 @@ public class Model2Console extends TransformationTestBase {
 
 		System.out.println(text);
 	}
-	
+
 	private int lineNumber = 1;
-	
+
 	private String getLineNumberText() {
-		return String.format("%04d", lineNumber++); 
+		return String.format("%04d", lineNumber++);
 	}
 
 	private String eaobjectModelName(Object object) {
