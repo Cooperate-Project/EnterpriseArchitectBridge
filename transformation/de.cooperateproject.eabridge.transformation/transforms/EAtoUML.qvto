@@ -276,12 +276,16 @@ mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
 	children += self.DiagramObjects-> map diagramObjectToShape();
 }
 
+//DiagramObjects
 mapping DiagramObject::diagramObjectToShape() : Shape
 merges DiagramObject::classToShape {
 	element := self.Element.resolveone(uml::Classifier).toEObject();
 	
 	children += self.map diagramObjectToNameDecorationNode();
 	children += self.map diagramObjectToFloatingLabelDecorationNode();
+	
+	children += self.map diagramObjectToAttributesCompartment();
+	children += self.map classifierToOperationsCompartment();
 	
 	layoutConstraint := self.map diagramObjectToLayoutConstraint();
 }
@@ -291,6 +295,8 @@ when {self.Element.Type = ElementType::Class} {
 	type := PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR;
 }
 
+
+//NameDecorationNode
 mapping DiagramObject::diagramObjectToNameDecorationNode() : DecorationNode
 merges DiagramObject::classToNameDecorationNode {
 	
@@ -301,6 +307,7 @@ when {self.Element.Type = ElementType::Class} {
 	type := PAPYRUS_NOTATION_NODE_CLASS_NAME_REGULAR;
 }
 
+//LayoutConstraint
 mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 	width := self.Right - self.Left;
 	height := (self.Bottom - self.Top) * -1;
@@ -308,6 +315,7 @@ mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 	y := (height/2).floor();
 }
 
+//FloatingLabelDecorationNode
 mapping DiagramObject::diagramObjectToFloatingLabelDecorationNode() : DecorationNode
 merges DiagramObject::classToFloatingLabelDecorationNode {
 	layoutConstraint := self.map diagramObjectToFloatingLabelDecorationNodeLayoutConstraint();
@@ -320,4 +328,49 @@ when {self.Element.Type = ElementType::Class} {
 
 mapping DiagramObject::diagramObjectToFloatingLabelDecorationNodeLayoutConstraint() : Location {
 	y := 5;
+}
+
+//AttributeCompartment
+mapping DiagramObject::diagramObjectToAttributesCompartment() : BasicCompartment
+merges DiagramObject::classToAttributesCompartment {
+	children += self.Element.Attributes-> map attributeToShape();
+}
+
+mapping DiagramObject::classToAttributesCompartment() : BasicCompartment
+when {self.Element.Type = ElementType::Class} {
+	type := PAPYRUS_NOTATION_COMPARTMENT_CLASS_PROPERTIES_REGULAR;
+}
+
+//Attribute
+mapping Attribute::attributeToShape() : Shape
+merges Attribute::classAttributeToShape {
+	element := self.resolveone(uml::Property).toEObject();
+	
+}
+
+mapping Attribute::classAttributeToShape() : Shape
+when {self.Parent.Type = ElementType::Class} {	
+	type := PAPYRUS_NOTATION_SHAPE_CLASS_ATTRIBUTE;
+}
+
+//MethodCompartment
+mapping DiagramObject::classifierToOperationsCompartment() : BasicCompartment
+merges DiagramObject::classToOperationsCompartment {
+	children += self.Element.Methods-> methodToShape();
+}
+
+mapping DiagramObject::classToOperationsCompartment() : BasicCompartment
+when {self.Element.Type = ElementType::Class} {
+	type := PAPYRUS_NOTATION_COMPARTMENT_CLASS_OPERATIONS_REGULAR;
+}
+
+//Method
+mapping Method::methodToShape() : Shape
+merges Method::classMethodToShape {
+	element := self.resolveone(uml::Operation).toEObject();
+}
+
+mapping Method::classMethodToShape() : Shape
+when {self.Parent.Type = ElementType::Class} {	
+	type := PAPYRUS_NOTATION_SHAPE_CLASS_OPERATION;
 }

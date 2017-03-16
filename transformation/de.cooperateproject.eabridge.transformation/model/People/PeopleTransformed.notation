@@ -5,8 +5,27 @@
     <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel">
       <layoutConstraint xsi:type="notation:Location" y="5"/>
     </children>
-    <element href="PeopleTransformed.uml#_44-KAgo8Eee537tO5VfFww"/>
+    <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment">
+      <children xsi:type="notation:Shape" type="Property_ClassAttributeLabel">
+        <element href="PeopleTransformed.uml#_4IU78wpXEeewLIfZCEZzMQ"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Property_ClassAttributeLabel">
+        <element href="PeopleTransformed.uml#_4IU79ApXEeewLIfZCEZzMQ"/>
+      </children>
+    </children>
+    <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment">
+      <children xsi:type="notation:Shape" type="Operation_ClassOperationLabel">
+        <element href="PeopleTransformed.uml#_4IU79QpXEeewLIfZCEZzMQ"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Operation_ClassOperationLabel">
+        <element href="PeopleTransformed.uml#_4IU79wpXEeewLIfZCEZzMQ"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Operation_ClassOperationLabel">
+        <element href="PeopleTransformed.uml#_4IU7-QpXEeewLIfZCEZzMQ"/>
+      </children>
+    </children>
+    <element href="PeopleTransformed.uml#_4IU78gpXEeewLIfZCEZzMQ"/>
     <layoutConstraint xsi:type="notation:Bounds" x="119" y="54" width="239" height="109"/>
   </children>
-  <element href="PeopleTransformed.uml#_44-KAAo8Eee537tO5VfFww"/>
+  <element href="PeopleTransformed.uml#_4IU78ApXEeewLIfZCEZzMQ"/>
 </notation:Diagram>

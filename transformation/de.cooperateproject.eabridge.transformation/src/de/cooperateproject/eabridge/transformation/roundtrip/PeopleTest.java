@@ -1,7 +1,5 @@
 package de.cooperateproject.eabridge.transformation.roundtrip;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -9,9 +7,6 @@ import org.eclipse.m2m.qvt.oml.BasicModelExtent;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.junit.Test;
 
-import de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl;
-import de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl;
-import de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl;
 import de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl;
 import de.cooperateproject.eabridge.transformation.TransformationTestBase;
 import de.cooperateproject.eabridge.transformation.util.EAObjectModelComparer;
