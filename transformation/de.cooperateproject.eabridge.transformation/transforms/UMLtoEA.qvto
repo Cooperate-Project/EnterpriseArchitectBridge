@@ -49,6 +49,7 @@ mapping uml::Package::mapPackages() : eaobjectmodel::Package {
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	
 	Name := self.name;
+	Abstract := "0";
 	result.Type := eaobjectmodel::ElementType::Package;
 	
 }

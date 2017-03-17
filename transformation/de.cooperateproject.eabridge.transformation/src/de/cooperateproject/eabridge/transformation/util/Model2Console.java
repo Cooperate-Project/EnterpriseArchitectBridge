@@ -24,9 +24,9 @@ import de.cooperateproject.eabridge.transformation.TransformationTestBase;
  */
 public class Model2Console extends TransformationTestBase {
 
-	private static final String testFile = "People/PeopleTransformed.xmi";
+	private static final String testFile = "People/People.xmi";
 
-	private static final Boolean printNullValues = false;
+	private static final Boolean printNullValues = true;
 
 	private static final Boolean useFeatureFilter = false;
 	private static final List<String> featuresToPrint = Arrays.asList(new String[] { "Name" });

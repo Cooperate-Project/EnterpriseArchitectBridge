@@ -119,7 +119,6 @@ public abstract class TransformationTestBase {
 		return resourceSet;
 	}
 
-	@SuppressWarnings("restriction")
 	protected void runEAtoUMLTransformation(String transformationPath, String xmiPath, String umlPath)
 			throws IOException {
 		runEAtoUMLTransformation(transformationPath, xmiPath, umlPath, "");

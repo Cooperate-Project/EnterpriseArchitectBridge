@@ -1,8 +1,17 @@
 package de.cooperateproject.eabridge.transformation.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertFalse;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.function.BiConsumer;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
+import org.junit.Assert;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
@@ -10,8 +19,63 @@ import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
+import de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl;
 
 public class EAObjectModelComparer {
+
+	private void compareMatchingEObjects(EList<? extends EObject> expected, EList<? extends EObject> actual,
+			String uniqueAttributeToMatch, BiConsumer<EObject, EObject> compareFunction) {
+
+		// Size
+		assertEquals(expected.size(), actual.size());
+
+		HashMap<Object, EObject> expectedMap = new HashMap<Object, EObject>();
+		HashMap<Object, EObject> actualMap = new HashMap<Object, EObject>();
+
+		// Create maps
+		for (EObject eObject : expected) {
+			Object result = getEAttributeValue(eObject, uniqueAttributeToMatch);
+			assertFalse(expectedMap.containsKey(result));
+			expectedMap.put(result, eObject);
+		}
+		for (EObject eObject : actual) {
+			Object result = getEAttributeValue(eObject, uniqueAttributeToMatch);
+			assertFalse(actualMap.containsKey(result));
+			actualMap.put(result, eObject);
+		}
+
+		// Size
+		assertEquals(expectedMap.size(), actualMap.size());
+
+		// Match
+		expectedMap.forEach((key, value) -> {
+			Assert.assertTrue(actualMap.containsKey(key));
+			compareFunction.accept(value, actualMap.get(key));
+		});
+	}
+
+	private Object getEAttributeValue(EObject eObject, String attributeName) {
+		Object result = null;
+		EList<EAttribute> eAllAttributes = eObject.eClass().getEAllAttributes();
+		for (EAttribute eAttribute : eAllAttributes) {
+			if (eAttribute.getName().equals(attributeName)) {
+				result = eObject.eGet(eAttribute);
+			}
+		}
+		assertNotNull(result);
+		return result;
+	}
+
+	public void compareModels(List<EObject> expected, List<EObject> actual) {
+
+		// Size
+		assertEquals(expected.size(), 1);
+		assertEquals(actual.size(), 1);
+
+		// Content
+		comparePackages(((PackageImpl) expected.get(0)).getPackages(), ((PackageImpl) actual.get(0)).getPackages());
+
+	}
 
 	public void comparePackage(Package expected, Package actual) {
 
@@ -27,24 +91,14 @@ public class EAObjectModelComparer {
 
 	public void comparePackages(EList<Package> expected, EList<Package> actual) {
 
-		// Size
-		assertEquals(expected.size(), actual.size());
+		compareMatchingEObjects(expected, actual, "Name", (e, a) -> comparePackage((Package) e, (Package) a));
 
-		// Content
-		for (int i = 0; i < expected.size(); i++) {
-			comparePackage(expected.get(i), actual.get(i));
-		}
 	}
 
 	public void compareElements(EList<Element> expected, EList<Element> actual) {
 
-		// Size
-		assertEquals(expected.size(), actual.size());
+		compareMatchingEObjects(expected, actual, "Name", (e, a) -> compareElement((Element) e, (Element) a));
 
-		// Content
-		for (int i = 0; i < expected.size(); i++) {
-			compareElement(expected.get(i), actual.get(i));
-		}
 	}
 
 	public void compareElement(Element expected, Element actual) {
@@ -69,40 +123,26 @@ public class EAObjectModelComparer {
 		// assertEquals(expected.getVisibility(), actual.getVisibility());
 	}
 
-	public void compareTypeReference(TypeReference expected, TypeReference actual) {
+	private void compareTypeReference(TypeReference expected, TypeReference actual) {
 
-		if (expected == null) {
-			System.out.println("Empty type reference.");
+		if (expected.getClassifier() == null) {
+			assertEquals(expected.getPrimitiveType().getName(), actual.getPrimitiveType().getName());
 		} else {
-
-			if (expected.getClassifier() == null) {
-				assertEquals(expected.getPrimitiveType().getName(), actual.getPrimitiveType().getName());
-			} else {
-				assertEquals(expected.getClassifier().getName(), actual.getClassifier().getName());
-			}
+			assertEquals(expected.getClassifier().getName(), actual.getClassifier().getName());
 		}
+
 	}
 
 	public void compareAttributes(EList<Attribute> expected, EList<Attribute> actual) {
 
-		// Size
-		assertEquals(expected.size(), actual.size());
+		compareMatchingEObjects(expected, actual, "Name", (e, a) -> compareAttribute((Attribute) e, (Attribute) a));
 
-		// Content
-		for (int i = 0; i < expected.size(); i++) {
-			compareAttribute(expected.get(i), actual.get(i));
-		}
 	}
 
 	public void compareMethods(EList<Method> expected, EList<Method> actual) {
 
-		// Size
-		assertEquals(expected.size(), actual.size());
+		compareMatchingEObjects(expected, actual, "Name", (e, a) -> compareMethod((Method) e, (Method) a));
 
-		// Content
-		for (int i = 0; i < expected.size(); i++) {
-			compareMethod(expected.get(i), actual.get(i));
-		}
 	}
 
 	public void compareAttribute(Attribute expected, Attribute actual) {
@@ -119,8 +159,9 @@ public class EAObjectModelComparer {
 
 	public void compareMethod(Method expected, Method actual) {
 
-		// Return Type
-		compareTypeReference(expected.getReturnType(), actual.getReturnType());
+		// Return Type (but only, if there is one)
+		if (expected.getReturnType() != null && actual.getReturnType() != null)
+			compareTypeReference(expected.getReturnType(), actual.getReturnType());
 
 		// Parameters
 		compareMethodParameters(expected.getParameters(), actual.getParameters());
@@ -134,13 +175,8 @@ public class EAObjectModelComparer {
 
 	public void compareMethodParameters(EList<Methodparameter> expected, EList<Methodparameter> actual) {
 
-		// Size
-		assertEquals(expected.size(), actual.size());
-
-		// Content
-		for (int i = 0; i < expected.size(); i++) {
-			compareMethodParameter(expected.get(i), actual.get(i));
-		}
+		compareMatchingEObjects(expected, actual, "Name",
+				(e, a) -> compareMethodParameter((Methodparameter) e, (Methodparameter) a));
 	}
 
 	public void compareMethodParameter(Methodparameter expected, Methodparameter actual) {

@@ -2,10 +2,12 @@ package de.cooperateproject.eabridge.transformation;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.m2m.qvt.oml.BasicModelExtent;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 
+import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl;
 import de.cooperateproject.eabridge.transformation.util.EAObjectModelComparer;
 
@@ -43,12 +45,8 @@ public abstract class RoundtripTestBase extends TransformationTestBase {
 				getResourceSet().getResource(createResourceModelURI(makeXMIPath(testModelName)), true).getContents());
 		List<EObject> modelsSource = xmiSource.getContents();
 
-		// Main Package
-		PackageImpl mainPackageDest = (PackageImpl) ((PackageImpl) modelsDest.get(0)).getPackages().get(0);
-		PackageImpl mainPackageSource = (PackageImpl) ((PackageImpl) modelsSource.get(0)).getPackages().get(0);
-
 		// Using Comparer
 		EAObjectModelComparer comp = new EAObjectModelComparer();
-		comp.comparePackage(mainPackageSource, mainPackageDest);
+		comp.compareModels(modelsSource, modelsDest);
 	}
 }
