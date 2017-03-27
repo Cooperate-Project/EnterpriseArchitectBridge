@@ -7,25 +7,25 @@
     </children>
     <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment">
       <children xsi:type="notation:Shape" type="Property_ClassAttributeLabel">
-        <element href="PeopleTransformed.uml#_4IU78wpXEeewLIfZCEZzMQ"/>
+        <element href="PeopleTransformed.uml#_SP4j4xLNEeeC0MGdExXDAQ"/>
       </children>
       <children xsi:type="notation:Shape" type="Property_ClassAttributeLabel">
-        <element href="PeopleTransformed.uml#_4IU79ApXEeewLIfZCEZzMQ"/>
+        <element href="PeopleTransformed.uml#_SP4j5BLNEeeC0MGdExXDAQ"/>
       </children>
     </children>
     <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment">
       <children xsi:type="notation:Shape" type="Operation_ClassOperationLabel">
-        <element href="PeopleTransformed.uml#_4IU79QpXEeewLIfZCEZzMQ"/>
+        <element href="PeopleTransformed.uml#_SP4j5RLNEeeC0MGdExXDAQ"/>
       </children>
       <children xsi:type="notation:Shape" type="Operation_ClassOperationLabel">
-        <element href="PeopleTransformed.uml#_4IU79wpXEeewLIfZCEZzMQ"/>
+        <element href="PeopleTransformed.uml#_SP4j5xLNEeeC0MGdExXDAQ"/>
       </children>
       <children xsi:type="notation:Shape" type="Operation_ClassOperationLabel">
-        <element href="PeopleTransformed.uml#_4IU7-QpXEeewLIfZCEZzMQ"/>
+        <element href="PeopleTransformed.uml#_SP4j6RLNEeeC0MGdExXDAQ"/>
       </children>
     </children>
-    <element href="PeopleTransformed.uml#_4IU78gpXEeewLIfZCEZzMQ"/>
+    <element href="PeopleTransformed.uml#_SP4j4hLNEeeC0MGdExXDAQ"/>
     <layoutConstraint xsi:type="notation:Bounds" x="119" y="54" width="239" height="109"/>
   </children>
-  <element href="PeopleTransformed.uml#_4IU78ApXEeewLIfZCEZzMQ"/>
+  <element href="PeopleTransformed.uml#_SP4j4BLNEeeC0MGdExXDAQ"/>
 </notation:Diagram>

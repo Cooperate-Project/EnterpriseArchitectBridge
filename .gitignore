@@ -14,3 +14,5 @@ hs_err_pid*
 # generated xmi and uml files
 transformation/de.cooperateproject.eabridge.transformation/model/*/*.xmi
 transformation/de.cooperateproject.eabridge.transformation/model/*/*Transformed.uml
+transformation/de.cooperateproject.eabridge.transformation/model/*/*Transformed.di
+transformation/de.cooperateproject.eabridge.transformation/model/*/*Transformed.notation

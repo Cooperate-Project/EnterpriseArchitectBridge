@@ -154,7 +154,7 @@ inherits uml::Classifier::mapClassifierToElement {
 	
 	result.Type := eaobjectmodel::ElementType::Interface;
 	
-	result.Abstract := "0";
+	result.Abstract := "1";
 	
 }
 

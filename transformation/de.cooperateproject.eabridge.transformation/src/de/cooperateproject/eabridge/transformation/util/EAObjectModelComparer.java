@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.junit.Assert;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
+import de.cooperateproject.eabridge.eaobjectmodel.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
@@ -22,6 +23,19 @@ import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 import de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl;
 
 public class EAObjectModelComparer {
+
+	private void compareEList(EList<? extends EObject> expected, EList<? extends EObject> actual,
+			BiConsumer<EObject, EObject> compareFunction) {
+
+		// Size
+		assertEquals(expected.size(), actual.size());
+
+		// Compare
+		for (int i = 0; i < expected.size(); i++) {
+			compareFunction.accept(expected.get(i), actual.get(i));
+		}
+
+	}
 
 	private void compareMatchingEObjects(EList<? extends EObject> expected, EList<? extends EObject> actual,
 			String uniqueAttributeToMatch, BiConsumer<EObject, EObject> compareFunction) {
@@ -91,12 +105,14 @@ public class EAObjectModelComparer {
 
 	public void comparePackages(EList<Package> expected, EList<Package> actual) {
 
+		// FIXME: Should not need Maps, should work as List (correct ordering!)
 		compareMatchingEObjects(expected, actual, "Name", (e, a) -> comparePackage((Package) e, (Package) a));
 
 	}
 
 	public void compareElements(EList<Element> expected, EList<Element> actual) {
 
+		// FIXME: Should not need Maps, should work as List (correct ordering!)
 		compareMatchingEObjects(expected, actual, "Name", (e, a) -> compareElement((Element) e, (Element) a));
 
 	}
@@ -118,6 +134,9 @@ public class EAObjectModelComparer {
 		// Type
 		assertEquals(expected.getType(), actual.getType());
 
+		// Connectors
+		compareConnectors(expected.getSourceRelations(), actual.getSourceRelations());
+
 		// Visibility
 		// FIXME: Fix transformation first
 		// assertEquals(expected.getVisibility(), actual.getVisibility());
@@ -135,13 +154,13 @@ public class EAObjectModelComparer {
 
 	public void compareAttributes(EList<Attribute> expected, EList<Attribute> actual) {
 
-		compareMatchingEObjects(expected, actual, "Name", (e, a) -> compareAttribute((Attribute) e, (Attribute) a));
+		compareEList(expected, actual, (e, a) -> compareAttribute((Attribute) e, (Attribute) a));
 
 	}
 
 	public void compareMethods(EList<Method> expected, EList<Method> actual) {
 
-		compareMatchingEObjects(expected, actual, "Name", (e, a) -> compareMethod((Method) e, (Method) a));
+		compareEList(expected, actual, (e, a) -> compareMethod((Method) e, (Method) a));
 
 	}
 
@@ -175,8 +194,7 @@ public class EAObjectModelComparer {
 
 	public void compareMethodParameters(EList<Methodparameter> expected, EList<Methodparameter> actual) {
 
-		compareMatchingEObjects(expected, actual, "Name",
-				(e, a) -> compareMethodParameter((Methodparameter) e, (Methodparameter) a));
+		compareEList(expected, actual, (e, a) -> compareMethodParameter((Methodparameter) e, (Methodparameter) a));
 	}
 
 	public void compareMethodParameter(Methodparameter expected, Methodparameter actual) {
@@ -189,6 +207,27 @@ public class EAObjectModelComparer {
 
 		// Kind
 		assertEquals(expected.getKind(), actual.getKind());
+	}
+
+	public void compareConnectors(EList<Connector> expected, EList<Connector> actual) {
+
+		compareEList(expected, actual, (e, a) -> compareConnector((Connector) e, (Connector) a));
+
+	}
+
+	public void compareConnector(Connector expected, Connector actual) {
+
+		// Direction
+		assertEquals(expected.getDirection(), actual.getDirection());
+
+		// Type
+		assertEquals(expected.getType(), actual.getType());
+
+		// Source
+		assertEquals(expected.getSource().getName(), actual.getSource().getName());
+
+		// Dest
+		assertEquals(expected.getDest().getName(), actual.getDest().getName());
 	}
 
 }

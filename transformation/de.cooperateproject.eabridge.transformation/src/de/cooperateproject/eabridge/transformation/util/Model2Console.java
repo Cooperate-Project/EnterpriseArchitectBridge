@@ -1,7 +1,5 @@
 package de.cooperateproject.eabridge.transformation.util;
 
-import java.lang.reflect.Array;
-import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,9 +22,9 @@ import de.cooperateproject.eabridge.transformation.TransformationTestBase;
  */
 public class Model2Console extends TransformationTestBase {
 
-	private static final String testFile = "People/People.xmi";
+	private static final String testFile = "Portable/Portable.xmi";
 
-	private static final Boolean printNullValues = true;
+	private static final Boolean printNullValues = false;
 
 	private static final Boolean useFeatureFilter = false;
 	private static final List<String> featuresToPrint = Arrays.asList(new String[] { "Name" });
