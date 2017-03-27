@@ -2,6 +2,7 @@ package de.cooperateproject.eabridge.transformation;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
@@ -87,6 +88,30 @@ public abstract class TransformationTestBase {
 		EAObjectModelHelper.saveModel(actualContent, String.format("model/%s", xmiPath));
 
 		testDB.close();
+	}
+
+	protected static void deleteTransformedFiles(String testName) {
+
+		// FIXME: Resolve transformed filepath correctly
+		
+		File xmiTransformed = new File(createResourceModelURI(makeXMITransformedPath(testName)).path());
+		File umlTransformed = new File(makeUMLTransformedPath(testName));
+		File notationTransformed = new File(makeNotationTransformedPath(testName));
+
+		try {
+
+			if (xmiTransformed.exists())
+				xmiTransformed.delete();
+
+			if (umlTransformed.exists())
+				umlTransformed.delete();
+
+			if (notationTransformed.exists())
+				notationTransformed.delete();
+
+		} catch (Exception e) {
+			System.out.println("Unable to delete transformed files.");
+		}
 	}
 
 	protected static String makeXMIPath(String testName) {

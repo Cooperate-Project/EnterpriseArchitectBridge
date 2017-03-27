@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.m2m.qvt.oml.BasicModelExtent;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
+import org.junit.AfterClass;
 
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl;
@@ -16,6 +17,14 @@ public abstract class RoundtripTestBase extends TransformationTestBase {
 	private static String testModelName = "";
 	private static String transformationPathEAtoUML = "EAtoUML.qvto";
 	private static String transformationPathUMLtoEA = "UMLtoEA.qvto";
+	
+	private static final boolean deleteTransformedFiles = true;
+	
+	@AfterClass
+	public static void deleteTransformed() {
+		if(deleteTransformedFiles)
+			deleteTransformedFiles(testModelName);
+	}
 
 	protected static void setTestModelName(String name) {
 		testModelName = name;
