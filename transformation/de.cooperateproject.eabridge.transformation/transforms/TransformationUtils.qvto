@@ -1,6 +1,8 @@
 library TransformationUtils;
 
 modeltype ECORE uses ecore('http://www.eclipse.org/emf/2002/Ecore');
+modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
 // Shapes and related elements
 
@@ -68,4 +70,28 @@ property PAPYRUS_NOTATION_COMPARTMENT_CLASS_NESTED_INPACKAGE : String = "Class_N
 
 query OclAny::toEObject() : ecore::EObject {
 	return self.oclAsType(ecore::EObject);
+}
+
+mapping ecore::EObject::locationConstraint() : notation::Location
+{
+}
+
+mapping ecore::EObject::titleStyle() : notation::TitleStyle
+{
+}
+
+mapping ecore::EObject::sortingStyle() : notation::SortingStyle
+{
+}
+
+mapping ecore::EObject::filteringStyle() : notation::FilteringStyle
+{
+}
+
+mapping ecore::EObject::notationBounds() : notation::Bounds
+{
+}
+
+mapping ecore::EObject::fontStyle() : notation::FontStyle
+{
 }

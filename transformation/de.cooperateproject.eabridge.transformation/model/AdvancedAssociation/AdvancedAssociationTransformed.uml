@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jT0acBLXEeeBhtpdgNX1pg" name="Model">
-  <packagedElement xmi:type="uml:Package" xmi:id="_jT0acRLXEeeBhtpdgNX1pg" name="Package">
-    <packagedElement xmi:type="uml:Class" xmi:id="_jT0achLXEeeBhtpdgNX1pg" name="Part">
-      <ownedAttribute xmi:id="_jT0acxLXEeeBhtpdgNX1pg" name="the corresponding whole" type="_jT0adBLXEeeBhtpdgNX1pg" association="_jT0afRLXEeeBhtpdgNX1pg"/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_MsVtYB3yEeelusd4-k_Kdw" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_MsVtYR3yEeelusd4-k_Kdw" name="Package">
+    <packagedElement xmi:type="uml:Class" xmi:id="_MsVtYh3yEeelusd4-k_Kdw" name="Part">
+      <ownedAttribute xmi:id="_MsVtYx3yEeelusd4-k_Kdw" name="the corresponding whole" type="_MsVtZB3yEeelusd4-k_Kdw" association="_MsVtbR3yEeelusd4-k_Kdw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_jT0adBLXEeeBhtpdgNX1pg" name="Whole">
-      <ownedAttribute xmi:id="_jT0adRLXEeeBhtpdgNX1pg" name="the corresponding whole" type="_jT0achLXEeeBhtpdgNX1pg" aggregation="composite" association="_jT0afRLXEeeBhtpdgNX1pg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jT0adhLXEeeBhtpdgNX1pg" value="3"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jT0adxLXEeeBhtpdgNX1pg" value="72"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MsVtZB3yEeelusd4-k_Kdw" name="Whole">
+      <ownedAttribute xmi:id="_MsVtZR3yEeelusd4-k_Kdw" name="the corresponding whole" type="_MsVtYh3yEeelusd4-k_Kdw" aggregation="composite" association="_MsVtbR3yEeelusd4-k_Kdw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MsVtZh3yEeelusd4-k_Kdw" value="3"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MsVtZx3yEeelusd4-k_Kdw" value="72"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_jT0aeBLXEeeBhtpdgNX1pg" name="InterfaceImpl">
-      <interfaceRealization xmi:id="_jT0aeRLXEeeBhtpdgNX1pg" client="_jT0aeBLXEeeBhtpdgNX1pg" supplier="_jT0aehLXEeeBhtpdgNX1pg" contract="_jT0aehLXEeeBhtpdgNX1pg"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MsVtaB3yEeelusd4-k_Kdw" name="InterfaceImpl">
+      <interfaceRealization xmi:id="_MsVtaR3yEeelusd4-k_Kdw" client="_MsVtaB3yEeelusd4-k_Kdw" supplier="_MsVtah3yEeelusd4-k_Kdw" contract="_MsVtah3yEeelusd4-k_Kdw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_jT0aehLXEeeBhtpdgNX1pg" name="Interface">
-      <generalization xmi:id="_jT0aexLXEeeBhtpdgNX1pg" general="_jT0afBLXEeeBhtpdgNX1pg"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_MsVtah3yEeelusd4-k_Kdw" name="Interface">
+      <generalization xmi:id="_MsVtax3yEeelusd4-k_Kdw" general="_MsVtbB3yEeelusd4-k_Kdw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_jT0afBLXEeeBhtpdgNX1pg" name="SuperInterface"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_MsVtbB3yEeelusd4-k_Kdw" name="SuperInterface"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_jT0afRLXEeeBhtpdgNX1pg" name="Composition" memberEnd="_jT0adRLXEeeBhtpdgNX1pg _jT0acxLXEeeBhtpdgNX1pg"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MsVtbR3yEeelusd4-k_Kdw" name="Composition" memberEnd="_MsVtZR3yEeelusd4-k_Kdw _MsVtYx3yEeelusd4-k_Kdw"/>
 </uml:Model>

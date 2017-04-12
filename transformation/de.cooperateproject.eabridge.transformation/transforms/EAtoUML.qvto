@@ -10,6 +10,7 @@ main() {
 	var rootPackage := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
 	rootPackage.map mapRootPackage();
 	
+	//not the only place where diagrams can be nested
 	var diagrams = rootPackage.Packages.Diagrams;
 	diagrams->map diagramToDiagram()
 }
@@ -262,7 +263,8 @@ query ScopeObject::getAttributeType() : VisibilityKind
 	return if self = null then null else self.oclAsType(Scope).getAttributeType() endif;
 }
 
-// mappings for transformation to notation
+// transformation to notation
+// getNestedName
 
 mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
 	type := "PapyrusUMLClassDiagram";
@@ -285,7 +287,8 @@ merges DiagramObject::classToShape {
 	children += self.map diagramObjectToFloatingLabelDecorationNode();
 	
 	children += self.map diagramObjectToAttributesCompartment();
-	children += self.map classifierToOperationsCompartment();
+	children += self.map diagramObjectToOperationsCompartment();
+	children += self.map diagramObjectToSignalsCompartment();
 	
 	layoutConstraint := self.map diagramObjectToLayoutConstraint();
 }
@@ -318,7 +321,7 @@ mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 //FloatingLabelDecorationNode
 mapping DiagramObject::diagramObjectToFloatingLabelDecorationNode() : DecorationNode
 merges DiagramObject::classToFloatingLabelDecorationNode {
-	layoutConstraint := self.map diagramObjectToFloatingLabelDecorationNodeLayoutConstraint();
+	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
 mapping DiagramObject::classToFloatingLabelDecorationNode() : DecorationNode 
@@ -326,14 +329,14 @@ when {self.Element.Type = ElementType::Class} {
 	type := PAPYRUS_NOTATION_NODE_CLASS_FLOATINGLABEL_REGULAR;
 }
 
-mapping DiagramObject::diagramObjectToFloatingLabelDecorationNodeLayoutConstraint() : Location {
-	y := 5;
-}
-
 //AttributeCompartment
 mapping DiagramObject::diagramObjectToAttributesCompartment() : BasicCompartment
 merges DiagramObject::classToAttributesCompartment {
 	children += self.Element.Attributes-> map attributeToShape();
+	styles += result.toEObject().map titleStyle();
+	styles += result.toEObject().map sortingStyle();
+	styles += result.toEObject().map filteringStyle();
+	layoutConstraint := result.toEObject().map notationBounds();
 }
 
 mapping DiagramObject::classToAttributesCompartment() : BasicCompartment
@@ -345,7 +348,7 @@ when {self.Element.Type = ElementType::Class} {
 mapping Attribute::attributeToShape() : Shape
 merges Attribute::classAttributeToShape {
 	element := self.resolveone(uml::Property).toEObject();
-	
+	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
 mapping Attribute::classAttributeToShape() : Shape
@@ -354,9 +357,13 @@ when {self.Parent.Type = ElementType::Class} {
 }
 
 //MethodCompartment
-mapping DiagramObject::classifierToOperationsCompartment() : BasicCompartment
+mapping DiagramObject::diagramObjectToOperationsCompartment() : BasicCompartment
 merges DiagramObject::classToOperationsCompartment {
 	children += self.Element.Methods-> methodToShape();
+	styles += result.toEObject().map titleStyle();
+	styles += result.toEObject().map sortingStyle();
+	styles += result.toEObject().map filteringStyle();
+	layoutConstraint := result.toEObject().map notationBounds();
 }
 
 mapping DiagramObject::classToOperationsCompartment() : BasicCompartment
@@ -368,9 +375,26 @@ when {self.Element.Type = ElementType::Class} {
 mapping Method::methodToShape() : Shape
 merges Method::classMethodToShape {
 	element := self.resolveone(uml::Operation).toEObject();
+	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
 mapping Method::classMethodToShape() : Shape
 when {self.Parent.Type = ElementType::Class} {	
 	type := PAPYRUS_NOTATION_SHAPE_CLASS_OPERATION;
+}
+
+//SignalCompartment
+mapping DiagramObject::diagramObjectToSignalsCompartment() : notation::BasicCompartment
+merges DiagramObject::classToSignalsCompartment
+{
+	styles += result.toEObject().map titleStyle();
+	styles += result.toEObject().map sortingStyle();
+	styles += result.toEObject().map filteringStyle();
+	layoutConstraint := result.toEObject().map notationBounds();
+}
+
+mapping DiagramObject::classToSignalsCompartment() : notation::BasicCompartment
+when {self.Element.Type = ElementType::Class}
+{
+	type := PAPYRUS_NOTATION_COMPARTMENT_CLASS_NESTED_REGULAR;
 }
