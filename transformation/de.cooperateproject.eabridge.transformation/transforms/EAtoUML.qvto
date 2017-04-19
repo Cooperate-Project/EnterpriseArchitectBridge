@@ -5,13 +5,16 @@ transformation EAtoUML(inout om: OM, in ecorePrimitives : UML, out uml:UML, out 
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
+modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/viewpoints/policy/style');
 
 main() {
-	var rootPackage := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
+	var rootRootPackage := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
+	var rootPackage := rootRootPackage.Packages->any(true);
+	
 	rootPackage.map mapRootPackage();
 	
 	//not the only place where diagrams can be nested
-	var diagrams = rootPackage.Packages.Diagrams;
+	var diagrams = rootPackage.Diagrams;
 	diagrams->map diagramToDiagram()
 }
 
@@ -265,57 +268,78 @@ query ScopeObject::getAttributeType() : VisibilityKind
 
 // transformation to notation
 // getNestedName
+// currently only supports diagram below rootElement
 
 mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
 	type := "PapyrusUMLClassDiagram";
 	name := self.Name;
 	measurementUnit := notation::MeasurementUnit::Pixel;
 	
-	var eaRootElement := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
-	var rootPackage := eaRootElement.resolveone(uml::Model).oclAsType(uml::Package);
-	element := rootPackage.toEObject();
+	var package := self.Package.resolveone(uml::Model).oclAsType(uml::Package);
+	element := package.toEObject();
 	
-	children += self.DiagramObjects-> map diagramObjectToShape();
+	var directChildren = self.DiagramObjects->select(d: DiagramObject | d.Element.Package = self.Package);
+	
+	children += directChildren-> map diagramObjectToShape();
+	
+	styles += self.map stringValueStyle();
+	styles += self.map diagramStyle();
+	styles += self.map papyrusViewStyle(package);
 }
 
-//DiagramObjects
+//Shapes
 mapping DiagramObject::diagramObjectToShape() : Shape
-merges DiagramObject::classToShape {
-	element := self.Element.resolveone(uml::Classifier).toEObject();
+merges DiagramObject::packageToShape, DiagramObject::classToShape {
+	element := self.Element.resolveone(uml::NamedElement).toEObject();
 	
 	children += self.map diagramObjectToNameDecorationNode();
-	children += self.map diagramObjectToFloatingLabelDecorationNode();
+	
+	layoutConstraint := self.map diagramObjectToLayoutConstraint();
+}
+
+mapping DiagramObject::packageToShape() : Shape 
+when {self.Element.Type = ElementType::Package} {
+	element := self.Element.PDATA1.resolveone(uml::Package).toEObject();
+	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_PACKAGE_REGULAR);
+	
+	children += self.map packageToCompartment();
+}
+
+mapping DiagramObject::classToShape() : Shape 
+when {self.Element.Type = ElementType::Class} {
+	element := self.Element.resolveone(uml::Class).toEObject();
+	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR);
 	
 	children += self.map diagramObjectToAttributesCompartment();
 	children += self.map diagramObjectToOperationsCompartment();
 	children += self.map diagramObjectToSignalsCompartment();
 	
-	layoutConstraint := self.map diagramObjectToLayoutConstraint();
-}
-
-mapping DiagramObject::classToShape() : Shape 
-when {self.Element.Type = ElementType::Class} {
-	type := PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR;
+	children += self.map diagramObjectToFloatingLabelDecorationNode();
 }
 
 
 //NameDecorationNode
 mapping DiagramObject::diagramObjectToNameDecorationNode() : DecorationNode
-merges DiagramObject::classToNameDecorationNode {
+merges DiagramObject::packageToNameDecorationNode, DiagramObject::classToNameDecorationNode {
 	
+}
+
+mapping DiagramObject::packageToNameDecorationNode() : DecorationNode 
+when {self.Element.Type = ElementType::Package} {
+	type := self.getNestedName(PAPYRUS_NOTATION_NODE_PACKAGE_NAME_REGULAR);
 }
 
 mapping DiagramObject::classToNameDecorationNode() : DecorationNode 
 when {self.Element.Type = ElementType::Class} {
-	type := PAPYRUS_NOTATION_NODE_CLASS_NAME_REGULAR;
+	type := self.getNestedName(PAPYRUS_NOTATION_NODE_CLASS_NAME_REGULAR);
 }
 
 //LayoutConstraint
 mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 	width := self.Right - self.Left;
 	height := (self.Bottom - self.Top) * -1;
-	x := (width/2).floor();
-	y := (height/2).floor();
+	x := self.Left - self.getPackageLeft();
+	y := self.Top * -1 - self.getPackageTop() * -1;
 }
 
 //FloatingLabelDecorationNode
@@ -326,7 +350,18 @@ merges DiagramObject::classToFloatingLabelDecorationNode {
 
 mapping DiagramObject::classToFloatingLabelDecorationNode() : DecorationNode 
 when {self.Element.Type = ElementType::Class} {
-	type := PAPYRUS_NOTATION_NODE_CLASS_FLOATINGLABEL_REGULAR;
+	type := self.getNestedName(PAPYRUS_NOTATION_NODE_CLASS_FLOATINGLABEL_REGULAR);
+}
+
+//PackageCompartment
+mapping DiagramObject::packageToCompartment() : notation::BasicCompartment
+{
+	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_PACKAGE_PACKAGEABLE_REGULAR);
+	styles += result.toEObject().map titleStyle();
+	layoutConstraint := result.toEObject().map notationBounds();
+	
+	var directChildren = self.Diagram.DiagramObjects->select(d: DiagramObject | d.Element.Package = self.Element.PDATA1);
+	children += directChildren->map diagramObjectToShape();
 }
 
 //AttributeCompartment
@@ -341,7 +376,7 @@ merges DiagramObject::classToAttributesCompartment {
 
 mapping DiagramObject::classToAttributesCompartment() : BasicCompartment
 when {self.Element.Type = ElementType::Class} {
-	type := PAPYRUS_NOTATION_COMPARTMENT_CLASS_PROPERTIES_REGULAR;
+	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_CLASS_PROPERTIES_REGULAR);
 }
 
 //Attribute
@@ -368,7 +403,7 @@ merges DiagramObject::classToOperationsCompartment {
 
 mapping DiagramObject::classToOperationsCompartment() : BasicCompartment
 when {self.Element.Type = ElementType::Class} {
-	type := PAPYRUS_NOTATION_COMPARTMENT_CLASS_OPERATIONS_REGULAR;
+	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_CLASS_OPERATIONS_REGULAR);
 }
 
 //Method
@@ -380,6 +415,7 @@ merges Method::classMethodToShape {
 
 mapping Method::classMethodToShape() : Shape
 when {self.Parent.Type = ElementType::Class} {	
+	//Nested
 	type := PAPYRUS_NOTATION_SHAPE_CLASS_OPERATION;
 }
 
@@ -396,5 +432,45 @@ merges DiagramObject::classToSignalsCompartment
 mapping DiagramObject::classToSignalsCompartment() : notation::BasicCompartment
 when {self.Element.Type = ElementType::Class}
 {
-	type := PAPYRUS_NOTATION_COMPARTMENT_CLASS_NESTED_REGULAR;
+	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_CLASS_NESTED_REGULAR);
+}
+
+//Queries
+query DiagramObject::getNestedName(name : String) : String {
+	if (self.Diagram.Package = self.Element.Package)
+		then return name
+		else return name + "_CN"
+	endif	
+}
+
+query DiagramObject::getPackageLeft() : Integer {
+	var package := om.objects()[DiagramObject]->any(p: DiagramObject | p.Diagram = self.Diagram and p.Element.PDATA1 = self.Element.Package);
+	if (package.oclIsUndefined())
+		then return 0
+		else return package.Left
+	endif;
+}
+
+query DiagramObject::getPackageTop() : Integer {
+	var package := om.objects()[DiagramObject]->any(p: DiagramObject | p.Diagram = self.Diagram and p.Element.PDATA1 = self.Element.Package);
+	if (package.oclIsUndefined())
+		then return 0
+		else return package.Top
+	endif;
+}
+
+//Style stuff
+mapping Diagram::stringValueStyle() : notation::StringValueStyle
+{
+	name := "diagram_compatibility_version";
+	stringValue := "1.2.0";	
+}
+
+mapping Diagram::diagramStyle() : notation::DiagramStyle
+{	
+}
+
+mapping Diagram::papyrusViewStyle(rootElement : uml::Package) : style::PapyrusViewStyle
+{
+	owner := rootElement.toEObject();
 }

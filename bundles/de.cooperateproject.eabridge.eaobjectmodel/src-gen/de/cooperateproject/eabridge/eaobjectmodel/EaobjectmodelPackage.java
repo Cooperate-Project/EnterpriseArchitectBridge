@@ -2230,22 +2230,22 @@ public interface EaobjectmodelPackage extends EPackage {
 	int ELEMENT__CONCURRENCY = 43;
 
 	/**
-	 * The feature id for the '<em><b>PDATA1</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__PDATA1 = 44;
-
-	/**
 	 * The feature id for the '<em><b>Source Relations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__SOURCE_RELATIONS = 45;
+	int ELEMENT__SOURCE_RELATIONS = 44;
+
+	/**
+	 * The feature id for the '<em><b>PDATA1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__PDATA1 = 45;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -5403,15 +5403,15 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getElement_Concurrency();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getPDATA1 <em>PDATA1</em>}'.
+	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getPDATA1 <em>PDATA1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>PDATA1</em>'.
+	 * @return the meta object for the reference '<em>PDATA1</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.Element#getPDATA1()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EAttribute getElement_PDATA1();
+	EReference getElement_PDATA1();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getSourceRelations <em>Source Relations</em>}'.
@@ -8019,12 +8019,12 @@ public interface EaobjectmodelPackage extends EPackage {
 		EAttribute ELEMENT__CONCURRENCY = eINSTANCE.getElement_Concurrency();
 
 		/**
-		 * The meta object literal for the '<em><b>PDATA1</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>PDATA1</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ELEMENT__PDATA1 = eINSTANCE.getElement_PDATA1();
+		EReference ELEMENT__PDATA1 = eINSTANCE.getElement_PDATA1();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Relations</b></em>' containment reference list feature.

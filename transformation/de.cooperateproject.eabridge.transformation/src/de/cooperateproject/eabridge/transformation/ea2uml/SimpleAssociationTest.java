@@ -32,12 +32,12 @@ public class SimpleAssociationTest extends TransformationTestBase {
 
 	@Test
 	public void testTransformation() throws Exception {
-		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName));
+		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName) , makeNotationTransformedPath(testName));
 	}
 	
 	@Test
 	public void testAssociations() throws Exception {
-		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName));
+		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName) , makeNotationTransformedPath(testName));
 		ModelExtent uml = new BasicModelExtent(
 				getResourceSet().getResource(createResourceModelURI(makeUMLTransformedPath(testName)), true).getContents());
 		List<EObject> content = uml.getContents();

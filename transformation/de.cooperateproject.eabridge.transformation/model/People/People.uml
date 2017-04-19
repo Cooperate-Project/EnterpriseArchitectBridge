@@ -1,89 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001"
-    xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
-    xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML"
-    xmi:id="_BGfGEObzEeaxT9vDAagVuw"
-    name="Model">
-  <packagedElement
-      xmi:type="uml:Package"
-      xmi:id="_ssaqEOb8EeaxT9vDAagVuw"
-      name="People">
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_Bkt6MObzEeaxT9vDAagVuw"
-        name="Person">
-      <ownedAttribute
-          xmi:id="_LfJjAObzEeaxT9vDAagVuw"
-          name="age"
-          visibility="private">
-        <type
-            xmi:type="uml:PrimitiveType"
-            href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_BGfGEObzEeaxT9vDAagVuw" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_ssaqEOb8EeaxT9vDAagVuw" name="People">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Bkt6MObzEeaxT9vDAagVuw" name="Person">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_LfJjAObzEeaxT9vDAagVuw" name="age" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
       </ownedAttribute>
-      <ownedAttribute
-          xmi:id="_OPdugObzEeaxT9vDAagVuw"
-          name="name"
-          visibility="private">
-        <type
-            xmi:type="uml:PrimitiveType"
-            href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OPdugObzEeaxT9vDAagVuw" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
       </ownedAttribute>
-      <ownedOperation
-          xmi:id="_n_YCQObzEeaxT9vDAagVuw"
-          name="isAdult">
-        <ownedParameter
-            xmi:id="_R8ztgOb0EeaxT9vDAagVuw"
-            direction="return">
-          <type
-              xmi:type="uml:PrimitiveType"
-              href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_n_YCQObzEeaxT9vDAagVuw" name="isAdult">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_R8ztgOb0EeaxT9vDAagVuw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation
-          xmi:id="_4n23cObzEeaxT9vDAagVuw"
-          name="sayHiTo">
-        <ownedParameter
-            xmi:id="_4n23cebzEeaxT9vDAagVuw"
-            name="name">
-          <type
-              xmi:type="uml:PrimitiveType"
-              href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_4n23cObzEeaxT9vDAagVuw" name="sayHiTo">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_4n23cebzEeaxT9vDAagVuw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation
-          xmi:id="_NzwNcOb0EeaxT9vDAagVuw"
-          name="tellAJoke">
-        <ownedParameter
-            xmi:id="_NzwNceb0EeaxT9vDAagVuw"
-            name="funny">
-          <type
-              xmi:type="uml:PrimitiveType"
-              href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_NzwNcOb0EeaxT9vDAagVuw" name="tellAJoke">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_NzwNceb0EeaxT9vDAagVuw" name="funny">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedParameter>
-        <ownedParameter
-            xmi:id="_NzwNcub0EeaxT9vDAagVuw"
-            name="times">
-          <type
-              xmi:type="uml:PrimitiveType"
-              href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_NzwNcub0EeaxT9vDAagVuw" name="times">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
         </ownedParameter>
-        <ownedParameter
-            xmi:id="_NzwNc-b0EeaxT9vDAagVuw"
-            name="topic">
-          <type
-              xmi:type="uml:PrimitiveType"
-              href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_NzwNc-b0EeaxT9vDAagVuw" name="topic">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedParameter>
-        <ownedParameter
-            xmi:id="_NzwNdOb0EeaxT9vDAagVuw"
-            name="about"
-            type="_Bkt6MObzEeaxT9vDAagVuw"/>
-        <ownedParameter
-            xmi:id="_NzwNdeb0EeaxT9vDAagVuw"
-            direction="return">
-          <type
-              xmi:type="uml:PrimitiveType"
-              href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_NzwNdOb0EeaxT9vDAagVuw" name="about" type="_Bkt6MObzEeaxT9vDAagVuw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_NzwNdeb0EeaxT9vDAagVuw" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>

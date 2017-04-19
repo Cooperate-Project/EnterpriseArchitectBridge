@@ -62,5 +62,5 @@
       ElementGUID="elementPackageGUID"
       Name="package"
       Type="Package"
-      PDATA1="2"/>
+      PDATA1="//@Packages.0"/>
 </eaobjectmodel:Package>

@@ -61,8 +61,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getBordercolor <em>Bordercolor</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getCardinality <em>Cardinality</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getConcurrency <em>Concurrency</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getPDATA1 <em>PDATA1</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getSourceRelations <em>Source Relations</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getPDATA1 <em>PDATA1</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getElement()
@@ -1198,30 +1198,30 @@ public interface Element extends EObject {
 	void setConcurrency(String value);
 
 	/**
-	 * Returns the value of the '<em><b>PDATA1</b></em>' attribute.
+	 * Returns the value of the '<em><b>PDATA1</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>PDATA1</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>PDATA1</em>' attribute.
-	 * @see #setPDATA1(String)
+	 * @return the value of the '<em>PDATA1</em>' reference.
+	 * @see #setPDATA1(de.cooperateproject.eabridge.eaobjectmodel.Package)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getElement_PDATA1()
-	 * @model unique="false"
+	 * @model
 	 * @generated
 	 */
-	String getPDATA1();
+	de.cooperateproject.eabridge.eaobjectmodel.Package getPDATA1();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getPDATA1 <em>PDATA1</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getPDATA1 <em>PDATA1</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>PDATA1</em>' attribute.
+	 * @param value the new value of the '<em>PDATA1</em>' reference.
 	 * @see #getPDATA1()
 	 * @generated
 	 */
-	void setPDATA1(String value);
+	void setPDATA1(de.cooperateproject.eabridge.eaobjectmodel.Package value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Relations</b></em>' containment reference list.

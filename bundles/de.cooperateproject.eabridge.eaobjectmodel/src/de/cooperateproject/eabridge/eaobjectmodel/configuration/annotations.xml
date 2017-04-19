@@ -254,6 +254,9 @@
 			<property name="Type">
 				<column name="Object_Type" />
 			</property>
+			<property name="PDATA1">
+				<join-column name="PDATA1" />
+			</property>
 		</eclass>
 
 		<eclass name="Diagram">

@@ -16,6 +16,10 @@ main() {
 mapping uml::Model::mapRootModel() : eaobjectmodel::Package {
 	
 	log("Mapping root model", self);
+	var rootObject := object eaobjectmodel::Package {
+		Name := "Root";
+	};
+	Parent := rootObject;
 	
 	Name := self.name;
 	Packages := self.nestedPackage-> map mapPackages();

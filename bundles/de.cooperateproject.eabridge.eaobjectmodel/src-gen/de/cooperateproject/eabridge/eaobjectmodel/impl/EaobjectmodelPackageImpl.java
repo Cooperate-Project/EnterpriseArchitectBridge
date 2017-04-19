@@ -2275,8 +2275,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_PDATA1() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(44);
+	public EReference getElement_PDATA1() {
+		return (EReference)elementEClass.getEStructuralFeatures().get(45);
 	}
 
 	/**
@@ -2285,7 +2285,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	public EReference getElement_SourceRelations() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(45);
+		return (EReference)elementEClass.getEStructuralFeatures().get(44);
 	}
 
 	/**
@@ -3178,8 +3178,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(elementEClass, ELEMENT__BORDERCOLOR);
 		createEAttribute(elementEClass, ELEMENT__CARDINALITY);
 		createEAttribute(elementEClass, ELEMENT__CONCURRENCY);
-		createEAttribute(elementEClass, ELEMENT__PDATA1);
 		createEReference(elementEClass, ELEMENT__SOURCE_RELATIONS);
+		createEReference(elementEClass, ELEMENT__PDATA1);
 
 		methodEClass = createEClass(METHOD);
 		createEReference(methodEClass, METHOD__RETURN_TYPE);
@@ -3547,8 +3547,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getElement_Bordercolor(), ecorePackage.getEInt(), "Bordercolor", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Cardinality(), ecorePackage.getEString(), "Cardinality", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Concurrency(), ecorePackage.getEString(), "Concurrency", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_PDATA1(), ecorePackage.getEString(), "PDATA1", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_SourceRelations(), this.getConnector(), this.getConnector_Source(), "SourceRelations", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_PDATA1(), this.getPackage(), null, "PDATA1", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethod_ReturnType(), this.getTypeReference(), null, "ReturnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

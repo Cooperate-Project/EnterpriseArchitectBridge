@@ -690,15 +690,15 @@
 		<property name="Concurrency" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`Concurrency`"/>
 		</property>
-		<property name="PDATA1" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
-			<column not-null="false" unique="false" name="`PDATA1`"/>
-		</property>
 		<bag name="SourceRelations" lazy="true" cascade="all,delete-orphan">
 			<key update="true">
 				<column name="`Start_Object_ID`" unique="false"/>
 			</key>
 			<one-to-many entity-name="Connector"/>
 		</bag>
+		<many-to-one name="PDATA1" entity-name="Package" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Element_PDATA1" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`PDATA1`"/>
+		</many-to-one>
 	</class>
 	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl" entity-name="Method" abstract="false" lazy="false" table="`t_operation`">
 		<meta attribute="eclassName" inherit="false">Method</meta>

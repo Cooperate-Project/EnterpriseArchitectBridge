@@ -33,6 +33,7 @@ import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 import org.eclipse.m2m.qvt.oml.util.Trace;
+import org.eclipse.papyrus.infra.viewpoints.style.StylePackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
 import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
 import org.hibernate.Query;
@@ -71,6 +72,7 @@ public abstract class TransformationTestBase {
 			packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);
 
 			NotationPackage.eINSTANCE.eClass();
+			StylePackage.eINSTANCE.eClass();
 		}
 	}
 
@@ -157,7 +159,7 @@ public abstract class TransformationTestBase {
 		ctx.setLog(new Log4JLogger(LOGGER, Level.INFO));
 		Trace traceModel = new Trace(Collections.emptyList());
 		ctx.getSessionData().setValue(QVTEvaluationOptions.INCREMENTAL_UPDATE_TRACE, traceModel);
-
+		
 		ModelExtent xmi = new BasicModelExtent(
 				getResourceSet().getResource(createResourceModelURI(xmiPath), true).getContents());
 		ModelExtent primitives = new BasicModelExtent(getResourceSet()

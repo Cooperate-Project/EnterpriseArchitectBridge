@@ -90,7 +90,7 @@ public class ConnectorTest extends TeneoMappingBaseTest {
 		List<Package> results = HibernateUtils.getListFromQuery(query, Package.class);
 		trans.commit();
 		
-		Package simpleAssociationPackage = results.get(1);
+		Package simpleAssociationPackage = results.get(2);
 		return simpleAssociationPackage;
 	}
 }

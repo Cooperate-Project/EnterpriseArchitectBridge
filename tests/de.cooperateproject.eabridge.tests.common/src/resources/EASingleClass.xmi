@@ -6,5 +6,5 @@
     </Diagrams>
     <Elements Abstract="0" Author="seiferma" Complexity="1" CreatedDate="2016-07-04T10:10:44.000+0200" ElementGUID="{943BBB0B-9C9D-4a9b-B983-9D1C5B564CA7}" ElementID="2" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2016-07-04T10:10:44.000+0200" Name="SimpleClass" Phase="1.0" Status="Proposed" Type="Class" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1"/>
   </Packages>
-  <Elements Abstract="0" Author="seiferma" Complexity="1" CreatedDate="2016-07-04T10:10:15.000+0200" ElementGUID="{02DD52B1-D1EE-4b9f-838A-0CC73AEA44AF}" ElementID="1" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2016-07-04T10:10:15.000+0200" Name="CD" Phase="1.0" Status="Proposed" Type="Package" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1" PDATA1="2"/>
+  <Elements Abstract="0" Author="seiferma" Complexity="1" CreatedDate="2016-07-04T10:10:15.000+0200" ElementGUID="{02DD52B1-D1EE-4b9f-838A-0CC73AEA44AF}" ElementID="1" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2016-07-04T10:10:15.000+0200" Name="CD" Phase="1.0" Status="Proposed" Type="Package" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1" PDATA1="//@Packages.0"/>
 </eaobjectmodel:Package>

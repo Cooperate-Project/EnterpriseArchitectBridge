@@ -70,8 +70,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getBordercolor <em>Bordercolor</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getCardinality <em>Cardinality</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getConcurrency <em>Concurrency</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getPDATA1 <em>PDATA1</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getSourceRelations <em>Source Relations</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getPDATA1 <em>PDATA1</em>}</li>
  * </ul>
  *
  * @generated
@@ -879,8 +879,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPDATA1() {
-		return (String)eGet(EaobjectmodelPackage.Literals.ELEMENT__PDATA1, true);
+	public de.cooperateproject.eabridge.eaobjectmodel.Package getPDATA1() {
+		return (de.cooperateproject.eabridge.eaobjectmodel.Package)eGet(EaobjectmodelPackage.Literals.ELEMENT__PDATA1, true);
 	}
 
 	/**
@@ -888,7 +888,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPDATA1(String newPDATA1) {
+	public void setPDATA1(de.cooperateproject.eabridge.eaobjectmodel.Package newPDATA1) {
 		eSet(EaobjectmodelPackage.Literals.ELEMENT__PDATA1, newPDATA1);
 	}
 

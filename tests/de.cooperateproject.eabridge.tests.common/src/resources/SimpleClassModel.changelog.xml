@@ -231,7 +231,7 @@
 			<column name="Status" />
 			<column name="Abstract" />
 			<column name="Tagged" valueNumeric="0" />
-			<column name="PDATA1" />
+			<column name="PDATA1" value="0"/>
 			<column name="PDATA2" />
 			<column name="PDATA3" />
 			<column name="PDATA4" />
@@ -290,7 +290,7 @@
 			<column name="Status" />
 			<column name="Abstract" />
 			<column name="Tagged" valueNumeric="0" />
-			<column name="PDATA1" />
+			<column name="PDATA1" value="0"/>
 			<column name="PDATA2" />
 			<column name="PDATA3" />
 			<column name="PDATA4" />
