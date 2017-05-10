@@ -36,7 +36,7 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PACKAGE(0, "Package", "Package"),
+	PACKAGE(1, "Package", "Package"),
 
 	/**
 	 * The '<em><b>Interface</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INTERFACE(0, "Interface", "Interface"),
+	INTERFACE(2, "Interface", "Interface"),
 
 	/**
 	 * The '<em><b>Note</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTE(0, "Note", "Note");
+	NOTE(3, "Note", "Note");
 
 	/**
 	 * The '<em><b>Class</b></em>' literal value.
@@ -86,7 +86,7 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PACKAGE_VALUE = 0;
+	public static final int PACKAGE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Interface</b></em>' literal value.
@@ -101,7 +101,7 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INTERFACE_VALUE = 0;
+	public static final int INTERFACE_VALUE = 2;
 
 	/**
 	 * The '<em><b>Note</b></em>' literal value.
@@ -116,7 +116,7 @@ public enum ElementType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NOTE_VALUE = 0;
+	public static final int NOTE_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Element Type</b></em>' enumerators.
@@ -187,6 +187,9 @@ public enum ElementType implements Enumerator {
 	public static ElementType get(int value) {
 		switch (value) {
 			case CLASS_VALUE: return CLASS;
+			case PACKAGE_VALUE: return PACKAGE;
+			case INTERFACE_VALUE: return INTERFACE;
+			case NOTE_VALUE: return NOTE;
 		}
 		return null;
 	}

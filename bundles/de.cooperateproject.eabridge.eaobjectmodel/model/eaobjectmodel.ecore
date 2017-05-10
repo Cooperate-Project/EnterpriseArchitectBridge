@@ -683,9 +683,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ElementType">
     <eLiterals name="Class"/>
-    <eLiterals name="Package"/>
-    <eLiterals name="Interface"/>
-    <eLiterals name="Note" literal="Note"/>
+    <eLiterals name="Package" value="1"/>
+    <eLiterals name="Interface" value="2"/>
+    <eLiterals name="Note" value="3" literal="Note"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ParameterDirection">
     <eLiterals name="in"/>
