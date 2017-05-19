@@ -161,22 +161,22 @@ mapping Connector::mapSourceToProperty() : uml::Property
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.DestIsAggregate.transformAssociationType();
-	name := self.getDestAlias();
+	name := self.DestRole;
 	
 	type := self.Source.late resolveone(uml::Classifier);
-	if (self.getSourceLower() != 1) then lower := self.getSourceLower() endif;
-	if (self.getSourceUpper() != 1) then upper := self.getSourceUpper() endif;
+	if (self.getDestLower() != 1) then lower := self.getDestLower() endif;
+	if (self.getDestUpper() != 1) then upper := self.getDestUpper() endif;
 }
 
 mapping Connector::mapDestToProperty() : uml::Property
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.SourceIsAggregate.transformAssociationType();
-	name := self.getSourceAlias();
+	name := self.SourceRole;
 	
 	type := self.Dest.late resolveone(uml::Classifier);
-	if (self.getDestLower() != 1) then lower := self.getDestLower() endif;
-	if (self.getDestUpper() != 1) then upper := self.getDestUpper() endif;
+	if (self.getSourceLower() != 1) then lower := self.getSourceLower() endif;
+	if (self.getSourceUpper() != 1) then upper := self.getSourceUpper() endif;
 }
 
 query IsAggregate::transformAssociationType() : uml::AggregationKind
@@ -422,7 +422,7 @@ when {self.Parent.Type = ElementType::Interface} {
 //MethodCompartment
 mapping DiagramObject::diagramObjectToOperationsCompartment() : BasicCompartment
 merges DiagramObject::classToOperationsCompartment, DiagramObject::interfaceToOperationsCompartment {
-	children += self.Element.Methods-> methodToShape(self.getNestedName(""));
+	children += self.Element.Methods-> methodToShape();
 	styles += result.toEObject().map titleStyle();
 	styles += result.toEObject().map sortingStyle();
 	styles += result.toEObject().map filteringStyle();
@@ -439,21 +439,21 @@ when {self.Element.Type = ElementType::Interface} {
 	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_INTERFACE_OPERATIONS_REGULAR);
 }
 
-//Method
-mapping Method::methodToShape(postfix : String) : Shape
+//Method !Does not need nested postfix!
+mapping Method::methodToShape() : Shape
 merges Method::classMethodToShape, Method::interfaceMethodToShape {
 	element := self.resolveone(uml::Operation).toEObject();
 	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
-mapping Method::classMethodToShape(postfix : String) : Shape
+mapping Method::classMethodToShape() : Shape
 when {self.Parent.Type = ElementType::Class} {	
-	type := PAPYRUS_NOTATION_SHAPE_CLASS_OPERATION + postfix;
+	type := PAPYRUS_NOTATION_SHAPE_CLASS_OPERATION
 }
 
-mapping Method::interfaceMethodToShape(postfix : String) : Shape
+mapping Method::interfaceMethodToShape() : Shape
 when {self.Parent.Type = ElementType::Interface} {	
-	type := PAPYRUS_NOTATION_SHAPE_INTERFACE_OPERATION + postfix;
+	type := PAPYRUS_NOTATION_SHAPE_INTERFACE_OPERATION;
 }
 
 //SignalCompartment
@@ -478,17 +478,16 @@ when {self.Element.Type = ElementType::Interface} {
 
 //Connectors
 mapping DiagramLink::diagramLinkToConnector() : notation::Connector
-merges DiagramLink::associationToConnector
+merges DiagramLink::associationToConnector, DiagramLink::generalizationToConnector, DiagramLink::implementationToConnector
 {
 }
 
 mapping DiagramLink::associationToConnector() : notation::Connector
-when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = ConnectorType::Aggregation}
-{
+when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = ConnectorType::Aggregation} {
 	type := PAPYRUS_NOTATION_EDGE_ASSOCIATION;
 	//switch needed for some reason
-	source := self.Connector.Dest.resolveElement(self.Diagram);
-	target := self.Connector.Source.resolveElement(self.Diagram);
+	source := self.Connector.Source.resolveElement(self.Diagram);
+	target := self.Connector.Dest.resolveElement(self.Diagram);
 	element := self.Connector.resolveoneIn(Connector::mapConnectorToAssociation).toEObject();
 
 	bendpoints := result.map connectorToBendpoint();
@@ -500,6 +499,32 @@ when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = 
 	children += self.map diagramLinkToTargetMultiplicityDecoration();
 	children += self.map diagramLinkToSourceMultiplicityDecoration();
 	//TODO: Stereotype missing
+}
+
+mapping DiagramLink::generalizationToConnector() : notation::Connector
+when {self.Connector.Type = ConnectorType::Generalization} {
+	type := PAPYRUS_NOTATION_EDGE_GENERALIZATION;
+	//switch needed for some reason	
+	source := self.Connector.Source.resolveElement(self.Diagram);
+	target := self.Connector.Dest.resolveElement(self.Diagram);
+	element := self.Connector.resolveoneIn(Connector::mapConnectoToGeneralization).toEObject();
+	//TODO: Stereotype missing
+	
+	bendpoints := result.map connectorToBendpoint();
+	styles += result.toEObject().map fontStyle();
+}
+
+mapping DiagramLink::implementationToConnector() : notation::Connector
+when {self.Connector.Type = ConnectorType::Realisation} {
+	type := PAPYRUS_NOTATION_EDGE_IMPLEMENTATION;
+	//switch needed for some reason	
+	source := self.Connector.Source.resolveElement(self.Diagram);
+	target := self.Connector.Dest.resolveElement(self.Diagram);
+	element := self.Connector.resolveoneIn(Connector::mapConnectoToRealization).toEObject();
+	//TODO: Stereotype missing
+	
+	bendpoints := result.map connectorToBendpoint();
+	styles += result.toEObject().map fontStyle();
 }
 
 //ConnectorNameDecorationNode
