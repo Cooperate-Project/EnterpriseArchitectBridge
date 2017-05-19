@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?p2f version='1.0.0'?>
+<p2f version='1.0.0'>
+  <ius size='15'>
+    <iu id='org.eclipse.jdt.feature.group' name='Eclipse Java Development Tools' version='3.12.3.v20170301-0400'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='epp.package.modeling' name='Eclipse Modeling Tools' version='4.6.3.20170314-1500'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.pde.feature.group' name='Eclipse Plug-in Development Environment' version='3.12.3.v20170301-0400'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.wst.xml_ui.feature.feature.group' name='Eclipse XML Editors and Tools' version='3.8.2.v201702270442'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.emf.sdk.feature.group' name='EMF - Eclipse Modeling Framework SDK' version='2.12.0.v20160526-0356'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.emf.teneo.hibernate.feature.group' name='EMF Teneo Hibernate Runtime' version='2.1.0.v201702222200'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/modeling/emf/teneo/updates/2.1.0/interim/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.emf.validation.sdk.feature.group' name='EMF Validation Framework SDK' version='1.10.0.201606071713'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='org.hamcrest' name='Hamcrest Library of Matchers' version='1.1.0.v20090501071000'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/eclipse/updates/4.6'/>
+      </repositories>
+    </iu>
+    <iu id='org.liquibase.osgi' name='Liquibase with OSGI Support' version='3.4.2'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/cooperate-project/Externals/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='org.mariadb.jdbc' name='MariaDB JDBC Client' version='1.4.2.0'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/cooperate-project/Externals/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='org.xmlunit.xmlunit-core' name='org.xmlunit:xmlunit-core' version='2.1.1'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/cooperate-project/Externals/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='org.xmlunit.xmlunit-matchers' name='org.xmlunit:xmlunit-matchers' version='2.1.1'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/cooperate-project/Externals/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.papyrus.sdk.feature.feature.group' name='Papyrus UML' version='2.0.3.201703080851'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.m2m.qvt.oml.sdk.feature.group' name='QVT Operational SDK' version='3.6.0.v20160606-1156'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.uml2.sdk.feature.group' name='UML2 Extender SDK' version='5.2.3.v20170227-0935'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/neon'/>
+      </repositories>
+    </iu>
+  </ius>
+</p2f>
