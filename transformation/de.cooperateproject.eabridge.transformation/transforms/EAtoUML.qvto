@@ -288,7 +288,7 @@ mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
 
 //Shapes
 mapping DiagramObject::diagramObjectToShape() : Shape
-merges DiagramObject::packageToShape, DiagramObject::classToShape {
+merges DiagramObject::packageToShape, DiagramObject::classToShape, DiagramObject::interfaceToShape {
 	element := self.Element.resolveone(uml::NamedElement).toEObject();
 	
 	children += self.map diagramObjectToNameDecorationNode();
@@ -306,7 +306,6 @@ when {self.Element.Type = ElementType::Package} {
 
 mapping DiagramObject::classToShape() : Shape 
 when {self.Element.Type = ElementType::Class} {
-	element := self.Element.resolveone(uml::Class).toEObject();
 	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR);
 	
 	children += self.map diagramObjectToAttributesCompartment();
@@ -316,10 +315,20 @@ when {self.Element.Type = ElementType::Class} {
 	children += self.map diagramObjectToFloatingLabelDecorationNode();
 }
 
+mapping DiagramObject::interfaceToShape() : Shape
+when {self.Element.Type = ElementType::Interface} {
+	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_INTERFACE_REGULAR);
+	
+	children += self.map diagramObjectToAttributesCompartment();
+	children += self.map diagramObjectToOperationsCompartment();
+	children += self.map diagramObjectToSignalsCompartment();
+	
+	children += self.map diagramObjectToFloatingLabelDecorationNode();
+}
 
 //NameDecorationNode
 mapping DiagramObject::diagramObjectToNameDecorationNode() : DecorationNode
-merges DiagramObject::packageToNameDecorationNode, DiagramObject::classToNameDecorationNode {
+merges DiagramObject::packageToNameDecorationNode, DiagramObject::classToNameDecorationNode, DiagramObject::interfaceToNameDecorationNode {
 	
 }
 
@@ -333,6 +342,11 @@ when {self.Element.Type = ElementType::Class} {
 	type := self.getNestedName(PAPYRUS_NOTATION_NODE_CLASS_NAME_REGULAR);
 }
 
+mapping DiagramObject::interfaceToNameDecorationNode() : DecorationNode 
+when {self.Element.Type = ElementType::Interface} {
+	type := self.getNestedName(PAPYRUS_NOTATION_NODE_INTERFACE_NAME_REGULAR);
+}
+
 //LayoutConstraint
 mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 	width := self.Right - self.Left;
@@ -343,13 +357,18 @@ mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 
 //FloatingLabelDecorationNode
 mapping DiagramObject::diagramObjectToFloatingLabelDecorationNode() : DecorationNode
-merges DiagramObject::classToFloatingLabelDecorationNode {
+merges DiagramObject::classToFloatingLabelDecorationNode, DiagramObject::interfaceToFloatingLabelDecorationNode {
 	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
 mapping DiagramObject::classToFloatingLabelDecorationNode() : DecorationNode 
 when {self.Element.Type = ElementType::Class} {
 	type := self.getNestedName(PAPYRUS_NOTATION_NODE_CLASS_FLOATINGLABEL_REGULAR);
+}
+
+mapping DiagramObject::interfaceToFloatingLabelDecorationNode() : DecorationNode 
+when {self.Element.Type = ElementType::Interface} {
+	type := self.getNestedName(PAPYRUS_NOTATION_NODE_INTERFACE_FLOATINGLABEL_REGULAR);
 }
 
 //PackageCompartment
@@ -365,7 +384,7 @@ mapping DiagramObject::packageToCompartment() : notation::BasicCompartment
 
 //AttributeCompartment
 mapping DiagramObject::diagramObjectToAttributesCompartment() : BasicCompartment
-merges DiagramObject::classToAttributesCompartment {
+merges DiagramObject::classToAttributesCompartment, DiagramObject::interfaceToAttributesCompartment {
 	children += self.Element.Attributes-> map attributeToShape();
 	styles += result.toEObject().map titleStyle();
 	styles += result.toEObject().map sortingStyle();
@@ -378,9 +397,14 @@ when {self.Element.Type = ElementType::Class} {
 	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_CLASS_PROPERTIES_REGULAR);
 }
 
+mapping DiagramObject::interfaceToAttributesCompartment() : BasicCompartment
+when {self.Element.Type = ElementType::Interface} {
+	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_INTERFACE_PROPERTIES_REGULAR);
+}
+
 //Attribute
 mapping Attribute::attributeToShape() : Shape
-merges Attribute::classAttributeToShape {
+merges Attribute::classAttributeToShape, Attribute::interfaceAttributeToShape {
 	element := self.resolveone(uml::Property).toEObject();
 	layoutConstraint := result.toEObject().map locationConstraint();
 }
@@ -390,10 +414,15 @@ when {self.Parent.Type = ElementType::Class} {
 	type := PAPYRUS_NOTATION_SHAPE_CLASS_ATTRIBUTE;
 }
 
+mapping Attribute::interfaceAttributeToShape() : Shape
+when {self.Parent.Type = ElementType::Interface} {	
+	type := PAPYRUS_NOTATION_SHAPE_INTERFACE_ATTRIBUTE;
+}
+
 //MethodCompartment
 mapping DiagramObject::diagramObjectToOperationsCompartment() : BasicCompartment
-merges DiagramObject::classToOperationsCompartment {
-	children += self.Element.Methods-> methodToShape();
+merges DiagramObject::classToOperationsCompartment, DiagramObject::interfaceToOperationsCompartment {
+	children += self.Element.Methods-> methodToShape(self.getNestedName(""));
 	styles += result.toEObject().map titleStyle();
 	styles += result.toEObject().map sortingStyle();
 	styles += result.toEObject().map filteringStyle();
@@ -405,22 +434,31 @@ when {self.Element.Type = ElementType::Class} {
 	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_CLASS_OPERATIONS_REGULAR);
 }
 
+mapping DiagramObject::interfaceToOperationsCompartment() : BasicCompartment
+when {self.Element.Type = ElementType::Interface} {
+	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_INTERFACE_OPERATIONS_REGULAR);
+}
+
 //Method
-mapping Method::methodToShape() : Shape
-merges Method::classMethodToShape {
+mapping Method::methodToShape(postfix : String) : Shape
+merges Method::classMethodToShape, Method::interfaceMethodToShape {
 	element := self.resolveone(uml::Operation).toEObject();
 	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
-mapping Method::classMethodToShape() : Shape
+mapping Method::classMethodToShape(postfix : String) : Shape
 when {self.Parent.Type = ElementType::Class} {	
-	//Nested
-	type := PAPYRUS_NOTATION_SHAPE_CLASS_OPERATION;
+	type := PAPYRUS_NOTATION_SHAPE_CLASS_OPERATION + postfix;
+}
+
+mapping Method::interfaceMethodToShape(postfix : String) : Shape
+when {self.Parent.Type = ElementType::Interface} {	
+	type := PAPYRUS_NOTATION_SHAPE_INTERFACE_OPERATION + postfix;
 }
 
 //SignalCompartment
 mapping DiagramObject::diagramObjectToSignalsCompartment() : notation::BasicCompartment
-merges DiagramObject::classToSignalsCompartment
+merges DiagramObject::classToSignalsCompartment, DiagramObject::interfaceToSignalsCompartment
 {
 	styles += result.toEObject().map titleStyle();
 	styles += result.toEObject().map sortingStyle();
@@ -429,9 +467,13 @@ merges DiagramObject::classToSignalsCompartment
 }
 
 mapping DiagramObject::classToSignalsCompartment() : notation::BasicCompartment
-when {self.Element.Type = ElementType::Class}
-{
+when {self.Element.Type = ElementType::Class} {
 	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_CLASS_NESTED_REGULAR);
+}
+
+mapping DiagramObject::interfaceToSignalsCompartment() : notation::BasicCompartment
+when {self.Element.Type = ElementType::Interface} {
+	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_INTERFACE_NESTED_REGULAR);
 }
 
 //Connectors
