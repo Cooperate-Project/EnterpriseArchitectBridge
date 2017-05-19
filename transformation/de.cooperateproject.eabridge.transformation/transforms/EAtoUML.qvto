@@ -13,7 +13,7 @@ main() {
 	
 	rootPackage.map mapRootPackage();
 	
-	//not the only place where diagrams can be nested
+	//TODO: functionality for more nested Diagram
 	var diagrams = rootPackage.Diagrams;
 	diagrams->map diagramToDiagram()
 }
@@ -161,7 +161,7 @@ mapping Connector::mapSourceToProperty() : uml::Property
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.DestIsAggregate.transformAssociationType();
-	name := self.getSourceAlias();
+	name := self.getDestAlias();
 	
 	type := self.Source.late resolveone(uml::Classifier);
 	if (self.getSourceLower() != 1) then lower := self.getSourceLower() endif;
@@ -172,7 +172,7 @@ mapping Connector::mapDestToProperty() : uml::Property
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.SourceIsAggregate.transformAssociationType();
-	name := self.getDestAlias();
+	name := self.getSourceAlias();
 	
 	type := self.Dest.late resolveone(uml::Classifier);
 	if (self.getDestLower() != 1) then lower := self.getDestLower() endif;
@@ -266,10 +266,7 @@ query ScopeObject::getAttributeType() : VisibilityKind
 	return if self = null then null else self.oclAsType(Scope).getAttributeType() endif;
 }
 
-// transformation to notation
-// getNestedName
-// currently only supports diagram below rootElement
-
+//Diagram
 mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
 	type := "PapyrusUMLClassDiagram";
 	name := self.Name;
@@ -281,6 +278,8 @@ mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
 	var directChildren = self.DiagramObjects->select(d: DiagramObject | d.Element.Package = self.Package);
 	
 	children += directChildren-> map diagramObjectToShape();
+	
+	edges += self.DiagramLinks-> map diagramLinkToConnector();
 	
 	styles += self.map stringValueStyle();
 	styles += self.map diagramStyle();
@@ -435,6 +434,65 @@ when {self.Element.Type = ElementType::Class}
 	type := self.getNestedName(PAPYRUS_NOTATION_COMPARTMENT_CLASS_NESTED_REGULAR);
 }
 
+//Connectors
+mapping DiagramLink::diagramLinkToConnector() : notation::Connector
+merges DiagramLink::associationToConnector
+{
+}
+
+mapping DiagramLink::associationToConnector() : notation::Connector
+when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = ConnectorType::Aggregation}
+{
+	type := PAPYRUS_NOTATION_EDGE_ASSOCIATION;
+	//switch needed for some reason
+	source := self.Connector.Dest.resolveElement(self.Diagram);
+	target := self.Connector.Source.resolveElement(self.Diagram);
+	element := self.Connector.resolveoneIn(Connector::mapConnectorToAssociation).toEObject();
+
+	bendpoints := result.map connectorToBendpoint();
+	styles += result.toEObject().map fontStyle();
+	
+	children += self.map diagramLinkToNameDecoration();
+	children += self.map diagramLinkToTargetRoleDecoration();
+	children += self.map diagramLinkToSourceRoleDecoration();
+	children += self.map diagramLinkToTargetMultiplicityDecoration();
+	children += self.map diagramLinkToSourceMultiplicityDecoration();
+	//TODO: Stereotype missing
+}
+
+//ConnectorNameDecorationNode
+mapping DiagramLink::diagramLinkToNameDecoration() : DecorationNode
+{
+	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_NAME;
+	layoutConstraint := result.toEObject().map locationConstraint();
+}
+
+//RoleDecorationNode
+mapping DiagramLink::diagramLinkToTargetRoleDecoration() : DecorationNode
+{
+	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETROLE;
+	layoutConstraint := result.toEObject().map locationConstraint();
+}
+
+mapping DiagramLink::diagramLinkToSourceRoleDecoration() : DecorationNode
+{
+	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEROLE;
+	layoutConstraint := result.toEObject().map locationConstraint();
+}
+
+//MultiplicityDecorationNode
+mapping DiagramLink::diagramLinkToTargetMultiplicityDecoration() : notation::DecorationNode
+{
+	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETMULTIPLICITY;
+	layoutConstraint := result.toEObject().map locationConstraint();
+}
+
+mapping DiagramLink::diagramLinkToSourceMultiplicityDecoration() : notation::DecorationNode
+{
+	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEMULTIPLICITY;
+	layoutConstraint := result.toEObject().map locationConstraint();
+}
+
 //Queries
 query DiagramObject::getNestedName(name : String) : String {
 	if (self.Diagram.Package = self.Element.Package)
@@ -459,18 +517,25 @@ query DiagramObject::getPackageTop() : Integer {
 	endif;
 }
 
+query Element::resolveElement(dia : eaobjectmodel::Diagram) : notation::Shape
+{
+	var diaObj = om.objects()[DiagramObject]->any(diaObj: DiagramObject| diaObj.Diagram = dia and diaObj.Element = self);
+	assert fatal (not diaObj.oclIsUndefined());
+	return diaObj.resolveoneIn(DiagramObject::diagramObjectToShape);
+}
+
 //Style stuff
-mapping Diagram::stringValueStyle() : notation::StringValueStyle
+mapping eaobjectmodel::Diagram::stringValueStyle() : notation::StringValueStyle
 {
 	name := "diagram_compatibility_version";
 	stringValue := "1.2.0";	
 }
 
-mapping Diagram::diagramStyle() : notation::DiagramStyle
+mapping eaobjectmodel::Diagram::diagramStyle() : notation::DiagramStyle
 {	
 }
 
-mapping Diagram::papyrusViewStyle(rootElement : uml::Package) : style::PapyrusViewStyle
+mapping eaobjectmodel::Diagram::papyrusViewStyle(rootElement : uml::Package) : style::PapyrusViewStyle
 {
 	owner := rootElement.toEObject();
 }

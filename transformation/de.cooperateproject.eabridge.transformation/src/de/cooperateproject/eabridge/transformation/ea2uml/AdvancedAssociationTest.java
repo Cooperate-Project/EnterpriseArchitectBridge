@@ -20,7 +20,7 @@ public class AdvancedAssociationTest extends TransformationTestBase {
 	
 	@Test
 	public void testTransformation() throws Exception {
-		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName));
+		runEAtoUMLTransformation(transformationPath, makeXMIPath(testName), makeUMLTransformedPath(testName) , makeNotationTransformedPath(testName));
 	}
 
 //	@Test
