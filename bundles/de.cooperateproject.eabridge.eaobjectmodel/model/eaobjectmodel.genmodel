@@ -3,10 +3,10 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.cooperateproject.eabridge.eaobjectmodel/src-gen"
     modelPluginID="de.cooperateproject.eabridge.eaobjectmodel" runtimeJar="true" modelName="EAObjectModel"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    reflectiveDelegation="true" testsDirectory="" booleanFlagsField="" importerID="org.eclipse.emf.ecore.xcore.importer"
-    featureDelegation="Reflective" containmentProxies="true" complianceLevel="8.0"
-    language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
-    operationReflection="true" importOrganizing="true" decoration="Live" oSGiCompatible="true">
+    testsDirectory="" booleanFlagsField="" importerID="org.eclipse.emf.ecore.xcore.importer"
+    featureDelegation="Dynamic" containmentProxies="true" complianceLevel="8.0" language="en"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true" decoration="Live" oSGiCompatible="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
     <genAnnotations source="selectedPackages">
       <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
@@ -40,6 +40,11 @@
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//Scope/Public"/>
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//Scope/Package"/>
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//Scope/Protected"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eaobjectmodel.ecore#//IsAggregate">
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//IsAggregate/False"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//IsAggregate/Aggregation"/>
+      <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//IsAggregate/Composition"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eaobjectmodel.ecore#//DirectionType">
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//DirectionType/Unspecified"/>
@@ -93,7 +98,6 @@
       <genEnumLiterals ecoreEnumLiteral="eaobjectmodel.ecore#//ParameterDirection/return"/>
     </genEnums>
     <genDataTypes ecoreDataType="eaobjectmodel.ecore#//ScopeObject"/>
-    <genDataTypes ecoreDataType="eaobjectmodel.ecore#//GeometryMap"/>
     <genClasses ecoreClass="eaobjectmodel.ecore#//TypeReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eaobjectmodel.ecore#//TypeReference/classifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//TypeReference/typeName"/>
@@ -107,11 +111,6 @@
         <genParameters ecoreParameter="eaobjectmodel.ecore#//TypeReference/setType.2/notExistentType"/>
       </genOperations>
       <genOperations ecoreOperation="eaobjectmodel.ecore#//TypeReference/getPrimitiveType"/>
-      <genOperations ecoreOperation="eaobjectmodel.ecore#//TypeReference/getType"/>
-      <genOperations ecoreOperation="eaobjectmodel.ecore#//TypeReference/hasmatchesClassifierName">
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//TypeReference/hasmatchesClassifierName/diagnostics"/>
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//TypeReference/hasmatchesClassifierName/context"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="eaobjectmodel.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Attribute/AllowDuplicates"/>
@@ -232,6 +231,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Connector/PDATA3"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Connector/PDATA4"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Connector/PDATA5"/>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//Connector/getSourceLower"/>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//Connector/getSourceUpper"/>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//Connector/getDestLower"/>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//Connector/getDestUpper"/>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//Connector/getSourceAlias"/>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//Connector/getDestAlias"/>
     </genClasses>
     <genClasses ecoreClass="eaobjectmodel.ecore#//Diagram">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Diagram/Author"/>
@@ -269,24 +274,8 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//DiagramLink/SY"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//DiagramLink/EX"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//DiagramLink/EY"/>
-      <genOperations ecoreOperation="eaobjectmodel.ecore#//DiagramLink/setGeometry">
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setGeometry/SX"/>
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setGeometry/SY"/>
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setGeometry/EX"/>
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setGeometry/EY"/>
-      </genOperations>
-      <genOperations ecoreOperation="eaobjectmodel.ecore#//DiagramLink/setSX">
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setSX/input"/>
-      </genOperations>
-      <genOperations ecoreOperation="eaobjectmodel.ecore#//DiagramLink/setSY">
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setSY/input"/>
-      </genOperations>
-      <genOperations ecoreOperation="eaobjectmodel.ecore#//DiagramLink/setEX">
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setEX/input"/>
-      </genOperations>
-      <genOperations ecoreOperation="eaobjectmodel.ecore#//DiagramLink/setEY">
-        <genParameters ecoreParameter="eaobjectmodel.ecore#//DiagramLink/setEY/input"/>
-      </genOperations>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//DiagramLink/getDestRoleX"/>
+      <genOperations ecoreOperation="eaobjectmodel.ecore#//DiagramLink/getDestRoleY"/>
     </genClasses>
     <genClasses ecoreClass="eaobjectmodel.ecore#//DiagramObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//DiagramObject/Bottom"/>
@@ -344,8 +333,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Element/Bordercolor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Element/Cardinality"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Element/Concurrency"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eaobjectmodel.ecore#//Element/PDATA1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eaobjectmodel.ecore#//Element/SourceRelations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference eaobjectmodel.ecore#//Element/PDATA1"/>
     </genClasses>
     <genClasses ecoreClass="eaobjectmodel.ecore#//Method">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eaobjectmodel.ecore#//Method/ReturnType"/>

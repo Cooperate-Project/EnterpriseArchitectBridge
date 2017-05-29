@@ -6,10 +6,6 @@
 		<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
 		<param name="edatatype">ScopeObject</param>
 	</typedef>
-	<typedef name="eaobjectmodel.GeometryMap" class="org.eclipse.emf.teneo.hibernate.mapping.DefaultToStringUserType">
-		<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
-		<param name="edatatype">GeometryMap</param>
-	</typedef>
 	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl" entity-name="Attribute" abstract="false" lazy="false" table="`t_attribute`">
 		<meta attribute="eclassName" inherit="false">Attribute</meta>
 		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>

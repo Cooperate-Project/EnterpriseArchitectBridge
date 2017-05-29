@@ -31,6 +31,43 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implements AttributeConstraint {
 	/**
+	 * The default value of the '{@link #getConstraint() <em>Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONSTRAINT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getAttName() <em>Att Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ATT_NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOTES_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -65,7 +102,16 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public Element getElementOfAttribute() {
-		return (Element)eGet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, true);
+		return (Element)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetElementOfAttribute() {
+		return (Element)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, false, true);
 	}
 
 	/**
@@ -74,7 +120,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public void setElementOfAttribute(Element newElementOfAttribute) {
-		eSet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, newElementOfAttribute);
+		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE, newElementOfAttribute);
 	}
 
 	/**
@@ -83,7 +129,16 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public Attribute getAttribute() {
-		return (Attribute)eGet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, true);
+		return (Attribute)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Attribute basicGetAttribute() {
+		return (Attribute)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, false, true);
 	}
 
 	/**
@@ -92,7 +147,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public void setAttribute(Attribute newAttribute) {
-		eSet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, newAttribute);
+		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, newAttribute);
 	}
 
 	/**
@@ -101,7 +156,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public String getConstraint() {
-		return (String)eGet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__CONSTRAINT, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__CONSTRAINT, true, true);
 	}
 
 	/**
@@ -110,7 +165,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public void setConstraint(String newConstraint) {
-		eSet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__CONSTRAINT, newConstraint);
+		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__CONSTRAINT, newConstraint);
 	}
 
 	/**
@@ -119,7 +174,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public String getAttName() {
-		return (String)eGet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATT_NAME, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATT_NAME, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATT_NAME, true, true);
 	}
 
 	/**
@@ -128,7 +183,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public void setAttName(String newAttName) {
-		eSet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATT_NAME, newAttName);
+		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATT_NAME, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATT_NAME, newAttName);
 	}
 
 	/**
@@ -137,7 +192,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public String getNotes() {
-		return (String)eGet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__NOTES, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__NOTES, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__NOTES, true, true);
 	}
 
 	/**
@@ -146,7 +201,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public void setNotes(String newNotes) {
-		eSet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__NOTES, newNotes);
+		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__NOTES, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__NOTES, newNotes);
 	}
 
 	/**
@@ -155,7 +210,7 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public String getType() {
-		return (String)eGet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__TYPE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__TYPE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__TYPE, true, true);
 	}
 
 	/**
@@ -164,7 +219,117 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public void setType(String newType) {
-		eSet(EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__TYPE, newType);
+		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__TYPE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__TYPE, newType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				if (resolve) return getElementOfAttribute();
+				return basicGetElementOfAttribute();
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
+				if (resolve) return getAttribute();
+				return basicGetAttribute();
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				return getConstraint();
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				return getAttName();
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__NOTES:
+				return getNotes();
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__TYPE:
+				return getType();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				setElementOfAttribute((Element)newValue);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
+				setAttribute((Attribute)newValue);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				setConstraint((String)newValue);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				setAttName((String)newValue);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__NOTES:
+				setNotes((String)newValue);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__TYPE:
+				setType((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				setElementOfAttribute((Element)null);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
+				setAttribute((Attribute)null);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				setConstraint(CONSTRAINT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				setAttName(ATT_NAME_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__NOTES:
+				setNotes(NOTES_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE:
+				return basicGetElementOfAttribute() != null;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
+				return basicGetAttribute() != null;
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__CONSTRAINT:
+				return CONSTRAINT_EDEFAULT == null ? getConstraint() != null : !CONSTRAINT_EDEFAULT.equals(getConstraint());
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATT_NAME:
+				return ATT_NAME_EDEFAULT == null ? getAttName() != null : !ATT_NAME_EDEFAULT.equals(getAttName());
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__NOTES:
+				return NOTES_EDEFAULT == null ? getNotes() != null : !NOTES_EDEFAULT.equals(getNotes());
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__TYPE:
+				return TYPE_EDEFAULT == null ? getType() != null : !TYPE_EDEFAULT.equals(getType());
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //AttributeConstraintImpl

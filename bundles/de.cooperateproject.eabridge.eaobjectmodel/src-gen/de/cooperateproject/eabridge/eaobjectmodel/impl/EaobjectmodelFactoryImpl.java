@@ -24,9 +24,6 @@ import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
-
-import de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap;
-
 import java.lang.Iterable;
 
 import org.eclipse.emf.ecore.EClass;
@@ -127,8 +124,6 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return createParameterDirectionFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.SCOPE_OBJECT:
 				return createScopeObjectFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.GEOMETRY_MAP:
-				return createGeometryMapFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -158,8 +153,6 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return convertParameterDirectionToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.SCOPE_OBJECT:
 				return convertScopeObjectToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.GEOMETRY_MAP:
-				return convertGeometryMapToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -479,24 +472,6 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 	 */
 	public String convertScopeObjectToString(EDataType eDataType, Object instanceValue) {
 		return convertScopeObject((Scope)instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeometryMap createGeometryMapFromString(EDataType eDataType, String initialValue) {
-		return (GeometryMap)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertGeometryMapToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

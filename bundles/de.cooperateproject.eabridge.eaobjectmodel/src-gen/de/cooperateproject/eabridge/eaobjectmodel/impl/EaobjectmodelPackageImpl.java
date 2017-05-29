@@ -22,9 +22,6 @@ import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
-
-import de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -182,13 +179,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	private EDataType scopeObjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType geometryMapEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1735,7 +1725,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDiagramLink__SetGeometry__int_int_int_int() {
+	public EOperation getDiagramLink__GetDestRoleX() {
 		return diagramLinkEClass.getEOperations().get(0);
 	}
 
@@ -1744,35 +1734,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDiagramLink__SetSX__int() {
+	public EOperation getDiagramLink__GetDestRoleY() {
 		return diagramLinkEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDiagramLink__SetSY__int() {
-		return diagramLinkEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDiagramLink__SetEX__int() {
-		return diagramLinkEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDiagramLink__SetEY__int() {
-		return diagramLinkEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -2914,15 +2877,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getGeometryMap() {
-		return geometryMapEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EaobjectmodelFactory getEaobjectmodelFactory() {
 		return (EaobjectmodelFactory)getEFactoryInstance();
 	}
@@ -3116,11 +3070,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__SY);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__EX);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__EY);
-		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_GEOMETRY__INT_INT_INT_INT);
-		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_SX__INT);
-		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_SY__INT);
-		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_EX__INT);
-		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_EY__INT);
+		createEOperation(diagramLinkEClass, DIAGRAM_LINK___GET_DEST_ROLE_X);
+		createEOperation(diagramLinkEClass, DIAGRAM_LINK___GET_DEST_ROLE_Y);
 
 		diagramObjectEClass = createEClass(DIAGRAM_OBJECT);
 		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__BOTTOM);
@@ -3256,7 +3207,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 
 		// Create data types
 		scopeObjectEDataType = createEDataType(SCOPE_OBJECT);
-		geometryMapEDataType = createEDataType(GEOMETRY_MAP);
 	}
 
 	/**
@@ -3468,28 +3418,14 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getDiagramLink_Hidden(), ecorePackage.getEBooleanObject(), "Hidden", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_Path(), ecorePackage.getEString(), "Path", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_Style(), ecorePackage.getEString(), "Style", null, 0, 1, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagramLink_SX(), ecorePackage.getEString(), "SX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagramLink_SY(), ecorePackage.getEString(), "SY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagramLink_EX(), ecorePackage.getEString(), "EX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDiagramLink_EY(), ecorePackage.getEString(), "EY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_SX(), ecorePackage.getEInt(), "SX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_SY(), ecorePackage.getEInt(), "SY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_EX(), ecorePackage.getEInt(), "EX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_EY(), ecorePackage.getEInt(), "EY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getDiagramLink__SetGeometry__int_int_int_int(), null, "setGeometry", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "SX", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "SY", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "EX", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "EY", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDiagramLink__GetDestRoleX(), ecorePackage.getEInt(), "getDestRoleX", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getDiagramLink__SetSX__int(), null, "setSX", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "input", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getDiagramLink__SetSY__int(), null, "setSY", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "input", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getDiagramLink__SetEX__int(), null, "setEX", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "input", 0, 1, !IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getDiagramLink__SetEY__int(), null, "setEY", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "input", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDiagramLink__GetDestRoleY(), ecorePackage.getEInt(), "getDestRoleY", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(diagramObjectEClass, DiagramObject.class, "DiagramObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDiagramObject_Bottom(), ecorePackage.getEInt(), "Bottom", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3690,7 +3626,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 
 		// Initialize data types
 		initEDataType(scopeObjectEDataType, Scope.class, "ScopeObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(geometryMapEDataType, GeometryMap.class, "GeometryMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

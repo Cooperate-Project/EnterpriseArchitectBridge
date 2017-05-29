@@ -475,7 +475,7 @@
         <insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="1"/>
-            <column name="Geometry" value="LMB=0;SX=0;SY=0;ILHS=0;$LLB=0;LRT=0;LMT=0;EX=0;EY=0;LLT=0;IRHS=0;EDGE=0;LRB=0;"/>
+            <column name="Geometry"/>
             <column name="Style"/>
             <column name="Hidden"/>
             <column name="Path"/>
@@ -484,7 +484,7 @@
         <insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="4"/>
-            <column name="Geometry" value="LMB=0;SX=0;SY=0;ILHS=0;$LLB=0;LRT=0;LMT=0;EX=0;EY=0;LLT=0;IRHS=0;EDGE=0;LRB=0;"/>
+            <column name="Geometry"/>
             <column name="Style"/>
             <column name="Hidden"/>
             <column name="Path"/>
@@ -493,7 +493,7 @@
         <insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="2"/>
-            <column name="Geometry" value="LMB=0;SX=0;SY=0;ILHS=0;$LLB=0;LRT=0;LMT=0;EX=0;EY=0;LLT=0;IRHS=0;EDGE=0;LRB=0;"/>
+            <column name="Geometry"/>
             <column name="Style"/>
             <column name="Hidden"/>
             <column name="Path"/>
@@ -502,7 +502,7 @@
         <insert catalogName="test" schemaName="test" tableName="t_diagramlinks">
             <column name="DiagramID" valueNumeric="1"/>
             <column name="ConnectorID" valueNumeric="5"/>
-            <column name="Geometry" value="LMB=0;SX=0;SY=0;ILHS=0;$LLB=0;LRT=0;LMT=0;EX=0;EY=0;LLT=0;IRHS=0;EDGE=0;LRB=0;"/>
+            <column name="Geometry"/>
             <column name="Style"/>
             <column name="Hidden"/>
             <column name="Path"/>

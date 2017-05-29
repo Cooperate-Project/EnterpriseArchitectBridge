@@ -114,10 +114,10 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
 		Connector c4 = diagramHelper.createConnector(33, rad, car2, ConnectorType.CONNECTOR_TYPE.ASSOCIATION, null, null);
 		Connector c5 = diagramHelper.createConnector(34, car2, door, ConnectorType.CONNECTOR_TYPE.ASSOCIATION, "1", "1..4");
 		Diagram d = diagramHelper.createDiagram(40, subPackage, "Logical", "firtDiagramm");
-		DiagramLink dl1 = diagramHelper.createDiagramLink(51, d, c1, 0, 0, 0, 0);
-		DiagramLink dl2 = diagramHelper.createDiagramLink(52, d, c2, 0, 0, 0, 0);
-		DiagramLink dl3 = diagramHelper.createDiagramLink(53, d, c3, 0, 0, 0, 0);
-		DiagramLink dl4 = diagramHelper.createDiagramLink(54, d, c4, 0, 0, 0, 0);
+		DiagramLink dl1 = diagramHelper.createDiagramLink(51, d, c1);
+		DiagramLink dl2 = diagramHelper.createDiagramLink(52, d, c2);
+		DiagramLink dl3 = diagramHelper.createDiagramLink(53, d, c3);
+		DiagramLink dl4 = diagramHelper.createDiagramLink(54, d, c4);
 		DiagramObject do1 = diagramHelper.createDiagrammObject(d, car, 356, 467, -93, -189);
 		DiagramObject do2 = diagramHelper.createDiagrammObject(d, car1, 161, 280, -310, -418);
 		DiagramObject do3 = diagramHelper.createDiagrammObject(d, car2, 584, 689, -349, -419);

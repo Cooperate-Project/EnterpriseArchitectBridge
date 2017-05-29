@@ -8,8 +8,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
@@ -30,6 +32,34 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class MethodparameterImpl extends MinimalEObjectImpl.Container implements Methodparameter {
+	/**
+	 * The default value of the '{@link #getEa_guid() <em>Ea guid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEa_guid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EA_GUID_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ParameterDirection KIND_EDEFAULT = ParameterDirection.IN;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +95,7 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public String getEa_guid() {
-		return (String)eGet(EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__EA_GUID, EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, true, true);
 	}
 
 	/**
@@ -74,7 +104,7 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void setEa_guid(String newEa_guid) {
-		eSet(EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, newEa_guid);
+		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__EA_GUID, EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, newEa_guid);
 	}
 
 	/**
@@ -83,7 +113,17 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public TypeReference getParameterType() {
-		return (TypeReference)eGet(EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, true);
+		return (TypeReference)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParameterType(TypeReference newParameterType, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newParameterType, EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, msgs);
+		return msgs;
 	}
 
 	/**
@@ -92,7 +132,7 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void setParameterType(TypeReference newParameterType) {
-		eSet(EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, newParameterType);
+		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, newParameterType);
 	}
 
 	/**
@@ -101,7 +141,7 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public String getName() {
-		return (String)eGet(EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__NAME, EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, true, true);
 	}
 
 	/**
@@ -110,7 +150,7 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eSet(EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, newName);
+		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__NAME, EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, newName);
 	}
 
 	/**
@@ -119,7 +159,16 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public Method getMethod() {
-		return (Method)eGet(EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, true);
+		return (Method)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Method basicGetMethod() {
+		return (Method)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, false, true);
 	}
 
 	/**
@@ -128,7 +177,7 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void setMethod(Method newMethod) {
-		eSet(EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, newMethod);
+		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, newMethod);
 	}
 
 	/**
@@ -137,7 +186,7 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public ParameterDirection getKind() {
-		return (ParameterDirection)eGet(EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, true);
+		return (ParameterDirection)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__KIND, EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, true, true);
 	}
 
 	/**
@@ -146,7 +195,120 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void setKind(ParameterDirection newKind) {
-		eSet(EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, newKind);
+		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__KIND, EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, newKind);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+				return basicSetParameterType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+				return getEa_guid();
+			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+				return getParameterType();
+			case EaobjectmodelPackage.METHODPARAMETER__NAME:
+				return getName();
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				if (resolve) return getMethod();
+				return basicGetMethod();
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				return getKind();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+				setEa_guid((String)newValue);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+				setParameterType((TypeReference)newValue);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__NAME:
+				setName((String)newValue);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				setMethod((Method)newValue);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				setKind((ParameterDirection)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+				setEa_guid(EA_GUID_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+				setParameterType((TypeReference)null);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				setMethod((Method)null);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				setKind(KIND_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+				return EA_GUID_EDEFAULT == null ? getEa_guid() != null : !EA_GUID_EDEFAULT.equals(getEa_guid());
+			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+				return getParameterType() != null;
+			case EaobjectmodelPackage.METHODPARAMETER__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+				return basicGetMethod() != null;
+			case EaobjectmodelPackage.METHODPARAMETER__KIND:
+				return getKind() != KIND_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //MethodparameterImpl

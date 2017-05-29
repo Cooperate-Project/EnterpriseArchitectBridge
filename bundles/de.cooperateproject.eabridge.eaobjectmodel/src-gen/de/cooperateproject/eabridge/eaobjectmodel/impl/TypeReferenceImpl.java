@@ -46,6 +46,16 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  */
 public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements TypeReference {
 	/**
+	 * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_NAME_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -80,7 +90,16 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public Element getClassifier() {
-		return (Element)eGet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__CLASSIFIER, true);
+		return (Element)eDynamicGet(EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER, EaobjectmodelPackage.Literals.TYPE_REFERENCE__CLASSIFIER, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetClassifier() {
+		return (Element)eDynamicGet(EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER, EaobjectmodelPackage.Literals.TYPE_REFERENCE__CLASSIFIER, false, true);
 	}
 
 	/**
@@ -89,7 +108,7 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public void setClassifier(Element newClassifier) {
-		eSet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__CLASSIFIER, newClassifier);
+		eDynamicSet(EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER, EaobjectmodelPackage.Literals.TYPE_REFERENCE__CLASSIFIER, newClassifier);
 	}
 
 	/**
@@ -98,7 +117,7 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public String getTypeName() {
-		return (String)eGet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__TYPE_NAME, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME, EaobjectmodelPackage.Literals.TYPE_REFERENCE__TYPE_NAME, true, true);
 	}
 
 	/**
@@ -107,7 +126,7 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 	 * @generated
 	 */
 	public void setTypeName(String newTypeName) {
-		eSet(EaobjectmodelPackage.Literals.TYPE_REFERENCE__TYPE_NAME, newTypeName);
+		eDynamicSet(EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME, EaobjectmodelPackage.Literals.TYPE_REFERENCE__TYPE_NAME, newTypeName);
 	}
 
 	/**
@@ -266,6 +285,75 @@ public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements T
 		} else {
 			return null;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
+				if (resolve) return getClassifier();
+				return basicGetClassifier();
+			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
+				return getTypeName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
+				setClassifier((Element)newValue);
+				return;
+			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
+				setTypeName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
+				setClassifier((Element)null);
+				return;
+			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
+				setTypeName(TYPE_NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.TYPE_REFERENCE__CLASSIFIER:
+				return basicGetClassifier() != null;
+			case EaobjectmodelPackage.TYPE_REFERENCE__TYPE_NAME:
+				return TYPE_NAME_EDEFAULT == null ? getTypeName() != null : !TYPE_NAME_EDEFAULT.equals(getTypeName());
+		}
+		return super.eIsSet(featureID);
 	}
 
 	/**

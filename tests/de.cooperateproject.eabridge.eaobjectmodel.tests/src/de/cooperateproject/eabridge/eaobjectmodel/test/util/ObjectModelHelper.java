@@ -86,12 +86,10 @@ public class ObjectModelHelper {
 		return diagram;
 	}
 	
-	public DiagramLink createDiagramLink(int randomInteger, Diagram diagram, Connector connect, int x, int y, int x1, int y1 ) {
+	public DiagramLink createDiagramLink(int randomInteger, Diagram diagram, Connector connect) {
 		DiagramLink diaLink = EaobjectmodelFactory.eINSTANCE.createDiagramLink();
-		diaLink.setGeometry(40,4,10,20);
 		diaLink.setDiagram(diagram);
 		diaLink.setConnector(connect);
-		diaLink.setGeometry(x, y , x1, y1);
 		return diaLink;
 	}
 	

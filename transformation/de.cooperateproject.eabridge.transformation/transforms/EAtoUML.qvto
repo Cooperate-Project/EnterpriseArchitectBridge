@@ -480,51 +480,37 @@ when {self.Element.Type = ElementType::Interface} {
 mapping DiagramLink::diagramLinkToConnector() : notation::Connector
 merges DiagramLink::associationToConnector, DiagramLink::generalizationToConnector, DiagramLink::implementationToConnector
 {
+	source := self.Connector.Source.resolveElement(self.Diagram);
+	target := self.Connector.Dest.resolveElement(self.Diagram);
+	sourceAnchor := self.map diagramLinkToSourceAnchor();
+	targetAnchor := self.map diagramLinkToTargetAnchor();
+
+	bendpoints := result.map connectorToBendpoint();
+	styles += result.toEObject().map fontStyle();
 }
 
 mapping DiagramLink::associationToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = ConnectorType::Aggregation} {
 	type := PAPYRUS_NOTATION_EDGE_ASSOCIATION;
-	//switch needed for some reason
-	source := self.Connector.Source.resolveElement(self.Diagram);
-	target := self.Connector.Dest.resolveElement(self.Diagram);
 	element := self.Connector.resolveoneIn(Connector::mapConnectorToAssociation).toEObject();
-
-	bendpoints := result.map connectorToBendpoint();
-	styles += result.toEObject().map fontStyle();
 	
 	children += self.map diagramLinkToNameDecoration();
 	children += self.map diagramLinkToTargetRoleDecoration();
 	children += self.map diagramLinkToSourceRoleDecoration();
 	children += self.map diagramLinkToTargetMultiplicityDecoration();
 	children += self.map diagramLinkToSourceMultiplicityDecoration();
-	//TODO: Stereotype missing
 }
 
 mapping DiagramLink::generalizationToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Generalization} {
 	type := PAPYRUS_NOTATION_EDGE_GENERALIZATION;
-	//switch needed for some reason	
-	source := self.Connector.Source.resolveElement(self.Diagram);
-	target := self.Connector.Dest.resolveElement(self.Diagram);
 	element := self.Connector.resolveoneIn(Connector::mapConnectoToGeneralization).toEObject();
-	//TODO: Stereotype missing
-	
-	bendpoints := result.map connectorToBendpoint();
-	styles += result.toEObject().map fontStyle();
 }
 
 mapping DiagramLink::implementationToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Realisation} {
 	type := PAPYRUS_NOTATION_EDGE_IMPLEMENTATION;
-	//switch needed for some reason	
-	source := self.Connector.Source.resolveElement(self.Diagram);
-	target := self.Connector.Dest.resolveElement(self.Diagram);
 	element := self.Connector.resolveoneIn(Connector::mapConnectoToRealization).toEObject();
-	//TODO: Stereotype missing
-	
-	bendpoints := result.map connectorToBendpoint();
-	styles += result.toEObject().map fontStyle();
 }
 
 //ConnectorNameDecorationNode
@@ -538,7 +524,7 @@ mapping DiagramLink::diagramLinkToNameDecoration() : DecorationNode
 mapping DiagramLink::diagramLinkToTargetRoleDecoration() : DecorationNode
 {
 	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETROLE;
-	layoutConstraint := result.toEObject().map locationConstraint();
+	layoutConstraint := result.toEObject().map locationConstraint(self.getDestRoleX(), self.getDestRoleY());
 }
 
 mapping DiagramLink::diagramLinkToSourceRoleDecoration() : DecorationNode
@@ -558,6 +544,23 @@ mapping DiagramLink::diagramLinkToSourceMultiplicityDecoration() : notation::Dec
 {
 	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEMULTIPLICITY;
 	layoutConstraint := result.toEObject().map locationConstraint();
+}
+
+//Anchors
+mapping DiagramLink::diagramLinkToSourceAnchor() : notation::IdentityAnchor 
+{
+	var bounds := self.Connector.Source.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
+	var xPos := (self.SX + (bounds.width / 2)) / bounds.width;
+	var yPos := ((self.SY * -1) + (bounds.height / 2)) / bounds.height;
+	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
+}
+
+mapping DiagramLink::diagramLinkToTargetAnchor() : notation::IdentityAnchor 
+{
+	var bounds := self.Connector.Dest.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
+	var xPos := (self.EX + (bounds.width / 2)) / bounds.width;
+	var yPos := ((self.EY * -1) + (bounds.height / 2)) / bounds.height;
+	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
 }
 
 //Queries

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="__HVcgDyLEeeki6eoxEaogA" name="Model">
-  <packagedElement xmi:type="uml:Package" xmi:id="__HVcgTyLEeeki6eoxEaogA" name="Package">
-    <packagedElement xmi:type="uml:Class" xmi:id="__HVcgjyLEeeki6eoxEaogA" name="Part">
-      <ownedAttribute xmi:id="__HVcgzyLEeeki6eoxEaogA" name="a part" type="__HVchjyLEeeki6eoxEaogA" association="__HVcjTyLEeeki6eoxEaogA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__HVchDyLEeeki6eoxEaogA" value="3"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__HVchTyLEeeki6eoxEaogA" value="72"/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XZ9vIER9Eee1psPHO0uw8w" name="Model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_XZ9vIUR9Eee1psPHO0uw8w" name="Package">
+    <packagedElement xmi:type="uml:Class" xmi:id="_XZ9vIkR9Eee1psPHO0uw8w" name="Part">
+      <ownedAttribute xmi:id="_XZ9vI0R9Eee1psPHO0uw8w" name="a part" type="_XZ9vJkR9Eee1psPHO0uw8w" association="_XZ9vLUR9Eee1psPHO0uw8w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XZ9vJER9Eee1psPHO0uw8w" value="3"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XZ9vJUR9Eee1psPHO0uw8w" value="72"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="__HVchjyLEeeki6eoxEaogA" name="Whole">
-      <ownedAttribute xmi:id="__HVchzyLEeeki6eoxEaogA" name="the corresponding whole" type="__HVcgjyLEeeki6eoxEaogA" aggregation="composite" association="__HVcjTyLEeeki6eoxEaogA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_XZ9vJkR9Eee1psPHO0uw8w" name="Whole">
+      <ownedAttribute xmi:id="_XZ9vJ0R9Eee1psPHO0uw8w" name="the corresponding whole" type="_XZ9vIkR9Eee1psPHO0uw8w" aggregation="composite" association="_XZ9vLUR9Eee1psPHO0uw8w"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="__HVciDyLEeeki6eoxEaogA" name="InterfaceImpl">
-      <interfaceRealization xmi:id="__HVciTyLEeeki6eoxEaogA" client="__HVciDyLEeeki6eoxEaogA" supplier="__HVcijyLEeeki6eoxEaogA" contract="__HVcijyLEeeki6eoxEaogA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_XZ9vKER9Eee1psPHO0uw8w" name="InterfaceImpl">
+      <interfaceRealization xmi:id="_XZ9vKUR9Eee1psPHO0uw8w" client="_XZ9vKER9Eee1psPHO0uw8w" supplier="_XZ9vKkR9Eee1psPHO0uw8w" contract="_XZ9vKkR9Eee1psPHO0uw8w"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="__HVcijyLEeeki6eoxEaogA" name="Interface">
-      <generalization xmi:id="__HVcizyLEeeki6eoxEaogA" general="__HVcjDyLEeeki6eoxEaogA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_XZ9vKkR9Eee1psPHO0uw8w" name="Interface">
+      <generalization xmi:id="_XZ9vK0R9Eee1psPHO0uw8w" general="_XZ9vLER9Eee1psPHO0uw8w"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="__HVcjDyLEeeki6eoxEaogA" name="SuperInterface"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_XZ9vLER9Eee1psPHO0uw8w" name="SuperInterface"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="__HVcjTyLEeeki6eoxEaogA" name="Composition" memberEnd="__HVchzyLEeeki6eoxEaogA __HVcgzyLEeeki6eoxEaogA"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_XZ9vLUR9Eee1psPHO0uw8w" name="Composition" memberEnd="_XZ9vJ0R9Eee1psPHO0uw8w _XZ9vI0R9Eee1psPHO0uw8w"/>
 </uml:Model>

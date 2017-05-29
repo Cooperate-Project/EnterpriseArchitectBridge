@@ -13,10 +13,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Optional;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
@@ -105,6 +107,637 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ConnectorImpl extends MinimalEObjectImpl.Container implements Connector {
 	/**
+	 * The default value of the '{@link #getConnectorID() <em>Connector ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectorID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long CONNECTOR_ID_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getConnectorGUID() <em>Connector GUID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectorGUID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONNECTOR_GUID_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final DirectionType DIRECTION_EDEFAULT = DirectionType.UNSPECIFIED;
+	/**
+	 * The default value of the '{@link #getPtEndX() <em>Pt End X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPtEndX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long PT_END_X_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPtEndY() <em>Pt End Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPtEndY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long PT_END_Y_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getEventFlags() <em>Event Flags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventFlags()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EVENT_FLAGS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getIsLeaf() <em>Is Leaf</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsLeaf()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_LEAF_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getIsRoot() <em>Is Root</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsRoot()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_ROOT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getIsSpec() <em>Is Spec</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsSpec()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_SPEC_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOTES_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getRouteStyle() <em>Route Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRouteStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long ROUTE_STYLE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSeqNo() <em>Seq No</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeqNo()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long SEQ_NO_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPtStartX() <em>Pt Start X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPtStartX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long PT_START_X_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPtStartY() <em>Pt Start Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPtStartY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long PT_START_Y_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getActionFlags() <em>Action Flags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActionFlags()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ACTION_FLAGS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getStateFlags() <em>State Flags</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStateFlags()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATE_FLAGS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getStereotype() <em>Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStereotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STEREOTYPE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getStyleEx() <em>Style Ex</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStyleEx()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STYLE_EX_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSubType() <em>Sub Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUB_TYPE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ConnectorType TYPE_EDEFAULT = ConnectorType.CONNECTOR_TYPE;
+	/**
+	 * The default value of the '{@link #getVirtualInheritance() <em>Virtual Inheritance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVirtualInheritance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VIRTUAL_INHERITANCE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceCard() <em>Source Card</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceCard()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_CARD_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceAccess() <em>Source Access</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceAccess()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_ACCESS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceElement() <em>Source Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_ELEMENT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceRole() <em>Source Role</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceRole()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_ROLE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceRoleType() <em>Source Role Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceRoleType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_ROLE_TYPE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceRoleNote() <em>Source Role Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceRoleNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_ROLE_NOTE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceContainment() <em>Source Containment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceContainment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_CONTAINMENT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceIsAggregate() <em>Source Is Aggregate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceIsAggregate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IsAggregate SOURCE_IS_AGGREGATE_EDEFAULT = IsAggregate.FALSE;
+	/**
+	 * The default value of the '{@link #isSourceIsOrdered() <em>Source Is Ordered</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSourceIsOrdered()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SOURCE_IS_ORDERED_EDEFAULT = false;
+	/**
+	 * The default value of the '{@link #getSourceQualifier() <em>Source Qualifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceQualifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_QUALIFIER_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceChangeable() <em>Source Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceChangeable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_CHANGEABLE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceConstraint() <em>Source Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_CONSTRAINT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #isSourceIsNavigable() <em>Source Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSourceIsNavigable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SOURCE_IS_NAVIGABLE_EDEFAULT = false;
+	/**
+	 * The default value of the '{@link #getSourceStereotype() <em>Source Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceStereotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_STEREOTYPE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceStyle() <em>Source Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_STYLE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getSourceTS() <em>Source TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceTS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_TS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestCard() <em>Dest Card</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestCard()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_CARD_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestAccess() <em>Dest Access</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestAccess()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_ACCESS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestElement() <em>Dest Element</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_ELEMENT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestRole() <em>Dest Role</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestRole()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_ROLE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestRoleType() <em>Dest Role Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestRoleType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_ROLE_TYPE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestRoleNote() <em>Dest Role Note</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestRoleNote()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_ROLE_NOTE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestContainment() <em>Dest Containment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestContainment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_CONTAINMENT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestIsAggregate() <em>Dest Is Aggregate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestIsAggregate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IsAggregate DEST_IS_AGGREGATE_EDEFAULT = IsAggregate.FALSE;
+	/**
+	 * The default value of the '{@link #isDestIsOrdered() <em>Dest Is Ordered</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDestIsOrdered()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEST_IS_ORDERED_EDEFAULT = false;
+	/**
+	 * The default value of the '{@link #getDestQualifier() <em>Dest Qualifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestQualifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_QUALIFIER_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestChangeable() <em>Dest Changeable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestChangeable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_CHANGEABLE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestConstraint() <em>Dest Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_CONSTRAINT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #isDestIsNavigable() <em>Dest Is Navigable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDestIsNavigable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEST_IS_NAVIGABLE_EDEFAULT = false;
+	/**
+	 * The default value of the '{@link #getDestStereotype() <em>Dest Stereotype</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestStereotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_STEREOTYPE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestStyle() <em>Dest Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_STYLE_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getDestTS() <em>Dest TS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestTS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEST_TS_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getTop_Start_Label() <em>Top Start Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTop_Start_Label()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TOP_START_LABEL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getTop_Mid_Label() <em>Top Mid Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTop_Mid_Label()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TOP_MID_LABEL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getTop_End_Label() <em>Top End Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTop_End_Label()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TOP_END_LABEL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getBtm_Start_Label() <em>Btm Start Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBtm_Start_Label()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BTM_START_LABEL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getBtm_Mid_Label() <em>Btm Mid Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBtm_Mid_Label()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BTM_MID_LABEL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getBtm_End_Label() <em>Btm End Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBtm_End_Label()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BTM_END_LABEL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getStart_Edge() <em>Start Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStart_Edge()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int START_EDGE_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getEnd_Edge() <em>End Edge</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnd_Edge()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int END_EDGE_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getHeadStyle() <em>Head Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeadStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int HEAD_STYLE_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLineStyle() <em>Line Style</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLineStyle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LINE_STYLE_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getDispatchAction() <em>Dispatch Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDispatchAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DISPATCH_ACTION_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPDATA1() <em>PDATA1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA1()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA1_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPDATA2() <em>PDATA2</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA2()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA2_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPDATA3() <em>PDATA3</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA3()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA3_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPDATA4() <em>PDATA4</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA4()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA4_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getPDATA5() <em>PDATA5</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPDATA5()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PDATA5_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -139,7 +772,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Long getConnectorID() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_ID, true);
+		return (Long)eDynamicGet(EaobjectmodelPackage.CONNECTOR__CONNECTOR_ID, EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_ID, true, true);
 	}
 
 	/**
@@ -148,7 +781,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setConnectorID(Long newConnectorID) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_ID, newConnectorID);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__CONNECTOR_ID, EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_ID, newConnectorID);
 	}
 
 	/**
@@ -157,7 +790,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getConnectorGUID() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_GUID, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__CONNECTOR_GUID, EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_GUID, true, true);
 	}
 
 	/**
@@ -166,7 +799,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setConnectorGUID(String newConnectorGUID) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_GUID, newConnectorGUID);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__CONNECTOR_GUID, EaobjectmodelPackage.Literals.CONNECTOR__CONNECTOR_GUID, newConnectorGUID);
 	}
 
 	/**
@@ -175,7 +808,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public DirectionType getDirection() {
-		return (DirectionType)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DIRECTION, true);
+		return (DirectionType)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DIRECTION, EaobjectmodelPackage.Literals.CONNECTOR__DIRECTION, true, true);
 	}
 
 	/**
@@ -184,7 +817,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDirection(DirectionType newDirection) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DIRECTION, newDirection);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DIRECTION, EaobjectmodelPackage.Literals.CONNECTOR__DIRECTION, newDirection);
 	}
 
 	/**
@@ -193,7 +826,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Long getPtEndX() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PT_END_X, true);
+		return (Long)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PT_END_X, EaobjectmodelPackage.Literals.CONNECTOR__PT_END_X, true, true);
 	}
 
 	/**
@@ -202,7 +835,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPtEndX(Long newPtEndX) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PT_END_X, newPtEndX);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PT_END_X, EaobjectmodelPackage.Literals.CONNECTOR__PT_END_X, newPtEndX);
 	}
 
 	/**
@@ -211,7 +844,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Long getPtEndY() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PT_END_Y, true);
+		return (Long)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PT_END_Y, EaobjectmodelPackage.Literals.CONNECTOR__PT_END_Y, true, true);
 	}
 
 	/**
@@ -220,7 +853,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPtEndY(Long newPtEndY) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PT_END_Y, newPtEndY);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PT_END_Y, EaobjectmodelPackage.Literals.CONNECTOR__PT_END_Y, newPtEndY);
 	}
 
 	/**
@@ -229,7 +862,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getEventFlags() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__EVENT_FLAGS, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__EVENT_FLAGS, EaobjectmodelPackage.Literals.CONNECTOR__EVENT_FLAGS, true, true);
 	}
 
 	/**
@@ -238,7 +871,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setEventFlags(String newEventFlags) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__EVENT_FLAGS, newEventFlags);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__EVENT_FLAGS, EaobjectmodelPackage.Literals.CONNECTOR__EVENT_FLAGS, newEventFlags);
 	}
 
 	/**
@@ -247,7 +880,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Boolean getIsLeaf() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__IS_LEAF, true);
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.CONNECTOR__IS_LEAF, EaobjectmodelPackage.Literals.CONNECTOR__IS_LEAF, true, true);
 	}
 
 	/**
@@ -256,7 +889,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setIsLeaf(Boolean newIsLeaf) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__IS_LEAF, newIsLeaf);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__IS_LEAF, EaobjectmodelPackage.Literals.CONNECTOR__IS_LEAF, newIsLeaf);
 	}
 
 	/**
@@ -265,7 +898,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Boolean getIsRoot() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__IS_ROOT, true);
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.CONNECTOR__IS_ROOT, EaobjectmodelPackage.Literals.CONNECTOR__IS_ROOT, true, true);
 	}
 
 	/**
@@ -274,7 +907,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setIsRoot(Boolean newIsRoot) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__IS_ROOT, newIsRoot);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__IS_ROOT, EaobjectmodelPackage.Literals.CONNECTOR__IS_ROOT, newIsRoot);
 	}
 
 	/**
@@ -283,7 +916,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Boolean getIsSpec() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__IS_SPEC, true);
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.CONNECTOR__IS_SPEC, EaobjectmodelPackage.Literals.CONNECTOR__IS_SPEC, true, true);
 	}
 
 	/**
@@ -292,7 +925,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setIsSpec(Boolean newIsSpec) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__IS_SPEC, newIsSpec);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__IS_SPEC, EaobjectmodelPackage.Literals.CONNECTOR__IS_SPEC, newIsSpec);
 	}
 
 	/**
@@ -301,7 +934,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getName() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__NAME, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__NAME, EaobjectmodelPackage.Literals.CONNECTOR__NAME, true, true);
 	}
 
 	/**
@@ -310,7 +943,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__NAME, newName);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__NAME, EaobjectmodelPackage.Literals.CONNECTOR__NAME, newName);
 	}
 
 	/**
@@ -319,7 +952,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getNotes() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__NOTES, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__NOTES, EaobjectmodelPackage.Literals.CONNECTOR__NOTES, true, true);
 	}
 
 	/**
@@ -328,7 +961,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setNotes(String newNotes) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__NOTES, newNotes);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__NOTES, EaobjectmodelPackage.Literals.CONNECTOR__NOTES, newNotes);
 	}
 
 	/**
@@ -337,7 +970,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Long getRouteStyle() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.CONNECTOR__ROUTE_STYLE, true);
+		return (Long)eDynamicGet(EaobjectmodelPackage.CONNECTOR__ROUTE_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__ROUTE_STYLE, true, true);
 	}
 
 	/**
@@ -346,7 +979,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setRouteStyle(Long newRouteStyle) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__ROUTE_STYLE, newRouteStyle);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__ROUTE_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__ROUTE_STYLE, newRouteStyle);
 	}
 
 	/**
@@ -355,7 +988,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Long getSeqNo() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SEQ_NO, true);
+		return (Long)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SEQ_NO, EaobjectmodelPackage.Literals.CONNECTOR__SEQ_NO, true, true);
 	}
 
 	/**
@@ -364,7 +997,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSeqNo(Long newSeqNo) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SEQ_NO, newSeqNo);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SEQ_NO, EaobjectmodelPackage.Literals.CONNECTOR__SEQ_NO, newSeqNo);
 	}
 
 	/**
@@ -373,7 +1006,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Long getPtStartX() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PT_START_X, true);
+		return (Long)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PT_START_X, EaobjectmodelPackage.Literals.CONNECTOR__PT_START_X, true, true);
 	}
 
 	/**
@@ -382,7 +1015,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPtStartX(Long newPtStartX) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PT_START_X, newPtStartX);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PT_START_X, EaobjectmodelPackage.Literals.CONNECTOR__PT_START_X, newPtStartX);
 	}
 
 	/**
@@ -391,7 +1024,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Long getPtStartY() {
-		return (Long)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PT_START_Y, true);
+		return (Long)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PT_START_Y, EaobjectmodelPackage.Literals.CONNECTOR__PT_START_Y, true, true);
 	}
 
 	/**
@@ -400,7 +1033,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPtStartY(Long newPtStartY) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PT_START_Y, newPtStartY);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PT_START_Y, EaobjectmodelPackage.Literals.CONNECTOR__PT_START_Y, newPtStartY);
 	}
 
 	/**
@@ -409,7 +1042,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getActionFlags() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__ACTION_FLAGS, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__ACTION_FLAGS, EaobjectmodelPackage.Literals.CONNECTOR__ACTION_FLAGS, true, true);
 	}
 
 	/**
@@ -418,7 +1051,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setActionFlags(String newActionFlags) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__ACTION_FLAGS, newActionFlags);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__ACTION_FLAGS, EaobjectmodelPackage.Literals.CONNECTOR__ACTION_FLAGS, newActionFlags);
 	}
 
 	/**
@@ -427,7 +1060,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getStateFlags() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__STATE_FLAGS, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__STATE_FLAGS, EaobjectmodelPackage.Literals.CONNECTOR__STATE_FLAGS, true, true);
 	}
 
 	/**
@@ -436,7 +1069,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setStateFlags(String newStateFlags) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__STATE_FLAGS, newStateFlags);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__STATE_FLAGS, EaobjectmodelPackage.Literals.CONNECTOR__STATE_FLAGS, newStateFlags);
 	}
 
 	/**
@@ -445,7 +1078,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getStereotype() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__STEREOTYPE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__STEREOTYPE, EaobjectmodelPackage.Literals.CONNECTOR__STEREOTYPE, true, true);
 	}
 
 	/**
@@ -454,7 +1087,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setStereotype(String newStereotype) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__STEREOTYPE, newStereotype);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__STEREOTYPE, EaobjectmodelPackage.Literals.CONNECTOR__STEREOTYPE, newStereotype);
 	}
 
 	/**
@@ -463,7 +1096,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getStyleEx() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__STYLE_EX, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__STYLE_EX, EaobjectmodelPackage.Literals.CONNECTOR__STYLE_EX, true, true);
 	}
 
 	/**
@@ -472,7 +1105,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setStyleEx(String newStyleEx) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__STYLE_EX, newStyleEx);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__STYLE_EX, EaobjectmodelPackage.Literals.CONNECTOR__STYLE_EX, newStyleEx);
 	}
 
 	/**
@@ -481,7 +1114,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSubType() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SUB_TYPE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SUB_TYPE, EaobjectmodelPackage.Literals.CONNECTOR__SUB_TYPE, true, true);
 	}
 
 	/**
@@ -490,7 +1123,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSubType(String newSubType) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SUB_TYPE, newSubType);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SUB_TYPE, EaobjectmodelPackage.Literals.CONNECTOR__SUB_TYPE, newSubType);
 	}
 
 	/**
@@ -499,7 +1132,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public ConnectorType getType() {
-		return (ConnectorType)eGet(EaobjectmodelPackage.Literals.CONNECTOR__TYPE, true);
+		return (ConnectorType)eDynamicGet(EaobjectmodelPackage.CONNECTOR__TYPE, EaobjectmodelPackage.Literals.CONNECTOR__TYPE, true, true);
 	}
 
 	/**
@@ -508,7 +1141,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setType(ConnectorType newType) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__TYPE, newType);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__TYPE, EaobjectmodelPackage.Literals.CONNECTOR__TYPE, newType);
 	}
 
 	/**
@@ -517,7 +1150,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getVirtualInheritance() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__VIRTUAL_INHERITANCE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__VIRTUAL_INHERITANCE, EaobjectmodelPackage.Literals.CONNECTOR__VIRTUAL_INHERITANCE, true, true);
 	}
 
 	/**
@@ -526,7 +1159,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setVirtualInheritance(String newVirtualInheritance) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__VIRTUAL_INHERITANCE, newVirtualInheritance);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__VIRTUAL_INHERITANCE, EaobjectmodelPackage.Literals.CONNECTOR__VIRTUAL_INHERITANCE, newVirtualInheritance);
 	}
 
 	/**
@@ -535,7 +1168,26 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Element getSource() {
-		return (Element)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE, true);
+		return (Element)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetSource() {
+		return (Element)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSource(Element newSource, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSource, EaobjectmodelPackage.CONNECTOR__SOURCE, msgs);
+		return msgs;
 	}
 
 	/**
@@ -544,7 +1196,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSource(Element newSource) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE, newSource);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE, newSource);
 	}
 
 	/**
@@ -553,7 +1205,16 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public Element getDest() {
-		return (Element)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST, true);
+		return (Element)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST, EaobjectmodelPackage.Literals.CONNECTOR__DEST, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetDest() {
+		return (Element)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST, EaobjectmodelPackage.Literals.CONNECTOR__DEST, false, true);
 	}
 
 	/**
@@ -562,7 +1223,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDest(Element newDest) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST, newDest);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST, EaobjectmodelPackage.Literals.CONNECTOR__DEST, newDest);
 	}
 
 	/**
@@ -571,7 +1232,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceCard() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CARD, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_CARD, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CARD, true, true);
 	}
 
 	/**
@@ -580,7 +1241,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceCard(String newSourceCard) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CARD, newSourceCard);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_CARD, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CARD, newSourceCard);
 	}
 
 	/**
@@ -589,7 +1250,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceAccess() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ACCESS, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ACCESS, true, true);
 	}
 
 	/**
@@ -598,7 +1259,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceAccess(String newSourceAccess) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ACCESS, newSourceAccess);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ACCESS, newSourceAccess);
 	}
 
 	/**
@@ -607,7 +1268,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceElement() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ELEMENT, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ELEMENT, true, true);
 	}
 
 	/**
@@ -616,7 +1277,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceElement(String newSourceElement) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ELEMENT, newSourceElement);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ELEMENT, newSourceElement);
 	}
 
 	/**
@@ -625,7 +1286,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceRole() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE, true, true);
 	}
 
 	/**
@@ -634,7 +1295,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceRole(String newSourceRole) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE, newSourceRole);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE, newSourceRole);
 	}
 
 	/**
@@ -643,7 +1304,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceRoleType() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_TYPE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_TYPE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_TYPE, true, true);
 	}
 
 	/**
@@ -652,7 +1313,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceRoleType(String newSourceRoleType) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_TYPE, newSourceRoleType);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_TYPE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_TYPE, newSourceRoleType);
 	}
 
 	/**
@@ -661,7 +1322,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceRoleNote() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_NOTE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_NOTE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_NOTE, true, true);
 	}
 
 	/**
@@ -670,7 +1331,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceRoleNote(String newSourceRoleNote) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_NOTE, newSourceRoleNote);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_NOTE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ROLE_NOTE, newSourceRoleNote);
 	}
 
 	/**
@@ -679,7 +1340,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceContainment() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONTAINMENT, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_CONTAINMENT, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONTAINMENT, true, true);
 	}
 
 	/**
@@ -688,7 +1349,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceContainment(String newSourceContainment) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONTAINMENT, newSourceContainment);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_CONTAINMENT, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONTAINMENT, newSourceContainment);
 	}
 
 	/**
@@ -697,7 +1358,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public IsAggregate getSourceIsAggregate() {
-		return (IsAggregate)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_AGGREGATE, true);
+		return (IsAggregate)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_IS_AGGREGATE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_AGGREGATE, true, true);
 	}
 
 	/**
@@ -706,7 +1367,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceIsAggregate(IsAggregate newSourceIsAggregate) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_AGGREGATE, newSourceIsAggregate);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_IS_AGGREGATE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_AGGREGATE, newSourceIsAggregate);
 	}
 
 	/**
@@ -715,7 +1376,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public boolean isSourceIsOrdered() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_ORDERED, true);
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_IS_ORDERED, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_ORDERED, true, true);
 	}
 
 	/**
@@ -724,7 +1385,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceIsOrdered(boolean newSourceIsOrdered) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_ORDERED, newSourceIsOrdered);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_IS_ORDERED, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_ORDERED, newSourceIsOrdered);
 	}
 
 	/**
@@ -733,7 +1394,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceQualifier() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_QUALIFIER, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_QUALIFIER, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_QUALIFIER, true, true);
 	}
 
 	/**
@@ -742,7 +1403,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceQualifier(String newSourceQualifier) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_QUALIFIER, newSourceQualifier);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_QUALIFIER, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_QUALIFIER, newSourceQualifier);
 	}
 
 	/**
@@ -751,7 +1412,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceChangeable() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CHANGEABLE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_CHANGEABLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CHANGEABLE, true, true);
 	}
 
 	/**
@@ -760,7 +1421,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceChangeable(String newSourceChangeable) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CHANGEABLE, newSourceChangeable);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_CHANGEABLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CHANGEABLE, newSourceChangeable);
 	}
 
 	/**
@@ -769,7 +1430,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceConstraint() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONSTRAINT, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_CONSTRAINT, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONSTRAINT, true, true);
 	}
 
 	/**
@@ -778,7 +1439,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceConstraint(String newSourceConstraint) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONSTRAINT, newSourceConstraint);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_CONSTRAINT, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_CONSTRAINT, newSourceConstraint);
 	}
 
 	/**
@@ -787,7 +1448,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public boolean isSourceIsNavigable() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_NAVIGABLE, true);
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_IS_NAVIGABLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_NAVIGABLE, true, true);
 	}
 
 	/**
@@ -796,7 +1457,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceIsNavigable(boolean newSourceIsNavigable) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_NAVIGABLE, newSourceIsNavigable);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_IS_NAVIGABLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_IS_NAVIGABLE, newSourceIsNavigable);
 	}
 
 	/**
@@ -805,7 +1466,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceStereotype() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STEREOTYPE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_STEREOTYPE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STEREOTYPE, true, true);
 	}
 
 	/**
@@ -814,7 +1475,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceStereotype(String newSourceStereotype) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STEREOTYPE, newSourceStereotype);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_STEREOTYPE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STEREOTYPE, newSourceStereotype);
 	}
 
 	/**
@@ -823,7 +1484,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceStyle() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STYLE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STYLE, true, true);
 	}
 
 	/**
@@ -832,7 +1493,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceStyle(String newSourceStyle) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STYLE, newSourceStyle);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_STYLE, newSourceStyle);
 	}
 
 	/**
@@ -841,7 +1502,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getSourceTS() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_TS, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_TS, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_TS, true, true);
 	}
 
 	/**
@@ -850,7 +1511,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setSourceTS(String newSourceTS) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_TS, newSourceTS);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_TS, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_TS, newSourceTS);
 	}
 
 	/**
@@ -859,7 +1520,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestCard() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CARD, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_CARD, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CARD, true, true);
 	}
 
 	/**
@@ -868,7 +1529,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestCard(String newDestCard) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CARD, newDestCard);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_CARD, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CARD, newDestCard);
 	}
 
 	/**
@@ -877,7 +1538,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestAccess() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ACCESS, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ACCESS, true, true);
 	}
 
 	/**
@@ -886,7 +1547,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestAccess(String newDestAccess) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ACCESS, newDestAccess);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ACCESS, newDestAccess);
 	}
 
 	/**
@@ -895,7 +1556,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestElement() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ELEMENT, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ELEMENT, true, true);
 	}
 
 	/**
@@ -904,7 +1565,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestElement(String newDestElement) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ELEMENT, newDestElement);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ELEMENT, newDestElement);
 	}
 
 	/**
@@ -913,7 +1574,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestRole() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_ROLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE, true, true);
 	}
 
 	/**
@@ -922,7 +1583,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestRole(String newDestRole) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE, newDestRole);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_ROLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE, newDestRole);
 	}
 
 	/**
@@ -931,7 +1592,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestRoleType() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_TYPE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_ROLE_TYPE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_TYPE, true, true);
 	}
 
 	/**
@@ -940,7 +1601,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestRoleType(String newDestRoleType) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_TYPE, newDestRoleType);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_ROLE_TYPE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_TYPE, newDestRoleType);
 	}
 
 	/**
@@ -949,7 +1610,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestRoleNote() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_NOTE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_ROLE_NOTE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_NOTE, true, true);
 	}
 
 	/**
@@ -958,7 +1619,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestRoleNote(String newDestRoleNote) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_NOTE, newDestRoleNote);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_ROLE_NOTE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ROLE_NOTE, newDestRoleNote);
 	}
 
 	/**
@@ -967,7 +1628,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestContainment() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONTAINMENT, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_CONTAINMENT, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONTAINMENT, true, true);
 	}
 
 	/**
@@ -976,7 +1637,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestContainment(String newDestContainment) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONTAINMENT, newDestContainment);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_CONTAINMENT, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONTAINMENT, newDestContainment);
 	}
 
 	/**
@@ -985,7 +1646,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public IsAggregate getDestIsAggregate() {
-		return (IsAggregate)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_AGGREGATE, true);
+		return (IsAggregate)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_IS_AGGREGATE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_AGGREGATE, true, true);
 	}
 
 	/**
@@ -994,7 +1655,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestIsAggregate(IsAggregate newDestIsAggregate) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_AGGREGATE, newDestIsAggregate);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_IS_AGGREGATE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_AGGREGATE, newDestIsAggregate);
 	}
 
 	/**
@@ -1003,7 +1664,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public boolean isDestIsOrdered() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_ORDERED, true);
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_IS_ORDERED, EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_ORDERED, true, true);
 	}
 
 	/**
@@ -1012,7 +1673,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestIsOrdered(boolean newDestIsOrdered) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_ORDERED, newDestIsOrdered);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_IS_ORDERED, EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_ORDERED, newDestIsOrdered);
 	}
 
 	/**
@@ -1021,7 +1682,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestQualifier() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_QUALIFIER, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_QUALIFIER, EaobjectmodelPackage.Literals.CONNECTOR__DEST_QUALIFIER, true, true);
 	}
 
 	/**
@@ -1030,7 +1691,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestQualifier(String newDestQualifier) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_QUALIFIER, newDestQualifier);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_QUALIFIER, EaobjectmodelPackage.Literals.CONNECTOR__DEST_QUALIFIER, newDestQualifier);
 	}
 
 	/**
@@ -1039,7 +1700,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestChangeable() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CHANGEABLE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_CHANGEABLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CHANGEABLE, true, true);
 	}
 
 	/**
@@ -1048,7 +1709,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestChangeable(String newDestChangeable) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CHANGEABLE, newDestChangeable);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_CHANGEABLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CHANGEABLE, newDestChangeable);
 	}
 
 	/**
@@ -1057,7 +1718,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestConstraint() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONSTRAINT, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_CONSTRAINT, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONSTRAINT, true, true);
 	}
 
 	/**
@@ -1066,7 +1727,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestConstraint(String newDestConstraint) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONSTRAINT, newDestConstraint);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_CONSTRAINT, EaobjectmodelPackage.Literals.CONNECTOR__DEST_CONSTRAINT, newDestConstraint);
 	}
 
 	/**
@@ -1075,7 +1736,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public boolean isDestIsNavigable() {
-		return (Boolean)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_NAVIGABLE, true);
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_IS_NAVIGABLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_NAVIGABLE, true, true);
 	}
 
 	/**
@@ -1084,7 +1745,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestIsNavigable(boolean newDestIsNavigable) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_NAVIGABLE, newDestIsNavigable);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_IS_NAVIGABLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_IS_NAVIGABLE, newDestIsNavigable);
 	}
 
 	/**
@@ -1093,7 +1754,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestStereotype() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_STEREOTYPE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_STEREOTYPE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_STEREOTYPE, true, true);
 	}
 
 	/**
@@ -1102,7 +1763,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestStereotype(String newDestStereotype) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_STEREOTYPE, newDestStereotype);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_STEREOTYPE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_STEREOTYPE, newDestStereotype);
 	}
 
 	/**
@@ -1111,7 +1772,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestStyle() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_STYLE, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_STYLE, true, true);
 	}
 
 	/**
@@ -1120,7 +1781,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestStyle(String newDestStyle) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_STYLE, newDestStyle);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__DEST_STYLE, newDestStyle);
 	}
 
 	/**
@@ -1129,7 +1790,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDestTS() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_TS, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_TS, EaobjectmodelPackage.Literals.CONNECTOR__DEST_TS, true, true);
 	}
 
 	/**
@@ -1138,7 +1799,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDestTS(String newDestTS) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DEST_TS, newDestTS);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_TS, EaobjectmodelPackage.Literals.CONNECTOR__DEST_TS, newDestTS);
 	}
 
 	/**
@@ -1147,7 +1808,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getTop_Start_Label() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__TOP_START_LABEL, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__TOP_START_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__TOP_START_LABEL, true, true);
 	}
 
 	/**
@@ -1156,7 +1817,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setTop_Start_Label(String newTop_Start_Label) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__TOP_START_LABEL, newTop_Start_Label);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__TOP_START_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__TOP_START_LABEL, newTop_Start_Label);
 	}
 
 	/**
@@ -1165,7 +1826,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getTop_Mid_Label() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__TOP_MID_LABEL, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__TOP_MID_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__TOP_MID_LABEL, true, true);
 	}
 
 	/**
@@ -1174,7 +1835,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setTop_Mid_Label(String newTop_Mid_Label) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__TOP_MID_LABEL, newTop_Mid_Label);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__TOP_MID_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__TOP_MID_LABEL, newTop_Mid_Label);
 	}
 
 	/**
@@ -1183,7 +1844,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getTop_End_Label() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__TOP_END_LABEL, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__TOP_END_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__TOP_END_LABEL, true, true);
 	}
 
 	/**
@@ -1192,7 +1853,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setTop_End_Label(String newTop_End_Label) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__TOP_END_LABEL, newTop_End_Label);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__TOP_END_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__TOP_END_LABEL, newTop_End_Label);
 	}
 
 	/**
@@ -1201,7 +1862,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getBtm_Start_Label() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__BTM_START_LABEL, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__BTM_START_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__BTM_START_LABEL, true, true);
 	}
 
 	/**
@@ -1210,7 +1871,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setBtm_Start_Label(String newBtm_Start_Label) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__BTM_START_LABEL, newBtm_Start_Label);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__BTM_START_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__BTM_START_LABEL, newBtm_Start_Label);
 	}
 
 	/**
@@ -1219,7 +1880,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getBtm_Mid_Label() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__BTM_MID_LABEL, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__BTM_MID_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__BTM_MID_LABEL, true, true);
 	}
 
 	/**
@@ -1228,7 +1889,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setBtm_Mid_Label(String newBtm_Mid_Label) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__BTM_MID_LABEL, newBtm_Mid_Label);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__BTM_MID_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__BTM_MID_LABEL, newBtm_Mid_Label);
 	}
 
 	/**
@@ -1237,7 +1898,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getBtm_End_Label() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__BTM_END_LABEL, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__BTM_END_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__BTM_END_LABEL, true, true);
 	}
 
 	/**
@@ -1246,7 +1907,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setBtm_End_Label(String newBtm_End_Label) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__BTM_END_LABEL, newBtm_End_Label);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__BTM_END_LABEL, EaobjectmodelPackage.Literals.CONNECTOR__BTM_END_LABEL, newBtm_End_Label);
 	}
 
 	/**
@@ -1255,7 +1916,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public int getStart_Edge() {
-		return (Integer)eGet(EaobjectmodelPackage.Literals.CONNECTOR__START_EDGE, true);
+		return (Integer)eDynamicGet(EaobjectmodelPackage.CONNECTOR__START_EDGE, EaobjectmodelPackage.Literals.CONNECTOR__START_EDGE, true, true);
 	}
 
 	/**
@@ -1264,7 +1925,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setStart_Edge(int newStart_Edge) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__START_EDGE, newStart_Edge);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__START_EDGE, EaobjectmodelPackage.Literals.CONNECTOR__START_EDGE, newStart_Edge);
 	}
 
 	/**
@@ -1273,7 +1934,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public int getEnd_Edge() {
-		return (Integer)eGet(EaobjectmodelPackage.Literals.CONNECTOR__END_EDGE, true);
+		return (Integer)eDynamicGet(EaobjectmodelPackage.CONNECTOR__END_EDGE, EaobjectmodelPackage.Literals.CONNECTOR__END_EDGE, true, true);
 	}
 
 	/**
@@ -1282,7 +1943,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setEnd_Edge(int newEnd_Edge) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__END_EDGE, newEnd_Edge);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__END_EDGE, EaobjectmodelPackage.Literals.CONNECTOR__END_EDGE, newEnd_Edge);
 	}
 
 	/**
@@ -1291,7 +1952,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public int getHeadStyle() {
-		return (Integer)eGet(EaobjectmodelPackage.Literals.CONNECTOR__HEAD_STYLE, true);
+		return (Integer)eDynamicGet(EaobjectmodelPackage.CONNECTOR__HEAD_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__HEAD_STYLE, true, true);
 	}
 
 	/**
@@ -1300,7 +1961,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setHeadStyle(int newHeadStyle) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__HEAD_STYLE, newHeadStyle);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__HEAD_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__HEAD_STYLE, newHeadStyle);
 	}
 
 	/**
@@ -1309,7 +1970,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public int getLineStyle() {
-		return (Integer)eGet(EaobjectmodelPackage.Literals.CONNECTOR__LINE_STYLE, true);
+		return (Integer)eDynamicGet(EaobjectmodelPackage.CONNECTOR__LINE_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__LINE_STYLE, true, true);
 	}
 
 	/**
@@ -1318,7 +1979,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setLineStyle(int newLineStyle) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__LINE_STYLE, newLineStyle);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__LINE_STYLE, EaobjectmodelPackage.Literals.CONNECTOR__LINE_STYLE, newLineStyle);
 	}
 
 	/**
@@ -1327,7 +1988,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getDispatchAction() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__DISPATCH_ACTION, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DISPATCH_ACTION, EaobjectmodelPackage.Literals.CONNECTOR__DISPATCH_ACTION, true, true);
 	}
 
 	/**
@@ -1336,7 +1997,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setDispatchAction(String newDispatchAction) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__DISPATCH_ACTION, newDispatchAction);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DISPATCH_ACTION, EaobjectmodelPackage.Literals.CONNECTOR__DISPATCH_ACTION, newDispatchAction);
 	}
 
 	/**
@@ -1345,7 +2006,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getPDATA1() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA1, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PDATA1, EaobjectmodelPackage.Literals.CONNECTOR__PDATA1, true, true);
 	}
 
 	/**
@@ -1354,7 +2015,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPDATA1(String newPDATA1) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA1, newPDATA1);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PDATA1, EaobjectmodelPackage.Literals.CONNECTOR__PDATA1, newPDATA1);
 	}
 
 	/**
@@ -1363,7 +2024,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getPDATA2() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA2, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PDATA2, EaobjectmodelPackage.Literals.CONNECTOR__PDATA2, true, true);
 	}
 
 	/**
@@ -1372,7 +2033,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPDATA2(String newPDATA2) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA2, newPDATA2);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PDATA2, EaobjectmodelPackage.Literals.CONNECTOR__PDATA2, newPDATA2);
 	}
 
 	/**
@@ -1381,7 +2042,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getPDATA3() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA3, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PDATA3, EaobjectmodelPackage.Literals.CONNECTOR__PDATA3, true, true);
 	}
 
 	/**
@@ -1390,7 +2051,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPDATA3(String newPDATA3) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA3, newPDATA3);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PDATA3, EaobjectmodelPackage.Literals.CONNECTOR__PDATA3, newPDATA3);
 	}
 
 	/**
@@ -1399,7 +2060,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getPDATA4() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA4, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PDATA4, EaobjectmodelPackage.Literals.CONNECTOR__PDATA4, true, true);
 	}
 
 	/**
@@ -1408,7 +2069,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPDATA4(String newPDATA4) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA4, newPDATA4);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PDATA4, EaobjectmodelPackage.Literals.CONNECTOR__PDATA4, newPDATA4);
 	}
 
 	/**
@@ -1417,7 +2078,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public String getPDATA5() {
-		return (String)eGet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA5, true);
+		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__PDATA5, EaobjectmodelPackage.Literals.CONNECTOR__PDATA5, true, true);
 	}
 
 	/**
@@ -1426,7 +2087,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 */
 	public void setPDATA5(String newPDATA5) {
-		eSet(EaobjectmodelPackage.Literals.CONNECTOR__PDATA5, newPDATA5);
+		eDynamicSet(EaobjectmodelPackage.CONNECTOR__PDATA5, EaobjectmodelPackage.Literals.CONNECTOR__PDATA5, newPDATA5);
 	}
 
 	/**
@@ -1519,6 +2180,820 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		} else {
 			return "";
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaobjectmodelPackage.CONNECTOR__SOURCE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSource((Element)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaobjectmodelPackage.CONNECTOR__SOURCE:
+				return basicSetSource(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case EaobjectmodelPackage.CONNECTOR__SOURCE:
+				return eInternalContainer().eInverseRemove(this, EaobjectmodelPackage.ELEMENT__SOURCE_RELATIONS, Element.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_ID:
+				return getConnectorID();
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_GUID:
+				return getConnectorGUID();
+			case EaobjectmodelPackage.CONNECTOR__DIRECTION:
+				return getDirection();
+			case EaobjectmodelPackage.CONNECTOR__PT_END_X:
+				return getPtEndX();
+			case EaobjectmodelPackage.CONNECTOR__PT_END_Y:
+				return getPtEndY();
+			case EaobjectmodelPackage.CONNECTOR__EVENT_FLAGS:
+				return getEventFlags();
+			case EaobjectmodelPackage.CONNECTOR__IS_LEAF:
+				return getIsLeaf();
+			case EaobjectmodelPackage.CONNECTOR__IS_ROOT:
+				return getIsRoot();
+			case EaobjectmodelPackage.CONNECTOR__IS_SPEC:
+				return getIsSpec();
+			case EaobjectmodelPackage.CONNECTOR__NAME:
+				return getName();
+			case EaobjectmodelPackage.CONNECTOR__NOTES:
+				return getNotes();
+			case EaobjectmodelPackage.CONNECTOR__ROUTE_STYLE:
+				return getRouteStyle();
+			case EaobjectmodelPackage.CONNECTOR__SEQ_NO:
+				return getSeqNo();
+			case EaobjectmodelPackage.CONNECTOR__PT_START_X:
+				return getPtStartX();
+			case EaobjectmodelPackage.CONNECTOR__PT_START_Y:
+				return getPtStartY();
+			case EaobjectmodelPackage.CONNECTOR__ACTION_FLAGS:
+				return getActionFlags();
+			case EaobjectmodelPackage.CONNECTOR__STATE_FLAGS:
+				return getStateFlags();
+			case EaobjectmodelPackage.CONNECTOR__STEREOTYPE:
+				return getStereotype();
+			case EaobjectmodelPackage.CONNECTOR__STYLE_EX:
+				return getStyleEx();
+			case EaobjectmodelPackage.CONNECTOR__SUB_TYPE:
+				return getSubType();
+			case EaobjectmodelPackage.CONNECTOR__TYPE:
+				return getType();
+			case EaobjectmodelPackage.CONNECTOR__VIRTUAL_INHERITANCE:
+				return getVirtualInheritance();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
+			case EaobjectmodelPackage.CONNECTOR__DEST:
+				if (resolve) return getDest();
+				return basicGetDest();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CARD:
+				return getSourceCard();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS:
+				return getSourceAccess();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT:
+				return getSourceElement();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE:
+				return getSourceRole();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_TYPE:
+				return getSourceRoleType();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_NOTE:
+				return getSourceRoleNote();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONTAINMENT:
+				return getSourceContainment();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_AGGREGATE:
+				return getSourceIsAggregate();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_ORDERED:
+				return isSourceIsOrdered();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_QUALIFIER:
+				return getSourceQualifier();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CHANGEABLE:
+				return getSourceChangeable();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONSTRAINT:
+				return getSourceConstraint();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				return isSourceIsNavigable();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STEREOTYPE:
+				return getSourceStereotype();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STYLE:
+				return getSourceStyle();
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_TS:
+				return getSourceTS();
+			case EaobjectmodelPackage.CONNECTOR__DEST_CARD:
+				return getDestCard();
+			case EaobjectmodelPackage.CONNECTOR__DEST_ACCESS:
+				return getDestAccess();
+			case EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT:
+				return getDestElement();
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE:
+				return getDestRole();
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_TYPE:
+				return getDestRoleType();
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_NOTE:
+				return getDestRoleNote();
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONTAINMENT:
+				return getDestContainment();
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_AGGREGATE:
+				return getDestIsAggregate();
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_ORDERED:
+				return isDestIsOrdered();
+			case EaobjectmodelPackage.CONNECTOR__DEST_QUALIFIER:
+				return getDestQualifier();
+			case EaobjectmodelPackage.CONNECTOR__DEST_CHANGEABLE:
+				return getDestChangeable();
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONSTRAINT:
+				return getDestConstraint();
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				return isDestIsNavigable();
+			case EaobjectmodelPackage.CONNECTOR__DEST_STEREOTYPE:
+				return getDestStereotype();
+			case EaobjectmodelPackage.CONNECTOR__DEST_STYLE:
+				return getDestStyle();
+			case EaobjectmodelPackage.CONNECTOR__DEST_TS:
+				return getDestTS();
+			case EaobjectmodelPackage.CONNECTOR__TOP_START_LABEL:
+				return getTop_Start_Label();
+			case EaobjectmodelPackage.CONNECTOR__TOP_MID_LABEL:
+				return getTop_Mid_Label();
+			case EaobjectmodelPackage.CONNECTOR__TOP_END_LABEL:
+				return getTop_End_Label();
+			case EaobjectmodelPackage.CONNECTOR__BTM_START_LABEL:
+				return getBtm_Start_Label();
+			case EaobjectmodelPackage.CONNECTOR__BTM_MID_LABEL:
+				return getBtm_Mid_Label();
+			case EaobjectmodelPackage.CONNECTOR__BTM_END_LABEL:
+				return getBtm_End_Label();
+			case EaobjectmodelPackage.CONNECTOR__START_EDGE:
+				return getStart_Edge();
+			case EaobjectmodelPackage.CONNECTOR__END_EDGE:
+				return getEnd_Edge();
+			case EaobjectmodelPackage.CONNECTOR__HEAD_STYLE:
+				return getHeadStyle();
+			case EaobjectmodelPackage.CONNECTOR__LINE_STYLE:
+				return getLineStyle();
+			case EaobjectmodelPackage.CONNECTOR__DISPATCH_ACTION:
+				return getDispatchAction();
+			case EaobjectmodelPackage.CONNECTOR__PDATA1:
+				return getPDATA1();
+			case EaobjectmodelPackage.CONNECTOR__PDATA2:
+				return getPDATA2();
+			case EaobjectmodelPackage.CONNECTOR__PDATA3:
+				return getPDATA3();
+			case EaobjectmodelPackage.CONNECTOR__PDATA4:
+				return getPDATA4();
+			case EaobjectmodelPackage.CONNECTOR__PDATA5:
+				return getPDATA5();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_ID:
+				setConnectorID((Long)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_GUID:
+				setConnectorGUID((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DIRECTION:
+				setDirection((DirectionType)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_END_X:
+				setPtEndX((Long)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_END_Y:
+				setPtEndY((Long)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__EVENT_FLAGS:
+				setEventFlags((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__IS_LEAF:
+				setIsLeaf((Boolean)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__IS_ROOT:
+				setIsRoot((Boolean)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__IS_SPEC:
+				setIsSpec((Boolean)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__NAME:
+				setName((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__NOTES:
+				setNotes((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__ROUTE_STYLE:
+				setRouteStyle((Long)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SEQ_NO:
+				setSeqNo((Long)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_START_X:
+				setPtStartX((Long)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_START_Y:
+				setPtStartY((Long)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__ACTION_FLAGS:
+				setActionFlags((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__STATE_FLAGS:
+				setStateFlags((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__STEREOTYPE:
+				setStereotype((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__STYLE_EX:
+				setStyleEx((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SUB_TYPE:
+				setSubType((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TYPE:
+				setType((ConnectorType)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__VIRTUAL_INHERITANCE:
+				setVirtualInheritance((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE:
+				setSource((Element)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST:
+				setDest((Element)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CARD:
+				setSourceCard((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS:
+				setSourceAccess((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT:
+				setSourceElement((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE:
+				setSourceRole((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_TYPE:
+				setSourceRoleType((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_NOTE:
+				setSourceRoleNote((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONTAINMENT:
+				setSourceContainment((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_AGGREGATE:
+				setSourceIsAggregate((IsAggregate)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_ORDERED:
+				setSourceIsOrdered((Boolean)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_QUALIFIER:
+				setSourceQualifier((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CHANGEABLE:
+				setSourceChangeable((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONSTRAINT:
+				setSourceConstraint((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				setSourceIsNavigable((Boolean)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STEREOTYPE:
+				setSourceStereotype((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STYLE:
+				setSourceStyle((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_TS:
+				setSourceTS((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CARD:
+				setDestCard((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ACCESS:
+				setDestAccess((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT:
+				setDestElement((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE:
+				setDestRole((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_TYPE:
+				setDestRoleType((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_NOTE:
+				setDestRoleNote((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONTAINMENT:
+				setDestContainment((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_AGGREGATE:
+				setDestIsAggregate((IsAggregate)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_ORDERED:
+				setDestIsOrdered((Boolean)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_QUALIFIER:
+				setDestQualifier((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CHANGEABLE:
+				setDestChangeable((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONSTRAINT:
+				setDestConstraint((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				setDestIsNavigable((Boolean)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_STEREOTYPE:
+				setDestStereotype((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_STYLE:
+				setDestStyle((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_TS:
+				setDestTS((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TOP_START_LABEL:
+				setTop_Start_Label((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TOP_MID_LABEL:
+				setTop_Mid_Label((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TOP_END_LABEL:
+				setTop_End_Label((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__BTM_START_LABEL:
+				setBtm_Start_Label((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__BTM_MID_LABEL:
+				setBtm_Mid_Label((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__BTM_END_LABEL:
+				setBtm_End_Label((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__START_EDGE:
+				setStart_Edge((Integer)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__END_EDGE:
+				setEnd_Edge((Integer)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__HEAD_STYLE:
+				setHeadStyle((Integer)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__LINE_STYLE:
+				setLineStyle((Integer)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DISPATCH_ACTION:
+				setDispatchAction((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA1:
+				setPDATA1((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA2:
+				setPDATA2((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA3:
+				setPDATA3((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA4:
+				setPDATA4((String)newValue);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA5:
+				setPDATA5((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_ID:
+				setConnectorID(CONNECTOR_ID_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_GUID:
+				setConnectorGUID(CONNECTOR_GUID_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DIRECTION:
+				setDirection(DIRECTION_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_END_X:
+				setPtEndX(PT_END_X_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_END_Y:
+				setPtEndY(PT_END_Y_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__EVENT_FLAGS:
+				setEventFlags(EVENT_FLAGS_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__IS_LEAF:
+				setIsLeaf(IS_LEAF_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__IS_ROOT:
+				setIsRoot(IS_ROOT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__IS_SPEC:
+				setIsSpec(IS_SPEC_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__NOTES:
+				setNotes(NOTES_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__ROUTE_STYLE:
+				setRouteStyle(ROUTE_STYLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SEQ_NO:
+				setSeqNo(SEQ_NO_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_START_X:
+				setPtStartX(PT_START_X_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PT_START_Y:
+				setPtStartY(PT_START_Y_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__ACTION_FLAGS:
+				setActionFlags(ACTION_FLAGS_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__STATE_FLAGS:
+				setStateFlags(STATE_FLAGS_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__STEREOTYPE:
+				setStereotype(STEREOTYPE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__STYLE_EX:
+				setStyleEx(STYLE_EX_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SUB_TYPE:
+				setSubType(SUB_TYPE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__VIRTUAL_INHERITANCE:
+				setVirtualInheritance(VIRTUAL_INHERITANCE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE:
+				setSource((Element)null);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST:
+				setDest((Element)null);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CARD:
+				setSourceCard(SOURCE_CARD_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS:
+				setSourceAccess(SOURCE_ACCESS_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT:
+				setSourceElement(SOURCE_ELEMENT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE:
+				setSourceRole(SOURCE_ROLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_TYPE:
+				setSourceRoleType(SOURCE_ROLE_TYPE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_NOTE:
+				setSourceRoleNote(SOURCE_ROLE_NOTE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONTAINMENT:
+				setSourceContainment(SOURCE_CONTAINMENT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_AGGREGATE:
+				setSourceIsAggregate(SOURCE_IS_AGGREGATE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_ORDERED:
+				setSourceIsOrdered(SOURCE_IS_ORDERED_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_QUALIFIER:
+				setSourceQualifier(SOURCE_QUALIFIER_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CHANGEABLE:
+				setSourceChangeable(SOURCE_CHANGEABLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONSTRAINT:
+				setSourceConstraint(SOURCE_CONSTRAINT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				setSourceIsNavigable(SOURCE_IS_NAVIGABLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STEREOTYPE:
+				setSourceStereotype(SOURCE_STEREOTYPE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STYLE:
+				setSourceStyle(SOURCE_STYLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_TS:
+				setSourceTS(SOURCE_TS_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CARD:
+				setDestCard(DEST_CARD_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ACCESS:
+				setDestAccess(DEST_ACCESS_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT:
+				setDestElement(DEST_ELEMENT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE:
+				setDestRole(DEST_ROLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_TYPE:
+				setDestRoleType(DEST_ROLE_TYPE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_NOTE:
+				setDestRoleNote(DEST_ROLE_NOTE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONTAINMENT:
+				setDestContainment(DEST_CONTAINMENT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_AGGREGATE:
+				setDestIsAggregate(DEST_IS_AGGREGATE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_ORDERED:
+				setDestIsOrdered(DEST_IS_ORDERED_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_QUALIFIER:
+				setDestQualifier(DEST_QUALIFIER_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CHANGEABLE:
+				setDestChangeable(DEST_CHANGEABLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONSTRAINT:
+				setDestConstraint(DEST_CONSTRAINT_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				setDestIsNavigable(DEST_IS_NAVIGABLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_STEREOTYPE:
+				setDestStereotype(DEST_STEREOTYPE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_STYLE:
+				setDestStyle(DEST_STYLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DEST_TS:
+				setDestTS(DEST_TS_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TOP_START_LABEL:
+				setTop_Start_Label(TOP_START_LABEL_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TOP_MID_LABEL:
+				setTop_Mid_Label(TOP_MID_LABEL_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__TOP_END_LABEL:
+				setTop_End_Label(TOP_END_LABEL_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__BTM_START_LABEL:
+				setBtm_Start_Label(BTM_START_LABEL_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__BTM_MID_LABEL:
+				setBtm_Mid_Label(BTM_MID_LABEL_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__BTM_END_LABEL:
+				setBtm_End_Label(BTM_END_LABEL_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__START_EDGE:
+				setStart_Edge(START_EDGE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__END_EDGE:
+				setEnd_Edge(END_EDGE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__HEAD_STYLE:
+				setHeadStyle(HEAD_STYLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__LINE_STYLE:
+				setLineStyle(LINE_STYLE_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__DISPATCH_ACTION:
+				setDispatchAction(DISPATCH_ACTION_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA1:
+				setPDATA1(PDATA1_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA2:
+				setPDATA2(PDATA2_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA3:
+				setPDATA3(PDATA3_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA4:
+				setPDATA4(PDATA4_EDEFAULT);
+				return;
+			case EaobjectmodelPackage.CONNECTOR__PDATA5:
+				setPDATA5(PDATA5_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_ID:
+				return CONNECTOR_ID_EDEFAULT == null ? getConnectorID() != null : !CONNECTOR_ID_EDEFAULT.equals(getConnectorID());
+			case EaobjectmodelPackage.CONNECTOR__CONNECTOR_GUID:
+				return CONNECTOR_GUID_EDEFAULT == null ? getConnectorGUID() != null : !CONNECTOR_GUID_EDEFAULT.equals(getConnectorGUID());
+			case EaobjectmodelPackage.CONNECTOR__DIRECTION:
+				return getDirection() != DIRECTION_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__PT_END_X:
+				return PT_END_X_EDEFAULT == null ? getPtEndX() != null : !PT_END_X_EDEFAULT.equals(getPtEndX());
+			case EaobjectmodelPackage.CONNECTOR__PT_END_Y:
+				return PT_END_Y_EDEFAULT == null ? getPtEndY() != null : !PT_END_Y_EDEFAULT.equals(getPtEndY());
+			case EaobjectmodelPackage.CONNECTOR__EVENT_FLAGS:
+				return EVENT_FLAGS_EDEFAULT == null ? getEventFlags() != null : !EVENT_FLAGS_EDEFAULT.equals(getEventFlags());
+			case EaobjectmodelPackage.CONNECTOR__IS_LEAF:
+				return IS_LEAF_EDEFAULT == null ? getIsLeaf() != null : !IS_LEAF_EDEFAULT.equals(getIsLeaf());
+			case EaobjectmodelPackage.CONNECTOR__IS_ROOT:
+				return IS_ROOT_EDEFAULT == null ? getIsRoot() != null : !IS_ROOT_EDEFAULT.equals(getIsRoot());
+			case EaobjectmodelPackage.CONNECTOR__IS_SPEC:
+				return IS_SPEC_EDEFAULT == null ? getIsSpec() != null : !IS_SPEC_EDEFAULT.equals(getIsSpec());
+			case EaobjectmodelPackage.CONNECTOR__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case EaobjectmodelPackage.CONNECTOR__NOTES:
+				return NOTES_EDEFAULT == null ? getNotes() != null : !NOTES_EDEFAULT.equals(getNotes());
+			case EaobjectmodelPackage.CONNECTOR__ROUTE_STYLE:
+				return ROUTE_STYLE_EDEFAULT == null ? getRouteStyle() != null : !ROUTE_STYLE_EDEFAULT.equals(getRouteStyle());
+			case EaobjectmodelPackage.CONNECTOR__SEQ_NO:
+				return SEQ_NO_EDEFAULT == null ? getSeqNo() != null : !SEQ_NO_EDEFAULT.equals(getSeqNo());
+			case EaobjectmodelPackage.CONNECTOR__PT_START_X:
+				return PT_START_X_EDEFAULT == null ? getPtStartX() != null : !PT_START_X_EDEFAULT.equals(getPtStartX());
+			case EaobjectmodelPackage.CONNECTOR__PT_START_Y:
+				return PT_START_Y_EDEFAULT == null ? getPtStartY() != null : !PT_START_Y_EDEFAULT.equals(getPtStartY());
+			case EaobjectmodelPackage.CONNECTOR__ACTION_FLAGS:
+				return ACTION_FLAGS_EDEFAULT == null ? getActionFlags() != null : !ACTION_FLAGS_EDEFAULT.equals(getActionFlags());
+			case EaobjectmodelPackage.CONNECTOR__STATE_FLAGS:
+				return STATE_FLAGS_EDEFAULT == null ? getStateFlags() != null : !STATE_FLAGS_EDEFAULT.equals(getStateFlags());
+			case EaobjectmodelPackage.CONNECTOR__STEREOTYPE:
+				return STEREOTYPE_EDEFAULT == null ? getStereotype() != null : !STEREOTYPE_EDEFAULT.equals(getStereotype());
+			case EaobjectmodelPackage.CONNECTOR__STYLE_EX:
+				return STYLE_EX_EDEFAULT == null ? getStyleEx() != null : !STYLE_EX_EDEFAULT.equals(getStyleEx());
+			case EaobjectmodelPackage.CONNECTOR__SUB_TYPE:
+				return SUB_TYPE_EDEFAULT == null ? getSubType() != null : !SUB_TYPE_EDEFAULT.equals(getSubType());
+			case EaobjectmodelPackage.CONNECTOR__TYPE:
+				return getType() != TYPE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__VIRTUAL_INHERITANCE:
+				return VIRTUAL_INHERITANCE_EDEFAULT == null ? getVirtualInheritance() != null : !VIRTUAL_INHERITANCE_EDEFAULT.equals(getVirtualInheritance());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE:
+				return basicGetSource() != null;
+			case EaobjectmodelPackage.CONNECTOR__DEST:
+				return basicGetDest() != null;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CARD:
+				return SOURCE_CARD_EDEFAULT == null ? getSourceCard() != null : !SOURCE_CARD_EDEFAULT.equals(getSourceCard());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS:
+				return SOURCE_ACCESS_EDEFAULT == null ? getSourceAccess() != null : !SOURCE_ACCESS_EDEFAULT.equals(getSourceAccess());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT:
+				return SOURCE_ELEMENT_EDEFAULT == null ? getSourceElement() != null : !SOURCE_ELEMENT_EDEFAULT.equals(getSourceElement());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE:
+				return SOURCE_ROLE_EDEFAULT == null ? getSourceRole() != null : !SOURCE_ROLE_EDEFAULT.equals(getSourceRole());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_TYPE:
+				return SOURCE_ROLE_TYPE_EDEFAULT == null ? getSourceRoleType() != null : !SOURCE_ROLE_TYPE_EDEFAULT.equals(getSourceRoleType());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE_NOTE:
+				return SOURCE_ROLE_NOTE_EDEFAULT == null ? getSourceRoleNote() != null : !SOURCE_ROLE_NOTE_EDEFAULT.equals(getSourceRoleNote());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONTAINMENT:
+				return SOURCE_CONTAINMENT_EDEFAULT == null ? getSourceContainment() != null : !SOURCE_CONTAINMENT_EDEFAULT.equals(getSourceContainment());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_AGGREGATE:
+				return getSourceIsAggregate() != SOURCE_IS_AGGREGATE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_ORDERED:
+				return isSourceIsOrdered() != SOURCE_IS_ORDERED_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_QUALIFIER:
+				return SOURCE_QUALIFIER_EDEFAULT == null ? getSourceQualifier() != null : !SOURCE_QUALIFIER_EDEFAULT.equals(getSourceQualifier());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CHANGEABLE:
+				return SOURCE_CHANGEABLE_EDEFAULT == null ? getSourceChangeable() != null : !SOURCE_CHANGEABLE_EDEFAULT.equals(getSourceChangeable());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_CONSTRAINT:
+				return SOURCE_CONSTRAINT_EDEFAULT == null ? getSourceConstraint() != null : !SOURCE_CONSTRAINT_EDEFAULT.equals(getSourceConstraint());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_IS_NAVIGABLE:
+				return isSourceIsNavigable() != SOURCE_IS_NAVIGABLE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STEREOTYPE:
+				return SOURCE_STEREOTYPE_EDEFAULT == null ? getSourceStereotype() != null : !SOURCE_STEREOTYPE_EDEFAULT.equals(getSourceStereotype());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_STYLE:
+				return SOURCE_STYLE_EDEFAULT == null ? getSourceStyle() != null : !SOURCE_STYLE_EDEFAULT.equals(getSourceStyle());
+			case EaobjectmodelPackage.CONNECTOR__SOURCE_TS:
+				return SOURCE_TS_EDEFAULT == null ? getSourceTS() != null : !SOURCE_TS_EDEFAULT.equals(getSourceTS());
+			case EaobjectmodelPackage.CONNECTOR__DEST_CARD:
+				return DEST_CARD_EDEFAULT == null ? getDestCard() != null : !DEST_CARD_EDEFAULT.equals(getDestCard());
+			case EaobjectmodelPackage.CONNECTOR__DEST_ACCESS:
+				return DEST_ACCESS_EDEFAULT == null ? getDestAccess() != null : !DEST_ACCESS_EDEFAULT.equals(getDestAccess());
+			case EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT:
+				return DEST_ELEMENT_EDEFAULT == null ? getDestElement() != null : !DEST_ELEMENT_EDEFAULT.equals(getDestElement());
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE:
+				return DEST_ROLE_EDEFAULT == null ? getDestRole() != null : !DEST_ROLE_EDEFAULT.equals(getDestRole());
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_TYPE:
+				return DEST_ROLE_TYPE_EDEFAULT == null ? getDestRoleType() != null : !DEST_ROLE_TYPE_EDEFAULT.equals(getDestRoleType());
+			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE_NOTE:
+				return DEST_ROLE_NOTE_EDEFAULT == null ? getDestRoleNote() != null : !DEST_ROLE_NOTE_EDEFAULT.equals(getDestRoleNote());
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONTAINMENT:
+				return DEST_CONTAINMENT_EDEFAULT == null ? getDestContainment() != null : !DEST_CONTAINMENT_EDEFAULT.equals(getDestContainment());
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_AGGREGATE:
+				return getDestIsAggregate() != DEST_IS_AGGREGATE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_ORDERED:
+				return isDestIsOrdered() != DEST_IS_ORDERED_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__DEST_QUALIFIER:
+				return DEST_QUALIFIER_EDEFAULT == null ? getDestQualifier() != null : !DEST_QUALIFIER_EDEFAULT.equals(getDestQualifier());
+			case EaobjectmodelPackage.CONNECTOR__DEST_CHANGEABLE:
+				return DEST_CHANGEABLE_EDEFAULT == null ? getDestChangeable() != null : !DEST_CHANGEABLE_EDEFAULT.equals(getDestChangeable());
+			case EaobjectmodelPackage.CONNECTOR__DEST_CONSTRAINT:
+				return DEST_CONSTRAINT_EDEFAULT == null ? getDestConstraint() != null : !DEST_CONSTRAINT_EDEFAULT.equals(getDestConstraint());
+			case EaobjectmodelPackage.CONNECTOR__DEST_IS_NAVIGABLE:
+				return isDestIsNavigable() != DEST_IS_NAVIGABLE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__DEST_STEREOTYPE:
+				return DEST_STEREOTYPE_EDEFAULT == null ? getDestStereotype() != null : !DEST_STEREOTYPE_EDEFAULT.equals(getDestStereotype());
+			case EaobjectmodelPackage.CONNECTOR__DEST_STYLE:
+				return DEST_STYLE_EDEFAULT == null ? getDestStyle() != null : !DEST_STYLE_EDEFAULT.equals(getDestStyle());
+			case EaobjectmodelPackage.CONNECTOR__DEST_TS:
+				return DEST_TS_EDEFAULT == null ? getDestTS() != null : !DEST_TS_EDEFAULT.equals(getDestTS());
+			case EaobjectmodelPackage.CONNECTOR__TOP_START_LABEL:
+				return TOP_START_LABEL_EDEFAULT == null ? getTop_Start_Label() != null : !TOP_START_LABEL_EDEFAULT.equals(getTop_Start_Label());
+			case EaobjectmodelPackage.CONNECTOR__TOP_MID_LABEL:
+				return TOP_MID_LABEL_EDEFAULT == null ? getTop_Mid_Label() != null : !TOP_MID_LABEL_EDEFAULT.equals(getTop_Mid_Label());
+			case EaobjectmodelPackage.CONNECTOR__TOP_END_LABEL:
+				return TOP_END_LABEL_EDEFAULT == null ? getTop_End_Label() != null : !TOP_END_LABEL_EDEFAULT.equals(getTop_End_Label());
+			case EaobjectmodelPackage.CONNECTOR__BTM_START_LABEL:
+				return BTM_START_LABEL_EDEFAULT == null ? getBtm_Start_Label() != null : !BTM_START_LABEL_EDEFAULT.equals(getBtm_Start_Label());
+			case EaobjectmodelPackage.CONNECTOR__BTM_MID_LABEL:
+				return BTM_MID_LABEL_EDEFAULT == null ? getBtm_Mid_Label() != null : !BTM_MID_LABEL_EDEFAULT.equals(getBtm_Mid_Label());
+			case EaobjectmodelPackage.CONNECTOR__BTM_END_LABEL:
+				return BTM_END_LABEL_EDEFAULT == null ? getBtm_End_Label() != null : !BTM_END_LABEL_EDEFAULT.equals(getBtm_End_Label());
+			case EaobjectmodelPackage.CONNECTOR__START_EDGE:
+				return getStart_Edge() != START_EDGE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__END_EDGE:
+				return getEnd_Edge() != END_EDGE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__HEAD_STYLE:
+				return getHeadStyle() != HEAD_STYLE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__LINE_STYLE:
+				return getLineStyle() != LINE_STYLE_EDEFAULT;
+			case EaobjectmodelPackage.CONNECTOR__DISPATCH_ACTION:
+				return DISPATCH_ACTION_EDEFAULT == null ? getDispatchAction() != null : !DISPATCH_ACTION_EDEFAULT.equals(getDispatchAction());
+			case EaobjectmodelPackage.CONNECTOR__PDATA1:
+				return PDATA1_EDEFAULT == null ? getPDATA1() != null : !PDATA1_EDEFAULT.equals(getPDATA1());
+			case EaobjectmodelPackage.CONNECTOR__PDATA2:
+				return PDATA2_EDEFAULT == null ? getPDATA2() != null : !PDATA2_EDEFAULT.equals(getPDATA2());
+			case EaobjectmodelPackage.CONNECTOR__PDATA3:
+				return PDATA3_EDEFAULT == null ? getPDATA3() != null : !PDATA3_EDEFAULT.equals(getPDATA3());
+			case EaobjectmodelPackage.CONNECTOR__PDATA4:
+				return PDATA4_EDEFAULT == null ? getPDATA4() != null : !PDATA4_EDEFAULT.equals(getPDATA4());
+			case EaobjectmodelPackage.CONNECTOR__PDATA5:
+				return PDATA5_EDEFAULT == null ? getPDATA5() != null : !PDATA5_EDEFAULT.equals(getPDATA5());
+		}
+		return super.eIsSet(featureID);
 	}
 
 	/**

@@ -398,40 +398,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttPro" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="GeometryMap" instanceClassName="de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap"/>
   <eClassifiers xsi:type="ecore:EClass" name="DiagramLink">
-    <eOperations name="setGeometry" unique="false">
+    <eOperations name="getDestRoleX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;SX&quot;, &lt;%java.lang.Integer%>.valueOf(SX));&#xA;map.put(&quot;SY&quot;, &lt;%java.lang.Integer%>.valueOf(SY));&#xA;map.put(&quot;EX&quot;, &lt;%java.lang.Integer%>.valueOf(EX));&#xA;map.put(&quot;EY&quot;, &lt;%java.lang.Integer%>.valueOf(EY));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
+        <details key="body" value="String geometry = getGeometry();&#xD;&#xA;&lt;%java.util.Optional%>&lt;String> value = &lt;%java.util.Arrays%>.asList(geometry.split(&quot;;&quot;)).stream()&#xD;&#xA;&#x9;.flatMap(geo -> Arrays.asList(geo.split(&quot;:&quot;)).stream())&#xD;&#xA;&#x9;.filter(geo -> geo.startsWith(&quot;$LLB&quot;))&#xD;&#xA;&#x9;.flatMap(geo -> Arrays.asList(geo.split(&quot;=&quot;)).stream())&#xD;&#xA;&#x9;.filter(geo -> geo.matches(&quot;[0-9]+&quot;))&#xD;&#xA;&#x9;.findAny();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;if (value.isPresent()) {&#xD;&#xA;&#x9;return Integer.parseInt(value.get());&#xD;&#xA;} else {&#xD;&#xA;&#x9;return 0;&#xD;&#xA;}"/>
       </eAnnotations>
-      <eParameters name="SX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters name="SY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters name="EX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters name="EY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations name="setSX" unique="false">
+    <eOperations name="getDestRoleY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;SX&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
+        <details key="body" value="String geometry = getGeometry();&#xD;&#xA;&lt;%java.util.Optional%>&lt;String> value = &lt;%java.util.Arrays%>.asList(geometry.split(&quot;;&quot;)).stream()&#xD;&#xA;&#x9;.filter(geo -> geo.startsWith(&quot;$LLB&quot;))&#xD;&#xA;&#x9;.flatMap(geo -> Arrays.asList(geo.split(&quot;:&quot;)).stream())&#xD;&#xA;&#x9;.filter(geo -> geo.startsWith(&quot;CY&quot;))&#xD;&#xA;&#x9;.flatMap(geo -> Arrays.asList(geo.split(&quot;=&quot;)).stream())&#xD;&#xA;&#x9;.filter(geo -> geo.matches(&quot;[0-9]+&quot;))&#xD;&#xA;&#x9;.findAny();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;if (value.isPresent()) {&#xD;&#xA;&#x9;return Integer.parseInt(value.get());&#xD;&#xA;} else {&#xD;&#xA;&#x9;return 0;&#xD;&#xA;}"/>
       </eAnnotations>
-      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
-    <eOperations name="setSY" unique="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;SY&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
-      </eAnnotations>
-      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
-    <eOperations name="setEX" unique="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;EX&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
-      </eAnnotations>
-      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
-    <eOperations name="setEY" unique="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;map.put(&quot;EY&quot;, &lt;%java.lang.Integer%>.valueOf(input));&#xA;&lt;%java.lang.String%> _string = map.toString();&#xA;this.setGeometry(_string);"/>
-      </eAnnotations>
-      <eParameters name="input" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Connector" eType="#//Connector"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Diagram" eType="#//Diagram"
@@ -444,28 +420,28 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Style" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;SX&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashInt.get(&quot;SX&quot;);&#xD;&#xA;return _get;"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;SY&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashInt.get(&quot;SY&quot;);&#xD;&#xA;return _get;"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;EX&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashInt.get(&quot;EX&quot;);&#xD;&#xA;return _get;"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _xblockexpression = null;&#xA;{&#xA;&#x9;&lt;%java.lang.String%> _geometry = this.getGeometry();&#xA;&#x9;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);&#xA;&#x9;&lt;%java.lang.Integer%> _get = map.get(&quot;EY&quot;);&#xA;&#x9;_xblockexpression = &lt;%java.lang.String%>.valueOf(_get);&#xA;}&#xA;return _xblockexpression;"/>
+        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashInt.get(&quot;EY&quot;);&#xD;&#xA;return _get;"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

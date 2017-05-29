@@ -226,10 +226,10 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>SX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_SX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _xblockexpression = null;\n{\n\t<%java.lang.String%> _geometry = this.getGeometry();\n\tfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\n\t<%java.lang.Integer%> _get = map.get(\"SX\");\n\t_xblockexpression = <%java.lang.String%>.valueOf(_get);\n}\nreturn _xblockexpression;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"SX\");\r\nreturn _get;'"
 	 * @generated
 	 */
-	String getSX();
+	int getSX();
 
 	/**
 	 * Returns the value of the '<em><b>SY</b></em>' attribute.
@@ -242,10 +242,10 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>SY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_SY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _xblockexpression = null;\n{\n\t<%java.lang.String%> _geometry = this.getGeometry();\n\tfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\n\t<%java.lang.Integer%> _get = map.get(\"SY\");\n\t_xblockexpression = <%java.lang.String%>.valueOf(_get);\n}\nreturn _xblockexpression;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"SY\");\r\nreturn _get;'"
 	 * @generated
 	 */
-	String getSY();
+	int getSY();
 
 	/**
 	 * Returns the value of the '<em><b>EX</b></em>' attribute.
@@ -258,10 +258,10 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>EX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_EX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _xblockexpression = null;\n{\n\t<%java.lang.String%> _geometry = this.getGeometry();\n\tfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\n\t<%java.lang.Integer%> _get = map.get(\"EX\");\n\t_xblockexpression = <%java.lang.String%>.valueOf(_get);\n}\nreturn _xblockexpression;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"EX\");\r\nreturn _get;'"
 	 * @generated
 	 */
-	String getEX();
+	int getEX();
 
 	/**
 	 * Returns the value of the '<em><b>EY</b></em>' attribute.
@@ -274,54 +274,27 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>EY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_EY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _xblockexpression = null;\n{\n\t<%java.lang.String%> _geometry = this.getGeometry();\n\tfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\n\t<%java.lang.Integer%> _get = map.get(\"EY\");\n\t_xblockexpression = <%java.lang.String%>.valueOf(_get);\n}\nreturn _xblockexpression;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"EY\");\r\nreturn _get;'"
 	 * @generated
 	 */
-	String getEY();
+	int getEY();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model SXUnique="false" SYUnique="false" EXUnique="false" EYUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\nmap.put(\"SX\", <%java.lang.Integer%>.valueOf(SX));\nmap.put(\"SY\", <%java.lang.Integer%>.valueOf(SY));\nmap.put(\"EX\", <%java.lang.Integer%>.valueOf(EX));\nmap.put(\"EY\", <%java.lang.Integer%>.valueOf(EY));\n<%java.lang.String%> _string = map.toString();\nthis.setGeometry(_string);'"
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String geometry = getGeometry();\r\n<%java.util.Optional%><String> value = <%java.util.Arrays%>.asList(geometry.split(\";\")).stream()\r\n\t.flatMap(geo -> Arrays.asList(geo.split(\":\")).stream())\r\n\t.filter(geo -> geo.startsWith(\"$LLB\"))\r\n\t.flatMap(geo -> Arrays.asList(geo.split(\"=\")).stream())\r\n\t.filter(geo -> geo.matches(\"[0-9]+\"))\r\n\t.findAny();\r\n\t\t\t\t\r\nif (value.isPresent()) {\r\n\treturn Integer.parseInt(value.get());\r\n} else {\r\n\treturn 0;\r\n}'"
 	 * @generated
 	 */
-	void setGeometry(int SX, int SY, int EX, int EY);
+	int getDestRoleX();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model inputUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\nmap.put(\"SX\", <%java.lang.Integer%>.valueOf(input));\n<%java.lang.String%> _string = map.toString();\nthis.setGeometry(_string);'"
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String geometry = getGeometry();\r\n<%java.util.Optional%><String> value = <%java.util.Arrays%>.asList(geometry.split(\";\")).stream()\r\n\t.filter(geo -> geo.startsWith(\"$LLB\"))\r\n\t.flatMap(geo -> Arrays.asList(geo.split(\":\")).stream())\r\n\t.filter(geo -> geo.startsWith(\"CY\"))\r\n\t.flatMap(geo -> Arrays.asList(geo.split(\"=\")).stream())\r\n\t.filter(geo -> geo.matches(\"[0-9]+\"))\r\n\t.findAny();\r\n\t\t\t\t\r\nif (value.isPresent()) {\r\n\treturn Integer.parseInt(value.get());\r\n} else {\r\n\treturn 0;\r\n}'"
 	 * @generated
 	 */
-	void setSX(int input);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model inputUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\nmap.put(\"SY\", <%java.lang.Integer%>.valueOf(input));\n<%java.lang.String%> _string = map.toString();\nthis.setGeometry(_string);'"
-	 * @generated
-	 */
-	void setSY(int input);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model inputUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\nmap.put(\"EX\", <%java.lang.Integer%>.valueOf(input));\n<%java.lang.String%> _string = map.toString();\nthis.setGeometry(_string);'"
-	 * @generated
-	 */
-	void setEX(int input);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model inputUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap%>(_geometry);\nmap.put(\"EY\", <%java.lang.Integer%>.valueOf(input));\n<%java.lang.String%> _string = map.toString();\nthis.setGeometry(_string);'"
-	 * @generated
-	 */
-	void setEY(int input);
+	int getDestRoleY();
 
 } // DiagramLink

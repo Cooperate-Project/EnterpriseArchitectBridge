@@ -1661,49 +1661,22 @@ public interface EaobjectmodelPackage extends EPackage {
 	int DIAGRAM_LINK_FEATURE_COUNT = 11;
 
 	/**
-	 * The operation id for the '<em>Set Geometry</em>' operation.
+	 * The operation id for the '<em>Get Dest Role X</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_LINK___SET_GEOMETRY__INT_INT_INT_INT = 0;
+	int DIAGRAM_LINK___GET_DEST_ROLE_X = 0;
 
 	/**
-	 * The operation id for the '<em>Set SX</em>' operation.
+	 * The operation id for the '<em>Get Dest Role Y</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_LINK___SET_SX__INT = 1;
-
-	/**
-	 * The operation id for the '<em>Set SY</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM_LINK___SET_SY__INT = 2;
-
-	/**
-	 * The operation id for the '<em>Set EX</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM_LINK___SET_EX__INT = 3;
-
-	/**
-	 * The operation id for the '<em>Set EY</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM_LINK___SET_EY__INT = 4;
+	int DIAGRAM_LINK___GET_DEST_ROLE_Y = 1;
 
 	/**
 	 * The number of operations of the '<em>Diagram Link</em>' class.
@@ -1712,7 +1685,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_LINK_OPERATION_COUNT = 5;
+	int DIAGRAM_LINK_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.
@@ -2950,17 +2923,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	int SCOPE_OBJECT = 19;
-
-	/**
-	 * The meta object id for the '<em>Geometry Map</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getGeometryMap()
-	 * @generated
-	 */
-	int GEOMETRY_MAP = 20;
-
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference <em>Type Reference</em>}'.
@@ -4750,54 +4712,24 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getDiagramLink_EY();
 
 	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setGeometry(int, int, int, int) <em>Set Geometry</em>}' operation.
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleX() <em>Get Dest Role X</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Geometry</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setGeometry(int, int, int, int)
+	 * @return the meta object for the '<em>Get Dest Role X</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleX()
 	 * @generated
 	 */
-	EOperation getDiagramLink__SetGeometry__int_int_int_int();
+	EOperation getDiagramLink__GetDestRoleX();
 
 	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSX(int) <em>Set SX</em>}' operation.
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleY() <em>Get Dest Role Y</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set SX</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSX(int)
+	 * @return the meta object for the '<em>Get Dest Role Y</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleY()
 	 * @generated
 	 */
-	EOperation getDiagramLink__SetSX__int();
-
-	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSY(int) <em>Set SY</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set SY</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSY(int)
-	 * @generated
-	 */
-	EOperation getDiagramLink__SetSY__int();
-
-	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEX(int) <em>Set EX</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set EX</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEX(int)
-	 * @generated
-	 */
-	EOperation getDiagramLink__SetEX__int();
-
-	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEY(int) <em>Set EY</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set EY</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEY(int)
-	 * @generated
-	 */
-	EOperation getDiagramLink__SetEY__int();
+	EOperation getDiagramLink__GetDestRoleY();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramObject <em>Diagram Object</em>}'.
@@ -6175,17 +6107,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	EDataType getScopeObject();
 
 	/**
-	 * Returns the meta object for data type '{@link de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap <em>Geometry Map</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Geometry Map</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap
-	 * @model instanceClass="de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap"
-	 * @generated
-	 */
-	EDataType getGeometryMap();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7535,44 +7456,20 @@ public interface EaobjectmodelPackage extends EPackage {
 		EAttribute DIAGRAM_LINK__EY = eINSTANCE.getDiagramLink_EY();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Geometry</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Dest Role X</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DIAGRAM_LINK___SET_GEOMETRY__INT_INT_INT_INT = eINSTANCE.getDiagramLink__SetGeometry__int_int_int_int();
+		EOperation DIAGRAM_LINK___GET_DEST_ROLE_X = eINSTANCE.getDiagramLink__GetDestRoleX();
 
 		/**
-		 * The meta object literal for the '<em><b>Set SX</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Dest Role Y</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DIAGRAM_LINK___SET_SX__INT = eINSTANCE.getDiagramLink__SetSX__int();
-
-		/**
-		 * The meta object literal for the '<em><b>Set SY</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DIAGRAM_LINK___SET_SY__INT = eINSTANCE.getDiagramLink__SetSY__int();
-
-		/**
-		 * The meta object literal for the '<em><b>Set EX</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DIAGRAM_LINK___SET_EX__INT = eINSTANCE.getDiagramLink__SetEX__int();
-
-		/**
-		 * The meta object literal for the '<em><b>Set EY</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DIAGRAM_LINK___SET_EY__INT = eINSTANCE.getDiagramLink__SetEY__int();
+		EOperation DIAGRAM_LINK___GET_DEST_ROLE_Y = eINSTANCE.getDiagramLink__GetDestRoleY();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.
@@ -8607,16 +8504,6 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType SCOPE_OBJECT = eINSTANCE.getScopeObject();
-
-		/**
-		 * The meta object literal for the '<em>Geometry Map</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.util.GeometryMap
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getGeometryMap()
-		 * @generated
-		 */
-		EDataType GEOMETRY_MAP = eINSTANCE.getGeometryMap();
 
 	}
 
