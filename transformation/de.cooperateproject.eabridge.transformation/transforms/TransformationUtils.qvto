@@ -110,6 +110,12 @@ mapping ecore::EObject::locationConstraint(xCord : EInt, yCord : EInt) : notatio
 	y := yCord;
 }
 
+mapping ecore::EObject::booleanValueStyle() : notation::BooleanValueStyle
+{
+	name := "IS_UPDATED_POSITION";
+	booleanValue := true;
+}
+
 mapping ecore::EObject::titleStyle() : notation::TitleStyle
 {
 }

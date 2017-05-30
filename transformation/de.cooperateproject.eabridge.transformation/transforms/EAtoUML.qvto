@@ -518,6 +518,7 @@ mapping DiagramLink::diagramLinkToNameDecoration() : DecorationNode
 {
 	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_NAME;
 	layoutConstraint := result.toEObject().map locationConstraint();
+	styles += result.toEObject().map booleanValueStyle();
 }
 
 //RoleDecorationNode
@@ -525,12 +526,14 @@ mapping DiagramLink::diagramLinkToTargetRoleDecoration() : DecorationNode
 {
 	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETROLE;
 	layoutConstraint := result.toEObject().map locationConstraint(self.getDestRoleX(), self.getDestRoleY());
+	styles += result.toEObject().map booleanValueStyle();
 }
 
 mapping DiagramLink::diagramLinkToSourceRoleDecoration() : DecorationNode
 {
 	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEROLE;
 	layoutConstraint := result.toEObject().map locationConstraint();
+	styles += result.toEObject().map booleanValueStyle();
 }
 
 //MultiplicityDecorationNode
@@ -538,12 +541,14 @@ mapping DiagramLink::diagramLinkToTargetMultiplicityDecoration() : notation::Dec
 {
 	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETMULTIPLICITY;
 	layoutConstraint := result.toEObject().map locationConstraint();
+	styles += result.toEObject().map booleanValueStyle();
 }
 
 mapping DiagramLink::diagramLinkToSourceMultiplicityDecoration() : notation::DecorationNode
 {
 	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEMULTIPLICITY;
 	layoutConstraint := result.toEObject().map locationConstraint();
+	styles += result.toEObject().map booleanValueStyle();
 }
 
 //Anchors
