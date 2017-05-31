@@ -1725,8 +1725,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDiagramLink__GetDestRoleX() {
-		return diagramLinkEClass.getEOperations().get(0);
+	public EAttribute getDiagramLink_LLBCX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1734,8 +1734,134 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDiagramLink__GetDestRoleY() {
-		return diagramLinkEClass.getEOperations().get(1);
+	public EAttribute getDiagramLink_LLBCY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LLBOX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LLBOY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LLTCX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LLTCY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LLTOX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LLTOY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRBCX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRBCY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRBOX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRBOY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRTCX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRTCY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRTOX() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDiagramLink_LRTOY() {
+		return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -3070,8 +3196,22 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__SY);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__EX);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__EY);
-		createEOperation(diagramLinkEClass, DIAGRAM_LINK___GET_DEST_ROLE_X);
-		createEOperation(diagramLinkEClass, DIAGRAM_LINK___GET_DEST_ROLE_Y);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBCX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBCY);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBOX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBOY);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTCX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTCY);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTOX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTOY);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBCX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBCY);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBOX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBOY);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTCX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTCY);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTOX);
+		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTOY);
 
 		diagramObjectEClass = createEClass(DIAGRAM_OBJECT);
 		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__BOTTOM);
@@ -3422,10 +3562,22 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getDiagramLink_SY(), ecorePackage.getEInt(), "SY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_EX(), ecorePackage.getEInt(), "EX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_EY(), ecorePackage.getEInt(), "EY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getDiagramLink__GetDestRoleX(), ecorePackage.getEInt(), "getDestRoleX", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getDiagramLink__GetDestRoleY(), ecorePackage.getEInt(), "getDestRoleY", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLBCX(), ecorePackage.getEInt(), "LLBCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLBCY(), ecorePackage.getEInt(), "LLBCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLBOX(), ecorePackage.getEInt(), "LLBOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLBOY(), ecorePackage.getEInt(), "LLBOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLTCX(), ecorePackage.getEInt(), "LLTCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLTCY(), ecorePackage.getEInt(), "LLTCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLTOX(), ecorePackage.getEInt(), "LLTOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LLTOY(), ecorePackage.getEInt(), "LLTOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRBCX(), ecorePackage.getEInt(), "LRBCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRBCY(), ecorePackage.getEInt(), "LRBCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRBOX(), ecorePackage.getEInt(), "LRBOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRBOY(), ecorePackage.getEInt(), "LRBOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRTCX(), ecorePackage.getEInt(), "LRTCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRTCY(), ecorePackage.getEInt(), "LRTCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRTOX(), ecorePackage.getEInt(), "LRTOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiagramLink_LRTOY(), ecorePackage.getEInt(), "LRTOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(diagramObjectEClass, DiagramObject.class, "DiagramObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDiagramObject_Bottom(), ecorePackage.getEInt(), "Bottom", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

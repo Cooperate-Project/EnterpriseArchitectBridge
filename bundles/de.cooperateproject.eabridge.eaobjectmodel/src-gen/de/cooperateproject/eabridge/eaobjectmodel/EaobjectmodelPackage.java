@@ -1652,31 +1652,157 @@ public interface EaobjectmodelPackage extends EPackage {
 	int DIAGRAM_LINK__EY = 10;
 
 	/**
+	 * The feature id for the '<em><b>LLBCX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLBCX = 11;
+
+	/**
+	 * The feature id for the '<em><b>LLBCY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLBCY = 12;
+
+	/**
+	 * The feature id for the '<em><b>LLBOX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLBOX = 13;
+
+	/**
+	 * The feature id for the '<em><b>LLBOY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLBOY = 14;
+
+	/**
+	 * The feature id for the '<em><b>LLTCX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLTCX = 15;
+
+	/**
+	 * The feature id for the '<em><b>LLTCY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLTCY = 16;
+
+	/**
+	 * The feature id for the '<em><b>LLTOX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLTOX = 17;
+
+	/**
+	 * The feature id for the '<em><b>LLTOY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LLTOY = 18;
+
+	/**
+	 * The feature id for the '<em><b>LRBCX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRBCX = 19;
+
+	/**
+	 * The feature id for the '<em><b>LRBCY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRBCY = 20;
+
+	/**
+	 * The feature id for the '<em><b>LRBOX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRBOX = 21;
+
+	/**
+	 * The feature id for the '<em><b>LRBOY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRBOY = 22;
+
+	/**
+	 * The feature id for the '<em><b>LRTCX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRTCX = 23;
+
+	/**
+	 * The feature id for the '<em><b>LRTCY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRTCY = 24;
+
+	/**
+	 * The feature id for the '<em><b>LRTOX</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRTOX = 25;
+
+	/**
+	 * The feature id for the '<em><b>LRTOY</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK__LRTOY = 26;
+
+	/**
 	 * The number of structural features of the '<em>Diagram Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_LINK_FEATURE_COUNT = 11;
-
-	/**
-	 * The operation id for the '<em>Get Dest Role X</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM_LINK___GET_DEST_ROLE_X = 0;
-
-	/**
-	 * The operation id for the '<em>Get Dest Role Y</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIAGRAM_LINK___GET_DEST_ROLE_Y = 1;
+	int DIAGRAM_LINK_FEATURE_COUNT = 27;
 
 	/**
 	 * The number of operations of the '<em>Diagram Link</em>' class.
@@ -1685,7 +1811,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_LINK_OPERATION_COUNT = 2;
+	int DIAGRAM_LINK_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.
@@ -4712,24 +4838,180 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getDiagramLink_EY();
 
 	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleX() <em>Get Dest Role X</em>}' operation.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCX <em>LLBCX</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Dest Role X</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleX()
+	 * @return the meta object for the attribute '<em>LLBCX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCX()
+	 * @see #getDiagramLink()
 	 * @generated
 	 */
-	EOperation getDiagramLink__GetDestRoleX();
+	EAttribute getDiagramLink_LLBCX();
 
 	/**
-	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleY() <em>Get Dest Role Y</em>}' operation.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCY <em>LLBCY</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Dest Role Y</em>' operation.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getDestRoleY()
+	 * @return the meta object for the attribute '<em>LLBCY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCY()
+	 * @see #getDiagramLink()
 	 * @generated
 	 */
-	EOperation getDiagramLink__GetDestRoleY();
+	EAttribute getDiagramLink_LLBCY();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOX <em>LLBOX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LLBOX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOX()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LLBOX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOY <em>LLBOY</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LLBOY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOY()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LLBOY();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCX <em>LLTCX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LLTCX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCX()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LLTCX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCY <em>LLTCY</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LLTCY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCY()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LLTCY();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOX <em>LLTOX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LLTOX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOX()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LLTOX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOY <em>LLTOY</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LLTOY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOY()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LLTOY();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCX <em>LRBCX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRBCX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCX()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRBCX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCY <em>LRBCY</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRBCY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCY()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRBCY();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOX <em>LRBOX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRBOX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOX()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRBOX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOY <em>LRBOY</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRBOY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOY()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRBOY();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCX <em>LRTCX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRTCX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCX()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRTCX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCY <em>LRTCY</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRTCY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCY()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRTCY();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOX <em>LRTOX</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRTOX</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOX()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRTOX();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOY <em>LRTOY</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LRTOY</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOY()
+	 * @see #getDiagramLink()
+	 * @generated
+	 */
+	EAttribute getDiagramLink_LRTOY();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramObject <em>Diagram Object</em>}'.
@@ -7456,20 +7738,132 @@ public interface EaobjectmodelPackage extends EPackage {
 		EAttribute DIAGRAM_LINK__EY = eINSTANCE.getDiagramLink_EY();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Dest Role X</b></em>' operation.
+		 * The meta object literal for the '<em><b>LLBCX</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DIAGRAM_LINK___GET_DEST_ROLE_X = eINSTANCE.getDiagramLink__GetDestRoleX();
+		EAttribute DIAGRAM_LINK__LLBCX = eINSTANCE.getDiagramLink_LLBCX();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Dest Role Y</b></em>' operation.
+		 * The meta object literal for the '<em><b>LLBCY</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DIAGRAM_LINK___GET_DEST_ROLE_Y = eINSTANCE.getDiagramLink__GetDestRoleY();
+		EAttribute DIAGRAM_LINK__LLBCY = eINSTANCE.getDiagramLink_LLBCY();
+
+		/**
+		 * The meta object literal for the '<em><b>LLBOX</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LLBOX = eINSTANCE.getDiagramLink_LLBOX();
+
+		/**
+		 * The meta object literal for the '<em><b>LLBOY</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LLBOY = eINSTANCE.getDiagramLink_LLBOY();
+
+		/**
+		 * The meta object literal for the '<em><b>LLTCX</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LLTCX = eINSTANCE.getDiagramLink_LLTCX();
+
+		/**
+		 * The meta object literal for the '<em><b>LLTCY</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LLTCY = eINSTANCE.getDiagramLink_LLTCY();
+
+		/**
+		 * The meta object literal for the '<em><b>LLTOX</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LLTOX = eINSTANCE.getDiagramLink_LLTOX();
+
+		/**
+		 * The meta object literal for the '<em><b>LLTOY</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LLTOY = eINSTANCE.getDiagramLink_LLTOY();
+
+		/**
+		 * The meta object literal for the '<em><b>LRBCX</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRBCX = eINSTANCE.getDiagramLink_LRBCX();
+
+		/**
+		 * The meta object literal for the '<em><b>LRBCY</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRBCY = eINSTANCE.getDiagramLink_LRBCY();
+
+		/**
+		 * The meta object literal for the '<em><b>LRBOX</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRBOX = eINSTANCE.getDiagramLink_LRBOX();
+
+		/**
+		 * The meta object literal for the '<em><b>LRBOY</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRBOY = eINSTANCE.getDiagramLink_LRBOY();
+
+		/**
+		 * The meta object literal for the '<em><b>LRTCX</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRTCX = eINSTANCE.getDiagramLink_LRTCX();
+
+		/**
+		 * The meta object literal for the '<em><b>LRTCY</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRTCY = eINSTANCE.getDiagramLink_LRTCY();
+
+		/**
+		 * The meta object literal for the '<em><b>LRTOX</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRTOX = eINSTANCE.getDiagramLink_LRTOX();
+
+		/**
+		 * The meta object literal for the '<em><b>LRTOY</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIAGRAM_LINK__LRTOY = eINSTANCE.getDiagramLink_LRTOY();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.

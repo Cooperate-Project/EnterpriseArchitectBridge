@@ -8,14 +8,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 
 import de.cooperateproject.eabridge.eaobjectmodel.util.Geometry;
-import java.lang.reflect.InvocationTargetException;
-
-import java.util.Arrays;
-import java.util.Optional;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -40,6 +33,22 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getSY <em>SY</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getEX <em>EX</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getEY <em>EY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLBCX <em>LLBCX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLBCY <em>LLBCY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLBOX <em>LLBOX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLBOY <em>LLBOY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLTCX <em>LLTCX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLTCY <em>LLTCY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLTOX <em>LLTOX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLLTOY <em>LLTOY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRBCX <em>LRBCX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRBCY <em>LRBCY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRBOX <em>LRBOX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRBOY <em>LRBOY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRTCX <em>LRTCX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRTCY <em>LRTCY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRTOX <em>LRTOX</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl#getLRTOY <em>LRTOY</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,6 +135,152 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	 * @ordered
 	 */
 	protected static final int EY_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getLLBCX() <em>LLBCX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLBCX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLBCX_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLLBCY() <em>LLBCY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLBCY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLBCY_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLLBOX() <em>LLBOX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLBOX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLBOX_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getLLBOY() <em>LLBOY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLBOY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLBOY_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLLTCX() <em>LLTCX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLTCX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLTCX_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLLTCY() <em>LLTCY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLTCY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLTCY_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLLTOX() <em>LLTOX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLTOX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLTOX_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLLTOY() <em>LLTOY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLLTOY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LLTOY_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRBCX() <em>LRBCX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRBCX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRBCX_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRBCY() <em>LRBCY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRBCY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRBCY_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRBOX() <em>LRBOX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRBOX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRBOX_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRBOY() <em>LRBOY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRBOY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRBOY_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRTCX() <em>LRTCX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRTCX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRTCX_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRTCY() <em>LRTCY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRTCY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRTCY_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRTOX() <em>LRTOX</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRTOX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRTOX_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getLRTOY() <em>LRTOY</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLRTOY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int LRTOY_EDEFAULT = 0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -363,20 +518,11 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getDestRoleX() {
-		String geometry = getGeometry();
-		Optional<String> value = Arrays.asList(geometry.split(";")).stream()
-			.flatMap(geo -> Arrays.asList(geo.split(":")).stream())
-			.filter(geo -> geo.startsWith("$LLB"))
-			.flatMap(geo -> Arrays.asList(geo.split("=")).stream())
-			.filter(geo -> geo.matches("[0-9]+"))
-			.findAny();
-						
-		if (value.isPresent()) {
-			return Integer.parseInt(value.get());
-		} else {
-			return 0;
-		}
+	public int getLLBCX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("$LLB").get("CX");
+		return _get;
 	}
 
 	/**
@@ -384,21 +530,179 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getDestRoleY() {
-		String geometry = getGeometry();
-		Optional<String> value = Arrays.asList(geometry.split(";")).stream()
-			.filter(geo -> geo.startsWith("$LLB"))
-			.flatMap(geo -> Arrays.asList(geo.split(":")).stream())
-			.filter(geo -> geo.startsWith("CY"))
-			.flatMap(geo -> Arrays.asList(geo.split("=")).stream())
-			.filter(geo -> geo.matches("[0-9]+"))
-			.findAny();
-						
-		if (value.isPresent()) {
-			return Integer.parseInt(value.get());
-		} else {
-			return 0;
-		}
+	public int getLLBCY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("$LLB").get("CY");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLLBOX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("$LLB").get("OX");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLLBOY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("$LLB").get("OY");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLLTCX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LLT").get("CX");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLLTCY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LLT").get("CY");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLLTOX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LLT").get("OX");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLLTOY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LLT").get("OY");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRBCX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRB").get("CX");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRBCY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRB").get("CY");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRBOX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRB").get("OX");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRBOY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRB").get("OY");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRTCX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRT").get("CX");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRTCY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRT").get("CY");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRTOX() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRT").get("OX");
+		return _get;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLRTOY() {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		Integer _get = map.hashNode.get("LRT").get("OY");
+		return _get;
 	}
 
 	/**
@@ -477,6 +781,38 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 				return getEX();
 			case EaobjectmodelPackage.DIAGRAM_LINK__EY:
 				return getEY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCX:
+				return getLLBCX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCY:
+				return getLLBCY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOX:
+				return getLLBOX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOY:
+				return getLLBOY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCX:
+				return getLLTCX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCY:
+				return getLLTCY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOX:
+				return getLLTOX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOY:
+				return getLLTOY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCX:
+				return getLRBCX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCY:
+				return getLRBCY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOX:
+				return getLRBOX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOY:
+				return getLRBOY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCX:
+				return getLRTCX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCY:
+				return getLRTCY();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOX:
+				return getLRTOX();
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOY:
+				return getLRTOY();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -577,24 +913,40 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 				return getEX() != EX_EDEFAULT;
 			case EaobjectmodelPackage.DIAGRAM_LINK__EY:
 				return getEY() != EY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCX:
+				return getLLBCX() != LLBCX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCY:
+				return getLLBCY() != LLBCY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOX:
+				return getLLBOX() != LLBOX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOY:
+				return getLLBOY() != LLBOY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCX:
+				return getLLTCX() != LLTCX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCY:
+				return getLLTCY() != LLTCY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOX:
+				return getLLTOX() != LLTOX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOY:
+				return getLLTOY() != LLTOY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCX:
+				return getLRBCX() != LRBCX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCY:
+				return getLRBCY() != LRBCY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOX:
+				return getLRBOX() != LRBOX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOY:
+				return getLRBOY() != LRBOY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCX:
+				return getLRTCX() != LRTCX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCY:
+				return getLRTCY() != LRTCY_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOX:
+				return getLRTOX() != LRTOX_EDEFAULT;
+			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOY:
+				return getLRTOY() != LRTOY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK___GET_DEST_ROLE_X:
-				return getDestRoleX();
-			case EaobjectmodelPackage.DIAGRAM_LINK___GET_DEST_ROLE_Y:
-				return getDestRoleY();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //DiagramLinkImpl

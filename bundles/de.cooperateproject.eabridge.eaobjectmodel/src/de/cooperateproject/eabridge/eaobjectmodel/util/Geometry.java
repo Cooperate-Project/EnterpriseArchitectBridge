@@ -28,7 +28,7 @@ public class Geometry {
 		}
 	}
 
-	class Node extends HashMap<String, Integer> {
+	public class Node extends HashMap<String, Integer> {
 
 		public Node(String node) {
 			if (node != null) {
