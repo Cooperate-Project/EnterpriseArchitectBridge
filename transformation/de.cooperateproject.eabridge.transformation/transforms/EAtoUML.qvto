@@ -25,9 +25,11 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	name := self.Name;
 	nestedPackage := self.Packages-> map mapPackage();
 	
-	// maybe needs some flattening?
-	var associations = self.Packages.Elements.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
+	// Does this reach everything?
+	var associations = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
+	var comments = om.objectsOfType(Element)->select(c : Element | c.Type = ElementType::Note);
 	packagedElement += associations -> map mapConnectorToAssociation();
+	ownedComment += comments -> mapElementToComment();
 }
 
 mapping eaobjectmodel::Package::mapPackage() : uml::Package
@@ -36,7 +38,7 @@ mapping eaobjectmodel::Package::mapPackage() : uml::Package
 	nestedPackage := self.Packages->map mapPackage();
 
 	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
-	var interfaces :=  self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
+	var interfaces := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
 	var connectors := classes->collect(SourceRelations);
 	var usages := connectors->select(e : Connector| e.Type = ConnectorType::Usage);
 	var Informationflows :=  connectors->select(e : Connector| e.Type = ConnectorType::InformationFlow);
@@ -70,7 +72,6 @@ mapping Connector::mapClassesToInformationflows():  InformationFlow {
 	name := self.Name;
 	informationSource := self.Source.oclAsType(Class);
 	informationTarget := self.Dest.oclAsType(Class);
-
 }
 
 abstract mapping Element::mapElementToClassifier() : uml::Classifier {
@@ -113,6 +114,20 @@ inherits Element::mapElementToClassifier
 	
 	var realizations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Realisation);	
 	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);	
+}
+
+mapping Element::mapElementToComment() : uml::Comment
+{
+	body := self.Notes;
+	var commentLinks = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::NoteLink);
+	var commentedElements = commentLinks->select(e : Connector | e.Source = self).Dest;
+	commentedElements += commentLinks->select(e : Connector | e.Dest = self).Source;
+	commentedElements->forEach(ele) {
+		if (ele.PDATA1 = null)
+			then annotatedElement += ele.resolveone(uml::Element)
+			else annotatedElement += ele.PDATA1.resolveone(uml::Element)
+		endif;
+	}
 }
 
 mapping Attribute::transformAttribute() :  uml::Property
