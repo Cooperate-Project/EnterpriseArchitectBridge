@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_WPdu4O7eEeahIPhNrMYR1Q" name="RootElement">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_WPdu4O7eEeahIPhNrMYR1Q" name="RootElement">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_EDyXUFKkEee85JQFKg13eA" annotatedElement="_7K8jMO7eEeahIPhNrMYR1Q">
+    <body>This is a comment.</body>
+  </ownedComment>
   <packagedElement xmi:type="uml:Package" xmi:id="_g_2IQO7eEeahIPhNrMYR1Q" name="Package">
     <packagedElement xmi:type="uml:Class" xmi:id="_kr6xYO7eEeahIPhNrMYR1Q" name="Part">
-      <ownedAttribute xmi:id="_nv7U8O7eEeahIPhNrMYR1Q" name="the corresponding whole" type="_lYF64O7eEeahIPhNrMYR1Q" association="_nvw84O7eEeahIPhNrMYR1Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nv7U8O7eEeahIPhNrMYR1Q" name="the corresponding whole" type="_lYF64O7eEeahIPhNrMYR1Q" association="_nvw84O7eEeahIPhNrMYR1Q"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_lYF64O7eEeahIPhNrMYR1Q" name="Whole">
-      <ownedAttribute xmi:id="_nv1OUO7eEeahIPhNrMYR1Q" name="a part" type="_kr6xYO7eEeahIPhNrMYR1Q" aggregation="composite" association="_nvw84O7eEeahIPhNrMYR1Q">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nv1OUO7eEeahIPhNrMYR1Q" name="a part" type="_kr6xYO7eEeahIPhNrMYR1Q" aggregation="composite" association="_nvw84O7eEeahIPhNrMYR1Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zShOYO7eEeahIPhNrMYR1Q" value="3"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zS7eEO7eEeahIPhNrMYR1Q" value="72"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_7K8jMO7eEeahIPhNrMYR1Q" name="InterfaceImpl">
-      <interfaceRealization xmi:id="__fiG0PqwEeaZ2swOAO0Hlw" client="_7K8jMO7eEeahIPhNrMYR1Q" supplier="_5ibtQO7eEeahIPhNrMYR1Q" contract="_5ibtQO7eEeahIPhNrMYR1Q"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="__fiG0PqwEeaZ2swOAO0Hlw" client="_7K8jMO7eEeahIPhNrMYR1Q" supplier="_5ibtQO7eEeahIPhNrMYR1Q" contract="_5ibtQO7eEeahIPhNrMYR1Q"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_5ibtQO7eEeahIPhNrMYR1Q" name="Interface">
-      <generalization xmi:id="_JAQGIO7fEeahIPhNrMYR1Q" general="_4c3MUO7eEeahIPhNrMYR1Q"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_JAQGIO7fEeahIPhNrMYR1Q" general="_4c3MUO7eEeahIPhNrMYR1Q"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_4c3MUO7eEeahIPhNrMYR1Q" name="SuperInterface"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_nvw84O7eEeahIPhNrMYR1Q" name="Composition" memberEnd="_nv1OUO7eEeahIPhNrMYR1Q _nv7U8O7eEeahIPhNrMYR1Q">
-    <eAnnotations xmi:id="_nvzZIO7eEeahIPhNrMYR1Q" source="org.eclipse.papyrus">
-      <details xmi:id="_nv0AMO7eEeahIPhNrMYR1Q" key="nature" value="UML_Nature"/>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nvzZIO7eEeahIPhNrMYR1Q" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nv0AMO7eEeahIPhNrMYR1Q" key="nature" value="UML_Nature"/>
     </eAnnotations>
   </packagedElement>
 </uml:Model>

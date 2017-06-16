@@ -282,7 +282,7 @@ query ScopeObject::getAttributeType() : VisibilityKind
 }
 
 //Diagram
-mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
+mapping Diagram::diagramToDiagram() : notation::Diagram {
 	type := "PapyrusUMLClassDiagram";
 	name := self.Name;
 	measurementUnit := notation::MeasurementUnit::Pixel;
@@ -303,10 +303,8 @@ mapping eaobjectmodel::Diagram::diagramToDiagram() : notation::Diagram {
 
 //Shapes
 mapping DiagramObject::diagramObjectToShape() : Shape
-merges DiagramObject::packageToShape, DiagramObject::classToShape, DiagramObject::interfaceToShape {
-	element := self.Element.resolveone(uml::NamedElement).toEObject();
-	
-	children += self.map diagramObjectToNameDecorationNode();
+merges DiagramObject::packageToShape, DiagramObject::classToShape, DiagramObject::interfaceToShape, DiagramObject::commentToShape {
+	element := self.Element.resolveone(uml::Element).toEObject();
 	
 	layoutConstraint := self.map diagramObjectToLayoutConstraint();
 }
@@ -315,6 +313,7 @@ mapping DiagramObject::packageToShape() : Shape
 when {self.Element.Type = ElementType::Package} {
 	element := self.Element.PDATA1.resolveone(uml::Package).toEObject();
 	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_PACKAGE_REGULAR);
+	children += self.map diagramObjectToNameDecorationNode();
 	
 	children += self.map packageToCompartment();
 }
@@ -322,6 +321,7 @@ when {self.Element.Type = ElementType::Package} {
 mapping DiagramObject::classToShape() : Shape 
 when {self.Element.Type = ElementType::Class} {
 	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR);
+	children += self.map diagramObjectToNameDecorationNode();
 	
 	children += self.map diagramObjectToAttributesCompartment();
 	children += self.map diagramObjectToOperationsCompartment();
@@ -333,12 +333,27 @@ when {self.Element.Type = ElementType::Class} {
 mapping DiagramObject::interfaceToShape() : Shape
 when {self.Element.Type = ElementType::Interface} {
 	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_INTERFACE_REGULAR);
+	children += self.map diagramObjectToNameDecorationNode();
 	
 	children += self.map diagramObjectToAttributesCompartment();
 	children += self.map diagramObjectToOperationsCompartment();
 	children += self.map diagramObjectToSignalsCompartment();
 	
 	children += self.map diagramObjectToFloatingLabelDecorationNode();
+}
+
+mapping DiagramObject::commentToShape() : Shape
+when {self.Element.Type = ElementType::Note} {
+	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_COMMENT_REGULAR);
+	
+	children += self.map diagramObjectToLabelBodyHintDecoration();
+}
+
+
+//CommentDecorationNode
+mapping DiagramObject::diagramObjectToLabelBodyHintDecoration() : notation::DecorationNode
+{
+	type := self.getNestedName(PAPYRUS_NOTATION_NODE_COMMENT_BODY_REGULAR);
 }
 
 //NameDecorationNode
@@ -493,12 +508,10 @@ when {self.Element.Type = ElementType::Interface} {
 
 //Connectors
 mapping DiagramLink::diagramLinkToConnector() : notation::Connector
-merges DiagramLink::associationToConnector, DiagramLink::generalizationToConnector, DiagramLink::implementationToConnector
+merges DiagramLink::associationToConnector, DiagramLink::generalizationToConnector, DiagramLink::implementationToConnector, DiagramLink::noteLinkToConnector
 {
-	//switcheroo needed for some reason
-	//checked with the test model
-	source := self.Connector.Dest.resolveElement(self.Diagram);
-	target := self.Connector.Source.resolveElement(self.Diagram);
+	source := self.Connector.Source.resolveElement(self.Diagram);
+	target := self.Connector.Dest.resolveElement(self.Diagram);
 	sourceAnchor := self.map diagramLinkToSourceAnchor();
 	targetAnchor := self.map diagramLinkToTargetAnchor();
 
@@ -510,6 +523,11 @@ mapping DiagramLink::associationToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = ConnectorType::Aggregation} {
 	type := PAPYRUS_NOTATION_EDGE_ASSOCIATION;
 	element := self.Connector.resolveoneIn(Connector::mapConnectorToAssociation).toEObject();
+	
+	//switcheroo needed for some reason
+	//checked with the test model
+	source := self.Connector.Dest.resolveElement(self.Diagram);
+	target := self.Connector.Source.resolveElement(self.Diagram);
 	
 	children += self.map diagramLinkToNameDecoration();
 	children += self.map diagramLinkToTargetRoleDecoration();
@@ -528,6 +546,12 @@ mapping DiagramLink::implementationToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Realisation} {
 	type := PAPYRUS_NOTATION_EDGE_IMPLEMENTATION;
 	element := self.Connector.resolveoneIn(Connector::mapConnectoToRealization).toEObject();
+}
+
+mapping DiagramLink::noteLinkToConnector() : notation::Connector
+when {self.Connector.Type = ConnectorType::NoteLink} {
+	type := PAPYRUS_NOTATION_EDGE_COMMENTLINK;
+	
 }
 
 //ConnectorNameDecorationNode

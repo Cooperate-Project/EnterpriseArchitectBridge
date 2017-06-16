@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_cgar0FKEEeecFK_mErv8uw" name="Model">
-  <ownedComment xmi:id="_cgar0VKEEeecFK_mErv8uw" annotatedElement="_cgar21KEEeecFK_mErv8uw">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_PwyiQVKqEeerNusGmn557A" name="Model">
+  <ownedComment xmi:id="_PwzJUFKqEeerNusGmn557A" annotatedElement="_PwzJWlKqEeerNusGmn557A">
     <body>This is a note of a class.</body>
   </ownedComment>
-  <ownedComment xmi:id="_cgar0lKEEeecFK_mErv8uw" annotatedElement="_cgar1FKEEeecFK_mErv8uw">
+  <ownedComment xmi:id="_PwzJUVKqEeerNusGmn557A" annotatedElement="_PwzJU1KqEeerNusGmn557A">
     <body>This is a note of a package.</body>
   </ownedComment>
-  <ownedComment xmi:id="_cgar01KEEeecFK_mErv8uw" annotatedElement="_cgar31KEEeecFK_mErv8uw">
+  <ownedComment xmi:id="_PwzJUlKqEeerNusGmn557A" annotatedElement="_PwzJXlKqEeerNusGmn557A">
     <body>This is a note of an interface.</body>
   </ownedComment>
-  <packagedElement xmi:type="uml:Package" xmi:id="_cgar1FKEEeecFK_mErv8uw" name="Package">
-    <packagedElement xmi:type="uml:Class" xmi:id="_cgar1VKEEeecFK_mErv8uw" name="Part">
-      <ownedAttribute xmi:id="_cgar1lKEEeecFK_mErv8uw" name="the corresponding whole" type="_cgar11KEEeecFK_mErv8uw" association="_cgar4FKEEeecFK_mErv8uw"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_PwzJU1KqEeerNusGmn557A" name="Package">
+    <packagedElement xmi:type="uml:Class" xmi:id="_PwzJVFKqEeerNusGmn557A" name="Part">
+      <ownedAttribute xmi:id="_PwzJVVKqEeerNusGmn557A" name="the corresponding whole" type="_PwzJVlKqEeerNusGmn557A" association="_PwzJX1KqEeerNusGmn557A"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_cgar11KEEeecFK_mErv8uw" name="Whole">
-      <ownedAttribute xmi:id="_cgar2FKEEeecFK_mErv8uw" name="a part" type="_cgar1VKEEeecFK_mErv8uw" aggregation="composite" association="_cgar4FKEEeecFK_mErv8uw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cgar2VKEEeecFK_mErv8uw" value="3"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cgar2lKEEeecFK_mErv8uw" value="72"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PwzJVlKqEeerNusGmn557A" name="Whole">
+      <ownedAttribute xmi:id="_PwzJV1KqEeerNusGmn557A" name="a part" type="_PwzJVFKqEeerNusGmn557A" aggregation="composite" association="_PwzJX1KqEeerNusGmn557A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PwzJWFKqEeerNusGmn557A" value="3"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PwzJWVKqEeerNusGmn557A" value="72"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_cgar21KEEeecFK_mErv8uw" name="InterfaceImpl">
-      <interfaceRealization xmi:id="_cgar3FKEEeecFK_mErv8uw" client="_cgar21KEEeecFK_mErv8uw" supplier="_cgar3VKEEeecFK_mErv8uw" contract="_cgar3VKEEeecFK_mErv8uw"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PwzJWlKqEeerNusGmn557A" name="InterfaceImpl">
+      <interfaceRealization xmi:id="_PwzJW1KqEeerNusGmn557A" client="_PwzJWlKqEeerNusGmn557A" supplier="_PwzJXFKqEeerNusGmn557A" contract="_PwzJXFKqEeerNusGmn557A"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_cgar3VKEEeecFK_mErv8uw" name="Interface">
-      <generalization xmi:id="_cgar3lKEEeecFK_mErv8uw" general="_cgar31KEEeecFK_mErv8uw"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_PwzJXFKqEeerNusGmn557A" name="Interface">
+      <generalization xmi:id="_PwzJXVKqEeerNusGmn557A" general="_PwzJXlKqEeerNusGmn557A"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_cgar31KEEeecFK_mErv8uw" name="SuperInterface"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_PwzJXlKqEeerNusGmn557A" name="SuperInterface"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_cgar4FKEEeecFK_mErv8uw" name="Composition" memberEnd="_cgar2FKEEeecFK_mErv8uw _cgar1lKEEeecFK_mErv8uw"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_PwzJX1KqEeerNusGmn557A" name="Composition" memberEnd="_PwzJV1KqEeerNusGmn557A _PwzJVVKqEeerNusGmn557A"/>
 </uml:Model>
