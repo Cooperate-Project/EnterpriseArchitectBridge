@@ -1,42 +1,26 @@
 transformation UMLtoEA(in uml: UML,in ecorePrimitives : UML, out om: OM);
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 
 main() {
-
 	var rootModels := uml.rootObjects()[Model];
 	assert fatal (rootModels->size() = 1);
 
 	log("Found Root Models", rootModels);
 	
-	rootModels -> map mapRootModel();
-
-}
-
-mapping uml::Model::mapRootModel() : eaobjectmodel::Package {
-	
-	log("Mapping root model", self);
-	var rootObject := object eaobjectmodel::Package {
+	object eaobjectmodel::Package {
 		Name := "Root";
+		Packages += rootModels.map mapPackage();
+		Elements += rootModels.map mapPackageToElement();
 	};
-	Parent := rootObject;
-	
-	Name := self.name;
-	Packages := self.nestedPackage-> map mapPackages();
-	
-	PackageID := 1;
-	
-	// Create package element
-	Elements := self.nestedPackage-> map mapPackageToElement();
-	
 }
 
-mapping uml::Package::mapPackages() : eaobjectmodel::Package {
-	
+mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 	log("Mapping package", self);
 	
 	Name := self.name;	
-	Packages := self.nestedPackage-> map mapPackages();
+	Packages := self.nestedPackage-> map mapPackage();
 	
 	// Create package element
 	Elements := self.nestedPackage-> map mapPackageToElement();
@@ -44,22 +28,22 @@ mapping uml::Package::mapPackages() : eaobjectmodel::Package {
 	// Map Package content
 	var classes := self.packagedElement->selectByType(UML::Class);
 	var interfaces := self.packagedElement->selectByType(UML::Interface);
+	var associations := self.packagedElement->selectByType(UML::Association);
 	
 	Elements += classes -> map mapClassToElement();
 	Elements += interfaces -> map mapInterfaceToElement();
-
+	associations -> map mapAssociationToConnector();
+//	Elements += 
 }
 
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
-	
 	Name := self.name;
 	Abstract := "0";
-	result.Type := eaobjectmodel::ElementType::Package;
-	
+	result.Type := ElementType::Package;
+	PDATA1 := self.late resolveone(eaobjectmodel::Package);
 }
 
 abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Element {
-	
 	log("Mapping Classifier", self);
 	
 	Name := self.name;
@@ -73,130 +57,174 @@ abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Eleme
 	
 	SourceRelations += self.generalization.map mapGeneralizationToConnector();
 	SourceRelations += self.substitution.map mapSubstitutionToConnector();
-	
-	var associations = uml.rootObjects()[Model].packagedElement->selectByType(uml::Association);
-	
-	// TODO: There might be a better way to solve this
-	var myAssociations = associations->select(a : Association| a.memberEnd->size() > 0 and a.memberEnd->first().type = self);
-
-	SourceRelations += myAssociations.map mapAssociationToConnector();
-}
-
-mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
-	
-	log("Mapping association", self);
-		
-	Name := self.name;
-
-	Source := self.memberEnd->at(1).type.late resolveone(OM::Element);
-	Dest := self.memberEnd->at(2).type.late resolveone(OM::Element);
-	
-	SourceIsAggregate := self.memberEnd->at(1).transformAssociationType();
-	DestIsAggregate := self.memberEnd->at(2).transformAssociationType();
-	
-	result.Type := ConnectorType::Association;
-	result.Direction := DirectionType::SourceDestination;
-	
-}
-
-query uml::Property::transformAssociationType() : IsAggregate {
-	
-	return switch {
-		case (self.aggregation = AggregationKind::none) IsAggregate::False;
-		case (self.aggregation = AggregationKind::shared) IsAggregate::Aggregation;
-		case (self.aggregation = AggregationKind::composite) IsAggregate::Composition;
-		else assert error (false) with log("Illegal enum value");
-	};
-	
-}
-
-mapping uml::Generalization::mapGeneralizationToConnector() : eaobjectmodel::Connector {
-	
-	log("Mapping generalization", self);
-	
-	Dest := self.general.late resolveone(OM::Element);
-	
-	Direction := DirectionType::SourceDestination;
-	result.Type := ConnectorType::Generalization;
-	
-}
-
-mapping uml::Substitution::mapSubstitutionToConnector() : eaobjectmodel::Connector {
-	
-	log("Mapping substitution", self);
-	
-	Dest := self.supplier.late resolveone(OM::Element);
-	
-	Direction := DirectionType::SourceDestination;
-	result.Type := ConnectorType::Substitution;
-	
 }
 
 mapping uml::Class::mapClassToElement(): eaobjectmodel::Element
 inherits uml::Classifier::mapClassifierToElement {
-	
 	log("Mapping class", self);
 	
-	Attributes := self.ownedAttribute-> select(a | a.aggregation <> null).map mapPropertyToAttribute();
-	 
+	Attributes := self.ownedAttribute-> select(p : Property | p.association.oclIsUndefined()).map mapPropertyToAttribute();
 	Methods := self.ownedOperation -> map mapOperationToMethod();
 	
 	result.Type := eaobjectmodel::ElementType::Class;
 	
 	SourceRelations += self.interfaceRealization.map mapRealizationToConnector();
-	
 }
 
 mapping uml::Interface::mapInterfaceToElement() : eaobjectmodel::Element
 inherits uml::Classifier::mapClassifierToElement {
-	
 	log("Mapping interface", self);
 	
-	// TODO: Code from classifier above
 	Attributes := self.ownedAttribute -> map mapPropertyToAttribute();
 	Methods := self.ownedOperation -> map mapOperationToMethod();
 	
 	result.Type := eaobjectmodel::ElementType::Interface;
 	
 	result.Abstract := "1";
-	
 }
 
-mapping uml::InterfaceRealization::mapRealizationToConnector() : eaobjectmodel::Connector {
+mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element {
+	log("Mapping Comment", self);
 	
+	Notes := self.body;
+}
+
+mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
+	log("Mapping association", self);
+		
+	Name := self.name;
+	
+	var sourceProperty := self.memberEnd->at(1);
+	var destProperty := self.memberEnd->at(2);
+	Source := sourceProperty.type.resolveone(OM::Element);
+	Dest := destProperty.type.resolveone(OM::Element);
+	
+	// If the property was not assigned to the association it is possible to navigate to this member
+	SourceIsNavigable := sourceProperty.owningAssociation = null;
+	DestIsNavigable := destProperty.owningAssociation = null;
+	
+	Direction := result.transformDirectionType();
+	
+	SourceIsAggregate := self.memberEnd->at(1).transformAssociationType();
+	DestIsAggregate := self.memberEnd->at(2).transformAssociationType();
+	
+	result.Type := ConnectorType::Association;
+}
+
+abstract mapping uml::DirectedRelationship::mapDirectedRelationShip() : OM::Connector {
+	Direction := DirectionType::SourceDestination;
+	DestIsNavigable := true;
+}
+
+mapping uml::Generalization::mapGeneralizationToConnector() : eaobjectmodel::Connector
+inherits uml::DirectedRelationship::mapDirectedRelationShip {
+	log("Mapping generalization", self);
+	
+	Dest := self.general.late resolveone(OM::Element);
+	result.Type := ConnectorType::Generalization;
+}
+
+mapping uml::Substitution::mapSubstitutionToConnector() : eaobjectmodel::Connector
+inherits uml::DirectedRelationship::mapDirectedRelationShip {
+	log("Mapping substitution", self);
+	
+	Dest := self.supplier.late resolveone(OM::Element);
+	result.Type := ConnectorType::Substitution;
+}
+
+mapping uml::InterfaceRealization::mapRealizationToConnector() : eaobjectmodel::Connector
+inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	log("Mapping realization", self);
 	
 	Dest := self.supplier.late resolveone(OM::Element);
-
-	Direction := DirectionType::SourceDestination;
 	result.Type := ConnectorType::Realisation;
-	
 }
 
-query VisibilityKind::transformVisibility() : Scope {
-	
-	var visibilityScope = switch {
-		case (self = VisibilityKind::public) Scope::Public;
-		case (self = VisibilityKind::private) Scope::Private;
-		case (self = VisibilityKind::protected) Scope::Protected;
-		case (self = VisibilityKind::package) Scope::Package;
-		else assert error (false) with log("Illegal enum value");
-	};
-	
-	return visibilityScope;
-	
-}
+//mapping uml::Comments::mapComment
 
 mapping uml::Property::mapPropertyToAttribute(): Attribute {
-	
 	log("Mapping attribute", self);
 	
 	Name := self.name;
 
 	result.Scope := self.visibility.transformVisibility();
 	AttributeType := self.type.transformType();
-	
 }
+
+mapping Operation::mapOperationToMethod() : Method {
+	log("Mapping operation", self);
+	
+	Name := self.name;
+	Visibility := self.visibility.transformVisibility();
+	
+	self.ownedParameter-> forEach(param) {
+		if (param.direction = ParameterDirectionKind::_return) then 
+		result.ReturnType := param.type.transformType() endif;
+		
+		if (param.direction <> ParameterDirectionKind::_return) then
+		result.Parameters += param.map mapParameter() endif;
+	};
+}
+
+mapping uml::Parameter::mapParameter() : Methodparameter {
+	log("Mapping parameter", self);
+	
+	Name := self.name;
+	Kind := self.direction.transformParameterDirection();
+	ParameterType := self.type.transformType();
+}
+
+query uml::Property::transformAssociationType() : IsAggregate {
+	return switch {
+		case (self.aggregation = AggregationKind::none) IsAggregate::False;
+		case (self.aggregation = AggregationKind::shared) IsAggregate::Aggregation;
+		case (self.aggregation = AggregationKind::composite) IsAggregate::Composition;
+		else assert error (false) with log("Illegal enum value");
+	};
+}
+
+query uml::ParameterDirectionKind::transformParameterDirection() : ParameterDirection {
+	return switch {
+		case (self = ParameterDirectionKind::_in) ParameterDirection::_in;
+		case (self = ParameterDirectionKind::_out) ParameterDirection::_out;
+		case (self = ParameterDirectionKind::_inout) ParameterDirection::_inout;
+		case (self = ParameterDirectionKind::_return) ParameterDirection::_return;
+	};
+}
+
+query VisibilityKind::transformVisibility() : Scope {
+	return switch {
+		case (self = VisibilityKind::public) Scope::Public;
+		case (self = VisibilityKind::private) Scope::Private;
+		case (self = VisibilityKind::protected) Scope::Protected;
+		case (self = VisibilityKind::package) Scope::Package;
+		else assert error (false) with log("Illegal enum value");
+	};
+}
+
+query uml::PrimitiveType::transformPrimitive() : OM::PrimitiveType {
+	return switch {
+		case (self.name = "EInt") OM::PrimitiveType::Int;
+		case (self.name = "EBoolean") OM::PrimitiveType::Boolean;
+		case (self.name = "EByte") OM::PrimitiveType::Byte;
+		case (self.name = "EChar") OM::PrimitiveType::Char;
+		case (self.name = "EDouble") OM::PrimitiveType::Double;
+		case (self.name = "ELong") OM::PrimitiveType::Long;
+		case (self.name = "EFloat") OM::PrimitiveType::Float;
+		case (self.name = "EShort") OM::PrimitiveType::Short;
+		case (self.name = "EString") OM::PrimitiveType::String;
+		else assert error (false) with log("Could not interpret primitive datatype \"" + self.name + "\".");
+	};
+}
+
+query OM::Connector::transformDirectionType() : OM::DirectionType {
+	return switch {
+		case (self.SourceIsNavigable and self.DestIsNavigable) DirectionType::BiDirectional;
+		case (self.SourceIsNavigable) DirectionType::DestinationSource;
+		case (self.DestIsNavigable) DirectionType::SourceDestination;
+		else DirectionType::Unspecified;
+	};
+ }
 
 query uml::Type::transformType(): TypeReference {
 
@@ -214,56 +242,4 @@ query uml::Type::transformType(): TypeReference {
 	} endif;
 	
 	return reference;
-}
-
-query uml::PrimitiveType::transformPrimitive() : OM::PrimitiveType {
-	var type = switch {
-		case (self.name = "EInt") OM::PrimitiveType::Int;
-		case (self.name = "EBoolean") OM::PrimitiveType::Boolean;
-		case (self.name = "EByte") OM::PrimitiveType::Byte;
-		case (self.name = "EChar") OM::PrimitiveType::Char;
-		case (self.name = "EDouble") OM::PrimitiveType::Double;
-		case (self.name = "ELong") OM::PrimitiveType::Long;
-		case (self.name = "EFloat") OM::PrimitiveType::Float;
-		case (self.name = "EShort") OM::PrimitiveType::Short;
-		case (self.name = "EString") OM::PrimitiveType::String;
-	};
-	
-	assert warning (type <> null) with log ("Could not interpret primitive datatype \"" + self.name + "\".");
-	return type;
-}
-
-mapping Operation::mapOperationToMethod() : Method {
-	
-	log("Mapping operation", self);
-	
-	Name := self.name;
-	Visibility := self.visibility.transformVisibility();
-	
-	self.ownedParameter-> forEach(param) {
-		if(param.direction = ParameterDirectionKind::_return) then 
-		result.ReturnType := param.type.transformType() endif;
-		
-		if(param.direction <> ParameterDirectionKind::_return) then
-		result.Parameters += param.map transformParameters() endif;
-	};
-	
-}
-
-mapping uml::Parameter::transformParameters() : Methodparameter {
-	
-	log("Mapping parameter", self);
-	
-	Name := self.name;
-	Kind := self.direction.transformParameterDirection();
-	ParameterType := self.type.transformType();
-}
-
-query uml::ParameterDirectionKind::transformParameterDirection() : ParameterDirection {
-	return switch {
-		case (self = ParameterDirectionKind::_in) ParameterDirection::_in;
-		case (self = ParameterDirectionKind::_out) ParameterDirection::_out;
-		case (self = ParameterDirectionKind::_inout) ParameterDirection::_inout;
-		case (self = ParameterDirectionKind::_return) ParameterDirection::_return;
-	};
 }

@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_WPdu4O7eEeahIPhNrMYR1Q" name="RootElement">
-  <ownedComment xmi:type="uml:Comment" xmi:id="_EDyXUFKkEee85JQFKg13eA" annotatedElement="_7K8jMO7eEeahIPhNrMYR1Q">
-    <body>This is a comment.</body>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_WPdu4O7eEeahIPhNrMYR1Q" name="Model">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_qT8uIFTqEeeGuJsF9mG9SA" annotatedElement="_WPdu4O7eEeahIPhNrMYR1Q">
+    <body>This is a note of a package.&#xD;
+</body>
   </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_Jwa8EFTrEeeGuJsF9mG9SA" annotatedElement="_4c3MUO7eEeahIPhNrMYR1Q">
+    <body>This is a note of an interface.&#xD;
+</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_EDyXUFKkEee85JQFKg13eA" annotatedElement="_7K8jMO7eEeahIPhNrMYR1Q">
+    <body>This is a note of a class.</body>
+  </ownedComment>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_ACNioFTxEeeeAd0y_7zCqA" importedPackage="_7NKfQFTwEeeeAd0y_7zCqA"/>
   <packagedElement xmi:type="uml:Package" xmi:id="_g_2IQO7eEeahIPhNrMYR1Q" name="Package">
     <packagedElement xmi:type="uml:Class" xmi:id="_kr6xYO7eEeahIPhNrMYR1Q" name="Part">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_nv7U8O7eEeahIPhNrMYR1Q" name="the corresponding whole" type="_lYF64O7eEeahIPhNrMYR1Q" association="_nvw84O7eEeahIPhNrMYR1Q"/>
@@ -21,6 +30,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_4c3MUO7eEeahIPhNrMYR1Q" name="SuperInterface"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_7NKfQFTwEeeeAd0y_7zCqA" name="ImportedPackage"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_nvw84O7eEeahIPhNrMYR1Q" name="Composition" memberEnd="_nv1OUO7eEeahIPhNrMYR1Q _nv7U8O7eEeahIPhNrMYR1Q">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nvzZIO7eEeahIPhNrMYR1Q" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nv0AMO7eEeahIPhNrMYR1Q" key="nature" value="UML_Nature"/>

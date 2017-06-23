@@ -111,8 +111,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Scope">
-    <eLiterals name="Private" value="1" literal="Private"/>
     <eLiterals name="Public" value="2" literal="Public"/>
+    <eLiterals name="Private" value="1" literal="Private"/>
     <eLiterals name="Package" value="3" literal="Package"/>
     <eLiterals name="Protected" value="4" literal="Protected"/>
   </eClassifiers>
@@ -232,7 +232,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceContainment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsAggregate" unique="false"
-        eType="#//IsAggregate"/>
+        eType="#//IsAggregate" defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsOrdered" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceQualifier" unique="false"

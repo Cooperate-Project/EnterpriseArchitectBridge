@@ -28,8 +28,10 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	// Does this reach everything?
 	var associations = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	var comments = om.objectsOfType(Element)->select(c : Element | c.Type = ElementType::Note);
+	var imports = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	packagedElement += associations -> map mapConnectorToAssociation();
 	ownedComment += comments -> mapElementToComment();
+	packageImport += imports -> mapConnectorToPackageImport();
 }
 
 mapping eaobjectmodel::Package::mapPackage() : uml::Package
@@ -119,9 +121,12 @@ inherits Element::mapElementToClassifier
 mapping Element::mapElementToComment() : uml::Comment
 {
 	body := self.Notes;
+	
+	// FIXME: Conversion of Scope to ScopeObject fails (but ScopeObject -> Scope works)
 	var commentLinks = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::NoteLink);
 	var commentedElements = commentLinks->select(e : Connector | e.Source = self).Dest;
 	commentedElements += commentLinks->select(e : Connector | e.Dest = self).Source;
+	
 	commentedElements->forEach(ele) {
 		if (ele.PDATA1 = null)
 			then annotatedElement += ele.resolveone(uml::Element)
@@ -155,9 +160,14 @@ mapping Connector::mapConnectoToRealization() :  InterfaceRealization
 	contract := self.Dest.late resolveone(uml::Interface);
 }
 
+mapping Connector::mapConnectorToPackageImport() : PackageImport {
+	importedPackage := self.Dest.PDATA1.resolveone(uml::Package);
+}
+
 mapping Connector::mapConnectorToAssociation() : uml::Association
 {	
 	name := self.Name;
+	//order of memberEnds
 	memberEnd += self.map mapSourceToProperty();
 	memberEnd += self.map mapDestToProperty();
 	// does not work for ownedAttributes of Interfaces
@@ -202,11 +212,6 @@ query IsAggregate::transformAssociationType() : uml::AggregationKind
 		case (self = IsAggregate::Composition) AggregationKind::composite;
 		else assert error (false) with log("Illegal enum value");
 	};
-}
-
-mapping String::StringToCardinality() :  LiteralInteger
-{
-	value := self.toInteger();
 }
 
 mapping Method::transformOperations() :  Operation
@@ -508,7 +513,7 @@ when {self.Element.Type = ElementType::Interface} {
 
 //Connectors
 mapping DiagramLink::diagramLinkToConnector() : notation::Connector
-merges DiagramLink::associationToConnector, DiagramLink::generalizationToConnector, DiagramLink::implementationToConnector, DiagramLink::noteLinkToConnector
+merges DiagramLink::associationToConnector, DiagramLink::generalizationToConnector, DiagramLink::implementationToConnector, DiagramLink::noteLinkToConnector, DiagramLink::packageImportToConnector
 {
 	source := self.Connector.Source.resolveElement(self.Diagram);
 	target := self.Connector.Dest.resolveElement(self.Diagram);
@@ -551,7 +556,11 @@ when {self.Connector.Type = ConnectorType::Realisation} {
 mapping DiagramLink::noteLinkToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::NoteLink} {
 	type := PAPYRUS_NOTATION_EDGE_COMMENTLINK;
-	
+}
+
+mapping DiagramLink::packageImportToConnector() : notation::Connector 
+when {self.Connector.Type = ConnectorType::Package and self.Connector.Stereotype = "import"} {
+	type := PAPYRUS_NOTATION_EDGE_PACKAGEIMPORT;
 }
 
 //ConnectorNameDecorationNode
