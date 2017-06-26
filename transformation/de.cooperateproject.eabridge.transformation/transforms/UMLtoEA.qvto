@@ -1,4 +1,4 @@
-transformation UMLtoEA(in uml: UML,in ecorePrimitives : UML, out om: OM);
+transformation UMLtoEA(in uml: UML, in ecorePrimitives : UML, in notation : NOTATION,  out om : OM);
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
@@ -14,6 +14,9 @@ main() {
 		Packages += rootModels.map mapPackage();
 		Elements += rootModels.map mapPackageToElement();
 	};
+	
+	var diagrams := notation.objectsOfType(Diagram);
+	diagrams -> map mapDiagram();
 }
 
 mapping uml::Package::mapPackage() : eaobjectmodel::Package {
@@ -29,11 +32,14 @@ mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 	var classes := self.packagedElement->selectByType(UML::Class);
 	var interfaces := self.packagedElement->selectByType(UML::Interface);
 	var associations := self.packagedElement->selectByType(UML::Association);
+	var comments := self.ownedComment;
+
 	
 	Elements += classes -> map mapClassToElement();
 	Elements += interfaces -> map mapInterfaceToElement();
-	associations -> map mapAssociationToConnector();
-//	Elements += 
+				associations -> map mapAssociationToConnector();
+	Elements += comments -> map mapCommentToElement();
+	
 }
 
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
@@ -41,6 +47,8 @@ mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	Abstract := "0";
 	result.Type := ElementType::Package;
 	PDATA1 := self.late resolveone(eaobjectmodel::Package);
+	
+	SourceRelations += self.packageImport -> map mapPackageImportToConnector();
 }
 
 abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Element {
@@ -87,6 +95,9 @@ mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element {
 	log("Mapping Comment", self);
 	
 	Notes := self.body;
+	SourceRelations := self.annotatedElement.map mapElementToNoteLink();
+	
+	result.Type := eaobjectmodel::ElementType::Note;
 }
 
 mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
@@ -99,7 +110,7 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	Source := sourceProperty.type.resolveone(OM::Element);
 	Dest := destProperty.type.resolveone(OM::Element);
 	
-	// If the property was not assigned to the association it is possible to navigate to this member
+	// If the property was not assigned to the association it is possible to navigate to this memberEnd
 	SourceIsNavigable := sourceProperty.owningAssociation = null;
 	DestIsNavigable := destProperty.owningAssociation = null;
 	
@@ -107,6 +118,19 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	
 	SourceIsAggregate := self.memberEnd->at(1).transformAssociationType();
 	DestIsAggregate := self.memberEnd->at(2).transformAssociationType();
+	
+	SourceRole := sourceProperty.name;
+	DestRole := destProperty.name;
+	
+	if (sourceProperty.getLower() = sourceProperty.getUpper())
+		then SourceCard := sourceProperty.getLower().toString()
+		else SourceCard := sourceProperty.getLower().toString() + ".." + sourceProperty.getUpper().toString()
+	endif;
+	
+	if (destProperty.getLower() = destProperty.getUpper())
+		then DestCard := destProperty.getLower().toString()
+		else DestCard := destProperty.getLower().toString() + ".." + destProperty.getUpper().toString()
+	endif;
 	
 	result.Type := ConnectorType::Association;
 }
@@ -140,7 +164,24 @@ inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	result.Type := ConnectorType::Realisation;
 }
 
-//mapping uml::Comments::mapComment
+mapping uml::PackageImport::mapPackageImportToConnector() : eaobjectmodel::Connector
+inherits uml::DirectedRelationship::mapDirectedRelationShip {
+	log("Mapping packageImport",self);
+	
+	Dest := self.importedPackage.resolveoneIn(uml::Package::mapPackageToElement, eaobjectmodel::Element);
+	result.Type := ConnectorType::Package;
+	Btm_Mid_Label := "<<import>>";
+	result.Stereotype := "import";
+}
+
+mapping uml::Element::mapElementToNoteLink() : eaobjectmodel::Connector {
+	log("Mapping noteLink", self);
+	
+	Dest := self.resolveone(eaobjectmodel::Element);
+	
+	Direction := DirectionType::SourceDestination;
+	result.Type := ConnectorType::NoteLink;
+}
 
 mapping uml::Property::mapPropertyToAttribute(): Attribute {
 	log("Mapping attribute", self);
@@ -242,4 +283,20 @@ query uml::Type::transformType(): TypeReference {
 	} endif;
 	
 	return reference;
+}
+
+//Graphical
+
+mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
+	Name := self.name;
+	
+	result.Type := "Logical";
+	Orientation := "P";
+	
+	result.Package := self.element.oclAsType(uml::Package).resolveone(eaobjectmodel::Package);
+	DiagramObjects := self.children->selectByType(notation::Shape)->map mapShape();
+	
+}
+
+mapping notation::Shape::mapShape() : eaobjectmodel::DiagramObject {
 }

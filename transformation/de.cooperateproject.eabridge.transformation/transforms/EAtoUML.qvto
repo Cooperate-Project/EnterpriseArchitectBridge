@@ -1,6 +1,6 @@
 import TransformationUtils;
 
-transformation EAtoUML(inout om: OM, in ecorePrimitives : UML, out uml:UML, out graphical : NOTATION);
+transformation EAtoUML(inout om : OM, in ecorePrimitives : UML, out uml : UML, out notation : NOTATION);
 
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
@@ -13,9 +13,8 @@ main() {
 	
 	rootPackage.map mapRootPackage();
 	
-	//TODO: functionality for more nested Diagram
-	var diagrams = rootPackage.Diagrams;
-	diagrams->map diagramToDiagram()
+	var diagrams = om.objectsOfType(Diagram);
+	diagrams->map diagramToDiagram();
 }
 
 // mappings for transformation to uml
@@ -90,7 +89,6 @@ abstract mapping Element::mapElementToClassifier() : uml::Classifier {
 	if (substitution -> size() != 0) {
 		substitution := substitutions -> map mapConnectoToSubstitution();
 	};
-	
 }
 
 mapping Element::mapElementToClass() : uml::Class
@@ -292,7 +290,7 @@ mapping Diagram::diagramToDiagram() : notation::Diagram {
 	name := self.Name;
 	measurementUnit := notation::MeasurementUnit::Pixel;
 	
-	var package := self.Package.resolveone(uml::Model).oclAsType(uml::Package);
+	var package := self.Package.resolveone(uml::Package);
 	element := package.toEObject();
 	
 	var directChildren = self.DiagramObjects->select(d: DiagramObject | d.Element.Package = self.Package);
@@ -364,7 +362,6 @@ mapping DiagramObject::diagramObjectToLabelBodyHintDecoration() : notation::Deco
 //NameDecorationNode
 mapping DiagramObject::diagramObjectToNameDecorationNode() : DecorationNode
 merges DiagramObject::packageToNameDecorationNode, DiagramObject::classToNameDecorationNode, DiagramObject::interfaceToNameDecorationNode {
-	
 }
 
 mapping DiagramObject::packageToNameDecorationNode() : DecorationNode 
