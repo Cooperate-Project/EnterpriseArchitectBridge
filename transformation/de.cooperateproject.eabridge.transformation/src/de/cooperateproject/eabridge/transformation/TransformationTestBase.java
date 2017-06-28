@@ -131,6 +131,10 @@ public abstract class TransformationTestBase {
 	protected static String makeUMLTransformedPath(String testName) {
 		return String.format("%s/%sTransformed.uml", testName, testName);
 	}
+	
+	protected static String makeNotationPath(String testName) {
+		return String.format("%s/%s.notation", testName, testName);
+	}
 
 	protected static String makeNotationTransformedPath(String testName) {
 		return String.format("%s/%sTransformed.notation", testName, testName);
@@ -184,9 +188,14 @@ public abstract class TransformationTestBase {
 	}
 
 	// TODO: Refactor
+	
+	@SuppressWarnings("restriction")
+	protected void runUMLtoEATransformation(String transformationPath, String umlPath, String xmiPath) throws IOException {
+		runUMLtoEATransformation(transformationPath, umlPath, "", xmiPath);
+	}
 
 	@SuppressWarnings("restriction")
-	protected void runUMLtoEATransformation(String transformationPath, String umlPath, String xmiPath)
+	protected void runUMLtoEATransformation(String transformationPath, String umlPath, String notationPath, String xmiPath)
 			throws IOException {
 		TransformationExecutor executor = new TransformationExecutor(createTransformationURI(transformationPath));
 		ExecutionContextImpl ctx = new ExecutionContextImpl();
@@ -199,7 +208,9 @@ public abstract class TransformationTestBase {
 				.getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents());
 		ModelExtent uml = new BasicModelExtent(
 				getResourceSet().getResource(createResourceModelURI(umlPath), true).getContents());
-		Iterable<ModelExtent> transformationParameters = Arrays.asList(uml, primitives, xmi);
+		ModelExtent notation = new BasicModelExtent(
+				getResourceSet().getResource(createResourceModelURI(notationPath), true).getContents());
+		Iterable<ModelExtent> transformationParameters = Arrays.asList(uml, primitives, notation, xmi);
 
 		ExecutionDiagnostic result = executor.execute(ctx,
 				Iterables.toArray(transformationParameters, ModelExtent.class));

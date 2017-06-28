@@ -40,9 +40,9 @@ public abstract class RoundtripTestBase extends TransformationTestBase {
 
 	protected void runTransformation() throws Exception {
 		runEAtoUMLTransformation(transformationPathEAtoUML, makeXMIPath(testModelName),
-				makeUMLTransformedPath(testModelName));
+				makeUMLTransformedPath(testModelName), makeNotationTransformedPath(testModelName));
 		runUMLtoEATransformation(transformationPathUMLtoEA, makeUMLTransformedPath(testModelName),
-				makeXMITransformedPath(testModelName));
+				makeNotationTransformedPath(testModelName), makeXMITransformedPath(testModelName));
 	}
 
 	protected void compareResults() throws Exception {

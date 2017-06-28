@@ -78,7 +78,8 @@ public class EAPrimaryKeyType implements UserType {
 		}
 		return EFACTORY.createFromString(EDATA_TYPE, data);
 	}
-
+	
+	//TODO: Make this better
 	@Override
 	public void nullSafeSet(PreparedStatement arg0, Object arg1, int arg2, SessionImplementor arg3)
 			throws SQLException {
@@ -88,8 +89,10 @@ public class EAPrimaryKeyType implements UserType {
 		}
 		if (pvalue != null ) {
 			arg0.setLong(arg2, pvalue);
-		} else {
+		} else if (arg0.getParameterMetaData().getParameterCount() == 22) {
 			arg0.setLong(arg2, 0L);
+		} else {
+			arg0.setNull(arg2, Types.INTEGER);
 		}
 	}
 

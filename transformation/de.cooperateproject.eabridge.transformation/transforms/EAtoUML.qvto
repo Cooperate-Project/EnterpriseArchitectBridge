@@ -384,7 +384,7 @@ mapping DiagramObject::diagramObjectToLayoutConstraint() : Bounds {
 	width := self.Right - self.Left;
 	height := (self.Bottom - self.Top) * -1;
 	x := self.Left - self.getPackageLeft();
-	y := self.Top * -1 - self.getPackageTop() * -1;
+	y := (self.Top - self.getPackageTop()) * -1;
 }
 
 //FloatingLabelDecorationNode

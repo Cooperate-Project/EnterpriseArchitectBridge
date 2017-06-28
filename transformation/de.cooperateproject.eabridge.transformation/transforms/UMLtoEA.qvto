@@ -53,6 +53,7 @@ mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 
 abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Element {
 	log("Mapping Classifier", self);
+	PDATA1 := null;
 	
 	Name := self.name;
 	Abstract := if (self.isAbstract) then "1" else "0" endif;
@@ -92,12 +93,15 @@ inherits uml::Classifier::mapClassifierToElement {
 }
 
 mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element {
-	log("Mapping Comment", self);
+	log("Mapping comment", self);
+	PDATA1 := null;
 	
 	Notes := self.body;
 	SourceRelations := self.annotatedElement.map mapElementToNoteLink();
 	
 	result.Type := eaobjectmodel::ElementType::Note;
+	
+	result.Abstract := "0";
 }
 
 mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
@@ -116,8 +120,8 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	
 	Direction := result.transformDirectionType();
 	
-	SourceIsAggregate := self.memberEnd->at(1).transformAssociationType();
-	DestIsAggregate := self.memberEnd->at(2).transformAssociationType();
+	SourceIsAggregate := self.memberEnd->at(2).transformAssociationType();
+	DestIsAggregate := self.memberEnd->at(1).transformAssociationType();
 	
 	SourceRole := sourceProperty.name;
 	DestRole := destProperty.name;
@@ -192,7 +196,7 @@ mapping uml::Property::mapPropertyToAttribute(): Attribute {
 	AttributeType := self.type.transformType();
 }
 
-mapping Operation::mapOperationToMethod() : Method {
+mapping uml::Operation::mapOperationToMethod() : Method {
 	log("Mapping operation", self);
 	
 	Name := self.name;
@@ -288,15 +292,42 @@ query uml::Type::transformType(): TypeReference {
 //Graphical
 
 mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
+	log("Mapping diagram", self);
 	Name := self.name;
 	
 	result.Type := "Logical";
 	Orientation := "P";
 	
 	result.Package := self.element.oclAsType(uml::Package).resolveone(eaobjectmodel::Package);
-	DiagramObjects := self.children->selectByType(notation::Shape)->map mapShape();
+	self.children->selectByType(notation::Shape)->map mapShape(0, 0);
 	
 }
 
-mapping notation::Shape::mapShape() : eaobjectmodel::DiagramObject {
+mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject {
+	log("Mapping diagramobject", self);
+
+	result.Element := self.element.resolveone(eaobjectmodel::Element);
+	result.Diagram := self.diagram.resolveone(eaobjectmodel::Diagram);
+	
+	Left := self.getBounds().x + packageLeft;
+	Top := packageTop - self.getBounds().y;
+	Right := self.getBounds().width + result.Left;
+	Bottom := result.Top - self.getBounds().height;
+	
+//	self.children->subobjectsOfType(notation::Shape)->flatten()-> forEach(shape) {
+//		log("DEBUG", shape.oclAsType(notation::Shape));
+//	};
+	
+	self.children->subobjectsOfType(notation::Shape)->flatten()->map mapShape(result.Left, result.Top);
+}
+
+mapping notation::Connector::mapConnector() : eaobjectmodel::DiagramLink {
+	log("Mapping diagramlink", self);
+	
+	result.Element := self.element.resolveone(eaobjectmodel::Element);
+	result.Diagram := self.diagram.resolveone(eaobjectmodel::Diagram);
+}
+
+query notation::Shape::getBounds() : notation::Bounds {
+	return self.layoutConstraint.oclAsType(notation::Bounds);
 }
