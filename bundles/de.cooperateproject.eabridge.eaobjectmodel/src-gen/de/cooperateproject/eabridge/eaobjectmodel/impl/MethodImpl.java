@@ -256,7 +256,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Scope VISIBILITY_EDEFAULT = Scope.PRIVATE;
+	protected static final Scope VISIBILITY_EDEFAULT = Scope.PUBLIC;
 	/**
 	 * The default value of the '{@link #getConcurrency() <em>Concurrency</em>}' attribute.
 	 * <!-- begin-user-doc -->

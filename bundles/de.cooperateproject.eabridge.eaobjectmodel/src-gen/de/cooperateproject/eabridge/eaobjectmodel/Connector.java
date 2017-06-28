@@ -908,6 +908,7 @@ public interface Connector extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Source Is Aggregate</b></em>' attribute.
+	 * The default value is <code>"False"</code>.
 	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.IsAggregate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -919,7 +920,7 @@ public interface Connector extends EObject {
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.IsAggregate
 	 * @see #setSourceIsAggregate(IsAggregate)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getConnector_SourceIsAggregate()
-	 * @model unique="false"
+	 * @model default="False" unique="false"
 	 * @generated
 	 */
 	IsAggregate getSourceIsAggregate();

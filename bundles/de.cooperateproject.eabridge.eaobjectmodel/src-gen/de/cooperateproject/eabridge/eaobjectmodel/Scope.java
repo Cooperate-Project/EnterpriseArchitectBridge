@@ -19,6 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Scope implements Enumerator {
 	/**
+	 * The '<em><b>Public</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PUBLIC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PUBLIC(2, "Public", "Public"), /**
 	 * The '<em><b>Private</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -27,16 +35,6 @@ public enum Scope implements Enumerator {
 	 * @ordered
 	 */
 	PRIVATE(1, "Private", "Private"),
-
-	/**
-	 * The '<em><b>Public</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PUBLIC_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PUBLIC(2, "Public", "Public"),
 
 	/**
 	 * The '<em><b>Package</b></em>' literal object.
@@ -59,21 +57,6 @@ public enum Scope implements Enumerator {
 	PROTECTED(4, "Protected", "Protected");
 
 	/**
-	 * The '<em><b>Private</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Private</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #PRIVATE
-	 * @model name="Private"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PRIVATE_VALUE = 1;
-
-	/**
 	 * The '<em><b>Public</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -87,6 +70,21 @@ public enum Scope implements Enumerator {
 	 * @ordered
 	 */
 	public static final int PUBLIC_VALUE = 2;
+
+	/**
+	 * The '<em><b>Private</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Private</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PRIVATE
+	 * @model name="Private"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PRIVATE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Package</b></em>' literal value.
@@ -126,8 +124,8 @@ public enum Scope implements Enumerator {
 	 */
 	private static final Scope[] VALUES_ARRAY =
 		new Scope[] {
-			PRIVATE,
 			PUBLIC,
+			PRIVATE,
 			PACKAGE,
 			PROTECTED,
 		};
@@ -186,8 +184,8 @@ public enum Scope implements Enumerator {
 	 */
 	public static Scope get(int value) {
 		switch (value) {
-			case PRIVATE_VALUE: return PRIVATE;
 			case PUBLIC_VALUE: return PUBLIC;
+			case PRIVATE_VALUE: return PRIVATE;
 			case PACKAGE_VALUE: return PACKAGE;
 			case PROTECTED_VALUE: return PROTECTED;
 		}

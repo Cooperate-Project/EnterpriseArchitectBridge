@@ -232,7 +232,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceContainment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsAggregate" unique="false"
-        eType="#//IsAggregate" defaultValueLiteral=""/>
+        eType="#//IsAggregate" defaultValueLiteral="False"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceIsOrdered" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceQualifier" unique="false"
@@ -399,6 +399,30 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DiagramLink">
+    <eOperations name="setSX">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final Geometry map = new Geometry(_geometry);&#xD;&#xA;map.hashInt.put(&quot;SX&quot;, newSX);"/>
+      </eAnnotations>
+      <eParameters name="newSX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eOperations>
+    <eOperations name="setSY">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final Geometry map = new Geometry(_geometry);&#xD;&#xA;map.hashInt.put(&quot;SY&quot;, newSY);"/>
+      </eAnnotations>
+      <eParameters name="newSY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eOperations>
+    <eOperations name="setEX">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final Geometry map = new Geometry(_geometry);&#xD;&#xA;map.hashInt.put(&quot;EX&quot;, newEX);"/>
+      </eAnnotations>
+      <eParameters name="newEX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eOperations>
+    <eOperations name="setEY">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final Geometry map = new Geometry(_geometry);&#xD;&#xA;map.hashInt.put(&quot;EY&quot;, newEY);"/>
+      </eAnnotations>
+      <eParameters name="newEY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Connector" eType="#//Connector"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Diagram" eType="#//Diagram"
         eOpposite="#//Diagram/DiagramLinks"/>

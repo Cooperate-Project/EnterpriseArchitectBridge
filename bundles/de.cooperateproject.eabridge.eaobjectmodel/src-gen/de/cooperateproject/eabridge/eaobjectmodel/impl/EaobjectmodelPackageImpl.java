@@ -1869,6 +1869,42 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDiagramLink__SetSX__Integer() {
+		return diagramLinkEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDiagramLink__SetSY__Integer() {
+		return diagramLinkEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDiagramLink__SetEX__Integer() {
+		return diagramLinkEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDiagramLink__SetEY__Integer() {
+		return diagramLinkEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDiagramObject() {
 		return diagramObjectEClass;
 	}
@@ -3212,6 +3248,10 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTCY);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTOX);
 		createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTOY);
+		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_SX__INTEGER);
+		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_SY__INTEGER);
+		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_EX__INTEGER);
+		createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_EY__INTEGER);
 
 		diagramObjectEClass = createEClass(DIAGRAM_OBJECT);
 		createEAttribute(diagramObjectEClass, DIAGRAM_OBJECT__BOTTOM);
@@ -3472,7 +3512,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getConnector_SourceRoleType(), ecorePackage.getEString(), "SourceRoleType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceRoleNote(), ecorePackage.getEString(), "SourceRoleNote", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceContainment(), ecorePackage.getEString(), "SourceContainment", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_SourceIsAggregate(), this.getIsAggregate(), "SourceIsAggregate", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceIsAggregate(), this.getIsAggregate(), "SourceIsAggregate", "False", 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceIsOrdered(), ecorePackage.getEBoolean(), "SourceIsOrdered", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceQualifier(), ecorePackage.getEString(), "SourceQualifier", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceChangeable(), ecorePackage.getEString(), "SourceChangeable", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3578,6 +3618,18 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getDiagramLink_LRTCY(), ecorePackage.getEInt(), "LRTCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_LRTOX(), ecorePackage.getEInt(), "LRTOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiagramLink_LRTOY(), ecorePackage.getEInt(), "LRTOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getDiagramLink__SetSX__Integer(), null, "setSX", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEIntegerObject(), "newSX", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDiagramLink__SetSY__Integer(), null, "setSY", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEIntegerObject(), "newSY", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDiagramLink__SetEX__Integer(), null, "setEX", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEIntegerObject(), "newEX", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDiagramLink__SetEY__Integer(), null, "setEY", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEIntegerObject(), "newEY", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(diagramObjectEClass, DiagramObject.class, "DiagramObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDiagramObject_Bottom(), ecorePackage.getEInt(), "Bottom", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3715,8 +3767,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEEnumLiteral(primitiveTypeEEnum, PrimitiveType.STRING);
 
 		initEEnum(scopeEEnum, Scope.class, "Scope");
-		addEEnumLiteral(scopeEEnum, Scope.PRIVATE);
 		addEEnumLiteral(scopeEEnum, Scope.PUBLIC);
+		addEEnumLiteral(scopeEEnum, Scope.PRIVATE);
 		addEEnumLiteral(scopeEEnum, Scope.PACKAGE);
 		addEEnumLiteral(scopeEEnum, Scope.PROTECTED);
 

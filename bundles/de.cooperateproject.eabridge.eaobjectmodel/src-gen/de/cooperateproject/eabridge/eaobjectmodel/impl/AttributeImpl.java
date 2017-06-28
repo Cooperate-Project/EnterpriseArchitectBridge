@@ -267,7 +267,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Scope SCOPE_EDEFAULT = Scope.PRIVATE;
+	protected static final Scope SCOPE_EDEFAULT = Scope.PUBLIC;
 	/**
 	 * The default value of the '{@link #getGenOption() <em>Gen Option</em>}' attribute.
 	 * <!-- begin-user-doc -->
