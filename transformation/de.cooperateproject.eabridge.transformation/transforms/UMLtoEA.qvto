@@ -1,3 +1,5 @@
+import TransformationUtils;
+
 transformation UMLtoEA(in uml: UML, in ecorePrimitives : UML, in notation : NOTATION,  out om : OM);
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
@@ -92,6 +94,7 @@ inherits uml::Classifier::mapClassifierToElement {
 	result.Abstract := "1";
 }
 
+// Comment can only be linked to one Classifier
 mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element {
 	log("Mapping comment", self);
 	PDATA1 := null;
@@ -300,7 +303,7 @@ mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	
 	result.Package := self.element.oclAsType(uml::Package).resolveone(eaobjectmodel::Package);
 	self.children->selectByType(notation::Shape)->map mapShape(0, 0);
-	
+	self.edges->selectByType(notation::Connector)->map mapConnector();
 }
 
 mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject {
@@ -324,10 +327,57 @@ mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) :
 mapping notation::Connector::mapConnector() : eaobjectmodel::DiagramLink {
 	log("Mapping diagramlink", self);
 	
-	result.Connector := self.element.oclAsType(uml::Relationship).resolveone(eaobjectmodel::Connector);
+	log("ELEMENT: ", self.element);
+	log("RESOLVED: ",self.element.resolveone(eaobjectmodel::Connector));
+	
+	result.Connector := self.element.resolveone(eaobjectmodel::Connector);
+	
+//	if (self.type = PAPYRUS_NOTATION_EDGE_PACKAGEIMPORT)
+//		then 
+//	endif 
+	
+	
 	result.Diagram := self.diagram.resolveone(eaobjectmodel::Diagram);
+	
+	var targetBounds := self.target.oclAsType(notation::Shape).layoutConstraint.oclAsType(notation::Bounds);
+	var sourceBounds := self.source.oclAsType(notation::Shape).layoutConstraint.oclAsType(notation::Bounds);
+	
+	result.setSX(calculateX(self.target, self.targetAnchor));
+	result.setSY(calculateY(self.target, self.targetAnchor));
+	
+	result.setEX(calculateX(self.source, self.sourceAnchor));
+	result.setEY(calculateY(self.source, self.sourceAnchor));
 }
 
 query notation::Shape::getBounds() : notation::Bounds {
 	return self.layoutConstraint.oclAsType(notation::Bounds);
 }
+
+query calculateX(view : notation::View, anchor : notation::Anchor) : Integer {
+	var shape := view.oclAsType(notation::Shape);
+	var bounds := shape.layoutConstraint.oclAsType(notation::Bounds);
+	var width := bounds.width;
+	
+	var coordsString := anchor.oclAsType(notation::IdentityAnchor).id;
+	var commaIndex := coordsString.indexOf(",");
+	var resultString : String := coordsString.substring(2, commaIndex - 1);
+	var xPos := resultString.toReal();
+	
+	var xReal := width * xPos - width./(2);
+	return xReal.round();
+}
+
+query calculateY(view : notation::View, anchor : notation::Anchor) : Integer {
+	var shape := view.oclAsType(notation::Shape);
+	var bounds := shape.layoutConstraint.oclAsType(notation::Bounds);
+	var height := bounds.height;
+	
+	var coordsString := anchor.oclAsType(notation::IdentityAnchor).id;
+	var commaIndex := coordsString.indexOf(",");
+	var resultString : String := coordsString.substring(commaIndex + 1, coordsString.length() - 1);
+	var yPos := resultString.toReal();
+	
+	var yReal := height/(2) - yPos * height;
+	return yReal.round();
+}
+

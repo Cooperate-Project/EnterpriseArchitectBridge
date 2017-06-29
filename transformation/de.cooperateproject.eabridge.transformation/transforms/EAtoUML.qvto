@@ -1,4 +1,5 @@
 import TransformationUtils;
+import de.cooperateproject.qvtoutils.CooperateLibrary;
 
 transformation EAtoUML(inout om : OM, in ecorePrimitives : UML, out uml : UML, out notation : NOTATION);
 
@@ -7,12 +8,13 @@ modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/viewpoints/policy/style');
 
+// Check if its possible to adjust this that one Model only is forced
 main() {
 	var rootRootPackage := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
 	var rootPackage := rootRootPackage.Packages->any(true);
 	
 	rootPackage.map mapRootPackage();
-	var diagrams = om.objectsOfType(Diagram);
+	var diagrams = om.getAllContents()->oclIsTypeOf(Diagram)->oclAsType(Diagram);
 	diagrams->map diagramToDiagram();
 }
 
@@ -513,8 +515,8 @@ merges DiagramLink::associationToConnector, DiagramLink::generalizationToConnect
 {
 	source := self.Connector.Source.resolveElement(self.Diagram);
 	target := self.Connector.Dest.resolveElement(self.Diagram);
-	sourceAnchor := self.map diagramLinkToSourceAnchor();
 	targetAnchor := self.map diagramLinkToTargetAnchor();
+	sourceAnchor := self.map diagramLinkToSourceAnchor();
 
 	bendpoints := result.map connectorToBendpoint();
 	styles += result.toEObject().map fontStyle();
@@ -557,6 +559,7 @@ when {self.Connector.Type = ConnectorType::NoteLink} {
 mapping DiagramLink::packageImportToConnector() : notation::Connector 
 when {self.Connector.Type = ConnectorType::Package and self.Connector.Stereotype = "import"} {
 	type := PAPYRUS_NOTATION_EDGE_PACKAGEIMPORT;
+	element := self.Connector.resolveoneIn(Connector::mapConnectorToPackageImport).toEObject();
 }
 
 //ConnectorNameDecorationNode
@@ -601,16 +604,16 @@ mapping DiagramLink::diagramLinkToSourceMultiplicityDecoration() : notation::Dec
 mapping DiagramLink::diagramLinkToTargetAnchor() : notation::IdentityAnchor 
 {
 	var bounds := self.Connector.Dest.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
-	var xPos := (self.SX + (bounds.width / 2)) / bounds.width;
-	var yPos := ((self.SY * -1) + (bounds.height / 2)) / bounds.height;
+	var xPos := (self.SX + bounds.width./(2)) / bounds.width;
+	var yPos := (self.SY.-() + bounds.height./(2)) / bounds.height;
 	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
 }
 
 mapping DiagramLink::diagramLinkToSourceAnchor() : notation::IdentityAnchor 
 {
 	var bounds := self.Connector.Source.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
-	var xPos := (self.EX + (bounds.width / 2)) / bounds.width;
-	var yPos := ((self.EY * -1) + (bounds.height / 2)) / bounds.height;
+	var xPos := (self.EX + bounds.width./(2)) / bounds.width;
+	var yPos := (self.EY.-() + bounds.height./(2)) / bounds.height;
 	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
 }
 
