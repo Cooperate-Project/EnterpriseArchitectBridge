@@ -29,9 +29,9 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	// Does this reach everything?
 	var connectors := self.getAllContents()->selectByType(Connector);
 	
-	var associations = connectors->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
-	var comments = self.getAllContents()->selectByType(Element)->select(c : Element | c.Type = ElementType::Note);
-	var imports = connectors->select(e : Connector | e.Type = ConnectorType::Package and e.Stereotype = "import");
+	var associations := connectors->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
+	var comments := self.getAllContents()->selectByType(Element)->select(c : Element | c.Type = ElementType::Note);
+	var imports := connectors->select(e : Connector | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	
 	packagedElement += associations -> map mapConnectorToAssociation();
 	ownedComment += comments -> mapElementToComment();
