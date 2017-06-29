@@ -20,6 +20,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EPackage.Registry;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -32,6 +33,7 @@ import org.eclipse.m2m.qvt.oml.ExecutionContextImpl;
 import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.eclipse.m2m.qvt.oml.TransformationExecutor;
+import org.eclipse.m2m.qvt.oml.TransformationExecutor.BlackboxRegistry;
 import org.eclipse.m2m.qvt.oml.util.Trace;
 import org.eclipse.papyrus.infra.viewpoints.style.StylePackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
@@ -50,6 +52,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
 import de.cooperateproject.eabridge.tests.common.util.EAObjectModelHelper;
 import de.cooperateproject.eabridge.tests.common.util.TestDB;
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
+import de.cooperateproject.qvtoutils.blackbox.CooperateLibrary;
 
 public abstract class TransformationTestBase {
 
@@ -73,6 +76,8 @@ public abstract class TransformationTestBase {
 
 			NotationPackage.eINSTANCE.eClass();
 			StylePackage.eINSTANCE.eClass();
+			
+			BlackboxRegistry.INSTANCE.registerModule(CooperateLibrary.class, "de.cooperateproject.qvtoutils.CooperateLibrary", "CooperateLibrary", new String[]{EcorePackage.eNS_URI});
 		}
 	}
 

@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.hibernate,
  org.eclipse.gmf.runtime.notation;bundle-version="1.8.0",
  org.eclipse.papyrus.infra.viewpoints.policy;bundle-version="1.2.0",
- org.mariadb.jdbc;bundle-version="1.4.2"
+ org.mariadb.jdbc;bundle-version="1.4.2",
+ de.cooperateproject.qvtoutils.blackbox;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.commons.io;version="1.8.1",
