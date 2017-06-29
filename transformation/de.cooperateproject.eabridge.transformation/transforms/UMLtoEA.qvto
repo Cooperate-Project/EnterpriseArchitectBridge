@@ -324,7 +324,7 @@ mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) :
 mapping notation::Connector::mapConnector() : eaobjectmodel::DiagramLink {
 	log("Mapping diagramlink", self);
 	
-	result.Element := self.element.resolveone(eaobjectmodel::Element);
+	result.Connector := self.element.oclAsType(uml::Relationship).resolveone(eaobjectmodel::Connector);
 	result.Diagram := self.diagram.resolveone(eaobjectmodel::Diagram);
 }
 

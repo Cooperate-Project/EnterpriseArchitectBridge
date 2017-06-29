@@ -12,7 +12,6 @@ main() {
 	var rootPackage := rootRootPackage.Packages->any(true);
 	
 	rootPackage.map mapRootPackage();
-	
 	var diagrams = om.objectsOfType(Diagram);
 	diagrams->map diagramToDiagram();
 }

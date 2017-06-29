@@ -1805,13 +1805,49 @@ public interface EaobjectmodelPackage extends EPackage {
 	int DIAGRAM_LINK_FEATURE_COUNT = 27;
 
 	/**
+	 * The operation id for the '<em>Set SX</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK___SET_SX__INTEGER = 0;
+
+	/**
+	 * The operation id for the '<em>Set SY</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK___SET_SY__INTEGER = 1;
+
+	/**
+	 * The operation id for the '<em>Set EX</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK___SET_EX__INTEGER = 2;
+
+	/**
+	 * The operation id for the '<em>Set EY</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIAGRAM_LINK___SET_EY__INTEGER = 3;
+
+	/**
 	 * The number of operations of the '<em>Diagram Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIAGRAM_LINK_OPERATION_COUNT = 0;
+	int DIAGRAM_LINK_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.
@@ -5014,6 +5050,46 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getDiagramLink_LRTOY();
 
 	/**
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSX(java.lang.Integer) <em>Set SX</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set SX</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSX(java.lang.Integer)
+	 * @generated
+	 */
+	EOperation getDiagramLink__SetSX__Integer();
+
+	/**
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSY(java.lang.Integer) <em>Set SY</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set SY</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSY(java.lang.Integer)
+	 * @generated
+	 */
+	EOperation getDiagramLink__SetSY__Integer();
+
+	/**
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEX(java.lang.Integer) <em>Set EX</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set EX</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEX(java.lang.Integer)
+	 * @generated
+	 */
+	EOperation getDiagramLink__SetEX__Integer();
+
+	/**
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEY(java.lang.Integer) <em>Set EY</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set EY</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setEY(java.lang.Integer)
+	 * @generated
+	 */
+	EOperation getDiagramLink__SetEY__Integer();
+
+	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramObject <em>Diagram Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7864,6 +7940,38 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DIAGRAM_LINK__LRTOY = eINSTANCE.getDiagramLink_LRTOY();
+
+		/**
+		 * The meta object literal for the '<em><b>Set SX</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DIAGRAM_LINK___SET_SX__INTEGER = eINSTANCE.getDiagramLink__SetSX__Integer();
+
+		/**
+		 * The meta object literal for the '<em><b>Set SY</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DIAGRAM_LINK___SET_SY__INTEGER = eINSTANCE.getDiagramLink__SetSY__Integer();
+
+		/**
+		 * The meta object literal for the '<em><b>Set EX</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DIAGRAM_LINK___SET_EX__INTEGER = eINSTANCE.getDiagramLink__SetEX__Integer();
+
+		/**
+		 * The meta object literal for the '<em><b>Set EY</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DIAGRAM_LINK___SET_EY__INTEGER = eINSTANCE.getDiagramLink__SetEY__Integer();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramObjectImpl <em>Diagram Object</em>}' class.

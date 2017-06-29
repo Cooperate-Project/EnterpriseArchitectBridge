@@ -8,7 +8,9 @@ import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 
 import de.cooperateproject.eabridge.eaobjectmodel.util.Geometry;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -710,6 +712,50 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setSX(final Integer newSX) {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		map.hashInt.put("SX", newSX);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSY(final Integer newSY) {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		map.hashInt.put("SY", newSY);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEX(final Integer newEX) {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		map.hashInt.put("EX", newEX);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEY(final Integer newEY) {
+		String _geometry = this.getGeometry();
+		final Geometry map = new Geometry(_geometry);
+		map.hashInt.put("EY", newEY);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -947,6 +993,30 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 				return getLRTOY() != LRTOY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case EaobjectmodelPackage.DIAGRAM_LINK___SET_SX__INTEGER:
+				setSX((Integer)arguments.get(0));
+				return null;
+			case EaobjectmodelPackage.DIAGRAM_LINK___SET_SY__INTEGER:
+				setSY((Integer)arguments.get(0));
+				return null;
+			case EaobjectmodelPackage.DIAGRAM_LINK___SET_EX__INTEGER:
+				setEX((Integer)arguments.get(0));
+				return null;
+			case EaobjectmodelPackage.DIAGRAM_LINK___SET_EY__INTEGER:
+				setEY((Integer)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //DiagramLinkImpl

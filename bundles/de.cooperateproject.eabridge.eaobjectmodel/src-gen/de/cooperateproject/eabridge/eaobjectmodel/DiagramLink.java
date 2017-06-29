@@ -551,4 +551,36 @@ public interface DiagramLink extends EObject {
 	 */
 	int getLRTOY();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SX\", newSX);'"
+	 * @generated
+	 */
+	void setSX(Integer newSX);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SY\", newSY);'"
+	 * @generated
+	 */
+	void setSY(Integer newSY);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EX\", newEX);'"
+	 * @generated
+	 */
+	void setEX(Integer newEX);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EY\", newEY);'"
+	 * @generated
+	 */
+	void setEY(Integer newEY);
+
 } // DiagramLink
