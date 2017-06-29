@@ -14,7 +14,8 @@ main() {
 	var rootPackage := rootRootPackage.Packages->any(true);
 	
 	rootPackage.map mapRootPackage();
-	var diagrams = om.getAllContents()->oclIsTypeOf(Diagram)->oclAsType(Diagram);
+	
+	var diagrams := rootPackage.getAllContents()->selectByType(Diagram);
 	diagrams->map diagramToDiagram();
 }
 
@@ -26,9 +27,12 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	nestedPackage := self.Packages-> map mapPackage();
 	
 	// Does this reach everything?
-	var associations = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
-	var comments = om.objectsOfType(Element)->select(c : Element | c.Type = ElementType::Note);
-	var imports = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::Package and e.Stereotype = "import");
+	var connectors := self.getAllContents()->selectByType(Connector);
+	
+	var associations = connectors->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
+	var comments = self.getAllContents()->selectByType(Element)->select(c : Element | c.Type = ElementType::Note);
+	var imports = connectors->select(e : Connector | e.Type = ConnectorType::Package and e.Stereotype = "import");
+	
 	packagedElement += associations -> map mapConnectorToAssociation();
 	ownedComment += comments -> mapElementToComment();
 	packageImport += imports -> mapConnectorToPackageImport();
@@ -625,8 +629,9 @@ query DiagramObject::getNestedName(name : String) : String {
 	endif	
 }
 
+// om.objectsOfType allowed here because it's used for finding a specific entity'
 query DiagramObject::getPackageLeft() : Integer {
-	var package := om.objects()[DiagramObject]->any(p: DiagramObject | p.Diagram = self.Diagram and p.Element.PDATA1 = self.Element.Package);
+	var package := om.objectsOfType(DiagramObject)->any(p: DiagramObject | p.Diagram = self.Diagram and p.Element.PDATA1 = self.Element.Package);
 	if (package.oclIsUndefined())
 		then return 0
 		else return package.Left
@@ -634,16 +639,15 @@ query DiagramObject::getPackageLeft() : Integer {
 }
 
 query DiagramObject::getPackageTop() : Integer {
-	var package := om.objects()[DiagramObject]->any(p: DiagramObject | p.Diagram = self.Diagram and p.Element.PDATA1 = self.Element.Package);
+	var package := om.objectsOfType(DiagramObject)->any(p: DiagramObject | p.Diagram = self.Diagram and p.Element.PDATA1 = self.Element.Package);
 	if (package.oclIsUndefined())
 		then return 0
 		else return package.Top
 	endif;
 }
 
-query Element::resolveElement(dia : eaobjectmodel::Diagram) : notation::Shape
-{
-	var diaObj = om.objects()[DiagramObject]->any(diaObj: DiagramObject| diaObj.Diagram = dia and diaObj.Element = self);
+query Element::resolveElement(dia : eaobjectmodel::Diagram) : notation::Shape {
+	var diaObj = om.objectsOfType(DiagramObject)->any(diaObj: DiagramObject| diaObj.Diagram = dia and diaObj.Element = self);
 	assert fatal (not diaObj.oclIsUndefined());
 	return diaObj.resolveoneIn(DiagramObject::diagramObjectToShape);
 }
