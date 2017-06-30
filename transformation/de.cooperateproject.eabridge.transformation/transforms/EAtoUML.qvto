@@ -23,14 +23,17 @@ main() {
 
 // Fits to the way papyrus creates new diagrams/models
 mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
+	log("mapping Model", self.Name);
+	
 	name := self.Name;
-	nestedPackage := self.Packages-> map mapPackage();
+	result.setToFeature("nestedPackage", self.Packages-> map mapPackage());
 	
 	// Does this reach everything?
 	var connectors := self.getAllContents()->selectByType(Connector);
 	
 	var associations := connectors->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	var comments := self.getAllContents()->selectByType(Element)->select(c : Element | c.Type = ElementType::Note);
+	var noteLinks := connectors->select(e : Connector | e.Type = ConnectorType::NoteLink);
 	var imports := connectors->select(e : Connector | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	
 	packagedElement += associations -> map mapConnectorToAssociation();
@@ -38,8 +41,9 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	packageImport += imports -> mapConnectorToPackageImport();
 }
 
-mapping eaobjectmodel::Package::mapPackage() : uml::Package
-{
+mapping eaobjectmodel::Package::mapPackage() : uml::Package {
+	log("mapping Package", self.Name);
+
 	name := self.Name;
 	nestedPackage := self.Packages->map mapPackage();
 
@@ -125,8 +129,7 @@ mapping Element::mapElementToComment() : uml::Comment
 {
 	body := self.Notes;
 	
-	// FIXME: Conversion of Scope to ScopeObject fails (but ScopeObject -> Scope works)
-	var commentLinks = om.objectsOfType(Connector)->select(e : Connector | e.Type = ConnectorType::NoteLink);
+	var commentLinks = self.getAllContents(true)->selectByType(Connector)->select(e : Connector | e.Type = ConnectorType::NoteLink);
 	var commentedElements = commentLinks->select(e : Connector | e.Source = self).Dest;
 	commentedElements += commentLinks->select(e : Connector | e.Dest = self).Source;
 	
