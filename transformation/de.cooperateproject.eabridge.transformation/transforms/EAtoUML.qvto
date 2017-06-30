@@ -1,7 +1,7 @@
 import TransformationUtils;
 import de.cooperateproject.qvtoutils.CooperateLibrary;
 
-transformation EAtoUML(inout om : OM, in ecorePrimitives : UML, out uml : UML, out notation : NOTATION);
+transformation EAtoUML(in om : OM, in ecorePrimitives : UML, out uml : UML, out notation : NOTATION);
 
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
