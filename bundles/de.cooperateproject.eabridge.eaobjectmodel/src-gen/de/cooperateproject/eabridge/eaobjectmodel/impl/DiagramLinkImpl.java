@@ -716,6 +716,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
 		map.hashInt.put("SX", newSX);
+		this.setGeometry(map.toString());
 	}
 
 	/**
@@ -727,6 +728,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
 		map.hashInt.put("SY", newSY);
+		this.setGeometry(map.toString());
 	}
 
 	/**
@@ -738,6 +740,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
 		map.hashInt.put("EX", newEX);
+		this.setGeometry(map.toString());
 	}
 
 	/**
@@ -749,6 +752,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
 		map.hashInt.put("EY", newEY);
+		this.setGeometry(map.toString());
 	}
 
 	/**

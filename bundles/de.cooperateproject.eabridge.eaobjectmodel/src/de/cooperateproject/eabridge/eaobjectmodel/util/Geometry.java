@@ -7,6 +7,9 @@ public class Geometry {
 
 	public HashMap<String, Integer> hashInt = new HashMap<String, Integer>();
 	public HashMap<String, Node> hashNode = new HashMap<String, Node>();
+	
+	// Used to store unused rest
+	private String second;
 
 	public Geometry(String geometry) {
 		if (geometry == null) {
@@ -21,13 +24,17 @@ public class Geometry {
 				if (value.matches("-?[0-9]+")) {
 					hashInt.put(key, Integer.parseInt(value));
 				} else {
-					infos = Arrays.copyOfRange(infos, 1, infos.length);
-					hashNode.put(key, new Node(String.join("=", infos)));
+//					infos = Arrays.copyOfRange(infos, 1, infos.length);
+//					hashNode.put(key, new Node(String.join("=", infos)));
 				}
 			}
 		}
+		
+		second = "$LLB" + geometry.split("LLB")[1];
 	}
 
+	// Used to parse inner Nodes
+	// currently not in use
 	public class Node extends HashMap<String, Integer> {
 
 		public Node(String node) {
@@ -40,5 +47,12 @@ public class Geometry {
 				}
 			}
 		}
+	}
+
+	@Override
+	public String toString() {
+		String first = String.format("SX=%d;SY=%d;EX=%d;EY=%d;EDGE=%d;", hashInt.get("SX"), hashInt.get("SY"), hashInt.get("EX"),
+				hashInt.get("EY"), hashInt.get("EDGE"));
+		return first + second;
 	}
 }

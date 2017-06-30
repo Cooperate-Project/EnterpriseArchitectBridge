@@ -554,7 +554,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SX\", newSX);'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SX\", newSX);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setSX(Integer newSX);
@@ -562,7 +562,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SY\", newSY);'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SY\", newSY);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setSY(Integer newSY);
@@ -570,7 +570,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EX\", newEX);'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EX\", newEX);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setEX(Integer newEX);
@@ -578,7 +578,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EY\", newEY);'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EY\", newEY);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setEY(Integer newEY);

@@ -1,4 +1,5 @@
 import TransformationUtils;
+import de.cooperateproject.qvtoutils.CooperateLibrary;
 
 transformation UMLtoEA(in uml: UML, in ecorePrimitives : UML, in notation : NOTATION,  out om : OM);
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
@@ -317,44 +318,52 @@ mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) :
 	Right := self.getBounds().width + result.Left;
 	Bottom := result.Top - self.getBounds().height;
 	
-//	self.children->subobjectsOfType(notation::Shape)->flatten()-> forEach(shape) {
-//		log("DEBUG", shape.oclAsType(notation::Shape));
-//	};
-	
-	self.children->subobjectsOfType(notation::Shape)->flatten()->map mapShape(result.Left, result.Top);
+	self.getAllContents(false)->selectByType(notation::Shape)-> map mapShape(result.Left, result.Top);
 }
 
 mapping notation::Connector::mapConnector() : eaobjectmodel::DiagramLink {
 	log("Mapping diagramlink", self);
-	
-	log("ELEMENT: ", self.element);
-	log("RESOLVED: ",self.element.resolveone(eaobjectmodel::Connector));
-	
+		
 	result.Connector := self.element.resolveone(eaobjectmodel::Connector);
 	
-//	if (self.type = PAPYRUS_NOTATION_EDGE_PACKAGEIMPORT)
-//		then 
-//	endif 
+	//only for commentLinks
+	var sourceShape := self.source.oclAsType(notation::Shape);
+	var sourceEle := sourceShape.element.oclAsType(uml::Element);
 	
+	var targetShape := self.target.oclAsType(notation::Shape);
+	var targetEle := targetShape.element.oclAsType(uml::Element);
+	
+	var commentedEle : uml::Element;
+	
+	if (sourceEle.oclIsKindOf(uml::Comment))
+		then commentedEle := targetEle
+		else commentedEle := sourceEle
+	endif;
+	
+	if (self.type = PAPYRUS_NOTATION_EDGE_COMMENTLINK)
+		then result.Connector := commentedEle.resolveoneIn(uml::Element::mapElementToNoteLink)
+	endif;
 	
 	result.Diagram := self.diagram.resolveone(eaobjectmodel::Diagram);
 	
-	var targetBounds := self.target.oclAsType(notation::Shape).layoutConstraint.oclAsType(notation::Bounds);
-	var sourceBounds := self.source.oclAsType(notation::Shape).layoutConstraint.oclAsType(notation::Bounds);
+	var targetBounds := sourceShape.layoutConstraint.oclAsType(notation::Bounds);
+	var sourceBounds := targetShape.layoutConstraint.oclAsType(notation::Bounds);
 	
-	result.setSX(calculateX(self.target, self.targetAnchor));
-	result.setSY(calculateY(self.target, self.targetAnchor));
+	result.setSX(calculateX(targetShape, self.targetAnchor));
+	result.setSY(calculateY(targetShape, self.targetAnchor));
 	
-	result.setEX(calculateX(self.source, self.sourceAnchor));
-	result.setEY(calculateY(self.source, self.sourceAnchor));
+	result.setEX(calculateX(sourceShape, self.sourceAnchor));
+	result.setEY(calculateY(sourceShape, self.sourceAnchor));
+	
+	log("ELEMENT: ", self.element);
+	log("RESOLVED: ", result.Connector);
 }
 
 query notation::Shape::getBounds() : notation::Bounds {
 	return self.layoutConstraint.oclAsType(notation::Bounds);
 }
 
-query calculateX(view : notation::View, anchor : notation::Anchor) : Integer {
-	var shape := view.oclAsType(notation::Shape);
+query calculateX(shape : notation::Shape, anchor : notation::Anchor) : Integer {
 	var bounds := shape.layoutConstraint.oclAsType(notation::Bounds);
 	var width := bounds.width;
 	
@@ -367,8 +376,7 @@ query calculateX(view : notation::View, anchor : notation::Anchor) : Integer {
 	return xReal.round();
 }
 
-query calculateY(view : notation::View, anchor : notation::Anchor) : Integer {
-	var shape := view.oclAsType(notation::Shape);
+query calculateY(shape : notation::Shape, anchor : notation::Anchor) : Integer {
 	var bounds := shape.layoutConstraint.oclAsType(notation::Bounds);
 	var height := bounds.height;
 	
