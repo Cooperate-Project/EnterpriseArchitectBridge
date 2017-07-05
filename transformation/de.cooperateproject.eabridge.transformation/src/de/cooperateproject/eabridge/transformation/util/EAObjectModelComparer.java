@@ -120,7 +120,7 @@ public class EAObjectModelComparer {
 	public void compareElement(Element expected, Element actual) {
 
 		// Abstract
-		assertEquals(expected.getAbstract(), actual.getAbstract());
+		assertEquals(expected.isAbstract(), actual.isAbstract());
 
 		// Attributes
 		compareAttributes(expected.getAttributes(), actual.getAttributes());

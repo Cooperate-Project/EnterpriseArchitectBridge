@@ -26,7 +26,7 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	log("mapping Model", self.Name);
 	
 	name := self.Name;
-	result.setToFeature("nestedPackage", self.Packages-> map mapPackage());
+	nestedPackage := self.Packages-> map mapPackage();
 	
 	// Does this reach everything?
 	var connectors := self.getAllContents()->selectByType(Connector);
@@ -87,7 +87,7 @@ mapping Connector::mapClassesToInformationflows():  InformationFlow {
 abstract mapping Element::mapElementToClassifier() : uml::Classifier {
 	name := self.Name;
 	visibility := self.Visibility.getAttributeType();
-	isAbstract := if (self.Abstract.equalsIgnoreCase("1")) then true else false endif;
+	isAbstract := self.Abstract;
 	
 	var generalizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Generalization);
 	var substitutions   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Substitution);
@@ -285,12 +285,6 @@ query Scope::getAttributeType() : VisibilityKind
 		else assert error (false) with log("Illegal enum value");
 	};
 } 
-
-
-query ScopeObject::getAttributeType() : VisibilityKind
-{
-	return if self = null then null else self.oclAsType(Scope).getAttributeType() endif;
-}
 
 //Diagram
 mapping Diagram::diagramToDiagram() : notation::Diagram {

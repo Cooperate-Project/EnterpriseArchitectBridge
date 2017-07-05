@@ -24,7 +24,6 @@ import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -172,13 +171,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * @generated
 	 */
 	private EEnum parameterDirectionEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType scopeObjectEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -3030,15 +3022,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getScopeObject() {
-		return scopeObjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EaobjectmodelFactory getEaobjectmodelFactory() {
 		return (EaobjectmodelFactory)getEFactoryInstance();
 	}
@@ -3384,9 +3367,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		connectorTypeEEnum = createEEnum(CONNECTOR_TYPE);
 		elementTypeEEnum = createEEnum(ELEMENT_TYPE);
 		parameterDirectionEEnum = createEEnum(PARAMETER_DIRECTION);
-
-		// Create data types
-		scopeObjectEDataType = createEDataType(SCOPE_OBJECT);
 	}
 
 	/**
@@ -3506,7 +3486,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEReference(getConnector_Source(), this.getElement(), this.getElement_SourceRelations(), "Source", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_Dest(), this.getElement(), null, "Dest", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceCard(), ecorePackage.getEString(), "SourceCard", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_SourceAccess(), ecorePackage.getEString(), "SourceAccess", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SourceAccess(), this.getScope(), "SourceAccess", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceElement(), ecorePackage.getEString(), "SourceElement", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceRole(), ecorePackage.getEString(), "SourceRole", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_SourceRoleType(), ecorePackage.getEString(), "SourceRoleType", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3643,7 +3623,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getDiagramObject_Top(), ecorePackage.getEInt(), "Top", null, 0, 1, DiagramObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getElement_Abstract(), ecorePackage.getEString(), "Abstract", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Abstract(), ecorePackage.getEBoolean(), "Abstract", "false", 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_ActionFlags(), ecorePackage.getEString(), "ActionFlags", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Alias(), ecorePackage.getEString(), "Alias", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Attributes(), this.getAttribute(), this.getAttribute_Parent(), "Attributes", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3678,7 +3658,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getElement_TreePos(), ecorePackage.getELongObject(), "TreePos", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Type(), this.getElementType(), "Type", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Version(), ecorePackage.getEString(), "Version", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Visibility(), this.getScopeObject(), "Visibility", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Visibility(), this.getScope(), "Visibility", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Style(), ecorePackage.getEString(), "Style", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Backcolor(), ecorePackage.getEInt(), "Backcolor", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_BorderStyle(), ecorePackage.getEInt(), "BorderStyle", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3827,9 +3807,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.INOUT);
 		addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.OUT);
 		addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.RETURN);
-
-		// Initialize data types
-		initEDataType(scopeObjectEDataType, Scope.class, "ScopeObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

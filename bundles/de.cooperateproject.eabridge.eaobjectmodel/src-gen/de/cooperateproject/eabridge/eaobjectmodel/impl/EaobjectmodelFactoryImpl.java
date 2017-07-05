@@ -2,8 +2,6 @@
  */
 package de.cooperateproject.eabridge.eaobjectmodel.impl;
 
-import com.google.common.base.Objects;
-
 import de.cooperateproject.eabridge.eaobjectmodel.Attribute;
 import de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.AttributeTag;
@@ -24,8 +22,6 @@ import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
-import java.lang.Iterable;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -34,10 +30,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * <!-- begin-user-doc -->
@@ -122,8 +114,6 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return createElementTypeFromString(eDataType, initialValue);
 			case EaobjectmodelPackage.PARAMETER_DIRECTION:
 				return createParameterDirectionFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.SCOPE_OBJECT:
-				return createScopeObjectFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -151,8 +141,6 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 				return convertElementTypeToString(eDataType, instanceValue);
 			case EaobjectmodelPackage.PARAMETER_DIRECTION:
 				return convertParameterDirectionToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.SCOPE_OBJECT:
-				return convertScopeObjectToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -416,62 +404,6 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
 	 */
 	public String convertParameterDirectionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Scope createScopeObject(final String it) {
-		boolean _equals = Objects.equal(it, null);
-		if (_equals) {
-			return null;
-		}
-		Scope[] _enumConstants = Scope.class.getEnumConstants();
-		final Function1<Scope, Boolean> _function = new Function1<Scope, Boolean>() {
-			public Boolean apply(final Scope c) {
-				String _name = c.getName();
-				return Boolean.valueOf(it.equals(_name));
-			}
-		};
-		final Scope result = IterableExtensions.<Scope>findFirst(((Iterable<Scope>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function);
-		boolean _equals_1 = Objects.equal(result, null);
-		if (_equals_1) {
-			throw new IllegalArgumentException((("The value \'" + it) + "\' is not a valid enumerator of \'Scope\'"));
-		}
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Scope createScopeObjectFromString(EDataType eDataType, String initialValue) {
-		return createScopeObject(initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertScopeObject(final Scope it) {
-		boolean _equals = Objects.equal(it, null);
-		if (_equals) {
-			return null;
-		}
-		return it.getLiteral();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertScopeObjectToString(EDataType eDataType, Object instanceValue) {
-		return convertScopeObject((Scope)instanceValue);
 	}
 
 	/**

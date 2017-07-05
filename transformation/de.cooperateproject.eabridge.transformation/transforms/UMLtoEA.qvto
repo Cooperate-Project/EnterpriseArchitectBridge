@@ -47,7 +47,6 @@ mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	Name := self.name;
-	Abstract := "0";
 	result.Type := ElementType::Package;
 	PDATA1 := self.late resolveone(eaobjectmodel::Package);
 	
@@ -59,13 +58,9 @@ abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Eleme
 	PDATA1 := null;
 	
 	Name := self.name;
-	Abstract := if (self.isAbstract) then "1" else "0" endif;
+	Abstract := self.isAbstract;
 	
-	// FIXME: Conversion of Scope to ScopeObject fails (but ScopeObject -> Scope works)
-	Visibility := self.visibility.transformVisibility().oclAsType(ScopeObject);
-	
-	log("Input element visibility:", self.visibility);
-	log("Output element visibility:", result.Visibility);
+	Visibility := self.visibility.transformVisibility();
 	
 	SourceRelations += self.generalization.map mapGeneralizationToConnector();
 	SourceRelations += self.substitution.map mapSubstitutionToConnector();
@@ -92,7 +87,7 @@ inherits uml::Classifier::mapClassifierToElement {
 	
 	result.Type := eaobjectmodel::ElementType::Interface;
 	
-	result.Abstract := "1";
+	result.Abstract := true;
 }
 
 // Comment can only be linked to one Classifier
@@ -104,8 +99,6 @@ mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element {
 	SourceRelations := self.annotatedElement.map mapElementToNoteLink();
 	
 	result.Type := eaobjectmodel::ElementType::Note;
-	
-	result.Abstract := "0";
 }
 
 mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
@@ -178,7 +171,7 @@ inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	
 	Dest := self.importedPackage.resolveoneIn(uml::Package::mapPackageToElement, eaobjectmodel::Element);
 	result.Type := ConnectorType::Package;
-	Btm_Mid_Label := "<<import>>";
+	Btm_Mid_Label := "«import»";
 	result.Stereotype := "import";
 }
 

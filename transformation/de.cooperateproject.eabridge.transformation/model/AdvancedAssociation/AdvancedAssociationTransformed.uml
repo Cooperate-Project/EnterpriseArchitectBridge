@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_rIan8F2xEeeS2uSsfIELBA" name="Model">
-  <ownedComment xmi:id="_rIan8V2xEeeS2uSsfIELBA" annotatedElement="_rIaoAF2xEeeS2uSsfIELBA">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_N98QUGFrEeeal7MlxmB9Ug" name="Model">
+  <ownedComment xmi:id="_N98QUWFrEeeal7MlxmB9Ug" annotatedElement="_N98QYGFrEeeal7MlxmB9Ug">
     <body>This is a note of an interface.</body>
   </ownedComment>
-  <ownedComment xmi:id="_rIan8l2xEeeS2uSsfIELBA" annotatedElement="_rIan_F2xEeeS2uSsfIELBA">
+  <ownedComment xmi:id="_N98QUmFrEeeal7MlxmB9Ug" annotatedElement="_N98QXGFrEeeal7MlxmB9Ug">
     <body>This is a note of a class.</body>
   </ownedComment>
-  <ownedComment xmi:id="_rIan812xEeeS2uSsfIELBA" annotatedElement="_rIan9V2xEeeS2uSsfIELBA">
+  <ownedComment xmi:id="_N98QU2FrEeeal7MlxmB9Ug" annotatedElement="_N98QVWFrEeeal7MlxmB9Ug">
     <body>This is a note of a package.</body>
   </ownedComment>
-  <packageImport xmi:id="_rIan9F2xEeeS2uSsfIELBA" importedPackage="_rIaoAV2xEeeS2uSsfIELBA"/>
-  <packagedElement xmi:type="uml:Package" xmi:id="_rIan9V2xEeeS2uSsfIELBA" name="Package">
-    <packagedElement xmi:type="uml:Class" xmi:id="_rIan9l2xEeeS2uSsfIELBA" name="Part">
-      <ownedAttribute xmi:id="_rIan912xEeeS2uSsfIELBA" name="the corresponding whole" type="_rIan-F2xEeeS2uSsfIELBA" association="_rIaoAl2xEeeS2uSsfIELBA"/>
+  <packageImport xmi:id="_N98QVGFrEeeal7MlxmB9Ug" importedPackage="_N98QYWFrEeeal7MlxmB9Ug"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_N98QVWFrEeeal7MlxmB9Ug" name="Package">
+    <packagedElement xmi:type="uml:Class" xmi:id="_N98QVmFrEeeal7MlxmB9Ug" name="Part" visibility="public">
+      <ownedAttribute xmi:id="_N98QV2FrEeeal7MlxmB9Ug" name="the corresponding whole" type="_N98QWGFrEeeal7MlxmB9Ug" association="_N98QYmFrEeeal7MlxmB9Ug"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_rIan-F2xEeeS2uSsfIELBA" name="Whole">
-      <ownedAttribute xmi:id="_rIan-V2xEeeS2uSsfIELBA" name="a part" type="_rIan9l2xEeeS2uSsfIELBA" aggregation="composite" association="_rIaoAl2xEeeS2uSsfIELBA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rIan-l2xEeeS2uSsfIELBA" value="3"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rIan-12xEeeS2uSsfIELBA" value="72"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_N98QWGFrEeeal7MlxmB9Ug" name="Whole" visibility="public">
+      <ownedAttribute xmi:id="_N98QWWFrEeeal7MlxmB9Ug" name="a part" type="_N98QVmFrEeeal7MlxmB9Ug" aggregation="composite" association="_N98QYmFrEeeal7MlxmB9Ug">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N98QWmFrEeeal7MlxmB9Ug" value="3"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N98QW2FrEeeal7MlxmB9Ug" value="72"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_rIan_F2xEeeS2uSsfIELBA" name="InterfaceImpl">
-      <interfaceRealization xmi:id="_rIan_V2xEeeS2uSsfIELBA" client="_rIan_F2xEeeS2uSsfIELBA" supplier="_rIan_l2xEeeS2uSsfIELBA" contract="_rIan_l2xEeeS2uSsfIELBA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_N98QXGFrEeeal7MlxmB9Ug" name="InterfaceImpl" visibility="public">
+      <interfaceRealization xmi:id="_N98QXWFrEeeal7MlxmB9Ug" client="_N98QXGFrEeeal7MlxmB9Ug" supplier="_N98QXmFrEeeal7MlxmB9Ug" contract="_N98QXmFrEeeal7MlxmB9Ug"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_rIan_l2xEeeS2uSsfIELBA" name="Interface">
-      <generalization xmi:id="_rIan_12xEeeS2uSsfIELBA" general="_rIaoAF2xEeeS2uSsfIELBA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_N98QXmFrEeeal7MlxmB9Ug" name="Interface" visibility="public">
+      <generalization xmi:id="_N98QX2FrEeeal7MlxmB9Ug" general="_N98QYGFrEeeal7MlxmB9Ug"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_rIaoAF2xEeeS2uSsfIELBA" name="SuperInterface"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_N98QYGFrEeeal7MlxmB9Ug" name="SuperInterface" visibility="public"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_rIaoAV2xEeeS2uSsfIELBA" name="ImportedPackage"/>
-  <packagedElement xmi:type="uml:Association" xmi:id="_rIaoAl2xEeeS2uSsfIELBA" name="Composition" memberEnd="_rIan-V2xEeeS2uSsfIELBA _rIan912xEeeS2uSsfIELBA"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_N98QYWFrEeeal7MlxmB9Ug" name="ImportedPackage"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_N98QYmFrEeeal7MlxmB9Ug" name="Composition" memberEnd="_N98QWWFrEeeal7MlxmB9Ug _N98QV2FrEeeal7MlxmB9Ug"/>
 </uml:Model>

@@ -116,13 +116,6 @@
     <eLiterals name="Package" value="3" literal="Package"/>
     <eLiterals name="Protected" value="4" literal="Protected"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="ScopeObject" instanceClassName="de.cooperateproject.eabridge.eaobjectmodel.Scope">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This wrapper is required if the scope shall be optional.&#xA;https://wiki.eclipse.org/EMF/Recipes#Recipe:_Generating_enumeration-based_attributes_that_support_null"/>
-      <details key="create" value="boolean _equals = &lt;%com.google.common.base.Objects%>.equal(it, null);&#xA;if (_equals)&#xA;{&#xA;&#x9;return null;&#xA;}&#xA;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>[] _enumConstants = &lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>.class.getEnumConstants();&#xA;final &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>, &lt;%java.lang.Boolean%>> _function = new &lt;%org.eclipse.xtext.xbase.lib.Functions.Function1%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>, &lt;%java.lang.Boolean%>>()&#xA;{&#xA;&#x9;public &lt;%java.lang.Boolean%> apply(final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%> c)&#xA;&#x9;{&#xA;&#x9;&#x9;&lt;%java.lang.String%> _name = c.getName();&#xA;&#x9;&#x9;return &lt;%java.lang.Boolean%>.valueOf(it.equals(_name));&#xA;&#x9;}&#xA;};&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%> result = &lt;%org.eclipse.xtext.xbase.lib.IterableExtensions%>.&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>>findFirst(((&lt;%java.lang.Iterable%>&lt;&lt;%de.cooperateproject.eabridge.eaobjectmodel.Scope%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function);&#xA;boolean _equals_1 = &lt;%com.google.common.base.Objects%>.equal(result, null);&#xA;if (_equals_1)&#xA;{&#xA;&#x9;throw new &lt;%java.lang.IllegalArgumentException%>(((&quot;The value \'&quot; + it) + &quot;\' is not a valid enumerator of \'Scope\'&quot;));&#xA;}&#xA;return result;"/>
-      <details key="convert" value="boolean _equals = &lt;%com.google.common.base.Objects%>.equal(it, null);&#xA;if (_equals)&#xA;{&#xA;&#x9;return null;&#xA;}&#xA;return it.getLiteral();"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ElementOfAttribute" eType="#//Element"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" eType="#//Attribute"/>
@@ -220,7 +213,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceCard" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceAccess" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Scope"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceElement" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SourceRole" unique="false"
@@ -573,7 +566,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abstract" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionFlags" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Alias" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -637,7 +630,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Version" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" unique="false"
-        eType="#//ScopeObject"/>
+        eType="#//Scope"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Style" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Backcolor" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

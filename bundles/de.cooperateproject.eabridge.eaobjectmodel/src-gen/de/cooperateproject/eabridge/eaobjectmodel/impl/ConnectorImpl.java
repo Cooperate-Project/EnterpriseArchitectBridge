@@ -9,6 +9,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.IsAggregate;
 
+import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Optional;
@@ -321,7 +322,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SOURCE_ACCESS_EDEFAULT = null;
+	protected static final Scope SOURCE_ACCESS_EDEFAULT = Scope.PUBLIC;
 	/**
 	 * The default value of the '{@link #getSourceElement() <em>Source Element</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -1249,8 +1250,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSourceAccess() {
-		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ACCESS, true, true);
+	public Scope getSourceAccess() {
+		return (Scope)eDynamicGet(EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ACCESS, true, true);
 	}
 
 	/**
@@ -1258,7 +1259,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSourceAccess(String newSourceAccess) {
+	public void setSourceAccess(Scope newSourceAccess) {
 		eDynamicSet(EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__SOURCE_ACCESS, newSourceAccess);
 	}
 
@@ -2468,7 +2469,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				setSourceCard((String)newValue);
 				return;
 			case EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS:
-				setSourceAccess((String)newValue);
+				setSourceAccess((Scope)newValue);
 				return;
 			case EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT:
 				setSourceElement((String)newValue);
@@ -2899,7 +2900,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case EaobjectmodelPackage.CONNECTOR__SOURCE_CARD:
 				return SOURCE_CARD_EDEFAULT == null ? getSourceCard() != null : !SOURCE_CARD_EDEFAULT.equals(getSourceCard());
 			case EaobjectmodelPackage.CONNECTOR__SOURCE_ACCESS:
-				return SOURCE_ACCESS_EDEFAULT == null ? getSourceAccess() != null : !SOURCE_ACCESS_EDEFAULT.equals(getSourceAccess());
+				return getSourceAccess() != SOURCE_ACCESS_EDEFAULT;
 			case EaobjectmodelPackage.CONNECTOR__SOURCE_ELEMENT:
 				return SOURCE_ELEMENT_EDEFAULT == null ? getSourceElement() != null : !SOURCE_ELEMENT_EDEFAULT.equals(getSourceElement());
 			case EaobjectmodelPackage.CONNECTOR__SOURCE_ROLE:

@@ -752,6 +752,7 @@ public interface Connector extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Source Access</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.Scope}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source Access</em>' attribute isn't clear,
@@ -759,22 +760,24 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Access</em>' attribute.
-	 * @see #setSourceAccess(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
+	 * @see #setSourceAccess(Scope)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getConnector_SourceAccess()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getSourceAccess();
+	Scope getSourceAccess();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getSourceAccess <em>Source Access</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source Access</em>' attribute.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
 	 * @see #getSourceAccess()
 	 * @generated
 	 */
-	void setSourceAccess(String value);
+	void setSourceAccess(Scope value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Element</b></em>' attribute.

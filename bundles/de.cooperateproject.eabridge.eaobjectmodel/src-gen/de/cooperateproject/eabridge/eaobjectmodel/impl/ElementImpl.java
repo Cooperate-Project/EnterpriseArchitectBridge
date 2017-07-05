@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getAttributes <em>Attributes</em>}</li>
@@ -82,14 +82,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ElementImpl extends MinimalEObjectImpl.Container implements Element {
 	/**
-	 * The default value of the '{@link #getAbstract() <em>Abstract</em>}' attribute.
+	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ABSTRACT_EDEFAULT = null;
+	protected static final boolean ABSTRACT_EDEFAULT = false;
 	/**
 	 * The default value of the '{@link #getActionFlags() <em>Action Flags</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -350,7 +350,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Scope VISIBILITY_EDEFAULT = null;
+	protected static final Scope VISIBILITY_EDEFAULT = Scope.PUBLIC;
 	/**
 	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -458,8 +458,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAbstract() {
-		return (String)eDynamicGet(EaobjectmodelPackage.ELEMENT__ABSTRACT, EaobjectmodelPackage.Literals.ELEMENT__ABSTRACT, true, true);
+	public boolean isAbstract() {
+		return (Boolean)eDynamicGet(EaobjectmodelPackage.ELEMENT__ABSTRACT, EaobjectmodelPackage.Literals.ELEMENT__ABSTRACT, true, true);
 	}
 
 	/**
@@ -467,7 +467,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAbstract(String newAbstract) {
+	public void setAbstract(boolean newAbstract) {
 		eDynamicSet(EaobjectmodelPackage.ELEMENT__ABSTRACT, EaobjectmodelPackage.Literals.ELEMENT__ABSTRACT, newAbstract);
 	}
 
@@ -1373,7 +1373,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaobjectmodelPackage.ELEMENT__ABSTRACT:
-				return getAbstract();
+				return isAbstract();
 			case EaobjectmodelPackage.ELEMENT__ACTION_FLAGS:
 				return getActionFlags();
 			case EaobjectmodelPackage.ELEMENT__ALIAS:
@@ -1482,7 +1482,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaobjectmodelPackage.ELEMENT__ABSTRACT:
-				setAbstract((String)newValue);
+				setAbstract((Boolean)newValue);
 				return;
 			case EaobjectmodelPackage.ELEMENT__ACTION_FLAGS:
 				setActionFlags((String)newValue);
@@ -1786,7 +1786,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaobjectmodelPackage.ELEMENT__ABSTRACT:
-				return ABSTRACT_EDEFAULT == null ? getAbstract() != null : !ABSTRACT_EDEFAULT.equals(getAbstract());
+				return isAbstract() != ABSTRACT_EDEFAULT;
 			case EaobjectmodelPackage.ELEMENT__ACTION_FLAGS:
 				return ACTION_FLAGS_EDEFAULT == null ? getActionFlags() != null : !ACTION_FLAGS_EDEFAULT.equals(getActionFlags());
 			case EaobjectmodelPackage.ELEMENT__ALIAS:
@@ -1856,7 +1856,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 			case EaobjectmodelPackage.ELEMENT__VERSION:
 				return VERSION_EDEFAULT == null ? getVersion() != null : !VERSION_EDEFAULT.equals(getVersion());
 			case EaobjectmodelPackage.ELEMENT__VISIBILITY:
-				return VISIBILITY_EDEFAULT == null ? getVisibility() != null : !VISIBILITY_EDEFAULT.equals(getVisibility());
+				return getVisibility() != VISIBILITY_EDEFAULT;
 			case EaobjectmodelPackage.ELEMENT__STYLE:
 				return STYLE_EDEFAULT == null ? getStyle() != null : !STYLE_EDEFAULT.equals(getStyle());
 			case EaobjectmodelPackage.ELEMENT__BACKCOLOR:

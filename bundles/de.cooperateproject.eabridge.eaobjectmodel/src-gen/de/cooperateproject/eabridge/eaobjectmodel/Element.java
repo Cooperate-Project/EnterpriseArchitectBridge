@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAlias <em>Alias</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAttributes <em>Attributes</em>}</li>
@@ -72,6 +72,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Element extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
@@ -79,22 +80,22 @@ public interface Element extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract</em>' attribute.
-	 * @see #setAbstract(String)
+	 * @see #setAbstract(boolean)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getElement_Abstract()
-	 * @model unique="false"
+	 * @model default="false" unique="false"
 	 * @generated
 	 */
-	String getAbstract();
+	boolean isAbstract();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract <em>Abstract</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Abstract</em>' attribute.
-	 * @see #getAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 */
-	void setAbstract(String value);
+	void setAbstract(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Action Flags</b></em>' attribute.
@@ -965,6 +966,7 @@ public interface Element extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Visibility</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.Scope}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear,
@@ -972,9 +974,10 @@ public interface Element extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Visibility</em>' attribute.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
 	 * @see #setVisibility(Scope)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getElement_Visibility()
-	 * @model unique="false" dataType="de.cooperateproject.eabridge.eaobjectmodel.ScopeObject"
+	 * @model unique="false"
 	 * @generated
 	 */
 	Scope getVisibility();
@@ -984,6 +987,7 @@ public interface Element extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Visibility</em>' attribute.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
 	 * @see #getVisibility()
 	 * @generated
 	 */

@@ -4,7 +4,6 @@ package de.cooperateproject.eabridge.eaobjectmodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -3077,16 +3076,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	int PARAMETER_DIRECTION = 18;
 
 	/**
-	 * The meta object id for the '<em>Scope Object</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getScopeObject()
-	 * @generated
-	 */
-	int SCOPE_OBJECT = 19;
-
-	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference <em>Type Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5209,11 +5198,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract <em>Abstract</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract <em>Abstract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Abstract</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract()
 	 * @see #getElement()
 	 * @generated
 	 */
@@ -6451,18 +6440,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getParameterDirection();
-
-	/**
-	 * Returns the meta object for data type '{@link de.cooperateproject.eabridge.eaobjectmodel.Scope <em>Scope Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Scope Object</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
-	 * @model instanceClass="de.cooperateproject.eabridge.eaobjectmodel.Scope"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel create='boolean _equals = <%com.google.common.base.Objects%>.equal(it, null);\nif (_equals)\n{\n\treturn null;\n}\n<%de.cooperateproject.eabridge.eaobjectmodel.Scope%>[] _enumConstants = <%de.cooperateproject.eabridge.eaobjectmodel.Scope%>.class.getEnumConstants();\nfinal <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%de.cooperateproject.eabridge.eaobjectmodel.Scope%>, <%java.lang.Boolean%>> _function = new <%org.eclipse.xtext.xbase.lib.Functions.Function1%><<%de.cooperateproject.eabridge.eaobjectmodel.Scope%>, <%java.lang.Boolean%>>()\n{\n\tpublic <%java.lang.Boolean%> apply(final <%de.cooperateproject.eabridge.eaobjectmodel.Scope%> c)\n\t{\n\t\t<%java.lang.String%> _name = c.getName();\n\t\treturn <%java.lang.Boolean%>.valueOf(it.equals(_name));\n\t}\n};\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.Scope%> result = <%org.eclipse.xtext.xbase.lib.IterableExtensions%>.<<%de.cooperateproject.eabridge.eaobjectmodel.Scope%>>findFirst(((<%java.lang.Iterable%><<%de.cooperateproject.eabridge.eaobjectmodel.Scope%>>)org.eclipse.xtext.xbase.lib.Conversions.doWrapArray(_enumConstants)), _function);\nboolean _equals_1 = <%com.google.common.base.Objects%>.equal(result, null);\nif (_equals_1)\n{\n\tthrow new <%java.lang.IllegalArgumentException%>(((\"The value \\\'\" + it) + \"\\\' is not a valid enumerator of \\\'Scope\\\'\"));\n}\nreturn result;' convert='boolean _equals = <%com.google.common.base.Objects%>.equal(it, null);\nif (_equals)\n{\n\treturn null;\n}\nreturn it.getLiteral();'"
-	 * @generated
-	 */
-	EDataType getScopeObject();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -8996,16 +8973,6 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PARAMETER_DIRECTION = eINSTANCE.getParameterDirection();
-
-		/**
-		 * The meta object literal for the '<em>Scope Object</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
-		 * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getScopeObject()
-		 * @generated
-		 */
-		EDataType SCOPE_OBJECT = eINSTANCE.getScopeObject();
 
 	}
 
