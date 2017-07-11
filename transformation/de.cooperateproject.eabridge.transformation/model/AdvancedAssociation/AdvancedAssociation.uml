@@ -11,8 +11,8 @@
   <ownedComment xmi:type="uml:Comment" xmi:id="_EDyXUFKkEee85JQFKg13eA" annotatedElement="_7K8jMO7eEeahIPhNrMYR1Q">
     <body>This is a note of a class.</body>
   </ownedComment>
-  <packageImport xmi:type="uml:PackageImport" xmi:id="_ACNioFTxEeeeAd0y_7zCqA" importedPackage="_7NKfQFTwEeeeAd0y_7zCqA"/>
   <packagedElement xmi:type="uml:Package" xmi:id="_g_2IQO7eEeahIPhNrMYR1Q" name="Package">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_fb_SAGZBEee-SJctLoqLlQ" importedPackage="_7NKfQFTwEeeeAd0y_7zCqA"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_kr6xYO7eEeahIPhNrMYR1Q" name="Part">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_nv7U8O7eEeahIPhNrMYR1Q" name="the corresponding whole" type="_lYF64O7eEeahIPhNrMYR1Q" association="_nvw84O7eEeahIPhNrMYR1Q"/>
     </packagedElement>

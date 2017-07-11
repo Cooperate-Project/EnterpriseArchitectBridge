@@ -1,7 +1,7 @@
 import TransformationUtils;
 import de.cooperateproject.qvtoutils.CooperateLibrary;
 
-transformation UMLtoEA(in uml: UML, in ecorePrimitives : UML, in notation : NOTATION,  out om : OM);
+transformation UMLtoEA(in uml: UML, in ecorePrimitives : UML, in notation : NOTATION,  inout om : OM);
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
@@ -12,14 +12,17 @@ main() {
 
 	log("Found Root Models", rootModels);
 	
-	object eaobjectmodel::Package {
-		Name := "Root";
-		Packages += rootModels.map mapPackage();
-		Elements += rootModels.map mapPackageToElement();
-	};
+	rootModels->map mapModel();
 	
 	var diagrams := notation.objectsOfType(Diagram);
-	diagrams -> map mapDiagram();
+	diagrams->map mapDiagram();
+}
+
+mapping uml::Model::mapModel() : eaobjectmodel::Package {
+	log("Mapping model", self);
+	Name := "Root";
+	Packages += self.map mapPackage();
+	PackageGUID := generateUUID();
 }
 
 mapping uml::Package::mapPackage() : eaobjectmodel::Package {
@@ -36,21 +39,23 @@ mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 	var interfaces := self.packagedElement->selectByType(UML::Interface);
 	var associations := self.packagedElement->selectByType(UML::Association);
 	var comments := self.ownedComment;
-
 	
 	Elements += classes -> map mapClassToElement();
 	Elements += interfaces -> map mapInterfaceToElement();
 				associations -> map mapAssociationToConnector();
 	Elements += comments -> map mapCommentToElement();
 	
+	PackageGUID := generateUUID();
 }
 
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	Name := self.name;
 	result.Type := ElementType::Package;
-	PDATA1 := self.late resolveone(eaobjectmodel::Package);
+	PDATA1 := self.late resolveoneIn(uml::Package::mapPackage);
 	
-	SourceRelations += self.packageImport -> map mapPackageImportToConnector();
+	SourceRelations := self.packageImport->mapPackageImportToConnector();
+	
+	ElementGUID := generateUUID();
 }
 
 abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Element {
@@ -64,6 +69,8 @@ abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Eleme
 	
 	SourceRelations += self.generalization.map mapGeneralizationToConnector();
 	SourceRelations += self.substitution.map mapSubstitutionToConnector();
+	
+	ElementGUID := generateUUID();
 }
 
 mapping uml::Class::mapClassToElement(): eaobjectmodel::Element
@@ -99,6 +106,8 @@ mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element {
 	SourceRelations := self.annotatedElement.map mapElementToNoteLink();
 	
 	result.Type := eaobjectmodel::ElementType::Note;
+	
+	ElementGUID := generateUUID();
 }
 
 mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
@@ -134,11 +143,15 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	endif;
 	
 	result.Type := ConnectorType::Association;
+	
+	ConnectorGUID := generateUUID();
 }
 
 abstract mapping uml::DirectedRelationship::mapDirectedRelationShip() : OM::Connector {
 	Direction := DirectionType::SourceDestination;
 	DestIsNavigable := true;
+	
+	ConnectorGUID := generateUUID();
 }
 
 mapping uml::Generalization::mapGeneralizationToConnector() : eaobjectmodel::Connector
@@ -169,7 +182,7 @@ mapping uml::PackageImport::mapPackageImportToConnector() : eaobjectmodel::Conne
 inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	log("Mapping packageImport",self);
 	
-	Dest := self.importedPackage.resolveoneIn(uml::Package::mapPackageToElement, eaobjectmodel::Element);
+	Dest := self.importedPackage.late resolveoneIn(uml::Package::mapPackageToElement);
 	result.Type := ConnectorType::Package;
 	Btm_Mid_Label := "«import»";
 	result.Stereotype := "import";
@@ -182,6 +195,8 @@ mapping uml::Element::mapElementToNoteLink() : eaobjectmodel::Connector {
 	
 	Direction := DirectionType::SourceDestination;
 	result.Type := ConnectorType::NoteLink;
+	
+	ConnectorGUID := generateUUID();
 }
 
 mapping uml::Property::mapPropertyToAttribute(): Attribute {
@@ -191,6 +206,8 @@ mapping uml::Property::mapPropertyToAttribute(): Attribute {
 
 	result.Scope := self.visibility.transformVisibility();
 	AttributeType := self.type.transformType();
+	
+	AttributeGUID := generateUUID();
 }
 
 mapping uml::Operation::mapOperationToMethod() : Method {
@@ -206,6 +223,8 @@ mapping uml::Operation::mapOperationToMethod() : Method {
 		if (param.direction <> ParameterDirectionKind::_return) then
 		result.Parameters += param.map mapParameter() endif;
 	};
+	
+	MethodGUID := generateUUID();
 }
 
 mapping uml::Parameter::mapParameter() : Methodparameter {
@@ -214,6 +233,8 @@ mapping uml::Parameter::mapParameter() : Methodparameter {
 	Name := self.name;
 	Kind := self.direction.transformParameterDirection();
 	ParameterType := self.type.transformType();
+	
+	ea_guid := generateUUID();
 }
 
 query uml::Property::transformAssociationType() : IsAggregate {
@@ -268,7 +289,7 @@ query OM::Connector::transformDirectionType() : OM::DirectionType {
 	};
  }
 
-query uml::Type::transformType(): TypeReference {
+query uml::Type::transformType() : TypeReference {
 
 	//FIXME: Good idea? (Alternative: Code dublication)
 	var reference = new TypeReference();
@@ -295,9 +316,11 @@ mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	result.Type := "Logical";
 	Orientation := "P";
 	
-	result.Package := self.element.oclAsType(uml::Package).resolveone(eaobjectmodel::Package);
+	result.Package := self.element.oclAsType(uml::Package).resolveoneIn(uml::Package::mapPackage);
 	self.children->selectByType(notation::Shape)->map mapShape(0, 0);
 	self.edges->selectByType(notation::Connector)->map mapConnector();
+	
+	DiagramGUID := generateUUID();
 }
 
 mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject {

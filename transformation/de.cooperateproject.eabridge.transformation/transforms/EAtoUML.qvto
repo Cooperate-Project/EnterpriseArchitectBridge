@@ -8,12 +8,15 @@ modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/viewpoints/policy/style');
 
-// Check if its possible to adjust this that one Model only is forced
+//Force only one Model
 main() {
 	var rootRootPackage := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
-	var rootPackage := rootRootPackage.Packages->any(true);
+	assert fatal (rootRootPackage->size() = 1);
 	
-	rootPackage.map mapRootPackage();
+	var rootPackage := rootRootPackage.Packages;
+	assert fatal (rootPackage->size() = 1);
+		
+	rootPackage-> map mapRootPackage();
 	
 	var diagrams := rootPackage.getAllContents()->selectByType(Diagram);
 	diagrams->map diagramToDiagram();
@@ -21,24 +24,20 @@ main() {
 
 // mappings for transformation to uml
 
-// Fits to the way papyrus creates new diagrams/models
 mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	log("mapping Model", self.Name);
 	
 	name := self.Name;
 	nestedPackage := self.Packages-> map mapPackage();
 	
-	// Does this reach everything?
 	var connectors := self.getAllContents()->selectByType(Connector);
 	
 	var associations := connectors->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	var comments := self.getAllContents()->selectByType(Element)->select(c : Element | c.Type = ElementType::Note);
 	var noteLinks := connectors->select(e : Connector | e.Type = ConnectorType::NoteLink);
-	var imports := connectors->select(e : Connector | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	
 	packagedElement += associations -> map mapConnectorToAssociation();
 	ownedComment += comments -> mapElementToComment();
-	packageImport += imports -> mapConnectorToPackageImport();
 }
 
 mapping eaobjectmodel::Package::mapPackage() : uml::Package {
@@ -50,22 +49,11 @@ mapping eaobjectmodel::Package::mapPackage() : uml::Package {
 	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
 	var interfaces := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
 	var connectors := classes->collect(SourceRelations);
-	var usages := connectors->select(e : Connector| e.Type = ConnectorType::Usage);
-	var Informationflows :=  connectors->select(e : Connector| e.Type = ConnectorType::InformationFlow);
-	var dependencies :=  connectors->select(e : Connector| e.Type = ConnectorType::Dependency);
-	
-	if (usages -> size() != 0) {
-		packagedElement += usages -> map mapClassesToUsage();
-	};
-	if (Informationflows -> size() != 0) {
-		packagedElement += Informationflows -> map mapClassesToInformationflows();
-	};
-	if (dependencies -> size() != 0) {
-		packagedElement += dependencies -> map mapClassesToDependencies();
-	};
+	var imports := self.getAssociatedElement().SourceRelations->select(e | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	
 	packagedElement += classes-> map mapElementToClass();	
 	packagedElement += interfaces-> map mapElementToInterface();
+	packageImport := imports->map mapConnectorToPackageImport();
 }
 
 mapping Connector::mapClassesToUsage():  Usage {
@@ -167,7 +155,8 @@ mapping Connector::mapConnectoToRealization() :  InterfaceRealization
 }
 
 mapping Connector::mapConnectorToPackageImport() : PackageImport {
-	importedPackage := self.Dest.PDATA1.resolveone(uml::Package);
+	
+	importedPackage := self.Dest.PDATA1.late resolveone(uml::Package);
 }
 
 mapping Connector::mapConnectorToAssociation() : uml::Association
@@ -284,7 +273,11 @@ query Scope::getAttributeType() : VisibilityKind
 		case (self = Scope::Protected) VisibilityKind::protected;
 		else assert error (false) with log("Illegal enum value");
 	};
-} 
+}
+
+query eaobjectmodel::Package::getAssociatedElement() : eaobjectmodel::Element {
+	return om.objectsOfType(eaobjectmodel::Element)->select(e | e.PDATA1 = self)->any(true);
+}
 
 //Diagram
 mapping Diagram::diagramToDiagram() : notation::Diagram {

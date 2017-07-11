@@ -12,7 +12,6 @@
 				<id />
 				<generated-value />
 			</property>
-			
 			<property name="Parent">
 				<join-column name="Object_ID" />
 			</property>
@@ -25,7 +24,6 @@
 			<property name="IsDerived">
 				<column name="Derived" />
 			</property>
-
 			<property  name="AttributeType">
 				<embedded/>
 			</property>
@@ -96,7 +94,6 @@
 			<property name="Type">
 				<column name="Connector_Type" />
 			</property>
-			<!-- <property name="Diagram"> <join-column name="DiagramID" /> </property> -->
 			<property name="Source">
 				<join-column name="Start_Object_ID" />
 			</property>
@@ -183,7 +180,6 @@
 			</property>
 		</eclass>
 		
-
 		<eclass name="Package">
 			<table name="t_package" />
 			<inheritance>TABLE_PER_CLASS</inheritance>
@@ -219,11 +215,6 @@
 			</property>
 		</eclass>
 		
-
-
-		<!-- <eclass name="PostCondition"> <inheritance>TABLE_PER_CLASS</inheritance> 
-			</eclass> -->
-
 		<eclass name="Element">
 			<inheritance>TABLE_PER_CLASS</inheritance>
 			<table name="t_object" />

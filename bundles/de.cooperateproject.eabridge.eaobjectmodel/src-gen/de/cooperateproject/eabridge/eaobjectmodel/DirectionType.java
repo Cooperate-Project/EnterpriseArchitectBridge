@@ -97,7 +97,7 @@ public enum DirectionType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SOURCE_DESTINATION
-	 * @model name="SourceDestination" literal="Source -> Destination"
+	 * @model name="SourceDestination" literal="Source -&gt; Destination"
 	 * @generated
 	 * @ordered
 	 */
@@ -112,7 +112,7 @@ public enum DirectionType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DESTINATION_SOURCE
-	 * @model name="DestinationSource" literal="Destination -> Source"
+	 * @model name="DestinationSource" literal="Destination -&gt; Source"
 	 * @generated
 	 * @ordered
 	 */

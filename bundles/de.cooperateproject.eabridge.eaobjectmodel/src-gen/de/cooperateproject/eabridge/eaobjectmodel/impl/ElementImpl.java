@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl#getAttributes <em>Attributes</em>}</li>
@@ -82,14 +82,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ElementImpl extends MinimalEObjectImpl.Container implements Element {
 	/**
-	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * The default value of the '{@link #getAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAbstract()
+	 * @see #getAbstract()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean ABSTRACT_EDEFAULT = false;
+	protected static final Boolean ABSTRACT_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getActionFlags() <em>Action Flags</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -458,7 +458,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAbstract() {
+	public Boolean getAbstract() {
 		return (Boolean)eDynamicGet(EaobjectmodelPackage.ELEMENT__ABSTRACT, EaobjectmodelPackage.Literals.ELEMENT__ABSTRACT, true, true);
 	}
 
@@ -467,7 +467,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAbstract(boolean newAbstract) {
+	public void setAbstract(Boolean newAbstract) {
 		eDynamicSet(EaobjectmodelPackage.ELEMENT__ABSTRACT, EaobjectmodelPackage.Literals.ELEMENT__ABSTRACT, newAbstract);
 	}
 
@@ -1373,7 +1373,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaobjectmodelPackage.ELEMENT__ABSTRACT:
-				return isAbstract();
+				return getAbstract();
 			case EaobjectmodelPackage.ELEMENT__ACTION_FLAGS:
 				return getActionFlags();
 			case EaobjectmodelPackage.ELEMENT__ALIAS:
@@ -1786,7 +1786,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaobjectmodelPackage.ELEMENT__ABSTRACT:
-				return isAbstract() != ABSTRACT_EDEFAULT;
+				return ABSTRACT_EDEFAULT == null ? getAbstract() != null : !ABSTRACT_EDEFAULT.equals(getAbstract());
 			case EaobjectmodelPackage.ELEMENT__ACTION_FLAGS:
 				return ACTION_FLAGS_EDEFAULT == null ? getActionFlags() != null : !ACTION_FLAGS_EDEFAULT.equals(getActionFlags());
 			case EaobjectmodelPackage.ELEMENT__ALIAS:

@@ -2022,7 +2022,7 @@ public interface Connector extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String sourceStyle = getSourceStyle();\r\nOptional<String> alias = Arrays.asList(sourceStyle.split(\";\")).stream()\r\n\t.filter(att -> att.startsWith(\"alias\"))\r\n\t.findAny();\r\n\t\t\r\nif (alias.isPresent() && alias.get().split(\"=\").length == 2) {\r\n\treturn alias.get().split(\"=\")[1];\r\n} else {\r\n\treturn \"\";\r\n}'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String sourceStyle = getSourceStyle();\r\nOptional&lt;String&gt; alias = Arrays.asList(sourceStyle.split(\";\")).stream()\r\n\t.filter(att -&gt; att.startsWith(\"alias\"))\r\n\t.findAny();\r\n\t\t\r\nif (alias.isPresent() &amp;&amp; alias.get().split(\"=\").length == 2) {\r\n\treturn alias.get().split(\"=\")[1];\r\n} else {\r\n\treturn \"\";\r\n}'"
 	 * @generated
 	 */
 	String getSourceAlias();
@@ -2031,7 +2031,7 @@ public interface Connector extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String destStyle = getDestStyle();\r\nOptional<String> alias = Arrays.asList(destStyle.split(\";\")).stream()\r\n\t.filter(att -> att.startsWith(\"alias\"))\r\n\t.findAny();\r\n\t\t\r\nif (alias.isPresent() && alias.get().split(\"=\").length == 2) {\r\n\treturn alias.get().split(\"=\")[1];\r\n} else {\r\n\treturn \"\";\r\n}'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String destStyle = getDestStyle();\r\nOptional&lt;String&gt; alias = Arrays.asList(destStyle.split(\";\")).stream()\r\n\t.filter(att -&gt; att.startsWith(\"alias\"))\r\n\t.findAny();\r\n\t\t\r\nif (alias.isPresent() &amp;&amp; alias.get().split(\"=\").length == 2) {\r\n\treturn alias.get().split(\"=\")[1];\r\n} else {\r\n\treturn \"\";\r\n}'"
 	 * @generated
 	 */
 	String getDestAlias();

@@ -242,7 +242,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>SX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_SX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"SX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashInt.get(\"SX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getSX();
@@ -258,7 +258,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>SY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_SY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"SY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashInt.get(\"SY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getSY();
@@ -274,7 +274,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>EX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_EX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"EX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashInt.get(\"EX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getEX();
@@ -290,7 +290,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>EY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_EY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashInt.get(\"EY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashInt.get(\"EY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getEY();
@@ -306,7 +306,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLBCX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBCX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"$LLB\").get(\"CX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"$LLB\").get(\"CX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLBCX();
@@ -322,7 +322,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLBCY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBCY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"$LLB\").get(\"CY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"$LLB\").get(\"CY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLBCY();
@@ -338,7 +338,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLBOX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBOX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"$LLB\").get(\"OX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"$LLB\").get(\"OX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLBOX();
@@ -354,7 +354,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLBOY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBOY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"$LLB\").get(\"OY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"$LLB\").get(\"OY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLBOY();
@@ -370,7 +370,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLTCX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTCX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LLT\").get(\"CX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LLT\").get(\"CX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLTCX();
@@ -386,7 +386,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLTCY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTCY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LLT\").get(\"CY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LLT\").get(\"CY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLTCY();
@@ -402,7 +402,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLTOX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTOX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LLT\").get(\"OX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LLT\").get(\"OX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLTOX();
@@ -418,7 +418,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LLTOY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTOY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LLT\").get(\"OY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LLT\").get(\"OY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLLTOY();
@@ -434,7 +434,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRBCX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBCX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRB\").get(\"CX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRB\").get(\"CX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRBCX();
@@ -450,7 +450,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRBCY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBCY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRB\").get(\"CY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRB\").get(\"CY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRBCY();
@@ -466,7 +466,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRBOX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBOX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRB\").get(\"OX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRB\").get(\"OX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRBOX();
@@ -482,7 +482,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRBOY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBOY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRB\").get(\"OY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRB\").get(\"OY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRBOY();
@@ -498,7 +498,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRTCX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTCX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRT\").get(\"CX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRT\").get(\"CX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRTCX();
@@ -514,7 +514,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRTCY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTCY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRT\").get(\"CY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRT\").get(\"CY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRTCY();
@@ -530,7 +530,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRTOX</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTOX()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRT\").get(\"OX\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRT\").get(\"OX\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRTOX();
@@ -546,7 +546,7 @@ public interface DiagramLink extends EObject {
 	 * @return the value of the '<em>LRTOY</em>' attribute.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTOY()
 	 * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new <%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);\r\n<%java.lang.Integer%> _get = map.hashNode.get(\"LRT\").get(\"OY\");\r\nreturn _get;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.get(\"LRT\").get(\"OY\");\r\nreturn _get;'"
 	 * @generated
 	 */
 	int getLRTOY();
@@ -554,7 +554,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SX\", newSX);\r\nthis.setGeometry(map.toString());'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SX\", newSX);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setSX(Integer newSX);
@@ -562,7 +562,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SY\", newSY);\r\nthis.setGeometry(map.toString());'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SY\", newSY);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setSY(Integer newSY);
@@ -570,7 +570,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EX\", newEX);\r\nthis.setGeometry(map.toString());'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EX\", newEX);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setEX(Integer newEX);
@@ -578,7 +578,7 @@ public interface DiagramLink extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EY\", newEY);\r\nthis.setGeometry(map.toString());'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"EY\", newEY);\r\nthis.setGeometry(map.toString());'"
 	 * @generated
 	 */
 	void setEY(Integer newEY);

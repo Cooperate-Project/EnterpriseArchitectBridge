@@ -5198,11 +5198,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract <em>Abstract</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract <em>Abstract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Abstract</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract()
 	 * @see #getElement()
 	 * @generated
 	 */
