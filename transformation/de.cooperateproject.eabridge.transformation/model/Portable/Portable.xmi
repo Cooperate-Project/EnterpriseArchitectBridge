@@ -8,7 +8,7 @@
           <ReturnType typeName="boolean"/>
         </Methods>
       </Elements>
-      <Elements Author="hahner" Complexity="1" CreatedDate="2017-01-31T10:38:50.000+0100" ElementGUID="{7408CA3E-B989-4e07-BB58-A3E5C80F9C8E}" ElementID="3" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-04-19T18:49:35.000+0200" Name="Box" Phase="1.0" Status="Proposed" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1">
+      <Elements Abstract="false" Author="hahner" Complexity="1" CreatedDate="2017-01-31T10:38:50.000+0100" ElementGUID="{7408CA3E-B989-4e07-BB58-A3E5C80F9C8E}" ElementID="3" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-04-19T18:49:35.000+0200" Name="Box" Phase="1.0" Status="Proposed" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1">
         <Methods IsPure="false" MethodGUID="{6D5F8A80-1BCF-4bf3-AC81-A228531FEE25}" MethodID="3" Name="canBePickedUp" Pos="1" Concurrency="Sequential">
           <ReturnType typeName="boolean"/>
         </Methods>
@@ -22,7 +22,7 @@
       <DiagramObjects Bottom="-186" Element="//@Packages.0/@Packages.0/@Elements.0" InstanceID="7" Left="131" Right="283" Sequence="2" ObjectStyle="DUID=1076DD2B;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;" Top="-96"/>
       <DiagramObjects Bottom="-339" Element="//@Packages.0/@Packages.0/@Elements.1" InstanceID="8" Left="130" Right="282" Sequence="1" ObjectStyle="DUID=67A597BD;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;" Top="-269"/>
     </Diagrams>
-    <Elements Author="schick" Complexity="1" CreatedDate="2017-04-19T18:49:31.000+0200" ElementGUID="{97E8A0C1-544B-446a-925F-2A584A54541B}" ElementID="7" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-04-19T18:49:31.000+0200" Name="Portable" Phase="1.0" Status="Proposed" Type="Package" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1" PDATA1="//@Packages.0/@Packages.0"/>
+    <Elements Abstract="false" Author="schick" Complexity="1" CreatedDate="2017-04-19T18:49:31.000+0200" ElementGUID="{97E8A0C1-544B-446a-925F-2A584A54541B}" ElementID="7" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-04-19T18:49:31.000+0200" Name="Portable" Phase="1.0" Status="Proposed" Type="Package" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1" PDATA1="//@Packages.0/@Packages.0"/>
   </Packages>
-  <Elements Author="hahner" Complexity="1" CreatedDate="2017-01-31T10:37:22.000+0100" ElementGUID="{F1C4A762-0447-44dc-98D8-E510970BF428}" ElementID="1" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-04-19T18:49:50.000+0200" Name="Model" Phase="1.0" Status="Proposed" Type="Package" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1" PDATA1="//@Packages.0"/>
+  <Elements Abstract="false" Author="hahner" Complexity="1" CreatedDate="2017-01-31T10:37:22.000+0100" ElementGUID="{F1C4A762-0447-44dc-98D8-E510970BF428}" ElementID="1" GenType="Java" IsActive="false" IsLeaf="false" IsSpec="false" ModifiedDate="2017-04-19T18:49:50.000+0200" Name="Model" Phase="1.0" Status="Proposed" Type="Package" Version="1.0" Backcolor="-1" BorderWidth="-1" Fontcolor="-1" Bordercolor="-1" PDATA1="//@Packages.0"/>
 </eaobjectmodel:Package>

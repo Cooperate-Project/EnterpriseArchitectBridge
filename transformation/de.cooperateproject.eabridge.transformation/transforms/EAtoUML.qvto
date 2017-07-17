@@ -525,6 +525,9 @@ when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = 
 	//checked with the test model
 	source := self.Connector.Dest.resolveElement(self.Diagram);
 	target := self.Connector.Source.resolveElement(self.Diagram);
+	var anchor := targetAnchor;
+	targetAnchor := sourceAnchor;
+	sourceAnchor := anchor;
 	
 	children += self.map diagramLinkToNameDecoration();
 	children += self.map diagramLinkToTargetRoleDecoration();
@@ -537,12 +540,14 @@ mapping DiagramLink::generalizationToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Generalization} {
 	type := PAPYRUS_NOTATION_EDGE_GENERALIZATION;
 	element := self.Connector.resolveoneIn(Connector::mapConnectoToGeneralization).toEObject();
+	children := self.map diagramLinkToStereotypeDecorationNode();
 }
 
 mapping DiagramLink::implementationToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Realisation} {
 	type := PAPYRUS_NOTATION_EDGE_IMPLEMENTATION;
 	element := self.Connector.resolveoneIn(Connector::mapConnectoToRealization).toEObject();
+	children := self.map diagramLinkToStereotypeDecorationNode();
 }
 
 mapping DiagramLink::noteLinkToConnector() : notation::Connector
@@ -554,6 +559,7 @@ mapping DiagramLink::packageImportToConnector() : notation::Connector
 when {self.Connector.Type = ConnectorType::Package and self.Connector.Stereotype = "import"} {
 	type := PAPYRUS_NOTATION_EDGE_PACKAGEIMPORT;
 	element := self.Connector.resolveoneIn(Connector::mapConnectorToPackageImport).toEObject();
+	children := self.map diagramLinkToStereotypeDecorationNode();
 }
 
 //ConnectorNameDecorationNode
@@ -595,20 +601,31 @@ mapping DiagramLink::diagramLinkToSourceMultiplicityDecoration() : notation::Dec
 }
 
 //Anchors
-mapping DiagramLink::diagramLinkToTargetAnchor() : notation::IdentityAnchor 
-{
-	var bounds := self.Connector.Dest.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
+mapping DiagramLink::diagramLinkToSourceAnchor() : notation::IdentityAnchor {
+	var bounds := self.Connector.Source.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
 	var xPos := (self.SX + bounds.width./(2)) / bounds.width;
 	var yPos := (self.SY.-() + bounds.height./(2)) / bounds.height;
 	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
 }
 
-mapping DiagramLink::diagramLinkToSourceAnchor() : notation::IdentityAnchor 
-{
-	var bounds := self.Connector.Source.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
+mapping DiagramLink::diagramLinkToTargetAnchor() : notation::IdentityAnchor {
+	var bounds := self.Connector.Dest.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
 	var xPos := (self.EX + bounds.width./(2)) / bounds.width;
 	var yPos := (self.EY.-() + bounds.height./(2)) / bounds.height;
 	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
+}
+
+mapping DiagramLink::diagramLinkToStereotypeDecorationNode() : DecorationNode {
+	if (self.Connector.Type = ConnectorType::Generalization)
+		then type := PAPYRUS_NOTATION_NODE_GENERALIZATION_STEREOTYPE
+		else if (self.Connector.Type = ConnectorType::Realisation)
+		then type := PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_STEREOTYPE
+		else if (self.Connector.Type = ConnectorType::Package and self.Connector.Stereotype = "import")
+		then type := PAPYRUS_NOTATION_NODE_PACKAGEIMPORT_STEREOTYPE
+		endif
+		endif
+	endif;
+	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
 //Queries
