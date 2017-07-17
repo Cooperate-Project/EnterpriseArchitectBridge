@@ -78,6 +78,7 @@ public interface Method extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
 	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
@@ -86,7 +87,8 @@ public interface Method extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethod_Parameters()
-	 * @model containment="true"
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod
+	 * @model opposite="Method" containment="true"
 	 * @generated
 	 */
 	EList<Methodparameter> getParameters();

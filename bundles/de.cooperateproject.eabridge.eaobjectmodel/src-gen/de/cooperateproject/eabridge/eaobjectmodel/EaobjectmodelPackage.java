@@ -2708,7 +2708,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	int METHODPARAMETER__NAME = 2;
 
 	/**
-	 * The feature id for the '<em><b>Method</b></em>' reference.
+	 * The feature id for the '<em><b>Method</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6054,10 +6054,10 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getMethodparameter_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}'.
+	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Method</em>'.
+	 * @return the meta object for the container reference '<em>Method</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod()
 	 * @see #getMethodparameter()
 	 * @generated
@@ -8671,7 +8671,7 @@ public interface EaobjectmodelPackage extends EPackage {
 		EAttribute METHODPARAMETER__NAME = eINSTANCE.getMethodparameter_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Method</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Method</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

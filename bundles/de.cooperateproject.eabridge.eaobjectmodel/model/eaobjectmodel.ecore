@@ -654,7 +654,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ReturnType" eType="#//TypeReference"
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
-        eType="#//Methodparameter" containment="true" resolveProxies="false"/>
+        eType="#//Methodparameter" containment="true" resolveProxies="false" eOpposite="#//Methodparameter/Method"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abstract" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Behaviour" unique="false"
@@ -707,7 +707,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterType" eType="#//TypeReference"
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Method" eType="#//Method"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Method" eType="#//Method"
+        eOpposite="#//Method/Parameters"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kind" eType="#//ParameterDirection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">

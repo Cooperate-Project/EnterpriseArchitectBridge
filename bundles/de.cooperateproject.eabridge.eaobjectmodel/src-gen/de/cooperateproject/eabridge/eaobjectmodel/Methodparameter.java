@@ -104,26 +104,28 @@ public interface Methodparameter extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Method</b></em>' reference.
+	 * Returns the value of the '<em><b>Method</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Method</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Method</em>' reference.
+	 * @return the value of the '<em>Method</em>' container reference.
 	 * @see #setMethod(Method)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter_Method()
-	 * @model
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Method#getParameters
+	 * @model opposite="Parameters" transient="false"
 	 * @generated
 	 */
 	Method getMethod();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}' reference.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Method</em>' reference.
+	 * @param value the new value of the '<em>Method</em>' container reference.
 	 * @see #getMethod()
 	 * @generated
 	 */
