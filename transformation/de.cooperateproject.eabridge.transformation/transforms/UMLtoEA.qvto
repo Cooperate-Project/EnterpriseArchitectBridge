@@ -317,14 +317,29 @@ mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	Orientation := "P";
 	
 	result.Package := self.element.oclAsType(uml::Package).resolveoneIn(uml::Package::mapPackage);
-	self.children->selectByType(notation::Shape)->map mapShape(0, 0);
+
+	var directShapes := self.children->selectByType(notation::Shape);
+	directShapes->map mapShape(0, 0);	
+	
+	var totalShapes := self.getAllContents(false)->selectByType(notation::Shape);
+	log("Total Shapes:", totalShapes.element.oclAsType(NamedElement).name);
+	
+	var sequenceNumber := totalShapes->size();
+	log("#Total Shapes:", sequenceNumber);
+	
+	directShapes-> forEach(shape) {
+		sequenceNumber := shape.setSequence(sequenceNumber)
+	};
+	
 	self.edges->selectByType(notation::Connector)->map mapConnector();
 	
 	DiagramGUID := generateUUID();
 }
 
-mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject {
-	log("Mapping diagramobject", self);
+//TODO: make when better
+mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject 
+when {self.isShapeRequired()} {
+	log("Mapping diagramobject", self.element.oclAsType(uml::NamedElement).name);
 
 	result.Element := self.element.resolveone(eaobjectmodel::Element);
 	result.Diagram := self.diagram.resolveone(eaobjectmodel::Diagram);
@@ -334,7 +349,26 @@ mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) :
 	Right := self.getBounds().width + result.Left;
 	Bottom := result.Top - self.getBounds().height;
 	
-	self.getAllContents(false)->selectByType(notation::Shape)-> map mapShape(result.Left, result.Top);
+	log("nestedShapes:", self.getNestedShapes().element.oclAsType(uml::NamedElement).name);
+	
+	//TODO: Find best place for condition
+	if (self.isPackage())
+		then self.getNestedShapes()-> map mapShape(result.Left, result.Top)
+	endif;
+	}
+
+query notation::Shape::setSequence(sequenceNumber : Integer) : Integer {
+	var diaObject := self.resolveoneIn(notation::Shape::mapShape);
+	diaObject._Sequence := sequenceNumber;
+	var newSequenceNumber := sequenceNumber - 1;
+	
+	log("Shape and SequenceNumber", self.element.oclAsType(NamedElement).name + " : " + sequenceNumber.toString());
+	
+	self.getNestedShapes()-> forEach(shape) {
+		newSequenceNumber := shape.setSequence(newSequenceNumber)
+	};
+
+	return newSequenceNumber;
 }
 
 mapping notation::Connector::mapConnector() : eaobjectmodel::DiagramLink 
@@ -389,6 +423,24 @@ when {self.type = PAPYRUS_NOTATION_EDGE_ASSOCIATION} {
 	
 	result.setEX(calculateX(sourceShape, self.sourceAnchor));
 	result.setEY(calculateY(sourceShape, self.sourceAnchor));
+}
+
+query notation::Shape::getNestedShapes() : OrderedSet(notation::Shape) {
+	if (self.isPackage())
+		then return self.children->any(c | c.oclIsTypeOf(notation::BasicCompartment)).children->selectByType(notation::Shape)
+		else return new OrderedSet(notation::Shape)()
+	endif;
+}
+
+query notation::Shape::isPackage() : Boolean {
+	return self.type.startsWith(PAPYRUS_NOTATION_SHAPE_PACKAGE_REGULAR);
+}
+
+query notation::Shape::isShapeRequired() : Boolean {
+	return self.type.startsWith(PAPYRUS_NOTATION_SHAPE_PACKAGE_REGULAR) or 
+	self.type.startsWith(PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR) or 
+	self.type.startsWith(PAPYRUS_NOTATION_SHAPE_INTERFACE_REGULAR) or 
+	self.type.startsWith(PAPYRUS_NOTATION_SHAPE_COMMENT_REGULAR)
 }
 
 query notation::Shape::getBounds() : notation::Bounds {
