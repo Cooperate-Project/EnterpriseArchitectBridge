@@ -321,8 +321,8 @@ mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	var directShapes := self.children->selectByType(notation::Shape);
 	directShapes->map mapShape(0, 0);	
 	
-	var totalShapes := self.getAllContents(false)->selectByType(notation::Shape);
-	log("Total Shapes:", totalShapes.element.oclAsType(NamedElement).name);
+	var totalShapes := self.getAllContents(false)->selectByType(notation::Shape)->select(s | s.isShapeRequired());
+	log("Total Shapes:", totalShapes.element.eClass().name);
 	
 	var sequenceNumber := totalShapes->size();
 	log("#Total Shapes:", sequenceNumber);
@@ -336,10 +336,9 @@ mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	DiagramGUID := generateUUID();
 }
 
-//TODO: make when better
 mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject 
 when {self.isShapeRequired()} {
-	log("Mapping diagramobject", self.element.oclAsType(uml::NamedElement).name);
+	log("Mapping diagramobject", self.element.eClass().name);
 
 	result.Element := self.element.resolveone(eaobjectmodel::Element);
 	result.Diagram := self.diagram.resolveone(eaobjectmodel::Diagram);
@@ -349,20 +348,21 @@ when {self.isShapeRequired()} {
 	Right := self.getBounds().width + result.Left;
 	Bottom := result.Top - self.getBounds().height;
 	
-	log("nestedShapes:", self.getNestedShapes().element.oclAsType(uml::NamedElement).name);
-	
+	if (self.isPackage())
+		then log("NestedShapes:", self.getNestedShapes().element.eClass().name)
+	endif;
 	//TODO: Find best place for condition
 	if (self.isPackage())
 		then self.getNestedShapes()-> map mapShape(result.Left, result.Top)
 	endif;
-	}
+}
 
 query notation::Shape::setSequence(sequenceNumber : Integer) : Integer {
 	var diaObject := self.resolveoneIn(notation::Shape::mapShape);
 	diaObject._Sequence := sequenceNumber;
 	var newSequenceNumber := sequenceNumber - 1;
 	
-	log("Shape and SequenceNumber", self.element.oclAsType(NamedElement).name + " : " + sequenceNumber.toString());
+	log("Shape and SequenceNumber", self.element.eClass().name + " : " + sequenceNumber.toString());
 	
 	self.getNestedShapes()-> forEach(shape) {
 		newSequenceNumber := shape.setSequence(newSequenceNumber)

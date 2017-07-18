@@ -833,6 +833,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EaobjectmodelPackage.ATTRIBUTE__CONSTRAINTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConstraints()).basicAdd(otherEnd, msgs);
 			case EaobjectmodelPackage.ATTRIBUTE__PARENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

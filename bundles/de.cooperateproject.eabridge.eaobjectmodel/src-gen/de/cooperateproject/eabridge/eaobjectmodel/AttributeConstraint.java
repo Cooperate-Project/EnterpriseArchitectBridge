@@ -53,26 +53,28 @@ public interface AttributeConstraint extends EObject {
 	void setElementOfAttribute(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' reference.
+	 * Returns the value of the '<em><b>Attribute</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getConstraints <em>Constraints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Attribute</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute</em>' reference.
+	 * @return the value of the '<em>Attribute</em>' container reference.
 	 * @see #setAttribute(Attribute)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getAttributeConstraint_Attribute()
-	 * @model
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Attribute#getConstraints
+	 * @model opposite="Constraints" transient="false"
 	 * @generated
 	 */
 	Attribute getAttribute();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint#getAttribute <em>Attribute</em>}' reference.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint#getAttribute <em>Attribute</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attribute</em>' reference.
+	 * @param value the new value of the '<em>Attribute</em>' container reference.
 	 * @see #getAttribute()
 	 * @generated
 	 */

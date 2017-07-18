@@ -209,6 +209,7 @@ public interface Attribute extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
 	 * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint}.
+	 * It is bidirectional and its opposite is '{@link de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
@@ -217,7 +218,8 @@ public interface Attribute extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Constraints</em>' containment reference list.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getAttribute_Constraints()
-	 * @model containment="true"
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint#getAttribute
+	 * @model opposite="Attribute" containment="true"
 	 * @generated
 	 */
 	EList<AttributeConstraint> getConstraints();

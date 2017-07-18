@@ -441,7 +441,7 @@ public interface EaobjectmodelPackage extends EPackage {
 	int ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * The feature id for the '<em><b>Attribute</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3487,10 +3487,10 @@ public interface EaobjectmodelPackage extends EPackage {
 	EReference getAttributeConstraint_ElementOfAttribute();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the container reference '{@link de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute</em>'.
+	 * @return the meta object for the container reference '<em>Attribute</em>'.
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint#getAttribute()
 	 * @see #getAttributeConstraint()
 	 * @generated
@@ -6775,7 +6775,7 @@ public interface EaobjectmodelPackage extends EPackage {
 		EReference ATTRIBUTE_CONSTRAINT__ELEMENT_OF_ATTRIBUTE = eINSTANCE.getAttributeConstraint_ElementOfAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Attribute</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

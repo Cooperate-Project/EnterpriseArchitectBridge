@@ -72,7 +72,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Containment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Constraints" upperBound="-1"
-        eType="#//AttributeConstraint" containment="true" resolveProxies="false"/>
+        eType="#//AttributeConstraint" containment="true" resolveProxies="false" eOpposite="#//AttributeConstraint/Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Default" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsCollection" unique="false"
@@ -118,7 +118,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ElementOfAttribute" eType="#//Element"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" eType="#//Attribute"
+        eOpposite="#//Attribute/Constraints"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constraint" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttName" unique="false"

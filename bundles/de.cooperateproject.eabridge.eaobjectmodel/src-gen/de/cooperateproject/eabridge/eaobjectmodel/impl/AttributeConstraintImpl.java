@@ -7,8 +7,10 @@ import de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
@@ -146,6 +148,16 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain basicSetAttribute(Attribute newAttribute, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newAttribute, EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setAttribute(Attribute newAttribute) {
 		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__ATTRIBUTE, newAttribute);
 	}
@@ -220,6 +232,50 @@ public class AttributeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 */
 	public void setType(String newType) {
 		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__TYPE, EaobjectmodelPackage.Literals.ATTRIBUTE_CONSTRAINT__TYPE, newType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetAttribute((Attribute)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
+				return basicSetAttribute(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT__ATTRIBUTE:
+				return eInternalContainer().eInverseRemove(this, EaobjectmodelPackage.ATTRIBUTE__CONSTRAINTS, Attribute.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**

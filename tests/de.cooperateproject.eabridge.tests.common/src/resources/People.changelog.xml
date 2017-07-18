@@ -31,6 +31,14 @@
             <column name="ea_guid" value="{F3216DBF-3B77-4154-BB89-A09602A9CE8A}"/>
             <column name="StyleEx" value="volatile=0;"/>
         </insert>
+        <insert tableName="t_attributeconstraints">
+            <column name="Object_ID" valueNumeric="2"/>
+            <column name="Constraint" value="This is the Constraint"/>
+            <column name="ID" valueNumeric="1"/>
+            <column name="AttName"/>
+            <column name="Type"/>
+            <column name="Notes"/>
+        </insert>
         <insert tableName="t_attribute">
             <column name="Object_ID" valueNumeric="2"/>
             <column name="Name" value="name"/>
