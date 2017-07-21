@@ -68,7 +68,9 @@ public abstract class TransformationTestBase {
 			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.eaobjectmodel",
 					determinePluginUri("de.cooperateproject.eabridge.eaobjectmodel", DatabaseFactory.class));
 			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.transformation",
-					determinePluginUri("de.cooperateproject.eabridge.transformation", TransformationTestBase.class));
+					determinePluginUri("de.cooperateproject.eabridge.transformation", de.cooperateproject.eabridge.transformation.executor.TransformationExecutor.class));
+			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.transformation.tests",
+					determinePluginUri("de.cooperateproject.eabridge.transformation.tests", TransformationTestBase.class));
 
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 			Registry packageRegistry = EPackage.Registry.INSTANCE;
@@ -232,7 +234,7 @@ public abstract class TransformationTestBase {
 	}
 
 	protected static URI createResourceModelURI(String filename) {
-		String pathName = String.format("/%s/model/%s", "de.cooperateproject.eabridge.transformation", filename);
+		String pathName = String.format("/%s/model/%s", "de.cooperateproject.eabridge.transformation.tests", filename);
 		return createPlatformURI(pathName);
 	}
 

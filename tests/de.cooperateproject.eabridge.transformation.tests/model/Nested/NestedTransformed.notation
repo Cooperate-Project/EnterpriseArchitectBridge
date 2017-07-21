@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" type="PapyrusUMLClassDiagram" name="Nested" measurementUnit="Pixel">
+  <children xsi:type="notation:Shape" type="Package_Shape">
+    <children xsi:type="notation:DecorationNode" type="Package_NameLabel"/>
+    <children xsi:type="notation:BasicCompartment" type="Package_PackagedElementCompartment">
+      <children xsi:type="notation:Shape" type="Class_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+          <layoutConstraint xsi:type="notation:Location"/>
+        </children>
+        <element href="NestedTransformed.uml#_rmWoxm4mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="23" y="36" width="90" height="70"/>
+      </children>
+      <styles xsi:type="notation:TitleStyle"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <element href="NestedTransformed.uml#_rmWoxW4mEeeCjZrTAjdC0g"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="35" y="32" width="139" height="259"/>
+  </children>
+  <children xsi:type="notation:Shape" type="Package_Shape">
+    <children xsi:type="notation:DecorationNode" type="Package_NameLabel"/>
+    <children xsi:type="notation:BasicCompartment" type="Package_PackagedElementCompartment">
+      <children xsi:type="notation:Shape" type="Package_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Package_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Package_PackagedElementCompartment_CN">
+          <children xsi:type="notation:Shape" type="Class_Shape_CN">
+            <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+            <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+              <styles xsi:type="notation:TitleStyle"/>
+              <styles xsi:type="notation:SortingStyle"/>
+              <styles xsi:type="notation:FilteringStyle"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+              <styles xsi:type="notation:TitleStyle"/>
+              <styles xsi:type="notation:SortingStyle"/>
+              <styles xsi:type="notation:FilteringStyle"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+              <styles xsi:type="notation:TitleStyle"/>
+              <styles xsi:type="notation:SortingStyle"/>
+              <styles xsi:type="notation:FilteringStyle"/>
+              <layoutConstraint xsi:type="notation:Bounds"/>
+            </children>
+            <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+              <layoutConstraint xsi:type="notation:Location"/>
+            </children>
+            <element href="NestedTransformed.uml#_rmWow24mEeeCjZrTAjdC0g"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="24" y="39" width="90" height="70"/>
+          </children>
+          <styles xsi:type="notation:TitleStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="NestedTransformed.uml#_rmWowm4mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="130" y="40" width="190" height="189"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Class_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+          <layoutConstraint xsi:type="notation:Location"/>
+        </children>
+        <element href="NestedTransformed.uml#_rmWoxG4mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="19" y="39" width="90" height="70"/>
+      </children>
+      <styles xsi:type="notation:TitleStyle"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <element href="NestedTransformed.uml#_rmWowW4mEeeCjZrTAjdC0g"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="192" y="34" width="343" height="256"/>
+  </children>
+  <styles xsi:type="notation:StringValueStyle" name="diagram_compatibility_version" stringValue="1.2.0"/>
+  <styles xsi:type="notation:DiagramStyle"/>
+  <styles xsi:type="style:PapyrusViewStyle">
+    <owner href="NestedTransformed.uml#_rmWowG4mEeeCjZrTAjdC0g"/>
+  </styles>
+  <element href="NestedTransformed.uml#_rmWowG4mEeeCjZrTAjdC0g"/>
+</notation:Diagram>

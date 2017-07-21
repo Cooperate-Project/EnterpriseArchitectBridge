@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="ASCII"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" type="PapyrusUMLClassDiagram" name="SimpleAssociation" measurementUnit="Pixel">
+  <children xsi:type="notation:Shape" type="Package_Shape">
+    <children xsi:type="notation:DecorationNode" type="Package_NameLabel"/>
+    <children xsi:type="notation:BasicCompartment" type="Package_PackagedElementCompartment">
+      <children xsi:type="notation:Shape" type="Class_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+          <layoutConstraint xsi:type="notation:Location"/>
+        </children>
+        <element href="SimpleAssociationTransformed.uml#_prVtk24mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="319" y="141" width="90" height="70"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Class_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+          <layoutConstraint xsi:type="notation:Location"/>
+        </children>
+        <element href="SimpleAssociationTransformed.uml#_prVtmG4mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="159" y="267" width="90" height="70"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Class_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+          <layoutConstraint xsi:type="notation:Location"/>
+        </children>
+        <element href="SimpleAssociationTransformed.uml#_prVtnG4mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="290" y="346" width="90" height="70"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Class_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+          <layoutConstraint xsi:type="notation:Location"/>
+        </children>
+        <element href="SimpleAssociationTransformed.uml#_prVtkm4mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="173" y="72" width="90" height="70"/>
+      </children>
+      <children xsi:type="notation:Shape" type="Class_Shape_CN">
+        <children xsi:type="notation:DecorationNode" type="Class_NameLabel_CN"/>
+        <children xsi:type="notation:BasicCompartment" type="Class_AttributeCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_OperationCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:BasicCompartment" type="Class_NestedClassifierCompartment_CN">
+          <styles xsi:type="notation:TitleStyle"/>
+          <styles xsi:type="notation:SortingStyle"/>
+          <styles xsi:type="notation:FilteringStyle"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:DecorationNode" type="Class_FloatingNameLabel_CN">
+          <layoutConstraint xsi:type="notation:Location"/>
+        </children>
+        <element href="SimpleAssociationTransformed.uml#_prVtl24mEeeCjZrTAjdC0g"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="44" y="161" width="90" height="70"/>
+      </children>
+      <styles xsi:type="notation:TitleStyle"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <element href="SimpleAssociationTransformed.uml#_prVtkW4mEeeCjZrTAjdC0g"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="122" y="47" width="462" height="468"/>
+  </children>
+  <styles xsi:type="notation:StringValueStyle" name="diagram_compatibility_version" stringValue="1.2.0"/>
+  <styles xsi:type="notation:DiagramStyle"/>
+  <styles xsi:type="style:PapyrusViewStyle">
+    <owner href="SimpleAssociationTransformed.uml#_prVtkG4mEeeCjZrTAjdC0g"/>
+  </styles>
+  <element href="SimpleAssociationTransformed.uml#_prVtkG4mEeeCjZrTAjdC0g"/>
+  <edges xsi:type="notation:Connector" type="Association_Edge" source="//@children.0/@children.1/@children.1" target="//@children.0/@children.1/@children.2">
+    <children xsi:type="notation:DecorationNode" type="Association_NameLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <element href="SimpleAssociationTransformed.uml#_prVtr24mEeeCjZrTAjdC0g"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="Association_Edge" source="//@children.0/@children.1/@children.3" target="//@children.0/@children.1/@children.0">
+    <children xsi:type="notation:DecorationNode" type="Association_NameLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <element href="SimpleAssociationTransformed.uml#_prVtoG4mEeeCjZrTAjdC0g"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="Association_Edge" source="//@children.0/@children.1/@children.3" target="//@children.0/@children.1/@children.4">
+    <children xsi:type="notation:DecorationNode" type="Association_NameLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <element href="SimpleAssociationTransformed.uml#_prVtpG4mEeeCjZrTAjdC0g"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="Association_Edge" source="//@children.0/@children.1/@children.4" target="//@children.0/@children.1/@children.1">
+    <children xsi:type="notation:DecorationNode" type="Association_NameLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceRoleLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_TargetMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <children xsi:type="notation:DecorationNode" type="Association_SourceMultiplicityLabel">
+      <styles xsi:type="notation:BooleanValueStyle" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xsi:type="notation:Location"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <element href="SimpleAssociationTransformed.uml#_prVtq24mEeeCjZrTAjdC0g"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.5,0.5)"/>
+  </edges>
+</notation:Diagram>

@@ -27,22 +27,11 @@ public enum TestResource {
 	AdvancedAssociationChangelog("resources/AdvancedAssociation.changelog.xml"),
 	NestedChangelog("resources/Nested.changelog.xml");
 
-//	private static File TMP_DIR = null;
-//	private final File tmpFile;
 	private final String resourcePath;
 
 	private TestResource(String relativePath) {
 		this.resourcePath = relativePath;
-//		tmpFile = copyFile(relativePath);
 	}
-	
-//	public File getFile() {
-//		return tmpFile;
-//	}
-	
-//	public URI getURI() {
-//		return URI.createFileURI(tmpFile.getAbsolutePath());
-//	}
 	
 	public String getResourcePath() {
 		return resourcePath;
@@ -67,32 +56,4 @@ public enum TestResource {
 		}
 	}
 
-	
-//	private static File getTmpDir() {
-//		if (TMP_DIR == null) {
-//			TMP_DIR = createTmpDir();
-//		}
-//		return TMP_DIR;
-//	}
-//	
-//	private static File createTmpDir() {
-//		File tmpDir = Files.createTempDir();
-//		tmpDir.deleteOnExit();
-//		return tmpDir;
-//	}
-//	
-//	private static File copyFile(String relativePath) {
-//		InputStream is = TestResource.class.getClassLoader().getResourceAsStream(relativePath.replaceFirst("src/", ""));
-//		try {
-//			File targetFile = new File(getTmpDir(), relativePath);
-//			targetFile.deleteOnExit();
-//			FileUtils.copyInputStreamToFile(is, targetFile);
-//			return targetFile;
-//		} catch (IOException e) {
-//			return null;
-//		} finally {
-//			IOUtils.closeQuietly(is);
-//		}
-//	}
-//	
 }

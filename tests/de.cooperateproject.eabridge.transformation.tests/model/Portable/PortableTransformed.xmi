@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<eaobjectmodel:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eaobjectmodel="de.cooperateproject.eabridge.eaobjectmodel" PackageGUID="{6fb3ed19-91b9-4a56-9da6-5af5ba92f298}" Name="Root">
+  <Packages PackageGUID="{3b1eaace-bfdf-4f73-8cb0-cf7e56e5a649}" Name="Model">
+    <Packages PackageGUID="{657f2c7f-10c0-41f7-b222-1b8922c92ed4}" Name="Portable">
+      <Elements Abstract="false" ElementGUID="{f44efdb6-a702-4292-8e72-21fcf98a60f6}" Name="Box">
+        <Methods MethodGUID="{050e57ee-8d53-4450-9a20-e8413676635d}" Name="canBePickedUp">
+          <ReturnType typeName="boolean"/>
+        </Methods>
+        <Methods MethodGUID="{7df65ebf-5cdc-461c-a03e-278576eeeda4}" Name="carry"/>
+        <SourceRelations ConnectorGUID="{b0a76830-1f4a-4224-94bb-a02d83009b0b}" Direction="Source -> Destination" Type="Realisation" Dest="//@Packages.0/@Packages.0/@Elements.1" DestIsNavigable="true"/>
+      </Elements>
+      <Elements Abstract="true" ElementGUID="{9201d9d3-6d25-4354-87bf-abe29a8c3273}" Name="Portable" Type="Interface">
+        <Methods MethodGUID="{9ea14dd6-3d36-4a35-81cc-2b51b5f7d037}" Name="carry"/>
+        <Methods MethodGUID="{95cd5938-96c0-4dad-a7b7-9d789a412399}" Name="canBePickedUp">
+          <ReturnType typeName="boolean"/>
+        </Methods>
+      </Elements>
+    </Packages>
+    <Diagrams DiagramGUID="{df60ab50-0773-476c-a18e-51d61463285a}" Name="Portable" Orientation="P" Type="Logical">
+      <DiagramLinks Connector="//@Packages.0/@Packages.0/@Elements.0/@SourceRelations.0" Geometry="SX=0;SY=0;EX=0;EY=0;EDGE=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS="/>
+      <DiagramObjects Bottom="-377" Element="//@Packages.0/@Elements.0" Left="57" Right="360" Sequence="3" Top="-33"/>
+      <DiagramObjects Bottom="-186" Element="//@Packages.0/@Packages.0/@Elements.1" Left="131" Right="283" Sequence="2" Top="-96"/>
+      <DiagramObjects Bottom="-339" Element="//@Packages.0/@Packages.0/@Elements.0" Left="130" Right="282" Sequence="1" Top="-269"/>
+    </Diagrams>
+    <Elements ElementGUID="{d7956cf2-66b6-4885-9bc2-2bb215f098a3}" Name="Portable" Type="Package" PDATA1="//@Packages.0/@Packages.0"/>
+  </Packages>
+</eaobjectmodel:Package>
