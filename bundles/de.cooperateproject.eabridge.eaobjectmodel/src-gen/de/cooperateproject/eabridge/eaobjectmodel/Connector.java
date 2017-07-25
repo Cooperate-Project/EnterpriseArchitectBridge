@@ -1995,7 +1995,7 @@ public interface Connector extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String sourceCard = getSourceCard();\r\nif (sourceCard != null) {\r\nString[] cards = sourceCard.split(\"\\\\.\\\\.\");\r\n\treturn Integer.parseInt(cards[cards.length - 1]);\r\n}\r\nreturn null;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String sourceCard = getSourceCard();\r\nif (sourceCard != null) {\r\n\tString[] cards = sourceCard.split(\"\\\\.\\\\.\");\r\n\tint relevantIndex = Math.max(0, cards.length -1);\r\n\treturn Integer.parseInt(cards[relevantIndex]);\r\n}\r\nreturn null;'"
 	 * @generated
 	 */
 	Integer getSourceUpper();
@@ -2013,7 +2013,7 @@ public interface Connector extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String destCard = getDestCard();\r\nif (destCard != null) {\r\nString[] cards = destCard.split(\"\\\\.\\\\.\");\r\n\treturn Integer.parseInt(cards[cards.length - 1]);\r\n}\r\nreturn null;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='String destCard = getDestCard();\r\nif (destCard != null) {\r\n\tString[] cards = destCard.split(\"\\\\.\\\\.\");\r\n\tint relevantIndex = Math.max(0, cards.length -1);\r\n\treturn Integer.parseInt(cards[relevantIndex]);\r\n}\r\nreturn null;'"
 	 * @generated
 	 */
 	Integer getDestUpper();

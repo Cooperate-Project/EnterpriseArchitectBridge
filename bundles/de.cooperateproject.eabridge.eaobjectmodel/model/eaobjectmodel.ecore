@@ -145,7 +145,7 @@
     </eOperations>
     <eOperations name="getSourceUpper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="String sourceCard = getSourceCard();&#xD;&#xA;if (sourceCard != null) {&#xD;&#xA;String[] cards = sourceCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;return Integer.parseInt(cards[cards.length - 1]);&#xD;&#xA;}&#xD;&#xA;return null;"/>
+        <details key="body" value="String sourceCard = getSourceCard();&#xD;&#xA;if (sourceCard != null) {&#xD;&#xA;&#x9;String[] cards = sourceCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;int relevantIndex = Math.max(0, cards.length -1);&#xD;&#xA;&#x9;return Integer.parseInt(cards[relevantIndex]);&#xD;&#xA;}&#xD;&#xA;return null;"/>
       </eAnnotations>
     </eOperations>
     <eOperations name="getDestLower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
@@ -155,7 +155,7 @@
     </eOperations>
     <eOperations name="getDestUpper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="String destCard = getDestCard();&#xD;&#xA;if (destCard != null) {&#xD;&#xA;String[] cards = destCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;return Integer.parseInt(cards[cards.length - 1]);&#xD;&#xA;}&#xD;&#xA;return null;"/>
+        <details key="body" value="String destCard = getDestCard();&#xD;&#xA;if (destCard != null) {&#xD;&#xA;&#x9;String[] cards = destCard.split(&quot;\\.\\.&quot;);&#xD;&#xA;&#x9;int relevantIndex = Math.max(0, cards.length -1);&#xD;&#xA;&#x9;return Integer.parseInt(cards[relevantIndex]);&#xD;&#xA;}&#xD;&#xA;return null;"/>
       </eAnnotations>
     </eOperations>
     <eOperations name="getSourceAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">

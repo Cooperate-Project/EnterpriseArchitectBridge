@@ -2113,8 +2113,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	public Integer getSourceUpper() {
 		String sourceCard = getSourceCard();
 		if (sourceCard != null) {
-		String[] cards = sourceCard.split("\\.\\.");
-			return Integer.parseInt(cards[cards.length - 1]);
+			String[] cards = sourceCard.split("\\.\\.");
+			int relevantIndex = Math.max(0, cards.length -1);
+			return Integer.parseInt(cards[relevantIndex]);
 		}
 		return null;
 	}
@@ -2141,8 +2142,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	public Integer getDestUpper() {
 		String destCard = getDestCard();
 		if (destCard != null) {
-		String[] cards = destCard.split("\\.\\.");
-			return Integer.parseInt(cards[cards.length - 1]);
+			String[] cards = destCard.split("\\.\\.");
+			int relevantIndex = Math.max(0, cards.length -1);
+			return Integer.parseInt(cards[relevantIndex]);
 		}
 		return null;
 	}
