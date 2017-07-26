@@ -25,7 +25,8 @@ public enum TransformationExecutorRegistry {
 	
 	private Optional<ITransformationExecutor> getExecutor(Collection<Class<? extends EObject>> sourceTypes) {
 		for (ITransformationExecutor executor : executors) {
-			if (executor.getRequiredInputParameters().equals(sourceTypes)) {
+			Collection<Class<? extends EObject>> requiredParameters = executor.getRequiredInputParameters();
+			if (requiredParameters.size() == sourceTypes.size() && requiredParameters.containsAll(sourceTypes)) {
 				return Optional.of(executor);
 			}
 		}
