@@ -68,7 +68,7 @@ public abstract class TransformationTestBase {
 			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.eaobjectmodel",
 					determinePluginUri("de.cooperateproject.eabridge.eaobjectmodel", DatabaseFactory.class));
 			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.transformation",
-					determinePluginUri("de.cooperateproject.eabridge.transformation", de.cooperateproject.eabridge.transformation.executor.TransformationExecutor.class));
+					determinePluginUri("de.cooperateproject.eabridge.transformation", de.cooperateproject.eabridge.transformation.executor.TransformationExecutorRegistry.class));
 			EcorePlugin.getPlatformResourceMap().put("de.cooperateproject.eabridge.transformation.tests",
 					determinePluginUri("de.cooperateproject.eabridge.transformation.tests", TransformationTestBase.class));
 
@@ -242,7 +242,7 @@ public abstract class TransformationTestBase {
 		return ResourcesPlugin.getPlugin() != null;
 	}
 
-	private static URI createPlatformURI(String pathName) {
+	protected static URI createPlatformURI(String pathName) {
 		if (!isPluginEnvironment()) {
 			return URI.createPlatformResourceURI(pathName, true);
 		} else {

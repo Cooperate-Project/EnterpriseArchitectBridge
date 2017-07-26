@@ -1,9 +1,11 @@
 package de.cooperateproject.eabridge.transformation.uml2ea;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.transformation.TransformationTestBase;
 
+@Ignore
 public class PeopleTest extends TransformationTestBase {
 
 	private static String transformationPath = "UMLtoEA.qvto";

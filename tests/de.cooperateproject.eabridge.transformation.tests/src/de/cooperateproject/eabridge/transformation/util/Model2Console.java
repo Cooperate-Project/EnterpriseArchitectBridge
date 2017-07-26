@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.m2m.qvt.oml.BasicModelExtent;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl;
@@ -20,6 +21,7 @@ import de.cooperateproject.eabridge.transformation.TransformationTestBase;
  * @author hahner
  *
  */
+@Ignore
 public class Model2Console extends TransformationTestBase {
 
 	private static final String testFile = "Portable/Portable.xmi";

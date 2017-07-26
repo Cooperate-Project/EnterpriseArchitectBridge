@@ -1,11 +1,13 @@
 package de.cooperateproject.eabridge.transformation.ea2uml;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
 import de.cooperateproject.eabridge.transformation.TransformationTestBase;
 
+@Ignore
 @SuppressWarnings("restriction")
 public class AdvancedAssociationTest extends TransformationTestBase {
 

@@ -14,11 +14,13 @@ import org.eclipse.uml2.uml.internal.impl.ModelImpl;
 import org.eclipse.uml2.uml.internal.impl.PackageImpl;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
 import de.cooperateproject.eabridge.transformation.TransformationTestBase;
 
+@Ignore
 @SuppressWarnings("restriction")
 public class PeopleTest extends TransformationTestBase {
 

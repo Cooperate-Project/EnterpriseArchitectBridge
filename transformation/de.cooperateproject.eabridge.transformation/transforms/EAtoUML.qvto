@@ -1,12 +1,12 @@
 import TransformationUtils;
 import de.cooperateproject.qvtoutils.CooperateLibrary;
 
-transformation EAtoUML(in om : OM, in ecorePrimitives : UML, out uml : UML, out notation : NOTATION);
+transformation EAtoUML(in om : OM, in ecorePrimitives : UML, inout uml : UML, inout notation : NOTATION);
 
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
-modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/viewpoints/policy/style');
+modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/gmfdiag/style');
 
 //Force only one Model
 main() {
@@ -28,32 +28,31 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 	log("mapping Model", self.Name);
 	
 	name := self.Name;
-	nestedPackage := self.Packages-> map mapPackage();
+	result.addToFeature("packagedElement", self.Packages-> map mapPackage());
 	
 	var connectors := self.getAllContents()->selectByType(Connector);
-	
 	var associations := connectors->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	var comments := self.getAllContents()->selectByType(Element)->select(c : Element | c.Type = ElementType::Note);
-	var noteLinks := connectors->select(e : Connector | e.Type = ConnectorType::NoteLink);
 	
-	packagedElement += associations -> map mapConnectorToAssociation();
-	ownedComment += comments -> mapElementToComment();
+	result.addToFeature("packagedElement", associations -> map mapConnectorToAssociation());
+	result.addToFeature("ownedComment", comments -> mapElementToComment());
 }
 
 mapping eaobjectmodel::Package::mapPackage() : uml::Package {
 	log("mapping Package", self.Name);
 
 	name := self.Name;
-	nestedPackage := self.Packages->map mapPackage();
+	
+	result.addToFeature("packagedElement", self.Packages-> map mapPackage());
 
 	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
 	var interfaces := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
 	var connectors := classes->collect(SourceRelations);
 	var imports := self.getAssociatedElement().SourceRelations->select(e | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	
-	packagedElement += classes-> map mapElementToClass();	
-	packagedElement += interfaces-> map mapElementToInterface();
-	packageImport := imports->map mapConnectorToPackageImport();
+	result.addToFeature("packagedElement", classes-> map mapElementToClass());
+	result.addToFeature("packagedElement", interfaces-> map mapElementToInterface());
+	result.setToFeature("packageImport", imports->map mapConnectorToPackageImport());
 }
 
 mapping Connector::mapClassesToUsage():  Usage {
@@ -80,12 +79,8 @@ abstract mapping Element::mapElementToClassifier() : uml::Classifier {
 	var generalizations = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Generalization);
 	var substitutions   = self.SourceRelations->select(e : Connector| e.Type = ConnectorType::Substitution);
 	
-	if (generalizations -> size() != 0) {
-		generalization := generalizations -> map mapConnectoToGeneralization();
-	};
-	if (substitution -> size() != 0) {
-		substitution := substitutions -> map mapConnectoToSubstitution();
-	};
+	result.setToFeature("generalization", generalizations -> map mapConnectoToGeneralization());
+	result.setToFeature("substitution", substitutions -> map mapConnectoToSubstitution());
 }
 
 mapping Element::mapElementToClass() : uml::Class
@@ -95,22 +90,16 @@ inherits Element::mapElementToClassifier
 	ownedOperation += self.Methods-> map transformOperations();
 	
 	var realizations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Realisation);	
-	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
 	
-	if (realizations -> size() != 0) {
-		interfaceRealization := realizations -> map mapConnectoToRealization();
-	};
+	result.setToFeature("interfaceRealization", realizations -> map mapConnectoToRealization());
 }
 
-mapping Element::mapElementToInterface() :  uml::Interface
+mapping Element::mapElementToInterface() : uml::Interface
 inherits Element::mapElementToClassifier
 {
 	ownedAttribute := self.Attributes-> map transformAttribute();
 	ownedOperation := self.Methods-> map transformOperations();
-	isAbstract := false;
-	
-	var realizations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Realisation);	
-	var associations = self.SourceRelations->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);	
+	isAbstract := false;	
 }
 
 mapping Element::mapElementToComment() : uml::Comment
@@ -118,26 +107,28 @@ mapping Element::mapElementToComment() : uml::Comment
 	body := self.Notes;
 	
 	var commentLinks = self.getAllContents(true)->selectByType(Connector)->select(e : Connector | e.Type = ConnectorType::NoteLink);
-	var commentedElements = commentLinks->select(e : Connector | e.Source = self).Dest;
-	commentedElements += commentLinks->select(e : Connector | e.Dest = self).Source;
-	
-	commentedElements->forEach(ele) {
-		if (ele.PDATA1 = null)
-			then annotatedElement += ele.resolveone(uml::Element)
-			else annotatedElement += ele.PDATA1.resolveone(uml::Element)
-		endif;
-	}
+	var commentedElements = commentLinks->select(e : Connector | e.Source = self).Dest->union(commentLinks->select(e : Connector | e.Dest = self).Source);
+
+	result.addToFeature("annotatedElement", commentedElements.findCommentedUMLElement());
 }
 
 mapping Attribute::transformAttribute() :  uml::Property
+merges Attribute::transformAttributeClassifier, Attribute::transformAttributePrimitive
 {
 	name := self.Name;
 	visibility := self.Scope.getAttributeType();
-	if (self.AttributeType.classifier=null) 
-		then type := self.AttributeType.getPrimitiveType().transformPrimitive() 
-		else (type := self.AttributeType.classifier.late resolveone(uml::Classifier)) 
-	endif;
-	if (type=null) then (type := self.AttributeType.classifier.late resolveone(uml::Classifier)) endif;
+}
+
+mapping Attribute::transformAttributeClassifier() : uml::Property
+when {self.AttributeType.classifier != null}
+{
+	type := self.AttributeType.classifier.late resolveone(uml::Classifier);
+}
+
+mapping Attribute::transformAttributePrimitive() : uml::Property
+when {self.AttributeType.classifier = null}
+{
+	type := self.AttributeType.getPrimitiveType().transformPrimitive();
 }
 
 mapping Connector::mapConnectoToGeneralization() :  Generalization
@@ -166,6 +157,8 @@ mapping Connector::mapConnectorToAssociation() : uml::Association
 	memberEnd += self.map mapSourceToProperty();
 	memberEnd += self.map mapDestToProperty();
 	// does not work for ownedAttributes of Interfaces
+	
+	// FIXME We should NOT change already created objects from within other mappings!
 	if (self.SourceIsNavigable) 
 		then (self.Dest.resolveone(uml::StructuredClassifier).ownedAttribute += self.resolveoneIn(Connector::mapSourceToProperty))
 		else (ownedEnd += self.resolveoneIn(Connector::mapSourceToProperty))
@@ -178,25 +171,37 @@ mapping Connector::mapConnectorToAssociation() : uml::Association
 
 //for more properties the semikolon seperated lists SourceStyle and DestSystle need to be parsed
 mapping Connector::mapSourceToProperty() : uml::Property
+merges Connector::mapSourceToPropertyMultiplicities
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.DestIsAggregate.transformAssociationType();
 	name := self.SourceRole;
 	
 	type := self.Source.late resolveone(uml::Classifier);
-	if (self.getSourceLower() != 1) then lower := self.getSourceLower() endif;
-	if (self.getSourceUpper() != 1) then upper := self.getSourceUpper() endif;
+
+}
+
+mapping Connector::mapSourceToPropertyMultiplicities() : uml::Property
+when {self.getSourceLower() != null and self.getSourceLower() != 1 or self.getSourceUpper() != null and self.getSourceLower() != 1}
+{
+	lower := self.getSourceLower();
+	upper := self.getSourceUpper();
 }
 
 mapping Connector::mapDestToProperty() : uml::Property
+merges Connector::mapDestToPropertyMultiplicities
 {
 	//EA uses the aggregation property the other way round
 	aggregation := self.SourceIsAggregate.transformAssociationType();
 	name := self.DestRole;
-	
 	type := self.Dest.late resolveone(uml::Classifier);
-	if (self.getDestLower() != 1) then lower := self.getDestLower() endif;
-	if (self.getDestUpper() != 1) then upper := self.getDestUpper() endif;
+}
+
+mapping Connector::mapDestToPropertyMultiplicities() : uml::Property
+when {self.getDestLower() != null and self.getDestLower() != 1 or self.getDestUpper() != null and self.getDestUpper() != 1}
+{
+	lower := self.getDestLower();
+	upper := self.getDestUpper();
 }
 
 query IsAggregate::transformAssociationType() : uml::AggregationKind
@@ -218,24 +223,40 @@ mapping Method::transformOperations() :  Operation
 	
 }
 mapping Methodparameter::transformParameters() :  uml::Parameter
+merges Methodparameter::transformParameterPrimitive, Methodparameter::transformParameterClassifier
 {
 	name := self.Name;
-	if (self.ParameterType.classifier=null) 
-		then type := self.ParameterType.getPrimitiveType().transformPrimitive() 
-		else (type := self.ParameterType.classifier.late resolveone(uml::Classifier)) 
-	endif;
 	direction := ParameterDirectionKind::_in;	
-	
 }
 
-mapping in TypeReference::TypeReferenceToParamter() : uml::Parameter 
+mapping Methodparameter::transformParameterPrimitive() :  uml::Parameter
+when {self.ParameterType.classifier != null}
+{
+	type := self.ParameterType.getPrimitiveType().transformPrimitive();
+}
+
+mapping Methodparameter::transformParameterClassifier() :  uml::Parameter
+when {self.ParameterType.classifier != null}
+{
+	type := self.ParameterType.classifier.late resolveone(uml::Classifier);
+}
+
+mapping TypeReference::TypeReferenceToParamter() : uml::Parameter
+merges TypeReference::TypeReferenceToParamterClassifier, TypeReference::TypeReferenceToParamterPrimitive
 {
 	direction := ParameterDirectionKind::_return;
-	if (self.classifier=null) 
-		then type := self.getPrimitiveType().transformPrimitive() 
-		else (type := self.classifier.late resolveone(uml::Classifier)) 
-	endif;
+}
 
+mapping TypeReference::TypeReferenceToParamterClassifier() : uml::Parameter
+when {self.classifier != null}
+{
+	type := self.classifier.late resolveone(uml::Classifier)
+}
+
+mapping TypeReference::TypeReferenceToParamterPrimitive() : uml::Parameter
+when {self.classifier = null}
+{
+	type := self.getPrimitiveType().transformPrimitive() 
 }
 
 // queries for transformation to uml
@@ -303,7 +324,6 @@ mapping Diagram::diagramToDiagram() : notation::Diagram {
 mapping DiagramObject::diagramObjectToShape() : Shape
 merges DiagramObject::packageToShape, DiagramObject::classToShape, DiagramObject::interfaceToShape, DiagramObject::commentToShape {
 	element := self.Element.resolveone(uml::Element).toEObject();
-	
 	layoutConstraint := self.map diagramObjectToLayoutConstraint();
 }
 
@@ -319,25 +339,21 @@ when {self.Element.Type = ElementType::Package} {
 mapping DiagramObject::classToShape() : Shape 
 when {self.Element.Type = ElementType::Class} {
 	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_CLASS_REGULAR);
-	children += self.map diagramObjectToNameDecorationNode();
-	
+	children += self.map diagramObjectToNameDecorationNode();	
+	children += self.map diagramObjectToFloatingLabelDecorationNode();
 	children += self.map diagramObjectToAttributesCompartment();
 	children += self.map diagramObjectToOperationsCompartment();
-	children += self.map diagramObjectToSignalsCompartment();
-	
-	children += self.map diagramObjectToFloatingLabelDecorationNode();
+	children += self.map diagramObjectToSignalsCompartment();	
 }
 
 mapping DiagramObject::interfaceToShape() : Shape
 when {self.Element.Type = ElementType::Interface} {
 	type := self.getNestedName(PAPYRUS_NOTATION_SHAPE_INTERFACE_REGULAR);
 	children += self.map diagramObjectToNameDecorationNode();
-	
+	children += self.map diagramObjectToFloatingLabelDecorationNode();	
 	children += self.map diagramObjectToAttributesCompartment();
 	children += self.map diagramObjectToOperationsCompartment();
 	children += self.map diagramObjectToSignalsCompartment();
-	
-	children += self.map diagramObjectToFloatingLabelDecorationNode();
 }
 
 mapping DiagramObject::commentToShape() : Shape
@@ -372,6 +388,17 @@ when {self.Element.Type = ElementType::Class} {
 mapping DiagramObject::interfaceToNameDecorationNode() : DecorationNode 
 when {self.Element.Type = ElementType::Interface} {
 	type := self.getNestedName(PAPYRUS_NOTATION_NODE_INTERFACE_NAME_REGULAR);
+}
+
+mapping DiagramLink::diagramLinkToNameDecorationNode() : DecorationNode
+disjuncts DiagramLink::diagramLinkToNameDecorationNodeInterfaceRealization;
+
+mapping DiagramLink::diagramLinkToNameDecorationNodeInterfaceRealization() : DecorationNode
+when {self.Connector.Type = ConnectorType::Realisation}
+{
+	type := PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_NAME;
+	styles += result.toEObject().map booleanValueStyle();
+	layoutConstraint := result.toEObject().map locationConstraint();
 }
 
 //LayoutConstraint
@@ -529,11 +556,12 @@ when {self.Connector.Type = ConnectorType::Association or self.Connector.Type = 
 	targetAnchor := sourceAnchor;
 	sourceAnchor := anchor;
 	
+	children += self.map diagramLinkToStereotypeDecoration();
 	children += self.map diagramLinkToNameDecoration();
 	children += self.map diagramLinkToTargetRoleDecoration();
 	children += self.map diagramLinkToSourceRoleDecoration();
-	children += self.map diagramLinkToTargetMultiplicityDecoration();
 	children += self.map diagramLinkToSourceMultiplicityDecoration();
+	children += self.map diagramLinkToTargetMultiplicityDecoration();
 }
 
 mapping DiagramLink::generalizationToConnector() : notation::Connector
@@ -548,6 +576,7 @@ when {self.Connector.Type = ConnectorType::Realisation} {
 	type := PAPYRUS_NOTATION_EDGE_IMPLEMENTATION;
 	element := self.Connector.resolveoneIn(Connector::mapConnectoToRealization).toEObject();
 	children := self.map diagramLinkToStereotypeDecorationNode();
+	children += self.map diagramLinkToNameDecorationNode()
 }
 
 mapping DiagramLink::noteLinkToConnector() : notation::Connector
@@ -560,6 +589,14 @@ when {self.Connector.Type = ConnectorType::Package and self.Connector.Stereotype
 	type := PAPYRUS_NOTATION_EDGE_PACKAGEIMPORT;
 	element := self.Connector.resolveoneIn(Connector::mapConnectorToPackageImport).toEObject();
 	children := self.map diagramLinkToStereotypeDecorationNode();
+}
+
+//ConnectorStereotypeDecorationNode
+mapping DiagramLink::diagramLinkToStereotypeDecoration() : DecorationNode
+{
+	type := PAPYRUS_NOTATION_NODE_ASSOCIATION_STEREOTYPE;
+	layoutConstraint := result.toEObject().map locationConstraint();
+	styles += result.toEObject().map booleanValueStyle();
 }
 
 //ConnectorNameDecorationNode
@@ -603,29 +640,46 @@ mapping DiagramLink::diagramLinkToSourceMultiplicityDecoration() : notation::Dec
 //Anchors
 mapping DiagramLink::diagramLinkToSourceAnchor() : notation::IdentityAnchor {
 	var bounds := self.Connector.Source.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
-	var xPos := (self.SX + bounds.width./(2)) / bounds.width;
-	var yPos := (self.SY.-() + bounds.height./(2)) / bounds.height;
+	var xPos := (self.SX + bounds.width / 2) / bounds.width;
+	var yPos := (self.SY * -1 + bounds.height / 2) / bounds.height;
 	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
 }
 
 mapping DiagramLink::diagramLinkToTargetAnchor() : notation::IdentityAnchor {
 	var bounds := self.Connector.Dest.resolveElement(self.Diagram).layoutConstraint.oclAsType(notation::Bounds);
-	var xPos := (self.EX + bounds.width./(2)) / bounds.width;
-	var yPos := (self.EY.-() + bounds.height./(2)) / bounds.height;
+	var xPos := (self.EX + bounds.width / 2) / bounds.width;
+	var yPos := (self.EY * -1 + bounds.height / 2) / bounds.height;
 	id := "(" + xPos.toString() + "," + yPos.toString() + ")";
 }
 
-mapping DiagramLink::diagramLinkToStereotypeDecorationNode() : DecorationNode {
-	if (self.Connector.Type = ConnectorType::Generalization)
-		then type := PAPYRUS_NOTATION_NODE_GENERALIZATION_STEREOTYPE
-		else if (self.Connector.Type = ConnectorType::Realisation)
-		then type := PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_STEREOTYPE
-		else if (self.Connector.Type = ConnectorType::Package and self.Connector.Stereotype = "import")
-		then type := PAPYRUS_NOTATION_NODE_PACKAGEIMPORT_STEREOTYPE
-		endif
-		endif
-	endif;
+
+
+mapping DiagramLink::diagramLinkToStereotypeDecorationNode() : DecorationNode
+merges	DiagramLink::diagramLinkToStereotypeDecorationNodeGeneralization,
+		DiagramLink::diagramLinkToStereotypeDecorationNodeInterfaceRealization,
+		DiagramLink::diagramLinkToStereotypeDecorationNodePackageImport
+{
 	layoutConstraint := result.toEObject().map locationConstraint();
+}
+
+mapping DiagramLink::diagramLinkToStereotypeDecorationNodeGeneralization() : DecorationNode
+when {self.Connector.Type = ConnectorType::Generalization}
+{
+	type := PAPYRUS_NOTATION_NODE_GENERALIZATION_STEREOTYPE;
+	styles += result.toEObject().map booleanValueStyle();
+}
+
+mapping DiagramLink::diagramLinkToStereotypeDecorationNodeInterfaceRealization() : DecorationNode
+when {self.Connector.Type = ConnectorType::Realisation}
+{
+	type := PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_STEREOTYPE;
+	styles += result.toEObject().map booleanValueStyle();
+}
+
+mapping DiagramLink::diagramLinkToStereotypeDecorationNodePackageImport() : DecorationNode
+when {self.Connector.Type = ConnectorType::Package and self.Connector.Stereotype = "import"}
+{
+	type := PAPYRUS_NOTATION_NODE_PACKAGEIMPORT_STEREOTYPE
 }
 
 //Queries
@@ -634,6 +688,14 @@ query DiagramObject::getNestedName(name : String) : String {
 		then return name
 		else return name + "_CN"
 	endif	
+}
+
+query eaobjectmodel::Element::findCommentedUMLElement() : uml::Element
+{
+	return if self.PDATA1 = null
+		then self.resolveone(uml::Element)
+		else self.PDATA1.resolveone(uml::Element)
+	endif; 
 }
 
 // om.objectsOfType allowed here because it's used for finding a specific entity'
@@ -663,14 +725,15 @@ query Element::resolveElement(dia : eaobjectmodel::Diagram) : notation::Shape {
 mapping eaobjectmodel::Diagram::stringValueStyle() : notation::StringValueStyle
 {
 	name := "diagram_compatibility_version";
-	stringValue := "1.2.0";	
+	stringValue := "1.3.0";	
 }
 
 mapping eaobjectmodel::Diagram::diagramStyle() : notation::DiagramStyle
 {	
 }
 
-mapping eaobjectmodel::Diagram::papyrusViewStyle(rootElement : uml::Package) : style::PapyrusViewStyle
+mapping eaobjectmodel::Diagram::papyrusViewStyle(rootElement : uml::Package) : style::PapyrusDiagramStyle
 {
 	owner := rootElement.toEObject();
+	diagramKindId := "org.eclipse.papyrus.uml.diagram.class";
 }

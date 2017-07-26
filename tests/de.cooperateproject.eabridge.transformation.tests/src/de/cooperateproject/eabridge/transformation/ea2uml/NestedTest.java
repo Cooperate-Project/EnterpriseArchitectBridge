@@ -1,11 +1,13 @@
 package de.cooperateproject.eabridge.transformation.ea2uml;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
 import de.cooperateproject.eabridge.transformation.TransformationTestBase;
 
+@Ignore
 public class NestedTest extends TransformationTestBase {
 
 	private static String transformationPath = "EAtoUML.qvto";

@@ -1,10 +1,12 @@
 package de.cooperateproject.eabridge.transformation.roundtrip;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.transformation.RoundtripTestBase;
 
+@Ignore
 public class PeopleTest extends RoundtripTestBase {
 
 	@BeforeClass
