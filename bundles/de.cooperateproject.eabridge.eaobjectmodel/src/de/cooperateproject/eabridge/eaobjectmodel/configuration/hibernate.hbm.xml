@@ -303,8 +303,13 @@
 		<property name="DestCard" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`DestCard`"/>
 		</property>
-		<property name="DestAccess" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+		<property name="DestAccess" lazy="false" not-null="false" insert="true" update="true" unique="false">
 			<column not-null="false" unique="false" name="`DestAccess`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
 		</property>
 		<property name="DestElement" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
 			<column not-null="false" unique="false" name="`DestElement`"/>
@@ -544,7 +549,7 @@
 			<column not-null="true" unique="false" name="`Object_ID`"/>
 			<generator class="native"/>
 		</id>
-		<property name="Abstract" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+		<property name="Abstract" lazy="false" insert="true" update="true" not-null="false" unique="false" type="org.hibernate.type.NumericBooleanType">
 			<column not-null="false" unique="false" name="`Abstract`"/>
 		</property>
 		<property name="ActionFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
@@ -661,7 +666,7 @@
 			<column not-null="false" unique="false" name="`Version`"/>
 		</property>
 		<property name="Visibility" lazy="false" not-null="false" insert="true" update="true" unique="false">
-			<column not-null="false" unique="false" name="`Visibility`"/>
+			<column not-null="false" unique="false" name="`Scope`"/>
 			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
 				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
 				<param name="eclassifier">Scope</param>
@@ -720,7 +725,7 @@
 			</property>
 		</component>
 		<bag name="Parameters" lazy="true" cascade="all,delete-orphan">
-			<key update="true">
+			<key  update="true">
 				<column name="`OperationID`" unique="false"/>
 			</key>
 			<one-to-many entity-name="Methodparameter"/>

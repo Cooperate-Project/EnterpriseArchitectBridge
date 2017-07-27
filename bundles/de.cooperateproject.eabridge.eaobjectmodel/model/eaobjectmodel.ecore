@@ -72,7 +72,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Containment" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Constraints" upperBound="-1"
-        eType="#//AttributeConstraint" containment="true" resolveProxies="false" eOpposite="#//AttributeConstraint/Attribute"/>
+        eType="#//AttributeConstraint" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Default" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsCollection" unique="false"
@@ -118,8 +118,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeConstraint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ElementOfAttribute" eType="#//Element"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" eType="#//Attribute"
-        eOpposite="#//Attribute/Constraints"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constraint" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AttName" unique="false"
@@ -246,7 +245,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestCard" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestAccess" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Scope"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestElement" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DestRole" unique="false"
@@ -567,7 +566,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abstract" unique="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActionFlags" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Alias" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -655,7 +654,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ReturnType" eType="#//TypeReference"
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
-        eType="#//Methodparameter" containment="true" resolveProxies="false" eOpposite="#//Methodparameter/Method"/>
+        eType="#//Methodparameter" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abstract" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Behaviour" unique="false"
@@ -708,8 +707,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterType" eType="#//TypeReference"
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Method" eType="#//Method"
-        eOpposite="#//Method/Parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Method" eType="#//Method"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kind" eType="#//ParameterDirection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">

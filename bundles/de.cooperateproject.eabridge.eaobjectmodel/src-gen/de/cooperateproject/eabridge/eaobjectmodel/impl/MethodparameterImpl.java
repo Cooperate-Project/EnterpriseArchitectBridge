@@ -176,16 +176,6 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMethod(Method newMethod, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMethod, EaobjectmodelPackage.METHODPARAMETER__METHOD, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void setMethod(Method newMethod) {
 		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, newMethod);
 	}
@@ -214,44 +204,12 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetMethod((Method)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
 				return basicSetParameterType(null, msgs);
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
-				return basicSetMethod(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
-				return eInternalContainer().eInverseRemove(this, EaobjectmodelPackage.METHOD__PARAMETERS, Method.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**

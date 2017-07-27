@@ -466,7 +466,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DEST_ACCESS_EDEFAULT = null;
+	protected static final Scope DEST_ACCESS_EDEFAULT = Scope.PUBLIC;
 	/**
 	 * The default value of the '{@link #getDestElement() <em>Dest Element</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -1538,8 +1538,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDestAccess() {
-		return (String)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ACCESS, true, true);
+	public Scope getDestAccess() {
+		return (Scope)eDynamicGet(EaobjectmodelPackage.CONNECTOR__DEST_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ACCESS, true, true);
 	}
 
 	/**
@@ -1547,7 +1547,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDestAccess(String newDestAccess) {
+	public void setDestAccess(Scope newDestAccess) {
 		eDynamicSet(EaobjectmodelPackage.CONNECTOR__DEST_ACCESS, EaobjectmodelPackage.Literals.CONNECTOR__DEST_ACCESS, newDestAccess);
 	}
 
@@ -2519,7 +2519,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 				setDestCard((String)newValue);
 				return;
 			case EaobjectmodelPackage.CONNECTOR__DEST_ACCESS:
-				setDestAccess((String)newValue);
+				setDestAccess((Scope)newValue);
 				return;
 			case EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT:
 				setDestElement((String)newValue);
@@ -2934,7 +2934,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			case EaobjectmodelPackage.CONNECTOR__DEST_CARD:
 				return DEST_CARD_EDEFAULT == null ? getDestCard() != null : !DEST_CARD_EDEFAULT.equals(getDestCard());
 			case EaobjectmodelPackage.CONNECTOR__DEST_ACCESS:
-				return DEST_ACCESS_EDEFAULT == null ? getDestAccess() != null : !DEST_ACCESS_EDEFAULT.equals(getDestAccess());
+				return getDestAccess() != DEST_ACCESS_EDEFAULT;
 			case EaobjectmodelPackage.CONNECTOR__DEST_ELEMENT:
 				return DEST_ELEMENT_EDEFAULT == null ? getDestElement() != null : !DEST_ELEMENT_EDEFAULT.equals(getDestElement());
 			case EaobjectmodelPackage.CONNECTOR__DEST_ROLE:

@@ -89,11 +89,11 @@ public class EAPrimaryKeyType implements UserType {
 		}
 		if (pvalue != null ) {
 			arg0.setLong(arg2, pvalue);
-		} else if (arg0.getParameterMetaData().getParameterCount() == 22) {
+		} else /*if (arg0.getParameterMetaData().getParameterCount() == 22)*/ {
 			arg0.setLong(arg2, 0L);
-		} else {
+		}/* else {
 			arg0.setNull(arg2, Types.INTEGER);
-		}
+		}*/
 	}
 
 	@Override

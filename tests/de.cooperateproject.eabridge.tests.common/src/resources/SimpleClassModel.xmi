@@ -31,7 +31,8 @@
           AllowDuplicates="true"
           AttributeGUID="attributeGUID"
           Name="attName"
-          Notes="attNotes">
+          Notes="attNotes"
+          Scope="Private">
         <Constraints
             ElementOfAttribute="//@Packages.0/@Elements.0"
             Attribute="//@Packages.0/@Elements.0/@Attributes.0"
@@ -54,6 +55,7 @@
         Name="element2"
         Type="Class">
       <Methods
+          Visibility="Private"
           MethodGUID="methodGUID"
           Name="method"/>
     </Elements>

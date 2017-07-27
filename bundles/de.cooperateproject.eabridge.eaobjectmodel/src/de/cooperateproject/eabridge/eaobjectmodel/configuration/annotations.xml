@@ -32,7 +32,7 @@
 		<eclass name="TypeReference">
 			<embeddable/>
 			<property name="classifier">
-				<join-column name="Classifier" />
+				<join-column name="Classifier" referenced-column-name="Object_ID"/>
 			</property>
 			<property name="typeName">
 				<column name="Type" />
@@ -247,6 +247,12 @@
 			</property>
 			<property name="PDATA1">
 				<join-column name="PDATA1" />
+			</property>
+			<property name="Abstract">
+				<type type="org.hibernate.type.NumericBooleanType" />
+			</property>
+			<property name="Visibility">
+				<column name="Scope" />
 			</property>
 		</eclass>
 

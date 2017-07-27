@@ -1175,6 +1175,7 @@ public interface Connector extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Dest Access</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.cooperateproject.eabridge.eaobjectmodel.Scope}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dest Access</em>' attribute isn't clear,
@@ -1182,22 +1183,24 @@ public interface Connector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dest Access</em>' attribute.
-	 * @see #setDestAccess(String)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
+	 * @see #setDestAccess(Scope)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getConnector_DestAccess()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getDestAccess();
+	Scope getDestAccess();
 
 	/**
 	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Connector#getDestAccess <em>Dest Access</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Dest Access</em>' attribute.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Scope
 	 * @see #getDestAccess()
 	 * @generated
 	 */
-	void setDestAccess(String value);
+	void setDestAccess(Scope value);
 
 	/**
 	 * Returns the value of the '<em><b>Dest Element</b></em>' attribute.

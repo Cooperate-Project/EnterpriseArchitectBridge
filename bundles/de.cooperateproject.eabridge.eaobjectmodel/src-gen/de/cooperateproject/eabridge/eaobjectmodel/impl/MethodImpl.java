@@ -821,8 +821,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EaobjectmodelPackage.METHOD__PARAMETERS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameters()).basicAdd(otherEnd, msgs);
 			case EaobjectmodelPackage.METHOD__PARENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

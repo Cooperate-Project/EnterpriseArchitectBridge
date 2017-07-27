@@ -63,10 +63,10 @@
 			<column name="Connector_Type" value="Association" />
 			<column name="SubType" />
 			<column name="SourceCard" value="1...*" />
-			<column name="SourceAccess" />
+			<column name="SourceAccess" value="Public" />
 			<column name="SourceElement" />
 			<column name="DestCard" value="4" />
-			<column name="DestAccess" />
+			<column name="DestAccess" value="Public" />
 			<column name="DestElement" />
 			<column name="SourceRole" />
 			<column name="SourceRoleType" />
@@ -229,7 +229,7 @@
 			<column name="CreatedDate" />
 			<column name="ModifiedDate" />
 			<column name="Status" />
-			<column name="Abstract" />
+			<column name="Abstract" value="0" />
 			<column name="Tagged" valueNumeric="0" />
 			<column name="PDATA1" value="0"/>
 			<column name="PDATA2" />
@@ -245,7 +245,7 @@
 			<column name="Header1" />
 			<column name="Header2" />
 			<column name="Phase" />
-			<column name="Scope" />
+			<column name="Scope" value="Public"/>
 			<column name="GenOption" />
 			<column name="GenLinks" />
 			<column name="Classifier" valueNumeric="0" />
@@ -288,7 +288,7 @@
 			<column name="CreatedDate" />
 			<column name="ModifiedDate" />
 			<column name="Status" />
-			<column name="Abstract" />
+			<column name="Abstract" value="0"/>
 			<column name="Tagged" valueNumeric="0" />
 			<column name="PDATA1" value="0"/>
 			<column name="PDATA2" />
@@ -304,7 +304,7 @@
 			<column name="Header1" />
 			<column name="Header2" />
 			<column name="Phase" />
-			<column name="Scope" />
+			<column name="Scope" value="Public"/>
 			<column name="GenOption" />
 			<column name="GenLinks" />
 			<column name="Classifier" valueNumeric="0" />
@@ -347,7 +347,7 @@
 			<column name="CreatedDate" />
 			<column name="ModifiedDate" />
 			<column name="Status" />
-			<column name="Abstract" />
+			<column name="Abstract" value="0" />
 			<column name="Tagged" valueNumeric="0" />
 			<column name="PDATA1" value="2" />
 			<column name="PDATA2" />
@@ -363,7 +363,7 @@
 			<column name="Header1" />
 			<column name="Header2" />
 			<column name="Phase" />
-			<column name="Scope" />
+			<column name="Scope" value="Public"/>
 			<column name="GenOption" />
 			<column name="GenLinks" />
 			<column name="Classifier" valueNumeric="0" />

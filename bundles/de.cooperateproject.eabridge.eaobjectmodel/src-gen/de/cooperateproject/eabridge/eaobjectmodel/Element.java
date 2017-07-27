@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getActionFlags <em>Action Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAlias <em>Alias</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAttributes <em>Attributes</em>}</li>
@@ -79,22 +79,22 @@ public interface Element extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract</em>' attribute.
-	 * @see #setAbstract(Boolean)
+	 * @see #setAbstract(boolean)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getElement_Abstract()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Boolean getAbstract();
+	boolean isAbstract();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#getAbstract <em>Abstract</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Element#isAbstract <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Abstract</em>' attribute.
-	 * @see #getAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 */
-	void setAbstract(Boolean value);
+	void setAbstract(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Action Flags</b></em>' attribute.
