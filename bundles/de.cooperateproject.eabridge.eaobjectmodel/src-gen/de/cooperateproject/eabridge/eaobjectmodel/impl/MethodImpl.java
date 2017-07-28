@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getBehaviour <em>Behaviour</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getCode <em>Code</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getIsConst <em>Is Const</em>}</li>
@@ -60,14 +60,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	/**
-	 * The default value of the '{@link #getAbstract() <em>Abstract</em>}' attribute.
+	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean ABSTRACT_EDEFAULT = null;
+	protected static final boolean ABSTRACT_EDEFAULT = false;
 	/**
 	 * The default value of the '{@link #getBehaviour() <em>Behaviour</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -348,7 +348,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getAbstract() {
+	public boolean isAbstract() {
 		return (Boolean)eDynamicGet(EaobjectmodelPackage.METHOD__ABSTRACT, EaobjectmodelPackage.Literals.METHOD__ABSTRACT, true, true);
 	}
 
@@ -357,7 +357,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAbstract(Boolean newAbstract) {
+	public void setAbstract(boolean newAbstract) {
 		eDynamicSet(EaobjectmodelPackage.METHOD__ABSTRACT, EaobjectmodelPackage.Literals.METHOD__ABSTRACT, newAbstract);
 	}
 
@@ -874,7 +874,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case EaobjectmodelPackage.METHOD__PARAMETERS:
 				return getParameters();
 			case EaobjectmodelPackage.METHOD__ABSTRACT:
-				return getAbstract();
+				return isAbstract();
 			case EaobjectmodelPackage.METHOD__BEHAVIOUR:
 				return getBehaviour();
 			case EaobjectmodelPackage.METHOD__CODE:
@@ -1129,7 +1129,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case EaobjectmodelPackage.METHOD__PARAMETERS:
 				return !getParameters().isEmpty();
 			case EaobjectmodelPackage.METHOD__ABSTRACT:
-				return ABSTRACT_EDEFAULT == null ? getAbstract() != null : !ABSTRACT_EDEFAULT.equals(getAbstract());
+				return isAbstract() != ABSTRACT_EDEFAULT;
 			case EaobjectmodelPackage.METHOD__BEHAVIOUR:
 				return BEHAVIOUR_EDEFAULT == null ? getBehaviour() != null : !BEHAVIOUR_EDEFAULT.equals(getBehaviour());
 			case EaobjectmodelPackage.METHOD__CODE:

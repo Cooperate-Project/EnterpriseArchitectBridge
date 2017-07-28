@@ -159,6 +159,9 @@
 			<property name="Parameters">
 				<join-column name="OperationID" />
 			</property>
+			<property name="Abstract">
+				<type type="org.hibernate.type.NumericBooleanType" />
+			</property>
 		</eclass>
 		
 		<eclass name="Methodparameter">

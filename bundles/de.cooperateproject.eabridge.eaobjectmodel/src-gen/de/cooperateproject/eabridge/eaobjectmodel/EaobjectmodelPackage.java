@@ -5736,11 +5736,11 @@ public interface EaobjectmodelPackage extends EPackage {
 	EReference getMethod_Parameters();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getAbstract <em>Abstract</em>}'.
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#isAbstract <em>Abstract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Abstract</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Method#getAbstract()
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Method#isAbstract()
 	 * @see #getMethod()
 	 * @generated
 	 */

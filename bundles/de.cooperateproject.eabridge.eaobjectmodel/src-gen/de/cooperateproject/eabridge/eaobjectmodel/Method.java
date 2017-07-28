@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getParameters <em>Parameters</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getAbstract <em>Abstract</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getBehaviour <em>Behaviour</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getCode <em>Code</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getIsConst <em>Is Const</em>}</li>
@@ -100,22 +100,22 @@ public interface Method extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Abstract</em>' attribute.
-	 * @see #setAbstract(Boolean)
+	 * @see #setAbstract(boolean)
 	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethod_Abstract()
 	 * @model unique="false"
 	 * @generated
 	 */
-	Boolean getAbstract();
+	boolean isAbstract();
 
 	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getAbstract <em>Abstract</em>}' attribute.
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#isAbstract <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Abstract</em>' attribute.
-	 * @see #getAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 */
-	void setAbstract(Boolean value);
+	void setAbstract(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Behaviour</b></em>' attribute.
