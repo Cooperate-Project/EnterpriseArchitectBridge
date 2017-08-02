@@ -9,8 +9,12 @@ import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -44,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getPos <em>Pos</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getReturnIsArray <em>Return Is Array</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getStateFlags <em>State Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl#getStereotype <em>Stereotype</em>}</li>
@@ -186,14 +190,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 */
 	protected static final String NOTES_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getPos() <em>Pos</em>}' attribute.
+	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPos()
+	 * @see #getPosition()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long POS_EDEFAULT = null;
+	protected static final long POSITION_EDEFAULT = 0L;
 	/**
 	 * The default value of the '{@link #getReturnIsArray() <em>Return Is Array</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -637,24 +641,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getPos() {
-		return (Long)eDynamicGet(EaobjectmodelPackage.METHOD__POS, EaobjectmodelPackage.Literals.METHOD__POS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPos(Long newPos) {
-		eDynamicSet(EaobjectmodelPackage.METHOD__POS, EaobjectmodelPackage.Literals.METHOD__POS, newPos);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Boolean getReturnIsArray() {
 		return (Boolean)eDynamicGet(EaobjectmodelPackage.METHOD__RETURN_IS_ARRAY, EaobjectmodelPackage.Literals.METHOD__RETURN_IS_ARRAY, true, true);
 	}
@@ -817,6 +803,35 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Methodparameter> getParametersOrdered() {
+		List<Methodparameter> orderedParameters = new ArrayList<>(getParameters());
+		orderedParameters.sort((p1, p2) -> (int) (p1.getPosition() - p2.getPosition()));
+		return ECollections.unmodifiableEList(orderedParameters);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public long getPosition() {
+		return (Long)eDynamicGet(EaobjectmodelPackage.METHOD__POSITION, EaobjectmodelPackage.Literals.METHOD__POSITION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPosition(long newPosition) {
+		eDynamicSet(EaobjectmodelPackage.METHOD__POSITION, EaobjectmodelPackage.Literals.METHOD__POSITION, newPosition);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -904,8 +919,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case EaobjectmodelPackage.METHOD__PARENT:
 				if (resolve) return getParent();
 				return basicGetParent();
-			case EaobjectmodelPackage.METHOD__POS:
-				return getPos();
+			case EaobjectmodelPackage.METHOD__POSITION:
+				return getPosition();
 			case EaobjectmodelPackage.METHOD__RETURN_IS_ARRAY:
 				return getReturnIsArray();
 			case EaobjectmodelPackage.METHOD__STATE_FLAGS:
@@ -989,8 +1004,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case EaobjectmodelPackage.METHOD__PARENT:
 				setParent((Element)newValue);
 				return;
-			case EaobjectmodelPackage.METHOD__POS:
-				setPos((Long)newValue);
+			case EaobjectmodelPackage.METHOD__POSITION:
+				setPosition((Long)newValue);
 				return;
 			case EaobjectmodelPackage.METHOD__RETURN_IS_ARRAY:
 				setReturnIsArray((Boolean)newValue);
@@ -1082,8 +1097,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case EaobjectmodelPackage.METHOD__PARENT:
 				setParent((Element)null);
 				return;
-			case EaobjectmodelPackage.METHOD__POS:
-				setPos(POS_EDEFAULT);
+			case EaobjectmodelPackage.METHOD__POSITION:
+				setPosition(POSITION_EDEFAULT);
 				return;
 			case EaobjectmodelPackage.METHOD__RETURN_IS_ARRAY:
 				setReturnIsArray(RETURN_IS_ARRAY_EDEFAULT);
@@ -1158,8 +1173,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return NOTES_EDEFAULT == null ? getNotes() != null : !NOTES_EDEFAULT.equals(getNotes());
 			case EaobjectmodelPackage.METHOD__PARENT:
 				return basicGetParent() != null;
-			case EaobjectmodelPackage.METHOD__POS:
-				return POS_EDEFAULT == null ? getPos() != null : !POS_EDEFAULT.equals(getPos());
+			case EaobjectmodelPackage.METHOD__POSITION:
+				return getPosition() != POSITION_EDEFAULT;
 			case EaobjectmodelPackage.METHOD__RETURN_IS_ARRAY:
 				return RETURN_IS_ARRAY_EDEFAULT == null ? getReturnIsArray() != null : !RETURN_IS_ARRAY_EDEFAULT.equals(getReturnIsArray());
 			case EaobjectmodelPackage.METHOD__STATE_FLAGS:
@@ -1180,6 +1195,20 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return GEN_OPTION_EDEFAULT == null ? getGenOption() != null : !GEN_OPTION_EDEFAULT.equals(getGenOption());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case EaobjectmodelPackage.METHOD___GET_PARAMETERS_ORDERED:
+				return getParametersOrdered();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //MethodImpl

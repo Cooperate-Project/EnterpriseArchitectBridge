@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getParent <em>Parent</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getPos <em>Pos</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getPosition <em>Position</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getReturnIsArray <em>Return Is Array</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getStateFlags <em>State Flags</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getStereotype <em>Stereotype</em>}</li>
@@ -484,32 +484,6 @@ public interface Method extends EObject {
 	void setParent(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Pos</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pos</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pos</em>' attribute.
-	 * @see #setPos(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethod_Pos()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getPos();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getPos <em>Pos</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pos</em>' attribute.
-	 * @see #getPos()
-	 * @generated
-	 */
-	void setPos(Long value);
-
-	/**
 	 * Returns the value of the '<em><b>Return Is Array</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -745,5 +719,40 @@ public interface Method extends EObject {
 	 * @generated
 	 */
 	void setGenOption(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.util.List%&gt;&lt;Methodparameter&gt; orderedParameters = new &lt;%java.util.ArrayList%&gt;&lt;&gt;(getParameters());\r\norderedParameters.sort((p1, p2) -&gt; (int) (p1.getPosition() - p2.getPosition()));\r\nreturn &lt;%org.eclipse.emf.common.util.ECollections%&gt;.unmodifiableEList(orderedParameters);'"
+	 * @generated
+	 */
+	EList<Methodparameter> getParametersOrdered();
+
+	/**
+	 * Returns the value of the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Position</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Position</em>' attribute.
+	 * @see #setPosition(long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethod_Position()
+	 * @model
+	 * @generated
+	 */
+	long getPosition();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getPosition <em>Position</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Position</em>' attribute.
+	 * @see #getPosition()
+	 * @generated
+	 */
+	void setPosition(long value);
 
 } // Method

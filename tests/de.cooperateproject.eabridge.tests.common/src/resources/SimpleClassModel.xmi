@@ -32,7 +32,8 @@
           AttributeGUID="attributeGUID"
           Name="attName"
           Notes="attNotes"
-          Scope="Private">
+          Scope="Private"
+          Position="1">
         <Constraints
             ElementOfAttribute="//@Packages.0/@Elements.0"
             Attribute="//@Packages.0/@Elements.0/@Attributes.0"
@@ -57,7 +58,8 @@
       <Methods
           Visibility="Private"
           MethodGUID="methodGUID"
-          Name="method"/>
+          Name="method"
+          Position="1"/>
     </Elements>
   </Packages>
   <Elements

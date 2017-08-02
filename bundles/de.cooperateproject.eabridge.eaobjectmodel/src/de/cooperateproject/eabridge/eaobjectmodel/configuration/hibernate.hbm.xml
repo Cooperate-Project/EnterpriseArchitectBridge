@@ -70,7 +70,7 @@
 		<many-to-one name="Parent" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Attribute_Parent" insert="true" update="true" not-null="false">
 			<column not-null="false" unique="false" name="`Object_ID`"/>
 		</many-to-one>
-		<property name="Pos" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+		<property name="Position" lazy="false" insert="true" update="true" not-null="false" unique="false" type="long">
 			<column not-null="false" unique="false" name="`Pos`"/>
 		</property>
 		<property name="Precision" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
@@ -725,7 +725,7 @@
 			</property>
 		</component>
 		<bag name="Parameters" lazy="true" cascade="all,delete-orphan">
-			<key  update="true">
+			<key update="true">
 				<column name="`OperationID`" unique="false"/>
 			</key>
 			<one-to-many entity-name="Methodparameter"/>
@@ -772,7 +772,7 @@
 		<many-to-one name="Parent" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Method_Parent" insert="true" update="true" not-null="false">
 			<column not-null="false" unique="false" name="`Object_ID`"/>
 		</many-to-one>
-		<property name="Pos" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+		<property name="Position" lazy="false" insert="true" update="true" not-null="false" unique="false" type="long">
 			<column not-null="false" unique="false" name="`Pos`"/>
 		</property>
 		<property name="ReturnIsArray" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
@@ -839,6 +839,9 @@
 				<param name="eclassifier">ParameterDirection</param>
 				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
 			</type>
+		</property>
+		<property name="Position" lazy="false" insert="true" update="true" not-null="false" unique="false" type="long">
+			<column not-null="false" unique="false" name="`Pos`"/>
 		</property>
 	</class>
 	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl" entity-name="Package" abstract="false" lazy="false" table="`t_package`">

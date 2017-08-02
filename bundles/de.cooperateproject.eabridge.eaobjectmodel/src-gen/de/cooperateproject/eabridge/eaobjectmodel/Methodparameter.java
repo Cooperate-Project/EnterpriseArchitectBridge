@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getMethod <em>Method</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getKind <em>Kind</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getPosition <em>Position</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter()
@@ -157,5 +158,31 @@ public interface Methodparameter extends EObject {
 	 * @generated
 	 */
 	void setKind(ParameterDirection value);
+
+	/**
+	 * Returns the value of the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Position</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Position</em>' attribute.
+	 * @see #setPosition(long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getMethodparameter_Position()
+	 * @model
+	 * @generated
+	 */
+	long getPosition();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getPosition <em>Position</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Position</em>' attribute.
+	 * @see #getPosition()
+	 * @generated
+	 */
+	void setPosition(long value);
 
 } // Methodparameter

@@ -314,13 +314,13 @@ public interface EaobjectmodelPackage extends EPackage {
 	int ATTRIBUTE__PARENT = 17;
 
 	/**
-	 * The feature id for the '<em><b>Pos</b></em>' attribute.
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__POS = 18;
+	int ATTRIBUTE__POSITION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Precision</b></em>' attribute.
@@ -2563,13 +2563,13 @@ public interface EaobjectmodelPackage extends EPackage {
 	int METHOD__PARENT = 16;
 
 	/**
-	 * The feature id for the '<em><b>Pos</b></em>' attribute.
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__POS = 17;
+	int METHOD__POSITION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Return Is Array</b></em>' attribute.
@@ -2662,13 +2662,22 @@ public interface EaobjectmodelPackage extends EPackage {
 	int METHOD_FEATURE_COUNT = 27;
 
 	/**
+	 * The operation id for the '<em>Get Parameters Ordered</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD___GET_PARAMETERS_ORDERED = 0;
+
+	/**
 	 * The number of operations of the '<em>Method</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_OPERATION_COUNT = 0;
+	int METHOD_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl <em>Methodparameter</em>}' class.
@@ -2726,13 +2735,22 @@ public interface EaobjectmodelPackage extends EPackage {
 	int METHODPARAMETER__KIND = 4;
 
 	/**
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHODPARAMETER__POSITION = 5;
+
+	/**
 	 * The number of structural features of the '<em>Methodparameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHODPARAMETER_FEATURE_COUNT = 5;
+	int METHODPARAMETER_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Methodparameter</em>' class.
@@ -3356,17 +3374,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	EReference getAttribute_Parent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPos <em>Pos</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pos</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPos()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EAttribute getAttribute_Pos();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPrecision <em>Precision</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3464,6 +3471,17 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAttribute_GenOption();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPosition()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Position();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.AttributeConstraint <em>Attribute Constraint</em>}'.
@@ -5901,17 +5919,6 @@ public interface EaobjectmodelPackage extends EPackage {
 	EReference getMethod_Parent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getPos <em>Pos</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pos</em>'.
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.Method#getPos()
-	 * @see #getMethod()
-	 * @generated
-	 */
-	EAttribute getMethod_Pos();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getReturnIsArray <em>Return Is Array</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6011,6 +6018,27 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getMethod_GenOption();
 
 	/**
+	 * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getParametersOrdered() <em>Get Parameters Ordered</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Parameters Ordered</em>' operation.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Method#getParametersOrdered()
+	 * @generated
+	 */
+	EOperation getMethod__GetParametersOrdered();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Method#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Method#getPosition()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EAttribute getMethod_Position();
+
+	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter <em>Methodparameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6074,6 +6102,17 @@ public interface EaobjectmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMethodparameter_Kind();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.Methodparameter#getPosition()
+	 * @see #getMethodparameter()
+	 * @generated
+	 */
+	EAttribute getMethodparameter_Position();
 
 	/**
 	 * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.Package <em>Package</em>}'.
@@ -6677,14 +6716,6 @@ public interface EaobjectmodelPackage extends EPackage {
 		EReference ATTRIBUTE__PARENT = eINSTANCE.getAttribute_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Pos</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ATTRIBUTE__POS = eINSTANCE.getAttribute_Pos();
-
-		/**
 		 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6755,6 +6786,14 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE__GEN_OPTION = eINSTANCE.getAttribute_GenOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__POSITION = eINSTANCE.getAttribute_Position();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeConstraintImpl <em>Attribute Constraint</em>}' class.
@@ -8557,14 +8596,6 @@ public interface EaobjectmodelPackage extends EPackage {
 		EReference METHOD__PARENT = eINSTANCE.getMethod_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Pos</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute METHOD__POS = eINSTANCE.getMethod_Pos();
-
-		/**
 		 * The meta object literal for the '<em><b>Return Is Array</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8637,6 +8668,22 @@ public interface EaobjectmodelPackage extends EPackage {
 		EAttribute METHOD__GEN_OPTION = eINSTANCE.getMethod_GenOption();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Parameters Ordered</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation METHOD___GET_PARAMETERS_ORDERED = eINSTANCE.getMethod__GetParametersOrdered();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METHOD__POSITION = eINSTANCE.getMethod_Position();
+
+		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl <em>Methodparameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8685,6 +8732,14 @@ public interface EaobjectmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute METHODPARAMETER__KIND = eINSTANCE.getMethodparameter_Kind();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METHODPARAMETER__POSITION = eINSTANCE.getMethodparameter_Position();
 
 		/**
 		 * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl <em>Package</em>}' class.

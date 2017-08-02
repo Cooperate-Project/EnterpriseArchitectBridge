@@ -20,7 +20,7 @@
 			<column name="Notes" value="attNotes" />
 			<column name="Derived" />
 			<column name="ID" valueNumeric="1" />
-			<column name="Pos" />
+			<column name="Pos" valueNumeric="1" />
 			<column name="GenOption" />
 			<column name="Length" />
 			<column name="PRECISION" />
@@ -397,10 +397,10 @@
 			<column name="Concurrency" />
 			<column name="Notes" />
 			<column name="Behaviour" />
-			<column name="Abstract" />
+			<column name="Abstract" value="0" />
 			<column name="GenOption" />
 			<column name="Synchronized" />
-			<column name="Pos" />
+			<column name="Pos" valueNumeric="1" />
 			<column name="Const" />
 			<column name="Style" />
 			<column name="Pure" />

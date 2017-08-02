@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl#getPosition <em>Position</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +61,15 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 */
 	protected static final ParameterDirection KIND_EDEFAULT = ParameterDirection.IN;
 
+	/**
+	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPosition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long POSITION_EDEFAULT = 0L;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,6 +213,24 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public long getPosition() {
+		return (Long)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__POSITION, EaobjectmodelPackage.Literals.METHODPARAMETER__POSITION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPosition(long newPosition) {
+		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__POSITION, EaobjectmodelPackage.Literals.METHODPARAMETER__POSITION, newPosition);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -231,6 +259,8 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 				return basicGetMethod();
 			case EaobjectmodelPackage.METHODPARAMETER__KIND:
 				return getKind();
+			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+				return getPosition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,6 +287,9 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case EaobjectmodelPackage.METHODPARAMETER__KIND:
 				setKind((ParameterDirection)newValue);
+				return;
+			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+				setPosition((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -285,6 +318,9 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 			case EaobjectmodelPackage.METHODPARAMETER__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
+			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+				setPosition(POSITION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -307,6 +343,8 @@ public class MethodparameterImpl extends MinimalEObjectImpl.Container implements
 				return basicGetMethod() != null;
 			case EaobjectmodelPackage.METHODPARAMETER__KIND:
 				return getKind() != KIND_EDEFAULT;
+			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+				return getPosition() != POSITION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

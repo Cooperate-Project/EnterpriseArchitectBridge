@@ -22,7 +22,7 @@ public class AttributeConstraintPK implements Serializable {
 	public AttributeConstraintPK() {}
 	
 	public int hashCode() {
-	    return Constraint.hashCode() + Attribute.hashCode();
+	    return Constraint.hashCode() + Attribute.getAttributeID().hashCode();
 	}
 
 	public String toString() {

@@ -32,7 +32,7 @@ public class ObjectModelHelper {
 		return el;
 	}
 
-	public Attribute createElementAttr(int randomInteger, Element element, String name, Scope scope, String typ) {
+	public Attribute createElementAttr(int randomInteger, Element element, String name, Scope scope, String typ, long position) {
 		Attribute att = EaobjectmodelFactory.eINSTANCE.createAttribute();
 		att.setParent(element);
 		att.setAllowDuplicates(false);
@@ -42,10 +42,11 @@ public class ObjectModelHelper {
 		TypeReference t = EaobjectmodelFactory.eINSTANCE.createTypeReference();
 		t.setType(typ);
 		att.setAttributeType(t);
+		att.setPosition(position);
 		return att;
 	}
 	
-	public Method createElementMethode(Element el, String name, String typ, Scope visibility, int randomInteger) {
+	public Method createElementMethode(Element el, String name, String typ, Scope visibility, int randomInteger, long position) {
 		Method method = EaobjectmodelFactory.eINSTANCE.createMethod();
 		method.setParent(el);
 		method.setName(name);
@@ -55,10 +56,11 @@ public class ObjectModelHelper {
 		method.setReturnType(t);
 		method.setMethodGUID("MethodeGUID_" + randomInteger);
 		method.setVisibility(visibility);
-		method.setPos(0L);
+		method.setPosition(position);
 		Methodparameter firstParam = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam.setMethod(method);
 		firstParam.setParameterType(t);
+		firstParam.setPosition(1);
 		return method;
 	}
 	
@@ -93,7 +95,7 @@ public class ObjectModelHelper {
 		return diaLink;
 	}
 	
-	public DiagramObject createDiagrammObject(Diagram d, Element el, int left, int right, int top, int bottom) {
+	public DiagramObject createDiagrammObject(Diagram d, Element el, int left, int right, int top, int bottom, long sequence) {
 		DiagramObject diaObj = EaobjectmodelFactory.eINSTANCE.createDiagramObject();
 		diaObj.setDiagram(d);
 		diaObj.setElement(el);
@@ -101,6 +103,7 @@ public class ObjectModelHelper {
 		diaObj.setTop(top);
 		diaObj.setRight(right);
 		diaObj.setBottom(bottom);
+		diaObj.setSequence(sequence);
 		return diaObj;
 	}
 	

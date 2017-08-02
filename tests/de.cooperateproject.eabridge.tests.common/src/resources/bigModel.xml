@@ -17,7 +17,7 @@
             <column name="Notes"/>
             <column name="Derived"/>
             <column name="ID" valueNumeric="1"/>
-            <column name="Pos"/>
+            <column name="Pos" valueNumeric="1"/>
             <column name="GenOption"/>
             <column name="Length"/>
             <column name="PRECISION"/>
@@ -517,7 +517,7 @@
             <column name="RectLeft" valueNumeric="356"/>
             <column name="RectRight" valueNumeric="467"/>
             <column name="RectBottom" valueNumeric="-189"/>
-            <column name="Sequence"/>
+            <column name="Sequence" valueNumeric="1"/>
             <column name="ObjectStyle"/>
             <column name="Instance_ID" valueNumeric="1"/>
         </insert>
@@ -528,7 +528,7 @@
             <column name="RectLeft" valueNumeric="161"/>
             <column name="RectRight" valueNumeric="280"/>
             <column name="RectBottom" valueNumeric="-418"/>
-            <column name="Sequence"/>
+            <column name="Sequence" valueNumeric="2"/>
             <column name="ObjectStyle"/>
             <column name="Instance_ID" valueNumeric="2"/>
         </insert>
@@ -539,7 +539,7 @@
             <column name="RectLeft" valueNumeric="584"/>
             <column name="RectRight" valueNumeric="689"/>
             <column name="RectBottom" valueNumeric="-419"/>
-            <column name="Sequence"/>
+            <column name="Sequence" valueNumeric="3"/>
             <column name="ObjectStyle"/>
             <column name="Instance_ID" valueNumeric="3"/>
         </insert>
@@ -550,7 +550,7 @@
             <column name="RectLeft" valueNumeric="600"/>
             <column name="RectRight" valueNumeric="690"/>
             <column name="RectBottom" valueNumeric="-175"/>
-            <column name="Sequence"/>
+            <column name="Sequence" valueNumeric="4"/>
             <column name="ObjectStyle"/>
             <column name="Instance_ID" valueNumeric="4"/>
         </insert>
@@ -561,7 +561,7 @@
             <column name="RectLeft" valueNumeric="454"/>
             <column name="RectRight" valueNumeric="544"/>
             <column name="RectBottom" valueNumeric="-622"/>
-            <column name="Sequence"/>
+            <column name="Sequence" valueNumeric="5"/>
             <column name="ObjectStyle"/>
             <column name="Instance_ID" valueNumeric="5"/>
         </insert>
@@ -572,7 +572,7 @@
             <column name="RectLeft" valueNumeric="701"/>
             <column name="RectRight" valueNumeric="791"/>
             <column name="RectBottom" valueNumeric="-614"/>
-            <column name="Sequence"/>
+            <column name="Sequence" valueNumeric="6"/>
             <column name="ObjectStyle"/>
             <column name="Instance_ID" valueNumeric="6"/>
         </insert>
@@ -949,7 +949,7 @@
             <column name="Abstract" value="0"/>
             <column name="GenOption"/>
             <column name="Synchronized"/>
-            <column name="Pos" valueNumeric="0"/>
+            <column name="Pos" valueNumeric="1"/>
             <column name="Const"/>
             <column name="Style"/>
             <column name="Pure"/>
@@ -978,7 +978,7 @@
             <column name="Abstract" value="0"/>
             <column name="GenOption"/>
             <column name="Synchronized"/>
-            <column name="Pos" valueNumeric="0"/>
+            <column name="Pos" valueNumeric="1"/>
             <column name="Const"/>
             <column name="Style"/>
             <column name="Pure"/>
@@ -1007,7 +1007,7 @@
             <column name="Abstract" value="0"/>
             <column name="GenOption"/>
             <column name="Synchronized"/>
-            <column name="Pos" valueNumeric="0"/>
+            <column name="Pos" valueNumeric="2"/>
             <column name="Const"/>
             <column name="Style"/>
             <column name="Pure"/>
@@ -1036,7 +1036,7 @@
             <column name="Abstract" value="0"/>
             <column name="GenOption"/>
             <column name="Synchronized"/>
-            <column name="Pos" valueNumeric="0"/>
+            <column name="Pos" valueNumeric="1"/>
             <column name="Const"/>
             <column name="Style"/>
             <column name="Pure"/>

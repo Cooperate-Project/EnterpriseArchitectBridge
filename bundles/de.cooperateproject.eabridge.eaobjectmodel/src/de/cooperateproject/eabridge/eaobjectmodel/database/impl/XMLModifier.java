@@ -7,10 +7,9 @@ package de.cooperateproject.eabridge.eaobjectmodel.database.impl;
 public class XMLModifier {
 	
 	public static String modifyXML(String xml) {
-		
 		xml = xml.replaceAll("foreign-key=\"Attribute_Constraints_key\" ", "");
-		xml = xml.replaceAll("Attribute_Constraints_AttributeID", "ID");
-		xml = xml.replaceAll("foreign-key=\"Method_Parameters_key\"", "");
+//		xml = xml.replaceAll("Attribute_Constraints_AttributeID", "ID")
+		xml = xml.replaceAll("foreign-key=\"Method_Parameters_key\" ", "");
 		return xml;
 		
 	}

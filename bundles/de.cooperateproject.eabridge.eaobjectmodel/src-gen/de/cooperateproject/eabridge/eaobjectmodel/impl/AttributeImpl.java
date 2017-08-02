@@ -46,7 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getPos <em>Pos</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getPrecision <em>Precision</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getScale <em>Scale</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl#getStereotype <em>Stereotype</em>}</li>
@@ -197,14 +197,14 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 */
 	protected static final String NOTES_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getPos() <em>Pos</em>}' attribute.
+	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPos()
+	 * @see #getPosition()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Long POS_EDEFAULT = null;
+	protected static final long POSITION_EDEFAULT = 0L;
 	/**
 	 * The default value of the '{@link #getPrecision() <em>Precision</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -657,24 +657,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Long getPos() {
-		return (Long)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE__POS, EaobjectmodelPackage.Literals.ATTRIBUTE__POS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPos(Long newPos) {
-		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE__POS, EaobjectmodelPackage.Literals.ATTRIBUTE__POS, newPos);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getPrecision() {
 		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE__PRECISION, EaobjectmodelPackage.Literals.ATTRIBUTE__PRECISION, true, true);
 	}
@@ -829,6 +811,24 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public long getPosition() {
+		return (Long)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE__POSITION, EaobjectmodelPackage.Literals.ATTRIBUTE__POSITION, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPosition(long newPosition) {
+		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE__POSITION, EaobjectmodelPackage.Literals.ATTRIBUTE__POSITION, newPosition);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -922,8 +922,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case EaobjectmodelPackage.ATTRIBUTE__PARENT:
 				if (resolve) return getParent();
 				return basicGetParent();
-			case EaobjectmodelPackage.ATTRIBUTE__POS:
-				return getPos();
+			case EaobjectmodelPackage.ATTRIBUTE__POSITION:
+				return getPosition();
 			case EaobjectmodelPackage.ATTRIBUTE__PRECISION:
 				return getPrecision();
 			case EaobjectmodelPackage.ATTRIBUTE__SCALE:
@@ -1010,8 +1010,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case EaobjectmodelPackage.ATTRIBUTE__PARENT:
 				setParent((Element)newValue);
 				return;
-			case EaobjectmodelPackage.ATTRIBUTE__POS:
-				setPos((Long)newValue);
+			case EaobjectmodelPackage.ATTRIBUTE__POSITION:
+				setPosition((Long)newValue);
 				return;
 			case EaobjectmodelPackage.ATTRIBUTE__PRECISION:
 				setPrecision((String)newValue);
@@ -1107,8 +1107,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case EaobjectmodelPackage.ATTRIBUTE__PARENT:
 				setParent((Element)null);
 				return;
-			case EaobjectmodelPackage.ATTRIBUTE__POS:
-				setPos(POS_EDEFAULT);
+			case EaobjectmodelPackage.ATTRIBUTE__POSITION:
+				setPosition(POSITION_EDEFAULT);
 				return;
 			case EaobjectmodelPackage.ATTRIBUTE__PRECISION:
 				setPrecision(PRECISION_EDEFAULT);
@@ -1185,8 +1185,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				return NOTES_EDEFAULT == null ? getNotes() != null : !NOTES_EDEFAULT.equals(getNotes());
 			case EaobjectmodelPackage.ATTRIBUTE__PARENT:
 				return basicGetParent() != null;
-			case EaobjectmodelPackage.ATTRIBUTE__POS:
-				return POS_EDEFAULT == null ? getPos() != null : !POS_EDEFAULT.equals(getPos());
+			case EaobjectmodelPackage.ATTRIBUTE__POSITION:
+				return getPosition() != POSITION_EDEFAULT;
 			case EaobjectmodelPackage.ATTRIBUTE__PRECISION:
 				return PRECISION_EDEFAULT == null ? getPrecision() != null : !PRECISION_EDEFAULT.equals(getPrecision());
 			case EaobjectmodelPackage.ATTRIBUTE__SCALE:

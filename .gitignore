@@ -15,3 +15,6 @@ hs_err_pid*
 transformation/de.cooperateproject.eabridge.transformation/model/*/*.xmi
 transformation/de.cooperateproject.eabridge.transformation/model/*/*Transformed.uml
 transformation/de.cooperateproject.eabridge.transformation/model/*/*Transformed.notation
+
+# maven
+target/

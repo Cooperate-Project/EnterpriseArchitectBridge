@@ -475,15 +475,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttribute_Pos() {
-		return (EAttribute)attributeEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAttribute_Precision() {
 		return (EAttribute)attributeEClass.getEStructuralFeatures().get(19);
 	}
@@ -558,6 +549,15 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 */
 	public EAttribute getAttribute_GenOption() {
 		return (EAttribute)attributeEClass.getEStructuralFeatures().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttribute_Position() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2572,15 +2572,6 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMethod_Pos() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMethod_ReturnIsArray() {
 		return (EAttribute)methodEClass.getEStructuralFeatures().get(18);
 	}
@@ -2662,6 +2653,24 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getMethod__GetParametersOrdered() {
+		return methodEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethod_Position() {
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMethodparameter() {
 		return methodparameterEClass;
 	}
@@ -2709,6 +2718,15 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	 */
 	public EAttribute getMethodparameter_Kind() {
 		return (EAttribute)methodparameterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethodparameter_Position() {
+		return (EAttribute)methodparameterEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3072,7 +3090,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(attributeEClass, ATTRIBUTE__NAME);
 		createEAttribute(attributeEClass, ATTRIBUTE__NOTES);
 		createEReference(attributeEClass, ATTRIBUTE__PARENT);
-		createEAttribute(attributeEClass, ATTRIBUTE__POS);
+		createEAttribute(attributeEClass, ATTRIBUTE__POSITION);
 		createEAttribute(attributeEClass, ATTRIBUTE__PRECISION);
 		createEAttribute(attributeEClass, ATTRIBUTE__SCALE);
 		createEAttribute(attributeEClass, ATTRIBUTE__STEREOTYPE);
@@ -3313,7 +3331,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(methodEClass, METHOD__NAME);
 		createEAttribute(methodEClass, METHOD__NOTES);
 		createEReference(methodEClass, METHOD__PARENT);
-		createEAttribute(methodEClass, METHOD__POS);
+		createEAttribute(methodEClass, METHOD__POSITION);
 		createEAttribute(methodEClass, METHOD__RETURN_IS_ARRAY);
 		createEAttribute(methodEClass, METHOD__STATE_FLAGS);
 		createEAttribute(methodEClass, METHOD__STEREOTYPE);
@@ -3323,6 +3341,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(methodEClass, METHOD__VISIBILITY);
 		createEAttribute(methodEClass, METHOD__CONCURRENCY);
 		createEAttribute(methodEClass, METHOD__GEN_OPTION);
+		createEOperation(methodEClass, METHOD___GET_PARAMETERS_ORDERED);
 
 		methodparameterEClass = createEClass(METHODPARAMETER);
 		createEAttribute(methodparameterEClass, METHODPARAMETER__EA_GUID);
@@ -3330,6 +3349,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		createEAttribute(methodparameterEClass, METHODPARAMETER__NAME);
 		createEReference(methodparameterEClass, METHODPARAMETER__METHOD);
 		createEAttribute(methodparameterEClass, METHODPARAMETER__KIND);
+		createEAttribute(methodparameterEClass, METHODPARAMETER__POSITION);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__PACKAGE_GUID);
@@ -3433,7 +3453,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Notes(), ecorePackage.getEString(), "Notes", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_Parent(), this.getElement(), this.getElement_Attributes(), "Parent", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Pos(), ecorePackage.getELongObject(), "Pos", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Position(), ecorePackage.getELong(), "Position", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Precision(), ecorePackage.getEString(), "Precision", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Scale(), ecorePackage.getEString(), "Scale", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Stereotype(), ecorePackage.getEString(), "Stereotype", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3688,7 +3708,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getMethod_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Notes(), ecorePackage.getEString(), "Notes", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Parent(), this.getElement(), this.getElement_Methods(), "Parent", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethod_Pos(), ecorePackage.getELongObject(), "Pos", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethod_Position(), ecorePackage.getELong(), "Position", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_ReturnIsArray(), ecorePackage.getEBooleanObject(), "ReturnIsArray", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_StateFlags(), ecorePackage.getEString(), "StateFlags", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Stereotype(), ecorePackage.getEString(), "Stereotype", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3699,12 +3719,15 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 		initEAttribute(getMethod_Concurrency(), ecorePackage.getEString(), "Concurrency", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_GenOption(), ecorePackage.getEString(), "GenOption", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getMethod__GetParametersOrdered(), this.getMethodparameter(), "getParametersOrdered", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(methodparameterEClass, Methodparameter.class, "Methodparameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethodparameter_Ea_guid(), ecorePackage.getEString(), "ea_guid", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethodparameter_ParameterType(), this.getTypeReference(), null, "ParameterType", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodparameter_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethodparameter_Method(), this.getMethod(), null, "Method", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethodparameter_Kind(), this.getParameterDirection(), "Kind", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethodparameter_Position(), ecorePackage.getELong(), "Position", null, 0, 1, Methodparameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageEClass, de.cooperateproject.eabridge.eaobjectmodel.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_PackageGUID(), ecorePackage.getEString(), "PackageGUID", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

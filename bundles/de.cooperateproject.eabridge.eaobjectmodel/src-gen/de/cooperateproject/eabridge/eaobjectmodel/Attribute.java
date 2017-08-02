@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getNotes <em>Notes</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getParent <em>Parent</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPos <em>Pos</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPosition <em>Position</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPrecision <em>Precision</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getScale <em>Scale</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getStereotype <em>Stereotype</em>}</li>
@@ -511,32 +511,6 @@ public interface Attribute extends EObject {
 	void setParent(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Pos</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pos</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pos</em>' attribute.
-	 * @see #setPos(Long)
-	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getAttribute_Pos()
-	 * @model unique="false"
-	 * @generated
-	 */
-	Long getPos();
-
-	/**
-	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPos <em>Pos</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pos</em>' attribute.
-	 * @see #getPos()
-	 * @generated
-	 */
-	void setPos(Long value);
-
-	/**
 	 * Returns the value of the '<em><b>Precision</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -764,5 +738,31 @@ public interface Attribute extends EObject {
 	 * @generated
 	 */
 	void setGenOption(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Position</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Position</em>' attribute.
+	 * @see #setPosition(long)
+	 * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getAttribute_Position()
+	 * @model
+	 * @generated
+	 */
+	long getPosition();
+
+	/**
+	 * Sets the value of the '{@link de.cooperateproject.eabridge.eaobjectmodel.Attribute#getPosition <em>Position</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Position</em>' attribute.
+	 * @see #getPosition()
+	 * @generated
+	 */
+	void setPosition(long value);
 
 } // Attribute

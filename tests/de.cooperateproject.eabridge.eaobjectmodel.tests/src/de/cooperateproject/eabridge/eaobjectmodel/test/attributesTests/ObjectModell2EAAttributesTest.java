@@ -34,6 +34,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
+import de.cooperateproject.eabridge.eaobjectmodel.test.util.DetailedComparisonFormatter;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.NodeParserUtil;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.ObjectModelHelper;
 import de.cooperateproject.eabridge.eaobjectmodel.test.util.XMLParser;
@@ -87,24 +88,27 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
 		Package root = diagramHelper.createRootPackage("root");
 		Package subPackage = diagramHelper.createSubPackage(root);
 		Element car = diagramHelper.createElement(2, subPackage, "car", ElementType.CLASS);
-		Attribute att = diagramHelper.createElementAttr(5, car, "attribute2", Scope.PUBLIC, "double");
-		Method run = diagramHelper.createElementMethode(car, "run", "int", Scope.PUBLIC, 4);
+		Attribute att = diagramHelper.createElementAttr(5, car, "attribute2", Scope.PUBLIC, "double", 1);
+		Method run = diagramHelper.createElementMethode(car, "run", "int", Scope.PUBLIC, 4, 1);
 		Methodparameter firstParam = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam.setMethod(run);
+		firstParam.setPosition(1);
 		
 		TypeReference t = EaobjectmodelFactory.eINSTANCE.createTypeReference();
 		t.setType("int");
 		firstParam.setParameterType(t);
-		Method stop = diagramHelper.createElementMethode(car, "stop", "none", Scope.PRIVATE, 2);
+		Method stop = diagramHelper.createElementMethode(car, "stop", "none", Scope.PRIVATE, 2, 2);
 		Element car1 = diagramHelper.createElement(3, subPackage, "Car1", ElementType.CLASS);
-		Method run1 = diagramHelper.createElementMethode(car1, "run", "int",Scope.PUBLIC, 19);
+		Method run1 = diagramHelper.createElementMethode(car1, "run", "int",Scope.PUBLIC, 19, 1);
 		Methodparameter firstParam1 = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam1.setMethod(run1);
+		firstParam1.setPosition(1);
 		Element car2 = diagramHelper.createElement(5, subPackage, "Car2", ElementType.CLASS);
-		Method run2 = diagramHelper.createElementMethode(car2, "run", "int", Scope.PUBLIC, 20);
+		Method run2 = diagramHelper.createElementMethode(car2, "run", "int", Scope.PUBLIC, 20, 1);
 		Methodparameter firstParam2 = EaobjectmodelFactory.eINSTANCE.createMethodparameter();
 		firstParam1.setMethod(run2);
 		firstParam2.setParameterType(t);
+		firstParam2.setPosition(2);
 		Element rad = diagramHelper.createElement(9, subPackage, "rad", ElementType.CLASS);
 		Element door = diagramHelper.createElement(16, subPackage, "door", ElementType.CLASS);
 		Element carInterface = diagramHelper.createElement(17, subPackage, "carInterface", ElementType.INTERFACE);
@@ -118,12 +122,12 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
 		DiagramLink dl2 = diagramHelper.createDiagramLink(52, d, c2);
 		DiagramLink dl3 = diagramHelper.createDiagramLink(53, d, c3);
 		DiagramLink dl4 = diagramHelper.createDiagramLink(54, d, c4);
-		DiagramObject do1 = diagramHelper.createDiagrammObject(d, car, 356, 467, -93, -189);
-		DiagramObject do2 = diagramHelper.createDiagrammObject(d, car1, 161, 280, -310, -418);
-		DiagramObject do3 = diagramHelper.createDiagrammObject(d, car2, 584, 689, -349, -419);
-		DiagramObject do4 = diagramHelper.createDiagrammObject(d, carInterface, 600, 690, -85, -175);
-		DiagramObject do5 = diagramHelper.createDiagrammObject(d, rad, 454, 544, -552, -622);
-		DiagramObject do6 = diagramHelper.createDiagrammObject(d, door, 701, 791, -544, -614);
+		DiagramObject do1 = diagramHelper.createDiagrammObject(d, car, 356, 467, -93, -189, 1);
+		DiagramObject do2 = diagramHelper.createDiagrammObject(d, car1, 161, 280, -310, -418, 2);
+		DiagramObject do3 = diagramHelper.createDiagrammObject(d, car2, 584, 689, -349, -419, 3);
+		DiagramObject do4 = diagramHelper.createDiagrammObject(d, carInterface, 600, 690, -85, -175, 4);
+		DiagramObject do5 = diagramHelper.createDiagrammObject(d, rad, 454, 544, -552, -622, 5);
+		DiagramObject do6 = diagramHelper.createDiagrammObject(d, door, 701, 791, -544, -614, 6);
 	    return root;
    }
    /**
@@ -154,7 +158,7 @@ public class ObjectModell2EAAttributesTest  extends TeneoParameterizedBaseTest {
    @Test
    public void testAttribute() {
 	    Diff db = NodeParserUtil.createDiffBuilder(content, compareContent, node).build();
-		Assert.assertFalse(db.toString(), db.hasDifferences());
+		Assert.assertFalse(db.toString(new DetailedComparisonFormatter()), db.hasDifferences());
    }
   
 }
