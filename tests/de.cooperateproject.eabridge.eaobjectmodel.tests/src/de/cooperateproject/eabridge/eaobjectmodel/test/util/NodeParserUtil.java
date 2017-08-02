@@ -3,6 +3,7 @@ package de.cooperateproject.eabridge.eaobjectmodel.test.util;
 import java.util.Collection;
 
 import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.diff.Comparison;
@@ -46,13 +47,13 @@ public class NodeParserUtil {
 		   String readedColumnParentName =  getColumnParentName(readedNode);
 		   return savedColumnParentName.equals(readedColumnParentName);
 	   }
-
-	   public static DiffBuilder createDiffBuilder(String expected, String actual, Node node) {
+	   
+	   public static DiffBuilder createDiffBuilder(Document expected, Document actual) {
 			return DiffBuilder.compare(actual).withTest(expected)
 					.withNodeFilter(NodeFilterBuilder.create()
 							.add(n -> !n.getNodeName().equals("include"))
 							.add(n -> isDataBaseChangeLogNode(n) || isChangeSetNode(n) || isInsertNode(n) 
-								|| (isColumnNode(n) && NodesHaveSameName(n, node) && NodesHaveSameParent(n, node)))
+								|| (isColumnNode(n)))
 							.build())
 					.withAttributeFilter(AttributeFilterBuilder.create()
 							.add(a -> !a.getName().equals("author") || !a.getOwnerElement().getNodeName().equals("changeSet"))
