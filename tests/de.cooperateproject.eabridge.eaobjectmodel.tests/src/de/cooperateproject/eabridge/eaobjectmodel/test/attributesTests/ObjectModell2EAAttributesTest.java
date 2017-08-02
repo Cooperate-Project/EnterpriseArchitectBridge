@@ -113,6 +113,9 @@ public class ObjectModell2EAAttributesTest extends TeneoParameterizedBaseTest {
 			String testName = String.format("%s - %s - %s", nodeName, parentName, changeSetId);
 			resultingParameters.add(new Object[] { testName, currentNode, comparisonResult });
 		}
+		
+		deinitialize();
+		
 		return resultingParameters;
 	}
 
