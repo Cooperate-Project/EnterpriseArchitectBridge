@@ -35,8 +35,12 @@ public class Geometry {
 
 	// Used to parse inner Nodes
 	// currently not in use
-	public class Node extends HashMap<String, Integer> {
+	public static class Node extends HashMap<String, Integer> {
 
+		public Node() {
+			this(null);
+		}
+		
 		public Node(String node) {
 			if (node != null) {
 				String[] attributes = node.split(":");

@@ -12,7 +12,8 @@ main() {
 
 	log("Found Root Models", rootModels);
 	
-	rootModels->map mapModel();
+	rootModels->map mapPackage();
+	rootModels->map mapCommentableToElement();
 	
 	var diagrams := notation.objectsOfType(Diagram);
 	diagrams->map mapDiagram();
@@ -25,40 +26,47 @@ mapping uml::Model::mapModel() : eaobjectmodel::Package {
 	PackageGUID := generateUUID();
 }
 
+mapping uml::Element::mapCommentableToElement() : eaobjectmodel::Element
+disjuncts uml::Package::mapPackageToElement, uml::Classifier::mapClassifierToElement;
+
 mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 	log("Mapping package", self);
 	
-	Name := self.name;	
-	Packages := self.nestedPackage-> map mapPackage();
+	Name := self.name;
+	
+	var umlPackages := self.getFeature("nestedPackage")->oclAsType(uml::Package);
+	Packages := umlPackages->map mapPackage();
 	
 	// Create package element
-	Elements := self.nestedPackage-> map mapPackageToElement();
+	Elements := umlPackages->map mapCommentableToElement();
 	
 	// Map Package content
-	var classes := self.packagedElement->selectByType(UML::Class);
-	var interfaces := self.packagedElement->selectByType(UML::Interface);
-	var associations := self.packagedElement->selectByType(UML::Association);
-	var comments := self.ownedComment;
+	var umlPackagedElements := self.getFeature("packagedElement")->oclAsType(uml::PackageableElement);
 	
-	Elements += classes -> map mapClassToElement();
-	Elements += interfaces -> map mapInterfaceToElement();
-				associations -> map mapAssociationToConnector();
-	Elements += comments -> map mapCommentToElement();
 	
-	PackageGUID := generateUUID();
+	Elements += umlPackagedElements->selectByKind(uml::Classifier)->map mapCommentableToElement();
+				// the connectors are assigned via the eOpposite relation inside the association
+				umlPackagedElements->selectByType(uml::Association)->map mapAssociationToConnector();
+	Elements += self.getFeature("ownedComment")->oclAsType(uml::Comment)->map mapCommentToElement();
+	
+	PackageGUID := if PackageGUID != null then PackageGUID else generateUUID() endif;
 }
+
+mapping uml::Classifier::mapClassifierToElement() : eaobjectmodel::Element
+disjuncts uml::Class::mapClassToElement, uml::Interface::mapInterfaceToElement;
 
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	Name := self.name;
 	result.Type := ElementType::Package;
 	PDATA1 := self.late resolveoneIn(uml::Package::mapPackage);
 	
-	SourceRelations := self.packageImport->mapPackageImportToConnector();
+	SourceRelations := self.getFeature("packageImport")->oclAsType(uml::PackageImport)->mapPackageImportToConnector();
 	
-	ElementGUID := generateUUID();
+	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
 }
 
-abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Element {
+abstract mapping uml::Classifier::mapClassifierToElementBase(): eaobjectmodel::Element
+{
 	log("Mapping Classifier", self);
 	PDATA1 := null;
 	
@@ -67,14 +75,14 @@ abstract mapping uml::Classifier::mapClassifierToElement(): eaobjectmodel::Eleme
 	
 	Visibility := self.visibility.transformVisibility();
 	
-	SourceRelations += self.generalization.map mapGeneralizationToConnector();
-	SourceRelations += self.substitution.map mapSubstitutionToConnector();
+	SourceRelations += self.getFeature("generalization")->oclAsType(uml::Generalization).map mapGeneralizationToConnector();
+	SourceRelations += self.getFeature("substitution")->oclAsType(uml::Substitution).map mapSubstitutionToConnector();
 	
-	ElementGUID := generateUUID();
+	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
 }
 
 mapping uml::Class::mapClassToElement(): eaobjectmodel::Element
-inherits uml::Classifier::mapClassifierToElement {
+inherits uml::Classifier::mapClassifierToElementBase {
 	log("Mapping class", self);
 	
 	Attributes := self.ownedAttribute-> select(p : Property | p.association.oclIsUndefined()).map mapPropertyToAttribute();
@@ -82,11 +90,11 @@ inherits uml::Classifier::mapClassifierToElement {
 	
 	result.Type := eaobjectmodel::ElementType::Class;
 	
-	SourceRelations += self.interfaceRealization.map mapRealizationToConnector();
+	SourceRelations += self.getFeature("interfaceRealization")->oclAsType(uml::InterfaceRealization).map mapRealizationToConnector();
 }
 
 mapping uml::Interface::mapInterfaceToElement() : eaobjectmodel::Element
-inherits uml::Classifier::mapClassifierToElement {
+inherits uml::Classifier::mapClassifierToElementBase {
 	log("Mapping interface", self);
 	
 	Attributes := self.ownedAttribute -> map mapPropertyToAttribute();
@@ -98,16 +106,32 @@ inherits uml::Classifier::mapClassifierToElement {
 }
 
 // Comment can only be linked to one Classifier
-mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element {
+mapping uml::Comment::mapCommentToElement() : eaobjectmodel::Element
+disjuncts uml::Comment::mapCommentToElementNested, uml::Comment::mapCommentToElementNotNested;
+
+abstract mapping uml::Comment::mapCommentToElementBase() : eaobjectmodel::Element
+{
 	log("Mapping comment", self);
 	PDATA1 := null;
-	
 	Notes := self.body;
-	SourceRelations := self.annotatedElement.map mapElementToNoteLink();
-	
 	result.Type := eaobjectmodel::ElementType::Note;
-	
-	ElementGUID := generateUUID();
+	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
+}
+
+mapping uml::Comment::mapCommentToElementNested() : eaobjectmodel::Element
+inherits uml::Comment::mapCommentToElementBase
+when {not self.isContainedInElement()}
+{
+	SourceRelations += self.getFeature("annotatedElement")->oclAsType(uml::Element)->map mapElementToNoteLink();
+}
+
+mapping uml::Comment::mapCommentToElementNotNested() : eaobjectmodel::Element
+inherits uml::Comment::mapCommentToElementBase
+when {self.isContainedInElement()}
+{
+	var annotatedElement := self.getFeature("annotatedElement")->oclAsType(uml::Element);
+	var eaElement := annotatedElement.resolveoneIn(uml::Element::mapCommentableToElement);
+	eaElement.SourceRelations += self.map mapElementToNoteLink();
 }
 
 mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
@@ -117,6 +141,7 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	
 	var sourceProperty := self.memberEnd->at(1);
 	var destProperty := self.memberEnd->at(2);
+	// setting the source assigns this element to its parent via an eOpposite relation
 	Source := sourceProperty.type.resolveone(OM::Element);
 	Dest := destProperty.type.resolveone(OM::Element);
 	
@@ -144,14 +169,14 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 	
 	result.Type := ConnectorType::Association;
 	
-	ConnectorGUID := generateUUID();
+	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
 }
 
 abstract mapping uml::DirectedRelationship::mapDirectedRelationShip() : OM::Connector {
 	Direction := DirectionType::SourceDestination;
 	DestIsNavigable := true;
 	
-	ConnectorGUID := generateUUID();
+	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
 }
 
 mapping uml::Generalization::mapGeneralizationToConnector() : eaobjectmodel::Connector
@@ -166,7 +191,7 @@ mapping uml::Substitution::mapSubstitutionToConnector() : eaobjectmodel::Connect
 inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	log("Mapping substitution", self);
 	
-	Dest := self.supplier.late resolveone(OM::Element);
+	Dest := self.getFeature("supplier")->oclAsType(uml::NamedElement).late resolveone(OM::Element);
 	result.Type := ConnectorType::Substitution;
 }
 
@@ -174,7 +199,7 @@ mapping uml::InterfaceRealization::mapRealizationToConnector() : eaobjectmodel::
 inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	log("Mapping realization", self);
 	
-	Dest := self.supplier.late resolveone(OM::Element);
+	Dest := self.getFeature("supplier")->oclAsType(uml::NamedElement).late resolveone(OM::Element);
 	result.Type := ConnectorType::Realisation;
 }
 
@@ -183,6 +208,7 @@ inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	log("Mapping packageImport",self);
 	
 	Dest := self.importedPackage.late resolveoneIn(uml::Package::mapPackageToElement);
+	DestIsNavigable := true;
 	result.Type := ConnectorType::Package;
 	Btm_Mid_Label := "«import»";
 	result.Stereotype := "import";
@@ -191,12 +217,12 @@ inherits uml::DirectedRelationship::mapDirectedRelationShip {
 mapping uml::Element::mapElementToNoteLink() : eaobjectmodel::Connector {
 	log("Mapping noteLink", self);
 	
-	Dest := self.resolveone(eaobjectmodel::Element);
-	
+	Dest := self.late resolveone(eaobjectmodel::Element);
+	DestIsNavigable := true;
 	Direction := DirectionType::SourceDestination;
 	result.Type := ConnectorType::NoteLink;
 	
-	ConnectorGUID := generateUUID();
+	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
 }
 
 mapping uml::Property::mapPropertyToAttribute(): Attribute {
@@ -207,7 +233,7 @@ mapping uml::Property::mapPropertyToAttribute(): Attribute {
 	result.Scope := self.visibility.transformVisibility();
 	AttributeType := self.type.transformType();
 	
-	AttributeGUID := generateUUID();
+	AttributeGUID := if AttributeGUID != null then AttributeGUID else generateUUID() endif;
 }
 
 mapping uml::Operation::mapOperationToMethod() : Method {
@@ -224,7 +250,7 @@ mapping uml::Operation::mapOperationToMethod() : Method {
 		result.Parameters += param.map mapParameter() endif;
 	};
 	
-	MethodGUID := generateUUID();
+	MethodGUID := if MethodGUID != null then MethodGUID else generateUUID() endif;
 }
 
 mapping uml::Parameter::mapParameter() : Methodparameter {
@@ -234,7 +260,7 @@ mapping uml::Parameter::mapParameter() : Methodparameter {
 	Kind := self.direction.transformParameterDirection();
 	ParameterType := self.type.transformType();
 	
-	ea_guid := generateUUID();
+	ea_guid := if ea_guid != null then ea_guid else generateUUID() endif;
 }
 
 query uml::Property::transformAssociationType() : IsAggregate {
@@ -291,7 +317,7 @@ query OM::Connector::transformDirectionType() : OM::DirectionType {
 
 query uml::Type::transformType() : TypeReference {
 
-	//FIXME: Good idea? (Alternative: Code dublication)
+	//FIXME: Good idea? (Alternative: Code duplication)
 	var reference = new TypeReference();
 
 	if (self.oclIsTypeOf(uml::PrimitiveType)) then {
@@ -333,7 +359,7 @@ mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	
 	self.edges->selectByType(notation::Connector)->map mapConnector();
 	
-	DiagramGUID := generateUUID();
+	DiagramGUID := if DiagramGUID != null then DiagramGUID else generateUUID() endif;
 }
 
 mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject 
@@ -357,7 +383,7 @@ when {self.isShapeRequired()} {
 	endif;
 }
 
-query notation::Shape::setSequence(sequenceNumber : Integer) : Integer {
+helper notation::Shape::setSequence(sequenceNumber : Integer) : Integer {
 	var diaObject := self.resolveoneIn(notation::Shape::mapShape);
 	diaObject._Sequence := sequenceNumber;
 	var newSequenceNumber := sequenceNumber - 1;
@@ -393,21 +419,11 @@ merges notation::Connector::mapConnectorToCommentLink, notation::Connector::mapC
 }
 
 mapping notation::Connector::mapConnectorToCommentLink() : eaobjectmodel::DiagramLink 
-when {self.type = PAPYRUS_NOTATION_EDGE_COMMENTLINK} {
-
-	var sourceShape := self.source.oclAsType(notation::Shape);
-	var sourceEle := sourceShape.element.oclAsType(uml::Element);
+when {self.type = PAPYRUS_NOTATION_EDGE_COMMENTLINK}
+{
 	var targetShape := self.target.oclAsType(notation::Shape);
 	var targetEle := targetShape.element.oclAsType(uml::Element);
-	
-	var commentedEle : uml::Element;
-	
-	if (sourceEle.oclIsKindOf(uml::Comment))
-		then commentedEle := targetEle
-		else commentedEle := sourceEle
-	endif;
-	
-	result.Connector := commentedEle.resolveoneIn(uml::Element::mapElementToNoteLink)
+	result.Connector := targetEle.resolveoneIn(uml::Element::mapElementToNoteLink)
 }
 
 mapping notation::Connector::mapConnectorToAssociation() : eaobjectmodel::DiagramLink 
@@ -473,3 +489,10 @@ query calculateY(shape : notation::Shape, anchor : notation::Anchor) : Integer {
 	return yReal.round();
 }
 
+query uml::Comment::isContainedInElement() : Boolean {
+	var commentEdge := notation.rootObjects()[notation::Diagram].edges->any(
+		type = PAPYRUS_NOTATION_EDGE_COMMENTLINK and
+			(target.element = self.toEObject() or source.element = self.toEObject())
+	);
+	return commentEdge.target.element = self.toEObject();
+}

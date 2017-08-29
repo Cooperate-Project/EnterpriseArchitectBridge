@@ -8,17 +8,19 @@ modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/gmfdiag/style');
 
-//Force only one Model
+// we cannot map the root package but only its contents
+// assumption: only a sub-package of the root package is given as transformation input
 main() {
-	var rootRootPackage := om.objects()[Package]->any(p: Package | p.Parent.oclIsUndefined());
-	assert fatal (rootRootPackage->size() = 1);
 	
-	var rootPackage := rootRootPackage.Packages;
-	assert fatal (rootPackage->size() = 1);
-		
-	rootPackage-> map mapRootPackage();
+	var inputPackages := om.rootObjects()[Package];
+	assert fatal (inputPackages->size() = 1);
+	var inputPackage := inputPackages->any(true);
+
+	// mapping to UML model		
+	inputPackage-> map mapRootPackage();
 	
-	var diagrams := rootPackage.getAllContents()->selectByType(Diagram);
+	// mapping to Notation model
+	var diagrams := inputPackage.getAllContents()->selectByType(Diagram);
 	diagrams->map diagramToDiagram();
 }
 
@@ -45,15 +47,15 @@ mapping eaobjectmodel::Package::mapPackage() : uml::Package {
 	
 	result.addToFeature("packagedElement", self.Packages-> map mapPackage());
 
-	var classes := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Class);
-	var interfaces := self.Elements->select(e:  OM::Element | e.Type=OM::ElementType::Interface);
-	var connectors := classes->collect(SourceRelations);
+	var classifiers := self.Elements->select(e | e.Type = eaobjectmodel::ElementType::Class or e.Type = eaobjectmodel::ElementType::Interface);
 	var imports := self.getAssociatedElement().SourceRelations->select(e | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	
-	result.addToFeature("packagedElement", classes-> map mapElementToClass());
-	result.addToFeature("packagedElement", interfaces-> map mapElementToInterface());
+	result.addToFeature("packagedElement", classifiers-> map mapElementToClassifier());
 	result.setToFeature("packageImport", imports->map mapConnectorToPackageImport());
 }
+
+mapping eaobjectmodel::Element::mapElementToClassifier() : uml::Classifier
+disjuncts eaobjectmodel::Element::mapElementToClass, eaobjectmodel::Element::mapElementToInterface;
 
 mapping Connector::mapClassesToUsage():  Usage {
 	name := self.Name;
@@ -71,7 +73,7 @@ mapping Connector::mapClassesToInformationflows():  InformationFlow {
 	informationTarget := self.Dest.oclAsType(Class);
 }
 
-abstract mapping Element::mapElementToClassifier() : uml::Classifier {
+abstract mapping Element::mapElementToClassifierBase() : uml::Classifier {
 	name := self.Name;
 	visibility := self.Visibility.getAttributeType();
 	isAbstract := self.Abstract;
@@ -84,7 +86,8 @@ abstract mapping Element::mapElementToClassifier() : uml::Classifier {
 }
 
 mapping Element::mapElementToClass() : uml::Class
-inherits Element::mapElementToClassifier 
+inherits Element::mapElementToClassifierBase
+when {self.Type = eaobjectmodel::ElementType::Class}
 {	
 	ownedAttribute += self.Attributes-> map transformAttribute();
 	ownedOperation += self.Methods-> map transformOperations();
@@ -95,7 +98,8 @@ inherits Element::mapElementToClassifier
 }
 
 mapping Element::mapElementToInterface() : uml::Interface
-inherits Element::mapElementToClassifier
+inherits Element::mapElementToClassifierBase
+when {self.Type = eaobjectmodel::ElementType::Interface}
 {
 	ownedAttribute := self.Attributes-> map transformAttribute();
 	ownedOperation := self.Methods-> map transformOperations();
@@ -103,6 +107,7 @@ inherits Element::mapElementToClassifier
 }
 
 mapping Element::mapElementToComment() : uml::Comment
+when {self.Type = eaobjectmodel::ElementType::Note}
 {
 	body := self.Notes;
 	
@@ -309,7 +314,7 @@ mapping Diagram::diagramToDiagram() : notation::Diagram {
 	var package := self.Package.resolveone(uml::Package);
 	element := package.toEObject();
 	
-	var directChildren = self.DiagramObjects->select(d: DiagramObject | d.Element.Package = self.Package);
+	var directChildren = self.DiagramObjects->sortedBy(_Sequence)->reverse()->select(d: DiagramObject | d.Element.Package = self.Package);
 	
 	children += directChildren-> map diagramObjectToShape();
 	
@@ -432,7 +437,7 @@ mapping DiagramObject::packageToCompartment() : notation::BasicCompartment
 	styles += result.toEObject().map titleStyle();
 	layoutConstraint := result.toEObject().map notationBounds();
 	
-	var directChildren = self.Diagram.DiagramObjects->select(d: DiagramObject | d.Element.Package = self.Element.PDATA1);
+	var directChildren = self.Diagram.DiagramObjects->sortedBy(_Sequence)->reverse()->select(d: DiagramObject | d.Element.Package = self.Element.PDATA1);
 	children += directChildren->map diagramObjectToShape();
 }
 

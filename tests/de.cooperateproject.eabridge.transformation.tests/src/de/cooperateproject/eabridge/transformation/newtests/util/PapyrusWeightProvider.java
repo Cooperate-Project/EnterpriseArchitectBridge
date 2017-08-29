@@ -3,8 +3,9 @@ package de.cooperateproject.eabridge.transformation.newtests.util;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.regex.Pattern;
+import java.util.Optional;
 
+import org.eclipse.emf.compare.match.eobject.AbstractWeightProvider;
 import org.eclipse.emf.compare.match.eobject.EcoreWeightProvider;
 import org.eclipse.emf.compare.match.eobject.WeightProvider;
 import org.eclipse.emf.ecore.EClass;
@@ -12,59 +13,28 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 
-public class PapyrusWeightProvider extends EcoreWeightProvider {
+public class PapyrusWeightProvider implements IWeightProvider {
 
-	private static class DescriptorBase implements WeightProvider.Descriptor {
-
-		private final Pattern pattern;
-
-		private DescriptorBase(String pattern) {
-			this.pattern = Pattern.compile(pattern);
-		}
-
-		@Override
-		public WeightProvider getWeightProvider() {
-			return new PapyrusWeightProvider();
-		}
-
-		@Override
-		public int getRanking() {
-			return 120;
-		}
-
-		@Override
-		public Pattern getNsURI() {
-			return pattern;
-		}
-
-	}
-
+	public static final String PAPYRUS_PATTERN = "http://www.eclipse.org/gmf/runtime/[0-9.]+/notation";
 	private static final Collection<EClass> TYPES_WITH_IRRELEVANT_ATTRIBUTES = new HashSet<>(
 			Arrays.asList(NotationPackage.Literals.LOCATION, NotationPackage.Literals.RELATIVE_BENDPOINTS,
 					NotationPackage.Literals.IDENTITY_ANCHOR));
-
-	public static WeightProvider.Descriptor getDescriptorDatatypes() {
-		return new DescriptorBase("http://www.eclipse.org/emf/2002/Ecore");
-	}
-
-	public static WeightProvider.Descriptor getDescriptorPapyrus() {
-		return new DescriptorBase("http://www.eclipse.org/gmf/runtime/[0-9.]+/notation");
-	}
-
+	private static final WeightProvider DEFAULT_IMPLEMENTATION = new EcoreWeightProvider();
+	
 	@Override
-	public int getWeight(EStructuralFeature feature) {
+	public Optional<Integer> getWeight(EStructuralFeature feature) {
 		if (TYPES_WITH_IRRELEVANT_ATTRIBUTES.contains(feature.getEContainingClass())) {
-			return super.getWeight(feature) / 2;
+			return Optional.of(DEFAULT_IMPLEMENTATION.getWeight(feature) / 2);
 		}
-		return super.getWeight(feature);
+		return IWeightProvider.super.getWeight(feature);
 	}
 
 	@Override
-	public int getContainingFeatureWeight(EObject a) {
+	public Optional<Integer> getContainingFeatureWeight(EObject a) {
 		if (TYPES_WITH_IRRELEVANT_ATTRIBUTES.contains(a.eClass())) {
-			return MAJOR;
+			return Optional.of(AbstractWeightProvider.MAJOR);
 		}
-		return super.getContainingFeatureWeight(a);
+		return IWeightProvider.super.getContainingFeatureWeight(a);
 	}
 
 }

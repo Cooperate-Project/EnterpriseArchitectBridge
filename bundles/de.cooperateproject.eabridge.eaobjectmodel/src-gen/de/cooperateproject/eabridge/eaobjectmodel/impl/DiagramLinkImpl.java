@@ -8,6 +8,7 @@ import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 
 import de.cooperateproject.eabridge.eaobjectmodel.util.Geometry;
+import de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -523,7 +524,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLBCX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("$LLB").get("CX");
+		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("CX", 0);
 		return _get;
 	}
 
@@ -535,7 +536,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLBCY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("$LLB").get("CY");
+		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("CY", 0);
 		return _get;
 	}
 
@@ -547,7 +548,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLBOX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("$LLB").get("OX");
+		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("OX", 0);
 		return _get;
 	}
 
@@ -559,7 +560,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLBOY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("$LLB").get("OY");
+		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("OY", 0);
 		return _get;
 	}
 
@@ -571,7 +572,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLTCX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LLT").get("CX");
+		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("CX", 0);
 		return _get;
 	}
 
@@ -583,7 +584,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLTCY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LLT").get("CY");
+		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("CY", 0);
 		return _get;
 	}
 
@@ -595,7 +596,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLTOX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LLT").get("OX");
+		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("OX", 0);
 		return _get;
 	}
 
@@ -607,7 +608,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLLTOY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LLT").get("OY");
+		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("OY", 0);
 		return _get;
 	}
 
@@ -619,7 +620,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRBCX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRB").get("CX");
+		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("CX", 0);
 		return _get;
 	}
 
@@ -631,7 +632,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRBCY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRB").get("CY");
+		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("CY", 0);
 		return _get;
 	}
 
@@ -643,7 +644,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRBOX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRB").get("OX");
+		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("OX", 0);
 		return _get;
 	}
 
@@ -655,7 +656,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRBOY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRB").get("OY");
+		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("OY", 0);
 		return _get;
 	}
 
@@ -667,7 +668,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRTCX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRT").get("CX");
+		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("CX", 0);
 		return _get;
 	}
 
@@ -679,7 +680,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRTCY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRT").get("CY");
+		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("CY", 0);
 		return _get;
 	}
 
@@ -691,7 +692,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRTOX() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRT").get("OX");
+		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("OX", 0);
 		return _get;
 	}
 
@@ -703,7 +704,7 @@ public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements Dia
 	public int getLRTOY() {
 		String _geometry = this.getGeometry();
 		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.get("LRT").get("OY");
+		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("OY", 0);
 		return _get;
 	}
 

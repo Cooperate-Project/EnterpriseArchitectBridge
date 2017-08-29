@@ -1,7 +1,7 @@
 package de.cooperateproject.eabridge.transformation.newtests.util;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.compare.Diff;
 import org.eclipse.emf.compare.DifferenceKind;
+import org.eclipse.emf.compare.Match;
 import org.eclipse.emf.compare.ReferenceChange;
 import org.eclipse.emf.compare.postprocessor.BasicPostProcessorDescriptorImpl;
 import org.eclipse.emf.compare.postprocessor.IPostProcessor;
@@ -36,8 +37,11 @@ public class UMLPostProcessor extends NOPPostProcessor {
 				.filter(ReferenceChange.class::isInstance).map(ReferenceChange.class::cast)
 				.filter(c -> DifferenceKind.DELETE == c.getKind()).filter(UMLPostProcessor::isPapyrusAnnotation)
 				.collect(Collectors.toList());
-		Collection<Diff> diffsToRemoveReally = new ArrayList<>(papyrusAnnotationDiffs);
+		Collection<Diff> diffsToRemoveReally = new HashSet<>(papyrusAnnotationDiffs);
 		for (ReferenceChange diffToRemove : papyrusAnnotationDiffs) {
+			EObject diffValue = diffToRemove.getValue();
+			Match match = comparison.getMatch(diffValue);
+			diffsToRemoveReally.addAll(match.getDifferences());
 			for (TreeIterator<EObject> childIter = diffToRemove.getValue().eAllContents(); childIter.hasNext();) {
 				diffsToRemoveReally.addAll(comparison.getDifferences(childIter.next()));
 			}

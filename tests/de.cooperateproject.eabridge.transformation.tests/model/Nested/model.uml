@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_R9HE4P2wEeay-NDPuQ25pw" name="Model">
   <packagedElement xmi:type="uml:Package" xmi:id="_mNOvIP2wEeay-NDPuQ25pw" name="PackageA">
-    <packagedElement xmi:type="uml:Class" xmi:id="_o0maAP2wEeay-NDPuQ25pw" name="A"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_o0maAP2wEeay-NDPuQ25pw" name="A" visibility="public"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_rs7SAP2wEeay-NDPuQ25pw" name="PackageB">
-    <packagedElement xmi:type="uml:Class" xmi:id="_ufA_IP2wEeay-NDPuQ25pw" name="B"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_wTplgP2wEeay-NDPuQ25pw" name="PackageC">
-      <packagedElement xmi:type="uml:Class" xmi:id="_yO1f0P2wEeay-NDPuQ25pw" name="C"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_yO1f0P2wEeay-NDPuQ25pw" name="C" visibility="public"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ufA_IP2wEeay-NDPuQ25pw" name="B" visibility="public"/>
   </packagedElement>
 </uml:Model>

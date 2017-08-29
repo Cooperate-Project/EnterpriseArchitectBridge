@@ -37,10 +37,4 @@ public class EAtoPapyrusTransformationExecutor extends TransformationExecutorBas
 		return result;
 	}
 
-	private static void validateParameter(ModelExtent modelParameter, Class<? extends EObject> type) {
-		Validate.isTrue(modelParameter.getContents().size() == 1);
-		Validate.isInstanceOf(type, modelParameter.getContents().get(0));
-	}
-	
-
 }

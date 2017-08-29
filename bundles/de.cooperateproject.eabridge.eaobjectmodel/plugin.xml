@@ -13,5 +13,12 @@
             class="de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage"
             genModel="model/eaobjectmodel.genmodel"/>
    </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="de.cooperateproject.eabridge.eaobjectmodel.util.EAResourceFactory"
+            type="eaom">
+      </parser>
+   </extension>
 
 </plugin>

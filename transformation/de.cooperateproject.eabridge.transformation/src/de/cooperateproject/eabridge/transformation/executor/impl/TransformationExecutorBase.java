@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
+import org.apache.commons.lang3.Validate;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -101,4 +102,16 @@ public abstract class TransformationExecutorBase implements ITransformationExecu
 	private static boolean isPluginEnvironment() {
         return ResourcesPlugin.getPlugin() != null;
     }
+	
+	protected static void validateParameter(ModelExtent modelParameter, Class<? extends EObject> type) {
+		Validate.isTrue(modelParameter.getContents().size() == 1);
+		Validate.isInstanceOf(type, modelParameter.getContents().get(0));
+	}
+	
+	protected static void validateParameter(ModelExtent modelParameter, List<Class<? extends EObject>> types) {
+		Validate.isTrue(modelParameter.getContents().size() == types.size());
+		for (int i = 0; i < types.size(); ++i) {
+			Validate.isInstanceOf(types.get(i), modelParameter.getContents().get(i));
+		}
+	}
 }

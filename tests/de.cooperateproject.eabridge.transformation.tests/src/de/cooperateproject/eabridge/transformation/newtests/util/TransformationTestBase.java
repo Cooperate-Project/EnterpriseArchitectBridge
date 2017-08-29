@@ -26,6 +26,7 @@ import org.junit.BeforeClass;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.database.DatabaseFactory;
+import de.cooperateproject.eabridge.eaobjectmodel.util.EAResourceFactory;
 import de.cooperateproject.qvtoutils.blackbox.CooperateLibrary;
 
 public abstract class TransformationTestBase {
@@ -46,6 +47,7 @@ public abstract class TransformationTestBase {
 			EcorePlugin.getPlatformResourceMap().put(PLUGIN_ID,
 					determinePluginUri(PLUGIN_ID, TransformationTestBase.class));
 
+			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("eaom", new EAResourceFactory());
 			Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 			Registry packageRegistry = EPackage.Registry.INSTANCE;
 			packageRegistry.replace(EaobjectmodelPackage.eNS_URI, EaobjectmodelPackage.eINSTANCE);
