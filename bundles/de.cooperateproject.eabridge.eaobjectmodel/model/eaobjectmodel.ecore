@@ -771,6 +771,7 @@
     <eLiterals name="Package" value="1"/>
     <eLiterals name="Interface" value="2"/>
     <eLiterals name="Note" value="3" literal="Note"/>
+    <eLiterals name="Text" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ParameterDirection">
     <eLiterals name="in"/>

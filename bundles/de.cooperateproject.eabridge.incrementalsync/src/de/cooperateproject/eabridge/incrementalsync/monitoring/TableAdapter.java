@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Optional;
 
-import org.apache.log4j.Logger;
-
-import de.cooperateproject.eabridge.incrementalsync.synchronization.IncrementalSync;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A table adapter monitors all changes in a database table using generated
@@ -21,7 +20,7 @@ import de.cooperateproject.eabridge.incrementalsync.synchronization.IncrementalS
  */
 public class TableAdapter {
 
-	private static Logger logger = Logger.getLogger(IncrementalSync.class);
+	private static Logger logger = LoggerFactory.getLogger(TableAdapter.class);
 
 	// These are the constants from the logging tables
 	// e.G. created by an Trigger Generator

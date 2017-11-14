@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -63,7 +64,7 @@ public class LiquibaseFactory {
 	
 	public static class LiquibaseLogger extends AbstractLogger {
 
-		private static final Logger LOGGER = Logger.getLogger(LiquibaseLogger.class);
+		private static final Logger LOGGER = LoggerFactory.getLogger(LiquibaseLogger.class);
 		
 		@Override
 		public void setName(String name) {
@@ -75,12 +76,12 @@ public class LiquibaseFactory {
 
 		@Override
 		public void severe(String message) {
-			LOGGER.fatal(message);
+			LOGGER.error(message);
 		}
 
 		@Override
 		public void severe(String message, Throwable e) {
-			LOGGER.fatal(message, e);
+			LOGGER.error(message, e);
 		}
 
 		@Override

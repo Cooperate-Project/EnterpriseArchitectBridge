@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeImpl" entity-name="Attribute" abstract="false" lazy="false" table="`t_attribute`">
+		<meta attribute="eclassName" inherit="false">Attribute</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="AttributeID" type="java.lang.Long">
+			<column not-null="true" unique="false" name="`ID`"/>
+			<generator class="native"/>
+		</id>
+		<property name="AllowDuplicates" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`AllowDuplicates`"/>
+		</property>
+		<property name="AttributeGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<component name="AttributeType" class="de.cooperateproject.eabridge.eaobjectmodel.impl.TypeReferenceImpl">
+			<meta attribute="eclassName" inherit="false">TypeReference</meta>
+			<meta attribute="epackage">de.cooperateproject.eabridge.eaobjectmodel</meta>
+			<many-to-one name="classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="TypeReference_classifier" insert="true" update="true" not-null="false">
+				<column not-null="false" unique="false" name="`Classifier`"/>
+			</many-to-one>
+			<property name="typeName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+				<column not-null="false" unique="false" name="`Type`"/>
+			</property>
+		</component>
+		<property name="Container" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Container`"/>
+		</property>
+		<property name="Containment" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Containment`"/>
+		</property>
+		<bag name="Constraints" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="AttributeConstraint"/>
+		</bag>
+		<property name="Default" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Default`"/>
+		</property>
+		<property name="IsCollection" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsCollection`"/>
+		</property>
+		<property name="IsConst" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Const`"/>
+		</property>
+		<property name="IsDerived" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Derived`"/>
+		</property>
+		<property name="IsOrdered" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsOrdered`"/>
+		</property>
+		<property name="IsStatic" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsStatic`"/>
+		</property>
+		<property name="Length" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Length`"/>
+		</property>
+		<property name="LowerBound" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`LowerBound`"/>
+		</property>
+		<property name="Name" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Name`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Notes`"/>
+		</property>
+		<many-to-one name="Parent" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Attribute_Parent" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Object_ID`"/>
+		</many-to-one>
+		<property name="Position" lazy="false" insert="true" update="true" not-null="false" unique="false" type="long">
+			<column not-null="false" unique="false" name="`Pos`"/>
+		</property>
+		<property name="Precision" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Precision`"/>
+		</property>
+		<property name="Scale" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Scale`"/>
+		</property>
+		<property name="Stereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Stereotype`"/>
+		</property>
+		<property name="Style" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Style`"/>
+		</property>
+		<property name="StyleEx" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`StyleEx`"/>
+		</property>
+		<bag name="TaggedValues" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`ElementID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="AttributeTag"/>
+		</bag>
+		<property name="UpperBound" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`UpperBound`"/>
+		</property>
+		<property name="Scope" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Scope`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="GenOption" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`GenOption`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeConstraintImpl" entity-name="AttributeConstraint" abstract="false" lazy="false" table="`t_attributeconstraints`">
+		<meta attribute="eclassName" inherit="false">AttributeConstraint</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<composite-id class="de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK" mapped="true">
+			<key-many-to-one name="Attribute" entity-name="Attribute" foreign-key="AttributeConstraint_Attribute" lazy="false">
+				<column not-null="false" unique="false" name="`ID`"/>
+			</key-many-to-one>
+			<key-property name="Constraint" type="java.lang.String">
+				<column not-null="true" unique="false" name="`Constraint`"/>
+			</key-property>
+		</composite-id>
+		<many-to-one name="ElementOfAttribute" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="AttributeConstraint_ElementOfAttribute" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Object_ID`"/>
+		</many-to-one>
+		<property name="AttName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`AttName`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Notes`"/>
+		</property>
+		<property name="Type" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Type`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.AttributeTagImpl" entity-name="AttributeTag" abstract="false" lazy="false" table="`t_attributetag`">
+		<meta attribute="eclassName" inherit="false">AttributeTag</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="TagID" type="java.lang.Long">
+			<column not-null="true" unique="false" name="`PropertyID`"/>
+			<generator class="native"/>
+		</id>
+		<many-to-one name="Attribute" entity-name="Attribute" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="AttributeTag_Attribute" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`ElementID`"/>
+		</many-to-one>
+		<property name="Name" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Property`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`NOTES`"/>
+		</property>
+		<property name="TagGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<property name="Value" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`VALUE`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.ConnectorImpl" entity-name="Connector" abstract="false" lazy="false" table="`t_connector`">
+		<meta attribute="eclassName" inherit="false">Connector</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="ConnectorID" type="java.lang.Long">
+			<column not-null="true" unique="false" name="`Connector_ID`"/>
+			<generator class="native"/>
+		</id>
+		<property name="ConnectorGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<property name="Direction" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Direction`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.DirectionType</param>
+				<param name="eclassifier">DirectionType</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="PtEndX" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`PtEndX`"/>
+		</property>
+		<property name="PtEndY" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`PtEndY`"/>
+		</property>
+		<property name="EventFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`EventFlags`"/>
+		</property>
+		<property name="IsLeaf" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsLeaf`"/>
+		</property>
+		<property name="IsRoot" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsRoot`"/>
+		</property>
+		<property name="IsSpec" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsSpec`"/>
+		</property>
+		<property name="Name" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Name`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Notes`"/>
+		</property>
+		<property name="RouteStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`RouteStyle`"/>
+		</property>
+		<property name="SeqNo" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`SeqNo`"/>
+		</property>
+		<property name="PtStartX" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`PtStartX`"/>
+		</property>
+		<property name="PtStartY" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`PtStartY`"/>
+		</property>
+		<property name="ActionFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ActionFlags`"/>
+		</property>
+		<property name="StateFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`StateFlags`"/>
+		</property>
+		<property name="Stereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Stereotype`"/>
+		</property>
+		<property name="StyleEx" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`StyleEx`"/>
+		</property>
+		<property name="SubType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SubType`"/>
+		</property>
+		<property name="Type" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Connector_Type`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.ConnectorType</param>
+				<param name="eclassifier">ConnectorType</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="VirtualInheritance" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`VirtualInheritance`"/>
+		</property>
+		<many-to-one name="Source" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Connector_Source" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Start_Object_ID`"/>
+		</many-to-one>
+		<many-to-one name="Dest" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Connector_Dest" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`End_Object_ID`"/>
+		</many-to-one>
+		<property name="SourceCard" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceCard`"/>
+		</property>
+		<property name="SourceAccess" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`SourceAccess`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="SourceElement" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceElement`"/>
+		</property>
+		<property name="SourceRole" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceRole`"/>
+		</property>
+		<property name="SourceRoleType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceRoleType`"/>
+		</property>
+		<property name="SourceRoleNote" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceRoleNote`"/>
+		</property>
+		<property name="SourceContainment" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceContainment`"/>
+		</property>
+		<property name="SourceIsAggregate" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`SourceIsAggregate`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserIntegerType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.IsAggregate</param>
+				<param name="eclassifier">IsAggregate</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="SourceIsOrdered" lazy="false" insert="true" update="true" not-null="false" unique="false" type="boolean">
+			<column not-null="false" unique="false" name="`SourceIsOrdered`"/>
+		</property>
+		<property name="SourceQualifier" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceQualifier`"/>
+		</property>
+		<property name="SourceChangeable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceChangeable`"/>
+		</property>
+		<property name="SourceConstraint" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceConstraint`"/>
+		</property>
+		<property name="SourceIsNavigable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="org.hibernate.type.NumericBooleanType">
+			<column not-null="false" unique="false" name="`SourceIsNavigable`"/>
+		</property>
+		<property name="SourceStereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceStereotype`"/>
+		</property>
+		<property name="SourceStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceStyle`"/>
+		</property>
+		<property name="SourceTS" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`SourceTS`"/>
+		</property>
+		<property name="DestCard" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestCard`"/>
+		</property>
+		<property name="DestAccess" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`DestAccess`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="DestElement" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestElement`"/>
+		</property>
+		<property name="DestRole" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestRole`"/>
+		</property>
+		<property name="DestRoleType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestRoleType`"/>
+		</property>
+		<property name="DestRoleNote" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestRoleNote`"/>
+		</property>
+		<property name="DestContainment" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestContainment`"/>
+		</property>
+		<property name="DestIsAggregate" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`DestIsAggregate`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserIntegerType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.IsAggregate</param>
+				<param name="eclassifier">IsAggregate</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="DestIsOrdered" lazy="false" insert="true" update="true" not-null="false" unique="false" type="boolean">
+			<column not-null="false" unique="false" name="`DestIsOrdered`"/>
+		</property>
+		<property name="DestQualifier" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestQualifier`"/>
+		</property>
+		<property name="DestChangeable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestChangeable`"/>
+		</property>
+		<property name="DestConstraint" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestConstraint`"/>
+		</property>
+		<property name="DestIsNavigable" lazy="false" insert="true" update="true" not-null="false" unique="false" type="org.hibernate.type.NumericBooleanType">
+			<column not-null="false" unique="false" name="`DestIsNavigable`"/>
+		</property>
+		<property name="DestStereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestStereotype`"/>
+		</property>
+		<property name="DestStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestStyle`"/>
+		</property>
+		<property name="DestTS" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DestTS`"/>
+		</property>
+		<property name="Top_Start_Label" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Top_Start_Label`"/>
+		</property>
+		<property name="Top_Mid_Label" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Top_Mid_Label`"/>
+		</property>
+		<property name="Top_End_Label" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Top_End_Label`"/>
+		</property>
+		<property name="Btm_Start_Label" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Btm_Start_Label`"/>
+		</property>
+		<property name="Btm_Mid_Label" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Btm_Mid_Label`"/>
+		</property>
+		<property name="Btm_End_Label" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Btm_End_Label`"/>
+		</property>
+		<property name="Start_Edge" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`Start_Edge`"/>
+		</property>
+		<property name="End_Edge" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`End_Edge`"/>
+		</property>
+		<property name="HeadStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`HeadStyle`"/>
+		</property>
+		<property name="LineStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`LineStyle`"/>
+		</property>
+		<property name="DispatchAction" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`DispatchAction`"/>
+		</property>
+		<property name="PDATA1" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`PDATA1`"/>
+		</property>
+		<property name="PDATA2" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`PDATA2`"/>
+		</property>
+		<property name="PDATA3" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`PDATA3`"/>
+		</property>
+		<property name="PDATA4" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`PDATA4`"/>
+		</property>
+		<property name="PDATA5" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`PDATA5`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramImpl" entity-name="Diagram" abstract="false" lazy="false" table="`t_diagram`">
+		<meta attribute="eclassName" inherit="false">Diagram</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="DiagramID" type="java.lang.Long">
+			<column not-null="true" unique="false" name="`Diagram_ID`"/>
+			<generator class="native"/>
+		</id>
+		<property name="Author" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Author`"/>
+		</property>
+		<property name="CreatedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`CreatedDate`"/>
+		</property>
+		<property name="ModifiedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`ModifiedDate`"/>
+		</property>
+		<property name="cx" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`cx`"/>
+		</property>
+		<property name="cy" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`cy`"/>
+		</property>
+		<property name="DiagramGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<bag name="DiagramLinks" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`DiagramID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="DiagramLink"/>
+		</bag>
+		<bag name="DiagramObjects" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`Diagram_ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="DiagramObject"/>
+		</bag>
+		<property name="Name" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Name`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Notes`"/>
+		</property>
+		<property name="Orientation" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Orientation`"/>
+		</property>
+		<many-to-one name="Package" entity-name="Package" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Diagram_Package" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Package_ID`"/>
+		</many-to-one>
+		<property name="Scale" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`Scale`"/>
+		</property>
+		<property name="Stereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Stereotype`"/>
+		</property>
+		<property name="StyleEx" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`StyleEx`"/>
+		</property>
+		<property name="Swimlanes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Swimlanes`"/>
+		</property>
+		<property name="Type" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Diagram_Type`"/>
+		</property>
+		<property name="Version" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Version`"/>
+		</property>
+		<property name="AttPub" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`AttPub`"/>
+		</property>
+		<property name="AttPri" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`AttPri`"/>
+		</property>
+		<property name="AttPro" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`AttPro`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkImpl" entity-name="DiagramLink" abstract="false" lazy="false" table="`t_diagramlinks`">
+		<meta attribute="eclassName" inherit="false">DiagramLink</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="InstanceID" type="java.lang.Long">
+			<column not-null="true" unique="false" name="`Instance_ID`"/>
+			<generator class="native"/>
+		</id>
+		<many-to-one name="Connector" entity-name="Connector" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="DiagramLink_Connector" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`ConnectorID`"/>
+		</many-to-one>
+		<many-to-one name="Diagram" entity-name="Diagram" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="DiagramLink_Diagram" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`DiagramID`"/>
+		</many-to-one>
+		<property name="Geometry" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Geometry`"/>
+		</property>
+		<property name="Hidden" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Hidden`"/>
+		</property>
+		<property name="Path" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Path`"/>
+		</property>
+		<property name="Style" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Style`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramObjectImpl" entity-name="DiagramObject" abstract="false" lazy="false" table="`t_diagramobjects`">
+		<meta attribute="eclassName" inherit="false">DiagramObject</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="InstanceID" type="java.lang.Long">
+			<column not-null="true" unique="false" name="`Instance_ID`"/>
+			<generator class="native"/>
+		</id>
+		<property name="Bottom" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`RectBottom`"/>
+		</property>
+		<many-to-one name="Diagram" entity-name="Diagram" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="DiagramObject_Diagram" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Diagram_ID`"/>
+		</many-to-one>
+		<many-to-one name="Element" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="DiagramObject_Element" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Object_ID`"/>
+		</many-to-one>
+		<property name="Left" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`RectLeft`"/>
+		</property>
+		<property name="Right" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`RectRight`"/>
+		</property>
+		<property name="Sequence" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`Sequence`"/>
+		</property>
+		<property name="ObjectStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ObjectStyle`"/>
+		</property>
+		<property name="Top" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`RectTop`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.ElementImpl" entity-name="Element" abstract="false" lazy="false" table="`t_object`">
+		<meta attribute="eclassName" inherit="false">Element</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="ElementID" type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType">
+			<column not-null="true" unique="false" name="`Object_ID`"/>
+			<generator class="native"/>
+		</id>
+		<property name="Abstract" lazy="false" insert="true" update="true" not-null="false" unique="false" type="org.hibernate.type.NumericBooleanType">
+			<column not-null="false" unique="false" name="`Abstract`"/>
+		</property>
+		<property name="ActionFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ActionFlags`"/>
+		</property>
+		<property name="Alias" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Alias`"/>
+		</property>
+		<bag name="Attributes" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`Object_ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Attribute"/>
+		</bag>
+		<property name="Author" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Author`"/>
+		</property>
+		<many-to-one name="Classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Element_Classifier" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Classifier`"/>
+		</many-to-one>
+		<property name="Classifier_guid" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Classifier_guid`"/>
+		</property>
+		<property name="Complexity" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Complexity`"/>
+		</property>
+		<property name="CreatedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`CreatedDate`"/>
+		</property>
+		<property name="ElementGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<bag name="Elements" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`ParentID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Element"/>
+		</bag>
+		<property name="EventFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`EventFlags`"/>
+		</property>
+		<property name="GenFile" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`GenFile`"/>
+		</property>
+		<property name="Genlinks" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Genlinks`"/>
+		</property>
+		<property name="GenType" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`GenType`"/>
+		</property>
+		<property name="IsActive" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsActive`"/>
+		</property>
+		<property name="IsLeaf" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsLeaf`"/>
+		</property>
+		<property name="IsSpec" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsSpec`"/>
+		</property>
+		<bag name="Methods" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`Object_ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Method"/>
+		</bag>
+		<property name="ModifiedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`ModifiedDate`"/>
+		</property>
+		<property name="Multiplicity" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Multiplicity`"/>
+		</property>
+		<property name="Name" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Name`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Note`"/>
+		</property>
+		<many-to-one name="Package" entity-name="Package" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Element_Package" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Package_ID`"/>
+		</many-to-one>
+		<many-to-one name="Parent" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Element_Parent" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`ParentID`"/>
+		</many-to-one>
+		<property name="Persistence" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Persistence`"/>
+		</property>
+		<property name="Phase" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Phase`"/>
+		</property>
+		<property name="RunState" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`RunState`"/>
+		</property>
+		<property name="Status" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Status`"/>
+		</property>
+		<property name="Stereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Stereotype`"/>
+		</property>
+		<property name="StyleEx" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`StyleEx`"/>
+		</property>
+		<property name="TreePos" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`TPos`"/>
+		</property>
+		<property name="Type" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Object_Type`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.ElementType</param>
+				<param name="eclassifier">ElementType</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="Version" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Version`"/>
+		</property>
+		<property name="Visibility" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Scope`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="Style" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Style`"/>
+		</property>
+		<property name="Backcolor" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`Backcolor`"/>
+		</property>
+		<property name="BorderStyle" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`BorderStyle`"/>
+		</property>
+		<property name="BorderWidth" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`BorderWidth`"/>
+		</property>
+		<property name="Fontcolor" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`Fontcolor`"/>
+		</property>
+		<property name="Bordercolor" lazy="false" insert="true" update="true" not-null="false" unique="false" type="int">
+			<column not-null="false" unique="false" name="`Bordercolor`"/>
+		</property>
+		<property name="Cardinality" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Cardinality`"/>
+		</property>
+		<property name="Concurrency" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Concurrency`"/>
+		</property>
+		<bag name="SourceRelations" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`Start_Object_ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Connector"/>
+		</bag>
+		<many-to-one name="PDATA1" entity-name="Package" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Element_PDATA1" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`PDATA1`"/>
+		</many-to-one>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.MethodImpl" entity-name="Method" abstract="false" lazy="false" table="`t_operation`">
+		<meta attribute="eclassName" inherit="false">Method</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="MethodID" type="java.lang.Long">
+			<column not-null="true" unique="false" name="`OperationID`"/>
+			<generator class="native"/>
+		</id>
+		<component name="ReturnType" class="de.cooperateproject.eabridge.eaobjectmodel.impl.TypeReferenceImpl">
+			<meta attribute="eclassName" inherit="false">TypeReference</meta>
+			<meta attribute="epackage">de.cooperateproject.eabridge.eaobjectmodel</meta>
+			<many-to-one name="classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="TypeReference_classifier" insert="true" update="true" not-null="false">
+				<column not-null="false" unique="false" name="`Classifier`"/>
+			</many-to-one>
+			<property name="typeName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+				<column not-null="false" unique="false" name="`Type`"/>
+			</property>
+		</component>
+		<bag name="Parameters" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`OperationID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Methodparameter"/>
+		</bag>
+		<property name="Abstract" lazy="false" insert="true" update="true" not-null="false" unique="false" type="org.hibernate.type.NumericBooleanType">
+			<column not-null="false" unique="false" name="`Abstract`"/>
+		</property>
+		<property name="Behaviour" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Behaviour`"/>
+		</property>
+		<property name="Code" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Code`"/>
+		</property>
+		<property name="IsConst" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Const`"/>
+		</property>
+		<property name="IsLeaf" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsLeaf`"/>
+		</property>
+		<property name="IsPure" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Pure`"/>
+		</property>
+		<property name="IsQuery" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsQuery`"/>
+		</property>
+		<property name="IsRoot" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsRoot`"/>
+		</property>
+		<property name="IsStatic" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsStatic`"/>
+		</property>
+		<property name="IsSynchronized" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Synchronized`"/>
+		</property>
+		<property name="MethodGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<property name="Name" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Name`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Notes`"/>
+		</property>
+		<many-to-one name="Parent" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Method_Parent" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Object_ID`"/>
+		</many-to-one>
+		<property name="Position" lazy="false" insert="true" update="true" not-null="false" unique="false" type="long">
+			<column not-null="false" unique="false" name="`Pos`"/>
+		</property>
+		<property name="ReturnIsArray" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`ReturnArray`"/>
+		</property>
+		<property name="StateFlags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`StateFlags`"/>
+		</property>
+		<property name="Stereotype" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Stereotype`"/>
+		</property>
+		<property name="Style" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Style`"/>
+		</property>
+		<property name="StyleEx" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`StyleEx`"/>
+		</property>
+		<property name="Throws" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Throws`"/>
+		</property>
+		<property name="Visibility" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Scope`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.Scope</param>
+				<param name="eclassifier">Scope</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="Concurrency" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Concurrency`"/>
+		</property>
+		<property name="GenOption" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`GenOption`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.MethodparameterImpl" entity-name="Methodparameter" abstract="false" lazy="false" table="`t_operationparams`">
+		<meta attribute="eclassName" inherit="false">Methodparameter</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<composite-id class="de.cooperateproject.eabridge.eaobjectmodel.custom.MethodParameterPK" mapped="true">
+			<key-property name="Name" type="java.lang.String">
+				<column not-null="true" unique="false" name="`Name`"/>
+			</key-property>
+			<key-many-to-one name="Method" entity-name="Method" foreign-key="Methodparameter_Method" lazy="false">
+				<column not-null="false" unique="false" name="`OperationID`"/>
+			</key-many-to-one>
+		</composite-id>
+		<property name="ea_guid" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<component name="ParameterType" class="de.cooperateproject.eabridge.eaobjectmodel.impl.TypeReferenceImpl">
+			<meta attribute="eclassName" inherit="false">TypeReference</meta>
+			<meta attribute="epackage">de.cooperateproject.eabridge.eaobjectmodel</meta>
+			<many-to-one name="classifier" entity-name="Element" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="TypeReference_classifier" insert="true" update="true" not-null="false">
+				<column not-null="false" unique="false" name="`Classifier`"/>
+			</many-to-one>
+			<property name="typeName" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+				<column not-null="false" unique="false" name="`Type`"/>
+			</property>
+		</component>
+		<property name="Kind" lazy="false" not-null="false" insert="true" update="true" unique="false">
+			<column not-null="false" unique="false" name="`Kind`"/>
+			<type name="org.eclipse.emf.teneo.hibernate.mapping.ENumUserType">
+				<param name="enumClass">de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection</param>
+				<param name="eclassifier">ParameterDirection</param>
+				<param name="epackage">de.cooperateproject.eabridge.eaobjectmodel</param>
+			</type>
+		</property>
+		<property name="Position" lazy="false" insert="true" update="true" not-null="false" unique="false" type="long">
+			<column not-null="false" unique="false" name="`Pos`"/>
+		</property>
+	</class>
+	<class name="de.cooperateproject.eabridge.eaobjectmodel.impl.PackageImpl" entity-name="Package" abstract="false" lazy="false" table="`t_package`">
+		<meta attribute="eclassName" inherit="false">Package</meta>
+		<meta attribute="epackage" inherit="false">de.cooperateproject.eabridge.eaobjectmodel</meta>
+		<id name="PackageID" type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType">
+			<column not-null="true" unique="false" name="`Package_ID`"/>
+			<generator class="native"/>
+		</id>
+		<property name="PackageGUID" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`ea_guid`"/>
+		</property>
+		<property name="BatchLoad" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`BatchLoad`"/>
+		</property>
+		<property name="BatchSave" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`BatchSave`"/>
+		</property>
+		<property name="CodePath" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`CodePath`"/>
+		</property>
+		<property name="CreatedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`CreatedDate`"/>
+		</property>
+		<property name="Flags" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`PackageFlags`"/>
+		</property>
+		<property name="IsControlled" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`IsControlled`"/>
+		</property>
+		<property name="IsNamespace" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Namespace`"/>
+		</property>
+		<property name="IsProtected" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`Protected`"/>
+		</property>
+		<property name="LastLoadDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`LastLoadDate`"/>
+		</property>
+		<property name="LastSaveDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`LastSaveDate`"/>
+		</property>
+		<property name="LogXML" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`LogXML`"/>
+		</property>
+		<property name="ModifiedDate" lazy="false" insert="true" update="true" not-null="false" unique="false" type="timestamp">
+			<column not-null="false" unique="false" name="`ModifiedDate`"/>
+		</property>
+		<property name="Name" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Name`"/>
+		</property>
+		<property name="Notes" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Notes`"/>
+		</property>
+		<property name="Owner" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`PkgOwner`"/>
+		</property>
+		<property name="TreePos" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Long">
+			<column not-null="false" unique="false" name="`TPos`"/>
+		</property>
+		<property name="UMLVersion" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`UMLVersion`"/>
+		</property>
+		<property name="UseDTD" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.Boolean">
+			<column not-null="false" unique="false" name="`UseDTD`"/>
+		</property>
+		<property name="Version" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`Version`"/>
+		</property>
+		<property name="XMLPath" lazy="false" insert="true" update="true" not-null="false" unique="false" type="java.lang.String">
+			<column not-null="false" unique="false" name="`XMLPath`"/>
+		</property>
+		<bag name="Packages" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`Parent_ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Package"/>
+		</bag>
+		<bag name="Diagrams" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`Package_ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Diagram"/>
+		</bag>
+		<bag name="Elements" lazy="true" cascade="all,delete-orphan">
+			<key update="true">
+				<column name="`Package_ID`" unique="false"/>
+			</key>
+			<one-to-many entity-name="Element"/>
+		</bag>
+		<many-to-one name="Parent" entity-name="Package" lazy="false" cascade="merge,persist,save-update,lock,refresh" foreign-key="Package_Parent" insert="true" update="true" not-null="false">
+			<column not-null="false" unique="false" name="`Parent_ID`"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

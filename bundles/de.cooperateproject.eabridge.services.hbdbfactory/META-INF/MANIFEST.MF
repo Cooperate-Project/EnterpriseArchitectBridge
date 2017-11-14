@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cooperate EABridge DB Connection Service
+Bundle-SymbolicName: de.cooperateproject.eabridge.services.hbdbfactory
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: de.cooperateproject.eabridge.services;bundle-version="1.0.0",
+ org.eclipse.emf.teneo.hibernate,
+ de.cooperateproject.eabridge.eaobjectmodel,
+ org.apache.commons.io;bundle-version="2.2.0",
+ org.eclipse.equinox.registry,
+ org.eclipse.emf.ecore.xmi;bundle-version="2.13.0"
+Service-Component: OSGI-INF/hbdbfactory.xml
+Bundle-ActivationPolicy: lazy
+Export-Package: de.cooperateproject.eabridge.services.hbdbfactory
+Import-Package: org.osgi.service.component.annotations;version="1.2.0",
+ org.slf4j
+DynamicImport-Package: *

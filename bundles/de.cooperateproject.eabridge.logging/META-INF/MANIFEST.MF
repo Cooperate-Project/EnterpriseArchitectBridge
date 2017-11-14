@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cooperate Project EABridge Logging
+Bundle-SymbolicName: de.cooperateproject.eabridge.logging
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ ch.qos.logback.classic,
+ ch.qos.logback.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/de.cooperateproject.eabridge.logging.SLF4JLoggingDelegate.xml
+Import-Package: org.osgi.service.component.annotations;version="1.2.0",
+ org.slf4j

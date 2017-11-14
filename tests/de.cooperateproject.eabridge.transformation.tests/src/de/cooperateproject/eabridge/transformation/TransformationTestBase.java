@@ -47,8 +47,8 @@ import com.google.common.collect.Iterables;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
-import de.cooperateproject.eabridge.eaobjectmodel.database.DatabaseFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.util.HibernateUtils;
+import de.cooperateproject.eabridge.services.DatabaseFactory;
 import de.cooperateproject.eabridge.tests.common.util.EAObjectModelHelper;
 import de.cooperateproject.eabridge.tests.common.util.TestDB;
 import de.cooperateproject.eabridge.tests.common.util.TestResource;

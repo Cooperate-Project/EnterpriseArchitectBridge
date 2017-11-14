@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -16,6 +15,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.cooperateproject.eabridge.incrementalsync.monitoring.Table;
 import de.cooperateproject.eabridge.incrementalsync.monitoring.TableAdapter;
@@ -34,7 +35,7 @@ public class IncrementalSync {
 	public enum MODE {
 		LOG_ONLY, SYNC_ONLY, LOG_AND_SYNC
 	}
-	private static final Logger logger = Logger.getLogger(IncrementalSync.class);
+	private static final Logger logger = LoggerFactory.getLogger(IncrementalSync.class);
 	
 	private final Connection sqlConnection;
 	private final Session session;

@@ -34,319 +34,319 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class MethodparameterImpl extends MinimalEObjectImpl.Container implements Methodparameter {
 	/**
-	 * The default value of the '{@link #getEa_guid() <em>Ea guid</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getEa_guid() <em>Ea guid</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEa_guid()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getEa_guid()
+     * @generated
+     * @ordered
+     */
 	protected static final String EA_GUID_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
 	protected static final String NAME_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getKind()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getKind()
+     * @generated
+     * @ordered
+     */
 	protected static final ParameterDirection KIND_EDEFAULT = ParameterDirection.IN;
 
 	/**
-	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPosition()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getPosition()
+     * @generated
+     * @ordered
+     */
 	protected static final long POSITION_EDEFAULT = 0L;
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected MethodparameterImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return EaobjectmodelPackage.Literals.METHODPARAMETER;
-	}
+        return EaobjectmodelPackage.Literals.METHODPARAMETER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected int eStaticFeatureCount() {
-		return 0;
-	}
+        return 0;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getEa_guid() {
-		return (String)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__EA_GUID, EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__EA_GUID, EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setEa_guid(String newEa_guid) {
-		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__EA_GUID, EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, newEa_guid);
-	}
+        eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__EA_GUID, EaobjectmodelPackage.Literals.METHODPARAMETER__EA_GUID, newEa_guid);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public TypeReference getParameterType() {
-		return (TypeReference)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, true, true);
-	}
+        return (TypeReference)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetParameterType(TypeReference newParameterType, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject)newParameterType, EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, msgs);
-		return msgs;
-	}
+        msgs = eDynamicInverseAdd((InternalEObject)newParameterType, EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setParameterType(TypeReference newParameterType) {
-		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, newParameterType);
-	}
+        eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE, EaobjectmodelPackage.Literals.METHODPARAMETER__PARAMETER_TYPE, newParameterType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getName() {
-		return (String)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__NAME, EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__NAME, EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setName(String newName) {
-		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__NAME, EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, newName);
-	}
+        eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__NAME, EaobjectmodelPackage.Literals.METHODPARAMETER__NAME, newName);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Method getMethod() {
-		return (Method)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, true, true);
-	}
+        return (Method)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Method basicGetMethod() {
-		return (Method)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, false, true);
-	}
+        return (Method)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, false, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setMethod(Method newMethod) {
-		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, newMethod);
-	}
+        eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__METHOD, EaobjectmodelPackage.Literals.METHODPARAMETER__METHOD, newMethod);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ParameterDirection getKind() {
-		return (ParameterDirection)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__KIND, EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, true, true);
-	}
+        return (ParameterDirection)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__KIND, EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setKind(ParameterDirection newKind) {
-		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__KIND, EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, newKind);
-	}
+        eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__KIND, EaobjectmodelPackage.Literals.METHODPARAMETER__KIND, newKind);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public long getPosition() {
-		return (Long)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__POSITION, EaobjectmodelPackage.Literals.METHODPARAMETER__POSITION, true, true);
-	}
+        return (Long)eDynamicGet(EaobjectmodelPackage.METHODPARAMETER__POSITION, EaobjectmodelPackage.Literals.METHODPARAMETER__POSITION, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setPosition(long newPosition) {
-		eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__POSITION, EaobjectmodelPackage.Literals.METHODPARAMETER__POSITION, newPosition);
-	}
+        eDynamicSet(EaobjectmodelPackage.METHODPARAMETER__POSITION, EaobjectmodelPackage.Literals.METHODPARAMETER__POSITION, newPosition);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
-				return basicSetParameterType(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+                return basicSetParameterType(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
-				return getEa_guid();
-			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
-				return getParameterType();
-			case EaobjectmodelPackage.METHODPARAMETER__NAME:
-				return getName();
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
-				if (resolve) return getMethod();
-				return basicGetMethod();
-			case EaobjectmodelPackage.METHODPARAMETER__KIND:
-				return getKind();
-			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
-				return getPosition();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+                return getEa_guid();
+            case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+                return getParameterType();
+            case EaobjectmodelPackage.METHODPARAMETER__NAME:
+                return getName();
+            case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+                if (resolve) return getMethod();
+                return basicGetMethod();
+            case EaobjectmodelPackage.METHODPARAMETER__KIND:
+                return getKind();
+            case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+                return getPosition();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
-				setEa_guid((String)newValue);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
-				setParameterType((TypeReference)newValue);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__NAME:
-				setName((String)newValue);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
-				setMethod((Method)newValue);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__KIND:
-				setKind((ParameterDirection)newValue);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
-				setPosition((Long)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+                setEa_guid((String)newValue);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+                setParameterType((TypeReference)newValue);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__NAME:
+                setName((String)newValue);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+                setMethod((Method)newValue);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__KIND:
+                setKind((ParameterDirection)newValue);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+                setPosition((Long)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
-				setEa_guid(EA_GUID_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
-				setParameterType((TypeReference)null);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
-				setMethod((Method)null);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__KIND:
-				setKind(KIND_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
-				setPosition(POSITION_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+                setEa_guid(EA_GUID_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+                setParameterType((TypeReference)null);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+                setMethod((Method)null);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__KIND:
+                setKind(KIND_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+                setPosition(POSITION_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
-				return EA_GUID_EDEFAULT == null ? getEa_guid() != null : !EA_GUID_EDEFAULT.equals(getEa_guid());
-			case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
-				return getParameterType() != null;
-			case EaobjectmodelPackage.METHODPARAMETER__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case EaobjectmodelPackage.METHODPARAMETER__METHOD:
-				return basicGetMethod() != null;
-			case EaobjectmodelPackage.METHODPARAMETER__KIND:
-				return getKind() != KIND_EDEFAULT;
-			case EaobjectmodelPackage.METHODPARAMETER__POSITION:
-				return getPosition() != POSITION_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.METHODPARAMETER__EA_GUID:
+                return EA_GUID_EDEFAULT == null ? getEa_guid() != null : !EA_GUID_EDEFAULT.equals(getEa_guid());
+            case EaobjectmodelPackage.METHODPARAMETER__PARAMETER_TYPE:
+                return getParameterType() != null;
+            case EaobjectmodelPackage.METHODPARAMETER__NAME:
+                return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+            case EaobjectmodelPackage.METHODPARAMETER__METHOD:
+                return basicGetMethod() != null;
+            case EaobjectmodelPackage.METHODPARAMETER__KIND:
+                return getKind() != KIND_EDEFAULT;
+            case EaobjectmodelPackage.METHODPARAMETER__POSITION:
+                return getPosition() != POSITION_EDEFAULT;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //MethodparameterImpl

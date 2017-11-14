@@ -32,358 +32,358 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class AttributeTagImpl extends MinimalEObjectImpl.Container implements AttributeTag {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
 	protected static final String NAME_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getNotes() <em>Notes</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNotes()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getNotes()
+     * @generated
+     * @ordered
+     */
 	protected static final String NOTES_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getTagGUID() <em>Tag GUID</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getTagGUID() <em>Tag GUID</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTagGUID()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getTagGUID()
+     * @generated
+     * @ordered
+     */
 	protected static final String TAG_GUID_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getTagID() <em>Tag ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getTagID() <em>Tag ID</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTagID()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getTagID()
+     * @generated
+     * @ordered
+     */
 	protected static final Long TAG_ID_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getValue()
+     * @generated
+     * @ordered
+     */
 	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected AttributeTagImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return EaobjectmodelPackage.Literals.ATTRIBUTE_TAG;
-	}
+        return EaobjectmodelPackage.Literals.ATTRIBUTE_TAG;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected int eStaticFeatureCount() {
-		return 0;
-	}
+        return 0;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Attribute getAttribute() {
-		return (Attribute)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__ATTRIBUTE, true, true);
-	}
+        return (Attribute)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__ATTRIBUTE, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Attribute basicGetAttribute() {
-		return (Attribute)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__ATTRIBUTE, false, true);
-	}
+        return (Attribute)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__ATTRIBUTE, false, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetAttribute(Attribute newAttribute, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newAttribute, EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newAttribute, EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setAttribute(Attribute newAttribute) {
-		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__ATTRIBUTE, newAttribute);
-	}
+        eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__ATTRIBUTE, newAttribute);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getName() {
-		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__NAME, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NAME, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__NAME, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NAME, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setName(String newName) {
-		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__NAME, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NAME, newName);
-	}
+        eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__NAME, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NAME, newName);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getNotes() {
-		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NOTES, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NOTES, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setNotes(String newNotes) {
-		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NOTES, newNotes);
-	}
+        eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__NOTES, newNotes);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getTagGUID() {
-		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_GUID, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_GUID, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setTagGUID(String newTagGUID) {
-		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_GUID, newTagGUID);
-	}
+        eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_GUID, newTagGUID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Long getTagID() {
-		return (Long)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_ID, true, true);
-	}
+        return (Long)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_ID, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setTagID(Long newTagID) {
-		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_ID, newTagID);
-	}
+        eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__TAG_ID, newTagID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getValue() {
-		return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__VALUE, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__VALUE, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setValue(String newValue) {
-		eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__VALUE, newValue);
-	}
+        eDynamicSet(EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE, EaobjectmodelPackage.Literals.ATTRIBUTE_TAG__VALUE, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetAttribute((Attribute)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetAttribute((Attribute)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
-				return basicSetAttribute(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
+                return basicSetAttribute(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
-				return eInternalContainer().eInverseRemove(this, EaobjectmodelPackage.ATTRIBUTE__TAGGED_VALUES, Attribute.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID()) {
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
+                return eInternalContainer().eInverseRemove(this, EaobjectmodelPackage.ATTRIBUTE__TAGGED_VALUES, Attribute.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
-				if (resolve) return getAttribute();
-				return basicGetAttribute();
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
-				return getName();
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
-				return getNotes();
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
-				return getTagGUID();
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
-				return getTagID();
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
-				return getValue();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
+                if (resolve) return getAttribute();
+                return basicGetAttribute();
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
+                return getName();
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
+                return getNotes();
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
+                return getTagGUID();
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
+                return getTagID();
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
+                return getValue();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
-				setAttribute((Attribute)newValue);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
-				setName((String)newValue);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
-				setNotes((String)newValue);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
-				setTagGUID((String)newValue);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
-				setTagID((Long)newValue);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
-				setValue((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
+                setAttribute((Attribute)newValue);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
+                setName((String)newValue);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
+                setNotes((String)newValue);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
+                setTagGUID((String)newValue);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
+                setTagID((Long)newValue);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
+                setValue((String)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
-				setAttribute((Attribute)null);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
-				setNotes(NOTES_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
-				setTagGUID(TAG_GUID_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
-				setTagID(TAG_ID_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
+                setAttribute((Attribute)null);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
+                setName(NAME_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
+                setNotes(NOTES_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
+                setTagGUID(TAG_GUID_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
+                setTagID(TAG_ID_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
+                setValue(VALUE_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
-				return basicGetAttribute() != null;
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
-				return NOTES_EDEFAULT == null ? getNotes() != null : !NOTES_EDEFAULT.equals(getNotes());
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
-				return TAG_GUID_EDEFAULT == null ? getTagGUID() != null : !TAG_GUID_EDEFAULT.equals(getTagGUID());
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
-				return TAG_ID_EDEFAULT == null ? getTagID() != null : !TAG_ID_EDEFAULT.equals(getTagID());
-			case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
-				return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__ATTRIBUTE:
+                return basicGetAttribute() != null;
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NAME:
+                return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__NOTES:
+                return NOTES_EDEFAULT == null ? getNotes() != null : !NOTES_EDEFAULT.equals(getNotes());
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_GUID:
+                return TAG_GUID_EDEFAULT == null ? getTagGUID() != null : !TAG_GUID_EDEFAULT.equals(getTagGUID());
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__TAG_ID:
+                return TAG_ID_EDEFAULT == null ? getTagID() != null : !TAG_ID_EDEFAULT.equals(getTagID());
+            case EaobjectmodelPackage.ATTRIBUTE_TAG__VALUE:
+                return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //AttributeTagImpl

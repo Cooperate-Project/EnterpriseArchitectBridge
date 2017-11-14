@@ -5,14 +5,20 @@
     <parent>
         <groupId>de.cooperateproject.eabridge</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>0.1.0-SNAPSHOT</version>
     </parent>
     <artifactId>de.cooperateproject.eabridge.bundles</artifactId>
     <packaging>pom</packaging>
 	
 	<modules>
+		<module>de.cooperateproject.eabridge</module>
 		<module>de.cooperateproject.eabridge.eaobjectmodel</module>
 		<module>de.cooperateproject.eabridge.incrementalsync</module>
+		<module>de.cooperateproject.eabridge.logging</module>
+		<module>de.cooperateproject.eabridge.transformation</module>
+		<module>de.cooperateproject.eabridge.services</module>
+		<module>de.cooperateproject.eabridge.services.eadbsync</module>
+		<module>de.cooperateproject.eabridge.services.hbdbfactory</module>
 	</modules>
 
 </project>

@@ -39,391 +39,391 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class EaobjectmodelFactoryImpl extends EFactoryImpl implements EaobjectmodelFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static EaobjectmodelFactory init() {
-		try {
-			EaobjectmodelFactory theEaobjectmodelFactory = (EaobjectmodelFactory)EPackage.Registry.INSTANCE.getEFactory(EaobjectmodelPackage.eNS_URI);
-			if (theEaobjectmodelFactory != null) {
-				return theEaobjectmodelFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new EaobjectmodelFactoryImpl();
-	}
+        try {
+            EaobjectmodelFactory theEaobjectmodelFactory = (EaobjectmodelFactory)EPackage.Registry.INSTANCE.getEFactory(EaobjectmodelPackage.eNS_URI);
+            if (theEaobjectmodelFactory != null) {
+                return theEaobjectmodelFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new EaobjectmodelFactoryImpl();
+    }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EaobjectmodelFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case EaobjectmodelPackage.TYPE_REFERENCE: return createTypeReference();
-			case EaobjectmodelPackage.ATTRIBUTE: return createAttribute();
-			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT: return createAttributeConstraint();
-			case EaobjectmodelPackage.ATTRIBUTE_TAG: return createAttributeTag();
-			case EaobjectmodelPackage.CONNECTOR: return createConnector();
-			case EaobjectmodelPackage.DIAGRAM: return createDiagram();
-			case EaobjectmodelPackage.DIAGRAM_LINK: return createDiagramLink();
-			case EaobjectmodelPackage.DIAGRAM_OBJECT: return createDiagramObject();
-			case EaobjectmodelPackage.ELEMENT: return createElement();
-			case EaobjectmodelPackage.METHOD: return createMethod();
-			case EaobjectmodelPackage.METHODPARAMETER: return createMethodparameter();
-			case EaobjectmodelPackage.PACKAGE: return createPackage();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case EaobjectmodelPackage.TYPE_REFERENCE: return createTypeReference();
+            case EaobjectmodelPackage.ATTRIBUTE: return createAttribute();
+            case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT: return createAttributeConstraint();
+            case EaobjectmodelPackage.ATTRIBUTE_TAG: return createAttributeTag();
+            case EaobjectmodelPackage.CONNECTOR: return createConnector();
+            case EaobjectmodelPackage.DIAGRAM: return createDiagram();
+            case EaobjectmodelPackage.DIAGRAM_LINK: return createDiagramLink();
+            case EaobjectmodelPackage.DIAGRAM_OBJECT: return createDiagramObject();
+            case EaobjectmodelPackage.ELEMENT: return createElement();
+            case EaobjectmodelPackage.METHOD: return createMethod();
+            case EaobjectmodelPackage.METHODPARAMETER: return createMethodparameter();
+            case EaobjectmodelPackage.PACKAGE: return createPackage();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case EaobjectmodelPackage.PRIMITIVE_TYPE:
-				return createPrimitiveTypeFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.SCOPE:
-				return createScopeFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.IS_AGGREGATE:
-				return createIsAggregateFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.DIRECTION_TYPE:
-				return createDirectionTypeFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.CONNECTOR_TYPE:
-				return createConnectorTypeFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.ELEMENT_TYPE:
-				return createElementTypeFromString(eDataType, initialValue);
-			case EaobjectmodelPackage.PARAMETER_DIRECTION:
-				return createParameterDirectionFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eDataType.getClassifierID()) {
+            case EaobjectmodelPackage.PRIMITIVE_TYPE:
+                return createPrimitiveTypeFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.SCOPE:
+                return createScopeFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.IS_AGGREGATE:
+                return createIsAggregateFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.DIRECTION_TYPE:
+                return createDirectionTypeFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.CONNECTOR_TYPE:
+                return createConnectorTypeFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.ELEMENT_TYPE:
+                return createElementTypeFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.PARAMETER_DIRECTION:
+                return createParameterDirectionFromString(eDataType, initialValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case EaobjectmodelPackage.PRIMITIVE_TYPE:
-				return convertPrimitiveTypeToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.SCOPE:
-				return convertScopeToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.IS_AGGREGATE:
-				return convertIsAggregateToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.DIRECTION_TYPE:
-				return convertDirectionTypeToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.CONNECTOR_TYPE:
-				return convertConnectorTypeToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.ELEMENT_TYPE:
-				return convertElementTypeToString(eDataType, instanceValue);
-			case EaobjectmodelPackage.PARAMETER_DIRECTION:
-				return convertParameterDirectionToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eDataType.getClassifierID()) {
+            case EaobjectmodelPackage.PRIMITIVE_TYPE:
+                return convertPrimitiveTypeToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.SCOPE:
+                return convertScopeToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.IS_AGGREGATE:
+                return convertIsAggregateToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.DIRECTION_TYPE:
+                return convertDirectionTypeToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.CONNECTOR_TYPE:
+                return convertConnectorTypeToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.ELEMENT_TYPE:
+                return convertElementTypeToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.PARAMETER_DIRECTION:
+                return convertParameterDirectionToString(eDataType, instanceValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public TypeReference createTypeReference() {
-		TypeReferenceImpl typeReference = new TypeReferenceImpl();
-		return typeReference;
-	}
+        TypeReferenceImpl typeReference = new TypeReferenceImpl();
+        return typeReference;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Attribute createAttribute() {
-		AttributeImpl attribute = new AttributeImpl();
-		return attribute;
-	}
+        AttributeImpl attribute = new AttributeImpl();
+        return attribute;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public AttributeConstraint createAttributeConstraint() {
-		AttributeConstraintImpl attributeConstraint = new AttributeConstraintImpl();
-		return attributeConstraint;
-	}
+        AttributeConstraintImpl attributeConstraint = new AttributeConstraintImpl();
+        return attributeConstraint;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public AttributeTag createAttributeTag() {
-		AttributeTagImpl attributeTag = new AttributeTagImpl();
-		return attributeTag;
-	}
+        AttributeTagImpl attributeTag = new AttributeTagImpl();
+        return attributeTag;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Connector createConnector() {
-		ConnectorImpl connector = new ConnectorImpl();
-		return connector;
-	}
+        ConnectorImpl connector = new ConnectorImpl();
+        return connector;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Diagram createDiagram() {
-		DiagramImpl diagram = new DiagramImpl();
-		return diagram;
-	}
+        DiagramImpl diagram = new DiagramImpl();
+        return diagram;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DiagramLink createDiagramLink() {
-		DiagramLinkImpl diagramLink = new DiagramLinkImpl();
-		return diagramLink;
-	}
+        DiagramLinkImpl diagramLink = new DiagramLinkImpl();
+        return diagramLink;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DiagramObject createDiagramObject() {
-		DiagramObjectImpl diagramObject = new DiagramObjectImpl();
-		return diagramObject;
-	}
+        DiagramObjectImpl diagramObject = new DiagramObjectImpl();
+        return diagramObject;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Element createElement() {
-		ElementImpl element = new ElementImpl();
-		return element;
-	}
+        ElementImpl element = new ElementImpl();
+        return element;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Method createMethod() {
-		MethodImpl method = new MethodImpl();
-		return method;
-	}
+        MethodImpl method = new MethodImpl();
+        return method;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Methodparameter createMethodparameter() {
-		MethodparameterImpl methodparameter = new MethodparameterImpl();
-		return methodparameter;
-	}
+        MethodparameterImpl methodparameter = new MethodparameterImpl();
+        return methodparameter;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public de.cooperateproject.eabridge.eaobjectmodel.Package createPackage() {
-		PackageImpl package_ = new PackageImpl();
-		return package_;
-	}
+        PackageImpl package_ = new PackageImpl();
+        return package_;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public PrimitiveType createPrimitiveTypeFromString(EDataType eDataType, String initialValue) {
-		PrimitiveType result = PrimitiveType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        PrimitiveType result = PrimitiveType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertPrimitiveTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Scope createScopeFromString(EDataType eDataType, String initialValue) {
-		Scope result = Scope.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        Scope result = Scope.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertScopeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public IsAggregate createIsAggregateFromString(EDataType eDataType, String initialValue) {
-		IsAggregate result = IsAggregate.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        IsAggregate result = IsAggregate.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertIsAggregateToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DirectionType createDirectionTypeFromString(EDataType eDataType, String initialValue) {
-		DirectionType result = DirectionType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        DirectionType result = DirectionType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertDirectionTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ConnectorType createConnectorTypeFromString(EDataType eDataType, String initialValue) {
-		ConnectorType result = ConnectorType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        ConnectorType result = ConnectorType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertConnectorTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ElementType createElementTypeFromString(EDataType eDataType, String initialValue) {
-		ElementType result = ElementType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        ElementType result = ElementType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertElementTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ParameterDirection createParameterDirectionFromString(EDataType eDataType, String initialValue) {
-		ParameterDirection result = ParameterDirection.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        ParameterDirection result = ParameterDirection.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertParameterDirectionToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EaobjectmodelPackage getEaobjectmodelPackage() {
-		return (EaobjectmodelPackage)getEPackage();
-	}
+        return (EaobjectmodelPackage)getEPackage();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * @deprecated
+     * @generated
+     */
 	@Deprecated
 	public static EaobjectmodelPackage getPackage() {
-		return EaobjectmodelPackage.eINSTANCE;
-	}
+        return EaobjectmodelPackage.eINSTANCE;
+    }
 
 } //EaobjectmodelFactoryImpl

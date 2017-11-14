@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/de.cooperateproject.eabridge.feature_1.0.0.qualifier.jar" id="de.cooperateproject.eabridge.feature" version="1.0.0.qualifier">
+   <feature url="features/de.cooperateproject.eabridge.feature_1.0.0.qualifier.jar" id="de.cooperateproject.eabridge.feature" version="0.1.0.qualifier">
       <category name="default"/>
    </feature>
-   <category-def name="default" label="Viewer"/>
-   <repository-reference location="http://download.eclipse.org/tools/orbit/downloads/drops/R20151118145958/repository/" enabled="true" />
-   <repository-reference location="http://plantuml.sourceforge.net/updatesitejuno" enabled="true" />
-   <repository-reference location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/" enabled="true" />
+   <category-def name="default" label="Cooperate Project EA Bridge"/>
 </site>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0"
+    localization="OSGI-INF/metatype/metatype">
+  <metatype:OCD id="eadbsyncer"
+      name="Cooperate Project Teneo Database Syncer">
+  </metatype:OCD>
+  <metatype:Designate pid="eadbsyncer"
+      factoryPid="eadbsyncer">
+    <metatype:Object ocdref="eadbsyncer"/>
+  </metatype:Designate>
+</metatype:MetaData>

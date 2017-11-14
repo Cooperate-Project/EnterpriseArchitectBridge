@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0"
+    localization="OSGI-INF/metatype/metatype">
+  <metatype:OCD id="hbdbfactory"
+      name="Cooperate Project Hibernate DB Factory">
+    <AD name="Properties Prefix Whitelist"  id="eabridge.prefix.whitelist" required="true" type="String" default="hibernate;teneo"/>
+    <AD name="Database Driver"  id="hibernate.connection.driver_class" required="true" type="String" default=""/>   
+    <AD name="JDBC User"  id="hibernate.connection.driver_class" required="true" type="String" default=""/>
+    <AD name="JDBC Password"  id="hibernate.connection.password" required="true" type="String" default=""/>
+    <AD name="Database URL"  id="hibernate.connection.url" required="true" type="String" default=""/>
+    <AD name="Dialect"  id="hibernate.dialect" required="true" type="String" default=""/>
+    <AD name="Default schema"  id="hibernate.default_schema" required="false" type="String" default=""/>
+  </metatype:OCD>
+  <metatype:Designate pid="hbdbfactory"
+      factoryPid="hbdbfactory">
+    <metatype:Object ocdref="hbdbfactory"/>
+  </metatype:Designate>
+</metatype:MetaData>

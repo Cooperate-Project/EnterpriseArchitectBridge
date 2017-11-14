@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="require" deactivate="deactivate" immediate="true" name="hbdbfactory">
+   <property name="eabridge.prefix.whitelist" value="hibernate;teneo"/>
+   <property name="eabridge.hbdbfactory.datastore.name" value="datastore1"/>
+   <property name="teneo.mapping.cascade_policy_on_non_containment" value="REFRESH,PERSIST,MERGE"/>
+   <property name="teneo.mapping.persistence_xml" value="/annotations.xml"/>
+   <property name="teneo.naming.strategy" value="none"/>
+   <property name="teneo.mapping.always_version" value="false"/>
+   <property name="teneo.mapping.always_map_list_as_bag" value="true"/>
+   <property name="teneo.mapping.disable_econtainer" value="true"/>
+   <property name="teneo.mapping.mapping_file_name" value="/hibernate.hbm.xml"/>
+   <property name="hibernate.hbm2ddl.auto" value="none"/>
+   <service>
+      <provide interface="de.cooperateproject.eabridge.services.DatabaseFactory"/>
+   </service>
+   <implementation class="de.cooperateproject.eabridge.services.hbdbfactory.HibernateDatabaseFactory"/>
+</scr:component>

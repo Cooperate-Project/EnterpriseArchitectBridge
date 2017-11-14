@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" activate="activate" configuration-policy="require" deactivate="deactivate" immediate="true" name="eadbsyncer">
+   <property name="databasesyncer.hqlquery.rootelements" value="from Package p where p.Parent.PackageID=0"/>
+   <property name="databasesyncer.rootelement.property" value="Name"/>
+   <reference cardinality="1..1" field="dbFactory" interface="de.cooperateproject.eabridge.services.DatabaseFactory" name="dbFactory"/>
+   <implementation class="de.cooperateproject.eabridge.services.eadbsync.EAObjectModelDataBaseSyncer"/>
+</scr:component>

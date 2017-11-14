@@ -35,318 +35,318 @@ import org.eclipse.emf.ecore.util.Switch;
  */
 public class EaobjectmodelSwitch<T> extends Switch<T> {
 	/**
-	 * The cached model package
-	 * <!-- begin-user-doc -->
+     * The cached model package
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected static EaobjectmodelPackage modelPackage;
 
 	/**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc -->
+     * Creates an instance of the switch.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EaobjectmodelSwitch() {
-		if (modelPackage == null) {
-			modelPackage = EaobjectmodelPackage.eINSTANCE;
-		}
-	}
+        if (modelPackage == null) {
+            modelPackage = EaobjectmodelPackage.eINSTANCE;
+        }
+    }
 
 	/**
-	 * Checks whether this is a switch for the given package.
-	 * <!-- begin-user-doc -->
+     * Checks whether this is a switch for the given package.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param ePackage the package in question.
-	 * @return whether this is a switch for the given package.
-	 * @generated
-	 */
+     * @param ePackage the package in question.
+     * @return whether this is a switch for the given package.
+     * @generated
+     */
 	@Override
 	protected boolean isSwitchFor(EPackage ePackage) {
-		return ePackage == modelPackage;
-	}
+        return ePackage == modelPackage;
+    }
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case EaobjectmodelPackage.TYPE_REFERENCE: {
-				TypeReference typeReference = (TypeReference)theEObject;
-				T result = caseTypeReference(typeReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.ATTRIBUTE: {
-				Attribute attribute = (Attribute)theEObject;
-				T result = caseAttribute(attribute);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT: {
-				AttributeConstraint attributeConstraint = (AttributeConstraint)theEObject;
-				T result = caseAttributeConstraint(attributeConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.ATTRIBUTE_TAG: {
-				AttributeTag attributeTag = (AttributeTag)theEObject;
-				T result = caseAttributeTag(attributeTag);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.CONNECTOR: {
-				Connector connector = (Connector)theEObject;
-				T result = caseConnector(connector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.DIAGRAM: {
-				Diagram diagram = (Diagram)theEObject;
-				T result = caseDiagram(diagram);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.DIAGRAM_LINK: {
-				DiagramLink diagramLink = (DiagramLink)theEObject;
-				T result = caseDiagramLink(diagramLink);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.DIAGRAM_OBJECT: {
-				DiagramObject diagramObject = (DiagramObject)theEObject;
-				T result = caseDiagramObject(diagramObject);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.ELEMENT: {
-				Element element = (Element)theEObject;
-				T result = caseElement(element);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.METHOD: {
-				Method method = (Method)theEObject;
-				T result = caseMethod(method);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.METHODPARAMETER: {
-				Methodparameter methodparameter = (Methodparameter)theEObject;
-				T result = caseMethodparameter(methodparameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EaobjectmodelPackage.PACKAGE: {
-				de.cooperateproject.eabridge.eaobjectmodel.Package package_ = (de.cooperateproject.eabridge.eaobjectmodel.Package)theEObject;
-				T result = casePackage(package_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
-		}
-	}
+        switch (classifierID) {
+            case EaobjectmodelPackage.TYPE_REFERENCE: {
+                TypeReference typeReference = (TypeReference)theEObject;
+                T result = caseTypeReference(typeReference);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.ATTRIBUTE: {
+                Attribute attribute = (Attribute)theEObject;
+                T result = caseAttribute(attribute);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.ATTRIBUTE_CONSTRAINT: {
+                AttributeConstraint attributeConstraint = (AttributeConstraint)theEObject;
+                T result = caseAttributeConstraint(attributeConstraint);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.ATTRIBUTE_TAG: {
+                AttributeTag attributeTag = (AttributeTag)theEObject;
+                T result = caseAttributeTag(attributeTag);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.CONNECTOR: {
+                Connector connector = (Connector)theEObject;
+                T result = caseConnector(connector);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.DIAGRAM: {
+                Diagram diagram = (Diagram)theEObject;
+                T result = caseDiagram(diagram);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.DIAGRAM_LINK: {
+                DiagramLink diagramLink = (DiagramLink)theEObject;
+                T result = caseDiagramLink(diagramLink);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.DIAGRAM_OBJECT: {
+                DiagramObject diagramObject = (DiagramObject)theEObject;
+                T result = caseDiagramObject(diagramObject);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.ELEMENT: {
+                Element element = (Element)theEObject;
+                T result = caseElement(element);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.METHOD: {
+                Method method = (Method)theEObject;
+                T result = caseMethod(method);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.METHODPARAMETER: {
+                Methodparameter methodparameter = (Methodparameter)theEObject;
+                T result = caseMethodparameter(methodparameter);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.PACKAGE: {
+                de.cooperateproject.eabridge.eaobjectmodel.Package package_ = (de.cooperateproject.eabridge.eaobjectmodel.Package)theEObject;
+                T result = casePackage(package_);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            default: return defaultCase(theEObject);
+        }
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Type Reference</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Type Reference</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Type Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Type Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseTypeReference(TypeReference object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseAttribute(Attribute object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute Constraint</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Attribute Constraint</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute Constraint</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Attribute Constraint</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseAttributeConstraint(AttributeConstraint object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute Tag</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Attribute Tag</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute Tag</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Attribute Tag</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseAttributeTag(AttributeTag object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Connector</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Connector</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseConnector(Connector object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagram</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Diagram</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagram</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Diagram</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseDiagram(Diagram object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagram Link</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Diagram Link</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagram Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Diagram Link</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseDiagramLink(DiagramLink object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Diagram Object</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Diagram Object</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Diagram Object</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Diagram Object</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseDiagramObject(DiagramObject object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseElement(Element object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Method</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Method</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseMethod(Method object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Methodparameter</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Methodparameter</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Methodparameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Methodparameter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T caseMethodparameter(Methodparameter object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Package</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
 	public T casePackage(de.cooperateproject.eabridge.eaobjectmodel.Package object) {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+     * @generated
+     */
 	@Override
 	public T defaultCase(EObject object) {
-		return null;
-	}
+        return null;
+    }
 
 } //EaobjectmodelSwitch

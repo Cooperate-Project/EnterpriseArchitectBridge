@@ -25,8 +25,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
-import de.cooperateproject.eabridge.eaobjectmodel.database.DatabaseFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.util.EAResourceFactory;
+import de.cooperateproject.eabridge.services.DatabaseFactory;
 import de.cooperateproject.qvtoutils.blackbox.CooperateLibrary;
 
 public abstract class TransformationTestBase {

@@ -19,223 +19,223 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum IsAggregate implements Enumerator {
 	/**
-	 * The '<em><b>False</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>False</b></em>' literal object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FALSE_VALUE
-	 * @generated
-	 * @ordered
-	 */
+     * @see #FALSE_VALUE
+     * @generated
+     * @ordered
+     */
 	FALSE(0, "False", "False"),
 
 	/**
-	 * The '<em><b>Aggregation</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Aggregation</b></em>' literal object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #AGGREGATION_VALUE
-	 * @generated
-	 * @ordered
-	 */
+     * @see #AGGREGATION_VALUE
+     * @generated
+     * @ordered
+     */
 	AGGREGATION(1, "Aggregation", "Aggregation"),
 
 	/**
-	 * The '<em><b>Composition</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Composition</b></em>' literal object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPOSITION_VALUE
-	 * @generated
-	 * @ordered
-	 */
+     * @see #COMPOSITION_VALUE
+     * @generated
+     * @ordered
+     */
 	COMPOSITION(2, "Composition", "Composition");
 
 	/**
-	 * The '<em><b>False</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>False</b></em>' literal value.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>False</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FALSE
-	 * @model name="False"
-	 * @generated
-	 * @ordered
-	 */
+     * @see #FALSE
+     * @model name="False"
+     * @generated
+     * @ordered
+     */
 	public static final int FALSE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Aggregation</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Aggregation</b></em>' literal value.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Aggregation</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #AGGREGATION
-	 * @model name="Aggregation"
-	 * @generated
-	 * @ordered
-	 */
+     * @see #AGGREGATION
+     * @model name="Aggregation"
+     * @generated
+     * @ordered
+     */
 	public static final int AGGREGATION_VALUE = 1;
 
 	/**
-	 * The '<em><b>Composition</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Composition</b></em>' literal value.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Composition</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #COMPOSITION
-	 * @model name="Composition"
-	 * @generated
-	 * @ordered
-	 */
+     * @see #COMPOSITION
+     * @model name="Composition"
+     * @generated
+     * @ordered
+     */
 	public static final int COMPOSITION_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Is Aggregate</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+     * An array of all the '<em><b>Is Aggregate</b></em>' enumerators.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private static final IsAggregate[] VALUES_ARRAY =
 		new IsAggregate[] {
-			FALSE,
-			AGGREGATION,
-			COMPOSITION,
-		};
+            FALSE,
+            AGGREGATION,
+            COMPOSITION,
+        };
 
 	/**
-	 * A public read-only list of all the '<em><b>Is Aggregate</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+     * A public read-only list of all the '<em><b>Is Aggregate</b></em>' enumerators.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static final List<IsAggregate> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Is Aggregate</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
+     * Returns the '<em><b>Is Aggregate</b></em>' literal with the specified literal value.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param literal the literal.
-	 * @return the matching enumerator or <code>null</code>.
-	 * @generated
-	 */
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
+     * @generated
+     */
 	public static IsAggregate get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			IsAggregate result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+            IsAggregate result = VALUES_ARRAY[i];
+            if (result.toString().equals(literal)) {
+                return result;
+            }
+        }
+        return null;
+    }
 
 	/**
-	 * Returns the '<em><b>Is Aggregate</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
+     * Returns the '<em><b>Is Aggregate</b></em>' literal with the specified name.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param name the name.
-	 * @return the matching enumerator or <code>null</code>.
-	 * @generated
-	 */
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
+     * @generated
+     */
 	public static IsAggregate getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			IsAggregate result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
-		}
-		return null;
-	}
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+            IsAggregate result = VALUES_ARRAY[i];
+            if (result.getName().equals(name)) {
+                return result;
+            }
+        }
+        return null;
+    }
 
 	/**
-	 * Returns the '<em><b>Is Aggregate</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
+     * Returns the '<em><b>Is Aggregate</b></em>' literal with the specified integer value.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the integer value.
-	 * @return the matching enumerator or <code>null</code>.
-	 * @generated
-	 */
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
+     * @generated
+     */
 	public static IsAggregate get(int value) {
-		switch (value) {
-			case FALSE_VALUE: return FALSE;
-			case AGGREGATION_VALUE: return AGGREGATION;
-			case COMPOSITION_VALUE: return COMPOSITION;
-		}
-		return null;
-	}
+        switch (value) {
+            case FALSE_VALUE: return FALSE;
+            case AGGREGATION_VALUE: return AGGREGATION;
+            case COMPOSITION_VALUE: return COMPOSITION;
+        }
+        return null;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
+     * Only this class can construct instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private IsAggregate(int value, String name, String literal) {
-		this.value = value;
-		this.name = name;
-		this.literal = literal;
-	}
+        this.value = value;
+        this.name = name;
+        this.literal = literal;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getValue() {
-	  return value;
-	}
+      return value;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getName() {
-	  return name;
-	}
+      return name;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getLiteral() {
-	  return literal;
-	}
+      return literal;
+    }
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
+     * Returns the literal value of the enumerator, which is its string representation.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		return literal;
-	}
+        return literal;
+    }
 	
 } //IsAggregate

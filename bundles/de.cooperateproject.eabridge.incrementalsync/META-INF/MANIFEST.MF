@@ -7,9 +7,9 @@ Require-Bundle: org.eclipse.core.runtime,
  de.cooperateproject.eabridge.eaobjectmodel;bundle-version="1.0.0",
  org.hibernate;bundle-version="4.3.7",
  org.eclipse.emf.teneo.hibernate;bundle-version="2.1.0",
- org.apache.commons.lang;bundle-version="2.6.0",
- org.apache.log4j;bundle-version="1.2.15"
+ org.apache.commons.lang;bundle-version="2.6.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.cooperateproject.eabridge.incrementalsync.monitoring,
  de.cooperateproject.eabridge.incrementalsync.synchronization
+Import-Package: org.slf4j

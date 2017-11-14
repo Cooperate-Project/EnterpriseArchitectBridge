@@ -58,970 +58,970 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class DiagramLinkImpl extends MinimalEObjectImpl.Container implements DiagramLink {
 	/**
-	 * The default value of the '{@link #getGeometry() <em>Geometry</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getGeometry() <em>Geometry</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGeometry()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getGeometry()
+     * @generated
+     * @ordered
+     */
 	protected static final String GEOMETRY_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getInstanceID() <em>Instance ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getInstanceID() <em>Instance ID</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInstanceID()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getInstanceID()
+     * @generated
+     * @ordered
+     */
 	protected static final Long INSTANCE_ID_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getHidden() <em>Hidden</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getHidden() <em>Hidden</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHidden()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getHidden()
+     * @generated
+     * @ordered
+     */
 	protected static final Boolean HIDDEN_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPath()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getPath()
+     * @generated
+     * @ordered
+     */
 	protected static final String PATH_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStyle()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getStyle()
+     * @generated
+     * @ordered
+     */
 	protected static final String STYLE_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getSX() <em>SX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getSX() <em>SX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSX()
+     * @generated
+     * @ordered
+     */
 	protected static final int SX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getSY() <em>SY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getSY() <em>SY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSY()
+     * @generated
+     * @ordered
+     */
 	protected static final int SY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getEX() <em>EX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getEX() <em>EX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getEX()
+     * @generated
+     * @ordered
+     */
 	protected static final int EX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getEY() <em>EY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getEY() <em>EY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getEY()
+     * @generated
+     * @ordered
+     */
 	protected static final int EY_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getLLBCX() <em>LLBCX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLBCX() <em>LLBCX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLBCX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLBCX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLBCX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLLBCY() <em>LLBCY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLBCY() <em>LLBCY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLBCY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLBCY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLBCY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLLBOX() <em>LLBOX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLBOX() <em>LLBOX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLBOX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLBOX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLBOX_EDEFAULT = 0;
 
 	/**
-	 * The default value of the '{@link #getLLBOY() <em>LLBOY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLBOY() <em>LLBOY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLBOY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLBOY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLBOY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLLTCX() <em>LLTCX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLTCX() <em>LLTCX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLTCX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLTCX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLTCX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLLTCY() <em>LLTCY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLTCY() <em>LLTCY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLTCY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLTCY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLTCY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLLTOX() <em>LLTOX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLTOX() <em>LLTOX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLTOX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLTOX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLTOX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLLTOY() <em>LLTOY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLLTOY() <em>LLTOY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLLTOY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLLTOY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LLTOY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRBCX() <em>LRBCX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRBCX() <em>LRBCX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRBCX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRBCX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRBCX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRBCY() <em>LRBCY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRBCY() <em>LRBCY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRBCY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRBCY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRBCY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRBOX() <em>LRBOX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRBOX() <em>LRBOX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRBOX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRBOX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRBOX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRBOY() <em>LRBOY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRBOY() <em>LRBOY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRBOY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRBOY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRBOY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRTCX() <em>LRTCX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRTCX() <em>LRTCX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRTCX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRTCX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRTCX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRTCY() <em>LRTCY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRTCY() <em>LRTCY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRTCY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRTCY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRTCY_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRTOX() <em>LRTOX</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRTOX() <em>LRTOX</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRTOX()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRTOX()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRTOX_EDEFAULT = 0;
 	/**
-	 * The default value of the '{@link #getLRTOY() <em>LRTOY</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getLRTOY() <em>LRTOY</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLRTOY()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getLRTOY()
+     * @generated
+     * @ordered
+     */
 	protected static final int LRTOY_EDEFAULT = 0;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DiagramLinkImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return EaobjectmodelPackage.Literals.DIAGRAM_LINK;
-	}
+        return EaobjectmodelPackage.Literals.DIAGRAM_LINK;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected int eStaticFeatureCount() {
-		return 0;
-	}
+        return 0;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Connector getConnector() {
-		return (Connector)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR, EaobjectmodelPackage.Literals.DIAGRAM_LINK__CONNECTOR, true, true);
-	}
+        return (Connector)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR, EaobjectmodelPackage.Literals.DIAGRAM_LINK__CONNECTOR, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Connector basicGetConnector() {
-		return (Connector)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR, EaobjectmodelPackage.Literals.DIAGRAM_LINK__CONNECTOR, false, true);
-	}
+        return (Connector)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR, EaobjectmodelPackage.Literals.DIAGRAM_LINK__CONNECTOR, false, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setConnector(Connector newConnector) {
-		eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR, EaobjectmodelPackage.Literals.DIAGRAM_LINK__CONNECTOR, newConnector);
-	}
+        eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR, EaobjectmodelPackage.Literals.DIAGRAM_LINK__CONNECTOR, newConnector);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Diagram getDiagram() {
-		return (Diagram)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, EaobjectmodelPackage.Literals.DIAGRAM_LINK__DIAGRAM, true, true);
-	}
+        return (Diagram)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, EaobjectmodelPackage.Literals.DIAGRAM_LINK__DIAGRAM, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Diagram basicGetDiagram() {
-		return (Diagram)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, EaobjectmodelPackage.Literals.DIAGRAM_LINK__DIAGRAM, false, true);
-	}
+        return (Diagram)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, EaobjectmodelPackage.Literals.DIAGRAM_LINK__DIAGRAM, false, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetDiagram(Diagram newDiagram, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newDiagram, EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newDiagram, EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setDiagram(Diagram newDiagram) {
-		eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, EaobjectmodelPackage.Literals.DIAGRAM_LINK__DIAGRAM, newDiagram);
-	}
+        eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM, EaobjectmodelPackage.Literals.DIAGRAM_LINK__DIAGRAM, newDiagram);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getGeometry() {
-		return (String)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY, EaobjectmodelPackage.Literals.DIAGRAM_LINK__GEOMETRY, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY, EaobjectmodelPackage.Literals.DIAGRAM_LINK__GEOMETRY, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setGeometry(String newGeometry) {
-		eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY, EaobjectmodelPackage.Literals.DIAGRAM_LINK__GEOMETRY, newGeometry);
-	}
+        eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY, EaobjectmodelPackage.Literals.DIAGRAM_LINK__GEOMETRY, newGeometry);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Long getInstanceID() {
-		return (Long)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID, EaobjectmodelPackage.Literals.DIAGRAM_LINK__INSTANCE_ID, true, true);
-	}
+        return (Long)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID, EaobjectmodelPackage.Literals.DIAGRAM_LINK__INSTANCE_ID, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setInstanceID(Long newInstanceID) {
-		eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID, EaobjectmodelPackage.Literals.DIAGRAM_LINK__INSTANCE_ID, newInstanceID);
-	}
+        eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID, EaobjectmodelPackage.Literals.DIAGRAM_LINK__INSTANCE_ID, newInstanceID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Boolean getHidden() {
-		return (Boolean)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN, EaobjectmodelPackage.Literals.DIAGRAM_LINK__HIDDEN, true, true);
-	}
+        return (Boolean)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN, EaobjectmodelPackage.Literals.DIAGRAM_LINK__HIDDEN, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setHidden(Boolean newHidden) {
-		eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN, EaobjectmodelPackage.Literals.DIAGRAM_LINK__HIDDEN, newHidden);
-	}
+        eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN, EaobjectmodelPackage.Literals.DIAGRAM_LINK__HIDDEN, newHidden);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getPath() {
-		return (String)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__PATH, EaobjectmodelPackage.Literals.DIAGRAM_LINK__PATH, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__PATH, EaobjectmodelPackage.Literals.DIAGRAM_LINK__PATH, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setPath(String newPath) {
-		eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__PATH, EaobjectmodelPackage.Literals.DIAGRAM_LINK__PATH, newPath);
-	}
+        eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__PATH, EaobjectmodelPackage.Literals.DIAGRAM_LINK__PATH, newPath);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getStyle() {
-		return (String)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__STYLE, EaobjectmodelPackage.Literals.DIAGRAM_LINK__STYLE, true, true);
-	}
+        return (String)eDynamicGet(EaobjectmodelPackage.DIAGRAM_LINK__STYLE, EaobjectmodelPackage.Literals.DIAGRAM_LINK__STYLE, true, true);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setStyle(String newStyle) {
-		eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__STYLE, EaobjectmodelPackage.Literals.DIAGRAM_LINK__STYLE, newStyle);
-	}
+        eDynamicSet(EaobjectmodelPackage.DIAGRAM_LINK__STYLE, EaobjectmodelPackage.Literals.DIAGRAM_LINK__STYLE, newStyle);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getSX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashInt.get("SX");
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashInt.get("SX");
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getSY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashInt.get("SY");
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashInt.get("SY");
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getEX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashInt.get("EX");
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashInt.get("EX");
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getEY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashInt.get("EY");
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashInt.get("EY");
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLBCX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("CX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("CX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLBCY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("CY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("CY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLBOX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("OX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("OX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLBOY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("OY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("$LLB", new Node()).getOrDefault("OY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLTCX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("CX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("CX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLTCY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("CY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("CY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLTOX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("OX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("OX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLLTOY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("OY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LLT", new Node()).getOrDefault("OY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRBCX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("CX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("CX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRBCY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("CY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("CY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRBOX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("OX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("OX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRBOY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("OY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRB", new Node()).getOrDefault("OY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRTCX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("CX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("CX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRTCY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("CY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("CY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRTOX() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("OX", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("OX", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getLRTOY() {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("OY", 0);
-		return _get;
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        Integer _get = map.hashNode.getOrDefault("LRT", new Node()).getOrDefault("OY", 0);
+        return _get;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setSX(final Integer newSX) {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		map.hashInt.put("SX", newSX);
-		this.setGeometry(map.toString());
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        map.hashInt.put("SX", newSX);
+        this.setGeometry(map.toString());
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setSY(final Integer newSY) {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		map.hashInt.put("SY", newSY);
-		this.setGeometry(map.toString());
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        map.hashInt.put("SY", newSY);
+        this.setGeometry(map.toString());
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setEX(final Integer newEX) {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		map.hashInt.put("EX", newEX);
-		this.setGeometry(map.toString());
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        map.hashInt.put("EX", newEX);
+        this.setGeometry(map.toString());
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setEY(final Integer newEY) {
-		String _geometry = this.getGeometry();
-		final Geometry map = new Geometry(_geometry);
-		map.hashInt.put("EY", newEY);
-		this.setGeometry(map.toString());
-	}
+        String _geometry = this.getGeometry();
+        final Geometry map = new Geometry(_geometry);
+        map.hashInt.put("EY", newEY);
+        this.setGeometry(map.toString());
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetDiagram((Diagram)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetDiagram((Diagram)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
-				return basicSetDiagram(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
+                return basicSetDiagram(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
-				return eInternalContainer().eInverseRemove(this, EaobjectmodelPackage.DIAGRAM__DIAGRAM_LINKS, Diagram.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID()) {
+            case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
+                return eInternalContainer().eInverseRemove(this, EaobjectmodelPackage.DIAGRAM__DIAGRAM_LINKS, Diagram.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
-				if (resolve) return getConnector();
-				return basicGetConnector();
-			case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
-				if (resolve) return getDiagram();
-				return basicGetDiagram();
-			case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
-				return getGeometry();
-			case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
-				return getInstanceID();
-			case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
-				return getHidden();
-			case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
-				return getPath();
-			case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
-				return getStyle();
-			case EaobjectmodelPackage.DIAGRAM_LINK__SX:
-				return getSX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__SY:
-				return getSY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__EX:
-				return getEX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__EY:
-				return getEY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCX:
-				return getLLBCX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCY:
-				return getLLBCY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOX:
-				return getLLBOX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOY:
-				return getLLBOY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCX:
-				return getLLTCX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCY:
-				return getLLTCY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOX:
-				return getLLTOX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOY:
-				return getLLTOY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCX:
-				return getLRBCX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCY:
-				return getLRBCY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOX:
-				return getLRBOX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOY:
-				return getLRBOY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCX:
-				return getLRTCX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCY:
-				return getLRTCY();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOX:
-				return getLRTOX();
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOY:
-				return getLRTOY();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
+                if (resolve) return getConnector();
+                return basicGetConnector();
+            case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
+                if (resolve) return getDiagram();
+                return basicGetDiagram();
+            case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
+                return getGeometry();
+            case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
+                return getInstanceID();
+            case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
+                return getHidden();
+            case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
+                return getPath();
+            case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
+                return getStyle();
+            case EaobjectmodelPackage.DIAGRAM_LINK__SX:
+                return getSX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__SY:
+                return getSY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__EX:
+                return getEX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__EY:
+                return getEY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBCX:
+                return getLLBCX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBCY:
+                return getLLBCY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBOX:
+                return getLLBOX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBOY:
+                return getLLBOY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTCX:
+                return getLLTCX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTCY:
+                return getLLTCY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTOX:
+                return getLLTOX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTOY:
+                return getLLTOY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBCX:
+                return getLRBCX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBCY:
+                return getLRBCY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBOX:
+                return getLRBOX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBOY:
+                return getLRBOY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTCX:
+                return getLRTCX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTCY:
+                return getLRTCY();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTOX:
+                return getLRTOX();
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTOY:
+                return getLRTOY();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
-				setConnector((Connector)newValue);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
-				setDiagram((Diagram)newValue);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
-				setGeometry((String)newValue);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
-				setInstanceID((Long)newValue);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
-				setHidden((Boolean)newValue);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
-				setPath((String)newValue);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
-				setStyle((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
+                setConnector((Connector)newValue);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
+                setDiagram((Diagram)newValue);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
+                setGeometry((String)newValue);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
+                setInstanceID((Long)newValue);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
+                setHidden((Boolean)newValue);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
+                setPath((String)newValue);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
+                setStyle((String)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
-				setConnector((Connector)null);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
-				setDiagram((Diagram)null);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
-				setGeometry(GEOMETRY_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
-				setInstanceID(INSTANCE_ID_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
-				setHidden(HIDDEN_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
-				setPath(PATH_EDEFAULT);
-				return;
-			case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
-				setStyle(STYLE_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
+                setConnector((Connector)null);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
+                setDiagram((Diagram)null);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
+                setGeometry(GEOMETRY_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
+                setInstanceID(INSTANCE_ID_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
+                setHidden(HIDDEN_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
+                setPath(PATH_EDEFAULT);
+                return;
+            case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
+                setStyle(STYLE_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
-				return basicGetConnector() != null;
-			case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
-				return basicGetDiagram() != null;
-			case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
-				return GEOMETRY_EDEFAULT == null ? getGeometry() != null : !GEOMETRY_EDEFAULT.equals(getGeometry());
-			case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
-				return INSTANCE_ID_EDEFAULT == null ? getInstanceID() != null : !INSTANCE_ID_EDEFAULT.equals(getInstanceID());
-			case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
-				return HIDDEN_EDEFAULT == null ? getHidden() != null : !HIDDEN_EDEFAULT.equals(getHidden());
-			case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
-				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
-			case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
-				return STYLE_EDEFAULT == null ? getStyle() != null : !STYLE_EDEFAULT.equals(getStyle());
-			case EaobjectmodelPackage.DIAGRAM_LINK__SX:
-				return getSX() != SX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__SY:
-				return getSY() != SY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__EX:
-				return getEX() != EX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__EY:
-				return getEY() != EY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCX:
-				return getLLBCX() != LLBCX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBCY:
-				return getLLBCY() != LLBCY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOX:
-				return getLLBOX() != LLBOX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLBOY:
-				return getLLBOY() != LLBOY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCX:
-				return getLLTCX() != LLTCX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTCY:
-				return getLLTCY() != LLTCY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOX:
-				return getLLTOX() != LLTOX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LLTOY:
-				return getLLTOY() != LLTOY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCX:
-				return getLRBCX() != LRBCX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBCY:
-				return getLRBCY() != LRBCY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOX:
-				return getLRBOX() != LRBOX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRBOY:
-				return getLRBOY() != LRBOY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCX:
-				return getLRTCX() != LRTCX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTCY:
-				return getLRTCY() != LRTCY_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOX:
-				return getLRTOX() != LRTOX_EDEFAULT;
-			case EaobjectmodelPackage.DIAGRAM_LINK__LRTOY:
-				return getLRTOY() != LRTOY_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case EaobjectmodelPackage.DIAGRAM_LINK__CONNECTOR:
+                return basicGetConnector() != null;
+            case EaobjectmodelPackage.DIAGRAM_LINK__DIAGRAM:
+                return basicGetDiagram() != null;
+            case EaobjectmodelPackage.DIAGRAM_LINK__GEOMETRY:
+                return GEOMETRY_EDEFAULT == null ? getGeometry() != null : !GEOMETRY_EDEFAULT.equals(getGeometry());
+            case EaobjectmodelPackage.DIAGRAM_LINK__INSTANCE_ID:
+                return INSTANCE_ID_EDEFAULT == null ? getInstanceID() != null : !INSTANCE_ID_EDEFAULT.equals(getInstanceID());
+            case EaobjectmodelPackage.DIAGRAM_LINK__HIDDEN:
+                return HIDDEN_EDEFAULT == null ? getHidden() != null : !HIDDEN_EDEFAULT.equals(getHidden());
+            case EaobjectmodelPackage.DIAGRAM_LINK__PATH:
+                return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
+            case EaobjectmodelPackage.DIAGRAM_LINK__STYLE:
+                return STYLE_EDEFAULT == null ? getStyle() != null : !STYLE_EDEFAULT.equals(getStyle());
+            case EaobjectmodelPackage.DIAGRAM_LINK__SX:
+                return getSX() != SX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__SY:
+                return getSY() != SY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__EX:
+                return getEX() != EX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__EY:
+                return getEY() != EY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBCX:
+                return getLLBCX() != LLBCX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBCY:
+                return getLLBCY() != LLBCY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBOX:
+                return getLLBOX() != LLBOX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLBOY:
+                return getLLBOY() != LLBOY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTCX:
+                return getLLTCX() != LLTCX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTCY:
+                return getLLTCY() != LLTCY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTOX:
+                return getLLTOX() != LLTOX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LLTOY:
+                return getLLTOY() != LLTOY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBCX:
+                return getLRBCX() != LRBCX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBCY:
+                return getLRBCY() != LRBCY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBOX:
+                return getLRBOX() != LRBOX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRBOY:
+                return getLRBOY() != LRBOY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTCX:
+                return getLRTCX() != LRTCX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTCY:
+                return getLRTCY() != LRTCY_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTOX:
+                return getLRTOX() != LRTOX_EDEFAULT;
+            case EaobjectmodelPackage.DIAGRAM_LINK__LRTOY:
+                return getLRTOY() != LRTOY_EDEFAULT;
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case EaobjectmodelPackage.DIAGRAM_LINK___SET_SX__INTEGER:
-				setSX((Integer)arguments.get(0));
-				return null;
-			case EaobjectmodelPackage.DIAGRAM_LINK___SET_SY__INTEGER:
-				setSY((Integer)arguments.get(0));
-				return null;
-			case EaobjectmodelPackage.DIAGRAM_LINK___SET_EX__INTEGER:
-				setEX((Integer)arguments.get(0));
-				return null;
-			case EaobjectmodelPackage.DIAGRAM_LINK___SET_EY__INTEGER:
-				setEY((Integer)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
-	}
+        switch (operationID) {
+            case EaobjectmodelPackage.DIAGRAM_LINK___SET_SX__INTEGER:
+                setSX((Integer)arguments.get(0));
+                return null;
+            case EaobjectmodelPackage.DIAGRAM_LINK___SET_SY__INTEGER:
+                setSY((Integer)arguments.get(0));
+                return null;
+            case EaobjectmodelPackage.DIAGRAM_LINK___SET_EX__INTEGER:
+                setEX((Integer)arguments.get(0));
+                return null;
+            case EaobjectmodelPackage.DIAGRAM_LINK___SET_EY__INTEGER:
+                setEY((Integer)arguments.get(0));
+                return null;
+        }
+        return super.eInvoke(operationID, arguments);
+    }
 
 } //DiagramLinkImpl
