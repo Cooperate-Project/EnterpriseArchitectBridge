@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" activate="activate" deactivate="deactivate" immediate="true" name="de.cooperateproject.eabridge.services.modelsyncer.CooperateModelSyncer">
+   <reference bind="registerModelAdapter" cardinality="1..n" interface="de.cooperateproject.eabridge.services.ModelAdapter" name="registerModelAdapter" policy="dynamic" policy-option="greedy" unbind="unregisterModelAdapter"/>
+   <reference cardinality="1..1" field="sExecutor" interface="de.cooperateproject.eabridge.services.SynchronizationExecutor" name="sExecutor"/>
+   <reference cardinality="1..1" field="tfRegistry" interface="de.cooperateproject.eabridge.services.TransformationFactoryRegistry" name="tfRegistry"/>
+   <implementation class="de.cooperateproject.eabridge.services.modelsyncer.CooperateModelSyncer"/>
+</scr:component>

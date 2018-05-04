@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="de.cooperateproject.eabridge.transformation.executor.TransformationFactoryRegistryImpl">
+   <service>
+      <provide interface="de.cooperateproject.eabridge.services.TransformationFactoryRegistry"/>
+   </service>
+   <reference cardinality="1..n" field="factories" field-option="update" interface="de.cooperateproject.eabridge.services.TransformationFactory" name="factories" policy="dynamic" policy-option="greedy"/>
+   <implementation class="de.cooperateproject.eabridge.transformation.executor.TransformationFactoryRegistryImpl"/>
+</scr:component>

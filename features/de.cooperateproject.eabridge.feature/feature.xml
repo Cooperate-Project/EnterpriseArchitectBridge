@@ -59,14 +59,77 @@
          unpack="false"/>
 
    <plugin
-         id="de.cooperateproject.eabridge.services.eadbsync"
+         id="de.cooperateproject.eabridge.services.hbdbfactory"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="de.cooperateproject.eabridge.services.hbdbfactory"
+         id="de.cooperateproject.eabridge.services.cdomodeladapter"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.modeling.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.cdo.util"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.util"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.eabridge.services.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.eabridge.services.cdoconnectionfactory"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.eabridge.services.teneoadapter"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.eabridge.services.modelsyncer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.modeling.transformation.registry"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.cooperateproject.modeling.transformation.cache"
          download-size="0"
          install-size="0"
          version="0.0.0"

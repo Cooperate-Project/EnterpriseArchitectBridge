@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" activate="activate" configuration-policy="require" deactivate="deactivate" name="teneoadapter">
+   <property name="datastore.name" value="datastore1"/>
+   <property name="hqlquery.rootelements" value="from Package p where p.Parent.PackageID=0"/>
+   <property name="rootelement.property" value="Name"/>
+   <service>
+      <provide interface="de.cooperateproject.eabridge.services.ModelAdapter"/>
+   </service>
+   <reference cardinality="1..1" field="dbFactory" interface="de.cooperateproject.eabridge.services.DatabaseFactory" name="dbFactory"/>
+   <implementation class="de.cooperateproject.eabridge.services.teneoadapter.TeneoModelAdapter"/>
+</scr:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0"
+    localization="OSGI-INF/metatype/metatype">
+  <metatype:OCD id="cdoconnection"
+      name="Cooperate Project CDO Connection Factory">
+    <AD name="CDO Server Username"  id="username" required="false" type="String" default=""/>
+    <AD name="CDO Server Passwort"  id="password" required="false" type="String" default=""/>
+    <AD name="CDO Server Hostname"  id="hostname" required="true" type="String" />
+    <AD name="CDO Server Port"  id="port" required="true" type="Integer" />
+    <AD name="CDO Server Repository"  id="repository" required="true" type="String" />
+  </metatype:OCD>
+  <metatype:Designate pid="cdoconnection"
+      factoryPid="cdoconnection">
+    <metatype:Object ocdref="cdoconnection"/>
+  </metatype:Designate>
+</metatype:MetaData>

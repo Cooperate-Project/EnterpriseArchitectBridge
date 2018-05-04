@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
 
-import org.eclipse.emf.teneo.hibernate.HbDataStore;
+import org.eclipse.emf.teneo.hibernate.SessionWrapper;
 import org.hibernate.SessionFactory;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.persister.entity.AbstractEntityPersister;
@@ -48,11 +48,11 @@ public class SyncUtil {
 	 * @return A ArrayList with all information about the tables (database and
 	 *         mapping)
 	 */
-	public static ArrayList<Table> getTables(HbDataStore dbStore) {
+	public static ArrayList<Table> getTables(SessionWrapper wrapper) {
 
 		ArrayList<Table> tableList = new ArrayList<Table>();
 
-		SessionFactory sessionFactory = dbStore.getSessionFactory();
+		SessionFactory sessionFactory = wrapper.getHibernateSession().getSessionFactory();
 		Map<String, ClassMetadata> classMetadataMap = sessionFactory.getAllClassMetadata();
 
 		// Searches the table information in the mapped data

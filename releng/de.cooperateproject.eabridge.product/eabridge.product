@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Cooperate Project EA Bridge" uid="de.cooperateproject.eabridge.product" application="de.cooperateproject.eabridge.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
-
+<product name="Cooperate Project EA Bridge" uid="de.cooperateproject.eabridge.product" id="de.cooperateproject.eabridge.product.eabridge" application="de.cooperateproject.eabridge.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -25,7 +24,6 @@
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>
@@ -67,14 +65,29 @@
       <feature id="org.eclipse.emf.mapping.ecore"/>
       <feature id="org.eclipse.emf.mapping"/>
       <feature id="de.cooperateproject.papyrusmetamodels"/>
-      <feature id="org.eclipse.equinox.compendium.sdk" version="3.13.1.v20170811-1407"/>
-      <feature id="de.cooperateproject.eabridge.configuration" version="1.0.0.qualifier"/>
+      <feature id="org.eclipse.equinox.compendium.sdk"/>
+      <feature id="de.cooperateproject.eabridge.configuration"/>
+      <feature id="org.eclipse.emf.cdo"/>
+      <feature id="org.eclipse.net4j"/>
+      <feature id="org.eclipse.net4j.db"/>
+      <feature id="org.eclipse.net4j.util"/>
+      <feature id="org.eclipse.net4j.util.ui"/>
+      <feature id="org.eclipse.net4j.db.h2"/>
+      <feature id="de.cooperateproject.modeling.transformation.feature" version="0.8.1.qualifier"/>
    </features>
 
    <configurations>
       <plugin id="de.cooperateproject.eabridge.logging" autoStart="true" startLevel="2" />
+      <plugin id="de.cooperateproject.modeling.transformation.registry" autoStart="false" startLevel="0" />
       <plugin id="org.apache.felix.fileinstall" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.emf.cdo.explorer.ui" autoStart="false" startLevel="10" />
+      <plugin id="org.eclipse.emf.cdo.expressions.editor" autoStart="false" startLevel="10" />
+      <plugin id="org.eclipse.emf.cdo.security.editor" autoStart="false" startLevel="10" />
+      <plugin id="org.eclipse.emf.cdo.security.ui" autoStart="false" startLevel="10" />
+      <plugin id="org.eclipse.emf.cdo.ui" autoStart="false" startLevel="10" />
+      <plugin id="org.eclipse.emf.cdo.ui.admin" autoStart="false" startLevel="10" />
+      <plugin id="org.eclipse.emf.cdo.workspace" autoStart="false" startLevel="10" />
       <plugin id="org.eclipse.equinox.cm" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />

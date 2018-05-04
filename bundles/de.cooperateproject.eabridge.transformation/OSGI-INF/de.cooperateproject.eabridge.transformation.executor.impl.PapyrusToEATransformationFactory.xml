@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="de.cooperateproject.eabridge.transformation.executor.impl.PapyrusToEATransformationFactory">
+   <service>
+      <provide interface="de.cooperateproject.eabridge.services.TransformationFactory"/>
+   </service>
+   <reference cardinality="1..1" field="qvtoResourceProvider" interface="de.cooperateproject.modeling.transformation.common.IQVTOResourceProvider" name="qvtoResourceProvider"/>
+   <reference cardinality="1..1" field="qvtoTransformationProvider" interface="de.cooperateproject.modeling.transformation.common.IQVTOTransformationExecutorProvider" name="qvtoTransformationProvider"/>
+   <reference cardinality="1..1" field="transformationContextProvider" interface="de.cooperateproject.eabridge.services.TransformationContextProvider" name="transformationContextProvider"/>
+   <implementation class="de.cooperateproject.eabridge.transformation.executor.impl.PapyrusToEATransformationFactory"/>
+</scr:component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0"
+    localization="OSGI-INF/metatype/metatype">
+  <metatype:OCD id="cdoadapter"
+      name="Cooperate Project CDO Model Adapter">
+  </metatype:OCD>
+  <metatype:Designate pid="cdoadapter"
+      factoryPid="cdoadapter">
+    <metatype:Object ocdref="cdoadapter"/>
+  </metatype:Designate>
+</metatype:MetaData>

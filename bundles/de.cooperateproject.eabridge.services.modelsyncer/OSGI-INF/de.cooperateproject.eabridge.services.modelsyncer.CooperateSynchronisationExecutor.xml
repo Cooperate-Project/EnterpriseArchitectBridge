@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" activate="activate" deactivate="deactivate" name="de.cooperateproject.eabridge.services.modelsyncer.CooperateSynchronisationExecutor">
+   <service scope="singleton">
+      <provide interface="de.cooperateproject.eabridge.services.SynchronizationExecutor"/>
+   </service>
+   <implementation class="de.cooperateproject.eabridge.services.modelsyncer.CooperateSynchronisationExecutor"/>
+</scr:component>

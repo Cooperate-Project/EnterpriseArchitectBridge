@@ -32,6 +32,11 @@
 
 	<repositories>
 		<repository>
+			<id>eclipse-updates</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/eclipse/updates/4.7</url>
+		</repository>
+		<repository>
 			<id>eclipse</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/oxygen</url>
@@ -56,7 +61,11 @@
 			<layout>p2</layout>
 			<url>https://dl.bintray.com/cooperate-project/Externals/updatesite/latest/</url>
 		</repository>
-		
+		<repository>
+			<id>cooperate-modelingenvironment</id>
+			<layout>p2</layout>
+			<url>https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/0.8.1/</url>
+		</repository>
 		<repository>
 			<id>cooperate-qvtoutils</id>
 			<layout>p2</layout>
@@ -66,6 +75,11 @@
 			<id>cooperate-papyrusmetamodel</id>
 			<layout>p2</layout>
 			<url>https://dl.bintray.com/cooperate-project/PapyrusMetamodels/updatesite/1.0.0/</url>
+		</repository>
+		<repository>
+			<id>cooperate-cdo</id>
+			<url>https://dl.bintray.com/cooperate-project/CDO/updatesite/4.6.0.coop3/</url>
+			<layout>p2</layout>
 		</repository>
 		
 	</repositories>

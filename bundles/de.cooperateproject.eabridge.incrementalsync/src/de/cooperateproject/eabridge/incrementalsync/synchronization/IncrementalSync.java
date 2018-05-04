@@ -8,10 +8,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.teneo.hibernate.HbDataStore;
+import org.eclipse.emf.teneo.hibernate.SessionWrapper;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -38,7 +36,7 @@ public class IncrementalSync {
 	private static final Logger logger = LoggerFactory.getLogger(IncrementalSync.class);
 	
 	private final Connection sqlConnection;
-	private final Session session;
+	private final SessionWrapper sessionWrapper;
 	private final String prefix;
 
 	private ArrayList<Table> tables;
@@ -51,8 +49,9 @@ public class IncrementalSync {
 	private boolean enabledSaving = false;
 	private volatile int syncInterval = 1000;
 
-	private EContentAdapter savingAdapter = new EContentAdapter();
+	private EContentAdapter savingAdapter;
 	private EObject adapterParent = null;
+    
 
 	/**
 	 * Creates the incremental synchronization to log and update model changes
@@ -69,12 +68,12 @@ public class IncrementalSync {
 	 * @param mode
 	 *            the Synchronization-Mode
 	 */
-	public IncrementalSync(Connection sqlConnection, HbDataStore dbStore, Session session, String prefix, MODE mode) {
+	public IncrementalSync(Connection sqlConnection, SessionWrapper wrapper, String prefix, MODE mode) {
 		this.sqlConnection = sqlConnection;
-		this.tables = SyncUtil.getTables(dbStore);
+		this.tables = SyncUtil.getTables(wrapper);
 		this.prefix = prefix;
 		this.mode = mode;
-		this.session = session;
+		this.sessionWrapper = wrapper;
 
 		initSavingAdapter();
 	}
@@ -151,13 +150,13 @@ public class IncrementalSync {
 					synchronized (remoteChangeLock) {
 						if (!remoteChangeFlag) {
 
-							Transaction transaction = session.beginTransaction();
+							sessionWrapper.beginTransaction();
 							try {
-								session.saveOrUpdate(notifier);
+							    sessionWrapper.saveOrUpdate(notifier);
 							} catch (Exception e) {
 								logger.error("Unable to save object: " + notifier.toString(), e);
 							} finally {
-								transaction.commit();
+								sessionWrapper.commitTransaction();
 							}
 						}
 					}
@@ -286,12 +285,12 @@ public class IncrementalSync {
 
 					// Updates using SESSION QUERY
 					List<EObject> resultsDB = new ArrayList<EObject>();
-					Transaction transaction = session.beginTransaction();
+					Transaction transaction = sessionWrapper.getHibernateSession().beginTransaction();
 					try {
 
-						Query query = session.createQuery(
+					    resultsDB = (List<EObject>) sessionWrapper.executeQuery(
 								String.format("FROM %s WHERE %s = %s", entityName, identifierProperty, update));
-						resultsDB = query.list();
+						//resultsDB = query.list();
 					} catch (Exception e) {
 						logger.error("Unable to use hiberante query.", e);
 					} finally {
@@ -299,7 +298,7 @@ public class IncrementalSync {
 					}
 
 					// Updates using CRITERIA
-					Criteria criteria = session.createCriteria(entityName);
+					Criteria criteria = sessionWrapper.getHibernateSession().createCriteria(entityName);
 					// FIXME: identifierProperty always Long?
 					criteria.add(Restrictions.eq(identifierProperty, Long.parseLong(update)));
 					criteria.setProjection(Projections.rowCount());
@@ -319,8 +318,8 @@ public class IncrementalSync {
 						synchronized (remoteChangeLock) {
 							remoteChangeFlag = true;
 
-							session.refresh(elementToRefresh);
-							session.refresh(parent);
+							sessionWrapper.refresh(elementToRefresh);
+							sessionWrapper.refresh(parent);
 
 							remoteChangeFlag = false;
 						}
@@ -330,14 +329,14 @@ public class IncrementalSync {
 						// Only found using criteria (Probably insert). Update
 						// parent
 
-						criteria = session.createCriteria(entityName);
+						criteria = sessionWrapper.getHibernateSession().createCriteria(entityName);
 						// FIXME: identifierProperty always Long?
 						criteria.add(Restrictions.eq(identifierProperty, Long.parseLong(update)));
 
 						EObject insertedElement = (EObject) criteria.list().get(0);
 						EObject parent = insertedElement.eContainer();
 
-						session.refresh(parent);
+						sessionWrapper.refresh(parent);
 
 					} else if (sizeDBQuery && !sizeHBQuery) {
 
@@ -347,7 +346,7 @@ public class IncrementalSync {
 						EObject deletedElement = resultsDB.get(0);
 						EObject parent = deletedElement.eContainer();
 
-						session.refresh(parent);
+						sessionWrapper.refresh(parent);
 
 					} else {
 

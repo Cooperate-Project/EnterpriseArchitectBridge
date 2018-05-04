@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cooperate Project EABridge CDO Connection Factory
+Bundle-SymbolicName: de.cooperateproject.eabridge.services.cdoconnectionfactory
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.service.component.annotations;version="1.3.0";resolution:=optional,
+ org.osgi.service.metatype;version="1.3.0";resolution:=optional
+Service-Component: OSGI-INF/cdoconnection.xml
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.emf.cdo,
+ de.cooperateproject.cdo.util
+Export-Package: de.cooperateproject.eabridge.services.cdoconnectionfactory

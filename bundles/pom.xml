@@ -17,8 +17,12 @@
 		<module>de.cooperateproject.eabridge.logging</module>
 		<module>de.cooperateproject.eabridge.transformation</module>
 		<module>de.cooperateproject.eabridge.services</module>
-		<module>de.cooperateproject.eabridge.services.eadbsync</module>
+		<module>de.cooperateproject.eabridge.services.cdoconnectionfactory</module>
+		<module>de.cooperateproject.eabridge.services.cdomodeladapter</module>
+		<module>de.cooperateproject.eabridge.services.common</module>
 		<module>de.cooperateproject.eabridge.services.hbdbfactory</module>
+		<module>de.cooperateproject.eabridge.services.modelsyncer</module>
+		<module>de.cooperateproject.eabridge.services.teneoadapter</module>
 	</modules>
 
 </project>

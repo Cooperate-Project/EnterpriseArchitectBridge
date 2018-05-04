@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.eclipse.emf.teneo.hibernate.SessionWrapper;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;
@@ -19,9 +20,9 @@ import de.cooperateproject.eabridge.incrementalsync.monitoring.Table;
 import de.cooperateproject.eabridge.incrementalsync.monitoring.TableAdapter;
 import de.cooperateproject.eabridge.incrementalsync.synchronization.IncrementalSync;
 import de.cooperateproject.eabridge.incrementalsync.synchronization.IncrementalSync.MODE;
+import de.cooperateproject.eabridge.incrementalsync.synchronization.SyncUtil;
 import de.cooperateproject.eabridge.tests.common.TeneoMappingBaseTest;
 import de.cooperateproject.eabridge.tests.common.util.TestResource;
-import de.cooperateproject.eabridge.incrementalsync.synchronization.SyncUtil;
 
 /**
  * Contains basic test cases for the IncrementalSync-Project using a
@@ -31,7 +32,7 @@ public class SyncTest extends TeneoMappingBaseTest {
 
 	public static final String DB_SCHEMA = "test";
 
-	private Session session;
+	private SessionWrapper sessionWrapper;
 	private IncrementalSync sync;
 
 	@Before
@@ -44,10 +45,10 @@ public class SyncTest extends TeneoMappingBaseTest {
 		initLoggingTable();
 
 		// Opens a new session
-		session = getTestDB().getDataStore().getSessionFactory().openSession();
+		sessionWrapper = getTestDB().getDataStore().createSessionWrapper();
 
 		// Creates the IncrementalSync-Object
-		sync = new IncrementalSync(getTestDB().getDbConnection(), getTestDB().getDataStore(), session, "ht_",
+		sync = new IncrementalSync(getTestDB().getDbConnection(), sessionWrapper, "ht_",
 				MODE.LOG_AND_SYNC);
 	}
 
@@ -57,14 +58,14 @@ public class SyncTest extends TeneoMappingBaseTest {
 		sync.stop();
 
 		// Close the opened session
-		session.close();
+		sessionWrapper.close();
 	}
 
 	@Ignore @Test
 	public void extractMappingTest() throws Exception {
 
 		// Get the list of tables from the current mapping
-		ArrayList<Table> tables = SyncUtil.getTables(getTestDB().getDataStore());
+		ArrayList<Table> tables = SyncUtil.getTables(this.sessionWrapper);
 
 		// With the current mapping, there should be now 9 elements
 		assertEquals(9, tables.size());
@@ -104,7 +105,7 @@ public class SyncTest extends TeneoMappingBaseTest {
 		final String newName = "ChangedTheName";
 
 		// Use hibernate to get an element
-		Element element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
+		Element element = (Element) sessionWrapper.executeQuery("FROM Element WHERE ElementID = 2").get(0);
 
 		// Starts IncrementalSync asynchronously
 		sync.startASync();
@@ -131,7 +132,7 @@ public class SyncTest extends TeneoMappingBaseTest {
 	public void testElementInsert() throws Exception {
 
 		// Using hibernate to receive a package from the dbstore
-		Package parent = (Package) session.createQuery("FROM Package WHERE Parent_ID = 1").list().get(0);
+		Package parent = (Package) sessionWrapper.executeQuery("FROM Package WHERE Parent_ID = 1").get(0);
 		assertEquals(parent.getElements().size(), 1);
 
 		// Starts IncrementalSync asynchronously
@@ -163,7 +164,7 @@ public class SyncTest extends TeneoMappingBaseTest {
 	public void testElementDelete() throws Exception {
 
 		// Using hibernate to receive a package from the dbstore
-		Package parent = (Package) session.createQuery("FROM Package WHERE Parent_ID = 1").list().get(0);
+		Package parent = (Package) sessionWrapper.executeQuery("FROM Package WHERE Parent_ID = 1").get(0);
 		assertEquals(parent.getElements().size(), 1);
 
 		// Starts IncrementalSync asynchronously
@@ -182,9 +183,9 @@ public class SyncTest extends TeneoMappingBaseTest {
 		// FIXME: This part should be done by IncremenalSync!
 		Element entity = parent.getElements().get(0);
 		try {
-			session.refresh(entity);
+			sessionWrapper.refresh(entity);
 		} catch (org.hibernate.UnresolvableObjectException e) {
-			session.evict(entity);
+			((Session) sessionWrapper.getSession()).evict(entity);
 		}
 
 		// Count the elements
@@ -196,10 +197,10 @@ public class SyncTest extends TeneoMappingBaseTest {
 	public void testLocalSaving() throws Exception {
 
 		// Using hibernate to receive a parent / root object
-		Package parent = (Package) session.createQuery("FROM Package WHERE Parent_ID = 1").list().get(0);
+		Package parent = (Package) sessionWrapper.executeQuery("FROM Package WHERE Parent_ID = 1").get(0);
 
 		// Use hibernate to get an element
-		Element element = (Element) session.createQuery("FROM Element WHERE ElementID = 2").list().get(0);
+		Element element = (Element) sessionWrapper.executeQuery("FROM Element WHERE ElementID = 2").get(0);
 		String initialName = element.getName();
 
 		// Change the name

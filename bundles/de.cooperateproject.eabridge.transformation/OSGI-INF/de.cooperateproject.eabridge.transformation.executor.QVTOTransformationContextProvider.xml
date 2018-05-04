@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="de.cooperateproject.eabridge.transformation.executor.QVTOTransformationContextProvider">
+   <service>
+      <provide interface="de.cooperateproject.eabridge.services.TransformationContextProvider"/>
+   </service>
+   <reference cardinality="0..n" field="traceProviders" interface="de.cooperateproject.eabridge.services.TransformationTraceHandlerProvider" name="traceProviders" policy="dynamic" policy-option="greedy"/>
+   <implementation class="de.cooperateproject.eabridge.transformation.executor.QVTOTransformationContextProvider"/>
+</scr:component>

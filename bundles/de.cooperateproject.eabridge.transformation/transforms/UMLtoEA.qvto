@@ -9,15 +9,22 @@ modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 main() {
 	var rootModels := uml.rootObjects()[Model];
 	assert fatal (rootModels->size() = 1);
-
-	log("Found Root Models", rootModels);
+    
+	log("Found UML Root Models", rootModels);
 	
-	rootModels->map mapPackage();
-	rootModels->map mapCommentableToElement();
+	var eaPckg = om.rootObjects()[OM::Package]->any(true);
 	
-	var diagrams := notation.objectsOfType(Diagram);
-	diagrams->map mapDiagram();
+	log("Found EAOM Root Model", eaPckg);
+	
+	eaPckg.map mapRoot();
 }
+
+mapping inout eaobjectmodel::Package::mapRoot() {
+    log("Mapping model root", self);
+	self.Packages := uml.rootObjects()[Model]->map mapPackage();
+	self.Packages->any(true).Diagrams := notation.objectsOfType(Diagram)->map mapDiagram();
+	self.Elements := uml.rootObjects()[Model]->map mapCommentableToElement();
+} 
 
 mapping uml::Model::mapModel() : eaobjectmodel::Package {
 	log("Mapping model", self);
@@ -210,7 +217,7 @@ inherits uml::DirectedRelationship::mapDirectedRelationShip {
 	Dest := self.importedPackage.late resolveoneIn(uml::Package::mapPackageToElement);
 	DestIsNavigable := true;
 	result.Type := ConnectorType::Package;
-	Btm_Mid_Label := "«import»";
+	Btm_Mid_Label := "ï¿½importï¿½";
 	result.Stereotype := "import";
 }
 

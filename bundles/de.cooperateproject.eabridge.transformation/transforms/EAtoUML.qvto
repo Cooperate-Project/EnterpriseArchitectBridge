@@ -12,9 +12,7 @@ modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/gmfdiag/style')
 // assumption: only a sub-package of the root package is given as transformation input
 main() {
 	
-	var inputPackages := om.rootObjects()[Package];
-	assert fatal (inputPackages->size() = 1);
-	var inputPackage := inputPackages->any(true);
+	var inputPackage := om.rootObjects()[Package]->getFirstModel();
 
 	// mapping to UML model		
 	inputPackage-> map mapRootPackage();
@@ -24,12 +22,27 @@ main() {
 	diagrams->map diagramToDiagram();
 }
 
+query Set(Package)::getFirstModel() : Package {
+	return self->asBag()->getFirstModel();
+}
+
+query Bag(Package)::getFirstModel() : Package {
+    
+    var res = self->select(Flags.startsWith("isModel=1"));
+    if (not (res->isEmpty())) {
+        log("Checking Flags of package candidate: ", res->any(true).Flags);
+    	return res->any(true);
+    };
+    return self.Packages->getFirstModel()->any(true);
+}
+
 // mappings for transformation to uml
 
-mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
+mapping eaobjectmodel::Package::mapRootPackage() : uml::Model @uml{
 	log("mapping Model", self.Name);
 	
 	name := self.Name;
+	//result.packagedElement += self.Packages-> map mapPackage();
 	result.addToFeature("packagedElement", self.Packages-> map mapPackage());
 	
 	var connectors := self.getAllContents()->selectByType(Connector);
@@ -41,17 +54,20 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model {
 }
 
 mapping eaobjectmodel::Package::mapPackage() : uml::Package {
-	log("mapping Package", self.Name);
+	log("mapping Package", self.toString());
 
 	name := self.Name;
 	
+	//result.packagedElement += self.Packages-> map mapPackage();
 	result.addToFeature("packagedElement", self.Packages-> map mapPackage());
 
 	var classifiers := self.Elements->select(e | e.Type = eaobjectmodel::ElementType::Class or e.Type = eaobjectmodel::ElementType::Interface);
 	var imports := self.getAssociatedElement().SourceRelations->select(e | e.Type = ConnectorType::Package and e.Stereotype = "import");
 	
+	//result.packagedElement += classifiers-> map mapElementToClassifier();
 	result.addToFeature("packagedElement", classifiers-> map mapElementToClassifier());
 	result.setToFeature("packageImport", imports->map mapConnectorToPackageImport());
+	
 }
 
 mapping eaobjectmodel::Element::mapElementToClassifier() : uml::Classifier
@@ -89,6 +105,7 @@ mapping Element::mapElementToClass() : uml::Class
 inherits Element::mapElementToClassifierBase
 when {self.Type = eaobjectmodel::ElementType::Class}
 {	
+    log("mapping Package", self.toString());
 	ownedAttribute += self.Attributes-> map transformAttribute();
 	ownedOperation += self.Methods-> map transformOperations();
 	
@@ -735,10 +752,13 @@ mapping eaobjectmodel::Diagram::stringValueStyle() : notation::StringValueStyle
 
 mapping eaobjectmodel::Diagram::diagramStyle() : notation::DiagramStyle
 {	
+
+    log ("Mapping diagramstyle", result.toString());
 }
 
 mapping eaobjectmodel::Diagram::papyrusViewStyle(rootElement : uml::Package) : style::PapyrusDiagramStyle
 {
+    log ("Mapping papyrus view style", result.toString());
 	owner := rootElement.toEObject();
 	diagramKindId := "org.eclipse.papyrus.uml.diagram.class";
 }

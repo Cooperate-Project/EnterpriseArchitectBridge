@@ -101,7 +101,7 @@ public class HibernateDatabaseFactory implements DatabaseFactory {
 	    return c;
 	}
 	
-	private boolean DEBUG = false;
+	private boolean DEBUG = true;
 	
 	@Override
     public synchronized HbDataStore getDataStore() {

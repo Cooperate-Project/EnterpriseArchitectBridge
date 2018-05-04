@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cooperate Project EABridge Service Commons
+Bundle-SymbolicName: de.cooperateproject.eabridge.services.common
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: de.cooperateproject.eabridge.services,
+ org.eclipse.emf.ecore
+Export-Package: de.cooperateproject.eabridge.services.common

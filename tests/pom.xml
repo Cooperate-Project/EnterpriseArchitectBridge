@@ -19,6 +19,7 @@
 	<modules>
 		<module>de.cooperateproject.eabridge.eaobjectmodel.tests</module>
 		<module>de.cooperateproject.eabridge.incrementalsync.tests</module>
+		<module>de.cooperateproject.eabridge.transformation.tests</module>
 		<module>de.cooperateproject.eabridge.tests.common</module>
 	</modules>
 

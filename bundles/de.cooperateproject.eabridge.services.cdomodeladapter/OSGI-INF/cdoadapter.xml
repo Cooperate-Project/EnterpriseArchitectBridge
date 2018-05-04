@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" activate="activate" configuration-policy="require" deactivate="deactivate" name="cdoadapter">
+   <service>
+      <provide interface="de.cooperateproject.eabridge.services.ModelAdapter"/>
+   </service>
+   <reference cardinality="1..1" field="cdoFactory" interface="de.cooperateproject.eabridge.services.cdoconnectionfactory.CDOConnectionFactory" name="cdoFactory"/>
+   <implementation class="de.cooperateproject.eabridge.services.cdomodeladapter.CDOModelAdapter"/>
+</scr:component>
