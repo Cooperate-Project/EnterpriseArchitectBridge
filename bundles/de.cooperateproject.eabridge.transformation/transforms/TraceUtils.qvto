@@ -1,0 +1,197 @@
+library TraceUtils;
+
+modeltype ECORE uses ecore('http://www.eclipse.org/emf/2002/Ecore');
+modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype QVTO uses qvtoperational('http://www.eclipse.org/QVT/1.0.0/Operational');
+modeltype TRACE uses trace('http:///www.eclipse.org/m2m/qvt/operational/trace.ecore');
+
+/*
+=============================================
+              Global Variables           
+=============================================
+
+Ensure that you initialize these properties before
+calling mappings/constructors/helpers/queries in
+the section named "property dependent".
+*/
+
+property TARGET_TRANSFORMATION_NAME : String;
+property TARGET_TRANSFORMATION : qvtoperational::expressions::OperationalTransformation;
+
+/*
+=============================================
+              Property Dependent        
+=============================================
+
+These utilities require properly initialized
+properties.
+ 
+*/
+
+/**
+ * Creates a trace record from the target model's point of view.
+ *
+ * Assumption: Combination of mapping name and context type is unique.
+ *  
+ * mappingName The name of the mapping operation of the target model
+ * contextType The type of the context (self) element
+ * contextValue The context (self) element
+ * resultType The type of the result element
+ * resultValue The result element
+ * 
+ */
+constructor trace::TraceRecord::TraceRecord(mappingName : String, contextType : String, contextValue : ecore::EObject, resultType : String, resultValue : ecore::EObject)
+{
+	mappingOperation := object trace::EMappingOperation {
+		name := mappingName;
+		package := TARGET_TRANSFORMATION_NAME;
+		module := TARGET_TRANSFORMATION_NAME;
+		//runtimeMappingOperation := TARGET_TRANSFORMATION.getMapping(mappingName, contextType);
+	};
+	context := object trace::EMappingContext {
+		context := object trace::VarParameterValue {
+			name := "self";
+			type := contextType;
+			value := new EValue(contextValue);
+		};
+	};
+	parameters := object trace::EMappingParameters {};
+	result._result := new EMappingResults(resultType, resultValue);			
+}
+
+constructor trace::TraceRecord::TraceRecord(mappingName : String, contextType : String, contextValue : ecore::EObject)
+{
+	mappingOperation := object trace::EMappingOperation {
+		name := mappingName;
+		package := TARGET_TRANSFORMATION_NAME;
+		module := TARGET_TRANSFORMATION_NAME;
+		//runtimeMappingOperation := TARGET_TRANSFORMATION.getMapping(mappingName, contextType);
+	};
+	context := object trace::EMappingContext {
+		context := object trace::VarParameterValue {
+			name := "self";
+			type := contextType;
+			value := new EValue(contextValue);
+		};
+	};
+	parameters := object trace::EMappingParameters {};
+		
+}
+
+/*
+=============================================
+              Regular Utilities        
+=============================================
+
+These utilities make no assumptions.
+ 
+*/
+
+query ecore::EObject::getRoot() : ecore::EObject
+{
+	var parent := self.eobject();
+	while(parent.eContainer() != null) {
+		parent := parent.eContainer();
+	};
+	assert error (parent != null) with log ('Could not find a parent.', self);
+	return parent;
+}
+
+query trace::VarParameterValue::getTraceRecord() : trace::TraceRecord
+{
+	var parent := self.eobject();
+	while(parent != null and not parent.oclIsKindOf(trace::TraceRecord)) {
+		parent := parent.eContainer();
+	};
+
+	assert error (parent.oclIsKindOf(trace::TraceRecord)) with log('Could not find parent trace record.', self);
+
+	return parent.oclAsType(trace::TraceRecord);
+}
+
+query trace::TraceRecord::getResult() : trace::EValue
+{
+	var resultMapping := self.getResultMapping();
+	return resultMapping.value;
+}
+
+query trace::TraceRecord::getResultMapping() : trace::VarParameterValue
+{
+	var results := self._result._result->select((kind = EDirectionKind::OUT or kind = EDirectionKind::INOUT) and name = "result");
+	assert error (results->size() = 1) with log('Records with multiple results are not supported.', self);
+	return results->any(true);
+}
+
+query trace::TraceRecord::getSelf() : trace::EValue
+{
+	return self.getContextMapping().value;
+}
+
+query trace::TraceRecord::getContextMapping() : trace::VarParameterValue
+{
+	return self.context.context;
+}
+
+query OclAny::eobject() : ecore::EObject
+{
+	assert fatal (self.oclIsKindOf(ecore::EObject)) with log('Conversion to EObject only possible for EObjects.');
+	return self.oclAsType(ecore::EObject);
+}
+
+query qvtoperational::expressions::OperationalTransformation::getMapping(name : String, contextType : String) : qvtoperational::expressions::MappingOperation {
+	var operations := self.eAllOperations->selectByKind(qvtoperational::expressions::MappingOperation);
+	var matchingOperations := operations->select(o | o.name = name and o.context.eType.name = contextType);
+	assert error (matchingOperations->size() = 1) with log ('The mapping operation has to be identifyable unambigously.', name);
+	return matchingOperations->any(true);
+}
+
+constructor trace::EValue::EValue(target : Integer)
+{
+	primitiveValue := target.toString();
+	collectionType := "Integer"
+}
+
+constructor trace::EValue::EValue(target : ecore::EObject)
+{
+	modelElement := target;
+}
+
+constructor trace::EValue::EValue(objects : OrderedSet(OclAny))
+{
+	collectionType := "OrderedSet";
+	objects->forEach(c) {
+		collection += new EValue(c.eobject())
+	}
+}
+
+constructor trace::VarParameterValue::VarParameterValue(parameterName : String, parameterValue : Integer)
+{
+	name := parameterName;
+	type := "Integer";
+	value := new EValue(parameterValue);
+}
+
+constructor trace::VarParameterValue::VarParameterValue(parameterName : String, typeName : String, parameterValue : ecore::EObject)
+{
+	name := parameterName;
+	type := typeName;
+	value := new EValue(parameterValue);
+}
+
+constructor trace::VarParameterValue::VarParameterValue(parameterName : String, typeName : String, objects : OrderedSet(OclAny))
+{
+	name := parameterName;
+	type := "OrderedSet(" + typeName + ")";
+	value := new EValue(objects);
+}
+
+constructor trace::EMappingResults::EMappingResults(typeName : String, resultObject : ecore::EObject)
+{
+	result.result := object trace::VarParameterValue {
+		kind := trace::EDirectionKind::OUT;
+		name := "result";
+		type := typeName;
+		value := new EValue(resultObject);
+	}
+}

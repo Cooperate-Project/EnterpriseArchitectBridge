@@ -1,0 +1,89 @@
+import TraceUtils;
+
+transformation EAtoUML_Trace(in eaTrace : TRACE, out umlTrace : TRACE, in umlModel : UML, in umlToEATransformation : QVTO);
+
+modeltype QVTO uses qvtoperational('http://www.eclipse.org/QVT/1.0.0/Operational');
+modeltype TRACE uses trace('http:///www.eclipse.org/m2m/qvt/operational/trace.ecore');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
+
+main() {
+	var traces := eaTrace.rootObjects()[trace::Trace];
+	assert fatal (traces->size() = 1);
+	traces->initializeProperties();
+	traces->map trace();
+}
+
+helper trace::Trace::initializeProperties() {
+	TARGET_TRANSFORMATION_NAME := "UMLtoEA";
+	TARGET_TRANSFORMATION := umlToEATransformation.rootObjects()[qvtoperational::expressions::OperationalTransformation]->any(true);
+}
+
+mapping trace::Trace::trace() : trace::Trace
+{
+	traceRecords += self.traceRecords->map traceRecord()->flatten();
+}
+
+mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
+{ 
+	result += self.map traceRecordPackage();
+	result += self.map traceRecordRootPackage();
+	result += self.map traceRecordElementToClass();
+	result += self.map traceRecordElementToInterface();
+	result += self.map traceRecordElementToClassifierBase();
+	result += self.map traceRecordElementToClassifier();
+}
+
+mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapPackage"}
+{
+	var eaDiagram := self.getSelf().modelElement;
+	var umlDiagram := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaDiagram);
+}
+
+mapping trace::TraceRecord::traceRecordRootPackage() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapRootPackage"}
+{
+	var eaDiagram := self.getSelf().modelElement;
+	var umlDiagram := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaDiagram);
+}
+
+mapping trace::TraceRecord::traceRecordElementToClass() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapElementToClass"}
+{
+	var elem := self.getSelf().modelElement;
+	var cls := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapClassToElement", "Class", cls, "Element", elem);
+}
+
+mapping trace::TraceRecord::traceRecordElementToInterface() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapElementToInterface"} 
+{
+	var elem := self.getSelf().modelElement;
+	var iface := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapInterfaceToElement", "Interface", iface, "Element", elem);
+}
+
+mapping trace::TraceRecord::traceRecordElementToClassifierBase() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapElementToClassifierBase"}
+{
+	var elem := self.getSelf().modelElement;
+	var classifier := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapClassifierToElementBase", "Classifier", classifier, "Element", elem);
+}
+
+mapping trace::TraceRecord::traceRecordElementToClassifier() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapElementToClassifier"}
+{
+	var elem := self.getSelf().modelElement;
+	var classifier := self.getResult().modelElement;
+
+	result += new TraceRecord("mapClassifierToElement", "Classifier", classifier, "Element", elem);
+}
