@@ -19,8 +19,9 @@ import org.junit.Test;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Package;
 import de.cooperateproject.eabridge.transformation.Activator;
+import de.cooperateproject.modeling.transformation.tests.commons.AuxiliaryModelsAddingTransformationRunning;
 
-public class PapyrusToEATest extends EATransformationTestBase {
+public class PapyrusToEATest extends EAPlainTransformationTestBase implements AuxiliaryModelsAddingTransformationRunning {
 
 	public PapyrusToEATest() {
        super(createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA.qvto"), Arrays.asList("uml", "notation"), Arrays.asList("eaom"), 
@@ -28,7 +29,7 @@ public class PapyrusToEATest extends EATransformationTestBase {
 	}
 	
    @Override
-    protected List<ModelExtent> addAuxiliaryModels(List<ModelExtent> parameters) {
+    public List<ModelExtent> addAuxiliaryModels(URI transformationURI, List<ModelExtent> parameters) {
         ArrayList<ModelExtent> result = new ArrayList<>(parameters);
         result.add(2, new BasicModelExtent(getResourceSet()
             .getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents()));

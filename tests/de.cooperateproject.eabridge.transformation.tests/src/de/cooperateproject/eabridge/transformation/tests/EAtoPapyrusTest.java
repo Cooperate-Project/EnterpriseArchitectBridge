@@ -12,8 +12,9 @@ import org.eclipse.uml2.uml.resource.UMLResource;
 import org.junit.Test;
 
 import de.cooperateproject.eabridge.transformation.Activator;
+import de.cooperateproject.modeling.transformation.tests.commons.AuxiliaryModelsAddingTransformationRunning;
 
-public class EAtoPapyrusTest extends EATransformationTestBase {
+public class EAtoPapyrusTest extends EAPlainTransformationTestBase implements AuxiliaryModelsAddingTransformationRunning {
 	
 	public EAtoPapyrusTest() {
 		super(createTransformationURI(Activator.PLUGIN_ID, "EAtoUML.qvto"), Arrays.asList("eaom"), Arrays.asList("uml", "notation"), 
@@ -41,7 +42,7 @@ public class EAtoPapyrusTest extends EATransformationTestBase {
 	}
 
 	@Override
-	protected List<ModelExtent> addAuxiliaryModels(List<ModelExtent> parameters) {
+	public List<ModelExtent> addAuxiliaryModels(URI transformationURI, List<ModelExtent> parameters) {
 	    ArrayList<ModelExtent> result = new ArrayList<>(parameters);
 	    result.add(1, new BasicModelExtent(getResourceSet()
             .getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents()));
