@@ -1,11 +1,16 @@
 import TraceUtils;
+import TransformationUtils;
+import de.cooperateproject.qvtoutils.CooperateLibrary;
 
-transformation EAtoUML_Trace(in eaTrace : TRACE, out umlTrace : TRACE, in umlModel : UML, in umlToEATransformation : QVTO);
+transformation EAtoUML_Trace(in eaTrace : TRACE, out umlTrace : TRACE, in umlModel : UML, in notationModel : NOTATION, in umlToEATransformation : QVTO);
 
 modeltype QVTO uses qvtoperational('http://www.eclipse.org/QVT/1.0.0/Operational');
 modeltype TRACE uses trace('http:///www.eclipse.org/m2m/qvt/operational/trace.ecore');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
+modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
+modeltype ECORE uses ecore('http://www.eclipse.org/emf/2002/Ecore');
+
 
 main() {
 	var traces := eaTrace.rootObjects()[trace::Trace];
@@ -24,6 +29,7 @@ mapping trace::Trace::trace() : trace::Trace
 	traceRecords += self.traceRecords->map traceRecord()->flatten();
 }
 
+//TODO: *expected trace has more lines than actual trace.
 mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 { 
 	result += self.map traceRecordPackage();
@@ -32,6 +38,17 @@ mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 	result += self.map traceRecordElementToInterface();
 	result += self.map traceRecordElementToClassifierBase();
 	result += self.map traceRecordElementToClassifier();
+	result += self.map traceRecordMapDiagram();
+	result += self.map traceRecordDiagramObjectToShape();
+	result += self.map traceRecordConnectoToGeneralization();
+	result += self.map traceRecordConnectoToSubstitution();
+	result += self.map traceRecordConnectoToRealization();
+	result += self.map traceRecordConnectorToPackageImport();
+	result += self.map traceRecordConnectorToAssociation();
+	result += self.map traceRecordAssociationToConnector();
+	result += self.map traceRecordElementToComment();
+	result += self.map traceRecordNoteLinkToConnector();
+	result += self.map traceRecordDiagramLinkToConnector();
 }
 
 mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
@@ -41,6 +58,8 @@ when {self.mappingOperation.name = "mapPackage"}
 	var umlDiagram := self.getResult().modelElement;
 	
 	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaDiagram);
+	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Package", eaDiagram);
+	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram);
 }
 
 mapping trace::TraceRecord::traceRecordRootPackage() : List(trace::TraceRecord)
@@ -50,6 +69,9 @@ when {self.mappingOperation.name = "mapRootPackage"}
 	var umlDiagram := self.getResult().modelElement;
 	
 	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaDiagram);
+	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Package", eaDiagram);
+	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram);
+	
 }
 
 mapping trace::TraceRecord::traceRecordElementToClass() : List(trace::TraceRecord)
@@ -86,4 +108,140 @@ when {self.mappingOperation.name = "mapElementToClassifier"}
 	var classifier := self.getResult().modelElement;
 
 	result += new TraceRecord("mapClassifierToElement", "Classifier", classifier, "Element", elem);
+	result += new TraceRecord("mapCommentableToElement", "Element", classifier, "Element", elem);
+}
+
+mapping trace::TraceRecord::traceRecordMapDiagram() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "diagramToDiagram"}
+{
+	var eaDiagram := self.getSelf().modelElement;
+	var umlDiagram := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapDiagram", "Diagram", umlDiagram, "Diagram", eaDiagram);
+}
+
+mapping trace::TraceRecord::traceRecordDiagramObjectToShape() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "diagramObjectToShape"}
+{
+	var diagramObject := self.getSelf().modelElement;
+	var eaDiagramObject := diagramObject.oclAsType(eaobjectmodel::DiagramObject);
+	
+	var shape := self.getResult().modelElement;
+	var umlShape := shape.oclAsType(notation::Shape);
+	
+	var record := new TraceRecord("mapShape", "Shape", shape, "DiagramObject", diagramObject);
+	record.parameters.parameters += new trace::VarParameterValue("packageLeft", eaDiagramObject.Left - umlShape.getBounds().x);
+	record.parameters.parameters += new trace::VarParameterValue("packageTop", eaDiagramObject.Top + umlShape.getBounds().y);
+	
+	result += record;
+}
+
+query notation::Shape::getBounds() : notation::Bounds {
+	return self.layoutConstraint.oclAsType(notation::Bounds);
+}
+
+//TODO what about generalizationToConnector? -> element of this op is resolved in "connectoToGeneralization".
+mapping trace::TraceRecord::traceRecordConnectoToGeneralization() : List(trace::TraceRecord) 
+when { self.mappingOperation.name = "mapConnectoToGeneralization" } 
+{ 
+	var connector := self.getSelf().modelElement;
+	var generalization := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapGeneralizationToConnector", "Generalization", generalization, "Connector", connector);
+	result += new TraceRecord("mapDirectedRelationShip", "DirectedRelationship", generalization, "Connector", connector);
+}
+
+//TODO check for correctness with an example
+mapping trace::TraceRecord::traceRecordConnectoToSubstitution() : List(trace::TraceRecord) 
+when { self.mappingOperation.name = "mapConnectoToSubstitution" } 
+{
+	var connector := self.getSelf().modelElement;
+	var substitution := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapSubstitutionToConnector", "Substitution", substitution, "Connector", connector);
+	result += new TraceRecord("mapDirectedRelationShip", "DirectedRelationship", substitution, "Connector", connector);	
+}
+
+mapping trace::TraceRecord::traceRecordConnectoToRealization() : List(trace::TraceRecord) 
+when { self.mappingOperation.name = "mapConnectoToRealization" } 
+{
+	var connector := self.getSelf().modelElement;
+	var real := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapRealizationToConnector", "InterfaceRealization", real, "Connector", connector);
+	result += new TraceRecord("mapDirectedRelationShip", "DirectedRelationship", real, "Connector", connector);	
+}
+
+mapping trace::TraceRecord::traceRecordConnectorToPackageImport() : List(trace::TraceRecord) 
+when { self.mappingOperation.name = "mapConnectorToPackageImport" } 
+{
+	var connector := self.getSelf().modelElement;
+	var packageImport := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapPackageImportToConnector", "PackageImport", packageImport, "Connector", connector);
+	result += new TraceRecord("mapDirectedRelationShip", "DirectedRelationship", packageImport, "Connector", connector);	
+}
+
+mapping trace::TraceRecord::traceRecordConnectorToAssociation() : List(trace::TraceRecord) 
+when { self.mappingOperation.name = "mapConnectorToAssociation" } 
+{
+	var connector := self.getSelf().modelElement;
+	var ass := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapAssociationToConnector", "Association", ass, "Connector", connector);
+}
+
+mapping trace::TraceRecord::traceRecordAssociationToConnector() : List(trace::TraceRecord) 
+when { self.mappingOperation.name = "associationToConnector" } 
+{
+	var connector := self.getSelf().modelElement;
+	var ass := self.getResult().modelElement;
+
+	result += new TraceRecord("mapConnectorToAssociation", "DiagramLink", ass, "Connector", connector);
+}
+
+mapping trace::TraceRecord::traceRecordElementToComment() : List(trace::TraceRecord)
+when { self.mappingOperation.name = "mapElementToComment" } 
+{
+	var element := self.getSelf().modelElement;
+	var elementAsElement := element.oclAsType(eaobjectmodel::Element);
+	
+	var comment := self.getResult().modelElement;
+	var commentAsComment := comment.oclAsType(uml::Comment);
+	var commentAsNotation := comment.oclAsType(notation::Node);
+	
+	result += new TraceRecord("mapCommentToElement", "Comment", comment, "Element", element);
+	result += new TraceRecord("mapCommentToElementBase", "Comment", comment, "Element", element);
+	if not commentAsComment.isContainedInElement() then 
+		result += new TraceRecord("mapCommentToElementNested", "Comment", comment, "Element", element)
+		else
+		result += new TraceRecord("mapCommentToElementNotNested", "Comment", comment, "Element", element)
+	endif;
+}
+
+
+mapping trace::TraceRecord::traceRecordNoteLinkToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "noteLinkToConnector"}
+{
+	var noteLink := self.getSelf().modelElement;
+	var con := self.getResult().modelElement;
+
+	result += new TraceRecord("mapConnectorToCommentLink", "Connector", con, "DiagramLink", noteLink);
+}
+
+mapping trace::TraceRecord::traceRecordDiagramLinkToConnector() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "diagramLinkToConnector"}
+{
+	var diagramLink := self.getSelf().modelElement;
+	var con := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapConnector", "Connector", con, "DiagramLink", diagramLink);
+}
+
+query uml::Comment::isContainedInElement() : Boolean {
+	var commentEdge := notationModel.rootObjects()[notation::Diagram].edges->any(
+		type = PAPYRUS_NOTATION_EDGE_COMMENTLINK and
+			(target.element = self.toEObject() or source.element = self.toEObject())
+	);
+	return commentEdge.target.element = self.toEObject();
 }

@@ -6,6 +6,8 @@ modeltype QVTO uses qvtoperational('http://www.eclipse.org/QVT/1.0.0/Operational
 modeltype TRACE uses trace('http:///www.eclipse.org/m2m/qvt/operational/trace.ecore');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
+modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
+modeltype ECORE uses ecore('http://www.eclipse.org/emf/2002/Ecore');
 
 main() {
 	var traces := umlTrace.rootObjects()[trace::Trace];
@@ -31,8 +33,11 @@ mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 	result += self.map traceRecordInterfaceToElement();
 	result += self.map traceRecordClassifierToElementBase();
 	result += self.map traceRecordClassifierToElement();
+	result += self.map traceRecordMapDiagram();
+	result += self.map traceRecordMapShape();
 }
 
+//TODO create "mapRootPackage" traceRecord from one of the "mapPackage" records.
 mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
 when {self.mappingOperation.name = "mapPackage"}
 {
@@ -76,4 +81,25 @@ when {self.mappingOperation.name = "mapClassifierToElement"}
 	var elem := self.getResult().modelElement;
 
 	result += new TraceRecord("mapElementToClassifier", "Element", elem, "Classifier", classifier);
+}
+
+mapping trace::TraceRecord::traceRecordMapDiagram() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapDiagram"}
+{
+	var umlDiagram := self.getSelf().modelElement;
+	var eaDiagram := self.getResult().modelElement;
+	
+	result += new TraceRecord("diagramToDiagram", "Diagram", eaDiagram, "Diagram", umlDiagram);
+}
+
+mapping trace::TraceRecord::traceRecordMapShape() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapShape"}
+{
+	var shape := self.getSelf().modelElement;
+	var layoutConstraint := shape.oclAsType(notation::Shape).layoutConstraint.oclAsType(ecore::EObject);
+	
+	var diagramObject := self.getResult().modelElement; 
+	
+	result += new TraceRecord("diagramObjectToShape", "DiagramObject", diagramObject, "Shape", shape);
+	result += new TraceRecord("diagramObjectToLayoutConstraint", "DiagramObject", diagramObject, "Bounds", layoutConstraint);
 }
