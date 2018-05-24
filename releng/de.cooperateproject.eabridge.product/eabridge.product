@@ -73,7 +73,7 @@
       <feature id="org.eclipse.net4j.util"/>
       <feature id="org.eclipse.net4j.util.ui"/>
       <feature id="org.eclipse.net4j.db.h2"/>
-      <feature id="de.cooperateproject.modeling.transformation.feature" version="0.8.1.qualifier"/>
+      <feature id="de.cooperateproject.modeling.transformation.feature"/>
    </features>
 
    <configurations>
