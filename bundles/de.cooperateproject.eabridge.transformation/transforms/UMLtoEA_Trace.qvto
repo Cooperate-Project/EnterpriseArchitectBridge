@@ -1,4 +1,5 @@
 import TraceUtils;
+import TransformationUtils;
 
 transformation UMLtoEA_Trace(in umlTrace : TRACE, out eaTrace : TRACE, in eaModel : OM, in eaToUMLTransformation : QVTO);
 
@@ -8,6 +9,8 @@ modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype OM uses eaobjectmodel('de.cooperateproject.eabridge.eaobjectmodel');
 modeltype NOTATION uses notation('http://www.eclipse.org/gmf/runtime/1.0.2/notation');
 modeltype ECORE uses ecore('http://www.eclipse.org/emf/2002/Ecore');
+modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/gmfdiag/style');
+
 
 main() {
 	var traces := umlTrace.rootObjects()[trace::Trace];
@@ -26,6 +29,7 @@ mapping trace::Trace::trace() : trace::Trace
 	traceRecords += self.traceRecords->map traceRecord()->flatten();
 }
 
+//TODO include transformationUtils mappings / change package
 mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 { 
 	result += self.map traceRecordPackage();
@@ -35,6 +39,7 @@ mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 	result += self.map traceRecordClassifierToElement();
 	result += self.map traceRecordMapDiagram();
 	result += self.map traceRecordMapShape();
+	result += self.map traceRecordMapPackageImportToConnector();
 }
 
 //TODO create "mapRootPackage" traceRecord from one of the "mapPackage" records.
@@ -86,10 +91,19 @@ when {self.mappingOperation.name = "mapClassifierToElement"}
 mapping trace::TraceRecord::traceRecordMapDiagram() : List(trace::TraceRecord) 
 when {self.mappingOperation.name = "mapDiagram"}
 {
-	var umlDiagram := self.getSelf().modelElement;
+	var umlDiagram := self.getSelf().modelElement.oclAsType(notation::Diagram);
 	var eaDiagram := self.getResult().modelElement;
 	
-	result += new TraceRecord("diagramToDiagram", "Diagram", eaDiagram, "Diagram", umlDiagram);
+	result += new TraceRecord("diagramToDiagram", "Diagram", eaDiagram, "Diagram", umlDiagram.eobject());
+	result += new TraceRecord("stringValueStyle", "Diagram", eaDiagram, "StringValueStyle", umlDiagram.styles->any(oclIsKindOf(notation::StringValueStyle)).eobject());
+    result += new TraceRecord("diagramStyle", "Diagram", eaDiagram, "DiagramStyle", umlDiagram.styles->any(oclIsKindOf(notation::DiagramStyle)).eobject());
+    var viewStyleRecord := new TraceRecord("papyrusViewStyle", "Diagram", eaDiagram, "PapyrusDiagramStyle", umlDiagram.styles->any(oclIsKindOf(style::PapyrusDiagramStyle)).eobject());
+    viewStyleRecord.parameters.parameters += object VarParameterValue {
+        name := "rootElement";
+        type := "Package";
+        value := new EValue(umlDiagram.element);
+    };
+    result += viewStyleRecord;
 }
 
 mapping trace::TraceRecord::traceRecordMapShape() : List(trace::TraceRecord) 
@@ -102,4 +116,200 @@ when {self.mappingOperation.name = "mapShape"}
 	
 	result += new TraceRecord("diagramObjectToShape", "DiagramObject", diagramObject, "Shape", shape);
 	result += new TraceRecord("diagramObjectToLayoutConstraint", "DiagramObject", diagramObject, "Bounds", layoutConstraint);
+	
+	result += self.map traceRecordMapShape_Specific();
+}
+
+mapping trace::TraceRecord::traceRecordMapShape_Specific() : List(trace::TraceRecord) 
+merges trace::TraceRecord::traceRecordMapShape_Package, trace::TraceRecord::traceRecordMapShape_Class, trace::TraceRecord::traceRecordMapShape_Interface, trace::TraceRecord::traceRecordMapShape_Comment {	
+}
+
+mapping trace::TraceRecord::traceRecordMapShape_Package() : List(trace::TraceRecord) 
+when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Element.Type = ElementType::Package}
+{
+	var shape := self.getSelf().modelElement;
+	var nameDeco := shape.oclAsType(notation::Shape).getChild(PAPYRUS_NOTATION_NODE_PACKAGE_NAME_REGULAR).eobject();
+	var compartment := shape.oclAsType(notation::Shape).getChild(PAPYRUS_NOTATION_COMPARTMENT_PACKAGE_PACKAGEABLE_REGULAR).oclAsType(notation::BasicCompartment).eobject();
+	
+	var diagramObject := self.getResult().modelElement; 
+	
+	result += new TraceRecord("packageToShape", "DiagramObject", diagramObject, "Shape", shape);
+	result += new TraceRecord("diagramObjectToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
+	result += new TraceRecord("packageToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
+	result += new TraceRecord("packageToCompartment", "DiagramObject", diagramObject, "DecorationNode", compartment);
+	
+	//TODO package of "titleStyle" is TransformationUtils, not "EAtoUML"
+	result += new TraceRecord("titleStyle", "EObject", compartment, "TitleStyle", compartment.oclAsType(notation::BasicCompartment).styles->selectByKind(notation::TitleStyle)->any(true).eobject());
+	
+	//TraceUtils for compartment
+	result += compartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_notationBounds();
+} 
+
+mapping trace::TraceRecord::traceRecordMapShape_Class() : List(trace::TraceRecord) 
+when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Element.Type = ElementType::Class}
+{
+	var shape := self.getSelf().modelElement;
+	var nameDeco := shape.oclAsType(notation::Shape).getChild(PAPYRUS_NOTATION_NODE_CLASS_NAME_REGULAR).eobject();
+	var floatingLabelDeco := self.getSelfNode().getChild(PAPYRUS_NOTATION_NODE_CLASS_FLOATINGLABEL_REGULAR).eobject();
+	var attrCompartment := self.getSelfNode().getChild(PAPYRUS_NOTATION_COMPARTMENT_CLASS_PROPERTIES_REGULAR).eobject(); 
+	var opCompartment := self.getSelfNode().getChild(PAPYRUS_NOTATION_COMPARTMENT_CLASS_OPERATIONS_REGULAR).eobject();
+	var sigCompartment := self.getSelfNode().getChild(PAPYRUS_NOTATION_COMPARTMENT_CLASS_NESTED_REGULAR).eobject();
+	
+	var diagramObject := self.getResult().modelElement; 
+	
+	result += new TraceRecord("classToShape", "DiagramObject", diagramObject, "Shape", shape);
+	result += new TraceRecord("classToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
+	result += new TraceRecord("diagramObjectToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
+	result += new TraceRecord("diagramObjectToFloatingLabelDecorationNode", "DiagramObject", diagramObject, "DecorationNode", floatingLabelDeco);
+	result += new TraceRecord("classToFloatingLabelDecorationNode", "DiagramObject", diagramObject, "DecorationNode", floatingLabelDeco);
+	result += floatingLabelDeco.oclAsType(notation::Node).map traceRecordExtended_locationConstraint();
+	
+	result += new TraceRecord("diagramObjectToAttributesCompartment", "DiagramObject", diagramObject, "BasicCompartment", attrCompartment);
+	result += new TraceRecord("classToAttributesCompartment", "DiagramObject", diagramObject, "BasicCompartment", attrCompartment);
+	result += attrCompartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_basicCompartment();
+	
+	
+	result += new TraceRecord("diagramObjectToOperationsCompartment", "DiagramObject", diagramObject, "BasicCompartment", opCompartment);
+	result += new TraceRecord("classToOperationsCompartment", "DiagramObject", diagramObject, "BasicCompartment", opCompartment);
+	result += opCompartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_basicCompartment();
+	
+	
+	result += new TraceRecord("diagramObjectToSignalsCompartment", "DiagramObject", diagramObject, "BasicCompartment", sigCompartment);
+	result += new TraceRecord("classToSignalsCompartment", "DiagramObject", diagramObject, "BasicCompartment", sigCompartment);
+	result += sigCompartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_basicCompartment();
+}
+
+mapping trace::TraceRecord::traceRecordMapShape_Interface() : List(trace::TraceRecord) 
+when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Element.Type = ElementType::Interface}
+{
+	var shape := self.getSelf().modelElement;
+	var nameDeco := shape.oclAsType(notation::Shape).getChild(PAPYRUS_NOTATION_NODE_INTERFACE_NAME_REGULAR).eobject();
+	var floatingLabelDeco := self.getSelfNode().getChild(PAPYRUS_NOTATION_NODE_INTERFACE_FLOATINGLABEL_REGULAR).eobject();
+	var attrCompartment := self.getSelfNode().getChild(PAPYRUS_NOTATION_COMPARTMENT_INTERFACE_PROPERTIES_REGULAR).eobject(); 
+	var opCompartment := self.getSelfNode().getChild(PAPYRUS_NOTATION_COMPARTMENT_INTERFACE_OPERATIONS_REGULAR).eobject();
+	var sigCompartment := self.getSelfNode().getChild(PAPYRUS_NOTATION_COMPARTMENT_INTERFACE_NESTED_REGULAR).eobject();
+	
+	var diagramObject := self.getResult().modelElement; 
+	
+	result += new TraceRecord("interfaceToShape", "DiagramObject", diagramObject, "Shape", shape);
+	result += new TraceRecord("interfaceToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
+	result += new TraceRecord("diagramObjectToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
+	result += new TraceRecord("diagramObjectToFloatingLabelDecorationNode", "DiagramObject", diagramObject, "DecorationNode", floatingLabelDeco);
+	result += new TraceRecord("interfaceToFloatingLabelDecorationNode", "DiagramObject", diagramObject, "DecorationNode", floatingLabelDeco);
+	result += floatingLabelDeco.oclAsType(notation::Node).map traceRecordExtended_locationConstraint();
+	
+	result += new TraceRecord("diagramObjectToAttributesCompartment", "DiagramObject", diagramObject, "BasicCompartment", attrCompartment);
+	result += new TraceRecord("interfaceToAttributesCompartment", "DiagramObject", diagramObject, "BasicCompartment", attrCompartment);
+	result += attrCompartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_basicCompartment();
+	
+	
+	result += new TraceRecord("diagramObjectToOperationsCompartment", "DiagramObject", diagramObject, "BasicCompartment", opCompartment);
+	result += new TraceRecord("interfaceToOperationsCompartment", "DiagramObject", diagramObject, "BasicCompartment", opCompartment);
+	result += opCompartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_basicCompartment();
+	
+	
+	result += new TraceRecord("diagramObjectToSignalsCompartment", "DiagramObject", diagramObject, "BasicCompartment", sigCompartment);
+	result += new TraceRecord("interfaceToSignalsCompartment", "DiagramObject", diagramObject, "BasicCompartment", sigCompartment);
+	result += sigCompartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_basicCompartment();
+}
+
+mapping trace::TraceRecord::traceRecordMapShape_Comment() : List(trace::TraceRecord) 
+when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Element.Type = ElementType::Note}
+{
+	var shape := self.getSelf().modelElement;
+	var nameDeco := shape.oclAsType(notation::Shape).getChild(PAPYRUS_NOTATION_NODE_COMMENT_BODY_REGULAR).eobject();
+	
+	var diagramObject := self.getResult().modelElement; 
+	
+	result += new TraceRecord("commentToShape", "DiagramObject", diagramObject, "Shape", shape);
+	result += new TraceRecord("diagramObjectToLabelBodyHintDecoration", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
+}
+
+mapping trace::TraceRecord::traceRecordMapPackageImportToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapPackageImportToConnector"}
+{
+	result += self.map traceRecordMapDiagramLinkToConnector();
+
+	var packageImport := self.getSelf().modelElement;
+	var targetAnchor := packageImport.oclAsType(notation::Connector).targetAnchor.eobject();
+	var sourceAnchor := packageImport.oclAsType(notation::Connector).sourceAnchor.eobject();
+	var nameDeco := packageImport.oclAsType(notation::Connector).getChild(PAPYRUS_NOTATION_NODE_PACKAGEIMPORT_STEREOTYPE).eobject();
+	
+	var connector := self.getResult().modelElement;
+
+	result += new TraceRecord("packageImportToConnector", "DiagramLink", connector, "Connector", packageImport);
+	result += new TraceRecord("diagramLinkToStereotypeDecorationNode", "DiagramLink", connector, "DecorationNode", nameDeco);
+	result += new TraceRecord("diagramLinkToStereotypeDecorationNodePackageImport", "DiagramLink", connector, "DecorationNode", nameDeco);
+}
+
+//TODO what about mapConnectorToAssociation?
+mapping trace::TraceRecord::traceRecordMapAssociationToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapAssociationToConnector"}
+{
+	result += self.map traceRecordMapDiagramLinkToConnector();
+}
+
+mapping trace::TraceRecord::traceRecordMapGeneralizationToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapGeneralizationToConnector"}
+{
+	result += self.map traceRecordMapDiagramLinkToConnector();
+}
+
+mapping trace::TraceRecord::traceRecordMapImplementationToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapRealizationToConnector"}
+{
+	result += self.map traceRecordMapDiagramLinkToConnector();
+}
+
+mapping trace::TraceRecord::traceRecordMapNoteLinkToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapConnectorToCommentLink"}
+{
+	result += self.map traceRecordMapDiagramLinkToConnector();
+}
+
+//TODO what about "substitutionToConnector"? -> mapConnectoToSubstitution
+mapping trace::TraceRecord::traceRecordMapDiagramLinkToConnector() : List(trace::TraceRecord) 
+{
+	var diagramLink := self.getSelf().modelElement;
+	var targetAnchor := diagramLink.oclAsType(notation::Connector).targetAnchor.eobject();
+	var sourceAnchor := diagramLink.oclAsType(notation::Connector).sourceAnchor.eobject();
+	
+	var connector := self.getResult().modelElement;
+	
+	result += new TraceRecord("diagramLinkToConnector", "DiagramLink", connector, "Connector", diagramLink);
+	
+	result += new TraceRecord("diagramLinkToTargetAnchor", "DiagramLink", connector, "IdentityAnchor", targetAnchor);
+	result += new TraceRecord("diagramLinkToSourceAnchor", "DiagramLink", connector, "IdentityAnchor", sourceAnchor);
+	result += new TraceRecord("connectorToBendpoint", "Connector", diagramLink, "RelativeBendpoints", diagramLink.oclAsType(notation::Connector).bendpoints.eobject());
+	result += new TraceRecord("fontStyle", "EObject", diagramLink, "FontStyle", diagramLink.oclAsType(notation::Connector).styles->selectByKind(notation::FontStyle)->any(true).eobject());
+	
+}
+
+//helpers
+
+query trace::TraceRecord::getSelfNode() : notation::Node {
+    assert error (self.getSelf().modelElement.oclIsKindOf(notation::Node)) with log('The contained model element is not a node.');
+    return self.getSelf().modelElement.oclAsType(notation::Node);
+}
+
+query notation::Node::getChild(type : String) : notation::Node
+{
+    return self.getChildInternal(type).oclAsType(notation::Node);
+}
+
+query notation::Edge::getChild(type : String) : notation::Node
+{
+    return self.getChildInternal(type).oclAsType(notation::Node);
+}
+
+query notation::View::getChild(type : String) : notation::View
+{
+    return self.getChildInternal(type);
+}
+
+query notation::View::getChildInternal(type : String) : notation::View
+{
+    var matches := self.children->select(v | v.type = type or v.type = type + "_CN" );
+    assert error (matches->size() = 1) with log('The child has to be identifiable unambigously by its type id ' + type, self);
+    return matches->any(true);
 }
