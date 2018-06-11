@@ -45,8 +45,8 @@ constructor trace::TraceRecord::TraceRecord(mappingName : String, contextType : 
 {
 	mappingOperation := object trace::EMappingOperation {
 		name := mappingName;
-		package := TARGET_TRANSFORMATION_NAME;
-		module := TARGET_TRANSFORMATION_NAME;
+		package := mappingName.getMappingModuleName();
+		module := mappingName.getMappingModuleName();
 		//runtimeMappingOperation := TARGET_TRANSFORMATION.getMapping(mappingName, contextType);
 	};
 	context := object trace::EMappingContext {
@@ -64,8 +64,8 @@ constructor trace::TraceRecord::TraceRecord(mappingName : String, contextType : 
 {
 	mappingOperation := object trace::EMappingOperation {
 		name := mappingName;
-		package := TARGET_TRANSFORMATION_NAME;
-		module := TARGET_TRANSFORMATION_NAME;
+		package := mappingName.getMappingModuleName();
+		module := mappingName.getMappingModuleName();
 		//runtimeMappingOperation := TARGET_TRANSFORMATION.getMapping(mappingName, contextType);
 	};
 	context := object trace::EMappingContext {
@@ -224,9 +224,35 @@ mapping notation::Node::traceRecordExtended_notationBounds() : trace::TraceRecor
 	}
 }
 
+mapping notation::Node::traceRecordExtended_booleanValueStyle() : trace::TraceRecord
+{
+	init {
+	result := new TraceRecord("booleanValueStyle", "EObject", self.eobject(), "BooleanValueStyle", self.styles->selectByKind(notation::BooleanValueStyle)->any(true).eobject())
+	}
+}
+
+mapping notation::Node::traceRecordExtended_diagramLinkDeco() : List(trace::TraceRecord) {
+	result += self.map traceRecordExtended_locationConstraint();
+	result += self.map traceRecordExtended_booleanValueStyle();
+}
+
 mapping notation::DecorationNode::traceRecordExtended_visibleTrueAnnotation() : List(trace::TraceRecord)
 {
 	var relevantAnnotation := self.eAnnotations->any(source = "PapyrusCSSForceValue");
 	result += new TraceRecord("visibleTrueAnnotation", "DecorationNode", self.eobject(), "EAnnotation", relevantAnnotation.eobject());
 	result += new TraceRecord("annotationToVisibleDetail", "EAnnotation", relevantAnnotation.eobject(), "EStringToStringMapEntry", relevantAnnotation.details->any(key = "visible").eobject());
+}
+
+query String::getMappingModuleName() : String
+{
+	var transformationUtilsMappings := 
+		"locationConstraint".oclAsSet()
+		->including("booleanValueStyle")
+		->including("titleStyle")
+		->including("sortingStyle")
+		->including("filteringStyle")
+		->including("notationBounds")
+		->including("fontStyle")
+		->including("connectorToBendpoint");
+	return if transformationUtilsMappings->includes(self) then "TransformationUtils" else TARGET_TRANSFORMATION_NAME endif;
 }

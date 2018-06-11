@@ -29,7 +29,6 @@ mapping trace::Trace::trace() : trace::Trace
 	traceRecords += self.traceRecords->map traceRecord()->flatten();
 }
 
-//TODO include transformationUtils mappings / change package
 mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 { 
 	result += self.map traceRecordPackage();
@@ -39,53 +38,18 @@ mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 	result += self.map traceRecordClassifierToElement();
 	result += self.map traceRecordMapDiagram();
 	result += self.map traceRecordMapShape();
+	result += self.map traceRecordMapConnectorToAssociation();
+	result += self.map traceRecordMapNoteLinkToConnector();
+	result += self.map traceRecordMapConnector();
 	result += self.map traceRecordMapPackageImportToConnector();
-}
-
-//TODO create "mapRootPackage" traceRecord from one of the "mapPackage" records.
-mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
-when {self.mappingOperation.name = "mapPackage"}
-{
-	var umlDiagram := self.getSelf().modelElement;
-	var eaDiagram := self.getResult().modelElement;
-	
-	result += new TraceRecord("mapPackage", "Package", eaDiagram, "Package", umlDiagram);
-}
-
-mapping trace::TraceRecord::traceRecordClassToElement() : List(trace::TraceRecord)
-when {self.mappingOperation.name = "mapClassToElement"}
-{
-	var cls := self.getSelf().modelElement;
-	var elem := self.getResult().modelElement;
-	
-	result += new TraceRecord("mapElementToClass", "Element", elem, "Class", cls);
-}
-
-mapping trace::TraceRecord::traceRecordInterfaceToElement() : List(trace::TraceRecord)
-when {self.mappingOperation.name = "mapInterfaceToElement"} 
-{
-	var iface := self.getSelf().modelElement;
-	var elem := self.getResult().modelElement;
-	
-	result += new TraceRecord("mapElementToInterface", "Element", elem, "Interface", iface);
-}
-
-mapping trace::TraceRecord::traceRecordClassifierToElementBase() : List(trace::TraceRecord)
-when {self.mappingOperation.name = "mapClassifierToElementBase"}
-{
-	var classifier := self.getSelf().modelElement;
-	var elem := self.getResult().modelElement;
-	
-	result += new TraceRecord("mapElementToClassifierBase", "Element", elem, "Classifier", classifier);
-}
-
-mapping trace::TraceRecord::traceRecordClassifierToElement() : List(trace::TraceRecord)
-when {self.mappingOperation.name = "mapClassifierToElement"}
-{
-	var classifier := self.getSelf().modelElement;
-	var elem := self.getResult().modelElement;
-
-	result += new TraceRecord("mapElementToClassifier", "Element", elem, "Classifier", classifier);
+	result += self.map traceRecordMapSubstitutionToConnector();
+	result += self.map traceRecordMapGeneralizationToConnector();
+	result += self.map traceRecordMapRealizationToConnector();
+	result += self.map traceRecordMapElementToNoteLink();
+	result += self.map traceRecordMapAssociationToConnector();
+	result += self.map traceRecordMapPropertyToAttribute();
+	result += self.map traceRecordMapOperationToMethod();
+	result += self.map traceRecordMapParameter();
 }
 
 mapping trace::TraceRecord::traceRecordMapDiagram() : List(trace::TraceRecord) 
@@ -138,7 +102,6 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Elem
 	result += new TraceRecord("packageToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
 	result += new TraceRecord("packageToCompartment", "DiagramObject", diagramObject, "DecorationNode", compartment);
 	
-	//TODO package of "titleStyle" is TransformationUtils, not "EAtoUML"
 	result += new TraceRecord("titleStyle", "EObject", compartment, "TitleStyle", compartment.oclAsType(notation::BasicCompartment).styles->selectByKind(notation::TitleStyle)->any(true).eobject());
 	
 	//TraceUtils for compartment
@@ -167,7 +130,6 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Elem
 	result += new TraceRecord("diagramObjectToAttributesCompartment", "DiagramObject", diagramObject, "BasicCompartment", attrCompartment);
 	result += new TraceRecord("classToAttributesCompartment", "DiagramObject", diagramObject, "BasicCompartment", attrCompartment);
 	result += attrCompartment.oclAsType(notation::BasicCompartment).map traceRecordExtended_basicCompartment();
-	
 	
 	result += new TraceRecord("diagramObjectToOperationsCompartment", "DiagramObject", diagramObject, "BasicCompartment", opCompartment);
 	result += new TraceRecord("classToOperationsCompartment", "DiagramObject", diagramObject, "BasicCompartment", opCompartment);
@@ -225,11 +187,10 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Elem
 	result += new TraceRecord("diagramObjectToLabelBodyHintDecoration", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
 }
 
-mapping trace::TraceRecord::traceRecordMapPackageImportToConnector() : List(trace::TraceRecord) 
-when {self.mappingOperation.name = "mapPackageImportToConnector"}
+mapping trace::TraceRecord::traceRecordMapConnector_PackageImport() : List(trace::TraceRecord) 
+when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connector.Type = ConnectorType::Package
+	and self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connector.Stereotype = "import"}
 {
-	result += self.map traceRecordMapDiagramLinkToConnector();
-
 	var packageImport := self.getSelf().modelElement;
 	var targetAnchor := packageImport.oclAsType(notation::Connector).targetAnchor.eobject();
 	var sourceAnchor := packageImport.oclAsType(notation::Connector).sourceAnchor.eobject();
@@ -242,33 +203,94 @@ when {self.mappingOperation.name = "mapPackageImportToConnector"}
 	result += new TraceRecord("diagramLinkToStereotypeDecorationNodePackageImport", "DiagramLink", connector, "DecorationNode", nameDeco);
 }
 
-//TODO what about mapConnectorToAssociation?
-mapping trace::TraceRecord::traceRecordMapAssociationToConnector() : List(trace::TraceRecord) 
-when {self.mappingOperation.name = "mapAssociationToConnector"}
-{
-	result += self.map traceRecordMapDiagramLinkToConnector();
+mapping trace::TraceRecord::traceRecordMapConnectorToAssociation() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapConnectorToAssociation"}
+{	
+	var connector := self.getSelf().modelElement.oclAsType(notation::Connector);
+	var association := self.getResult().modelElement;
+	
+	result += new TraceRecord("associationToConnector", "DiagramLink", association, "Connector", connector.eobject());
+	
+	var stereotypeDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_STEREOTYPE).eobject();
+	result += new TraceRecord("diagramLinkToStereotypeDecoration", "DiagramLink", association, "DecorationNode", stereotypeDeco);
+	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
+	
+	var nameDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_NAME).eobject();
+	result += new TraceRecord("diagramLinkToNameDecoration", "DiagramLink", association, "DecorationNode", nameDeco);
+	result += nameDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
+	
+	var targetRoleDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETROLE).eobject();
+	result += new TraceRecord("diagramLinkToTargetRoleDecoration", "DiagramLink", association, "DecorationNode", targetRoleDeco);
+	result += targetRoleDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
+	
+	var sourceRoleDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEROLE).eobject();
+	result += new TraceRecord("diagramLinkToSourceRoleDecoration", "DiagramLink", association, "DecorationNode", sourceRoleDeco);
+	result += sourceRoleDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
+	
+	var targetMultiplicityDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETMULTIPLICITY).eobject();
+	result += new TraceRecord("diagramLinkToSourceMultiplicityDecoration", "DiagramLink", association, "DecorationNode", targetMultiplicityDeco);
+	result += targetMultiplicityDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
+	
+	var sourceMultiplicityDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEMULTIPLICITY).eobject();
+	result += new TraceRecord("diagramLinkToSourceRoleDecoration", "DiagramLink", association, "DecorationNode", sourceMultiplicityDeco);
+	result += sourceMultiplicityDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
 }
 
-mapping trace::TraceRecord::traceRecordMapGeneralizationToConnector() : List(trace::TraceRecord) 
-when {self.mappingOperation.name = "mapGeneralizationToConnector"}
+mapping trace::TraceRecord::traceRecordMapConnector_Generalization() : List(trace::TraceRecord) 
+when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connector.Type = ConnectorType::Generalization}
 {
-	result += self.map traceRecordMapDiagramLinkToConnector();
+	var connector := self.getSelf().modelElement.oclAsType(notation::Connector);
+	var gen := self.getResult().modelElement;
+	
+	result += new TraceRecord("generalizationToConnector", "DiagramLink", gen, "Connector", connector.eobject());
+	
+	var stereotypeDeco := connector.getChild(PAPYRUS_NOTATION_NODE_GENERALIZATION_STEREOTYPE).eobject();
+	result += new TraceRecord("diagramLinkToStereotypeDecorationNode", "DiagramLink", gen, "DecorationNode", stereotypeDeco);
+	result += new TraceRecord("diagramLinkToStereotypeDecorationNodeGeneralization", "DiagramLink", gen, "DecorationNode", stereotypeDeco);
+	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_booleanValueStyle();
 }
 
-mapping trace::TraceRecord::traceRecordMapImplementationToConnector() : List(trace::TraceRecord) 
-when {self.mappingOperation.name = "mapRealizationToConnector"}
+mapping trace::TraceRecord::traceRecordMapConnector_Implementation() : List(trace::TraceRecord) 
+when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connector.Type = ConnectorType::Realisation}
 {
-	result += self.map traceRecordMapDiagramLinkToConnector();
+	var connector := self.getSelf().modelElement.oclAsType(notation::Connector);
+	var impl := self.getResult().modelElement;
+	
+	result += new TraceRecord("implementationToConnector", "DiagramLink", impl, "Connector", connector.eobject());
+	
+	var stereotypeDeco := connector.getChild(PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_STEREOTYPE).eobject();
+	result += new TraceRecord("diagramLinkToStereotypeDecorationNode", "DiagramLink", impl, "DecorationNode", stereotypeDeco);
+	result += new TraceRecord("diagramLinkToStereotypeDecorationNodeInterfaceRealization", "DiagramLink", impl, "DecorationNode", stereotypeDeco);
+	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_booleanValueStyle();
+	
+	var nameDeco := connector.getChild(PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_NAME).eobject();
+	result += new TraceRecord("diagramLinkToNameDecorationNode", "DiagramLink", impl, "DecorationNode", nameDeco);
+	result += new TraceRecord("diagramLinkToNameDecorationNodeInterfaceRealization", "DiagramLink", impl, "DecorationNode", nameDeco);
+	result += nameDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
 }
 
 mapping trace::TraceRecord::traceRecordMapNoteLinkToConnector() : List(trace::TraceRecord) 
 when {self.mappingOperation.name = "mapConnectorToCommentLink"}
 {
-	result += self.map traceRecordMapDiagramLinkToConnector();
+	var connector := self.getSelf().modelElement;
+	var commentLink := self.getResult().modelElement;
+	
+	result += new TraceRecord("noteLinkToConnector", "DiagramLink", commentLink, "Connector", connector);
 }
 
-//TODO what about "substitutionToConnector"? -> mapConnectoToSubstitution
-mapping trace::TraceRecord::traceRecordMapDiagramLinkToConnector() : List(trace::TraceRecord) 
+mapping trace::TraceRecord::traceRecordMapConnector_Specific() : List(trace::TraceRecord)
+merges trace::TraceRecord::traceRecordMapConnector_PackageImport, trace::TraceRecord::traceRecordMapConnector_Generalization, trace::TraceRecord::traceRecordMapConnector_Implementation
+{ }
+
+mapping trace::TraceRecord::traceRecordMapConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapConnector"}
+{
+	result += self.map traceRecordMapConnector_DiagramLink();
+
+	result += self.map traceRecordMapConnector_Specific();
+}
+
+mapping trace::TraceRecord::traceRecordMapConnector_DiagramLink() : List(trace::TraceRecord) 
 {
 	var diagramLink := self.getSelf().modelElement;
 	var targetAnchor := diagramLink.oclAsType(notation::Connector).targetAnchor.eobject();
@@ -282,8 +304,164 @@ mapping trace::TraceRecord::traceRecordMapDiagramLinkToConnector() : List(trace:
 	result += new TraceRecord("diagramLinkToSourceAnchor", "DiagramLink", connector, "IdentityAnchor", sourceAnchor);
 	result += new TraceRecord("connectorToBendpoint", "Connector", diagramLink, "RelativeBendpoints", diagramLink.oclAsType(notation::Connector).bendpoints.eobject());
 	result += new TraceRecord("fontStyle", "EObject", diagramLink, "FontStyle", diagramLink.oclAsType(notation::Connector).styles->selectByKind(notation::FontStyle)->any(true).eobject());
-	
 }
+
+/*
+*
+* UML TRACE MAPPINGS
+*
+*/
+
+mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapPackage"}
+{
+	var umlDiagram := self.getSelf().modelElement;
+	var eaDiagram := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapPackage", "Package", eaDiagram, "Package", umlDiagram);
+}
+
+mapping trace::TraceRecord::traceRecordClassToElement() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapClassToElement"}
+{
+	var cls := self.getSelf().modelElement;
+	var elem := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapElementToClass", "Element", elem, "Class", cls);
+}
+
+mapping trace::TraceRecord::traceRecordInterfaceToElement() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapInterfaceToElement"} 
+{
+	var iface := self.getSelf().modelElement;
+	var elem := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapElementToInterface", "Element", elem, "Interface", iface);
+}
+
+mapping trace::TraceRecord::traceRecordClassifierToElementBase() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapClassifierToElementBase"}
+{
+	var classifier := self.getSelf().modelElement;
+	var elem := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapElementToClassifierBase", "Element", elem, "Classifier", classifier);
+}
+
+mapping trace::TraceRecord::traceRecordClassifierToElement() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapClassifierToElement"}
+{
+	var classifier := self.getSelf().modelElement;
+	var elem := self.getResult().modelElement;
+
+	result += new TraceRecord("mapElementToClassifier", "Element", elem, "Classifier", classifier);
+}
+
+mapping trace::TraceRecord::traceRecordMapPackageImportToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapPackageImportToConnector"}
+{
+	var packageImport := self.getSelf().modelElement;
+	var connector := self.getResult().modelElement;
+
+	result += new TraceRecord("mapConnectorToPackageImport", "Connector", connector, "PackageImport", packageImport);
+}
+
+mapping trace::TraceRecord::traceRecordMapSubstitutionToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapSubstitutionToConnector"}
+{
+	var subst := self.getSelf().modelElement;
+	var connector := self.getResult().modelElement;
+
+	result += new TraceRecord("mapConnectoToSubstitution", "Connector", connector, "Substitution", subst);
+}
+
+mapping trace::TraceRecord::traceRecordMapGeneralizationToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapGeneralizationToConnector"}
+{
+	var gen := self.getSelf().modelElement;
+	var connector := self.getResult().modelElement;
+
+	result += new TraceRecord("mapConnectoToGeneralization", "Connector", connector, "Generalization", gen);
+}
+
+mapping trace::TraceRecord::traceRecordMapRealizationToConnector() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapRealizationToConnector"}
+{
+	var realization := self.getSelf().modelElement;
+	var connector := self.getResult().modelElement;
+
+	result += new TraceRecord("mapConnectoToRealization", "Connector", connector, "InterfaceRealization", realization);
+}
+
+mapping trace::TraceRecord::traceRecordMapElementToNoteLink() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapElementToNoteLink"}
+{
+	var note := self.getSelf().modelElement;
+	var connector := self.getResult().modelElement;
+
+	result += new TraceRecord("mapElementToComment", "Connector", connector, "Comment", note);
+}
+
+mapping trace::TraceRecord::traceRecordMapAssociationToConnector() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapAssociationToConnector"}
+{
+	var ass := self.getSelf().modelElement;
+	var con := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapConnectorToAssociation", "Connector", con, "Association", ass);
+	
+	var prop := con.oclAsType(eaobjectmodel::Connector);
+	result += new TraceRecord("mapSourceToProperty", "Connector", prop.eobject(), "Property", ass);
+	
+	if (prop.getSourceLower() != null and prop.getSourceLower() != 1 or prop.getSourceUpper() != null and prop.getSourceLower() != 1)
+		then result += new TraceRecord("mapSourceToPropertyMultiplicities", "Connector", prop.eobject(), "Property", con)
+	endif;
+	
+	result += new TraceRecord("mapDestToProperty", "Connector", prop.eobject(), "Property", ass);
+	
+	if (prop.getDestLower() != null and prop.getDestLower() != 1 or prop.getDestUpper() != null and prop.getDestUpper() != 1)
+		then result += new TraceRecord("mapDestToPropertyMultiplicities", "Connector", prop.eobject(), "Property", con)
+	endif;
+}
+
+mapping trace::TraceRecord::traceRecordMapParameter() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapParameter"} 
+{
+	var umlParam := self.getSelf().modelElement;
+	var eaParam := self.getResult().modelElement;
+	
+	result += new TraceRecord("transformParameters", "Methodparameter", eaParam, "Parameter", umlParam);
+	
+	if (eaParam.oclAsType(eaobjectmodel::Methodparameter).ParameterType.classifier = null)
+		result += new TraceRecord("transformParameterPrimitive", "Methodparameter", eaParam, "Parameter", umlParam)
+	else result += new TraceRecord("transformParameterClassifier", "Methodparameter", eaParam, "Parameter", umlParam)
+}
+
+mapping trace::TraceRecord::traceRecordMapOperationToMethod() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapOperationToMethod"}
+{
+	var op := self.getSelf().modelElement;
+	var method := self.getResult().modelElement;
+	
+	result += new TraceRecord("transformOperations", "Method", method, "Operation", op);
+	
+	var eaMethodTypes := method.oclAsType(eaobjectmodel::Method);
+}
+
+mapping trace::TraceRecord::traceRecordMapPropertyToAttribute() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "mapPropertyToAttribute"}
+{
+	var prop := self.getSelf().modelElement;
+	var attr := self.getResult().modelElement;
+	
+	result += new TraceRecord("transformAttribute", "Attribute", attr, "Property", prop);
+	
+	if (attr.oclAsType(eaobjectmodel::Attribute).AttributeType.classifier != null)
+		result += new TraceRecord("transformAttributeClassifier", "Attribute", attr, "Property", prop)
+	else 
+		result += new TraceRecord("transformAttributePrimitive", "Attribute", attr, "Property", prop)
+}
+
 
 //helpers
 

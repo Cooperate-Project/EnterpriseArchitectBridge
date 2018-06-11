@@ -18,14 +18,13 @@ import de.cooperateproject.eabridge.transformation.Activator;
 
 public class PapyrusToEATraceTest extends EATraceTransformationTestBase {
 
-	private int counter;
+	private static final URI UML2EA = createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA.qvto");
+	private static final URI EA2UML = createTransformationURI(Activator.PLUGIN_ID, "EAtoUML.qvto");
+	private static final URI UML2EA_TRACE = createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA_Trace.qvto");
 
 	public PapyrusToEATraceTest() {
-		super(createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA.qvto"),
-				createTransformationURI(Activator.PLUGIN_ID, "EAtoUML.qvto"),
-				createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA_Trace.qvto"), Arrays.asList("uml", "notation"),
-				Arrays.asList("eaom"), TestEnvironmentConstants.TEST_PLUGIN_ID);
-		counter = 0;
+		super(UML2EA, EA2UML, UML2EA_TRACE, Arrays.asList("uml", "notation"), Arrays.asList("eaom"),
+				TestEnvironmentConstants.TEST_PLUGIN_ID);
 	}
 
 	@Test
@@ -35,19 +34,18 @@ public class PapyrusToEATraceTest extends EATraceTransformationTestBase {
 
 	@Test
 	public void testAdvancedAssociation() throws Exception {
+		setDebugSerializationDir(new File("debugNew-AdvAss-PapyrusToEA"));
 		testTraceTransformation("AdvancedAssociation/model");
 	}
 
 	@Override
 	public List<ModelExtent> addAuxiliaryModels(URI transformationURI, List<ModelExtent> parameters) {
 		ArrayList<ModelExtent> result = new ArrayList<>(parameters);
-		switch (counter) {
-		case 0:
+		if (transformationURI == EA2UML) {
 			result.add(1, new BasicModelExtent(getResourceSet()
 					.getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents()));
-			counter = 1;
 			return result;
-		case 1:
+		} else if (transformationURI == UML2EA) {
 			result.add(2, new BasicModelExtent(getResourceSet()
 					.getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents()));
 
@@ -66,9 +64,9 @@ public class PapyrusToEATraceTest extends EATraceTransformationTestBase {
 
 				resultExtent.setContents(Collections.singletonList(rootPackage));
 			}
-			counter = 2;
+
 			return result;
-		default:
+		} else {
 			return parameters;
 		}
 	}

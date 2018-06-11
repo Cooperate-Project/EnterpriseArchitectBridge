@@ -252,7 +252,7 @@ merges Methodparameter::transformParameterPrimitive, Methodparameter::transformP
 }
 
 mapping Methodparameter::transformParameterPrimitive() :  uml::Parameter
-when {self.ParameterType.classifier != null}
+when {self.ParameterType.classifier = null}
 {
 	type := self.ParameterType.getPrimitiveType().transformPrimitive();
 }

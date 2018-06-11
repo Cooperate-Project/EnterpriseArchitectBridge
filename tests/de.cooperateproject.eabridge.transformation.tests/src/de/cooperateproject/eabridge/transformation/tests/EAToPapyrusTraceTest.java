@@ -22,14 +22,13 @@ import de.cooperateproject.modeling.transformation.tests.commons.AuxiliaryModels
 public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
 		implements AuxiliaryModelsAddingTransformationRunning {
 
-	private int counter;
+	private static final URI EA2UML = createTransformationURI(Activator.PLUGIN_ID, "EAtoUML.qvto");
+	private static final URI UML2EA = createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA.qvto");
+	private static final URI EA2UML_TRACE = createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA_Trace.qvto");
 
 	public EAToPapyrusTraceTest() {
-		super(createTransformationURI(Activator.PLUGIN_ID, "EAtoUML.qvto"),
-				createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA.qvto"),
-				createTransformationURI(Activator.PLUGIN_ID, "EAtoUML_Trace.qvto"), Arrays.asList("eaom"),
-				Arrays.asList("uml", "notation"), TestEnvironmentConstants.TEST_PLUGIN_ID);
-		counter = 0;
+		super(EA2UML, UML2EA, EA2UML_TRACE, Arrays.asList("eaom"), Arrays.asList("uml", "notation"),
+				TestEnvironmentConstants.TEST_PLUGIN_ID);
 	}
 
 	@Test
@@ -45,8 +44,7 @@ public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
 	@Override
 	public List<ModelExtent> addAuxiliaryModels(URI transformationURI, List<ModelExtent> parameters) {
 		ArrayList<ModelExtent> result = new ArrayList<>(parameters);
-		switch (counter) {
-		case 0:
+		if (transformationURI == UML2EA) {
 			result.add(2, new BasicModelExtent(getResourceSet()
 					.getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents()));
 
@@ -67,9 +65,8 @@ public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
 
 				resultExtent.setContents(Collections.singletonList(rootPackage));
 			}
-			counter = 1;
 			return result;
-		case 1:
+		} else if (transformationURI == EA2UML) {
 			result.add(1, new BasicModelExtent(getResourceSet()
 					.getResource(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI), true).getContents()));
 
@@ -81,12 +78,9 @@ public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
 					.copy(getResourceSet().getResource(expectedUri, true).getContents().get(0));
 
 			result.get(0).setContents(rootPackage.getPackages());
-			counter = 2;
 			return result;
-		default:
+		} else {
 			return parameters;
-
 		}
 	}
-
 }
