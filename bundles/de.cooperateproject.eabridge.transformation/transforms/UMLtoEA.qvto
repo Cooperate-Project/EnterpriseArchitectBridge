@@ -55,7 +55,12 @@ mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 				// the connectors are assigned via the eOpposite relation inside the association
 				umlPackagedElements->selectByType(uml::Association)->map mapAssociationToConnector();
 	Elements += self.getFeature("ownedComment")->oclAsType(uml::Comment)->map mapCommentToElement();
-	
+	if (self.oclIsKindOf(uml::Model)) {
+	   if (Flags.oclIsUndefined()) then Flags := "" endif;
+	   if (Flags.indexOf("isModel=1") <= 0) {
+		  Flags := if (Flags.length() > 0) then ";" else "" endif + "isModel=1";
+		} endif;
+	};
 	PackageGUID := if PackageGUID != null then PackageGUID else generateUUID() endif;
 }
 

@@ -13,6 +13,7 @@ modeltype STYLE uses style('http://www.eclipse.org/papyrus/infra/gmfdiag/style')
 main() {
 	
 	var inputPackage := om.rootObjects()[Package]->getFirstModel();
+	assert fatal (not inputPackage.oclIsUndefined()) with log ("No EA root model found: ", inputPackage);
 
 	// mapping to UML model		
 	inputPackage-> map mapRootPackage();
@@ -23,17 +24,9 @@ main() {
 }
 
 query Set(Package)::getFirstModel() : Package {
-	return self->asBag()->getFirstModel();
-}
-
-query Bag(Package)::getFirstModel() : Package {
+    var packages : Set(Package)= self->collectNested(Packages)->flatten()->union(self)[Package]->asSet();
     
-    var res = self->select(Flags.startsWith("isModel=1"));
-    if (not (res->isEmpty())) {
-        log("Checking Flags of package candidate: ", res->any(true).Flags);
-    	return res->any(true);
-    };
-    return self.Packages->getFirstModel()->any(true);
+    return  packages->any(p | (not p.Flags.oclIsUndefined()) and p.Flags.indexOf("isModel=1") > 0);
 }
 
 // mappings for transformation to uml
