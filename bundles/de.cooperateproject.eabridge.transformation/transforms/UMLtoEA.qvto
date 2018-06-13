@@ -243,7 +243,7 @@ mapping uml::Property::mapPropertyToAttribute(): Attribute {
 	Name := self.name;
 
 	result.Scope := self.visibility.transformVisibility();
-	AttributeType := self.type.transformType();
+	AttributeType := self.type.map transformType();
 	
 	AttributeGUID := if AttributeGUID != null then AttributeGUID else generateUUID() endif;
 }
@@ -256,7 +256,7 @@ mapping uml::Operation::mapOperationToMethod() : Method {
 	
 	self.ownedParameter-> forEach(param) {
 		if (param.direction = ParameterDirectionKind::_return) then 
-		result.ReturnType := param.type.transformType() endif;
+		result.ReturnType := param.type.map transformType() endif;
 		
 		if (param.direction <> ParameterDirectionKind::_return) then
 		result.Parameters += param.map mapParameter() endif;
@@ -270,7 +270,7 @@ mapping uml::Parameter::mapParameter() : Methodparameter {
 	
 	Name := self.name;
 	Kind := self.direction.transformParameterDirection();
-	ParameterType := self.type.transformType();
+	ParameterType := self.type.map transformType();
 	
 	ea_guid := if ea_guid != null then ea_guid else generateUUID() endif;
 }
@@ -327,22 +327,20 @@ query OM::Connector::transformDirectionType() : OM::DirectionType {
 	};
  }
 
-query uml::Type::transformType() : TypeReference {
+mapping uml::Type::transformType() : TypeReference {
 
 	//FIXME: Good idea? (Alternative: Code duplication)
-	var reference = new TypeReference();
+	result = new TypeReference();
 
 	if (self.oclIsTypeOf(uml::PrimitiveType)) then {
 		log("Transforming primitive type", self);
-		reference.typeName := self.oclAsType(uml::PrimitiveType).transformPrimitive().toString();
+		result.typeName := self.oclAsType(uml::PrimitiveType).transformPrimitive().toString();
 	} else {
 		log("Late resolving class type", self);
-		reference.classifier := self.oclAsType(uml::Class).late resolveone(OM::Element);
+		result.classifier := self.oclAsType(uml::Class).late resolveone(OM::Element);
 		// FIXME: After resolving the classifier, set the typeName (Maybe not needed)
 		//reference.typeName := self.oclAsType(uml::Class).late resolveone(OM::Element)->any(t | t = self.toString());
 	} endif;
-	
-	return reference;
 }
 
 //Graphical
