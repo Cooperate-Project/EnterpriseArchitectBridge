@@ -50,6 +50,7 @@ mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 	result += self.map traceRecordMapPropertyToAttribute();
 	result += self.map traceRecordMapOperationToMethod();
 	result += self.map traceRecordMapParameter();
+	result += self.map traceRecordTransformType();
 }
 
 mapping trace::TraceRecord::traceRecordMapDiagram() : List(trace::TraceRecord) 
@@ -210,7 +211,7 @@ when {self.mappingOperation.name = "mapConnectorToAssociation"}
 	var association := self.getResult().modelElement;
 	
 	result += new TraceRecord("associationToConnector", "DiagramLink", association, "Connector", connector.eobject());
-	
+
 	var stereotypeDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_STEREOTYPE).eobject();
 	result += new TraceRecord("diagramLinkToStereotypeDecoration", "DiagramLink", association, "DecorationNode", stereotypeDeco);
 	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
@@ -311,6 +312,21 @@ mapping trace::TraceRecord::traceRecordMapConnector_DiagramLink() : List(trace::
 * UML TRACE MAPPINGS
 *
 */
+
+mapping trace::TraceRecord::traceRecordTransformType() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "transformType"} 
+{
+	var umlType := self.getSelf().modelElement;
+	var eaType := self.getResult().modelElement;
+	
+	result += new TraceRecord("TypeReferenceToParamter", "TypeReference", eaType, "Parameter", umlType);
+	
+	if (eaType.oclAsType(eaobjectmodel::TypeReference).classifier != null)
+		then result += new TraceRecord("TypeReferenceToParamterClassifier", "TypeReference", eaType, "Parameter", umlType)
+	else 
+		result += new TraceRecord("TypeReferenceToParamterPrimitive", "TypeReference", eaType, "Parameter", umlType)
+	endif
+}
 
 mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
 when {self.mappingOperation.name = "mapPackage"}
