@@ -202,6 +202,7 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connec
 	result += new TraceRecord("packageImportToConnector", "DiagramLink", connector, "Connector", packageImport);
 	result += new TraceRecord("diagramLinkToStereotypeDecorationNode", "DiagramLink", connector, "DecorationNode", nameDeco);
 	result += new TraceRecord("diagramLinkToStereotypeDecorationNodePackageImport", "DiagramLink", connector, "DecorationNode", nameDeco);
+	result += nameDeco.oclAsType(notation::Node).map traceRecordExtended_locationConstraint();
 }
 
 mapping trace::TraceRecord::traceRecordMapConnectorToAssociation() : List(trace::TraceRecord) 
@@ -248,7 +249,7 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connec
 	var stereotypeDeco := connector.getChild(PAPYRUS_NOTATION_NODE_GENERALIZATION_STEREOTYPE).eobject();
 	result += new TraceRecord("diagramLinkToStereotypeDecorationNode", "DiagramLink", gen, "DecorationNode", stereotypeDeco);
 	result += new TraceRecord("diagramLinkToStereotypeDecorationNodeGeneralization", "DiagramLink", gen, "DecorationNode", stereotypeDeco);
-	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_booleanValueStyle();
+	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
 }
 
 mapping trace::TraceRecord::traceRecordMapConnector_Implementation() : List(trace::TraceRecord) 
@@ -262,7 +263,7 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connec
 	var stereotypeDeco := connector.getChild(PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_STEREOTYPE).eobject();
 	result += new TraceRecord("diagramLinkToStereotypeDecorationNode", "DiagramLink", impl, "DecorationNode", stereotypeDeco);
 	result += new TraceRecord("diagramLinkToStereotypeDecorationNodeInterfaceRealization", "DiagramLink", impl, "DecorationNode", stereotypeDeco);
-	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_booleanValueStyle();
+	result += stereotypeDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
 	
 	var nameDeco := connector.getChild(PAPYRUS_NOTATION_NODE_INTERFACEREALIZATION_NAME).eobject();
 	result += new TraceRecord("diagramLinkToNameDecorationNode", "DiagramLink", impl, "DecorationNode", nameDeco);
@@ -462,6 +463,17 @@ when {self.mappingOperation.name = "mapOperationToMethod"}
 	result += new TraceRecord("transformOperations", "Method", method, "Operation", op);
 	
 	var eaMethodTypes := method.oclAsType(eaobjectmodel::Method);
+	
+	result += new TraceRecord("methodToShape", "Method", method, "Shape", op);
+	//TODO can op be casted to Shape? 
+	result += op.oclAsType(notation::Shape).map traceRecordExtended_locationConstraint();
+	
+	if (eaMethodTypes.Parent.Type = ElementType::Class) 
+		then result += new TraceRecord("classMethodToShape", "Method", method, "Shape", op)
+		else if (eaMethodTypes.Parent.Type = ElementType::Interface) 
+			then result += new TraceRecord("interfaceMethodToShape", "Method", method, "Shape", op)
+		endif 
+	endif
 }
 
 mapping trace::TraceRecord::traceRecordMapPropertyToAttribute() : List(trace::TraceRecord) 
@@ -476,6 +488,18 @@ when {self.mappingOperation.name = "mapPropertyToAttribute"}
 		result += new TraceRecord("transformAttributeClassifier", "Attribute", attr, "Property", prop)
 	else 
 		result += new TraceRecord("transformAttributePrimitive", "Attribute", attr, "Property", prop)
+	endif;
+	
+	result += new TraceRecord("attributeToShape", "Attribute", attr, "Shape", prop);
+	//TODO can prop be casted to Shape?
+	result += prop.oclAsType(notation::Shape).map traceRecordExtended_locationConstraint();
+	
+	if (attr.oclAsType(eaobjectmodel::Attribute).Parent.Type = ElementType::Class)
+		then result += new TraceRecord("classAttributeToShape", "Attribute", attr, "Shape", prop)
+		else if (attr.oclAsType(eaobjectmodel::Attribute).Parent.Type = ElementType::Interface)
+			then result += new TraceRecord("interfaceAttributeToShape", "Attribute", attr, "Shape", prop)
+		endif 
+	endif
 }
 
 
