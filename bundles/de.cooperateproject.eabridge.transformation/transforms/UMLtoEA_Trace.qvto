@@ -32,6 +32,7 @@ mapping trace::Trace::trace() : trace::Trace
 mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 { 
 	result += self.map traceRecordPackage();
+	result += self.map traceRecordRootPackage();
 	result += self.map traceRecordClassToElement();
 	result += self.map traceRecordInterfaceToElement();
 	result += self.map traceRecordClassifierToElementBase();
@@ -329,8 +330,17 @@ when {self.mappingOperation.name = "transformType"}
 	endif
 }
 
+mapping trace::TraceRecord::traceRecordRootPackage() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "mapPackage" and self.getResult().modelElement.oclAsType(eaobjectmodel::Package).isModel() = true}
+{
+	var umlDiagram := self.getSelf().modelElement;
+	var eaDiagram := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapRootPackage", "Package", eaDiagram, "Package", umlDiagram);
+}
+
 mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
-when {self.mappingOperation.name = "mapPackage"}
+when {self.mappingOperation.name = "mapPackage" and self.getResult().modelElement.oclAsType(eaobjectmodel::Package).isModel() = false}
 {
 	var umlDiagram := self.getSelf().modelElement;
 	var eaDiagram := self.getResult().modelElement;
@@ -504,6 +514,14 @@ when {self.mappingOperation.name = "mapPropertyToAttribute"}
 
 
 //helpers
+
+query eaobjectmodel::Package::isModel() : Boolean {
+	if (not self.Flags.oclIsUndefined() and self.Flags.indexOf("isModel=1") > 0) 
+		then return true
+	else 
+		return false 
+	endif;
+}
 
 query trace::TraceRecord::getSelfNode() : notation::Node {
     assert error (self.getSelf().modelElement.oclIsKindOf(notation::Node)) with log('The contained model element is not a node.');
