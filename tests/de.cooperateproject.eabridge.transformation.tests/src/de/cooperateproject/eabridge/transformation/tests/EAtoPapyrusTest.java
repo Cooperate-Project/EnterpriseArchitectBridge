@@ -22,6 +22,16 @@ public class EAtoPapyrusTest extends EAPlainTransformationTestBase implements Au
 	}
 
 	@Test
+    public void testPrimitive() throws IOException {
+        testTransformationRegular("Primitive");
+    }
+	
+	@Test
+    public void testPrimitiveIncremental() throws IOException {
+        testTransformationIncremental("Primitive");
+    }
+	
+	@Test
 	public void testAdvancedAssociation() throws IOException {
 		testTransformationRegular("AdvancedAssociation");
 	}

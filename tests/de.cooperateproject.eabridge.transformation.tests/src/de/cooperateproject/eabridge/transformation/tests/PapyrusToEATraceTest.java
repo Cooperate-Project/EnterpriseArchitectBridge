@@ -27,6 +27,11 @@ public class PapyrusToEATraceTest extends EATraceTransformationTestBase {
 				TestEnvironmentConstants.TEST_PLUGIN_ID);
 	}
 
+    @Test
+    public void testPrimitive() throws Exception {
+        testTraceTransformation("Primitive/model");
+    }
+    
 	@Test
 	public void testNested() throws Exception {
 		testTraceTransformation("Nested/model");

@@ -104,7 +104,7 @@ public abstract class EATransformationTestBase extends PlainTransformationTestBa
 		IMatchEngine.Factory matchEngineFactory = new MatchEngineFactoryImpl(matcher, comparisonFactory);
 		matchEngineFactory.setRanking(20);
 		IMatchEngine.Factory.Registry matchEngineRegistry = new MatchEngineFactoryRegistryImpl();
-		matchEngineRegistry.add(matchEngineFactory);
+		matchEngineRegistry.add(matchEngineFactory);  
 
 		IPostProcessor.Descriptor.Registry<String> postProcessorRegistry = null;
 		if (isPluginEnvironment()) {

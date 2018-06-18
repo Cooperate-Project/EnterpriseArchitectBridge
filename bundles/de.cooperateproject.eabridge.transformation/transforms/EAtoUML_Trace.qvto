@@ -65,12 +65,14 @@ when {self.mappingOperation.name = "mapPackage"}
 mapping trace::TraceRecord::traceRecordRootPackage() : List(trace::TraceRecord)
 when {self.mappingOperation.name = "mapRootPackage"}
 {
-	var eaDiagram := self.getSelf().modelElement;
+	var eaPackage := self.getSelf().modelElement;
+	var eaDiagram := eaPackage.eContainer().eContents()[eaobjectmodel::Element]->any(e | e.ElementGUID = eaPackage.oclAsType(eaobjectmodel::Package).PackageGUID);
 	var umlDiagram := self.getResult().modelElement;
 	
-	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaDiagram);
-	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Package", eaDiagram);
-	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram);
+	result += new TraceRecord("mapRoot", "Package", eaPackage);
+	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaPackage);
+	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Package", eaPackage);
+	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram.oclAsType(EObject));
 	
 }
 
