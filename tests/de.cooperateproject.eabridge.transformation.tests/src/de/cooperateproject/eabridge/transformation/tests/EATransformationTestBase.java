@@ -5,52 +5,19 @@ import static org.junit.Assert.fail;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.EMFCompare;
-import org.eclipse.emf.compare.diff.IDiffEngine;
-import org.eclipse.emf.compare.match.DefaultComparisonFactory;
-import org.eclipse.emf.compare.match.DefaultEqualityHelperFactory;
-import org.eclipse.emf.compare.match.IComparisonFactory;
-import org.eclipse.emf.compare.match.IMatchEngine;
-import org.eclipse.emf.compare.match.eobject.CachingDistance;
-import org.eclipse.emf.compare.match.eobject.EditionDistance;
-import org.eclipse.emf.compare.match.eobject.IEObjectMatcher;
-import org.eclipse.emf.compare.match.eobject.ProximityEObjectMatcher;
-import org.eclipse.emf.compare.match.eobject.WeightProvider.Descriptor.Registry;
-import org.eclipse.emf.compare.match.eobject.WeightProviderDescriptorRegistryImpl;
-import org.eclipse.emf.compare.match.impl.MatchEngineFactoryImpl;
-import org.eclipse.emf.compare.match.impl.MatchEngineFactoryRegistryImpl;
-import org.eclipse.emf.compare.postprocessor.IPostProcessor;
-import org.eclipse.emf.compare.postprocessor.PostProcessorDescriptorRegistryImpl;
-import org.eclipse.emf.compare.rcp.EMFCompareRCPPlugin;
-import org.eclipse.emf.compare.scope.DefaultComparisonScope;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.junit.BeforeClass;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.transformation.Activator;
-import de.cooperateproject.eabridge.transformation.tests.util.CombiningFeatureFilter;
-import de.cooperateproject.eabridge.transformation.tests.util.CombiningWeightProvider;
-import de.cooperateproject.eabridge.transformation.tests.util.CustomizableDefaultDiffEngine;
-import de.cooperateproject.eabridge.transformation.tests.util.EAFeatureFilter;
-import de.cooperateproject.eabridge.transformation.tests.util.EAPostProcessor;
-import de.cooperateproject.eabridge.transformation.tests.util.EAWeightProvider;
-import de.cooperateproject.eabridge.transformation.tests.util.EmptySegmentSupportingURIDistance;
-import de.cooperateproject.eabridge.transformation.tests.util.IWeightProvider;
-import de.cooperateproject.eabridge.transformation.tests.util.NotationFeatureFilter;
-import de.cooperateproject.eabridge.transformation.tests.util.NotationPostProcessor;
-import de.cooperateproject.eabridge.transformation.tests.util.PapyrusWeightProvider;
-import de.cooperateproject.eabridge.transformation.tests.util.UMLPostProcessor;
+import de.cooperateproject.eabridge.transformation.tests.util.EAModelComparisonFactory;
 import de.cooperateproject.modeling.transformation.tests.commons.PlainTransformationTestBase;
 import de.cooperateproject.modeling.transformation.tests.commons.QVTOTransformationRunning;
 import de.cooperateproject.modeling.transformation.tests.commons.TransformationTestBase;
+import de.cooperateproject.modeling.transformation.tests.commons.utils.ModelComparisonFactory;
 
 public abstract class EATransformationTestBase extends PlainTransformationTestBase implements QVTOTransformationRunning {
 	
@@ -75,8 +42,13 @@ public abstract class EATransformationTestBase extends PlainTransformationTestBa
             TransformationTestBase.initEnvironment(delegate);
         });
     }
+    
+    @Override
+    protected ModelComparisonFactory getModelComparisonFactory() {
+        return new EAModelComparisonFactory();
+    }
 	
-	protected static Comparison compareModelsIgnoringIdentifiers(Notifier actual, Notifier expected) {
+	/*protected static Comparison compareModelsIgnoringIdentifiers(Notifier actual, Notifier expected) {
 		Collection<IWeightProvider> weightProviders = new HashSet<>();
 		weightProviders.add(new PapyrusWeightProvider());
 		weightProviders.add(new EAWeightProvider());
@@ -124,7 +96,7 @@ public abstract class EATransformationTestBase extends PlainTransformationTestBa
 		DefaultComparisonScope scope = new DefaultComparisonScope(actual, expected, null);
 		return EMFCompare.builder().setDiffEngine(diffEngine).setMatchEngineFactoryRegistry(matchEngineRegistry)
 				.setPostProcessorRegistry(postProcessorRegistry).build().compare(scope);
-	}
+	}*/
 		
     protected static void load(Resource r, String xmi) {
 		try (InputStream bais = new ByteArrayInputStream(xmi.getBytes())) {

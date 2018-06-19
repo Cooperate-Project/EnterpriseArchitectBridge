@@ -26,13 +26,6 @@ mapping inout eaobjectmodel::Package::mapRoot() {
 	self.Elements := uml.rootObjects()[Model]->map mapCommentableToElement();
 } 
 
-mapping uml::Model::mapModel() : eaobjectmodel::Package {
-	log("Mapping model", self);
-	Name := "Root";
-	Packages += self.map mapPackage();
-	PackageGUID := generateUUID();
-}
-
 mapping uml::Element::mapCommentableToElement() : eaobjectmodel::Element
 disjuncts uml::Package::mapPackageToElement, uml::Classifier::mapClassifierToElement;
 

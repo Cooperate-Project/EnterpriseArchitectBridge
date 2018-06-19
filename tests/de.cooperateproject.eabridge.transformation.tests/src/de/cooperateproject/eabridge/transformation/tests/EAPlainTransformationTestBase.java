@@ -9,17 +9,20 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 import java.util.AbstractMap;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.Comparison;
+import org.eclipse.emf.compare.Diff;
 import org.eclipse.emf.compare.EMFCompare;
 import org.eclipse.emf.compare.scope.DefaultComparisonScope;
 import org.eclipse.emf.ecore.EObject;
@@ -57,10 +60,10 @@ public class EAPlainTransformationTestBase extends EATransformationTestBase {
     }
         
     protected void testTransformationRegular(String modelName) throws IOException {
-        this.testTransformationRegular(modelName, d -> {});
+        this.testTransformationRegular(modelName, d -> Collections.emptyList());
     }
     
-    protected void testTransformationRegular(String modelName, Consumer<Comparison> diffModifier) throws IOException {
+    protected void testTransformationRegular(String modelName, Function<Collection<Diff>,Collection<Diff>> diffModifier) throws IOException {
         List<URI> sourceModelURIs = sourceFileExtensions.stream().map(ext ->
             createResourceModelURI(resourcePluginId, modelName + "/model." + ext)).collect(Collectors.toList());
         List<URI> targetModelURIs = targetFileExtensions.stream().map(ext ->
@@ -83,13 +86,10 @@ public class EAPlainTransformationTestBase extends EATransformationTestBase {
         EcoreUtil.resolveAll(getResourceSet());
         EcoreUtil.resolveAll(getExpectedResourceSet());
         
-        
         debugSerialize(actualResources.stream().flatMap(r -> r.getContents().stream()).collect(Collectors.toList()), 
                 expectedResources.stream().flatMap(r -> r.getContents().stream()).collect(Collectors.toList()));
 
-        Comparison comparison = compareModelsIgnoringIdentifiers(getResourceSet(), getExpectedResourceSet());
-        diffModifier.accept(comparison);
-        assertThat(prettyPrint(comparison), comparison.getDifferences(), is(empty()));
+        assertModelEquals(getResourceSet(), getExpectedResourceSet(), diffModifier);
     }
     
     protected void testTransformationIncremental(String modelName) throws IOException {

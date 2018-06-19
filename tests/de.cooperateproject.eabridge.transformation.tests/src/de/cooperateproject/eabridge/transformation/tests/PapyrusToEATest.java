@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.AttributeChange;
@@ -81,10 +82,10 @@ public class PapyrusToEATest extends EAPlainTransformationTestBase
     @Test
     public void testNested() throws IOException {
         testTransformationRegular("Nested",
-                diff -> diff.getDifferences().stream().filter(AttributeChange.class::isInstance)
-                        .map(AttributeChange.class::cast)
-                        .filter(d -> d.getAttribute() == EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__SEQUENCE)
-                        .forEach(EcoreUtil::delete));
+                diffs -> diffs.stream().filter(AttributeChange.class::isInstance)
+                    .map(AttributeChange.class::cast)
+                    .filter(change -> change.getAttribute() == EaobjectmodelPackage.Literals.DIAGRAM_OBJECT__SEQUENCE)
+                    .collect(Collectors.toList()));
     }
 
     @Test

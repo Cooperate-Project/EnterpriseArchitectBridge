@@ -4,11 +4,13 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
+import org.junit.Before;
 import org.junit.BeforeClass;
 
-import de.cooperateproject.eabridge.transformation.Activator;
+import de.cooperateproject.eabridge.transformation.tests.util.EAModelComparisonFactory;
 import de.cooperateproject.modeling.transformation.tests.commons.DirectedTraceTransformationTestBase;
-import de.cooperateproject.modeling.transformation.tests.commons.TransformationTestBase;
+import de.cooperateproject.modeling.transformation.tests.commons.utils.ModelComparator;
+import de.cooperateproject.modeling.transformation.tests.commons.utils.ModelComparisonFactory;
 
 public class EATraceTransformationTestBase extends DirectedTraceTransformationTestBase {
 
@@ -24,6 +26,9 @@ public class EATraceTransformationTestBase extends DirectedTraceTransformationTe
 		EAPlainTransformationTestBase.initialize();
 	}
 	
-	
+	@Override
+	protected ModelComparisonFactory getModelComparisonFactory() {
+	    return new EAModelComparisonFactory();
+	}
 
 }

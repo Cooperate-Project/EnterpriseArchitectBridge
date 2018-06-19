@@ -65,12 +65,13 @@ mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
 when {self.mappingOperation.name = "mapPackage"}
 {
-	var eaDiagram := self.getSelf().modelElement;
-	var umlDiagram := self.getResult().modelElement;
+	var eaPackage := self.getSelf().modelElement; //EAPackage
+	var eaElement := eaPackage.eContainer().eContents()[eaobjectmodel::Element]->any(e | e.ElementGUID = eaPackage.oclAsType(eaobjectmodel::Package).PackageGUID);
+	var umlPackage := self.getResult().modelElement; //EAPackage
 	
-	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaDiagram);
-	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Package", eaDiagram);
-	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram);
+	result += new TraceRecord("mapPackage", "Package", umlPackage, "Package", eaPackage);
+	result += new TraceRecord("mapPackageToElement", "Package", umlPackage, "Element", eaElement.oclAsType(EObject));
+	result += new TraceRecord("mapCommentableToElement", "Element", umlPackage, "Element", eaElement.oclAsType(EObject));
 }
 
 mapping trace::TraceRecord::traceRecordRootPackage() : List(trace::TraceRecord)
@@ -80,9 +81,11 @@ when {self.mappingOperation.name = "mapRootPackage"}
 	var eaDiagram := eaPackage.eContainer().eContents()[eaobjectmodel::Element]->any(e | e.ElementGUID = eaPackage.oclAsType(eaobjectmodel::Package).PackageGUID);
 	var umlDiagram := self.getResult().modelElement;
 	
-	result += new TraceRecord("mapRoot", "Package", eaPackage);
+	var rootRecord = new TraceRecord("mapRoot", "Package", eaPackage);
+	rootRecord.context.context.kind := EDirectionKind::INOUT;
+	result += rootRecord;
 	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaPackage);
-	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Package", eaPackage);
+	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Element", eaDiagram.oclAsType(EObject));
 	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram.oclAsType(EObject));
 	
 }
