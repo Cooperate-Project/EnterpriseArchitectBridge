@@ -29,7 +29,6 @@ mapping trace::Trace::trace() : trace::Trace
 	traceRecords += self.traceRecords->map traceRecord()->flatten();
 }
 
-//TODO: *expected trace has more lines than actual trace.
 mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 { 
 	result += self.map traceRecordPackage();
@@ -49,7 +48,19 @@ mapping trace::TraceRecord::traceRecord() : List(trace::TraceRecord)
 	result += self.map traceRecordElementToComment();
 	result += self.map traceRecordNoteLinkToConnector();
 	result += self.map traceRecordDiagramLinkToConnector();
+	result += self.map traceRecordTransformAttribute();
+	result += self.map traceRecordTransformAttribute_Type();
+	result += self.map traceRecordTransformOperations();
+	result += self.map traceRecordTransformParameters();
+	result += self.map traceRecordTypeReferenceToParamter();
 }
+
+/*
+ *
+ * UML MAPPINGS
+ *
+ *
+*/
 
 mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
 when {self.mappingOperation.name = "mapPackage"}
@@ -113,36 +124,6 @@ when {self.mappingOperation.name = "mapElementToClassifier"}
 	result += new TraceRecord("mapCommentableToElement", "Element", classifier, "Element", elem);
 }
 
-mapping trace::TraceRecord::traceRecordMapDiagram() : List(trace::TraceRecord) 
-when {self.mappingOperation.name = "diagramToDiagram"}
-{
-	var eaDiagram := self.getSelf().modelElement;
-	var umlDiagram := self.getResult().modelElement;
-	
-	result += new TraceRecord("mapDiagram", "Diagram", umlDiagram, "Diagram", eaDiagram);
-}
-
-mapping trace::TraceRecord::traceRecordDiagramObjectToShape() : List(trace::TraceRecord) 
-when {self.mappingOperation.name = "diagramObjectToShape"}
-{
-	var diagramObject := self.getSelf().modelElement;
-	var eaDiagramObject := diagramObject.oclAsType(eaobjectmodel::DiagramObject);
-	
-	var shape := self.getResult().modelElement;
-	var umlShape := shape.oclAsType(notation::Shape);
-	
-	var record := new TraceRecord("mapShape", "Shape", shape, "DiagramObject", diagramObject);
-	record.parameters.parameters += new trace::VarParameterValue("packageLeft", eaDiagramObject.Left - umlShape.getBounds().x);
-	record.parameters.parameters += new trace::VarParameterValue("packageTop", eaDiagramObject.Top + umlShape.getBounds().y);
-	
-	result += record;
-}
-
-query notation::Shape::getBounds() : notation::Bounds {
-	return self.layoutConstraint.oclAsType(notation::Bounds);
-}
-
-//TODO what about generalizationToConnector? -> element of this op is resolved in "connectoToGeneralization".
 mapping trace::TraceRecord::traceRecordConnectoToGeneralization() : List(trace::TraceRecord) 
 when { self.mappingOperation.name = "mapConnectoToGeneralization" } 
 { 
@@ -153,7 +134,6 @@ when { self.mappingOperation.name = "mapConnectoToGeneralization" }
 	result += new TraceRecord("mapDirectedRelationShip", "DirectedRelationship", generalization, "Connector", connector);
 }
 
-//TODO check for correctness with an example
 mapping trace::TraceRecord::traceRecordConnectoToSubstitution() : List(trace::TraceRecord) 
 when { self.mappingOperation.name = "mapConnectoToSubstitution" } 
 {
@@ -193,15 +173,6 @@ when { self.mappingOperation.name = "mapConnectorToAssociation" }
 	result += new TraceRecord("mapAssociationToConnector", "Association", ass, "Connector", connector);
 }
 
-mapping trace::TraceRecord::traceRecordAssociationToConnector() : List(trace::TraceRecord) 
-when { self.mappingOperation.name = "associationToConnector" } 
-{
-	var connector := self.getSelf().modelElement;
-	var ass := self.getResult().modelElement;
-
-	result += new TraceRecord("mapConnectorToAssociation", "DiagramLink", ass, "Connector", connector);
-}
-
 mapping trace::TraceRecord::traceRecordElementToComment() : List(trace::TraceRecord)
 when { self.mappingOperation.name = "mapElementToComment" } 
 {
@@ -221,6 +192,95 @@ when { self.mappingOperation.name = "mapElementToComment" }
 	endif;
 }
 
+mapping trace::TraceRecord::traceRecordTransformAttribute() : List(trace::TraceRecord)
+when { self.mappingOperation.name = "transformAttribute" } 
+{
+	var attr := self.getSelf().modelElement;
+	var prop := self.getResult().modelElement;
+
+	result += new TraceRecord("mapPropertyToAttribute", "Property", prop, "Attribute", attr);
+	
+	var type := prop.oclAsType(uml::Property).type.eobject();
+	var typeRef := attr.oclAsType(eaobjectmodel::Attribute).AttributeType.eobject();
+}
+
+//TODO check if this works (because of change of transformType from query to mapping)
+mapping trace::TraceRecord::traceRecordTransformAttribute_Type() : List(trace::TraceRecord)
+when { self.mappingOperation.name = "transformAttributeClassifier" or self.mappingOperation.name = "transformAttributePrimitive" } 
+{
+	var typeRef := self.getSelf().modelElement;
+	var type := self.getResult().modelElement;
+
+	result += new TraceRecord("transformType", "Type", type, "TypeReference", typeRef);
+}
+
+mapping trace::TraceRecord::traceRecordTransformOperations() : List(trace::TraceRecord)
+when { self.mappingOperation.name = "transformOperations" } 
+{
+	var method := self.getSelf().modelElement;
+	var op := self.getResult().modelElement;
+
+	result += new TraceRecord("mapOperationToMethod", "Operation", op, "Method", method);
+}
+
+mapping trace::TraceRecord::traceRecordTransformParameters() : List(trace::TraceRecord)
+when { self.mappingOperation.name = "transformParameters" } 
+{
+	var eaParam := self.getSelf().modelElement;
+	var umlParam := self.getResult().modelElement;
+
+	result += new TraceRecord("mapParameter", "Parameter", umlParam, "Methodparameter", eaParam);
+}
+
+//TODO check if this works (because of change of transformType from query to mapping)
+mapping trace::TraceRecord::traceRecordTypeReferenceToParamter() : List(trace::TraceRecord)
+when {self.mappingOperation.name = "TypeReferenceToParamter" } 
+{
+	var typeRef := self.getSelf().modelElement;
+	var param := self.getResult().modelElement;
+	
+	result += new TraceRecord("transformType", "Type", param, "TypeReference", typeRef);
+}
+
+/*
+ *
+ * NOTATION MAPPINGS
+ *
+*/
+
+mapping trace::TraceRecord::traceRecordMapDiagram() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "diagramToDiagram"}
+{
+	var eaDiagram := self.getSelf().modelElement;
+	var umlDiagram := self.getResult().modelElement;
+	
+	result += new TraceRecord("mapDiagram", "Diagram", umlDiagram, "Diagram", eaDiagram);
+}
+
+mapping trace::TraceRecord::traceRecordDiagramObjectToShape() : List(trace::TraceRecord) 
+when {self.mappingOperation.name = "diagramObjectToShape"}
+{
+	var diagramObject := self.getSelf().modelElement;
+	var eaDiagramObject := diagramObject.oclAsType(eaobjectmodel::DiagramObject);
+	
+	var shape := self.getResult().modelElement;
+	var umlShape := shape.oclAsType(notation::Shape);
+	
+	var record := new TraceRecord("mapShape", "Shape", shape, "DiagramObject", diagramObject);
+	record.parameters.parameters += new trace::VarParameterValue("packageLeft", eaDiagramObject.Left - umlShape.getBounds().x);
+	record.parameters.parameters += new trace::VarParameterValue("packageTop", eaDiagramObject.Top + umlShape.getBounds().y);
+	
+	result += record;
+}
+
+mapping trace::TraceRecord::traceRecordAssociationToConnector() : List(trace::TraceRecord) 
+when { self.mappingOperation.name = "associationToConnector" } 
+{
+	var connector := self.getSelf().modelElement;
+	var ass := self.getResult().modelElement;
+
+	result += new TraceRecord("mapConnectorToAssociation", "DiagramLink", ass, "Connector", connector);
+}
 
 mapping trace::TraceRecord::traceRecordNoteLinkToConnector() : List(trace::TraceRecord) 
 when {self.mappingOperation.name = "noteLinkToConnector"}
@@ -240,10 +300,21 @@ when {self.mappingOperation.name = "diagramLinkToConnector"}
 	result += new TraceRecord("mapConnector", "Connector", con, "DiagramLink", diagramLink);
 }
 
+/*
+ *
+ * HELPERS
+ *
+*/
+
 query uml::Comment::isContainedInElement() : Boolean {
 	var commentEdge := notationModel.rootObjects()[notation::Diagram].edges->any(
 		type = PAPYRUS_NOTATION_EDGE_COMMENTLINK and
 			(target.element = self.toEObject() or source.element = self.toEObject())
 	);
 	return commentEdge.target.element = self.toEObject();
+}
+
+
+query notation::Shape::getBounds() : notation::Bounds {
+	return self.layoutConstraint.oclAsType(notation::Bounds);
 }

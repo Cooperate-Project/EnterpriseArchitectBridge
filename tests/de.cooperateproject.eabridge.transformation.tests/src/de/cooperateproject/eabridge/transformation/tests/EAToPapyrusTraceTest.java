@@ -23,6 +23,7 @@ public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
     private static final URI UML2EA = createTransformationURI(Activator.PLUGIN_ID, "UMLtoEA.qvto");
     private static final URI EA2UML_TRACE = createTransformationURI(Activator.PLUGIN_ID, "EAtoUML_Trace.qvto");
 
+
     public EAToPapyrusTraceTest() {
         super(EA2UML, UML2EA, EA2UML_TRACE, Arrays.asList("eaom"), Arrays.asList("uml", "notation"),
                 TestEnvironmentConstants.TEST_PLUGIN_ID);
