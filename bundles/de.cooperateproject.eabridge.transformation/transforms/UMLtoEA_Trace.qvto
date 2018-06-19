@@ -102,7 +102,7 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramObject).Elem
 	result += new TraceRecord("packageToShape", "DiagramObject", diagramObject, "Shape", shape);
 	result += new TraceRecord("diagramObjectToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
 	result += new TraceRecord("packageToNameDecorationNode", "DiagramObject", diagramObject, "DecorationNode", nameDeco);
-	result += new TraceRecord("packageToCompartment", "DiagramObject", diagramObject, "DecorationNode", compartment);
+	result += new TraceRecord("packageToCompartment", "DiagramObject", diagramObject, "BasicCompartment", compartment);
 	
 	result += new TraceRecord("titleStyle", "EObject", compartment, "TitleStyle", compartment.oclAsType(notation::BasicCompartment).styles->selectByKind(notation::TitleStyle)->any(true).eobject());
 	
@@ -194,8 +194,6 @@ when {self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connec
 	and self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connector.Stereotype = "import"}
 {
 	var packageImport := self.getSelf().modelElement;
-	var targetAnchor := packageImport.oclAsType(notation::Connector).targetAnchor.eobject();
-	var sourceAnchor := packageImport.oclAsType(notation::Connector).sourceAnchor.eobject();
 	var nameDeco := packageImport.oclAsType(notation::Connector).getChild(PAPYRUS_NOTATION_NODE_PACKAGEIMPORT_STEREOTYPE).eobject();
 	
 	var connector := self.getResult().modelElement;
@@ -231,11 +229,11 @@ when {self.mappingOperation.name = "mapConnectorToAssociation"}
 	result += sourceRoleDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
 	
 	var targetMultiplicityDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_TARGETMULTIPLICITY).eobject();
-	result += new TraceRecord("diagramLinkToSourceMultiplicityDecoration", "DiagramLink", association, "DecorationNode", targetMultiplicityDeco);
+	result += new TraceRecord("diagramLinkToTargetMultiplicityDecoration", "DiagramLink", association, "DecorationNode", targetMultiplicityDeco);
 	result += targetMultiplicityDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
 	
 	var sourceMultiplicityDeco := connector.getChild(PAPYRUS_NOTATION_NODE_ASSOCIATION_SOURCEMULTIPLICITY).eobject();
-	result += new TraceRecord("diagramLinkToSourceRoleDecoration", "DiagramLink", association, "DecorationNode", sourceMultiplicityDeco);
+	result += new TraceRecord("diagramLinkToSourceMultiplicityDecoration", "DiagramLink", association, "DecorationNode", sourceMultiplicityDeco);
 	result += sourceMultiplicityDeco.oclAsType(notation::Node).map traceRecordExtended_diagramLinkDeco();
 }
 
@@ -303,8 +301,14 @@ mapping trace::TraceRecord::traceRecordMapConnector_DiagramLink() : List(trace::
 	
 	result += new TraceRecord("diagramLinkToConnector", "DiagramLink", connector, "Connector", diagramLink);
 	
-	result += new TraceRecord("diagramLinkToTargetAnchor", "DiagramLink", connector, "IdentityAnchor", targetAnchor);
-	result += new TraceRecord("diagramLinkToSourceAnchor", "DiagramLink", connector, "IdentityAnchor", sourceAnchor);
+	if (self.getResult().modelElement.oclAsType(eaobjectmodel::DiagramLink).Connector.Type = ConnectorType::Association)
+		then { 
+		result += new TraceRecord("diagramLinkToTargetAnchor", "DiagramLink", connector, "IdentityAnchor", sourceAnchor);
+		result += new TraceRecord("diagramLinkToSourceAnchor", "DiagramLink", connector, "IdentityAnchor", targetAnchor);}
+	else 
+		{result += new TraceRecord("diagramLinkToTargetAnchor", "DiagramLink", connector, "IdentityAnchor", targetAnchor);
+		result += new TraceRecord("diagramLinkToSourceAnchor", "DiagramLink", connector, "IdentityAnchor", sourceAnchor);}
+	endif;
 	result += new TraceRecord("connectorToBendpoint", "Connector", diagramLink, "RelativeBendpoints", diagramLink.oclAsType(notation::Connector).bendpoints.eobject());
 	result += new TraceRecord("fontStyle", "EObject", diagramLink, "FontStyle", diagramLink.oclAsType(notation::Connector).styles->selectByKind(notation::FontStyle)->any(true).eobject());
 }
@@ -336,7 +340,7 @@ when {self.mappingOperation.name = "mapPackage" and self.getResult().modelElemen
 	var umlDiagram := self.getSelf().modelElement;
 	var eaDiagram := self.getResult().modelElement;
 	
-	result += new TraceRecord("mapRootPackage", "Package", eaDiagram, "Package", umlDiagram);
+	result += new TraceRecord("mapRootPackage", "Package", eaDiagram, "Model", umlDiagram);
 }
 
 mapping trace::TraceRecord::traceRecordPackage() : List(trace::TraceRecord)
@@ -421,33 +425,35 @@ when {self.mappingOperation.name = "mapRealizationToConnector"}
 }
 
 mapping trace::TraceRecord::traceRecordMapElementToNoteLink() : List(trace::TraceRecord) 
-when {self.mappingOperation.name = "mapElementToNoteLink"}
+when {self.mappingOperation.name = "mapCommentToElement"}
 {
 	var note := self.getSelf().modelElement;
-	var connector := self.getResult().modelElement;
+	var elem := self.getResult().modelElement;
 
-	result += new TraceRecord("mapElementToComment", "Connector", connector, "Comment", note);
+	result += new TraceRecord("mapElementToComment", "Element", elem, "Comment", note);
 }
 
 mapping trace::TraceRecord::traceRecordMapAssociationToConnector() : List(trace::TraceRecord)
 when {self.mappingOperation.name = "mapAssociationToConnector"}
 {
-	var ass := self.getSelf().modelElement;
-	var con := self.getResult().modelElement;
+	var ass := self.getSelf().modelElement; //uml
+	var con := self.getResult().modelElement; //ea
 	
 	result += new TraceRecord("mapConnectorToAssociation", "Connector", con, "Association", ass);
 	
-	var prop := con.oclAsType(eaobjectmodel::Connector);
-	result += new TraceRecord("mapSourceToProperty", "Connector", prop.eobject(), "Property", ass);
+	var source := ass.oclAsType(uml::Association).memberEnd->first();
+	result += new TraceRecord("mapSourceToProperty", "Connector", con, "Property", source.eobject());
 	
+	var prop := con.oclAsType(eaobjectmodel::Connector);
 	if (prop.getSourceLower() != null and prop.getSourceLower() != 1 or prop.getSourceUpper() != null and prop.getSourceLower() != 1)
-		then result += new TraceRecord("mapSourceToPropertyMultiplicities", "Connector", prop.eobject(), "Property", con)
+		then result += new TraceRecord("mapSourceToPropertyMultiplicities", "Connector", con, "Property", source.eobject())
 	endif;
 	
-	result += new TraceRecord("mapDestToProperty", "Connector", prop.eobject(), "Property", ass);
+	var dest := ass.oclAsType(uml::Association).memberEnd->at(2);
+	result += new TraceRecord("mapDestToProperty", "Connector", con, "Property", dest.eobject());
 	
 	if (prop.getDestLower() != null and prop.getDestLower() != 1 or prop.getDestUpper() != null and prop.getDestUpper() != 1)
-		then result += new TraceRecord("mapDestToPropertyMultiplicities", "Connector", prop.eobject(), "Property", con)
+		then result += new TraceRecord("mapDestToPropertyMultiplicities", "Connector", con, "Property", dest.eobject())
 	endif;
 }
 

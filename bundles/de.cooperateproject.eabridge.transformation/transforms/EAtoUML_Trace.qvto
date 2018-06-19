@@ -81,13 +81,14 @@ when {self.mappingOperation.name = "mapRootPackage"}
 	var eaDiagram := eaPackage.eContainer().eContents()[eaobjectmodel::Element]->any(e | e.ElementGUID = eaPackage.oclAsType(eaobjectmodel::Package).PackageGUID);
 	var umlDiagram := self.getResult().modelElement;
 	
-	var rootRecord = new TraceRecord("mapRoot", "Package", eaPackage);
+	var rootRecord = new TraceRecord("mapRoot", "Package", eaPackage.eContainer());
 	rootRecord.context.context.kind := EDirectionKind::INOUT;
+	rootRecord._result := object trace::EMappingResults {};
 	result += rootRecord;
+	
 	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaPackage);
 	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Element", eaDiagram.oclAsType(EObject));
 	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram.oclAsType(EObject));
-	
 }
 
 mapping trace::TraceRecord::traceRecordElementToClass() : List(trace::TraceRecord)
@@ -184,14 +185,15 @@ when { self.mappingOperation.name = "mapElementToComment" }
 	
 	var comment := self.getResult().modelElement;
 	var commentAsComment := comment.oclAsType(uml::Comment);
-	var commentAsNotation := comment.oclAsType(notation::Node);
 	
 	result += new TraceRecord("mapCommentToElement", "Comment", comment, "Element", element);
 	result += new TraceRecord("mapCommentToElementBase", "Comment", comment, "Element", element);
-	if not commentAsComment.isContainedInElement() then 
-		result += new TraceRecord("mapCommentToElementNested", "Comment", comment, "Element", element)
-		else
-		result += new TraceRecord("mapCommentToElementNotNested", "Comment", comment, "Element", element)
+	if not commentAsComment.isContainedInElement() then {
+		result += new TraceRecord("mapCommentToElementNested", "Comment", comment, "Element", element);
+		result += new TraceRecord("mapElementToNoteLink", "Connector", commentAsComment.annotatedElement->any(true).eobject(), "DiagramLink", elementAsElement.SourceRelations->first().eobject());}
+		else {
+		result += new TraceRecord("mapCommentToElementNotNested", "Comment", comment, "Element", element);
+		result += new TraceRecord("mapElementToNoteLink", "Connector", comment, "DiagramLink", elementAsElement.SourceRelations->any(true).eobject()) }
 	endif;
 }
 
@@ -282,16 +284,17 @@ when { self.mappingOperation.name = "associationToConnector" }
 	var connector := self.getSelf().modelElement;
 	var ass := self.getResult().modelElement;
 
-	result += new TraceRecord("mapConnectorToAssociation", "DiagramLink", ass, "Connector", connector);
+	result += new TraceRecord("mapConnectorToAssociation", "Connector", ass, "DiagramLink", connector);
 }
 
 mapping trace::TraceRecord::traceRecordNoteLinkToConnector() : List(trace::TraceRecord) 
 when {self.mappingOperation.name = "noteLinkToConnector"}
 {
-	var noteLink := self.getSelf().modelElement;
+	var commentLink := self.getSelf().modelElement;
+	var noteLink := commentLink.oclAsType(eaobjectmodel::DiagramLink).Connector;
 	var con := self.getResult().modelElement;
 
-	result += new TraceRecord("mapConnectorToCommentLink", "Connector", con, "DiagramLink", noteLink);
+	result += new TraceRecord("mapConnectorToCommentLink", "Connector", con, "DiagramLink", commentLink);
 }
 
 mapping trace::TraceRecord::traceRecordDiagramLinkToConnector() : List(trace::TraceRecord)
