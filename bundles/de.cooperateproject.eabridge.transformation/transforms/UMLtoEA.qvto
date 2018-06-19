@@ -67,7 +67,7 @@ mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	
 	SourceRelations := self.getFeature("packageImport")->oclAsType(uml::PackageImport)->mapPackageImportToConnector();
 	
-	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
+	ElementGUID := self.resolveoneIn(uml::Package::mapPackage).PackageGUID;
 }
 
 abstract mapping uml::Classifier::mapClassifierToElementBase(): eaobjectmodel::Element
