@@ -81,9 +81,11 @@ when {self.mappingOperation.name = "mapRootPackage"}
 	var eaDiagram := eaPackage.eContainer().eContents()[eaobjectmodel::Element]->any(e | e.ElementGUID = eaPackage.oclAsType(eaobjectmodel::Package).PackageGUID);
 	var umlDiagram := self.getResult().modelElement;
 	
-	var rootRecord = new TraceRecord("mapRoot", "Package", eaPackage);
+	var rootRecord = new TraceRecord("mapRoot", "Package", eaPackage.eContainer());
 	rootRecord.context.context.kind := EDirectionKind::INOUT;
+	rootRecord._result := object trace::EMappingResults {};
 	result += rootRecord;
+	
 	result += new TraceRecord("mapPackage", "Package", umlDiagram, "Package", eaPackage);
 	result += new TraceRecord("mapPackageToElement", "Package", umlDiagram, "Element", eaDiagram.oclAsType(EObject));
 	result += new TraceRecord("mapCommentableToElement", "Element", umlDiagram, "Element", eaDiagram.oclAsType(EObject));

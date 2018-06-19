@@ -1,5 +1,6 @@
 package de.cooperateproject.eabridge.transformation.tests;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -30,6 +31,7 @@ public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
 
     @Test
     public void testPrimitive() throws Exception {
+        
         testTraceTransformation("Primitive/model");
     }
 
@@ -40,6 +42,7 @@ public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
 
     @Test
     public void testAdvancedAssociation() throws Exception {
+        setDebugSerializationDir(new File("."));
         testTraceTransformation("AdvancedAssociation/model");
     }
 
