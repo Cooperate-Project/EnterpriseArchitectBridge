@@ -1,6 +1,5 @@
 package de.cooperateproject.eabridge.transformation.tests;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -59,10 +58,8 @@ public class EAToPapyrusTraceTest extends EATraceTransformationTestBase
 
                 Package rootPackage = (Package) EcoreUtil
                         .copy(getResourceSet().getResource(expectedUri, true).getContents().get(0));
-                getResourceSet()
-                        .getResource(expectedUri.trimFileExtension().appendFileExtension("output")
-                                .appendFileExtension(expectedUri.fileExtension()), false)
-                        .getContents().add(rootPackage);
+                
+                resultExtent.setContents(Collections.singletonList(rootPackage));
                 rootPackage.getDiagrams().clear();
                 rootPackage.getPackages().clear();
 
