@@ -1,25 +1,42 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?p2f version='1.0.0'?>
 <p2f version='1.0.0'>
-  <ius size='50'>
+  <ius size='57'>
     <iu id='org.eclipse.emf.ecoretools.explorer.contextual.feature.group' name='Amalgam Contextual Explorer categories for Ecore models' version='3.3.0.201706121316'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.cdo.epp.feature.group' name='CDO Model Repository EPP' version='4.6.0.v20170602-1611'>
-      <repositories size='2'>
-        <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
-        <repository location='http://download.eclipse.org/releases/oxygen/'/>
+    <iu id='org.apache.felix.fileinstall' name='Apache Felix File Install' version='3.6.4'>
+      <repositories size='1'>
+        <repository location='https://cooperate-project.github.io/Externals/updatesite/latest/'/>
       </repositories>
     </iu>
-    <iu id='de.cooperateproject.qvtoutils.blackbox.feature.feature.group' name='Cooperate QVT Operational Blackbox Feature' version='1.0.0.201707101534'>
+    <iu id='org.eclipse.emf.cdo.epp.feature.group' name='CDO Model Repository EPP' version='4.6.0.v20170602-1611'>
+      <repositories size='4'>
+        <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
+        <repository location='http://www.eclipse.org/modeling/updates/'/>
+        <repository location='http://download.eclipse.org/releases/oxygen/'/>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='de.cooperateproject.modeling.transformation.tests.common.feature.feature.group' name='Common Cooperate Transformation Test Base Feature' version='1.0.0.201806191607'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='de.cooperateproject.modeling.feature.feature.group' name='Cooperate Modeling Environment' version='0.8.3.201806191607'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='de.cooperateproject.qvtoutils.blackbox.feature.feature.group' name='Cooperate QVT Operational Blackbox Feature' version='1.0.2.201710041154'>
       <repositories size='1'>
         <repository location='https://dl.bintray.com/cooperate-project/QVTOUtils/updatesite/latest/'/>
       </repositories>
     </iu>
-    <iu id='de.cooperateproject.qvtoutils.blackbox.feature.source.feature.group' name='Cooperate QVT Operational Blackbox Feature Developer Resources' version='1.0.0.201707101534'>
+    <iu id='de.cooperateproject.qvtoutils.blackbox.feature.source.feature.group' name='Cooperate QVT Operational Blackbox Feature Developer Resources' version='1.0.2.201710041154'>
       <repositories size='1'>
         <repository location='https://dl.bintray.com/cooperate-project/QVTOUtils/updatesite/latest/'/>
       </repositories>
@@ -31,34 +48,35 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.jdt.feature.group' name='Eclipse Java Development Tools' version='3.13.0.v20170612-0950'>
-      <repositories size='3'>
+    <iu id='org.eclipse.jdt.feature.group' name='Eclipse Java Development Tools' version='3.13.4.v20180330-0919'>
+      <repositories size='4'>
         <repository location='http://download.eclipse.org/eclipse/updates/4.7'/>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
       </repositories>
     </iu>
-    <iu id='epp.package.modeling' name='Eclipse Modeling Tools' version='4.7.0.20170620-1800'>
+    <iu id='epp.package.modeling' name='Eclipse Modeling Tools' version='4.7.3.20180405-1200'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.pde.feature.group' name='Eclipse Plug-in Development Environment' version='3.13.0.v20170612-0950'>
+    <iu id='org.eclipse.pde.feature.group' name='Eclipse Plug-in Development Environment' version='3.13.4.v20180330-0640'>
       <repositories size='3'>
         <repository location='http://download.eclipse.org/eclipse/updates/4.7'/>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.sdk.feature.group' name='Eclipse Project SDK' version='4.7.0.v20170612-1255'>
+    <iu id='org.eclipse.sdk.feature.group' name='Eclipse Project SDK' version='4.7.3.v20180330-0919'>
       <repositories size='3'>
         <repository location='http://download.eclipse.org/eclipse/updates/4.7'/>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.wst.xml_ui.feature.feature.group' name='Eclipse XML Editors and Tools' version='3.9.0.v201706011851'>
+    <iu id='org.eclipse.wst.xml_ui.feature.feature.group' name='Eclipse XML Editors and Tools' version='3.9.2.v201803221834'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
@@ -77,16 +95,17 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.ecp.sdk.feature.feature.group' name='ECP SDK 3.x' version='1.13.0.20170606-0951'>
+    <iu id='org.eclipse.emf.ecp.sdk.feature.feature.group' name='ECP SDK 3.x' version='1.16.0.20180305-1637'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
     <iu id='org.eclipse.emf.sdk.feature.group' name='EMF - Eclipse Modeling Framework SDK' version='2.13.0.v20170609-0928'>
-      <repositories size='2'>
+      <repositories size='3'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
       </repositories>
     </iu>
     <iu id='org.eclipse.emf.query.sdk.feature.group' name='EMF Model Query SDK' version='1.11.0.201706061326'>
@@ -101,13 +120,13 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.parsley.sdk.feature.group' name='EMF Parsley SDK' version='1.2.0.v20170609-0953'>
+    <iu id='org.eclipse.emf.parsley.sdk.feature.group' name='EMF Parsley SDK' version='1.2.3.v20180220-1246'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.parsley.sdk.source.feature.group' name='EMF Parsley SDK Developer Resources' version='1.2.0.v20170609-0953'>
+    <iu id='org.eclipse.emf.parsley.sdk.source.feature.group' name='EMF Parsley SDK Developer Resources' version='1.2.3.v20180220-1246'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
@@ -130,6 +149,13 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
+    <iu id='org.eclipse.equinox.sdk.feature.group' name='Equinox Target Components' version='3.13.4.v20180322-2228'>
+      <repositories size='3'>
+        <repository location='http://download.eclipse.org/eclipse/updates/4.7'/>
+        <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
+        <repository location='http://download.eclipse.org/releases/oxygen/'/>
+      </repositories>
+    </iu>
     <iu id='org.eclipse.amalgam.discovery.feature.group' name='Extra Modeling Components Installer' version='1.8.0.201706011309'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
@@ -143,7 +169,7 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.egit.feature.group' name='Git integration for Eclipse' version='4.8.0.201706111038-r'>
+    <iu id='org.eclipse.egit.feature.group' name='Git integration for Eclipse' version='4.9.2.201712150930-r'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
@@ -155,27 +181,6 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.hamcrest.core' name='Hamcrest Core Library of Matchers' version='1.3.0.v201303031735'>
-      <repositories size='7'>
-        <repository location='https://cooperate-project.github.io/Externals/updatesite/latest/'/>
-        <repository location='http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository/'/>
-        <repository location='http://download.eclipse.org/releases/neon'/>
-        <repository location='http://download.eclipse.org/eclipse/updates/4.7'/>
-        <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
-        <repository location='http://download.eclipse.org/releases/oxygen/'/>
-        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
-      </repositories>
-    </iu>
-    <iu id='org.hamcrest.core.source' name='Hamcrest Core Library of Matchers Source' version='1.3.0.v201303031735'>
-      <repositories size='6'>
-        <repository location='http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository/'/>
-        <repository location='http://download.eclipse.org/releases/neon'/>
-        <repository location='http://download.eclipse.org/eclipse/updates/4.7'/>
-        <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
-        <repository location='http://download.eclipse.org/releases/oxygen/'/>
-        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
-      </repositories>
-    </iu>
     <iu id='org.hamcrest' name='Hamcrest Library of Matchers' version='1.1.0.v20090501071000'>
       <repositories size='3'>
         <repository location='http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository/'/>
@@ -183,14 +188,39 @@
         <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
       </repositories>
     </iu>
-    <iu id='org.hibernate.feature.group' name='Hibernate' version='4.3.7.1'>
-      <repositories size='1'>
-        <repository location='http://www.elver.org/eclipse/2.1.0/update'/>
-      </repositories>
-    </iu>
     <iu id='org.liquibase.osgi' name='Liquibase with OSGI Support' version='3.4.2'>
       <repositories size='1'>
         <repository location='https://cooperate-project.github.io/Externals/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='ch.qos.logback.classic' name='Logback Classic Module' version='1.1.2.v20160208-0839'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
+      </repositories>
+    </iu>
+    <iu id='ch.qos.logback.classic.source' name='Logback Classic Module Source' version='1.1.2.v20160208-0839'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
+      </repositories>
+    </iu>
+    <iu id='ch.qos.logback.core' name='Logback Core Module' version='1.1.2.v20160208-0839'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
+      </repositories>
+    </iu>
+    <iu id='ch.qos.logback.core.source' name='Logback Core Module Source' version='1.1.2.v20160208-0839'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
+      </repositories>
+    </iu>
+    <iu id='ch.qos.logback.slf4j' name='Logback SLF4J Binding' version='1.1.2.v20160301-0943'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
+      </repositories>
+    </iu>
+    <iu id='ch.qos.logback.slf4j.source' name='Logback SLF4J Binding Source' version='1.1.2.v20160301-0943'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository'/>
       </repositories>
     </iu>
     <iu id='org.mariadb.jdbc' name='MariaDB JDBC Client' version='1.4.2.0'>
@@ -198,25 +228,25 @@
         <repository location='https://cooperate-project.github.io/Externals/updatesite/latest/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.compare.source.feature.group' name='Model comparison (EMF Compare) - Core - SDK' version='3.3.1.201706130827'>
+    <iu id='org.eclipse.emf.compare.source.feature.group' name='Model comparison (EMF Compare) - Core - SDK' version='3.3.2.201709090201'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.compare.egit.feature.group' name='Model comparison (EMF Compare) - EGit support' version='1.2.1.201706130827'>
+    <iu id='org.eclipse.emf.compare.egit.feature.group' name='Model comparison (EMF Compare) - EGit support' version='1.2.2.201709090201'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.compare.ide.ui.source.feature.group' name='Model comparison (EMF Compare) - SDK' version='3.3.1.201706130827'>
+    <iu id='org.eclipse.emf.compare.ide.ui.source.feature.group' name='Model comparison (EMF Compare) - SDK' version='3.3.2.201709090201'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.emf.compare.diagram.sirius.source.feature.group' name='Model comparison (EMF Compare) - Sirius support (Experimental)- SDK' version='3.3.1.201706130827'>
+    <iu id='org.eclipse.emf.compare.diagram.sirius.source.feature.group' name='Model comparison (EMF Compare) - Sirius support (Experimental)- SDK' version='3.3.2.201709090201'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
@@ -240,7 +270,7 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.mylyn_feature.feature.group' name='Mylyn Task List' version='3.23.0.v20170614-1854'>
+    <iu id='org.eclipse.mylyn_feature.feature.group' name='Mylyn Task List' version='3.23.1.v20170623-0008'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
@@ -252,28 +282,22 @@
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.mylyn.bugzilla_feature.feature.group' name='Mylyn Tasks Connector: Bugzilla' version='3.23.0.v20170411-2036'>
+    <iu id='org.eclipse.mylyn.bugzilla_feature.feature.group' name='Mylyn Tasks Connector: Bugzilla' version='3.23.1.v20170623-0008'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.mylyn.wikitext_feature.feature.group' name='Mylyn WikiText' version='3.0.6.201703111926'>
+    <iu id='org.eclipse.mylyn.wikitext_feature.feature.group' name='Mylyn WikiText' version='3.0.19.201711172000'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
-      </repositories>
-    </iu>
-    <iu id='com.mysql.jdbc.feature.group' name='MySQL Connector/J' version='5.1.26'>
-      <repositories size='1'>
-        <repository location='http://www.elver.org/eclipse/2.1.0/update'/>
       </repositories>
     </iu>
     <iu id='org.eclipse.ocl.all.sdk.feature.group' name='OCL Classic SDK: Ecore/UML Parsers,Evaluator,Edit' version='5.3.0.v20170607-1133'>
-      <repositories size='4'>
+      <repositories size='3'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://www.eclipse.org/modeling/updates/'/>
-        <repository location='http://www.eclipse.org/modeling/updates/releases'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
       </repositories>
     </iu>
@@ -287,30 +311,47 @@
         <repository location='https://cooperate-project.github.io/Externals/updatesite/latest/'/>
       </repositories>
     </iu>
-    <iu id='org.eclipse.papyrus.sdk.feature.feature.group' name='Papyrus for UML' version='3.0.0.201706140736'>
-      <repositories size='2'>
+    <iu id='org.eclipse.papyrus.sdk.feature.feature.group' name='Papyrus for UML' version='3.3.0.201803070847'>
+      <repositories size='3'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
+      </repositories>
+    </iu>
+    <iu id='de.cooperateproject.papyrusmetamodels.feature.group' name='Papyrus Metamodels for Cooperate Project' version='1.0.0.201711071130'>
+      <repositories size='1'>
+        <repository location='https://dl.bintray.com/cooperate-project/PapyrusMetamodels/updatesite/latest'/>
       </repositories>
     </iu>
     <iu id='org.eclipse.m2m.qvt.oml.sdk.feature.group' name='QVT Operational SDK' version='3.7.0.v20170604-1316'>
-      <repositories size='2'>
+      <repositories size='3'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
       </repositories>
     </iu>
     <iu id='org.eclipse.uml2.sdk.feature.group' name='UML2 Extender SDK' version='5.3.0.v20170605-1616'>
       <repositories size='4'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://www.eclipse.org/modeling/updates/'/>
-        <repository location='http://www.eclipse.org/modeling/updates/releases'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
+        <repository location='https://dl.bintray.com/cooperate-project/CooperateModelingEnvironment/updatesite/latest/'/>
       </repositories>
     </iu>
     <iu id='org.eclipse.xsd.sdk.feature.group' name='XSD - XML Schema Definition SDK' version='2.13.0.v20170609-0928'>
       <repositories size='2'>
         <repository location='http://www.eclipse.org/modeling/amalgam/downloads/package/modeling/oxygen/'/>
         <repository location='http://download.eclipse.org/releases/oxygen/'/>
+      </repositories>
+    </iu>
+    <iu id='com.mysql.jdbc.feature.group' name='MySQL Connector/J' version='5.1.26'>
+      <repositories size='1'>
+        <repository location='http://www.elver.org/eclipse/2.1.0/update'/>
+      </repositories>
+    </iu>
+    <iu id='org.hibernate.feature.group' name='Hibernate' version='4.3.7.1'>
+      <repositories size='1'>
+        <repository location='http://www.elver.org/eclipse/2.1.0/update'/>
       </repositories>
     </iu>
   </ius>
