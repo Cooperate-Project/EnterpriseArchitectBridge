@@ -28,7 +28,7 @@ public class ModelSetSpecification {
             final int prime = 31;
             int result = 1;
             result = prime * result + ((namespace == null) ? 0 : namespace.hashCode());
-            result = prime * result + ((qualifier.isPresent()) ? 0 : qualifier.get().hashCode());
+            result = prime * result + ((qualifier.isPresent()) ? qualifier.get().hashCode() : 0);
             return result;
         }
 

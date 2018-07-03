@@ -7,7 +7,7 @@
         </layout>
     </appender>
 
-    <logger name="de.cooperateproject" level="INFO"/>
+    <logger name="de.cooperateproject" level="DEBUG"/>
     <logger name="org.hibernate" level="INFO"/>
     
     <root level="ERROR">

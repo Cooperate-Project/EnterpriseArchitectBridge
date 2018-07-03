@@ -5,9 +5,10 @@ Bundle-SymbolicName: de.cooperateproject.eabridge.incrementalsync
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  de.cooperateproject.eabridge.eaobjectmodel;bundle-version="1.0.0",
- org.hibernate;bundle-version="4.3.7",
  org.eclipse.emf.teneo.hibernate;bundle-version="2.1.0",
- org.apache.commons.lang;bundle-version="2.6.0"
+ org.apache.commons.lang;bundle-version="2.6.0",
+ org.hibernate.core;bundle-version="4.3.11",
+ de.cooperateproject.eabridge.services.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.cooperateproject.eabridge.incrementalsync.monitoring,

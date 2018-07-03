@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import de.cooperateproject.eabridge.incrementalsync.monitoring.Table;
 import de.cooperateproject.eabridge.incrementalsync.monitoring.TableAdapter;
+import de.cooperateproject.eabridge.services.common.AbstractObservable;
 
 /**
  * IncrementalSync provides functionality to monitor database changes using
@@ -25,7 +26,7 @@ import de.cooperateproject.eabridge.incrementalsync.monitoring.TableAdapter;
  * Also, the monitored Hibernate model can be refresh automatically and
  * incrementally.
  */
-public class IncrementalSync {
+public class IncrementalSync extends AbstractObservable<IncrementalSyncListener> {
 
 	/**
 	 * The IncrementalSync mode. Possible are logging and/or synchronization.
@@ -276,6 +277,8 @@ public class IncrementalSync {
 
 			// REFRESHING
 			if (this.mode == MODE.SYNC_ONLY || this.mode == MODE.LOG_AND_SYNC) {
+				
+				boolean atLeastOneSuccessfulUpdate = false;
 
 				// For each update, get Element with query and refresh it
 				for (String update : updates) {
@@ -323,6 +326,7 @@ public class IncrementalSync {
 
 							remoteChangeFlag = false;
 						}
+						atLeastOneSuccessfulUpdate = true;
 
 					} else if (!sizeDBQuery && sizeHBQuery) {
 
@@ -337,6 +341,7 @@ public class IncrementalSync {
 						EObject parent = insertedElement.eContainer();
 
 						sessionWrapper.refresh(parent);
+						atLeastOneSuccessfulUpdate = true;
 
 					} else if (sizeDBQuery && !sizeHBQuery) {
 
@@ -347,7 +352,7 @@ public class IncrementalSync {
 						EObject parent = deletedElement.eContainer();
 
 						sessionWrapper.refresh(parent);
-
+						atLeastOneSuccessfulUpdate = true;
 					} else {
 
 						// Did not find the element. It is part of a batch
@@ -355,9 +360,11 @@ public class IncrementalSync {
 						// or should really not be there
 
 						logger.debug("Did not find element. Maybe a batch operation?");
-
 					}
-
+				}
+				
+				if (atLeastOneSuccessfulUpdate) {
+					this.getEventDispatcher().changeOccured();
 				}
 			}
 		} else {

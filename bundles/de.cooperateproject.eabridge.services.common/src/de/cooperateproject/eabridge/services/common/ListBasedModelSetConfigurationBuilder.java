@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
-import de.cooperateproject.eabridge.services.ModelSetConfigurationBuilder;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration.QualifiedModel;
+import de.cooperateproject.eabridge.services.ModelSetConfigurationBuilder;
 import de.cooperateproject.eabridge.services.types.ModelSetSpecification;
 import de.cooperateproject.eabridge.services.types.ModelSetSpecification.QualifiedModelNamespace;
 
@@ -19,11 +19,11 @@ public class ListBasedModelSetConfigurationBuilder implements ModelSetConfigurat
     protected List<QualifiedModel> values = new LinkedList<>();
 
     @Override
-    public ModelSetConfigurationBuilder<ModelSetConfiguration> appendRootElement(EObject modelRoot,
+    public ModelSetConfigurationBuilder<ModelSetConfiguration> appendRootElement(Resource modelRoot,
             Optional<String> identifier) {
         values.add(ModelSetConfiguration.createQualifiedModel(
-                identifier.map(id -> ModelSetSpecification.createQMN(modelRoot.eClass().getEPackage().getNsURI(), id))
-                    .orElseGet(() -> ModelSetSpecification.createQMN(modelRoot.eClass().getEPackage().getNsURI())), 
+                identifier.map(id -> ModelSetSpecification.createQMN(modelRoot.getContents().get(0).eClass().getEPackage().getNsURI(), id))
+                    .orElseGet(() -> ModelSetSpecification.createQMN(modelRoot.getContents().get(0).eClass().getEPackage().getNsURI())), 
                 modelRoot));
         return this;
     }
@@ -35,7 +35,7 @@ public class ListBasedModelSetConfigurationBuilder implements ModelSetConfigurat
                 .collect(Collectors.toList()).toArray(new QualifiedModelNamespace[values.size()]));
         return new ModelSetConfiguration() {
             @Override
-            public EObject getModel(String forNamespace, Optional<String> identifier) {
+            public Resource getModel(String forNamespace, Optional<String> identifier) {
                 return values.stream().filter(qm -> qm.getModelNamespace().getNamespace().equals(forNamespace))
                         .filter(qm -> qm.getModelNamespace().getQualifier().equals(identifier)).findFirst().get().getModel();
             }

@@ -30,6 +30,7 @@ import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.eclipse.emf.teneo.hibernate.HbHelper;
 import org.eclipse.emf.teneo.mapping.strategy.SQLNameStrategy;
 import org.hibernate.cfg.Environment;
+import org.hibernate.internal.util.ClassLoaderHelper;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
@@ -106,6 +107,7 @@ public class HibernateDatabaseFactory implements DatabaseFactory {
 	@Override
     public synchronized HbDataStore getDataStore() {
         if (this.dataStoreInstance == null) {
+        	ClassLoaderHelper.overridenClassLoader = this.getClass().getClassLoader();
             if (DEBUG) {
                 try {
                     HbDataStore dataStore = createDataStoreInternal(configurationProperties, false);

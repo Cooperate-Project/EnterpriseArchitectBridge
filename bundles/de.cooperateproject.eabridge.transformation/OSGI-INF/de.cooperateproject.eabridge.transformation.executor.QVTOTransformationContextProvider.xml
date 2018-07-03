@@ -3,6 +3,6 @@
    <service>
       <provide interface="de.cooperateproject.eabridge.services.TransformationContextProvider"/>
    </service>
-   <reference cardinality="0..n" field="traceProviders" interface="de.cooperateproject.eabridge.services.TransformationTraceHandlerProvider" name="traceProviders" policy="dynamic" policy-option="greedy"/>
+   <reference cardinality="1..1" field="traceProviderRegistry" interface="de.cooperateproject.eabridge.services.TransformationTraceHandlerRegistry" name="traceProviderRegistry"/>
    <implementation class="de.cooperateproject.eabridge.transformation.executor.QVTOTransformationContextProvider"/>
 </scr:component>

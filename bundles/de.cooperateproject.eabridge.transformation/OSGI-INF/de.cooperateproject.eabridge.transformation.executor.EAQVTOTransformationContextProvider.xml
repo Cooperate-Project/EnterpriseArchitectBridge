@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="de.cooperateproject.eabridge.transformation.executor.EAQVTOTransformationContextProvider">
+   <service>
+      <provide interface="de.cooperateproject.eabridge.services.TransformationContextProvider"/>
+   </service>
+   <reference bind="bindTraceHandlerRegistry" interface="de.cooperateproject.eabridge.services.TransformationTraceHandlerRegistry" name="TraceHandlerRegistry" unbind="unbindTraceHandlerRegistry"/>
+   <implementation class="de.cooperateproject.eabridge.transformation.executor.EAQVTOTransformationContextProvider"/>
+</scr:component>

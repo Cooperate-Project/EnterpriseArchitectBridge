@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
 
 import de.cooperateproject.eabridge.incrementalsync.synchronization.IncrementalSync;
 import de.cooperateproject.eabridge.incrementalsync.synchronization.IncrementalSync.MODE;
+import de.cooperateproject.eabridge.incrementalsync.synchronization.IncrementalSyncListener;
 import de.cooperateproject.eabridge.services.DatabaseFactory;
 import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
@@ -43,7 +44,7 @@ import de.cooperateproject.eabridge.services.common.ListBasedModelSetConfigurati
                    TeneoModelAdapter.TENEOADAPTER_HQLQUERY_ROOTELEMENTS + "=from Package p where p.Parent.PackageID=0",
                    TeneoModelAdapter.TENEOADAPTER_PROPERTY_ELEMENTS + "=Name"
            })
-public class TeneoModelAdapter extends AbstractModelAdapter {
+public class TeneoModelAdapter extends AbstractModelAdapter implements IncrementalSyncListener {
     public static final String TENEOADAPTER_DATASTORE_NAME = "datastore.name";
     public static final String TENEOADAPTER_HQLQUERY_ROOTELEMENTS = "hqlquery.rootelements";
     public static final String TENEOADAPTER_PROPERTY_ELEMENTS = "rootelement.property";
@@ -57,7 +58,7 @@ public class TeneoModelAdapter extends AbstractModelAdapter {
     protected DatabaseFactory dbFactory;
     protected SessionWrapper sessionWrapper;
     protected IncrementalSync syncer;
-    protected EObject rootElement;
+    protected Resource rootElement;
     
     @Activate
     protected void activate(Map<String, Object> properties) throws IOException {
@@ -72,18 +73,20 @@ public class TeneoModelAdapter extends AbstractModelAdapter {
         res.load(Collections.EMPTY_MAP);
         
         sessionWrapper = ((HibernateResource)res).getSessionWrapper();
-        Optional<EObject> rootElement = lookupRootElement(res, 
+        /*Optional<EObject> rootElement = lookupRootElement(res, 
                 properties.get(TENEOADAPTER_PROPERTY_ELEMENTS).toString(), 
-                properties.get(TENEOADAPTER_ELEMENTPATH).toString()); 
+                properties.get(TENEOADAPTER_ELEMENTPATH).toString());*/ 
         
-        if (!rootElement.isPresent()) {
+        if (res.getContents().isEmpty()) {
             throw new RuntimeException("The specified root element is not present in the database");
         }
         
+        rootElement = res;
+        
         Connection c = dbFactory.getConnection();
         
-        this.rootElement = rootElement.get();
         syncer = new IncrementalSync(c, sessionWrapper, properties.get(TENEOADAPTER_TABLE_PREFIX).toString(), MODE.LOG_AND_SYNC);
+        syncer.addObserver(this);
         syncer.startASync();
     }
     
@@ -126,7 +129,7 @@ public class TeneoModelAdapter extends AbstractModelAdapter {
     public void commitChanges() {
         syncer.stop();
         try {
-            rootElement.eResource().save(Collections.emptyMap());
+            rootElement.save(Collections.emptyMap());
         } catch(IOException ex) {
             LOGGER.error("Commit failed", ex);
         }
@@ -135,11 +138,16 @@ public class TeneoModelAdapter extends AbstractModelAdapter {
 
     @Override
     public void discardChanges() {
-        rootElement.eResource().unload();
+        rootElement.unload();
         try {
-            rootElement.eResource().load(Collections.emptyMap());
+            rootElement.load(Collections.emptyMap());
         } catch(IOException ex) {
             LOGGER.error("Commit failed", ex);
         }
     }
+
+	@Override
+	public void changeOccured() {
+		this.getEventDispatcher().notifyChange(this);
+	}
 }

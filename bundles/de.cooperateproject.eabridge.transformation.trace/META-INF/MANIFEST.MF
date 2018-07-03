@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Trace Handler
+Bundle-SymbolicName: de.cooperateproject.eabridge.transformation.trace
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.cooperateproject.eabridge.transformation.trace
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: de.cooperateproject.eabridge.services,
+ org.eclipse.m2m.qvt.oml
+Service-Component: OSGI-INF/tracehandler.xml,
+ OSGI-INF/de.cooperateproject.eabridge.transformation.trace.TransformationTraceHandlerRegistryImpl.xml
+Bundle-ActivationPolicy: lazy

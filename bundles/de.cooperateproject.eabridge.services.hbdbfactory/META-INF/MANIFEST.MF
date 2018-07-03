@@ -9,7 +9,8 @@ Require-Bundle: de.cooperateproject.eabridge.services;bundle-version="1.0.0",
  de.cooperateproject.eabridge.eaobjectmodel,
  org.apache.commons.io;bundle-version="2.2.0",
  org.eclipse.equinox.registry,
- org.eclipse.emf.ecore.xmi;bundle-version="2.13.0"
+ org.eclipse.emf.ecore.xmi;bundle-version="2.13.0",
+ org.hibernate.core;bundle-version="4.3.11"
 Service-Component: OSGI-INF/hbdbfactory.xml
 Bundle-ActivationPolicy: lazy
 Export-Package: de.cooperateproject.eabridge.services.hbdbfactory

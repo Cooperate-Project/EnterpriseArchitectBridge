@@ -13,5 +13,6 @@ Require-Bundle: de.cooperateproject.eabridge.services.cdoconnectionfactory,
  de.cooperateproject.eabridge.services,
  de.cooperateproject.modeling.common,
  de.cooperateproject.eabridge.services.common,
- org.apache.commons.lang3
+ org.apache.commons.lang3,
+ de.cooperateproject.cdo.util
 Service-Component: OSGI-INF/cdoadapter.xml

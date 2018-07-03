@@ -13,4 +13,6 @@ public interface Transformation {
     ModelSetConfiguration getInputModels();
     
     ModelSetConfiguration getTargetModels();
+
+	String getName();
 }

@@ -7,6 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/ch.qos.logback.slf4j/ch.qos.logback.slf4j_1.1.2.v20160301-0943.jar" sourcepath="/ch.qos.logback.slf4j/ch.qos.logback.slf4j.source_1.1.2.v20160301-0943.jar"/>
+	<classpathentry kind="lib" path="C:/users_local/krach/projects/cooperate/eclipse_ea_engineering/plugins/ch.qos.logback.slf4j_1.1.2.v20160301-0943.jar" sourcepath="/ch.qos.logback.slf4j/ch.qos.logback.slf4j.source_1.1.2.v20160301-0943.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
