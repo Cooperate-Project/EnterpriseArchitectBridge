@@ -39,7 +39,6 @@ public abstract class EATransformationTestBase extends PlainTransformationTestBa
             delegate.registerPlatformUris(Activator.PLUGIN_ID, Activator.class);
             delegate.registerPlatformUris(TestEnvironmentConstants.TEST_PLUGIN_ID, TestEnvironmentConstants.class);
             delegate.registerQVTOResolutionURIs(createPlatformURI(Activator.PLUGIN_ID).appendSegment("transforms"));
-            TransformationTestBase.initEnvironment(delegate);
         });
     }
     
