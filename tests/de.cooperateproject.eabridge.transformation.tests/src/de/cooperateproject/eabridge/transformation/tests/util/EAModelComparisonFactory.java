@@ -1,10 +1,13 @@
 package de.cooperateproject.eabridge.transformation.tests.util;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 
+import org.eclipse.emf.compare.Comparison;
+import org.eclipse.emf.compare.Match;
 import org.eclipse.emf.compare.diff.IDiffEngine;
 import org.eclipse.emf.compare.diff.IDiffProcessor;
 import org.eclipse.emf.compare.match.DefaultComparisonFactory;
@@ -21,6 +24,8 @@ import org.eclipse.emf.compare.match.impl.MatchEngineFactoryImpl;
 import org.eclipse.emf.compare.postprocessor.IPostProcessor;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 
 import de.cooperateproject.modeling.transformation.tests.commons.utils.ModelComparisonFactoryImpl;
 
@@ -54,7 +59,21 @@ public class EAModelComparisonFactory extends ModelComparisonFactoryImpl{
         
         final IComparisonFactory comparisonFactory = new DefaultComparisonFactory(
                 new DefaultEqualityHelperFactory());
-        final EditionDistance editionDistance = new EditionDistance(weightProviderRegistry);
+        final EditionDistance editionDistance = new EditionDistance(weightProviderRegistry) {
+
+			@Override
+			public boolean areIdentic(Comparison inProgress, EObject a, EObject b) {
+
+				if(Arrays.asList(a, b).stream().map(EObject::eClass).allMatch(NotationPackage.Literals.LOCATION::equals)) {
+					//TODO: check if this is safe to check
+					Match parentMatch = inProgress.getMatch(a.eContainer());
+					return parentMatch.getRight().equals(b.eContainer());
+				}
+				
+				return super.areIdentic(inProgress, a, b);
+			}
+        	
+        };
         try {
             Field uriDistanceField = EditionDistance.class.getDeclaredField("uriDistance");
             uriDistanceField.setAccessible(true);
