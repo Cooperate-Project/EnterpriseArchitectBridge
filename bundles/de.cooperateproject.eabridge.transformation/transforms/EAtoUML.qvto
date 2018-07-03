@@ -32,11 +32,20 @@ query Set(Package)::getFirstModel() : Package {
 // mappings for transformation to uml
 
 mapping eaobjectmodel::Package::mapRootPackage() : uml::Model @uml{
-	log("mapping Model", self.Name);
+	log("mapping EA::Model", self.toString());
+	log("to UML::Model", result.toString());
 	
 	name := self.Name;
 	//result.packagedElement += self.Packages-> map mapPackage();
 	result.addToFeature("packagedElement", self.Packages-> map mapPackage());
+	
+	var classifiers := self.Elements->select(e | e.Type = eaobjectmodel::ElementType::Class or e.Type = eaobjectmodel::ElementType::Interface);
+	var imports := self.getAssociatedElement().SourceRelations->select(e | e.Type = ConnectorType::Package and e.Stereotype = "import");
+	
+	result.addToFeature("packagedElement", classifiers-> map mapElementToClassifier());
+	if (imports <> null and not imports->isEmpty()) {
+		result.setToFeature("packageImport", imports->map mapConnectorToPackageImport());
+	};
 	
 	var connectors := self.getAllContents()->selectByType(Connector);
 	var associations := connectors->select(e : Connector | e.Type = ConnectorType::Association or e.Type = ConnectorType::Aggregation);
@@ -47,7 +56,8 @@ mapping eaobjectmodel::Package::mapRootPackage() : uml::Model @uml{
 }
 
 mapping eaobjectmodel::Package::mapPackage() : uml::Package {
-	log("mapping Package", self.toString());
+	log("mapping EA::Package", self.toString());
+	log("to UML::Package", result.toString());
 
 	name := self.Name;
 	
@@ -59,7 +69,9 @@ mapping eaobjectmodel::Package::mapPackage() : uml::Package {
 	
 	//result.packagedElement += classifiers-> map mapElementToClassifier();
 	result.addToFeature("packagedElement", classifiers-> map mapElementToClassifier());
-	result.setToFeature("packageImport", imports->map mapConnectorToPackageImport());
+	if (imports <> null and not imports->isEmpty()) {
+		result.setToFeature("packageImport", imports->map mapConnectorToPackageImport());
+	};
 	
 }
 
@@ -98,7 +110,8 @@ mapping Element::mapElementToClass() : uml::Class
 inherits Element::mapElementToClassifierBase
 when {self.Type = eaobjectmodel::ElementType::Class}
 {	
-    log("mapping Package", self.toString());
+    log("mapping EA::Class", self.toString());
+    log("to UML::Class", result.toString());
 	ownedAttribute += self.Attributes-> map transformAttribute();
 	ownedOperation += self.Methods-> map transformOperations();
 	
@@ -312,7 +325,7 @@ query Scope::getAttributeType() : VisibilityKind
 }
 
 query eaobjectmodel::Package::getAssociatedElement() : eaobjectmodel::Element {
-	return om.objectsOfType(eaobjectmodel::Element)->select(e | e.PDATA1 = self)->any(true);
+	return om.objectsOfType(eaobjectmodel::Element)->select(e | e.ElementGUID = self.PackageGUID)->any(true);
 }
 
 //Diagram

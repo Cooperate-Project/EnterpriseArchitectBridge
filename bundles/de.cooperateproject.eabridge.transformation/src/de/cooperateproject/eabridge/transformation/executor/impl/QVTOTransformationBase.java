@@ -1,17 +1,13 @@
 package de.cooperateproject.eabridge.transformation.executor.impl;
 
-import java.util.Collection;
 import java.util.Collections;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.m2m.internal.qvt.oml.expressions.DirectionKind;
 import org.eclipse.m2m.internal.qvt.oml.expressions.ModelParameter;
@@ -27,23 +23,23 @@ import org.slf4j.LoggerFactory;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
 import de.cooperateproject.eabridge.services.Transformation;
 import de.cooperateproject.eabridge.services.TransformationContextProvider;
+import de.cooperateproject.eabridge.services.TransformationContextProviderRegistry;
 import de.cooperateproject.eabridge.services.types.GeneralizedTransformationCharacteristic;
 import de.cooperateproject.eabridge.services.types.ModelSetSpecification;
 import de.cooperateproject.eabridge.transformation.Activator;
 import de.cooperateproject.modeling.transformation.common.impl.QVTOResource;
-import de.cooperateproject.qvtoutils.blackbox.CooperateLibrary;
 
 @SuppressWarnings("restriction")
 public abstract class QVTOTransformationBase implements Transformation {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(QVTOTransformationBase.class);
     protected final TransformationExecutor executor;
-    protected final TransformationContextProvider contextProvider;
+    protected final TransformationContextProviderRegistry contextProvider;
     protected final ModelSetConfiguration inputModels;
     protected final ModelSetConfiguration targetModels;
     protected final QVTOResource transformationResource;
 
-    public QVTOTransformationBase(QVTOResource transformationResource, TransformationExecutor exec, TransformationContextProvider contextProvider,
+    public QVTOTransformationBase(QVTOResource transformationResource, TransformationExecutor exec, TransformationContextProviderRegistry contextProvider,
             ModelSetConfiguration inputModels, ModelSetConfiguration targetModels) {
         this.transformationResource = transformationResource;
         this.inputModels = inputModels;
@@ -61,47 +57,41 @@ public abstract class QVTOTransformationBase implements Transformation {
     public ModelSetConfiguration getTargetModels() {
         return targetModels;
     }
+    
+    @Override
+    public String getName() {
+    	return transformationResource.getURI().lastSegment();
+    }
 
     @Override
     public IStatus transform() {
-        return diagnosticToIStatus(execute(contextProvider.getTransformationContext(this)));
+    	Optional<TransformationContextProvider> compatibleProvider = contextProvider.getCompatibleProvider(this);
+    	TransformationContextProvider provider = compatibleProvider.orElseThrow(() -> new IllegalStateException("No compatible context provider registered"));
+    	ExecutionContext executionContext = provider.getTransformationContext(this);
+    	
+    	ModelExtent[] modelParametersToUse = createModelExtents();
+    	
+    	IStatus result = diagnosticToIStatus(execute(executionContext, modelParametersToUse));
+    	
+    	storeResultsFromModelExtents(modelParametersToUse);
+    	
+    	provider.postProcessTransformationContext(executionContext, this);
+    	
+    	return result;
     }
 
-    protected ExecutionDiagnostic execute(ExecutionContext executionContext) {
-        ModelExtent[] modelParametersToUse = createModelExtents();
-        executionContext.getSessionData().setValue(CooperateLibrary.ADD_FEATURE_REQUESTS, new IdentityHashMap<>());
+	protected abstract void storeResultsFromModelExtents(ModelExtent[] modelParametersToUse);
+
+	protected ExecutionDiagnostic execute(ExecutionContext executionContext, ModelExtent[] modelParametersToUse) {
+		
         ExecutionDiagnostic result = executor.execute(executionContext, modelParametersToUse);
-        Map<Collection<Object>, List<Object>> recordedOrderingData = executionContext.getSessionData()
-                .getValue(CooperateLibrary.ADD_FEATURE_REQUESTS);
-        processRecordedOrderingData(recordedOrderingData);
+        
+        
         return result;
-    }
+	}
 
     protected abstract ModelExtent[] createModelExtents();
 
-    protected void processRecordedOrderingData(Map<Collection<Object>, List<Object>> recordedOrderingData) {
-        for (Entry<Collection<Object>, List<Object>> entry : recordedOrderingData.entrySet()) {
-            if (entry.getKey() instanceof EList) {
-                processRecordedOrderingData((EList<Object>) entry.getKey(), entry.getValue());
-            }
-        }
-    }
-
-    protected void processRecordedOrderingData(EList<Object> collection, List<Object> ordering) {
-        if (collection.size() < ordering.size()) {
-            LOGGER.error(
-                    "The reordering of entries cannot take place because the sizes of the collections do not match: {} < {}",
-                    collection.size(), ordering.size());
-        }
-        for (int targetIndex = 0; targetIndex < ordering.size(); ++targetIndex) {
-            Object elementToMove = ordering.get(targetIndex);
-            int sourceIndex = collection.indexOf(elementToMove);
-            if (targetIndex == sourceIndex) {
-                continue;
-            }
-            collection.move(targetIndex, sourceIndex);
-        }
-    }
 
     protected void validateTransformationParameters(ModelExtent[] extents) {
         OperationalTransformation t = this.transformationResource.getFirstTransformation();
@@ -121,6 +111,10 @@ public abstract class QVTOTransformationBase implements Transformation {
 
     protected static ModelExtent createModelExtent(EObject object) {
         return new BasicModelExtent(Collections.singletonList(object));
+    }
+    
+    protected static ModelExtent createModelExtent(List<EObject> objects) {
+        return new BasicModelExtent(objects);
     }
 
     protected static IStatus diagnosticToIStatus(ExecutionDiagnostic diag) {

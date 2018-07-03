@@ -27,5 +27,7 @@ Export-Package: de.cooperateproject.eabridge.transformation.executor
 Service-Component: OSGI-INF/de.cooperateproject.eabridge.transformation.executor.impl.EAToPapyrusTransformationFactory.xml,
  OSGI-INF/de.cooperateproject.eabridge.transformation.executor.impl.PapyrusToEATransformationFactory.xml,
  OSGI-INF/de.cooperateproject.eabridge.transformation.executor.QVTOTransformationContextProvider.xml,
- OSGI-INF/de.cooperateproject.eabridge.transformation.executor.TransformationFactoryRegistryImpl.xml
+ OSGI-INF/de.cooperateproject.eabridge.transformation.executor.TransformationFactoryRegistryImpl.xml,
+ OSGI-INF/de.cooperateproject.eabridge.transformation.executor.TransformationContextProviderRegistryImpl.xml,
+ OSGI-INF/de.cooperateproject.eabridge.transformation.executor.EAQVTOTransformationContextProvider.xml
 Bundle-Activator: de.cooperateproject.eabridge.transformation.Activator

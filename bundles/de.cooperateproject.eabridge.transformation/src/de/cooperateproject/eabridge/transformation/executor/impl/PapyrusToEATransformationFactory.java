@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
 import de.cooperateproject.eabridge.services.Transformation;
-import de.cooperateproject.eabridge.services.TransformationContextProvider;
+import de.cooperateproject.eabridge.services.TransformationContextProviderRegistry;
 import de.cooperateproject.eabridge.services.TransformationFactory;
 import de.cooperateproject.eabridge.services.types.GeneralizedTransformationCharacteristic;
 import de.cooperateproject.eabridge.services.types.GeneralizedTransformationType;
@@ -49,7 +49,7 @@ public class PapyrusToEATransformationFactory implements TransformationFactory {
     protected IQVTOTransformationExecutorProvider qvtoTransformationProvider;
     
     @Reference (cardinality=ReferenceCardinality.MANDATORY)
-    protected TransformationContextProvider transformationContextProvider;
+    protected TransformationContextProviderRegistry transformationContextProvider;
     //protected TransformationUnitURIResolver resolver;
     
     @Override

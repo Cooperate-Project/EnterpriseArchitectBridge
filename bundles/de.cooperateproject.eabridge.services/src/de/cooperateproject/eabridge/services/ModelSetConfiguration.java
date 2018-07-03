@@ -2,8 +2,10 @@ package de.cooperateproject.eabridge.services;
 
 import java.util.Optional;
 
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import de.cooperateproject.eabridge.services.ModelSetConfiguration.QualifiedModel;
 import de.cooperateproject.eabridge.services.types.ModelSetSpecification;
@@ -11,35 +13,35 @@ import de.cooperateproject.eabridge.services.types.ModelSetSpecification;
 public interface ModelSetConfiguration extends Iterable<QualifiedModel> {
     public static class QualifiedModel {
         protected ModelSetSpecification.QualifiedModelNamespace modelNamespace;
-        protected EObject model;
+        protected Resource model;
 
         public ModelSetSpecification.QualifiedModelNamespace getModelNamespace() {
             return modelNamespace;
         }
 
-        public EObject getModel() {
+        public Resource getModel() {
             return model;
         }
     }
 
     public ModelSetSpecification getSpecification();
 
-    default public EObject getModel(EPackage forPackage) {
+    default public Resource getModel(EPackage forPackage) {
         return this.getModel(forPackage.getNsURI());
     }
 
-    default public EObject getModel(EPackage forPackage, String identifier) {
+    default public Resource getModel(EPackage forPackage, String identifier) {
         return this.getModel(forPackage.getNsURI(), Optional.of(identifier));
     }
 
-    default public EObject getModel(String forNamespace) {
+    default public Resource getModel(String forNamespace) {
         return this.getModel(forNamespace, Optional.empty());
     }
 
-    public EObject getModel(String forNamespace, Optional<String> indentifier);
+    public Resource getModel(String forNamespace, Optional<String> indentifier);
 
     public static QualifiedModel createQualifiedModel(ModelSetSpecification.QualifiedModelNamespace namespace,
-            EObject value) {
+    		Resource value) {
         QualifiedModel qm = new QualifiedModel();
         qm.model = value;
         qm.modelNamespace = namespace;
