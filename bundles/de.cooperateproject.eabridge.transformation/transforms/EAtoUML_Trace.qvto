@@ -190,10 +190,11 @@ when { self.mappingOperation.name = "mapElementToComment" }
 	result += new TraceRecord("mapCommentToElementBase", "Comment", comment, "Element", element);
 	if not commentAsComment.isContainedInElement() then {
 		result += new TraceRecord("mapCommentToElementNested", "Comment", comment, "Element", element);
-		result += new TraceRecord("mapElementToNoteLink", "Connector", commentAsComment.annotatedElement->any(true).eobject(), "DiagramLink", elementAsElement.SourceRelations->first().eobject());}
-		else {
+		result += new TraceRecord("mapElementToNoteLink", "Element", commentAsComment.annotatedElement->any(true).eobject(), "Connector", elementAsElement.SourceRelations->first().eobject());}
+	else {
 		result += new TraceRecord("mapCommentToElementNotNested", "Comment", comment, "Element", element);
-		result += new TraceRecord("mapElementToNoteLink", "Connector", comment, "DiagramLink", elementAsElement.SourceRelations->any(true).eobject()) }
+		var sourceElement = element.getRoot().allSubobjectsOfKind(eaobjectmodel::Connector)->any(l|l.Dest = elementAsElement).oclAsType(EObject);
+		result += new TraceRecord("mapElementToNoteLink", "Element", comment, "Connector",  sourceElement.eobject()) }
 	endif;
 }
 
