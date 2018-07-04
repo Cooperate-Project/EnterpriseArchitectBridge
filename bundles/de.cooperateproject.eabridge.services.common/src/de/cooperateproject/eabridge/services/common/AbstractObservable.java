@@ -9,6 +9,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import de.cooperateproject.eabridge.services.IAbstractObservable;
+
 /**
  * A generic implementation of an Observable object as defined by the <a
  * href="http://en.wikipedia.org/wiki/Observer_pattern">Observer pattern</a>. As a type parameter

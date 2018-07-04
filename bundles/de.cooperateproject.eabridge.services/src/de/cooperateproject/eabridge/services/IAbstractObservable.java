@@ -1,4 +1,4 @@
-package de.cooperateproject.eabridge.services.common;
+package de.cooperateproject.eabridge.services;
 
 /**
  * An interface to the abstract Observable class.

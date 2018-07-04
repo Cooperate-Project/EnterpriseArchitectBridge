@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.hibernate.dialect.Dialect;
 import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.type.PrimitiveType;
 import org.hibernate.usertype.UserType;
 
 /**
@@ -22,7 +24,7 @@ import org.hibernate.usertype.UserType;
  * handle missing references correctly, this data type converts 0 to null when
  * reading the value and converts null to 0 when writing the value.
  */
-public class EAPrimaryKeyType implements UserType {
+public class EAPrimaryKeyType implements UserType, PrimitiveType<Long> {
 
 	private static final int[] SQL_TYPES = { Types.INTEGER };
 	private static final EFactory EFACTORY = EcoreFactory.eINSTANCE;
@@ -110,6 +112,26 @@ public class EAPrimaryKeyType implements UserType {
 	@Override
 	public int[] sqlTypes() {
 		return SQL_TYPES;
+	}
+
+	@Override
+	public String objectToSQLString(Long value, Dialect dialect) throws Exception {
+		return value.toString();
+	}
+
+	@Override
+	public Class getPrimitiveClass() {
+		return Long.class;
+	}
+
+	@Override
+	public String toString(Long value) {
+		return value.toString();
+	}
+
+	@Override
+	public Serializable getDefaultValue() {
+		return 0;
 	}
 
 }

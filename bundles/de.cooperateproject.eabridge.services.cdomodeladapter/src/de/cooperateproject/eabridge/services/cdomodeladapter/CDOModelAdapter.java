@@ -31,6 +31,7 @@ import de.cooperateproject.eabridge.services.ModelSetConfiguration.QualifiedMode
 import de.cooperateproject.eabridge.services.ModelSetConfigurationBuilder;
 import de.cooperateproject.eabridge.services.cdoconnectionfactory.CDOConnectionFactory;
 import de.cooperateproject.eabridge.services.common.AbstractModelAdapter;
+import de.cooperateproject.eabridge.services.common.AbstractObservableModelSetConfiguration;
 import de.cooperateproject.eabridge.services.common.ListBasedModelSetConfigurationBuilder;
 
 @Component(
@@ -55,7 +56,7 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
     protected CDOView mainView;
     
     
-    protected ModelSetConfiguration currentModelSet;
+    protected AbstractObservableModelSetConfiguration currentModelSet;
     protected CDOViewUpdateListener updateListener;
     
     private long lastMergeTimeBranch;
@@ -100,7 +101,12 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
     protected void refreshModelSet() {
         this.updateListener.stopWatchingOfView(this.mainView);
         this.mainView = currentSession.openView(currentSession.getBranchManager().getMainBranch());
-        startWritableMode();
+        
+        AbstractObservableModelSetConfiguration newConfig = calculateModelSetConfiguration();
+        this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationUpdatedExternally(this.currentModelSet, newConfig);
+        this.currentModelSet.removeAllObserver();
+        this.currentModelSet = newConfig;
+        
         this.updateListener.startWatchingOfView(this.mainView);
         
         this.getEventDispatcher().notifyChange(this);
@@ -114,8 +120,8 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
         return properties.get(CDOMODELADAPTER_BASE_PATH).toString() + '/' + properties.get(resourceNameParam); 
     }
     
-    protected ModelSetConfiguration calculateModelSetConfiguration() {
-        final ModelSetConfigurationBuilder<ModelSetConfiguration> builder = new ListBasedModelSetConfigurationBuilder();
+    protected AbstractObservableModelSetConfiguration calculateModelSetConfiguration() {
+        final ModelSetConfigurationBuilder<AbstractObservableModelSetConfiguration> builder = new ListBasedModelSetConfigurationBuilder();
         properties.keySet().stream().filter(k -> k.startsWith(CDOMODELADAPTER_MODEL_PREFIX))
             .map(s -> s.split("\\.")).map(Arrays::asList).sorted((o1, o2) -> o1.get(1).compareTo(o2.get(1)))
             .forEach(splitKey -> {
@@ -132,8 +138,12 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
         if (this.editableBranch == null) {
         	this.editableBranch = this.currentSession.getBranchManager().getMainBranch().createBranch(createRandomBranchName());
         	this.editableView = this.currentSession.openTransaction(this.editableBranch);
+        	this.currentModelSet = calculateModelSetConfiguration();
         }
-        this.currentModelSet = calculateModelSetConfiguration();
+
+        if (this.currentModelSet.isDirty()) {
+        	throw new IllegalStateException("The model set is already dirty. Writable mode could not be activated");
+        }
         
         lastMergeTimeBranch = getTimestampOfBranch(this.editableView, this.editableBranch.getID());
         lastMergeTimeMain = getTimestampOfBranch(this.mainView, CDOBranch.MAIN_BRANCH_ID);
@@ -165,6 +175,8 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
 			e1.printStackTrace();
 		}
     	
+    	this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationCommitChanges(currentModelSet);
+    	
     	CDOTransaction mainTransaction = (this.mainView instanceof CDOTransaction) ? (CDOTransaction) this.mainView:
     		this.currentSession.openTransaction(this.mainView.getBranch());
         
@@ -184,6 +196,8 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
 		} catch (CommitException e) {
 			e.printStackTrace();
 		}
+		
+		this.currentModelSet = calculateModelSetConfiguration();
         
         lastMergeTimeBranch = getTimestampOfBranch(this.editableView, editorBranch.getID());
         lastMergeTimeMain = getTimestampOfBranch(mainTransaction, mainBranch.getID());

@@ -35,6 +35,7 @@ import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
 import de.cooperateproject.eabridge.services.common.AbstractModelAdapter;
 import de.cooperateproject.eabridge.services.common.ListBasedModelSetConfigurationBuilder;
+import de.cooperateproject.eabridge.services.teneoadapter.util.CooperateHibernateResource;
 
 @Component(configurationPolicy=ConfigurationPolicy.REQUIRE,
            name=TeneoModelAdapter.SERVICE_PID,
@@ -64,7 +65,14 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
     protected void activate(Map<String, Object> properties) throws IOException {
         dbFactory.getDataStore();
         
-        String uriStr = "hibernate://?" + HibernateResource.DS_NAME_PARAM + "=" + properties.get(TENEOADAPTER_DATASTORE_NAME) + 
+        Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("cphb", new Resource.Factory() {
+			@Override
+			public Resource createResource(URI uri) {
+				return new CooperateHibernateResource(uri);
+			}
+        });
+        
+        String uriStr = "cphb://?" + HibernateResource.DS_NAME_PARAM + "=" + properties.get(TENEOADAPTER_DATASTORE_NAME) + 
                 "&query1=" + properties.get(TENEOADAPTER_HQLQUERY_ROOTELEMENTS);
         final URI uri = URI.createURI(uriStr);
         ResourceSet resourceSet = new ResourceSetImpl();

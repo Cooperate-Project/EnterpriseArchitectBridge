@@ -6,22 +6,34 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+import java.util.Spliterators;
+import java.util.function.Consumer;
+import java.util.stream.StreamSupport;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.m2m.internal.qvt.oml.trace.TracePackage;
 import org.eclipse.m2m.qvt.oml.util.Trace;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
 
+import de.cooperateproject.eabridge.services.ModelSetConfiguration;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration.QualifiedModel;
+import de.cooperateproject.eabridge.services.ModelSetConfigurationObserver;
 import de.cooperateproject.eabridge.services.Transformation;
 import de.cooperateproject.eabridge.services.TransformationTraceHandler;
 
@@ -73,7 +85,35 @@ public class LocalFileTransformationTraceHandler implements TransformationTraceH
 		
 		Trace result = new Trace(resource.getContents());
 		
+		repairTrace(result, trans);
+		
 		return Optional.of(result);
+	}
+
+	protected void repairTrace(Trace result, Transformation trans) {
+		final Map<URI, Resource> targetModelResources = new HashMap<>();
+		Consumer<QualifiedModel> processor = qm -> targetModelResources.put(qm.getModel().getURI(), qm.getModel());
+		
+		trans.getInputModels().forEach(processor);
+		trans.getTargetModels().forEach(processor);
+		
+		StreamSupport.stream(Spliterators.spliteratorUnknownSize(EcoreUtil.<EObject>getAllContents(result.getTraceContent()), 0), false)
+			.filter(TracePackage.eINSTANCE.getEValue()::isInstance)
+			.filter(o -> Optional.ofNullable(((EObject)o.eGet(TracePackage.eINSTANCE.getEValue_ModelElement(), false))).map(EObject::eIsProxy).isPresent())
+			.forEach(o -> o.eSet(TracePackage.eINSTANCE.getEValue_ModelElement(), LocalFileTransformationTraceHandler.this.lookUpProxyReference(
+					(EObject)o.eGet(TracePackage.eINSTANCE.getEValue_ModelElement(), false), targetModelResources)));
+	}
+	
+	protected EObject lookUpProxyReference(EObject reference, Map<URI, Resource> targetModelResources) {
+		if (!reference.eIsProxy()) {
+			throw new IllegalArgumentException("The object to lookup must consitute an eobject proxy.");
+		}
+		
+		URI proxyUri = ((InternalEObject)reference).eProxyURI();
+		Resource targetResource = targetModelResources.get(proxyUri.trimFragment());
+		EObject resolvedObject = targetResource != null ? targetResource.getEObject(proxyUri.fragment()) : null; 
+		
+		return resolvedObject != null ? resolvedObject : reference;
 	}
 
 	private void ensureFolderExists(Path buildFileName) {
@@ -126,11 +166,56 @@ public class LocalFileTransformationTraceHandler implements TransformationTraceH
 		resource.getContents().clear();
 		resource.getContents().addAll(value.getTraceContent());
 		
-		try {
-			resource.save(Collections.singletonMap(XMLResource.OPTION_SKIP_ESCAPE_URI, Boolean.FALSE));
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}		
+		final Set<ModelSetConfiguration> waitingForCommit = new HashSet<>();
+		
+		if (trans.getTargetModels().isDirty()) {
+			waitingForCommit.add(trans.getTargetModels());
+		}
+		
+		if (trans.getInputModels().isDirty()) {
+			waitingForCommit.add(trans.getInputModels());
+		}
+		
+		waitingForCommit.forEach(msc -> msc.addObserver(new ModelSetConfigurationObserver() {
+			public void notifyModelSetConfigurationCommitChanges(ModelSetConfiguration msc) {
+				waitingForCommit.remove(msc);
+				msc.removeObserver(this);
+				delayedSaveTrace(resource, waitingForCommit);
+			}
+			
+			@Override
+			public void notifyModelSetConfigurationUpdatedExternally(ModelSetConfiguration oldConfig,
+					ModelSetConfiguration newConfig) {
+				oldConfig.removeObserver(this);
+				Iterator<QualifiedModel> oldIterator = oldConfig.iterator();
+				Iterator<QualifiedModel> newIterator = newConfig.iterator();
+				
+				while (oldIterator.hasNext()) {
+					if (oldIterator.next().getModel() != newIterator.next().getModel()) {
+						//TODO repair trace
+					}
+				}
+				
+				waitingForCommit.add(newConfig);
+				waitingForCommit.remove(oldConfig);
+				
+				newConfig.addObserver(this);
+			}
+		}));
+		
+		delayedSaveTrace(resource, waitingForCommit);
+	}
+	
+	protected void delayedSaveTrace(Resource traceResource, Set<ModelSetConfiguration> waitingForCommit) {
+		
+		
+		if (waitingForCommit.isEmpty()) {
+			try {
+				traceResource.save(Collections.singletonMap(XMLResource.OPTION_SKIP_ESCAPE_URI, Boolean.FALSE));
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}	
+		}
 	}
 
 	@Override

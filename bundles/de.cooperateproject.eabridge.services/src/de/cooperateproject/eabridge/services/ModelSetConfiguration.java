@@ -2,15 +2,13 @@ package de.cooperateproject.eabridge.services;
 
 import java.util.Optional;
 
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.cooperateproject.eabridge.services.ModelSetConfiguration.QualifiedModel;
 import de.cooperateproject.eabridge.services.types.ModelSetSpecification;
 
-public interface ModelSetConfiguration extends Iterable<QualifiedModel> {
+public interface ModelSetConfiguration extends Iterable<QualifiedModel>, IAbstractObservable<ModelSetConfigurationObserver>{
     public static class QualifiedModel {
         protected ModelSetSpecification.QualifiedModelNamespace modelNamespace;
         protected Resource model;
@@ -39,6 +37,9 @@ public interface ModelSetConfiguration extends Iterable<QualifiedModel> {
     }
 
     public Resource getModel(String forNamespace, Optional<String> indentifier);
+    
+    boolean isDirty();
+    
 
     public static QualifiedModel createQualifiedModel(ModelSetSpecification.QualifiedModelNamespace namespace,
     		Resource value) {

@@ -8,7 +8,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.teneo.hibernate;bundle-version="2.1.0",
  org.apache.commons.lang;bundle-version="2.6.0",
  org.hibernate.core;bundle-version="4.3.11",
- de.cooperateproject.eabridge.services.common
+ de.cooperateproject.eabridge.services.common,
+ de.cooperateproject.eabridge.services;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: de.cooperateproject.eabridge.incrementalsync.monitoring,
