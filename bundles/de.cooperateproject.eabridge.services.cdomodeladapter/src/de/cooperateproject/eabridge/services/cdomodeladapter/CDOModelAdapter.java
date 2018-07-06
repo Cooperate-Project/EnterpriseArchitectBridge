@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.eclipse.emf.cdo.common.branch.CDOBranch;
@@ -28,7 +27,6 @@ import org.slf4j.LoggerFactory;
 import de.cooperateproject.cdo.util.merger.NilFixingCDOMerger;
 import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
-import de.cooperateproject.eabridge.services.ModelSetConfiguration.QualifiedModel;
 import de.cooperateproject.eabridge.services.ModelSetConfigurationBuilder;
 import de.cooperateproject.eabridge.services.cdoconnectionfactory.CDOConnectionFactory;
 import de.cooperateproject.eabridge.services.common.AbstractModelAdapter;
@@ -124,7 +122,6 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
         
         AbstractObservableModelSetConfiguration newConfig = calculateModelSetConfiguration(this.editableView);
         if (this.currentModelSet != null) {
-	        this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationUpdatedExternally(this.currentModelSet, newConfig);
 	        this.currentModelSet.removeAllObserver();
         }
         this.currentModelSet = newConfig;
@@ -186,7 +183,7 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
 			e1.printStackTrace();
 		}
     	
-    	this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationCommitChanges(currentModelSet);
+    	this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationCommitChanges(currentModelSet, this);
     	
     	CDOTransaction mainTransaction = (this.mainView instanceof CDOTransaction) ? (CDOTransaction) this.mainView:
     		this.currentSession.openTransaction(this.mainView.getBranch());

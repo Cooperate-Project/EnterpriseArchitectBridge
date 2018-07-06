@@ -26,6 +26,7 @@ import de.cooperateproject.eabridge.services.DatabaseFactory;
 import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
 import de.cooperateproject.eabridge.services.common.AbstractModelAdapter;
+import de.cooperateproject.eabridge.services.common.AbstractObservableModelSetConfiguration;
 import de.cooperateproject.eabridge.services.common.ListBasedModelSetConfigurationBuilder;
 import de.cooperateproject.eabridge.services.teneoadapter.util.CooperateHibernateResource;
 
@@ -54,7 +55,7 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
     protected ResourceSetImpl resourceSet;
     protected URI resourceURI;
     
-    protected ModelSetConfiguration currentModelSet;
+    protected AbstractObservableModelSetConfiguration currentModelSet;
     
 	private Map<String, Object> configurationProperties;
 	
@@ -129,7 +130,7 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
         return this.currentModelSet;
     }
 
-    private ModelSetConfiguration initReadOnlyModelSet() {
+    private AbstractObservableModelSetConfiguration initReadOnlyModelSet() {
     	Resource resource = resourceSet.getResource(resourceURI, false);
     	if (resource == null) {
     		SessionController sc = SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString());
@@ -176,6 +177,8 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
         }
         SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString())
 			.getSessionWrapper().commitTransaction();
+        
+        this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationCommitChanges(currentModelSet, this);
         resourceSet.getResources().remove(resource);
         this.currentModelSet = null;
         syncer.startASync();
@@ -186,6 +189,7 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
     	Resource resource = resourceSet.getResource(resourceURI, false);
     	SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString())
 			.getSessionWrapper().rollbackTransaction();
+    	this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationDiscardChanges(currentModelSet, this);
     	resourceSet.getResources().remove(resource);
     	this.currentModelSet = null;
         syncer.startASync();

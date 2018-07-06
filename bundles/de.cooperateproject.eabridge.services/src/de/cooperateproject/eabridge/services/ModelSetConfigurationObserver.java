@@ -2,16 +2,11 @@ package de.cooperateproject.eabridge.services;
 
 public interface ModelSetConfigurationObserver {
 	
-	default void notifyModelSetConfigurationCommitChanges(ModelSetConfiguration msc) {
+	default void notifyModelSetConfigurationCommitChanges(ModelSetConfiguration msc, ModelAdapter commiter) {
 		
 	}
 	
-	default void notifyModelSetConfigurationDiscardChanges(ModelSetConfiguration msc) {
+	default void notifyModelSetConfigurationDiscardChanges(ModelSetConfiguration msc, ModelAdapter adapter) {
 		
 	}
-	
-	default void notifyModelSetConfigurationUpdatedExternally(ModelSetConfiguration oldConfig, ModelSetConfiguration newConfig) {
-		
-	}
-
 }
