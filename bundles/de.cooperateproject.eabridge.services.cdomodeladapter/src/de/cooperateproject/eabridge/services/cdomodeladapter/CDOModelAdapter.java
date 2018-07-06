@@ -199,11 +199,15 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
         mainTransaction.merge(sourceToRevision, sourceFromRevision, targetFromRevision, new NilFixingCDOMerger());
         mainTransaction.setCommitComment("Merged changes from synchronized adapters");
         
+        this.updateListener.stopWatchingOfView(this.mainView);
+        
 		try {
 			mainTransaction.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();
 		}
+		
+		this.updateListener.startWatchingOfView(this.mainView);
 		
 		this.currentModelSet = calculateModelSetConfiguration(this.editableView);
         

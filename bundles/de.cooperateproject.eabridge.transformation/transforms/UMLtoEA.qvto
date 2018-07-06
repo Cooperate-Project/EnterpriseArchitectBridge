@@ -328,9 +328,6 @@ query OM::Connector::transformDirectionType() : OM::DirectionType {
 
 mapping uml::Type::transformType() : TypeReference {
 
-	//FIXME: Good idea? (Alternative: Code duplication)
-	result = new TypeReference();
-
 	if (self.oclIsTypeOf(uml::PrimitiveType)) then {
 		log("Transforming primitive type", self);
 		result.typeName := self.oclAsType(uml::PrimitiveType).transformPrimitive().toString();
