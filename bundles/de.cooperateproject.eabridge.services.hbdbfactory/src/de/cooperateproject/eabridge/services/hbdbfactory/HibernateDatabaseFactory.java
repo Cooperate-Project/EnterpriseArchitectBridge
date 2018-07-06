@@ -1,12 +1,5 @@
 package de.cooperateproject.eabridge.services.hbdbfactory;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,9 +10,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.teneo.PersistenceOptions;
 import org.eclipse.emf.teneo.annotations.mapper.PersistenceFileProvider;
@@ -28,6 +18,7 @@ import org.eclipse.emf.teneo.classloader.ClassLoaderResolver;
 import org.eclipse.emf.teneo.extension.ExtensionManager;
 import org.eclipse.emf.teneo.hibernate.HbDataStore;
 import org.eclipse.emf.teneo.hibernate.HbHelper;
+import org.eclipse.emf.teneo.hibernate.resource.SessionController;
 import org.eclipse.emf.teneo.mapping.strategy.SQLNameStrategy;
 import org.hibernate.cfg.Environment;
 import org.hibernate.internal.util.ClassLoaderHelper;
@@ -47,7 +38,8 @@ import de.cooperateproject.eabridge.services.DatabaseFactory;
     immediate=true,
     property = {
         HibernateDatabaseFactory.EABRIDGE_PROPERTIES_PREFIX_WHITELIST + "=hibernate;teneo",
-        HibernateDatabaseFactory.EABRIDGE_HBDBFACTORY_DATASTORE_NAME + "=datastore1",
+        HibernateDatabaseFactory.EABRIDGE_HBDBFACTORY_SESSIONCONTROLLER_NAME + "=sc1",
+        HibernateDatabaseFactory.EABRIDGE_HBDBFACTORY_DATASTORE_NAME + "=ds1",
         PersistenceOptions.CASCADE_POLICY_ON_NON_CONTAINMENT + "=REFRESH,PERSIST,MERGE",
         PersistenceOptions.PERSISTENCE_XML + "=/annotations.xml",
         PersistenceOptions.SQL_CASE_STRATEGY + "=none",
@@ -60,12 +52,12 @@ import de.cooperateproject.eabridge.services.DatabaseFactory;
 public class HibernateDatabaseFactory implements DatabaseFactory {
     public static final String EABRIDGE_PROPERTIES_PREFIX_WHITELIST = "eabridge.prefix.whitelist";
     public static final String EABRIDGE_HBDBFACTORY_DATASTORE_NAME = "eabridge.hbdbfactory.datastore.name";
+    public static final String EABRIDGE_HBDBFACTORY_SESSIONCONTROLLER_NAME = "eabridge.hbdbfactory.sessioncontroller.name";
     public static final String SERVICE_PID_NAME = "hbdbfactory";
 	
     protected static Logger LOGGER = LoggerFactory.getLogger(HibernateDatabaseFactory.class); 
 	protected Map<String, Object> configurationProperties;
 	protected List<String> prefixWhitelist;
-	private HbDataStore dataStoreInstance = null;
 	
 	@Activate
 	protected void activate (Map<String, Object> properties) {
@@ -75,12 +67,13 @@ public class HibernateDatabaseFactory implements DatabaseFactory {
             .filter(String.class::isInstance).map(String.class::cast)
             .map(p -> p.split(";")).map(Arrays::asList)
                 .ifPresent(c -> {HibernateDatabaseFactory.this.prefixWhitelist = Collections.unmodifiableList(c);});
+	    
+	    this.registerSessionController(configurationProperties.get(EABRIDGE_HBDBFACTORY_SESSIONCONTROLLER_NAME).toString());
 	}
 	
 	@Deactivate
 	protected void deactivate() {
-	    if (dataStoreInstance != null)
-	        destoryDataStore(dataStoreInstance);
+	    this.destorySessionController(configurationProperties.get(EABRIDGE_HBDBFACTORY_SESSIONCONTROLLER_NAME).toString());
 	}
 	
 	@Override
@@ -102,10 +95,9 @@ public class HibernateDatabaseFactory implements DatabaseFactory {
 	    return c;
 	}
 	
-	private boolean DEBUG = true;
+	private boolean DEBUG = false;
 	
-	@Override
-    public synchronized HbDataStore getDataStore() {
+	/*public synchronized HbDataStore getDataStore() {
         if (this.dataStoreInstance == null) {
         	ClassLoaderHelper.overridenClassLoader = this.getClass().getClassLoader();
             if (DEBUG) {
@@ -135,15 +127,29 @@ public class HibernateDatabaseFactory implements DatabaseFactory {
 
         }
         return this.dataStoreInstance;
-    }
-
-    @Override
-    public void destoryDataStore(HbDataStore dataStore) {
-        dataStore.close();
-        HbHelper.INSTANCE.deRegisterDataStore(dataStore);
-    }
+    }*/
 	
-	private HbDataStore createDataStoreInternal(Map<String, Object> properties, boolean useExistingMapping) {
+	protected void registerSessionController(String controllerName) {
+		SessionController controller = new SessionController();
+		
+		HbDataStore dataStore = createDataStoreInternal(configurationProperties, true);
+		controller.setHbDataStore(dataStore);
+		
+		SessionController.registerSessionController(controllerName, controller);
+	}
+	
+	
+	protected void destorySessionController(String controllerName) {
+		SessionController sessionController = SessionController.getSessionController(controllerName);
+		
+		HbDataStore hbDataStore = sessionController.getHbDataStore();
+		hbDataStore.close();
+		HbHelper.INSTANCE.deRegisterDataStore(hbDataStore);
+		
+		SessionController.deRegisterSessionController(controllerName);
+	}
+    
+	protected HbDataStore createDataStoreInternal(Map<String, Object> properties, boolean useExistingMapping) {
 		final Properties props = new Properties();
 		
 		properties.forEach((k, e) -> {
@@ -158,6 +164,7 @@ public class HibernateDatabaseFactory implements DatabaseFactory {
 		
 		// workaround for unit tests
 		ClassLoaderResolver.setClassLoaderStrategy(new ClassClassLoaderStrategy());
+		ClassLoaderHelper.overridenClassLoader = this.getClass().getClassLoader();
 
 		// data store initialization
 		final String hbName = properties.get(EABRIDGE_HBDBFACTORY_DATASTORE_NAME).toString();
@@ -170,13 +177,11 @@ public class HibernateDatabaseFactory implements DatabaseFactory {
 		extensionManager.registerExtension(PersistenceFileProvider.class.getName(), URIPersistenceFileProvider.class.getName());
 		
 		hbds.initialize();
+		
 		return hbds;
 	}
 	
 	private static String modifyMappingXML(String mappingXML) {
 		return XMLModifier.modifyXML(mappingXML);
 	}
-	
-	
-
 }

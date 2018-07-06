@@ -2,23 +2,15 @@ package de.cooperateproject.eabridge.services.teneoadapter;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.teneo.hibernate.SessionWrapper;
 import org.eclipse.emf.teneo.hibernate.resource.HibernateResource;
+import org.eclipse.emf.teneo.hibernate.resource.SessionController;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
@@ -41,12 +33,12 @@ import de.cooperateproject.eabridge.services.teneoadapter.util.CooperateHibernat
            name=TeneoModelAdapter.SERVICE_PID,
            service= {ModelAdapter.class},
            property= {
-                   TeneoModelAdapter.TENEOADAPTER_DATASTORE_NAME + "=datastore1",
+                   TeneoModelAdapter.TENEOADAPTER_SESSIONCONTROLLER_NAME + "=sc1",
                    TeneoModelAdapter.TENEOADAPTER_HQLQUERY_ROOTELEMENTS + "=from Package p where p.Parent.PackageID=0",
                    TeneoModelAdapter.TENEOADAPTER_PROPERTY_ELEMENTS + "=Name"
            })
 public class TeneoModelAdapter extends AbstractModelAdapter implements IncrementalSyncListener {
-    public static final String TENEOADAPTER_DATASTORE_NAME = "datastore.name";
+    public static final String TENEOADAPTER_SESSIONCONTROLLER_NAME = "sessioncontroller.name";
     public static final String TENEOADAPTER_HQLQUERY_ROOTELEMENTS = "hqlquery.rootelements";
     public static final String TENEOADAPTER_PROPERTY_ELEMENTS = "rootelement.property";
     public static final String TENEOADAPTER_ELEMENTPATH = "elementpath";
@@ -59,12 +51,17 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
     protected DatabaseFactory dbFactory;
     protected SessionWrapper sessionWrapper;
     protected IncrementalSync syncer;
-    protected Resource rootElement;
+    protected ResourceSetImpl resourceSet;
+    protected URI resourceURI;
+    
+    protected ModelSetConfiguration currentModelSet;
+    
+	private Map<String, Object> configurationProperties;
+	
     
     @Activate
     protected void activate(Map<String, Object> properties) throws IOException {
-        dbFactory.getDataStore();
-        
+    	this.configurationProperties = properties;
         Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap().put("cphb", new Resource.Factory() {
 			@Override
 			public Resource createResource(URI uri) {
@@ -72,37 +69,37 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
 			}
         });
         
-        String uriStr = "cphb://?" + HibernateResource.DS_NAME_PARAM + "=" + properties.get(TENEOADAPTER_DATASTORE_NAME) + 
+        String uriStr = "cphb://?" + HibernateResource.SESSION_CONTROLLER_PARAM + "=" + properties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME) + 
                 "&query1=" + properties.get(TENEOADAPTER_HQLQUERY_ROOTELEMENTS);
-        final URI uri = URI.createURI(uriStr);
-        ResourceSet resourceSet = new ResourceSetImpl();
-        final Resource res = resourceSet.createResource(uri);
+        this.resourceURI = URI.createURI(uriStr);
+        this.resourceSet = new ResourceSetImpl();
+
         
-        res.load(Collections.EMPTY_MAP);
-        
-        sessionWrapper = ((HibernateResource)res).getSessionWrapper();
         /*Optional<EObject> rootElement = lookupRootElement(res, 
                 properties.get(TENEOADAPTER_PROPERTY_ELEMENTS).toString(), 
                 properties.get(TENEOADAPTER_ELEMENTPATH).toString());*/ 
         
-        if (res.getContents().isEmpty()) {
-            throw new RuntimeException("The specified root element is not present in the database");
-        }
-        
-        rootElement = res;
-        
         Connection c = dbFactory.getConnection();
         
-        syncer = new IncrementalSync(c, sessionWrapper, properties.get(TENEOADAPTER_TABLE_PREFIX).toString(), MODE.LOG_AND_SYNC);
+        syncer = new IncrementalSync(c, this.getSessionWrapper(), properties.get(TENEOADAPTER_TABLE_PREFIX).toString(), MODE.LOG_AND_SYNC);
         syncer.addObserver(this);
         syncer.startASync();
+    }
+    
+    protected SessionWrapper getSessionWrapper() throws IOException {
+    	SessionController sc = SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString());
+    	sc.getSessionWrapper().beginTransaction();
+    	Resource createResource = resourceSet.createResource(resourceURI);
+    	createResource.load(Collections.emptyMap());
+    	sc.getSessionWrapper().commitTransaction();
+    	return ((HibernateResource)createResource).getSessionWrapper();
     }
     
     @Deactivate
     protected void deactivate() {
         
     }
-
+/*
     private Optional<EObject> lookupRootElement(Resource rootResource, String elementProperty, String elementPath) {
         Deque<String> splitPath = new LinkedList<>(Arrays.asList(elementPath.split("/")));
         List<EObject> alternatives = new LinkedList<>(rootResource.getContents());
@@ -122,36 +119,77 @@ public class TeneoModelAdapter extends AbstractModelAdapter implements Increment
         }
         
         return matching.stream().findAny();
-    }
+    }*/
 
     @Override
     public ModelSetConfiguration getModelSet() {
-        return (new ListBasedModelSetConfigurationBuilder()).appendRootElement(rootElement).build();
+    	if (this.currentModelSet == null) {
+    		this.currentModelSet = initReadOnlyModelSet();
+    	}
+        return this.currentModelSet;
     }
 
-    @Override
-    public void startWritableMode() {   
+    private ModelSetConfiguration initReadOnlyModelSet() {
+    	Resource resource = resourceSet.getResource(resourceURI, false);
+    	if (resource == null) {
+    		SessionController sc = SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString());
+        	sc.getSessionWrapper().beginTransaction();
+    		resource = resourceSet.createResource(resourceURI);
+    		try {
+				resource.load(Collections.emptyMap());
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+    		sc.getSessionWrapper().commitTransaction();
+    	}
+    	return (new ListBasedModelSetConfigurationBuilder()).appendRootElement(resource).build();
+	}
+
+	@Override
+    public void startWritableMode() {
+    	Resource resource = resourceSet.getResource(resourceURI, false);
+    	if (resource != null) {
+    		resource.unload();
+    		this.resourceSet.getResources().remove(resource);
+    	}
+    	syncer.stop();
+    	
+    	SessionController sc = SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString());
+    	sc.getSessionWrapper().beginTransaction();
+    	resource = resourceSet.createResource(resourceURI);
+    	try {
+    		resource.load(Collections.emptyMap());
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+    	
+    	this.currentModelSet = (new ListBasedModelSetConfigurationBuilder()).appendRootElement(resource).build();
     }
 
     @Override
     public void commitChanges() {
-        syncer.stop();
+    	Resource resource = resourceSet.getResource(resourceURI, false);
         try {
-            rootElement.save(Collections.emptyMap());
+        	resource.save(Collections.emptyMap());
         } catch(IOException ex) {
-            LOGGER.error("Commit failed", ex);
+        	throw new RuntimeException(ex);
         }
+        SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString())
+			.getSessionWrapper().commitTransaction();
+        resourceSet.getResources().remove(resource);
+        this.currentModelSet = null;
         syncer.startASync();
     }
 
     @Override
     public void discardChanges() {
-        rootElement.unload();
-        try {
-            rootElement.load(Collections.emptyMap());
-        } catch(IOException ex) {
-            LOGGER.error("Commit failed", ex);
-        }
+    	Resource resource = resourceSet.getResource(resourceURI, false);
+    	SessionController.getSessionController(configurationProperties.get(TENEOADAPTER_SESSIONCONTROLLER_NAME).toString())
+			.getSessionWrapper().rollbackTransaction();
+    	resourceSet.getResources().remove(resource);
+    	this.currentModelSet = null;
+        syncer.startASync();
+        
     }
 
 	@Override

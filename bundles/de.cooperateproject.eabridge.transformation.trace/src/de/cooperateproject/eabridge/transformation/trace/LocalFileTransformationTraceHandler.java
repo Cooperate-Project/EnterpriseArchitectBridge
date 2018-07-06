@@ -31,6 +31,7 @@ import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
 
+import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration;
 import de.cooperateproject.eabridge.services.ModelSetConfiguration.QualifiedModel;
 import de.cooperateproject.eabridge.services.ModelSetConfigurationObserver;
@@ -94,8 +95,8 @@ public class LocalFileTransformationTraceHandler implements TransformationTraceH
 		final Map<URI, Resource> targetModelResources = new HashMap<>();
 		Consumer<QualifiedModel> processor = qm -> targetModelResources.put(qm.getModel().getURI(), qm.getModel());
 		
-		trans.getInputModels().forEach(processor);
-		trans.getTargetModels().forEach(processor);
+		trans.getInputAdapter().getModelSet().forEach(processor);
+		trans.getTargetAdapter().getModelSet().forEach(processor);
 		
 		StreamSupport.stream(Spliterators.spliteratorUnknownSize(EcoreUtil.<EObject>getAllContents(result.getTraceContent()), 0), false)
 			.filter(TracePackage.eINSTANCE.getEValue()::isInstance)
@@ -133,12 +134,12 @@ public class LocalFileTransformationTraceHandler implements TransformationTraceH
 
 	protected Path buildFileName(Transformation trans) {
 		List<String> nameQualifier = new ArrayList<>(2);
-		Iterator<QualifiedModel> iterator = trans.getInputModels().iterator();
+		Iterator<QualifiedModel> iterator = trans.getInputAdapter().getModelSet().iterator();
 		if (iterator.hasNext()) {
 			nameQualifier.add(iterator.next().getModel().getURI().toString().replaceAll("\\W+", ""));
 		}
 		
-		iterator = trans.getTargetModels().iterator();
+		iterator = trans.getTargetAdapter().getModelSet().iterator();
 		if (iterator.hasNext()) {
 			nameQualifier.add(iterator.next().getModel().getURI().toString().replaceAll("\\W+", "") + ".xmi");
 		}
@@ -166,23 +167,23 @@ public class LocalFileTransformationTraceHandler implements TransformationTraceH
 		resource.getContents().clear();
 		resource.getContents().addAll(value.getTraceContent());
 		
-		final Set<ModelSetConfiguration> waitingForCommit = new HashSet<>();
+		final Set<ModelAdapter> waitingForCommit = new HashSet<>();
 		
-		if (trans.getTargetModels().isDirty()) {
-			waitingForCommit.add(trans.getTargetModels());
+		if (trans.getTargetAdapter().getModelSet().isDirty()) {
+			waitingForCommit.add(trans.getTargetAdapter());
 		}
 		
-		if (trans.getInputModels().isDirty()) {
-			waitingForCommit.add(trans.getInputModels());
+		if (trans.getInputAdapter().getModelSet().isDirty()) {
+			waitingForCommit.add(trans.getInputAdapter());
 		}
 		
-		waitingForCommit.forEach(msc -> msc.addObserver(new ModelSetConfigurationObserver() {
+		waitingForCommit.forEach(msc -> msc.getModelSet().addObserver(new ModelSetConfigurationObserver() {
 			public void notifyModelSetConfigurationCommitChanges(ModelSetConfiguration msc) {
 				waitingForCommit.remove(msc);
 				msc.removeObserver(this);
 				delayedSaveTrace(resource, waitingForCommit);
 			}
-			
+			/* TODO: remove. Probably not needed anymore
 			@Override
 			public void notifyModelSetConfigurationUpdatedExternally(ModelSetConfiguration oldConfig,
 					ModelSetConfiguration newConfig) {
@@ -200,13 +201,13 @@ public class LocalFileTransformationTraceHandler implements TransformationTraceH
 				waitingForCommit.remove(oldConfig);
 				
 				newConfig.addObserver(this);
-			}
+			}*/
 		}));
 		
 		delayedSaveTrace(resource, waitingForCommit);
 	}
 	
-	protected void delayedSaveTrace(Resource traceResource, Set<ModelSetConfiguration> waitingForCommit) {
+	protected void delayedSaveTrace(Resource traceResource, Set<ModelAdapter> waitingForCommit) {
 		
 		
 		if (waitingForCommit.isEmpty()) {

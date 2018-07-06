@@ -20,7 +20,7 @@ import org.eclipse.m2m.qvt.oml.TransformationExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.cooperateproject.eabridge.services.ModelSetConfiguration;
+import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.Transformation;
 import de.cooperateproject.eabridge.services.TransformationContextProvider;
 import de.cooperateproject.eabridge.services.TransformationContextProviderRegistry;
@@ -35,27 +35,27 @@ public abstract class QVTOTransformationBase implements Transformation {
     private static final Logger LOGGER = LoggerFactory.getLogger(QVTOTransformationBase.class);
     protected final TransformationExecutor executor;
     protected final TransformationContextProviderRegistry contextProvider;
-    protected final ModelSetConfiguration inputModels;
-    protected final ModelSetConfiguration targetModels;
+    protected final ModelAdapter inputAdapter;
+    protected final ModelAdapter targetAdapter;
     protected final QVTOResource transformationResource;
 
     public QVTOTransformationBase(QVTOResource transformationResource, TransformationExecutor exec, TransformationContextProviderRegistry contextProvider,
-            ModelSetConfiguration inputModels, ModelSetConfiguration targetModels) {
+    		ModelAdapter inputAdapter, ModelAdapter targetAdapter) {
         this.transformationResource = transformationResource;
-        this.inputModels = inputModels;
-        this.targetModels = targetModels;
+        this.inputAdapter = inputAdapter;
+        this.targetAdapter = targetAdapter;
         this.executor = exec;
         this.contextProvider = contextProvider;
     }
     
     @Override
-    public ModelSetConfiguration getInputModels() {        
-        return this.inputModels;
+    public ModelAdapter getInputAdapter() {        
+        return this.inputAdapter;
     }
     
     @Override
-    public ModelSetConfiguration getTargetModels() {
-        return targetModels;
+    public ModelAdapter getTargetAdapter() {
+        return targetAdapter;
     }
     
     @Override

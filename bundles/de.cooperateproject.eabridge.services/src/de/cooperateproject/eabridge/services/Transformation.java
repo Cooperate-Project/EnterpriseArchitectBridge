@@ -10,9 +10,9 @@ public interface Transformation {
     
     GeneralizedTransformationCharacteristic getTransformationCharacteristic();
     
-    ModelSetConfiguration getInputModels();
+    ModelAdapter getInputAdapter();
     
-    ModelSetConfiguration getTargetModels();
+    ModelAdapter getTargetAdapter();
 
 	String getName();
 }

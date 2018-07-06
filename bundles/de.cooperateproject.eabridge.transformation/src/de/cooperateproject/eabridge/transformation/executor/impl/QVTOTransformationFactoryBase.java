@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.osgi.service.component.annotations.Reference;
 
-import de.cooperateproject.eabridge.services.ModelSetConfiguration;
+import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.Transformation;
 import de.cooperateproject.eabridge.services.TransformationFactory;
 import de.cooperateproject.eabridge.services.types.GeneralizedTransformationCharacteristic;
@@ -26,7 +26,7 @@ public class QVTOTransformationFactoryBase implements TransformationFactory {
     }
 
     @Override
-    public Transformation create(ModelSetConfiguration inputModelSet, ModelSetConfiguration targetModelSet) {
+    public Transformation create(ModelAdapter inputAdapter, ModelAdapter targetAdapter) {
         // TODO Auto-generated method stub
         return null;
     }

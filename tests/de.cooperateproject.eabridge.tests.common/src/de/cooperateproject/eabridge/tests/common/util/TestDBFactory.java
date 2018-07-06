@@ -44,7 +44,6 @@ public class TestDBFactory extends HibernateDatabaseFactory {
         this.properties = properties;
     }
 
-    @Override
     public HbDataStore getDataStore() {
         if (this.configurationProperties == null) {
             Map<String, Object> props = new HashMap<>(defaultProperties);
@@ -53,10 +52,9 @@ public class TestDBFactory extends HibernateDatabaseFactory {
 
             super.activate(props);
         }
-        return super.getDataStore();
+        return super.createDataStoreInternal(this.configurationProperties, true);
     }
 
-    @Override
     public void destoryDataStore(HbDataStore dataStore) {
         // TODO Auto-generated method stub
 

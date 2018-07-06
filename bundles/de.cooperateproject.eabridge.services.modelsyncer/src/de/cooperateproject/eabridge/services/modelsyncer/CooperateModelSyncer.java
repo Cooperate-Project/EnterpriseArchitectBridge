@@ -72,7 +72,7 @@ public class CooperateModelSyncer implements ModelChangeListener {
                 final ModelSetConfiguration targetModelSet = ad.getModelSet();
                 tfRegistry.getSuitableFactories(
                         new GeneralizedTransformationCharacteristic(sourceModelSet.getSpecification(), targetModelSet.getSpecification()))
-                    .stream().map(fact -> fact.create(sourceModelSet, targetModelSet))
+                    .stream().map(fact -> fact.create(adapterWithChange, ad))
                     .forEach(t -> sExecutor.scheduleSynchronization(t, ad));
             }
         }

@@ -15,6 +15,7 @@ import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.view.CDOView;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.net4j.util.io.IOUtil;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -67,16 +68,19 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
         this.properties = properties;
         
         currentSession = cdoFactory.getSession();
+        
         mainView = currentSession.openView(currentSession.getBranchManager().getMainBranch());
         
-        startWritableMode();
-        
         this.updateListener = new CDOViewUpdateListener(
-                StreamSupport.stream(this.currentModelSet.spliterator(), false)
-                .map(QualifiedModel::getModel)
-                .map(Resource::getURI).map(Object::toString).collect(Collectors.toList()),
-                this::refreshModelSet);
+    		properties.keySet().stream().filter(k -> k.startsWith(CDOMODELADAPTER_MODEL_PREFIX))
+	        .map(s -> s.split("\\.")).map(Arrays::asList).sorted((o1, o2) -> o1.get(1).compareTo(o2.get(1)))
+	        .map(splitKey -> mainView.getResource(buildResourcePath(splitKey), true))
+	        .map(Resource::getURI).map(Object::toString).collect(Collectors.toList()),
+            () -> this.refreshModelSet(false));
+                
         this.updateListener.startWatchingOfView(this.mainView);
+        
+        refreshModelSet(true);
         
     }
     
@@ -93,23 +97,41 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
     @Override
     public ModelSetConfiguration getModelSet() {
         if (this.currentModelSet == null) {
-            this.currentModelSet = calculateModelSetConfiguration();
+            this.currentModelSet = calculateModelSetConfiguration(this.editableView);
         }
         return this.currentModelSet;
     }
     
-    protected void refreshModelSet() {
+    protected void refreshModelSet(boolean silent) {
         this.updateListener.stopWatchingOfView(this.mainView);
+        this.mainView.close();
+        //TODO: CHeck if this is necessary. Can the view be reused after ViewInvalidation by CDO.
         this.mainView = currentSession.openView(currentSession.getBranchManager().getMainBranch());
-        
-        AbstractObservableModelSetConfiguration newConfig = calculateModelSetConfiguration();
-        this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationUpdatedExternally(this.currentModelSet, newConfig);
-        this.currentModelSet.removeAllObserver();
-        this.currentModelSet = newConfig;
-        
+        properties.keySet().stream().filter(k -> k.startsWith(CDOMODELADAPTER_MODEL_PREFIX))
+		    .map(s -> s.split("\\.")).map(Arrays::asList).sorted((o1, o2) -> o1.get(1).compareTo(o2.get(1)))
+		    .forEach(splitKey -> EcoreUtil.resolveAll((Resource) mainView.getResource(buildResourcePath(splitKey), true)));
         this.updateListener.startWatchingOfView(this.mainView);
         
-        this.getEventDispatcher().notifyChange(this);
+        if (this.editableBranch != null) {
+        	//TODO think about reusing branch
+        }
+        
+        this.editableBranch = this.currentSession.getBranchManager().getMainBranch().createBranch(createRandomBranchName());
+    	this.editableView = this.currentSession.openTransaction(this.editableBranch);
+        lastMergeTimeBranch = getTimestampOfBranch(this.editableView, this.editableBranch.getID());
+        lastMergeTimeMain = getTimestampOfBranch(this.mainView, CDOBranch.MAIN_BRANCH_ID);
+    	
+        
+        AbstractObservableModelSetConfiguration newConfig = calculateModelSetConfiguration(this.editableView);
+        if (this.currentModelSet != null) {
+	        this.currentModelSet.getEventDispatcher().notifyModelSetConfigurationUpdatedExternally(this.currentModelSet, newConfig);
+	        this.currentModelSet.removeAllObserver();
+        }
+        this.currentModelSet = newConfig;
+        
+        if (!silent) {
+        	this.getEventDispatcher().notifyChange(this);
+        }
     }
     
     private String buildResourcePath(List<String> modelConfig) {
@@ -120,12 +142,12 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
         return properties.get(CDOMODELADAPTER_BASE_PATH).toString() + '/' + properties.get(resourceNameParam); 
     }
     
-    protected AbstractObservableModelSetConfiguration calculateModelSetConfiguration() {
+    protected AbstractObservableModelSetConfiguration calculateModelSetConfiguration(CDOView view) {
         final ModelSetConfigurationBuilder<AbstractObservableModelSetConfiguration> builder = new ListBasedModelSetConfigurationBuilder();
         properties.keySet().stream().filter(k -> k.startsWith(CDOMODELADAPTER_MODEL_PREFIX))
             .map(s -> s.split("\\.")).map(Arrays::asList).sorted((o1, o2) -> o1.get(1).compareTo(o2.get(1)))
             .forEach(splitKey -> {
-                Resource rootElement = this.editableView.getResource(buildResourcePath(splitKey), true);
+                Resource rootElement = view.getResource(buildResourcePath(splitKey), true);
                 LOGGER.info("Updated resource {} ({})", rootElement.getURI().toString(), rootElement.getContents().get(0).eClass().getEPackage().getNsURI());
                 builder.appendRootElement(rootElement, splitKey.size() > 2 ? Optional.of(splitKey.get(2)): Optional.empty());
             });
@@ -135,18 +157,7 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
 
     @Override
     public void startWritableMode() {
-        if (this.editableBranch == null) {
-        	this.editableBranch = this.currentSession.getBranchManager().getMainBranch().createBranch(createRandomBranchName());
-        	this.editableView = this.currentSession.openTransaction(this.editableBranch);
-        	this.currentModelSet = calculateModelSetConfiguration();
-        }
-
-        if (this.currentModelSet.isDirty()) {
-        	throw new IllegalStateException("The model set is already dirty. Writable mode could not be activated");
-        }
-        
-        lastMergeTimeBranch = getTimestampOfBranch(this.editableView, this.editableBranch.getID());
-        lastMergeTimeMain = getTimestampOfBranch(this.mainView, CDOBranch.MAIN_BRANCH_ID);
+        //Intentionally left blank
     }
     
     private static String createRandomBranchName() {
@@ -197,7 +208,7 @@ public class CDOModelAdapter extends AbstractModelAdapter implements ModelAdapte
 			e.printStackTrace();
 		}
 		
-		this.currentModelSet = calculateModelSetConfiguration();
+		this.currentModelSet = calculateModelSetConfiguration(this.editableView);
         
         lastMergeTimeBranch = getTimestampOfBranch(this.editableView, editorBranch.getID());
         lastMergeTimeMain = getTimestampOfBranch(mainTransaction, mainBranch.getID());

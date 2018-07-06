@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
-import de.cooperateproject.eabridge.services.ModelSetConfiguration;
+import de.cooperateproject.eabridge.services.ModelAdapter;
 import de.cooperateproject.eabridge.services.Transformation;
 import de.cooperateproject.eabridge.services.TransformationContextProviderRegistry;
 import de.cooperateproject.eabridge.services.TransformationFactory;
@@ -53,7 +53,7 @@ public class PapyrusToEATransformationFactory implements TransformationFactory {
     //protected TransformationUnitURIResolver resolver;
     
     @Override
-    public Transformation create(ModelSetConfiguration inputModelSet, ModelSetConfiguration targetModelSet) {
+    public Transformation create(ModelAdapter inputAdapter, ModelAdapter targetAdapter) {
         Transformation result = null;
         URL transformationUrl = FileLocator.find(Activator.getInstance().getBundle(), Path.fromOSString("transforms/UMLtoEA.qvto"), null);
         try {
@@ -62,7 +62,7 @@ public class PapyrusToEATransformationFactory implements TransformationFactory {
                 qvtoResourceProvider.getQVTOResource(transformationUri), 
                 qvtoTransformationProvider.getTransformationExecutor(transformationUri), 
                 transformationContextProvider,
-                inputModelSet, targetModelSet);
+                inputAdapter, targetAdapter);
         } catch (IOException | URISyntaxException ex) {
             LOGGER.error("Error during resolving of QVTO transformation artifact", ex);
         }

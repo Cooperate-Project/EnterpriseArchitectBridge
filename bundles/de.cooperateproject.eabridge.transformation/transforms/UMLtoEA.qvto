@@ -31,6 +31,7 @@ disjuncts uml::Package::mapPackageToElement, uml::Classifier::mapClassifierToEle
 
 mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 	log("Mapping package", self);
+	PackageGUID := if PackageGUID != null then PackageGUID else generateUUID() endif;
 	
 	Name := self.name;
 	
@@ -54,7 +55,7 @@ mapping uml::Package::mapPackage() : eaobjectmodel::Package {
 		  Flags := if (Flags.length() > 0) then ";" else "" endif + "isModel=1";
 		} endif;
 	};
-	PackageGUID := if PackageGUID != null then PackageGUID else generateUUID() endif;
+	
 }
 
 mapping uml::Classifier::mapClassifierToElement() : eaobjectmodel::Element
@@ -62,17 +63,21 @@ disjuncts uml::Class::mapClassToElement, uml::Interface::mapInterfaceToElement;
 
 mapping uml::Package::mapPackageToElement() : eaobjectmodel::Element {
 	Name := self.name;
+	ElementGUID := self.resolveoneIn(uml::Package::mapPackage).PackageGUID;
+	
 	result.Type := ElementType::Package;
 	PDATA1 := self.late resolveoneIn(uml::Package::mapPackage);
 	
 	SourceRelations := self.getFeature("packageImport")->oclAsType(uml::PackageImport)->mapPackageImportToConnector();
 	
-	ElementGUID := self.resolveoneIn(uml::Package::mapPackage).PackageGUID;
+	
 }
 
 abstract mapping uml::Classifier::mapClassifierToElementBase(): eaobjectmodel::Element
 {
 	log("Mapping Classifier", self);
+	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
+	
 	PDATA1 := null;
 	
 	Name := self.name;
@@ -83,7 +88,7 @@ abstract mapping uml::Classifier::mapClassifierToElementBase(): eaobjectmodel::E
 	SourceRelations += self.getFeature("generalization")->oclAsType(uml::Generalization).map mapGeneralizationToConnector();
 	SourceRelations += self.getFeature("substitution")->oclAsType(uml::Substitution).map mapSubstitutionToConnector();
 	
-	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
+	
 }
 
 mapping uml::Class::mapClassToElement(): eaobjectmodel::Element
@@ -117,10 +122,11 @@ disjuncts uml::Comment::mapCommentToElementNested, uml::Comment::mapCommentToEle
 abstract mapping uml::Comment::mapCommentToElementBase() : eaobjectmodel::Element
 {
 	log("Mapping comment", self);
+	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
+	
 	PDATA1 := null;
 	Notes := self.body;
 	result.Type := eaobjectmodel::ElementType::Note;
-	ElementGUID := if ElementGUID != null then ElementGUID else generateUUID() endif;
 }
 
 mapping uml::Comment::mapCommentToElementNested() : eaobjectmodel::Element
@@ -141,6 +147,7 @@ when {self.isContainedInElement()}
 
 mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector {
 	log("Mapping association", self);
+	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
 		
 	Name := self.name;
 	
@@ -172,16 +179,13 @@ mapping uml::Association::mapAssociationToConnector() : eaobjectmodel::Connector
 		else DestCard := destProperty.getLower().toString() + ".." + destProperty.getUpper().toString()
 	endif;
 	
-	result.Type := ConnectorType::Association;
-	
-	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
+	result.Type := ConnectorType::Association;	
 }
 
 abstract mapping uml::DirectedRelationship::mapDirectedRelationShip() : OM::Connector {
+	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
 	Direction := DirectionType::SourceDestination;
 	DestIsNavigable := true;
-	
-	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
 }
 
 mapping uml::Generalization::mapGeneralizationToConnector() : eaobjectmodel::Connector
@@ -222,27 +226,29 @@ inherits uml::DirectedRelationship::mapDirectedRelationShip {
 mapping uml::Element::mapElementToNoteLink() : eaobjectmodel::Connector {
 	log("Mapping noteLink", self);
 	
+	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
+	
 	Dest := self.late resolveone(eaobjectmodel::Element);
 	DestIsNavigable := true;
 	Direction := DirectionType::SourceDestination;
 	result.Type := ConnectorType::NoteLink;
-	
-	ConnectorGUID := if ConnectorGUID != null then ConnectorGUID else generateUUID() endif;
 }
 
 mapping uml::Property::mapPropertyToAttribute(): Attribute {
 	log("Mapping attribute", self);
 	
+	AttributeGUID := if AttributeGUID != null then AttributeGUID else generateUUID() endif;
+	
 	Name := self.name;
 
 	result.Scope := self.visibility.transformVisibility();
 	AttributeType := self.type.map transformType();
-	
-	AttributeGUID := if AttributeGUID != null then AttributeGUID else generateUUID() endif;
 }
 
 mapping uml::Operation::mapOperationToMethod() : Method {
 	log("Mapping operation", self);
+	
+	MethodGUID := if MethodGUID != null then MethodGUID else generateUUID() endif;
 	
 	Name := self.name;
 	Visibility := self.visibility.transformVisibility();
@@ -254,18 +260,18 @@ mapping uml::Operation::mapOperationToMethod() : Method {
 		if (param.direction <> ParameterDirectionKind::_return) then
 		result.Parameters += param.map mapParameter() endif;
 	};
-	
-	MethodGUID := if MethodGUID != null then MethodGUID else generateUUID() endif;
 }
 
 mapping uml::Parameter::mapParameter() : Methodparameter {
 	log("Mapping parameter", self);
 	
+	ea_guid := if ea_guid != null then ea_guid else generateUUID() endif;
+	
 	Name := self.name;
 	Kind := self.direction.transformParameterDirection();
 	ParameterType := self.type.map transformType();
 	
-	ea_guid := if ea_guid != null then ea_guid else generateUUID() endif;
+
 }
 
 query uml::Property::transformAssociationType() : IsAggregate {
@@ -340,6 +346,9 @@ mapping uml::Type::transformType() : TypeReference {
 
 mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	log("Mapping diagram", self);
+	
+	DiagramGUID := if DiagramGUID != null then DiagramGUID else generateUUID() endif;
+	
 	Name := self.name;
 	
 	result.Type := "Logical";
@@ -361,8 +370,6 @@ mapping notation::Diagram::mapDiagram() : eaobjectmodel::Diagram {
 	};
 	
 	self.edges->selectByType(notation::Connector)->map mapConnector();
-	
-	DiagramGUID := if DiagramGUID != null then DiagramGUID else generateUUID() endif;
 }
 
 mapping notation::Shape::mapShape(packageLeft : Integer, packageTop : Integer) : eaobjectmodel::DiagramObject 

@@ -27,7 +27,7 @@ public class MySQLTestDB implements Closeable {
 	private static final String JDBC_PASS = "";
 	private static final String JDBC_DIALECT = org.hibernate.dialect.MySQLInnoDBDialect.class.getName();
 
-	private final DatabaseFactory dbFactory;
+	private final TestDBFactory dbFactory;
 	private final Connection dbConnection;
 	private final HbDataStore dbStore;
 	private final Liquibase liquibase;

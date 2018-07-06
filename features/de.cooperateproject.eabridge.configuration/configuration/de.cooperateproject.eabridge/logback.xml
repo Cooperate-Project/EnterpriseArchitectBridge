@@ -10,6 +10,21 @@
     <logger name="de.cooperateproject" level="DEBUG"/>
     <logger name="org.hibernate" level="INFO"/>
     
+    <logger name="org.hibernate" additivity="false" >   
+	 <level value="INFO" />
+	 <appender-ref ref="STDOUT" />
+	</logger>
+	
+	<!-- <logger name="org.hibernate.type" additivity="false" >
+	 <level value="TRACE" />
+	 <appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="org.hibernate.jdbc" additivity="false" >
+	 <level value="TRACE" />
+	 <appender-ref ref="STDOUT" />
+	</logger>-->
+    
     <root level="ERROR">
         <appender-ref ref="STDOUT" />
     </root>

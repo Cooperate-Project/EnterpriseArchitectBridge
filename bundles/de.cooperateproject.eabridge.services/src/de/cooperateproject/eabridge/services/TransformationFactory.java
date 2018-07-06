@@ -8,6 +8,6 @@ public interface TransformationFactory {
     
     Collection<GeneralizedTransformationCharacteristic> getSupportedTransformationCharacteristics();
 
-    Transformation create(ModelSetConfiguration inputModelSet, ModelSetConfiguration targetModelSet);
+    Transformation create(ModelAdapter inputAdapter, ModelAdapter targetAdapter);
 
 }

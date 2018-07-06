@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="require" deactivate="deactivate" immediate="true" name="hbdbfactory">
    <property name="eabridge.prefix.whitelist" value="hibernate;teneo"/>
-   <property name="eabridge.hbdbfactory.datastore.name" value="datastore1"/>
+   <property name="eabridge.hbdbfactory.sessioncontroller.name" value="sc1"/>
+   <property name="eabridge.hbdbfactory.datastore.name" value="ds1"/>
    <property name="teneo.mapping.cascade_policy_on_non_containment" value="REFRESH,PERSIST,MERGE"/>
    <property name="teneo.mapping.persistence_xml" value="/annotations.xml"/>
    <property name="teneo.naming.strategy" value="none"/>
