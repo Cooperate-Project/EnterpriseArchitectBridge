@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
@@ -52,6 +55,8 @@ public class IncrementalSync extends AbstractObservable<IncrementalSyncListener>
 
 	private EContentAdapter savingAdapter;
 	private EObject adapterParent = null;
+	
+	private ScheduledExecutorService scheduler;
     
 
 	/**
@@ -200,6 +205,10 @@ public class IncrementalSync extends AbstractObservable<IncrementalSyncListener>
 	 * the instantiation.
 	 */
 	public void startASync() {
+		
+		if (scheduler == null || scheduler.isShutdown()) {
+			scheduler = Executors.newScheduledThreadPool(1);
+		}
 
 		// Create Table Listeners
 		ArrayList<TableAdapter> listeners = new ArrayList<TableAdapter>();
@@ -208,40 +217,28 @@ public class IncrementalSync extends AbstractObservable<IncrementalSyncListener>
 
 			listeners.add(listener);
 		}
-
-		// Create Thread
-		Runnable r = new Runnable() {
-
-			@Override
-			public void run() {
-
-				while (isRunning()) {
-
-					// Complete the updates from all listeners
-					for (TableAdapter listener : listeners) {
-						sync(listener);
-					}
-
-					try {
-						Thread.sleep(syncInterval);
-					} catch (InterruptedException e) {
-						logger.error("Thread Sleep Exception.", e);
-					}
-				}
+		
+		scheduler.scheduleWithFixedDelay(() -> {
+			// Complete the updates from all listeners
+			for (TableAdapter listener : listeners) {
+				sync(listener);
 			}
-		};
-
-		// Start
-		running = true;
-		Thread t = new Thread(r);
-		t.start();
-
+		}, 0, syncInterval, TimeUnit.MILLISECONDS);
 	}
 
 	/**
 	 * Stops the synchronization before the next iteration.
 	 */
 	public void stop() {
+		scheduler.shutdownNow();
+		try {
+			if (!scheduler.awaitTermination(5 * syncInterval, TimeUnit.MILLISECONDS)) {
+				logger.error("The table adapters did not terminate within the expected period of time. Issues may arise from falsely detected updates.");
+			}
+		} catch (InterruptedException e) {
+			logger.error("Awaiting termination of running table adapters interrupted", e);
+		}
+		
 		running = false;
 	}
 

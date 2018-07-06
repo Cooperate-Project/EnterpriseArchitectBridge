@@ -63,6 +63,7 @@ public class TableAdapter {
 			ResultSet rs = s.executeQuery("SELECT NOW(6) as TS");
 
 			if (rs.next()) {
+				logger.debug(String.format("Table adapter %s updated timestamp: %s, identity: %s", this.getTable().getTableName(), rs.getTimestamp("TS", Calendar.getInstance()).toString(), this.toString()));
 				return Optional.ofNullable(rs.getTimestamp("TS", Calendar.getInstance()));
 			} else {
 				throw new SQLException("Unable to retrieve timestamp!");
@@ -115,8 +116,8 @@ public class TableAdapter {
 		String nowAttribute = "TS";
 
 		// Prepare Statement Pattern
-		String statementPattern = "SELECT NOW(6) as %s, %s FROM %s WHERE %s >= ?";
-		String statement = String.format(statementPattern, nowAttribute, COLUMN_ID, getTriggerTableName(),
+		String statementPattern = "SELECT NOW(6) as %s, %s, %s FROM %s WHERE %s >= ?";
+		String statement = String.format(statementPattern, nowAttribute, COLUMN_ID, COLUMN_TIMESTAMP, getTriggerTableName(),
 				COLUMN_TIMESTAMP);
 
 		try (PreparedStatement ps = sqlConnection.prepareStatement(statement)) {
@@ -133,6 +134,8 @@ public class TableAdapter {
 
 			// Read Updates
 			while (rs.next()) {
+				logger.debug(String.format("Update in row %s of table %s. Filter: %s, row timestamp: %s, current timestamp %s, identity: %s", rs.getString(COLUMN_ID), this.table.getTableName(), 
+						timestamp.get().toString(), rs.getTimestamp(COLUMN_TIMESTAMP).toString(), rs.getTimestamp(nowAttribute).toString(), this.toString()));
 				this.timestamp = Optional.ofNullable(rs.getTimestamp(nowAttribute));
 				updateList.add(rs.getString(COLUMN_ID));
 			}
