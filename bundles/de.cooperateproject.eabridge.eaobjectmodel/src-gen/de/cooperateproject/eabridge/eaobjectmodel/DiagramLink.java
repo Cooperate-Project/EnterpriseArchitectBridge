@@ -2,6 +2,7 @@
  */
 package de.cooperateproject.eabridge.eaobjectmodel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,22 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getSY <em>SY</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getEX <em>EX</em>}</li>
  *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getEY <em>EY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCX <em>LLBCX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCY <em>LLBCY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOX <em>LLBOX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOY <em>LLBOY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCX <em>LLTCX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCY <em>LLTCY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOX <em>LLTOX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOY <em>LLTOY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCX <em>LRBCX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCY <em>LRBCY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOX <em>LRBOX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOY <em>LRBOY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCX <em>LRTCX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCY <em>LRTCY</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOX <em>LRTOX</em>}</li>
- *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOY <em>LRTOY</em>}</li>
+ *   <li>{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLabelGeometry <em>Label Geometry</em>}</li>
  * </ul>
  *
  * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink()
@@ -296,262 +282,22 @@ public interface DiagramLink extends EObject {
 	int getEY();
 
 	/**
-     * Returns the value of the '<em><b>LLBCX</b></em>' attribute.
+     * Returns the value of the '<em><b>Label Geometry</b></em>' containment reference list.
+     * The list contents are of type {@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry}.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLBCX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLBCX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBCX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"$LLB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CX\", 0);\r\nreturn _get;'"
+     * <p>
+     * If the meaning of the '<em>Label Geometry</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Label Geometry</em>' containment reference list.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LabelGeometry()
+     * @model containment="true" resolveProxies="true" upper="6"
      * @generated
      */
-	int getLLBCX();
+    EList<DiagramLinkGeometry> getLabelGeometry();
 
-	/**
-     * Returns the value of the '<em><b>LLBCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLBCY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLBCY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBCY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"$LLB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLLBCY();
-
-	/**
-     * Returns the value of the '<em><b>LLBOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLBOX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLBOX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBOX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"$LLB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OX\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLLBOX();
-
-	/**
-     * Returns the value of the '<em><b>LLBOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLBOY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLBOY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLBOY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"$LLB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLLBOY();
-
-	/**
-     * Returns the value of the '<em><b>LLTCX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLTCX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLTCX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTCX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LLT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CX\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLLTCX();
-
-	/**
-     * Returns the value of the '<em><b>LLTCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLTCY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLTCY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTCY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LLT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLLTCY();
-
-	/**
-     * Returns the value of the '<em><b>LLTOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLTOX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLTOX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTOX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LLT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OX\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLLTOX();
-
-	/**
-     * Returns the value of the '<em><b>LLTOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LLTOY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LLTOY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LLTOY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LLT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLLTOY();
-
-	/**
-     * Returns the value of the '<em><b>LRBCX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRBCX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRBCX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBCX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CX\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRBCX();
-
-	/**
-     * Returns the value of the '<em><b>LRBCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRBCY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRBCY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBCY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRBCY();
-
-	/**
-     * Returns the value of the '<em><b>LRBOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRBOX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRBOX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBOX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OX\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRBOX();
-
-	/**
-     * Returns the value of the '<em><b>LRBOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRBOY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRBOY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRBOY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRB\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRBOY();
-
-	/**
-     * Returns the value of the '<em><b>LRTCX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRTCX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRTCX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTCX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CX\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRTCX();
-
-	/**
-     * Returns the value of the '<em><b>LRTCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRTCY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRTCY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTCY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"CY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRTCY();
-
-	/**
-     * Returns the value of the '<em><b>LRTOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRTOX</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRTOX</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTOX()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OX\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRTOX();
-
-	/**
-     * Returns the value of the '<em><b>LRTOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>LRTOY</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>LRTOY</em>' attribute.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage#getDiagramLink_LRTOY()
-     * @model unique="false" transient="true" changeable="false" volatile="true" derived="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel get='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt; map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%&gt;(_geometry);\r\n&lt;%java.lang.Integer%&gt; _get = map.hashNode.getOrDefault(\"LRT\", new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%&gt;()).getOrDefault(\"OY\", 0);\r\nreturn _get;'"
-     * @generated
-     */
-	int getLRTOY();
-
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.String%&gt; _geometry = this.getGeometry();\r\nfinal Geometry map = new Geometry(_geometry);\r\nmap.hashInt.put(\"SX\", newSX);\r\nthis.setGeometry(map.toString());'"

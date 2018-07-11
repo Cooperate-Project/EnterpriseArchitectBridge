@@ -9,18 +9,24 @@ import de.cooperateproject.eabridge.eaobjectmodel.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
+import de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry;
+import de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
+import de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor;
 import de.cooperateproject.eabridge.eaobjectmodel.IsAggregate;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
+import de.cooperateproject.eabridge.eaobjectmodel.Point;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
+import de.cooperateproject.eabridge.eaobjectmodel.RGBColor;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
+import de.cooperateproject.eabridge.eaobjectmodel.TextAlignment;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -125,6 +131,34 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass diagramLinkGeometryEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass geometryDescriptorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass rgbColorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass pointEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -173,6 +207,20 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 	private EEnum parameterDirectionEEnum = null;
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum diagramLinkGeometryTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum textAlignmentEEnum = null;
+
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -1714,149 +1762,14 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getDiagramLink_LLBCX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(11);
+    public EReference getDiagramLink_LabelGeometry() {
+        return (EReference)diagramLinkEClass.getEStructuralFeatures().get(11);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LLBCY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(12);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LLBOX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(13);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LLBOY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(14);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LLTCX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(15);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LLTCY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(16);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LLTOX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(17);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LLTOY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(18);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRBCX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(19);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRBCY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(20);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRBOX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(21);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRBOY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(22);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRTCX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(23);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRTCY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(24);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRTOX() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(25);
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EAttribute getDiagramLink_LRTOY() {
-        return (EAttribute)diagramLinkEClass.getEStructuralFeatures().get(26);
-    }
-
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -2974,6 +2887,195 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDiagramLinkGeometry() {
+        return diagramLinkGeometryEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDiagramLinkGeometry_Descriptors() {
+        return (EReference)diagramLinkGeometryEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getGeometryDescriptor() {
+        return geometryDescriptorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_Type() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_Hidden() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_Bold() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_Italic() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_Underline() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_Rotation() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_TextAlignment() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGeometryDescriptor_Direction() {
+        return (EAttribute)geometryDescriptorEClass.getEStructuralFeatures().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGeometryDescriptor_Color() {
+        return (EReference)geometryDescriptorEClass.getEStructuralFeatures().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGeometryDescriptor_Origin() {
+        return (EReference)geometryDescriptorEClass.getEStructuralFeatures().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGeometryDescriptor_C() {
+        return (EReference)geometryDescriptorEClass.getEStructuralFeatures().get(10);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getRGBColor() {
+        return rgbColorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRGBColor_Red() {
+        return (EAttribute)rgbColorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRGBColor_Blue() {
+        return (EAttribute)rgbColorEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRGBColor_Green() {
+        return (EAttribute)rgbColorEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPoint() {
+        return pointEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPoint_X() {
+        return (EAttribute)pointEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPoint_Y() {
+        return (EAttribute)pointEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -3036,6 +3138,24 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getDiagramLinkGeometryType() {
+        return diagramLinkGeometryTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getTextAlignment() {
+        return textAlignmentEEnum;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -3233,22 +3353,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
         createEAttribute(diagramLinkEClass, DIAGRAM_LINK__SY);
         createEAttribute(diagramLinkEClass, DIAGRAM_LINK__EX);
         createEAttribute(diagramLinkEClass, DIAGRAM_LINK__EY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBCX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBCY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBOX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLBOY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTCX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTCY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTOX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LLTOY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBCX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBCY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBOX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRBOY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTCX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTCY);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTOX);
-        createEAttribute(diagramLinkEClass, DIAGRAM_LINK__LRTOY);
+        createEReference(diagramLinkEClass, DIAGRAM_LINK__LABEL_GEOMETRY);
         createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_SX__INTEGER);
         createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_SY__INTEGER);
         createEOperation(diagramLinkEClass, DIAGRAM_LINK___SET_EX__INTEGER);
@@ -3379,6 +3484,31 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
         createEReference(packageEClass, PACKAGE__ELEMENTS);
         createEReference(packageEClass, PACKAGE__PARENT);
 
+        diagramLinkGeometryEClass = createEClass(DIAGRAM_LINK_GEOMETRY);
+        createEReference(diagramLinkGeometryEClass, DIAGRAM_LINK_GEOMETRY__DESCRIPTORS);
+
+        geometryDescriptorEClass = createEClass(GEOMETRY_DESCRIPTOR);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__TYPE);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__HIDDEN);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__BOLD);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__ITALIC);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__UNDERLINE);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__ROTATION);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__TEXT_ALIGNMENT);
+        createEAttribute(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__DIRECTION);
+        createEReference(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__COLOR);
+        createEReference(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__ORIGIN);
+        createEReference(geometryDescriptorEClass, GEOMETRY_DESCRIPTOR__C);
+
+        rgbColorEClass = createEClass(RGB_COLOR);
+        createEAttribute(rgbColorEClass, RGB_COLOR__RED);
+        createEAttribute(rgbColorEClass, RGB_COLOR__BLUE);
+        createEAttribute(rgbColorEClass, RGB_COLOR__GREEN);
+
+        pointEClass = createEClass(POINT);
+        createEAttribute(pointEClass, POINT__X);
+        createEAttribute(pointEClass, POINT__Y);
+
         // Create enums
         primitiveTypeEEnum = createEEnum(PRIMITIVE_TYPE);
         scopeEEnum = createEEnum(SCOPE);
@@ -3387,6 +3517,8 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
         connectorTypeEEnum = createEEnum(CONNECTOR_TYPE);
         elementTypeEEnum = createEEnum(ELEMENT_TYPE);
         parameterDirectionEEnum = createEEnum(PARAMETER_DIRECTION);
+        diagramLinkGeometryTypeEEnum = createEEnum(DIAGRAM_LINK_GEOMETRY_TYPE);
+        textAlignmentEEnum = createEEnum(TEXT_ALIGNMENT);
     }
 
 	/**
@@ -3602,22 +3734,7 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
         initEAttribute(getDiagramLink_SY(), ecorePackage.getEInt(), "SY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
         initEAttribute(getDiagramLink_EX(), ecorePackage.getEInt(), "EX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
         initEAttribute(getDiagramLink_EY(), ecorePackage.getEInt(), "EY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLBCX(), ecorePackage.getEInt(), "LLBCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLBCY(), ecorePackage.getEInt(), "LLBCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLBOX(), ecorePackage.getEInt(), "LLBOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLBOY(), ecorePackage.getEInt(), "LLBOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLTCX(), ecorePackage.getEInt(), "LLTCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLTCY(), ecorePackage.getEInt(), "LLTCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLTOX(), ecorePackage.getEInt(), "LLTOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LLTOY(), ecorePackage.getEInt(), "LLTOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRBCX(), ecorePackage.getEInt(), "LRBCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRBCY(), ecorePackage.getEInt(), "LRBCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRBOX(), ecorePackage.getEInt(), "LRBOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRBOY(), ecorePackage.getEInt(), "LRBOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRTCX(), ecorePackage.getEInt(), "LRTCX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRTCY(), ecorePackage.getEInt(), "LRTCY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRTOX(), ecorePackage.getEInt(), "LRTOX", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-        initEAttribute(getDiagramLink_LRTOY(), ecorePackage.getEInt(), "LRTOY", null, 0, 1, DiagramLink.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        initEReference(getDiagramLink_LabelGeometry(), this.getDiagramLinkGeometry(), null, "labelGeometry", null, 0, 6, DiagramLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         op = initEOperation(getDiagramLink__SetSX__Integer(), null, "setSX", 0, 1, IS_UNIQUE, IS_ORDERED);
         addEParameter(op, ecorePackage.getEIntegerObject(), "newSX", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3757,6 +3874,31 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
         initEReference(getPackage_Elements(), this.getElement(), this.getElement_Package(), "Elements", null, 0, -1, de.cooperateproject.eabridge.eaobjectmodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getPackage_Parent(), this.getPackage(), this.getPackage_Packages(), "Parent", null, 0, 1, de.cooperateproject.eabridge.eaobjectmodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(diagramLinkGeometryEClass, DiagramLinkGeometry.class, "DiagramLinkGeometry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getDiagramLinkGeometry_Descriptors(), this.getGeometryDescriptor(), null, "descriptors", null, 0, -1, DiagramLinkGeometry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(geometryDescriptorEClass, GeometryDescriptor.class, "GeometryDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getGeometryDescriptor_Type(), this.getDiagramLinkGeometryType(), "type", null, 1, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGeometryDescriptor_Hidden(), ecorePackage.getEBoolean(), "hidden", null, 0, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGeometryDescriptor_Bold(), ecorePackage.getEBoolean(), "bold", null, 0, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGeometryDescriptor_Italic(), ecorePackage.getEBoolean(), "italic", null, 0, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGeometryDescriptor_Underline(), ecorePackage.getEBoolean(), "underline", null, 0, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGeometryDescriptor_Rotation(), ecorePackage.getEInt(), "rotation", null, 0, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGeometryDescriptor_TextAlignment(), this.getTextAlignment(), "textAlignment", null, 0, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGeometryDescriptor_Direction(), ecorePackage.getEInt(), "direction", null, 0, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getGeometryDescriptor_Color(), this.getRGBColor(), null, "color", null, 1, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getGeometryDescriptor_Origin(), this.getPoint(), null, "origin", null, 1, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getGeometryDescriptor_C(), this.getPoint(), null, "c", null, 1, 1, GeometryDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(rgbColorEClass, RGBColor.class, "RGBColor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getRGBColor_Red(), ecorePackage.getEByte(), "red", null, 0, 1, RGBColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getRGBColor_Blue(), ecorePackage.getEByte(), "blue", null, 0, 1, RGBColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getRGBColor_Green(), ecorePackage.getEByte(), "green", null, 0, 1, RGBColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getPoint_X(), ecorePackage.getEInt(), "x", null, 1, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getPoint_Y(), ecorePackage.getEInt(), "y", null, 1, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
         // Initialize enums and add enum literals
         initEEnum(primitiveTypeEEnum, PrimitiveType.class, "PrimitiveType");
         addEEnumLiteral(primitiveTypeEEnum, PrimitiveType.INT);
@@ -3831,6 +3973,19 @@ public class EaobjectmodelPackageImpl extends EPackageImpl implements Eaobjectmo
         addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.INOUT);
         addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.OUT);
         addEEnumLiteral(parameterDirectionEEnum, ParameterDirection.RETURN);
+
+        initEEnum(diagramLinkGeometryTypeEEnum, DiagramLinkGeometryType.class, "DiagramLinkGeometryType");
+        addEEnumLiteral(diagramLinkGeometryTypeEEnum, DiagramLinkGeometryType.LABEL_LEFT_TOP);
+        addEEnumLiteral(diagramLinkGeometryTypeEEnum, DiagramLinkGeometryType.LABEL_MIDDLE_TOP);
+        addEEnumLiteral(diagramLinkGeometryTypeEEnum, DiagramLinkGeometryType.LABEL_RIGHT_TOP);
+        addEEnumLiteral(diagramLinkGeometryTypeEEnum, DiagramLinkGeometryType.LABEL_LEFT_BOTTOM);
+        addEEnumLiteral(diagramLinkGeometryTypeEEnum, DiagramLinkGeometryType.LABEL_MIDDLE_BOTTOM);
+        addEEnumLiteral(diagramLinkGeometryTypeEEnum, DiagramLinkGeometryType.LABEL_RIGHT_BOTTOM);
+
+        initEEnum(textAlignmentEEnum, TextAlignment.class, "TextAlignment");
+        addEEnumLiteral(textAlignmentEEnum, TextAlignment.LEFT);
+        addEEnumLiteral(textAlignmentEEnum, TextAlignment.CENTER);
+        addEEnumLiteral(textAlignmentEEnum, TextAlignment.RIGHT);
 
         // Create resource
         createResource(eNS_URI);

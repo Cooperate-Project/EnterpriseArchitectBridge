@@ -1651,157 +1651,22 @@ public interface EaobjectmodelPackage extends EPackage {
 	int DIAGRAM_LINK__EY = 10;
 
 	/**
-     * The feature id for the '<em><b>LLBCX</b></em>' attribute.
+     * The feature id for the '<em><b>Label Geometry</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DIAGRAM_LINK__LLBCX = 11;
+    int DIAGRAM_LINK__LABEL_GEOMETRY = 11;
 
-	/**
-     * The feature id for the '<em><b>LLBCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LLBCY = 12;
-
-	/**
-     * The feature id for the '<em><b>LLBOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LLBOX = 13;
-
-	/**
-     * The feature id for the '<em><b>LLBOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LLBOY = 14;
-
-	/**
-     * The feature id for the '<em><b>LLTCX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LLTCX = 15;
-
-	/**
-     * The feature id for the '<em><b>LLTCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LLTCY = 16;
-
-	/**
-     * The feature id for the '<em><b>LLTOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LLTOX = 17;
-
-	/**
-     * The feature id for the '<em><b>LLTOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LLTOY = 18;
-
-	/**
-     * The feature id for the '<em><b>LRBCX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRBCX = 19;
-
-	/**
-     * The feature id for the '<em><b>LRBCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRBCY = 20;
-
-	/**
-     * The feature id for the '<em><b>LRBOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRBOX = 21;
-
-	/**
-     * The feature id for the '<em><b>LRBOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRBOY = 22;
-
-	/**
-     * The feature id for the '<em><b>LRTCX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRTCX = 23;
-
-	/**
-     * The feature id for the '<em><b>LRTCY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRTCY = 24;
-
-	/**
-     * The feature id for the '<em><b>LRTOX</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRTOX = 25;
-
-	/**
-     * The feature id for the '<em><b>LRTOY</b></em>' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-	int DIAGRAM_LINK__LRTOY = 26;
-
-	/**
+    /**
      * The number of structural features of the '<em>Diagram Link</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int DIAGRAM_LINK_FEATURE_COUNT = 27;
+	int DIAGRAM_LINK_FEATURE_COUNT = 12;
 
 	/**
      * The operation id for the '<em>Set SX</em>' operation.
@@ -3024,6 +2889,271 @@ public interface EaobjectmodelPackage extends EPackage {
 	int PACKAGE_OPERATION_COUNT = 0;
 
 	/**
+     * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkGeometryImpl <em>Diagram Link Geometry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkGeometryImpl
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getDiagramLinkGeometry()
+     * @generated
+     */
+    int DIAGRAM_LINK_GEOMETRY = 12;
+
+    /**
+     * The feature id for the '<em><b>Descriptors</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIAGRAM_LINK_GEOMETRY__DESCRIPTORS = 0;
+
+    /**
+     * The number of structural features of the '<em>Diagram Link Geometry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIAGRAM_LINK_GEOMETRY_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Diagram Link Geometry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIAGRAM_LINK_GEOMETRY_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.GeometryDescriptorImpl <em>Geometry Descriptor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.GeometryDescriptorImpl
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getGeometryDescriptor()
+     * @generated
+     */
+    int GEOMETRY_DESCRIPTOR = 13;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__TYPE = 0;
+
+    /**
+     * The feature id for the '<em><b>Hidden</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__HIDDEN = 1;
+
+    /**
+     * The feature id for the '<em><b>Bold</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__BOLD = 2;
+
+    /**
+     * The feature id for the '<em><b>Italic</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__ITALIC = 3;
+
+    /**
+     * The feature id for the '<em><b>Underline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__UNDERLINE = 4;
+
+    /**
+     * The feature id for the '<em><b>Rotation</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__ROTATION = 5;
+
+    /**
+     * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__TEXT_ALIGNMENT = 6;
+
+    /**
+     * The feature id for the '<em><b>Direction</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__DIRECTION = 7;
+
+    /**
+     * The feature id for the '<em><b>Color</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__COLOR = 8;
+
+    /**
+     * The feature id for the '<em><b>Origin</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__ORIGIN = 9;
+
+    /**
+     * The feature id for the '<em><b>C</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR__C = 10;
+
+    /**
+     * The number of structural features of the '<em>Geometry Descriptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR_FEATURE_COUNT = 11;
+
+    /**
+     * The number of operations of the '<em>Geometry Descriptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GEOMETRY_DESCRIPTOR_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.RGBColorImpl <em>RGB Color</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.RGBColorImpl
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getRGBColor()
+     * @generated
+     */
+    int RGB_COLOR = 14;
+
+    /**
+     * The feature id for the '<em><b>Red</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RGB_COLOR__RED = 0;
+
+    /**
+     * The feature id for the '<em><b>Blue</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RGB_COLOR__BLUE = 1;
+
+    /**
+     * The feature id for the '<em><b>Green</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RGB_COLOR__GREEN = 2;
+
+    /**
+     * The number of structural features of the '<em>RGB Color</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RGB_COLOR_FEATURE_COUNT = 3;
+
+    /**
+     * The number of operations of the '<em>RGB Color</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RGB_COLOR_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.PointImpl <em>Point</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.PointImpl
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getPoint()
+     * @generated
+     */
+    int POINT = 15;
+
+    /**
+     * The feature id for the '<em><b>X</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POINT__X = 0;
+
+    /**
+     * The feature id for the '<em><b>Y</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POINT__Y = 1;
+
+    /**
+     * The number of structural features of the '<em>Point</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POINT_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Point</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POINT_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType <em>Primitive Type</em>}' enum.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3031,7 +3161,7 @@ public interface EaobjectmodelPackage extends EPackage {
      * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getPrimitiveType()
      * @generated
      */
-	int PRIMITIVE_TYPE = 12;
+	int PRIMITIVE_TYPE = 16;
 
 	/**
      * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.Scope <em>Scope</em>}' enum.
@@ -3041,7 +3171,7 @@ public interface EaobjectmodelPackage extends EPackage {
      * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getScope()
      * @generated
      */
-	int SCOPE = 13;
+	int SCOPE = 17;
 
 	/**
      * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.IsAggregate <em>Is Aggregate</em>}' enum.
@@ -3051,7 +3181,7 @@ public interface EaobjectmodelPackage extends EPackage {
      * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getIsAggregate()
      * @generated
      */
-	int IS_AGGREGATE = 14;
+	int IS_AGGREGATE = 18;
 
 	/**
      * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DirectionType <em>Direction Type</em>}' enum.
@@ -3061,7 +3191,7 @@ public interface EaobjectmodelPackage extends EPackage {
      * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getDirectionType()
      * @generated
      */
-	int DIRECTION_TYPE = 15;
+	int DIRECTION_TYPE = 19;
 
 	/**
      * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ConnectorType <em>Connector Type</em>}' enum.
@@ -3071,7 +3201,7 @@ public interface EaobjectmodelPackage extends EPackage {
      * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getConnectorType()
      * @generated
      */
-	int CONNECTOR_TYPE = 16;
+	int CONNECTOR_TYPE = 20;
 
 	/**
      * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ElementType <em>Element Type</em>}' enum.
@@ -3081,7 +3211,7 @@ public interface EaobjectmodelPackage extends EPackage {
      * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getElementType()
      * @generated
      */
-	int ELEMENT_TYPE = 17;
+	int ELEMENT_TYPE = 21;
 
 	/**
      * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection <em>Parameter Direction</em>}' enum.
@@ -3091,9 +3221,29 @@ public interface EaobjectmodelPackage extends EPackage {
      * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getParameterDirection()
      * @generated
      */
-	int PARAMETER_DIRECTION = 18;
+	int PARAMETER_DIRECTION = 22;
 
 	/**
+     * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType <em>Diagram Link Geometry Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getDiagramLinkGeometryType()
+     * @generated
+     */
+    int DIAGRAM_LINK_GEOMETRY_TYPE = 23;
+
+    /**
+     * The meta object id for the '{@link de.cooperateproject.eabridge.eaobjectmodel.TextAlignment <em>Text Alignment</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.cooperateproject.eabridge.eaobjectmodel.TextAlignment
+     * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getTextAlignment()
+     * @generated
+     */
+    int TEXT_ALIGNMENT = 24;
+
+    /**
      * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.TypeReference <em>Type Reference</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4881,182 +5031,17 @@ public interface EaobjectmodelPackage extends EPackage {
 	EAttribute getDiagramLink_EY();
 
 	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCX <em>LLBCX</em>}'.
+     * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLabelGeometry <em>Label Geometry</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLBCX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCX()
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Label Geometry</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLabelGeometry()
      * @see #getDiagramLink()
      * @generated
      */
-	EAttribute getDiagramLink_LLBCX();
+    EReference getDiagramLink_LabelGeometry();
 
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCY <em>LLBCY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLBCY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBCY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LLBCY();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOX <em>LLBOX</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLBOX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOX()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LLBOX();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOY <em>LLBOY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLBOY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLBOY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LLBOY();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCX <em>LLTCX</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLTCX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCX()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LLTCX();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCY <em>LLTCY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLTCY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTCY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LLTCY();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOX <em>LLTOX</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLTOX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOX()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LLTOX();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOY <em>LLTOY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LLTOY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLLTOY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LLTOY();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCX <em>LRBCX</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRBCX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCX()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRBCX();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCY <em>LRBCY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRBCY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBCY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRBCY();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOX <em>LRBOX</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRBOX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOX()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRBOX();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOY <em>LRBOY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRBOY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRBOY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRBOY();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCX <em>LRTCX</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRTCX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCX()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRTCX();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCY <em>LRTCY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRTCY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTCY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRTCY();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOX <em>LRTOX</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRTOX</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOX()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRTOX();
-
-	/**
-     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOY <em>LRTOY</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>LRTOY</em>'.
-     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#getLRTOY()
-     * @see #getDiagramLink()
-     * @generated
-     */
-	EAttribute getDiagramLink_LRTOY();
-
-	/**
+    /**
      * Returns the meta object for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLink#setSX(java.lang.Integer) <em>Set SX</em>}' operation.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6411,6 +6396,233 @@ public interface EaobjectmodelPackage extends EPackage {
 	EReference getPackage_Parent();
 
 	/**
+     * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry <em>Diagram Link Geometry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Diagram Link Geometry</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry
+     * @generated
+     */
+    EClass getDiagramLinkGeometry();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry#getDescriptors <em>Descriptors</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Descriptors</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry#getDescriptors()
+     * @see #getDiagramLinkGeometry()
+     * @generated
+     */
+    EReference getDiagramLinkGeometry_Descriptors();
+
+    /**
+     * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor <em>Geometry Descriptor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Geometry Descriptor</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor
+     * @generated
+     */
+    EClass getGeometryDescriptor();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getType()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_Type();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isHidden <em>Hidden</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Hidden</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isHidden()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_Hidden();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isBold <em>Bold</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Bold</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isBold()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_Bold();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isItalic <em>Italic</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Italic</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isItalic()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_Italic();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isUnderline <em>Underline</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Underline</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#isUnderline()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_Underline();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getRotation <em>Rotation</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Rotation</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getRotation()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_Rotation();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getTextAlignment <em>Text Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Text Alignment</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getTextAlignment()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_TextAlignment();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getDirection <em>Direction</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Direction</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getDirection()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EAttribute getGeometryDescriptor_Direction();
+
+    /**
+     * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getColor <em>Color</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Color</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getColor()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EReference getGeometryDescriptor_Color();
+
+    /**
+     * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getOrigin <em>Origin</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Origin</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getOrigin()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EReference getGeometryDescriptor_Origin();
+
+    /**
+     * Returns the meta object for the containment reference '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getC <em>C</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>C</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor#getC()
+     * @see #getGeometryDescriptor()
+     * @generated
+     */
+    EReference getGeometryDescriptor_C();
+
+    /**
+     * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.RGBColor <em>RGB Color</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>RGB Color</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.RGBColor
+     * @generated
+     */
+    EClass getRGBColor();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.RGBColor#getRed <em>Red</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Red</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.RGBColor#getRed()
+     * @see #getRGBColor()
+     * @generated
+     */
+    EAttribute getRGBColor_Red();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.RGBColor#getBlue <em>Blue</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Blue</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.RGBColor#getBlue()
+     * @see #getRGBColor()
+     * @generated
+     */
+    EAttribute getRGBColor_Blue();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.RGBColor#getGreen <em>Green</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Green</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.RGBColor#getGreen()
+     * @see #getRGBColor()
+     * @generated
+     */
+    EAttribute getRGBColor_Green();
+
+    /**
+     * Returns the meta object for class '{@link de.cooperateproject.eabridge.eaobjectmodel.Point <em>Point</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Point</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.Point
+     * @generated
+     */
+    EClass getPoint();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Point#getX <em>X</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>X</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.Point#getX()
+     * @see #getPoint()
+     * @generated
+     */
+    EAttribute getPoint_X();
+
+    /**
+     * Returns the meta object for the attribute '{@link de.cooperateproject.eabridge.eaobjectmodel.Point#getY <em>Y</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Y</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.Point#getY()
+     * @see #getPoint()
+     * @generated
+     */
+    EAttribute getPoint_Y();
+
+    /**
      * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType <em>Primitive Type</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6481,6 +6693,26 @@ public interface EaobjectmodelPackage extends EPackage {
 	EEnum getParameterDirection();
 
 	/**
+     * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType <em>Diagram Link Geometry Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Diagram Link Geometry Type</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType
+     * @generated
+     */
+    EEnum getDiagramLinkGeometryType();
+
+    /**
+     * Returns the meta object for enum '{@link de.cooperateproject.eabridge.eaobjectmodel.TextAlignment <em>Text Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Text Alignment</em>'.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.TextAlignment
+     * @generated
+     */
+    EEnum getTextAlignment();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7830,134 +8062,14 @@ public interface EaobjectmodelPackage extends EPackage {
 		EAttribute DIAGRAM_LINK__EY = eINSTANCE.getDiagramLink_EY();
 
 		/**
-         * The meta object literal for the '<em><b>LLBCX</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Label Geometry</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EAttribute DIAGRAM_LINK__LLBCX = eINSTANCE.getDiagramLink_LLBCX();
+        EReference DIAGRAM_LINK__LABEL_GEOMETRY = eINSTANCE.getDiagramLink_LabelGeometry();
 
-		/**
-         * The meta object literal for the '<em><b>LLBCY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LLBCY = eINSTANCE.getDiagramLink_LLBCY();
-
-		/**
-         * The meta object literal for the '<em><b>LLBOX</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LLBOX = eINSTANCE.getDiagramLink_LLBOX();
-
-		/**
-         * The meta object literal for the '<em><b>LLBOY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LLBOY = eINSTANCE.getDiagramLink_LLBOY();
-
-		/**
-         * The meta object literal for the '<em><b>LLTCX</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LLTCX = eINSTANCE.getDiagramLink_LLTCX();
-
-		/**
-         * The meta object literal for the '<em><b>LLTCY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LLTCY = eINSTANCE.getDiagramLink_LLTCY();
-
-		/**
-         * The meta object literal for the '<em><b>LLTOX</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LLTOX = eINSTANCE.getDiagramLink_LLTOX();
-
-		/**
-         * The meta object literal for the '<em><b>LLTOY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LLTOY = eINSTANCE.getDiagramLink_LLTOY();
-
-		/**
-         * The meta object literal for the '<em><b>LRBCX</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRBCX = eINSTANCE.getDiagramLink_LRBCX();
-
-		/**
-         * The meta object literal for the '<em><b>LRBCY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRBCY = eINSTANCE.getDiagramLink_LRBCY();
-
-		/**
-         * The meta object literal for the '<em><b>LRBOX</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRBOX = eINSTANCE.getDiagramLink_LRBOX();
-
-		/**
-         * The meta object literal for the '<em><b>LRBOY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRBOY = eINSTANCE.getDiagramLink_LRBOY();
-
-		/**
-         * The meta object literal for the '<em><b>LRTCX</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRTCX = eINSTANCE.getDiagramLink_LRTCX();
-
-		/**
-         * The meta object literal for the '<em><b>LRTCY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRTCY = eINSTANCE.getDiagramLink_LRTCY();
-
-		/**
-         * The meta object literal for the '<em><b>LRTOX</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRTOX = eINSTANCE.getDiagramLink_LRTOX();
-
-		/**
-         * The meta object literal for the '<em><b>LRTOY</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @generated
-         */
-		EAttribute DIAGRAM_LINK__LRTOY = eINSTANCE.getDiagramLink_LRTOY();
-
-		/**
+        /**
          * The meta object literal for the '<em><b>Set SX</b></em>' operation.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8960,6 +9072,182 @@ public interface EaobjectmodelPackage extends EPackage {
 		EReference PACKAGE__PARENT = eINSTANCE.getPackage_Parent();
 
 		/**
+         * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkGeometryImpl <em>Diagram Link Geometry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.DiagramLinkGeometryImpl
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getDiagramLinkGeometry()
+         * @generated
+         */
+        EClass DIAGRAM_LINK_GEOMETRY = eINSTANCE.getDiagramLinkGeometry();
+
+        /**
+         * The meta object literal for the '<em><b>Descriptors</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DIAGRAM_LINK_GEOMETRY__DESCRIPTORS = eINSTANCE.getDiagramLinkGeometry_Descriptors();
+
+        /**
+         * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.GeometryDescriptorImpl <em>Geometry Descriptor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.GeometryDescriptorImpl
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getGeometryDescriptor()
+         * @generated
+         */
+        EClass GEOMETRY_DESCRIPTOR = eINSTANCE.getGeometryDescriptor();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__TYPE = eINSTANCE.getGeometryDescriptor_Type();
+
+        /**
+         * The meta object literal for the '<em><b>Hidden</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__HIDDEN = eINSTANCE.getGeometryDescriptor_Hidden();
+
+        /**
+         * The meta object literal for the '<em><b>Bold</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__BOLD = eINSTANCE.getGeometryDescriptor_Bold();
+
+        /**
+         * The meta object literal for the '<em><b>Italic</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__ITALIC = eINSTANCE.getGeometryDescriptor_Italic();
+
+        /**
+         * The meta object literal for the '<em><b>Underline</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__UNDERLINE = eINSTANCE.getGeometryDescriptor_Underline();
+
+        /**
+         * The meta object literal for the '<em><b>Rotation</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__ROTATION = eINSTANCE.getGeometryDescriptor_Rotation();
+
+        /**
+         * The meta object literal for the '<em><b>Text Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__TEXT_ALIGNMENT = eINSTANCE.getGeometryDescriptor_TextAlignment();
+
+        /**
+         * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GEOMETRY_DESCRIPTOR__DIRECTION = eINSTANCE.getGeometryDescriptor_Direction();
+
+        /**
+         * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GEOMETRY_DESCRIPTOR__COLOR = eINSTANCE.getGeometryDescriptor_Color();
+
+        /**
+         * The meta object literal for the '<em><b>Origin</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GEOMETRY_DESCRIPTOR__ORIGIN = eINSTANCE.getGeometryDescriptor_Origin();
+
+        /**
+         * The meta object literal for the '<em><b>C</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GEOMETRY_DESCRIPTOR__C = eINSTANCE.getGeometryDescriptor_C();
+
+        /**
+         * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.RGBColorImpl <em>RGB Color</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.RGBColorImpl
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getRGBColor()
+         * @generated
+         */
+        EClass RGB_COLOR = eINSTANCE.getRGBColor();
+
+        /**
+         * The meta object literal for the '<em><b>Red</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RGB_COLOR__RED = eINSTANCE.getRGBColor_Red();
+
+        /**
+         * The meta object literal for the '<em><b>Blue</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RGB_COLOR__BLUE = eINSTANCE.getRGBColor_Blue();
+
+        /**
+         * The meta object literal for the '<em><b>Green</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute RGB_COLOR__GREEN = eINSTANCE.getRGBColor_Green();
+
+        /**
+         * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.impl.PointImpl <em>Point</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.PointImpl
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getPoint()
+         * @generated
+         */
+        EClass POINT = eINSTANCE.getPoint();
+
+        /**
+         * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute POINT__X = eINSTANCE.getPoint_X();
+
+        /**
+         * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute POINT__Y = eINSTANCE.getPoint_Y();
+
+        /**
          * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType <em>Primitive Type</em>}' enum.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9028,6 +9316,26 @@ public interface EaobjectmodelPackage extends EPackage {
          * @generated
          */
 		EEnum PARAMETER_DIRECTION = eINSTANCE.getParameterDirection();
+
+        /**
+         * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType <em>Diagram Link Geometry Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getDiagramLinkGeometryType()
+         * @generated
+         */
+        EEnum DIAGRAM_LINK_GEOMETRY_TYPE = eINSTANCE.getDiagramLinkGeometryType();
+
+        /**
+         * The meta object literal for the '{@link de.cooperateproject.eabridge.eaobjectmodel.TextAlignment <em>Text Alignment</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see de.cooperateproject.eabridge.eaobjectmodel.TextAlignment
+         * @see de.cooperateproject.eabridge.eaobjectmodel.impl.EaobjectmodelPackageImpl#getTextAlignment()
+         * @generated
+         */
+        EEnum TEXT_ALIGNMENT = eINSTANCE.getTextAlignment();
 
 	}
 

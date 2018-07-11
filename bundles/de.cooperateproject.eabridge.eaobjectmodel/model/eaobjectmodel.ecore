@@ -451,102 +451,8 @@
         <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashInt.get(&quot;EY&quot;);&#xD;&#xA;return _get;"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLBCX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;$LLB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLBCY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;$LLB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLBOX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;$LLB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLBOY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;$LLB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLTCX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LLT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLTCY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LLT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLTOX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LLT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LLTOY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LLT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRBCX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRBCY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRBOX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRBOY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRB&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRTCX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRTCY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;CY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRTOX" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OX&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LRTOY" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="get" value="&lt;%java.lang.String%> _geometry = this.getGeometry();&#xD;&#xA;final &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%> map = new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry%>(_geometry);&#xD;&#xA;&lt;%java.lang.Integer%> _get = map.hashNode.getOrDefault(&quot;LRT&quot;, new &lt;%de.cooperateproject.eabridge.eaobjectmodel.util.Geometry.Node%>()).getOrDefault(&quot;OY&quot;, 0);&#xD;&#xA;return _get;"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labelGeometry" upperBound="6"
+        eType="#//DiagramLinkGeometry" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DiagramObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bottom" unique="false"
@@ -778,5 +684,47 @@
     <eLiterals name="inout"/>
     <eLiterals name="out"/>
     <eLiterals name="return"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiagramLinkGeometry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptors" upperBound="-1"
+        eType="#//GeometryDescriptor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DiagramLinkGeometryType">
+    <eLiterals name="LabelLeftTop"/>
+    <eLiterals name="LabelMiddleTop" value="1"/>
+    <eLiterals name="LabelRightTop" value="2" literal="LabelRightTop"/>
+    <eLiterals name="LabelLeftBottom" value="3" literal="LabelLeftBottom"/>
+    <eLiterals name="LabelMiddleBottom" value="5" literal="LabelMiddleBottom"/>
+    <eLiterals name="LabelRightBottom" value="6" literal="LabelRightBottom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeometryDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DiagramLinkGeometryType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hidden" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textAlignment" eType="#//TextAlignment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="color" lowerBound="1" eType="#//RGBColor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" lowerBound="1"
+        eType="#//Point" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c" lowerBound="1" eType="#//Point"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TextAlignment">
+    <eLiterals name="Left"/>
+    <eLiterals name="Center" value="1"/>
+    <eLiterals name="Right" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RGBColor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="red" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="green" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Point">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
 </ecore:EPackage>

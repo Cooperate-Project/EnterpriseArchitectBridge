@@ -439,7 +439,7 @@ when {self.type = PAPYRUS_NOTATION_EDGE_ASSOCIATION} {
 	var sourceShape := self.source.oclAsType(notation::Shape);
 	var targetShape := self.target.oclAsType(notation::Shape);
 	var targetBounds := sourceShape.layoutConstraint.oclAsType(notation::Bounds);
-	var sourceBounds := targetShape.layoutConstraint.oclAsType(notation::Bounds);
+	var sourceBounds := targetShape.layoutConstraint.oclAsType(notation::Bounds);c
 	
 	result.setSX(calculateX(targetShape, self.targetAnchor));
 	result.setSY(calculateY(targetShape, self.targetAnchor));

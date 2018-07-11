@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<persistence-mapping xmlns="http://www.eclipse.org/emft/teneo"
+<persistence-mapping
+	xmlns="http://www.eclipse.org/emft/teneo"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.eclipse.org/emft/teneo http://git.eclipse.org/c/teneo/org.eclipse.emf.teneo.git/plain/hibernate/org.eclipse.emf.teneo.hibernate.mapper/src/org/eclipse/emf/teneo/hibernate/annotations/persistence-mapping.xsd ">
 
-	<epackage namespace-uri="de.cooperateproject.eabridge.eaobjectmodel">
+	<epackage
+		namespace-uri="de.cooperateproject.eabridge.eaobjectmodel">
 		<eclass name="Attribute">
-		<inheritance>TABLE_PER_CLASS</inheritance>
+			<inheritance>TABLE_PER_CLASS</inheritance>
 			<property name="AttributeID">
 				<column name="ID" />
 				<id />
@@ -23,43 +25,44 @@
 			<property name="IsDerived">
 				<column name="Derived" />
 			</property>
-			<property  name="AttributeType">
-				<embedded/>
+			<property name="AttributeType">
+				<embedded />
 			</property>
 			<property name="Position">
-				<column name="Pos"/>
+				<column name="Pos" />
 			</property>
 			<property name="Constraints">
-				<join-column name="ID"/>
+				<join-column name="ID" />
 			</property>
 		</eclass>
-		
+
 		<eclass name="TypeReference">
-			<embeddable/>
+			<embeddable />
 			<property name="classifier">
-				<join-column name="Classifier" referenced-column-name="Object_ID"/>
+				<join-column name="Classifier"
+					referenced-column-name="Object_ID" />
 			</property>
 			<property name="typeName">
 				<column name="Type" />
 			</property>
-		</eclass> 
+		</eclass>
 
 		<eclass name="AttributeConstraint">
 			<inheritance>TABLE_PER_CLASS</inheritance>
 			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.AttributeConstraintPK</id-class>
 			<table name="t_attributeconstraints" />
 			<property name="Attribute">
-				<id/>
+				<id />
 				<join-column name="ID" />
 			</property>
 			<property name="Constraint">
-				<id/>
+				<id />
 			</property>
 			<property name="ElementOfAttribute">
 				<join-column name="Object_ID" />
 			</property>
 		</eclass>
-		
+
 
 
 		<eclass name="AttributeTag">
@@ -141,7 +144,7 @@
 				<column name="ReturnArray" />
 			</property>
 			<property name="ReturnType">
-				<embedded/>
+				<embedded />
 			</property>
 			<property name="Visibility">
 				<column name="Scope" />
@@ -168,32 +171,32 @@
 				<type type="org.hibernate.type.NumericBooleanType" />
 			</property>
 			<property name="Position">
-				<column name="Pos"/>
+				<column name="Pos" />
 			</property>
 		</eclass>
-		
+
 		<eclass name="Methodparameter">
 			<inheritance>TABLE_PER_CLASS</inheritance>
 			<id-class>de.cooperateproject.eabridge.eaobjectmodel.custom.MethodParameterPK</id-class>
 			<table name="t_operationparams" />
 			<property name="Method">
-				<id/>
+				<id />
 				<join-column name="OperationID" />
 			</property>
 			<property name="Name">
 				<id />
-			</property>	
+			</property>
 			<property name="ea_guid">
 				<column name="ea_guid" />
-			</property>			
+			</property>
 			<property name="ParameterType">
-				<embedded/>
+				<embedded />
 			</property>
 			<property name="Position">
-				<column name="Pos"/>
+				<column name="Pos" />
 			</property>
 		</eclass>
-		
+
 		<eclass name="Package">
 			<table name="t_package" />
 			<inheritance>TABLE_PER_CLASS</inheritance>
@@ -201,7 +204,8 @@
 				<column name="Package_ID" />
 				<id />
 				<generated-value />
-				<type type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType" />
+				<type
+					type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType" />
 			</property>
 			<property name="PackageGUID">
 				<column name="ea_guid" />
@@ -228,7 +232,7 @@
 				<join-column name="Parent_ID" />
 			</property>
 		</eclass>
-		
+
 		<eclass name="Element">
 			<inheritance>TABLE_PER_CLASS</inheritance>
 			<table name="t_object" />
@@ -236,7 +240,8 @@
 				<column name="Object_ID" />
 				<id />
 				<generated-value />
-				<type type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType" />
+				<type
+					type="de.cooperateproject.eabridge.eaobjectmodel.custom.EAPrimaryKeyType" />
 			</property>
 			<property name="Classifier">
 				<join-column name="Classifier" />
@@ -301,6 +306,10 @@
 			</property>
 			<property name="Connector">
 				<join-column name="ConnectorID" />
+			</property>
+			<property name="Geometry">
+			     <column name="Geometry"/>
+			     <type type="de.cooperateproject.eabridge.eaobjectmodel.custom.GeometryAttribute"/>
 			</property>
 		</eclass>
 

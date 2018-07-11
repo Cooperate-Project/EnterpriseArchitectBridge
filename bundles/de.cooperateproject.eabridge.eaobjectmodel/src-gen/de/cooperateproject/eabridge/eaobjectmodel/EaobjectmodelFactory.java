@@ -130,6 +130,42 @@ public interface EaobjectmodelFactory extends EFactory {
 	Package createPackage();
 
 	/**
+     * Returns a new object of class '<em>Diagram Link Geometry</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Diagram Link Geometry</em>'.
+     * @generated
+     */
+    DiagramLinkGeometry createDiagramLinkGeometry();
+
+    /**
+     * Returns a new object of class '<em>Geometry Descriptor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Geometry Descriptor</em>'.
+     * @generated
+     */
+    GeometryDescriptor createGeometryDescriptor();
+
+    /**
+     * Returns a new object of class '<em>RGB Color</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>RGB Color</em>'.
+     * @generated
+     */
+    RGBColor createRGBColor();
+
+    /**
+     * Returns a new object of class '<em>Point</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Point</em>'.
+     * @generated
+     */
+    Point createPoint();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

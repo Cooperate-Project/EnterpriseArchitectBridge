@@ -8,11 +8,15 @@ import de.cooperateproject.eabridge.eaobjectmodel.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
+import de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
+import de.cooperateproject.eabridge.eaobjectmodel.Point;
+import de.cooperateproject.eabridge.eaobjectmodel.RGBColor;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -125,6 +129,22 @@ public class EaobjectmodelAdapterFactory extends AdapterFactoryImpl {
             @Override
             public Adapter casePackage(de.cooperateproject.eabridge.eaobjectmodel.Package object) {
                 return createPackageAdapter();
+            }
+            @Override
+            public Adapter caseDiagramLinkGeometry(DiagramLinkGeometry object) {
+                return createDiagramLinkGeometryAdapter();
+            }
+            @Override
+            public Adapter caseGeometryDescriptor(GeometryDescriptor object) {
+                return createGeometryDescriptorAdapter();
+            }
+            @Override
+            public Adapter caseRGBColor(RGBColor object) {
+                return createRGBColorAdapter();
+            }
+            @Override
+            public Adapter casePoint(Point object) {
+                return createPointAdapter();
             }
             @Override
             public Adapter defaultCase(EObject object) {
@@ -315,6 +335,62 @@ public class EaobjectmodelAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
+     * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry <em>Diagram Link Geometry</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry
+     * @generated
+     */
+    public Adapter createDiagramLinkGeometryAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor <em>Geometry Descriptor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor
+     * @generated
+     */
+    public Adapter createGeometryDescriptorAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.RGBColor <em>RGB Color</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.RGBColor
+     * @generated
+     */
+    public Adapter createRGBColorAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link de.cooperateproject.eabridge.eaobjectmodel.Point <em>Point</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see de.cooperateproject.eabridge.eaobjectmodel.Point
+     * @generated
+     */
+    public Adapter createPointAdapter() {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for the default case.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null.

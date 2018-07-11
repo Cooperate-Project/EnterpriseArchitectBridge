@@ -8,11 +8,15 @@ import de.cooperateproject.eabridge.eaobjectmodel.AttributeTag;
 import de.cooperateproject.eabridge.eaobjectmodel.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
+import de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
+import de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
+import de.cooperateproject.eabridge.eaobjectmodel.Point;
+import de.cooperateproject.eabridge.eaobjectmodel.RGBColor;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 
 import org.eclipse.emf.ecore.EObject;
@@ -146,6 +150,30 @@ public class EaobjectmodelSwitch<T> extends Switch<T> {
             case EaobjectmodelPackage.PACKAGE: {
                 de.cooperateproject.eabridge.eaobjectmodel.Package package_ = (de.cooperateproject.eabridge.eaobjectmodel.Package)theEObject;
                 T result = casePackage(package_);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.DIAGRAM_LINK_GEOMETRY: {
+                DiagramLinkGeometry diagramLinkGeometry = (DiagramLinkGeometry)theEObject;
+                T result = caseDiagramLinkGeometry(diagramLinkGeometry);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.GEOMETRY_DESCRIPTOR: {
+                GeometryDescriptor geometryDescriptor = (GeometryDescriptor)theEObject;
+                T result = caseGeometryDescriptor(geometryDescriptor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.RGB_COLOR: {
+                RGBColor rgbColor = (RGBColor)theEObject;
+                T result = caseRGBColor(rgbColor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case EaobjectmodelPackage.POINT: {
+                Point point = (Point)theEObject;
+                T result = casePoint(point);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -334,6 +362,66 @@ public class EaobjectmodelSwitch<T> extends Switch<T> {
     }
 
 	/**
+     * Returns the result of interpreting the object as an instance of '<em>Diagram Link Geometry</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Diagram Link Geometry</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDiagramLinkGeometry(DiagramLinkGeometry object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Geometry Descriptor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Geometry Descriptor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGeometryDescriptor(GeometryDescriptor object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>RGB Color</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>RGB Color</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRGBColor(RGBColor object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Point</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Point</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePoint(Point object) {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
 	 * This implementation returns null;

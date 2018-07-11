@@ -9,18 +9,24 @@ import de.cooperateproject.eabridge.eaobjectmodel.Connector;
 import de.cooperateproject.eabridge.eaobjectmodel.ConnectorType;
 import de.cooperateproject.eabridge.eaobjectmodel.Diagram;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramLink;
+import de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometry;
+import de.cooperateproject.eabridge.eaobjectmodel.DiagramLinkGeometryType;
 import de.cooperateproject.eabridge.eaobjectmodel.DiagramObject;
 import de.cooperateproject.eabridge.eaobjectmodel.DirectionType;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelFactory;
 import de.cooperateproject.eabridge.eaobjectmodel.EaobjectmodelPackage;
 import de.cooperateproject.eabridge.eaobjectmodel.Element;
 import de.cooperateproject.eabridge.eaobjectmodel.ElementType;
+import de.cooperateproject.eabridge.eaobjectmodel.GeometryDescriptor;
 import de.cooperateproject.eabridge.eaobjectmodel.IsAggregate;
 import de.cooperateproject.eabridge.eaobjectmodel.Method;
 import de.cooperateproject.eabridge.eaobjectmodel.Methodparameter;
 import de.cooperateproject.eabridge.eaobjectmodel.ParameterDirection;
+import de.cooperateproject.eabridge.eaobjectmodel.Point;
 import de.cooperateproject.eabridge.eaobjectmodel.PrimitiveType;
+import de.cooperateproject.eabridge.eaobjectmodel.RGBColor;
 import de.cooperateproject.eabridge.eaobjectmodel.Scope;
+import de.cooperateproject.eabridge.eaobjectmodel.TextAlignment;
 import de.cooperateproject.eabridge.eaobjectmodel.TypeReference;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -87,6 +93,10 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
             case EaobjectmodelPackage.METHOD: return createMethod();
             case EaobjectmodelPackage.METHODPARAMETER: return createMethodparameter();
             case EaobjectmodelPackage.PACKAGE: return createPackage();
+            case EaobjectmodelPackage.DIAGRAM_LINK_GEOMETRY: return createDiagramLinkGeometry();
+            case EaobjectmodelPackage.GEOMETRY_DESCRIPTOR: return createGeometryDescriptor();
+            case EaobjectmodelPackage.RGB_COLOR: return createRGBColor();
+            case EaobjectmodelPackage.POINT: return createPoint();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -114,6 +124,10 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
                 return createElementTypeFromString(eDataType, initialValue);
             case EaobjectmodelPackage.PARAMETER_DIRECTION:
                 return createParameterDirectionFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.DIAGRAM_LINK_GEOMETRY_TYPE:
+                return createDiagramLinkGeometryTypeFromString(eDataType, initialValue);
+            case EaobjectmodelPackage.TEXT_ALIGNMENT:
+                return createTextAlignmentFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -141,6 +155,10 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
                 return convertElementTypeToString(eDataType, instanceValue);
             case EaobjectmodelPackage.PARAMETER_DIRECTION:
                 return convertParameterDirectionToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.DIAGRAM_LINK_GEOMETRY_TYPE:
+                return convertDiagramLinkGeometryTypeToString(eDataType, instanceValue);
+            case EaobjectmodelPackage.TEXT_ALIGNMENT:
+                return convertTextAlignmentToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -267,6 +285,46 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DiagramLinkGeometry createDiagramLinkGeometry() {
+        DiagramLinkGeometryImpl diagramLinkGeometry = new DiagramLinkGeometryImpl();
+        return diagramLinkGeometry;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public GeometryDescriptor createGeometryDescriptor() {
+        GeometryDescriptorImpl geometryDescriptor = new GeometryDescriptorImpl();
+        return geometryDescriptor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RGBColor createRGBColor() {
+        RGBColorImpl rgbColor = new RGBColorImpl();
+        return rgbColor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Point createPoint() {
+        PointImpl point = new PointImpl();
+        return point;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -407,6 +465,46 @@ public class EaobjectmodelFactoryImpl extends EFactoryImpl implements Eaobjectmo
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DiagramLinkGeometryType createDiagramLinkGeometryTypeFromString(EDataType eDataType, String initialValue) {
+        DiagramLinkGeometryType result = DiagramLinkGeometryType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertDiagramLinkGeometryTypeToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TextAlignment createTextAlignmentFromString(EDataType eDataType, String initialValue) {
+        TextAlignment result = TextAlignment.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertTextAlignmentToString(EDataType eDataType, Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
